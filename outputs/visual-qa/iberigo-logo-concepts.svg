@@ -1,0 +1,94 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>IberiGo logo concepts</title>
+  <desc>Three refined IberiGo logo directions for the website header and compact use.</desc>
+
+  <defs>
+    <style>
+      .page { fill: #f7f7f8; }
+      .panel { fill: #ffffff; stroke: #e8e8ed; stroke-width: 1; }
+      .label { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 19px; font-weight: 700; fill: #7a7a80; letter-spacing: 0; }
+      .note { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 400; fill: #77777c; }
+      .word { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 900; fill: #111111; letter-spacing: -1.5px; }
+      .tag { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 500; fill: #77777c; letter-spacing: 1.7px; }
+      .gold { fill: #F5A623; }
+      .red { fill: #9A4632; }
+      .sun-stroke { stroke: #F5A623; stroke-width: 4; stroke-linecap: round; }
+      .fine-gold { stroke: #F5A623; stroke-width: 2.5; stroke-linecap: round; }
+      .soft-line { stroke: #F5A623; stroke-width: 2; stroke-linecap: round; opacity: .9; }
+    </style>
+
+    <clipPath id="sunTop">
+      <rect x="-70" y="-86" width="140" height="86"/>
+    </clipPath>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#1d1d1f" flood-opacity=".08"/>
+    </filter>
+
+    <linearGradient id="warmWord" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#111111"/>
+      <stop offset=".65" stop-color="#111111"/>
+      <stop offset=".66" stop-color="#F5A623"/>
+      <stop offset="1" stop-color="#F5A623"/>
+    </linearGradient>
+  </defs>
+
+  <rect class="page" width="1440" height="900"/>
+  <text x="90" y="82" class="word" font-size="46">IberiGo logo directions</text>
+  <text x="92" y="118" class="note">Cleaner, bolder, warmer. Built for a calm Spain relocation and travel guide.</text>
+
+  <rect class="panel" x="90" y="160" width="1260" height="190" rx="18" filter="url(#softShadow)"/>
+  <text x="130" y="208" class="label">1. Recommended header logo</text>
+  <g transform="translate(168 270)">
+    <g transform="translate(0 0)">
+      <line x1="0" y1="-73" x2="0" y2="-56" class="sun-stroke"/>
+      <line x1="51" y1="-54" x2="38" y2="-41" class="sun-stroke"/>
+      <line x1="72" y1="-3" x2="56" y2="-3" class="sun-stroke"/>
+      <line x1="-51" y1="-54" x2="-38" y2="-41" class="sun-stroke"/>
+      <line x1="-72" y1="-3" x2="-56" y2="-3" class="sun-stroke"/>
+      <circle cx="0" cy="0" r="50" fill="#F5A623" clip-path="url(#sunTop)"/>
+      <circle cx="0" cy="0" r="30" fill="#ffffff" clip-path="url(#sunTop)"/>
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#F5A623" stroke-width="3"/>
+    </g>
+    <text x="106" y="-21" class="word" font-size="62">Iberi<tspan class="gold">Go</tspan></text>
+    <text x="108" y="26" class="tag" font-size="17">MOVE, TRAVEL AND SETTLE IN SPAIN</text>
+    <line x1="108" y1="46" x2="525" y2="46" class="soft-line"/>
+  </g>
+  <text x="790" y="262" class="note">Best for the website header. Stronger wordmark, no weak grey horizon line, readable tagline.</text>
+
+  <rect class="panel" x="90" y="390" width="600" height="310" rx="18" filter="url(#softShadow)"/>
+  <text x="130" y="438" class="label">2. Compact app/nav version</text>
+  <g transform="translate(154 560)">
+    <g transform="translate(0 0)">
+      <line x1="0" y1="-56" x2="0" y2="-43" class="fine-gold"/>
+      <line x1="39" y1="-41" x2="29" y2="-31" class="fine-gold"/>
+      <line x1="55" y1="-2" x2="43" y2="-2" class="fine-gold"/>
+      <line x1="-39" y1="-41" x2="-29" y2="-31" class="fine-gold"/>
+      <line x1="-55" y1="-2" x2="-43" y2="-2" class="fine-gold"/>
+      <circle cx="0" cy="0" r="38" fill="#F5A623" clip-path="url(#sunTop)"/>
+      <circle cx="0" cy="0" r="23" fill="#ffffff" clip-path="url(#sunTop)"/>
+      <circle cx="0" cy="0" r="23" fill="none" stroke="#F5A623" stroke-width="2.5"/>
+    </g>
+    <text x="80" y="14" class="word" font-size="58">Iberi<tspan class="gold">Go</tspan></text>
+  </g>
+  <text x="130" y="650" class="note">Use for small screens, favicon-like placements, social profiles, or tight nav bars.</text>
+
+  <rect class="panel" x="750" y="390" width="600" height="310" rx="18" filter="url(#softShadow)"/>
+  <text x="790" y="438" class="label">3. Warmer travel mark</text>
+  <g transform="translate(824 560)">
+    <g transform="translate(0 0)">
+      <line x1="0" y1="-64" x2="0" y2="-49" class="sun-stroke"/>
+      <line x1="45" y1="-47" x2="34" y2="-36" class="sun-stroke"/>
+      <line x1="-45" y1="-47" x2="-34" y2="-36" class="sun-stroke"/>
+      <path d="M-58 0 A58 58 0 0 1 58 0" fill="none" stroke="#F5A623" stroke-width="22" stroke-linecap="round"/>
+      <path d="M-34 0 A34 34 0 0 1 34 0" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round"/>
+      <path d="M-34 0 A34 34 0 0 0 34 0" fill="none" stroke="#F5A623" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="92" y="7" class="word" font-size="60" fill="url(#warmWord)">Iberi<tspan class="gold">Go</tspan></text>
+    <text x="94" y="48" class="tag" font-size="16">MOVE. TRAVEL. SETTLE.</text>
+  </g>
+  <text x="790" y="650" class="note">More travel-brand feeling. Nice, but a little less direct than the recommended version.</text>
+
+  <rect class="panel" x="90" y="742" width="1260" height="84" rx="18"/>
+  <text x="130" y="793" class="note">My pick: use option 1 for the header, option 2 as the compact logo. It keeps IberiGo calm, clear, and memorable without looking official.</text>
+</svg>

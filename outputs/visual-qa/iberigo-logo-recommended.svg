@@ -1,0 +1,67 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>IberiGo recommended logo system</title>
+  <desc>Recommended full and compact IberiGo logo designs.</desc>
+
+  <defs>
+    <style>
+      .page { fill: #f7f7f8; }
+      .panel { fill: #ffffff; stroke: #e8e8ed; stroke-width: 1; }
+      .label { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 22px; font-weight: 800; fill: #6e6e73; }
+      .note { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 400; fill: #77777c; }
+      .word { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 900; fill: #111111; letter-spacing: -1.5px; }
+      .tag { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 500; fill: #77777c; letter-spacing: 1.7px; }
+      .gold { fill: #F5A623; }
+      .sun-stroke { stroke: #F5A623; stroke-width: 4; stroke-linecap: round; }
+      .soft-line { stroke: #F5A623; stroke-width: 2.5; stroke-linecap: round; opacity: .9; }
+    </style>
+
+    <clipPath id="sunTop">
+      <rect x="-76" y="-92" width="152" height="92"/>
+    </clipPath>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#1d1d1f" flood-opacity=".08"/>
+    </filter>
+
+    <g id="sunFull">
+      <line x1="0" y1="-76" x2="0" y2="-58" class="sun-stroke"/>
+      <line x1="54" y1="-56" x2="40" y2="-42" class="sun-stroke"/>
+      <line x1="76" y1="-3" x2="58" y2="-3" class="sun-stroke"/>
+      <line x1="-54" y1="-56" x2="-40" y2="-42" class="sun-stroke"/>
+      <line x1="-76" y1="-3" x2="-58" y2="-3" class="sun-stroke"/>
+      <circle cx="0" cy="0" r="52" fill="#F5A623" clip-path="url(#sunTop)"/>
+      <circle cx="0" cy="0" r="31" fill="#ffffff" clip-path="url(#sunTop)"/>
+      <circle cx="0" cy="0" r="31" fill="none" stroke="#F5A623" stroke-width="3"/>
+    </g>
+  </defs>
+
+  <rect class="page" width="1440" height="900"/>
+
+  <text x="92" y="88" class="word" font-size="50">Recommended IberiGo logo system</text>
+  <text x="94" y="128" class="note">Full logo for the website header. Compact logo for smaller spaces.</text>
+
+  <rect class="panel" x="90" y="180" width="1260" height="300" rx="22" filter="url(#softShadow)"/>
+  <text x="140" y="235" class="label">Full header logo</text>
+  <g transform="translate(220 345)">
+    <use href="#sunFull"/>
+    <text x="125" y="-22" class="word" font-size="78">Iberi<tspan class="gold">Go</tspan></text>
+    <text x="128" y="36" class="tag" font-size="20">MOVE, TRAVEL AND SETTLE IN SPAIN</text>
+    <line x1="128" y1="61" x2="625" y2="61" class="soft-line"/>
+  </g>
+  <text x="910" y="325" class="note">Bold wordmark.</text>
+  <text x="910" y="358" class="note">No grey horizon line.</text>
+  <text x="910" y="391" class="note">Larger, clearer tagline.</text>
+
+  <rect class="panel" x="90" y="540" width="620" height="250" rx="22" filter="url(#softShadow)"/>
+  <text x="140" y="595" class="label">Compact logo</text>
+  <g transform="translate(178 700) scale(.82)">
+    <use href="#sunFull"/>
+    <text x="118" y="17" class="word" font-size="78">Iberi<tspan class="gold">Go</tspan></text>
+  </g>
+
+  <rect class="panel" x="760" y="540" width="590" height="250" rx="22" filter="url(#softShadow)"/>
+  <text x="810" y="595" class="label">Why this works</text>
+  <text x="810" y="647" class="note">It feels Spanish without looking official.</text>
+  <text x="810" y="684" class="note">It is strong enough next to the buttons.</text>
+  <text x="810" y="721" class="note">It keeps the calm Apple-like direction.</text>
+</svg>

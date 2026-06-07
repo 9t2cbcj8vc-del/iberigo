@@ -1,0 +1,1660 @@
+{
+  "en": [
+    {
+      "id": "eu-vacation",
+      "lang": "en",
+      "process": "EU short stay",
+      "explanation": "No residence filing for an ordinary short visit",
+      "steps": [
+        "Travel with a valid passport or national ID.",
+        "Keep health cover or EHIC available.",
+        "If you later decide to live in Spain, use the EU registration route."
+      ],
+      "documents": [
+        "Passport or national ID",
+        "Health cover for travel",
+        "Travel and accommodation details"
+      ],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://administracion.gob.es/pag_Home/es/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/estancia.html",
+          "label": "Spain: stays up to 3 months"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "non-eu-vacation",
+      "lang": "en",
+      "process": "Schengen short stay",
+      "explanation": "Depends on whether your passport requires a Schengen visa",
+      "steps": [
+        "Check whether your passport needs a Schengen short-stay visa.",
+        "Check the 90 days in any 180-day rule.",
+        "Prepare travel insurance, accommodation, return/onward travel, and funds if asked.",
+        "Do not treat a short stay as permission to live or work in Spain."
+      ],
+      "documents": [
+        "Passport",
+        "Schengen visa if required",
+        "Travel insurance if required",
+        "Accommodation and return/onward travel proof"
+      ],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://travel-europe.europa.eu/en/etias/about-etias/who-should-apply",
+          "label": "Check visa or ETIAS requirement"
+        },
+        {
+          "url": "https://ec.europa.eu/assets/home/visa-calculator-2/calculator.htm?lang=en",
+          "label": "Official EU 90/180 calculator"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources. This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process."
+    },
+    {
+      "id": "eu-registration",
+      "lang": "en",
+      "process": "EU Registration Certificate",
+      "explanation": "Often a few weeks, depending on appointment availability",
+      "steps": [
+        "Prepare your NIE and padrón certificate before the EU registration appointment.",
+        "Prepare proof of funds, work contract, self-employment proof, or study documents.",
+        "Arrange valid health cover if you are not working in Spain.",
+        "Pay Modelo 790-012 for the EU registration certificate.",
+        "Complete EX-18.",
+        "Attend the EU Registration Certificate appointment."
+      ],
+      "documents": [
+        "Passport or EU national ID",
+        "NIE",
+        "Padrón certificate or volante",
+        "EX-18",
+        "Work/funds/study proof",
+        "Health cover where needed",
+        "790-012 receipt"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-18",
+          "description": "EU/EEA/Swiss citizen registration certificate",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/18-Certificado_residencia_comunitaria.pdf"
+        },
+        {
+          "code": "NIE",
+          "description": "Foreigner identity number used for Spanish administration",
+          "kind": "Required detail",
+          "officialUrl": ""
+        },
+        {
+          "code": "Padrón",
+          "description": "Town hall registration certificate or volante",
+          "kind": "Address evidence",
+          "officialUrl": ""
+        },
+        {
+          "code": "Passport or EU national ID",
+          "description": "Identity document used at the appointment",
+          "kind": "Document",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "Certificate of EU resident registration",
+          "kind": "12.00 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php",
+          "label": "EU registration certificate"
+        },
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_asignacion_nie.php",
+          "label": "NIE assignment"
+        },
+        {
+          "url": "https://administracion.gob.es/pagFront/espanaAdmon/directorioOrganigrama/entidadesLocales/entidadesLocales.htm",
+          "label": "Find your town hall"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "eu-working",
+      "lang": "en",
+      "process": "EU Registration Certificate as a worker",
+      "explanation": "Often a few weeks, depending on appointment availability",
+      "steps": [
+        "Prepare your NIE and padrón certificate before the EU registration appointment.",
+        "Prepare your employment contract, Social Security alta, or self-employment registration.",
+        "Pay Modelo 790-012.",
+        "Complete EX-18.",
+        "Attend the EU Registration Certificate appointment.",
+        "Keep the certificate and NIE for employment, tax, and digital ID steps."
+      ],
+      "documents": [
+        "Passport or EU national ID",
+        "NIE",
+        "Padrón certificate or volante",
+        "EX-18",
+        "Work evidence",
+        "790-012 receipt"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-18",
+          "description": "EU/EEA/Swiss citizen registration certificate",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/18-Certificado_residencia_comunitaria.pdf"
+        },
+        {
+          "code": "NIE",
+          "description": "Foreigner identity number used for Spanish administration",
+          "kind": "Required detail",
+          "officialUrl": ""
+        },
+        {
+          "code": "Padrón",
+          "description": "Town hall registration certificate or volante",
+          "kind": "Address evidence",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "Certificate of EU resident registration",
+          "kind": "12.00 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php",
+          "label": "EU registration certificate"
+        },
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_asignacion_nie.php",
+          "label": "NIE assignment"
+        },
+        {
+          "url": "https://administracion.gob.es/pagFront/espanaAdmon/directorioOrganigrama/entidadesLocales/entidadesLocales.htm",
+          "label": "Find your town hall"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "nie-only",
+      "lang": "en",
+      "process": "NIE only",
+      "explanation": "Depends on your situation",
+      "steps": [
+        "EX-15 form",
+        "Passport or identity document",
+        "Written reason for the NIE request",
+        "Representative authorization if someone files for you",
+        "Paid tasa receipt"
+      ],
+      "documents": [
+        "EX-15 form",
+        "Passport or identity document",
+        "Written reason for the NIE request",
+        "Representative authorization if someone files for you",
+        "Paid tasa receipt"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-15",
+          "description": "NIE assignment request",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/15-Formulario_NIE_y_certificados.pdf"
+        },
+        {
+          "code": "Reason document",
+          "description": "Written economic, professional, or social reason for needing the NIE",
+          "kind": "Evidence",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "NIE assignment line in the Police fee form",
+          "kind": "Use official generator",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "tie-after-approval",
+      "lang": "en",
+      "process": "TIE after approval",
+      "explanation": "Depends on your situation",
+      "steps": [
+        "EX-17 form",
+        "Passport",
+        "Favorable resolution or visa",
+        "Recent Spanish-format photo",
+        "Paid Modelo 790 Codigo 012 receipt"
+      ],
+      "documents": [
+        "EX-17 form",
+        "Passport",
+        "Favorable resolution or visa",
+        "Recent Spanish-format photo",
+        "Paid Modelo 790 Codigo 012 receipt"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-17",
+          "description": "TIE card application",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Favorable resolution or visa",
+          "description": "Proof that the residence or stay authorization was granted",
+          "kind": "Evidence",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "work-authorization",
+      "lang": "en",
+      "process": "Residence and work authorization",
+      "explanation": "Often several months",
+      "steps": [
+        "Confirm whether the route is employee work or self-employed work.",
+        "Prepare employer contract or business plan and professional evidence.",
+        "Apply for the residence and work authorization before starting work.",
+        "After approval, complete visa and TIE card steps if required.",
+        "Pay Modelo 790-012 for the card step when applicable."
+      ],
+      "documents": [
+        "Passport",
+        "EX-03 for employee work or EX-07 for self-employed work",
+        "Contract or business plan",
+        "Qualifications where required",
+        "EX-17 after approval",
+        "790-012 receipt for card step"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-03",
+          "description": "Authorization application if you will work for a Spanish employer",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/d/migraciones/ex03-formulario-autorizacion-de-residencia-temporal-y-trabajo-por-cuenta-ajena-o-autorizacion-de-trabajo-por-cuenta-ajena-editable-1"
+        },
+        {
+          "code": "EX-07",
+          "description": "Authorization application if you will be self-employed in Spain",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/d/migraciones/ex07-formulario-autorizacion-de-residencia-temporal-y-trabajo-por-cuenta-propia-editable"
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application after approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Application/authorization fees",
+          "description": "Residence and work authorization fees can apply before the card step",
+          "kind": "Check official route page",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-y-trabajo-por-cuenta-ajena-hi-16-",
+          "label": "Employee work in Spain"
+        },
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-y-trabajo-por-cuenta-propia",
+          "label": "Self-employed work in Spain"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources. This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process."
+    },
+    {
+      "id": "digital-nomad",
+      "lang": "en",
+      "process": "International telework / digital nomad",
+      "explanation": "Often one to three months after a complete filing",
+      "steps": [
+        "Confirm your work is mainly for companies or clients outside Spain.",
+        "Prepare contracts, company evidence, qualifications or experience, health cover, and clean record documents.",
+        "Apply through the official telework route or consulate path.",
+        "After approval, complete TIE card steps if required.",
+        "Set up digital ID once eligible."
+      ],
+      "documents": [
+        "Passport",
+        "Remote work evidence",
+        "Company/client documents",
+        "Qualifications or experience",
+        "Health cover",
+        "Criminal record certificate where required"
+      ],
+      "formsAndFees": [
+        {
+          "code": "UGE online application",
+          "description": "Authorization application for international telework / digital nomad residence",
+          "kind": "Official application portal",
+          "officialUrl": ""
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application after approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "UGE/application fee",
+          "description": "Use the official online application instructions for the current filing fee",
+          "kind": "Check official portal",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://prie.comercio.gob.es/es-es/Paginas/Teletrabajadores-caracter-internacional.aspx",
+          "label": "International telework route"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources. This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process."
+    },
+    {
+      "id": "non-lucrative",
+      "lang": "en",
+      "process": "Non-lucrative residence",
+      "explanation": "Often several months, commonly through a consulate",
+      "steps": [
+        "Confirm you will not work or carry out professional activity in Spain.",
+        "Prepare proof of funds, health insurance, criminal record, and medical certificate where required.",
+        "Apply through the official non-lucrative route.",
+        "After approval or visa issue, complete TIE card steps if required.",
+        "Use padrón and digital ID steps after arrival."
+      ],
+      "documents": [
+        "Passport",
+        "EX-01 or consular application path",
+        "Proof of funds",
+        "Health insurance",
+        "Criminal record certificate",
+        "Medical certificate",
+        "EX-17 after approval"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-01",
+          "description": "Authorization application for initial temporary non-lucrative residence",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa"
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application after visa/approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Application/authorization fees",
+          "description": "Residence or visa processing fees can apply before the card step",
+          "kind": "Check official route page",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources. This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process."
+    },
+    {
+      "id": "study",
+      "lang": "en",
+      "process": "Study stay authorization",
+      "explanation": "Often one to three months after a complete filing",
+      "steps": [
+        "Prepare admission or enrollment proof.",
+        "Prepare funds, health insurance, passport, and legalized/trans­lated public documents where required.",
+        "Apply through the official study stay route.",
+        "If your stay requires a card, complete the TIE step after approval.",
+        "Keep renewal dates visible if the course continues."
+      ],
+      "documents": [
+        "Passport",
+        "EX-00",
+        "Admission or enrollment proof",
+        "Proof of funds",
+        "Health insurance",
+        "EX-17 if TIE is required"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-00",
+          "description": "Authorization application for study stay",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/00-Formulario_estancia.pdf"
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application if a card is required after approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Application/authorization fees",
+          "description": "Study stay processing fees can apply before the card step",
+          "kind": "Check official route page",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "TIE card if applicable",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/estancia-por-estudios",
+          "label": "Study stay authorization"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources. This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process."
+    },
+    {
+      "id": "family",
+      "lang": "en",
+      "process": "Family reunification",
+      "explanation": "Often several months",
+      "steps": [
+        "Confirm the family member in Spain is a non-EU legal resident and eligible to sponsor you.",
+        "Prepare family relationship evidence, sponsor residence documents, housing proof, and economic means evidence.",
+        "Apply through the family reunification route.",
+        "After approval and visa steps, complete the TIE card step.",
+        "Keep renewal dates visible."
+      ],
+      "documents": [
+        "Passport",
+        "EX-02",
+        "Family relationship evidence",
+        "Sponsor residence documents",
+        "Housing and economic means proof",
+        "EX-17 after approval"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-02",
+          "description": "Authorization application for temporary residence by family reunification",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/d/migraciones/ex02-formulario-autorizacion-de-residencia-temporal-por-reagrupacion-familiar.pdf"
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application after approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Application/authorization fees",
+          "description": "Family reunification processing fees can apply before the card step",
+          "kind": "Check official route page",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-de-residencia-temporal-por-reagrupacion-familiar",
+          "label": "Family reunification"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources. This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process."
+    },
+    {
+      "id": "eu-family",
+      "lang": "en",
+      "process": "Residence card for family member of an EU citizen",
+      "explanation": "Often a few weeks to a few months",
+      "steps": [
+        "Confirm the family member is an EU, EEA, Swiss, or qualifying Spanish citizen.",
+        "Prepare relationship evidence and the EU/Spanish citizen's residence basis.",
+        "Complete EX-19.",
+        "Book the relevant EU-family residence card appointment.",
+        "Pay Modelo 790-012 if required by the card process."
+      ],
+      "documents": [
+        "Passport",
+        "EX-19",
+        "DNI or EU registration certificate of the EU/Spanish citizen",
+        "Marriage, partnership, birth, or dependency evidence",
+        "790-012 receipt if required"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-19",
+          "description": "Residence card application for a non-EU family member of an EU citizen",
+          "kind": "Authorization/card form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/d/migraciones/ex19-formulario-tarjeta-de-residencia-de-familiar-de-ciudadano-de-la-ue"
+        },
+        {
+          "code": "790-012",
+          "description": "EU-family residence card fee",
+          "kind": "Use official generator",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/62.-tarjeta-de-residencia-de-familiar-de-ciudadano-de-la-union-europea",
+          "label": "EU-family residence card"
+        },
+        {
+          "url": "https://administracion.gob.es/pag_Home/en/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/obtencion-residencia/inscribir-familiares-no-ue.html",
+          "label": "Registering non-EU family members"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources. This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process."
+    },
+    {
+      "id": "padron",
+      "lang": "en",
+      "process": "Padrón / town hall registration",
+      "explanation": "After choosing padrón, the key question is what your town hall accepts as address evidence. Rental contract, owner authorization, deed, utility bills, or appointment rules can vary by municipality.",
+      "steps": [
+        "Gather passport or ID and proof of address.",
+        "Check your town hall process, because each municipality handles padrón differently.",
+        "Request a padrón certificate or volante if you need it for TIE, residence, healthcare, or another procedure."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://administracion.gob.es/pagFront/espanaAdmon/directorioOrganigrama/entidadesLocales/entidadesLocales.htm",
+          "label": "Find your town hall"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "digital",
+      "lang": "en",
+      "process": "Cl@ve or FNMT digital certificate",
+      "explanation": "After choosing digital access, decide which route is realistic for your documents. FNMT is often more direct if you already have a NIE; Cl@ve may ask for support-number details from a physical card such as a TIE.",
+      "steps": [
+        "Check whether you already have a NIE and accepted identity documents.",
+        "Choose FNMT if you need to sign documents or submit official applications online.",
+        "Use Cl@ve if you meet the registration requirements and want regular access to public-service portals."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://www.sede.fnmt.gob.es/certificados/persona-fisica",
+          "label": "FNMT digital certificate"
+        },
+        {
+          "url": "https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion",
+          "label": "FNMT cita previa via Tax Agency"
+        },
+        {
+          "url": "https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=CPMSWACS&ORGANISMO=I",
+          "label": "FNMT cita previa via Social Security"
+        },
+        {
+          "url": "https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html",
+          "label": "Cl@ve registration"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "nie",
+      "lang": "en",
+      "process": "NIE number",
+      "explanation": "After choosing NIE, focus on proving why you need it. Police offices usually expect a specific economic, professional, social, or administrative reason, not just wanting the number in case it is useful later.",
+      "steps": [
+        "Write or gather proof of the reason: bank, purchase, notary, work, tax, or another concrete procedure.",
+        "Prepare passport or identity document and copies if requested.",
+        "Book the appointment or review the official NIE assignment procedure and 790-012 fee."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_asignacion_nie.php",
+          "label": "NIE assignment"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        },
+        {
+          "url": "https://sede.policia.gob.es/Tasa790_012/",
+          "label": "Generate 790-012"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "tie",
+      "lang": "en",
+      "process": "TIE card after VISA approval",
+      "explanation": "After choosing TIE, first confirm that a visa, authorization, or favorable decision already exists. The TIE does not grant residence by itself; it documents permission that was already approved.",
+      "steps": [
+        "Check that you have the visa, favorable resolution, or authorization that lets you request the card.",
+        "Complete EX-17 and pay the matching 790-012 card fee.",
+        "Book the fingerprint/card appointment and bring passport, photo, approval, paid fee, and padrón if your address must be shown."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf",
+          "label": "EX-17 TIE card form"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Book cita previa"
+        },
+        {
+          "url": "https://sede.policia.gob.es/Tasa790_012/",
+          "label": "Generate 790-012"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "social-security",
+      "lang": "en",
+      "process": "Social Security number",
+      "explanation": "After choosing Social Security, separate getting the number from being registered as active. The number identifies your file; employment or self-employment registration is a related work step.",
+      "steps": [
+        "Confirm whether you need it for employment, self-employment, or another official procedure.",
+        "Prepare identity documents and NIE/TIE or passport details if requested.",
+        "Use the official Social Security process or ask your employer if they are handling registration."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://sede.seg-social.gob.es/wps/portal/sede/sede/Ciudadanos/afiliacion%20e%20inscripcion/202088/",
+          "label": "Request Social Security number"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "sip-card",
+      "lang": "en",
+      "process": "Public health card",
+      "explanation": "Each autonomous community uses its own name for the public health card. The general idea is the same everywhere: first confirm your healthcare entitlement, then obtain the regional card.",
+      "steps": [
+        "Check whether your right to public healthcare is already recognized automatically or whether you need to request healthcare registration in Spain.",
+        "Card names you may see by region: Valencian Community (SIP card), Madrid (Tarjeta Sanitaria Individual), Andalusia (Tarjeta sanitaria), Catalonia (TSI), and Murcia (Tarjeta Sanitaria Individual).",
+        "Bring identity documents, NIE/TIE if you have it, padrón or address proof, and any Social Security or healthcare-entitlement documents requested."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://prestaciones.seg-social.es/servicio/asistencia-sanitaria-gestion-beneficiarios.html",
+          "label": "Request healthcare entitlement in Spain"
+        },
+        {
+          "url": "https://www.san.gva.es/es/web/tarjeta-sanitaria/tarjeta-sanitaria-individual",
+          "label": "Valencian Community: SIP card"
+        },
+        {
+          "url": "https://www.comunidad.madrid/servicios/salud/tarjeta-sanitaria",
+          "label": "Madrid: Tarjeta Sanitaria Individual"
+        },
+        {
+          "url": "https://www.juntadeandalucia.es/organismos/sanidadpresidenciayemergencias/areas/sanidad/sistema-sanitario/derechos-garantias/paginas/tarjeta-sanitaria-sspa.html",
+          "label": "Andalusia: Tarjeta sanitaria"
+        },
+        {
+          "url": "https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/",
+          "label": "Catalonia: TSI"
+        },
+        {
+          "url": "https://www.carm.es/web/servlet/pagina?IDCONTENIDO=67&IDESTRUCTURAJERARQUICA=4762&IDTIPO=200&RASTRO=c%24m120%2C121&__PLANT_PERSONALIZADA=%2FJSP%2FCARM%2Fcarm2018%2Forganigramas%2FplantillaDetalleOrganigrama.jsp",
+          "label": "Murcia: Tarjeta Sanitaria Individual"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    },
+    {
+      "id": "ehic-card",
+      "lang": "en",
+      "process": "European Health Insurance Card",
+      "explanation": "The EHIC is for temporary stays in another EU/EEA country, Switzerland, or the UK under that country's public-system rules. It does not replace travel insurance and it is not the document for moving your residence abroad.",
+      "steps": [
+        "Confirm that your right to healthcare in Spain is active before requesting it.",
+        "Request or renew the EHIC through the official Social Security route and check whether you need it only for yourself or also for your dependants.",
+        "If you are travelling very soon and the card may not arrive in time, check whether you need a Provisional Replacement Certificate instead."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/10938/11566/1761?changeLanguage=es",
+          "label": "Request or renew EHIC"
+        },
+        {
+          "url": "https://prestaciones.seg-social.es/servicio/asistencia-sanitaria-gestion-beneficiarios.html",
+          "label": "Request healthcare entitlement in Spain"
+        }
+      ],
+      "disclaimer": "Requirements can vary by personal situation and may change. Always verify with official sources."
+    }
+  ],
+  "es": [
+    {
+      "id": "eu-vacation",
+      "lang": "es",
+      "process": "Estancia corta para ciudadanos de la UE",
+      "explanation": "No hay trámite de residencia para una visita corta ordinaria",
+      "steps": [
+        "Viaja con pasaporte o documento nacional de identidad válido.",
+        "Ten disponible cobertura sanitaria o Tarjeta Sanitaria Europea.",
+        "Si después decides vivir en España, usa la ruta de registro de ciudadano de la UE."
+      ],
+      "documents": [
+        "Pasaporte o documento nacional de identidad",
+        "Cobertura sanitaria para el viaje",
+        "Datos de viaje y alojamiento"
+      ],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://administracion.gob.es/pag_Home/es/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/estancia.html",
+          "label": "España: estancias de hasta 3 meses"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "non-eu-vacation",
+      "lang": "es",
+      "process": "Estancia corta Schengen",
+      "explanation": "Depende de si tu pasaporte necesita visado Schengen",
+      "steps": [
+        "Comprueba si tu pasaporte necesita visado Schengen de corta estancia.",
+        "Comprueba la regla de 90 días en cualquier periodo de 180 días.",
+        "Prepara seguro de viaje, alojamiento, viaje de regreso o continuación y fondos si te los piden.",
+        "No trates una estancia corta como permiso para vivir o trabajar en España."
+      ],
+      "documents": [
+        "Pasaporte",
+        "Visado Schengen si es necesario",
+        "Seguro de viaje si es necesario",
+        "Prueba de alojamiento y viaje de regreso o continuación"
+      ],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://travel-europe.europa.eu/en/etias/about-etias/who-should-apply",
+          "label": "Comprobar visado o ETIAS"
+        },
+        {
+          "url": "https://ec.europa.eu/assets/home/visa-calculator-2/calculator.htm?lang=en",
+          "label": "Calculadora oficial UE 90/180"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales. Esto es solo un punto de partida; tu nacionalidad, consulado, situación familiar y documentos pueden cambiar el proceso exacto."
+    },
+    {
+      "id": "eu-registration",
+      "lang": "es",
+      "process": "Certificado de registro de ciudadano de la UE",
+      "explanation": "Normalmente unas semanas, según la disponibilidad de citas",
+      "steps": [
+        "Prepara tu NIE y certificado o volante de padrón antes de la cita de registro de ciudadano de la UE.",
+        "Prepara prueba de fondos, contrato de trabajo, prueba de autónomo o documentos de estudios.",
+        "Prepara cobertura sanitaria válida si no trabajas en España.",
+        "Paga el Modelo 790-012 para el certificado de registro de la UE.",
+        "Completa el formulario EX-18.",
+        "Acude a la cita del certificado de registro de ciudadano de la UE."
+      ],
+      "documents": [
+        "Pasaporte o documento nacional de identidad de la UE",
+        "NIE",
+        "Certificado o volante de padrón",
+        "EX-18",
+        "Prueba de trabajo, fondos o estudios",
+        "Cobertura sanitaria cuando sea necesaria",
+        "Justificante 790-012"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-18",
+          "description": "EU/EEA/Swiss citizen registration certificate",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/18-Certificado_residencia_comunitaria.pdf"
+        },
+        {
+          "code": "NIE",
+          "description": "Foreigner identity number used for Spanish administration",
+          "kind": "Required detail",
+          "officialUrl": ""
+        },
+        {
+          "code": "Padrón",
+          "description": "Town hall registration certificate or volante",
+          "kind": "Address evidence",
+          "officialUrl": ""
+        },
+        {
+          "code": "Passport or EU national ID",
+          "description": "Identity document used at the appointment",
+          "kind": "Document",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "Certificate of EU resident registration",
+          "kind": "12.00 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php",
+          "label": "Certificado de registro de ciudadano de la UE"
+        },
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_asignacion_nie.php",
+          "label": "Asignación de NIE"
+        },
+        {
+          "url": "https://administracion.gob.es/pagFront/espanaAdmon/directorioOrganigrama/entidadesLocales/entidadesLocales.htm",
+          "label": "Encontrar tu ayuntamiento"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "eu-working",
+      "lang": "es",
+      "process": "Certificado de registro de la UE como trabajador",
+      "explanation": "Normalmente unas semanas, según la disponibilidad de citas",
+      "steps": [
+        "Prepara tu NIE y certificado o volante de padrón antes de la cita de registro de ciudadano de la UE.",
+        "Prepara tu contrato de trabajo, alta en la Seguridad Social o registro como autónomo.",
+        "Paga el Modelo 790-012.",
+        "Completa el formulario EX-18.",
+        "Acude a la cita del certificado de registro de ciudadano de la UE.",
+        "Conserva el certificado y el NIE para empleo, impuestos y trámites digitales."
+      ],
+      "documents": [
+        "Pasaporte o documento nacional de identidad de la UE",
+        "NIE",
+        "Certificado o volante de padrón",
+        "EX-18",
+        "Prueba de trabajo",
+        "Justificante 790-012"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-18",
+          "description": "EU/EEA/Swiss citizen registration certificate",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/18-Certificado_residencia_comunitaria.pdf"
+        },
+        {
+          "code": "NIE",
+          "description": "Foreigner identity number used for Spanish administration",
+          "kind": "Required detail",
+          "officialUrl": ""
+        },
+        {
+          "code": "Padrón",
+          "description": "Town hall registration certificate or volante",
+          "kind": "Address evidence",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "Certificate of EU resident registration",
+          "kind": "12.00 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php",
+          "label": "Certificado de registro de ciudadano de la UE"
+        },
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_asignacion_nie.php",
+          "label": "Asignación de NIE"
+        },
+        {
+          "url": "https://administracion.gob.es/pagFront/espanaAdmon/directorioOrganigrama/entidadesLocales/entidadesLocales.htm",
+          "label": "Encontrar tu ayuntamiento"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "nie-only",
+      "lang": "es",
+      "process": "NIE only",
+      "explanation": "Depends on your situation",
+      "steps": [
+        "EX-15 form",
+        "Passport or identity document",
+        "Written reason for the NIE request",
+        "Representative authorization if someone files for you",
+        "Paid tasa receipt"
+      ],
+      "documents": [
+        "EX-15 form",
+        "Passport or identity document",
+        "Written reason for the NIE request",
+        "Representative authorization if someone files for you",
+        "Paid tasa receipt"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-15",
+          "description": "NIE assignment request",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/15-Formulario_NIE_y_certificados.pdf"
+        },
+        {
+          "code": "Reason document",
+          "description": "Written economic, professional, or social reason for needing the NIE",
+          "kind": "Evidence",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "NIE assignment line in the Police fee form",
+          "kind": "Use official generator",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "tie-after-approval",
+      "lang": "es",
+      "process": "TIE after approval",
+      "explanation": "Depends on your situation",
+      "steps": [
+        "EX-17 form",
+        "Passport",
+        "Favorable resolution or visa",
+        "Recent Spanish-format photo",
+        "Paid Modelo 790 Codigo 012 receipt"
+      ],
+      "documents": [
+        "EX-17 form",
+        "Passport",
+        "Favorable resolution or visa",
+        "Recent Spanish-format photo",
+        "Paid Modelo 790 Codigo 012 receipt"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-17",
+          "description": "TIE card application",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Favorable resolution or visa",
+          "description": "Proof that the residence or stay authorization was granted",
+          "kind": "Evidence",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "work-authorization",
+      "lang": "es",
+      "process": "Autorización de residencia y trabajo",
+      "explanation": "A menudo varios meses",
+      "steps": [
+        "Confirma si la ruta es trabajo por cuenta ajena o por cuenta propia.",
+        "Prepara contrato, plan de negocio y pruebas profesionales según corresponda.",
+        "Solicita la autorización de residencia y trabajo antes de empezar a trabajar.",
+        "Tras la aprobación, completa el visado y la TIE si corresponde.",
+        "Paga el Modelo 790-012 para el paso de la tarjeta cuando sea aplicable."
+      ],
+      "documents": [
+        "Pasaporte",
+        "EX-03 para cuenta ajena o EX-07 para cuenta propia",
+        "Contrato o plan de negocio",
+        "Titulación cuando sea necesaria",
+        "EX-17 tras la aprobación",
+        "Justificante 790-012 para la tarjeta"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-03",
+          "description": "Authorization application if you will work for a Spanish employer",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/d/migraciones/ex03-formulario-autorizacion-de-residencia-temporal-y-trabajo-por-cuenta-ajena-o-autorizacion-de-trabajo-por-cuenta-ajena-editable-1"
+        },
+        {
+          "code": "EX-07",
+          "description": "Authorization application if you will be self-employed in Spain",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/d/migraciones/ex07-formulario-autorizacion-de-residencia-temporal-y-trabajo-por-cuenta-propia-editable"
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application after approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Application/authorization fees",
+          "description": "Residence and work authorization fees can apply before the card step",
+          "kind": "Check official route page",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-y-trabajo-por-cuenta-ajena-hi-16-",
+          "label": "Trabajo por cuenta ajena en España"
+        },
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-y-trabajo-por-cuenta-propia",
+          "label": "Trabajo por cuenta propia en España"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales. Esto es solo un punto de partida; tu nacionalidad, consulado, situación familiar y documentos pueden cambiar el proceso exacto."
+    },
+    {
+      "id": "digital-nomad",
+      "lang": "es",
+      "process": "Teletrabajo internacional / nómada digital",
+      "explanation": "A menudo de uno a tres meses tras presentar un expediente completo",
+      "steps": [
+        "Confirma que trabajas principalmente para empresas o clientes fuera de España.",
+        "Prepara contratos, pruebas de empresa, cualificación o experiencia, cobertura sanitaria y documentos de antecedentes si los piden.",
+        "Solicita por la ruta oficial de teletrabajo o por vía consular.",
+        "Tras la aprobación, completa la TIE si corresponde.",
+        "Configura identificación digital cuando seas elegible."
+      ],
+      "documents": [
+        "Pasaporte",
+        "Pruebas de trabajo remoto",
+        "Documentos de empresa o clientes",
+        "Cualificación o experiencia",
+        "Cobertura sanitaria",
+        "Certificado de antecedentes penales cuando sea necesario"
+      ],
+      "formsAndFees": [
+        {
+          "code": "UGE online application",
+          "description": "Authorization application for international telework / digital nomad residence",
+          "kind": "Official application portal",
+          "officialUrl": ""
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application after approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "UGE/application fee",
+          "description": "Use the official online application instructions for the current filing fee",
+          "kind": "Check official portal",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://prie.comercio.gob.es/es-es/Paginas/Teletrabajadores-caracter-internacional.aspx",
+          "label": "Ruta de teletrabajo internacional"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales. Esto es solo un punto de partida; tu nacionalidad, consulado, situación familiar y documentos pueden cambiar el proceso exacto."
+    },
+    {
+      "id": "non-lucrative",
+      "lang": "es",
+      "process": "Residencia no lucrativa",
+      "explanation": "A menudo varios meses, normalmente mediante consulado",
+      "steps": [
+        "Confirma que no vas a trabajar ni realizar actividad profesional en España.",
+        "Prepara fondos, seguro médico, antecedentes penales y certificado médico cuando los pidan.",
+        "Solicita por la ruta oficial de residencia no lucrativa.",
+        "Tras la aprobación o el visado, completa la TIE si corresponde.",
+        "Usa padrón e identificación digital después de llegar."
+      ],
+      "documents": [
+        "Pasaporte",
+        "EX-01 o vía consular",
+        "Prueba de fondos",
+        "Seguro médico",
+        "Certificado de antecedentes penales",
+        "Certificado médico",
+        "EX-17 tras la aprobación"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-01",
+          "description": "Authorization application for initial temporary non-lucrative residence",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa"
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application after visa/approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Application/authorization fees",
+          "description": "Residence or visa processing fees can apply before the card step",
+          "kind": "Check official route page",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales. Esto es solo un punto de partida; tu nacionalidad, consulado, situación familiar y documentos pueden cambiar el proceso exacto."
+    },
+    {
+      "id": "study",
+      "lang": "es",
+      "process": "Autorización de estancia por estudios",
+      "explanation": "A menudo de uno a tres meses tras presentar un expediente completo",
+      "steps": [
+        "Prepara prueba de admisión o matrícula.",
+        "Prepara fondos, seguro médico, pasaporte y documentos públicos legalizados o traducidos cuando sea necesario.",
+        "Solicita por la ruta oficial de estancia por estudios.",
+        "Si tu estancia requiere tarjeta, completa el paso de la TIE tras la aprobación.",
+        "Controla las fechas de renovación si el curso continúa."
+      ],
+      "documents": [
+        "Pasaporte",
+        "EX-00",
+        "Prueba de admisión o matrícula",
+        "Prueba de fondos",
+        "Seguro médico",
+        "EX-17 si se requiere TIE"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-00",
+          "description": "Authorization application for study stay",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/00-Formulario_estancia.pdf"
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application if a card is required after approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Application/authorization fees",
+          "description": "Study stay processing fees can apply before the card step",
+          "kind": "Check official route page",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "TIE card if applicable",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/estancia-por-estudios",
+          "label": "Autorización de estancia por estudios"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales. Esto es solo un punto de partida; tu nacionalidad, consulado, situación familiar y documentos pueden cambiar el proceso exacto."
+    },
+    {
+      "id": "family",
+      "lang": "es",
+      "process": "Reagrupación familiar",
+      "explanation": "A menudo varios meses",
+      "steps": [
+        "Confirma que el familiar en España es residente legal no comunitario y puede reagruparte.",
+        "Prepara prueba del vínculo familiar, documentos de residencia del reagrupante, vivienda y medios económicos.",
+        "Solicita por la ruta de reagrupación familiar.",
+        "Tras la aprobación y el visado, completa el paso de la TIE.",
+        "Controla las fechas de renovación."
+      ],
+      "documents": [
+        "Pasaporte",
+        "EX-02",
+        "Prueba del vínculo familiar",
+        "Documentos de residencia del reagrupante",
+        "Prueba de vivienda y medios económicos",
+        "EX-17 tras la aprobación"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-02",
+          "description": "Authorization application for temporary residence by family reunification",
+          "kind": "Authorization form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/d/migraciones/ex02-formulario-autorizacion-de-residencia-temporal-por-reagrupacion-familiar.pdf"
+        },
+        {
+          "code": "EX-17",
+          "description": "TIE card application after approval",
+          "kind": "Form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf"
+        },
+        {
+          "code": "Application/authorization fees",
+          "description": "Family reunification processing fees can apply before the card step",
+          "kind": "Check official route page",
+          "officialUrl": ""
+        },
+        {
+          "code": "790-012",
+          "description": "First TIE card after approval",
+          "kind": "16.08 EUR",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-de-residencia-temporal-por-reagrupacion-familiar",
+          "label": "Reagrupación familiar"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales. Esto es solo un punto de partida; tu nacionalidad, consulado, situación familiar y documentos pueden cambiar el proceso exacto."
+    },
+    {
+      "id": "eu-family",
+      "lang": "es",
+      "process": "Tarjeta de residencia de familiar de ciudadano de la UE",
+      "explanation": "A menudo de unas semanas a unos meses",
+      "steps": [
+        "Confirma que el familiar es ciudadano de la UE, EEE, Suiza o ciudadano español cualificado.",
+        "Prepara prueba del vínculo y la base de residencia del ciudadano UE/español.",
+        "Completa el formulario EX-19.",
+        "Reserva la cita correspondiente para tarjeta de familiar de ciudadano de la UE.",
+        "Paga el Modelo 790-012 si lo exige el proceso de tarjeta."
+      ],
+      "documents": [
+        "Pasaporte",
+        "EX-19",
+        "DNI o certificado de registro UE del ciudadano UE/español",
+        "Matrimonio, pareja, nacimiento o prueba de dependencia",
+        "Justificante 790-012 si lo piden"
+      ],
+      "formsAndFees": [
+        {
+          "code": "EX-19",
+          "description": "Residence card application for a non-EU family member of an EU citizen",
+          "kind": "Authorization/card form",
+          "officialUrl": "https://www.inclusion.gob.es/documents/d/migraciones/ex19-formulario-tarjeta-de-residencia-de-familiar-de-ciudadano-de-la-ue"
+        },
+        {
+          "code": "790-012",
+          "description": "EU-family residence card fee",
+          "kind": "Use official generator",
+          "officialUrl": "https://sede.policia.gob.es/Tasa790_012/"
+        }
+      ],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/web/migraciones/w/62.-tarjeta-de-residencia-de-familiar-de-ciudadano-de-la-union-europea",
+          "label": "Tarjeta de familiar de ciudadano de la UE"
+        },
+        {
+          "url": "https://administracion.gob.es/pag_Home/en/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/obtencion-residencia/inscribir-familiares-no-ue.html",
+          "label": "Inscripción de familiares no comunitarios"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales. Esto es solo un punto de partida; tu nacionalidad, consulado, situación familiar y documentos pueden cambiar el proceso exacto."
+    },
+    {
+      "id": "padron",
+      "lang": "es",
+      "process": "Padrón / registro en el ayuntamiento",
+      "explanation": "Después de elegir padrón, lo importante es comprobar qué acepta tu ayuntamiento como prueba de domicilio. El contrato de alquiler, autorización del titular, escritura, recibos o cita previa pueden variar según municipio.",
+      "steps": [
+        "Reúne pasaporte o documento de identidad y prueba de domicilio.",
+        "Comprueba el proceso de tu ayuntamiento, porque cada municipio organiza el padrón a su manera.",
+        "Pide certificado o volante de padrón si lo necesitas para TIE, residencia, sanidad u otro trámite."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://administracion.gob.es/pagFront/espanaAdmon/directorioOrganigrama/entidadesLocales/entidadesLocales.htm",
+          "label": "Encontrar tu ayuntamiento"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "digital",
+      "lang": "es",
+      "process": "Cl@ve o certificado digital FNMT",
+      "explanation": "Después de elegir acceso digital, decide cuál es realista para tu situación. FNMT suele ser más directo si ya tienes NIE; Cl@ve puede pedir datos del soporte de una tarjeta física como la TIE.",
+      "steps": [
+        "Comprueba si ya tienes NIE y documentación aceptada para acreditar identidad.",
+        "Elige FNMT si necesitas firmar documentos o presentar solicitudes electrónicas.",
+        "Usa Cl@ve si cumples los requisitos de registro y quieres acceso frecuente a sedes públicas."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://www.sede.fnmt.gob.es/certificados/persona-fisica",
+          "label": "Certificado digital FNMT"
+        },
+        {
+          "url": "https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion",
+          "label": "Cita FNMT por Agencia Tributaria"
+        },
+        {
+          "url": "https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=CPMSWACS&ORGANISMO=I",
+          "label": "Cita FNMT por Seguridad Social"
+        },
+        {
+          "url": "https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html",
+          "label": "Registro en Cl@ve"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "nie",
+      "lang": "es",
+      "process": "Número NIE",
+      "explanation": "Después de elegir NIE, céntrate en justificar el motivo. La policía normalmente quiere ver una razón económica, profesional, social o administrativa, no solo que quieres tener el número por si acaso.",
+      "steps": [
+        "Escribe o reúne la prueba del motivo: banco, compra, notaría, trabajo, impuestos u otro trámite concreto.",
+        "Prepara pasaporte o documento de identidad y copias si las piden.",
+        "Pide la cita o revisa el trámite oficial de asignación de NIE y la tasa 790-012."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_asignacion_nie.php",
+          "label": "Asignación de NIE"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        },
+        {
+          "url": "https://sede.policia.gob.es/Tasa790_012/",
+          "label": "Generar 790-012"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "tie",
+      "lang": "es",
+      "process": "Tarjeta TIE después de aprobar el visado",
+      "explanation": "Después de elegir TIE, confirma primero que ya existe una concesión, visado o resolución favorable. La TIE no concede la residencia por sí sola; documenta una autorización ya aprobada.",
+      "steps": [
+        "Comprueba que tienes visado, resolución favorable o autorización que permite pedir la tarjeta.",
+        "Completa EX-17 y paga la tasa 790-012 de expedición de tarjeta.",
+        "Reserva cita de huellas o expedición de tarjeta y lleva pasaporte, foto, aprobación, tasa pagada y padrón si tu domicilio debe constar."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf",
+          "label": "Formulario EX-17 para TIE"
+        },
+        {
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "label": "Reservar cita previa"
+        },
+        {
+          "url": "https://sede.policia.gob.es/Tasa790_012/",
+          "label": "Generar 790-012"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "social-security",
+      "lang": "es",
+      "process": "Número de la Seguridad Social",
+      "explanation": "Después de elegir Seguridad Social, distingue entre obtener el número y estar dado de alta. El número identifica tu expediente; el alta laboral o autónomo es otro paso relacionado con trabajar.",
+      "steps": [
+        "Confirma si lo necesitas por empleo, autónomo u otro trámite oficial.",
+        "Prepara documentos de identidad y NIE/TIE o datos del pasaporte si los piden.",
+        "Usa el trámite oficial de la Seguridad Social o pregunta a tu empleador si se encarga del alta."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://sede.seg-social.gob.es/wps/portal/sede/sede/Ciudadanos/afiliacion%20e%20inscripcion/202088/",
+          "label": "Solicitar número de la Seguridad Social"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "sip-card",
+      "lang": "es",
+      "process": "Tarjeta sanitaria pública",
+      "explanation": "Cada comunidad autónoma usa su propio nombre para la tarjeta sanitaria pública. La idea general es la misma: primero confirmar tu derecho a asistencia sanitaria y después obtener la tarjeta regional correspondiente.",
+      "steps": [
+        "Comprueba si tu derecho a asistencia sanitaria ya está reconocido automáticamente o si debes solicitar el alta en asistencia sanitaria en España.",
+        "Nombres que puedes ver según la región: Comunitat Valenciana (SIP), Madrid (Tarjeta Sanitaria Individual), Andalucía (Tarjeta sanitaria), Cataluña (TSI) y Murcia (Tarjeta Sanitaria Individual).",
+        "Lleva identidad, NIE/TIE si ya lo tienes, padrón o prueba de domicilio y cualquier documento de aseguramiento o Seguridad Social que te pidan."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://prestaciones.seg-social.es/servicio/asistencia-sanitaria-gestion-beneficiarios.html",
+          "label": "Solicitar asistencia sanitaria en España"
+        },
+        {
+          "url": "https://www.san.gva.es/es/web/tarjeta-sanitaria/tarjeta-sanitaria-individual",
+          "label": "Comunitat Valenciana: tarjeta SIP"
+        },
+        {
+          "url": "https://www.comunidad.madrid/servicios/salud/tarjeta-sanitaria",
+          "label": "Madrid: Tarjeta Sanitaria Individual"
+        },
+        {
+          "url": "https://www.juntadeandalucia.es/organismos/sanidadpresidenciayemergencias/areas/sanidad/sistema-sanitario/derechos-garantias/paginas/tarjeta-sanitaria-sspa.html",
+          "label": "Andalucía: Tarjeta sanitaria"
+        },
+        {
+          "url": "https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/",
+          "label": "Cataluña: TSI"
+        },
+        {
+          "url": "https://www.carm.es/web/servlet/pagina?IDCONTENIDO=67&IDESTRUCTURAJERARQUICA=4762&IDTIPO=200&RASTRO=c%24m120%2C121&__PLANT_PERSONALIZADA=%2FJSP%2FCARM%2Fcarm2018%2Forganigramas%2FplantillaDetalleOrganigrama.jsp",
+          "label": "Murcia: Tarjeta Sanitaria Individual"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    },
+    {
+      "id": "ehic-card",
+      "lang": "es",
+      "process": "Tarjeta Sanitaria Europea",
+      "explanation": "La Tarjeta Sanitaria Europea sirve para estancias temporales en otro país de la UE/EEE, Suiza o Reino Unido en las condiciones del sistema público del país de estancia. No sustituye un seguro de viaje ni sirve para mudarte a otro país.",
+      "steps": [
+        "Confirma que tienes derecho a asistencia sanitaria en España antes de solicitarla.",
+        "Pide o renueva la TSE por el canal oficial de la Seguridad Social y revisa si la necesitas para ti o también para tus beneficiarios.",
+        "Si viajas pronto y la tarjeta no llega a tiempo, comprueba si necesitas el Certificado Provisional Sustitutorio."
+      ],
+      "documents": [],
+      "formsAndFees": [],
+      "links": [
+        {
+          "url": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/10938/11566/1761?changeLanguage=es",
+          "label": "Solicitar o renovar la Tarjeta Sanitaria Europea"
+        },
+        {
+          "url": "https://prestaciones.seg-social.es/servicio/asistencia-sanitaria-gestion-beneficiarios.html",
+          "label": "Solicitar asistencia sanitaria en España"
+        }
+      ],
+      "disclaimer": "Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales."
+    }
+  ]
+}

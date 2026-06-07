@@ -1,0 +1,268 @@
+{
+  "en": {
+    "eu-registration": {
+      "explanation": "Official sources point to the EU registration certificate route for EU, EEA, and Swiss citizens who will live in Spain beyond 3 months. The usual order is to prepare the proof behind your residence basis, complete EX-18, generate the 790-012 fee form online, and attend the matching police appointment.",
+      "steps": [
+        "Confirm that your stay is really a residence stay of more than 3 months and identify your residence basis: work, self-employment, study, or sufficient resources.",
+        "Prepare identity, NIE details if already assigned, padrón if the office expects local address proof, and the documents supporting your residence basis.",
+        "Download the official EX-18 form and complete it before the appointment.",
+        "Use the official 790-012 service to fill the fee form online and download it for payment.",
+        "Book the correct police appointment for the EU registration certificate and bring the form, fee proof, and supporting documents."
+      ],
+      "documents": [
+        "Passport or EU national ID",
+        "EX-18",
+        "NIE details if already assigned",
+        "Padrón certificate or local address proof if requested by your office",
+        "Work contract, Social Security alta, self-employment proof, study enrollment, or resources and health-cover proof"
+      ],
+      "officialServices": [
+        {
+          "label": "Police procedure page for EU registration certificate",
+          "url": "https://sede.policia.gob.es/portalCiudadano/_es/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php",
+          "kind": "Procedure guide"
+        },
+        {
+          "label": "EX-18 official PDF",
+          "url": "https://ciudadaniaexterior.inclusion.gob.es/documents/410169/2156469/18-Certificado_residencia_comunitaria.pdf/178ded66-3df2-f325-cd7b-7e07df1735da?download=false&t=1692612237009&version=2.0",
+          "kind": "Download official form"
+        },
+        {
+          "label": "790-012 online fee form",
+          "url": "https://sede.policia.gob.es/Tasa790_012/ImpresoRellenar",
+          "kind": "Fill online and download"
+        },
+        {
+          "label": "Cita previa for Extranjería / Policía",
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "kind": "Book appointment"
+        }
+      ]
+    },
+    "tie-after-approval": {
+      "explanation": "Official sources treat the TIE as the card step after a visa or favorable residence decision already exists. The practical order is to confirm approval, prepare EX-17 and the 790-012 fee, then book the police fingerprint/card appointment that matches your province and card type.",
+      "steps": [
+        "Check that you already have the visa, favorable resolution, or authorization that gives you the right to request the TIE.",
+        "Download the official EX-17 form and complete it for the card issue step.",
+        "Generate the 790-012 fee form online and choose the TIE line that matches your card step.",
+        "Book the police appointment normally described as toma de huella or expedición de tarjeta.",
+        "Attend with passport, EX-17, approval or visa, photo, and paid fee proof."
+      ],
+      "documents": [
+        "Passport",
+        "EX-17",
+        "Visa, favorable resolution, or authorization proof",
+        "Recent photo in the required format",
+        "790-012 payment proof",
+        "Padrón if the office expects current address proof"
+      ],
+      "officialServices": [
+        {
+          "label": "EX-17 official PDF",
+          "url": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf/dd3218fc-855b-0afb-dd0a-fbf2ec76b862?download=false&t=1674731356427&version=1.0",
+          "kind": "Download official form"
+        },
+        {
+          "label": "790-012 online fee form",
+          "url": "https://sede.policia.gob.es/Tasa790_012/ImpresoRellenar",
+          "kind": "Fill online and download"
+        },
+        {
+          "label": "Cita previa for fingerprint/card appointment",
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "kind": "Book appointment"
+        },
+        {
+          "label": "Police office locator",
+          "url": "https://sede.policia.gob.es/portalciudadano/_es/dependencias_localizador_accesible.php",
+          "kind": "Find office"
+        }
+      ]
+    },
+    "sip-card": {
+      "explanation": "Official sources separate healthcare entitlement from the regional card itself. In Spain the right to public healthcare may already exist automatically for some people, while others must request healthcare registration first. After that, each autonomous community issues its own health card, such as the SIP card in the Valencian Community.",
+      "steps": [
+        "Check whether your right to public healthcare in Spain is already recognized automatically or whether you need to request it.",
+        "If your healthcare right is not yet active, use the official Social Security healthcare-entitlement procedure first.",
+        "Then follow the health-card process of your autonomous community: for example SIP in the Valencian Community, TSI in Catalonia, or Tarjeta Sanitaria Individual in Madrid or Murcia.",
+        "Bring identity, NIE/TIE if you have it, address proof such as padrón if requested, and any healthcare-entitlement or Social Security documents the region asks for."
+      ],
+      "documents": [
+        "Passport or national identity document",
+        "NIE or TIE if already assigned",
+        "Proof of address if your regional health service asks for it",
+        "Healthcare-entitlement proof or Social Security evidence where required"
+      ],
+      "officialServices": [
+        {
+          "label": "Healthcare entitlement in Spain",
+          "url": "https://prestaciones.seg-social.es/servicio/asistencia-sanitaria-gestion-beneficiarios.html",
+          "kind": "Request online"
+        },
+        {
+          "label": "Valencian Community: SIP card information",
+          "url": "https://www.san.gva.es/es/web/tarjeta-sanitaria",
+          "kind": "Regional health card info"
+        },
+        {
+          "label": "Valencian Community: SIP procedures",
+          "url": "https://www.san.gva.es/es/web/tarjeta-sanitaria/tramites-tarjeta-sip",
+          "kind": "Regional online services"
+        },
+        {
+          "label": "Madrid: health card",
+          "url": "https://www.comunidad.madrid/servicios/salud/tarjeta-sanitaria",
+          "kind": "Regional health card info"
+        },
+        {
+          "label": "Andalusia: health card",
+          "url": "https://www.juntadeandalucia.es/organismos/sanidadpresidenciayemergencias/areas/sanidad/sistema-sanitario/derechos-garantias/paginas/tarjeta-sanitaria-sspa.html",
+          "kind": "Regional health card info"
+        },
+        {
+          "label": "Catalonia: TSI",
+          "url": "https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/",
+          "kind": "Regional health card info"
+        },
+        {
+          "label": "Murcia: health card",
+          "url": "https://www.carm.es/web/servlet/pagina?IDCONTENIDO=67&IDESTRUCTURAJERARQUICA=4762&IDTIPO=200&RASTRO=c%24m120%2C121&__PLANT_PERSONALIZADA=%2FJSP%2FCARM%2Fcarm2018%2Forganigramas%2FplantillaDetalleOrganigrama.jsp",
+          "kind": "Regional health card info"
+        }
+      ]
+    }
+  },
+  "es": {
+    "eu-registration": {
+      "explanation": "Las fuentes oficiales sitúan esta gestión en el certificado de registro de ciudadano de la Unión para ciudadanos UE, EEE o Suiza que van a vivir en España más de 3 meses. El orden habitual es preparar la base de residencia, completar el EX-18, generar online la tasa 790-012 y acudir a la cita policial correspondiente.",
+      "steps": [
+        "Confirma que tu estancia es realmente una residencia de más de 3 meses y cuál es tu base: trabajo, actividad por cuenta propia, estudios o recursos suficientes.",
+        "Prepara la identidad, los datos de NIE si ya existen, el padrón si la oficina lo pide y la documentación que justifica tu base de residencia.",
+        "Descarga el formulario oficial EX-18 y complétalo antes de la cita.",
+        "Usa el servicio oficial de la 790-012 para rellenar la tasa online y descargarla para el pago.",
+        "Reserva la cita correcta para certificado de registro de ciudadano de la Unión y lleva formulario, justificante de tasa y documentos de apoyo."
+      ],
+      "documents": [
+        "Pasaporte o documento nacional de identidad UE",
+        "EX-18",
+        "Datos de NIE si ya existen",
+        "Padrón o prueba de domicilio local si la oficina lo pide",
+        "Contrato de trabajo, alta en Seguridad Social, prueba de actividad propia, matrícula de estudios o recursos y cobertura sanitaria"
+      ],
+      "officialServices": [
+        {
+          "label": "Procedimiento policial del certificado de registro",
+          "url": "https://sede.policia.gob.es/portalCiudadano/_es/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php",
+          "kind": "Guía oficial"
+        },
+        {
+          "label": "EX-18 oficial",
+          "url": "https://ciudadaniaexterior.inclusion.gob.es/documents/410169/2156469/18-Certificado_residencia_comunitaria.pdf/178ded66-3df2-f325-cd7b-7e07df1735da?download=false&t=1692612237009&version=2.0",
+          "kind": "Descargar formulario oficial"
+        },
+        {
+          "label": "Tasa 790-012 online",
+          "url": "https://sede.policia.gob.es/Tasa790_012/ImpresoRellenar",
+          "kind": "Rellenar online y descargar"
+        },
+        {
+          "label": "Cita previa de Extranjería / Policía",
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "kind": "Reservar cita"
+        }
+      ]
+    },
+    "tie-after-approval": {
+      "explanation": "Las fuentes oficiales tratan la TIE como el paso de tarjeta posterior a un visado o resolución favorable ya existente. El orden práctico es confirmar la aprobación, preparar el EX-17 y la tasa 790-012, y después reservar la cita policial de huellas o expedición de tarjeta que corresponda.",
+      "steps": [
+        "Comprueba que ya existe visado, resolución favorable o autorización que te da derecho a pedir la TIE.",
+        "Descarga el formulario oficial EX-17 y complétalo para el paso de expedición de tarjeta.",
+        "Genera online la tasa 790-012 y elige la línea de TIE que corresponda a tu tarjeta.",
+        "Reserva la cita policial normalmente descrita como toma de huella o expedición de tarjeta.",
+        "Acude con pasaporte, EX-17, aprobación o visado, foto y justificante de tasa pagada."
+      ],
+      "documents": [
+        "Pasaporte",
+        "EX-17",
+        "Visado, resolución favorable o justificante de autorización",
+        "Foto reciente en el formato requerido",
+        "Justificante de pago de la 790-012",
+        "Padrón si la oficina espera prueba actualizada de domicilio"
+      ],
+      "officialServices": [
+        {
+          "label": "EX-17 oficial",
+          "url": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf/dd3218fc-855b-0afb-dd0a-fbf2ec76b862?download=false&t=1674731356427&version=1.0",
+          "kind": "Descargar formulario oficial"
+        },
+        {
+          "label": "Tasa 790-012 online",
+          "url": "https://sede.policia.gob.es/Tasa790_012/ImpresoRellenar",
+          "kind": "Rellenar online y descargar"
+        },
+        {
+          "label": "Cita previa para huellas / tarjeta",
+          "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
+          "kind": "Reservar cita"
+        },
+        {
+          "label": "Localizador de oficinas de Policía",
+          "url": "https://sede.policia.gob.es/portalciudadano/_es/dependencias_localizador_accesible.php",
+          "kind": "Buscar oficina"
+        }
+      ]
+    },
+    "sip-card": {
+      "explanation": "Las fuentes oficiales separan el derecho a la asistencia sanitaria de la tarjeta autonómica. En España algunas personas ya tienen el derecho reconocido automáticamente y otras deben solicitar primero el alta en asistencia sanitaria. Después, cada comunidad autónoma emite su propia tarjeta, como la SIP en la Comunitat Valenciana.",
+      "steps": [
+        "Comprueba si tu derecho a la asistencia sanitaria pública en España ya está reconocido automáticamente o si debes solicitarlo.",
+        "Si el derecho aún no está activo, usa primero el trámite oficial de alta en asistencia sanitaria de la Seguridad Social.",
+        "Después sigue el proceso de tarjeta sanitaria de tu comunidad autónoma: por ejemplo SIP en la Comunitat Valenciana, TSI en Cataluña o Tarjeta Sanitaria Individual en Madrid o Murcia.",
+        "Lleva identidad, NIE/TIE si ya lo tienes, padrón si lo piden y cualquier documento de derecho sanitario o Seguridad Social que soliciten."
+      ],
+      "documents": [
+        "Pasaporte o documento oficial de identidad",
+        "NIE o TIE si ya existe",
+        "Prueba de domicilio si tu servicio autonómico la solicita",
+        "Justificante del derecho sanitario o de Seguridad Social cuando proceda"
+      ],
+      "officialServices": [
+        {
+          "label": "Alta en asistencia sanitaria en España",
+          "url": "https://prestaciones.seg-social.es/servicio/asistencia-sanitaria-gestion-beneficiarios.html",
+          "kind": "Solicitar online"
+        },
+        {
+          "label": "Comunitat Valenciana: información tarjeta SIP",
+          "url": "https://www.san.gva.es/es/web/tarjeta-sanitaria",
+          "kind": "Información autonómica"
+        },
+        {
+          "label": "Comunitat Valenciana: trámites tarjeta SIP",
+          "url": "https://www.san.gva.es/es/web/tarjeta-sanitaria/tramites-tarjeta-sip",
+          "kind": "Servicios online autonómicos"
+        },
+        {
+          "label": "Madrid: tarjeta sanitaria",
+          "url": "https://www.comunidad.madrid/servicios/salud/tarjeta-sanitaria",
+          "kind": "Información autonómica"
+        },
+        {
+          "label": "Andalucía: tarjeta sanitaria",
+          "url": "https://www.juntadeandalucia.es/organismos/sanidadpresidenciayemergencias/areas/sanidad/sistema-sanitario/derechos-garantias/paginas/tarjeta-sanitaria-sspa.html",
+          "kind": "Información autonómica"
+        },
+        {
+          "label": "Cataluña: TSI",
+          "url": "https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/",
+          "kind": "Información autonómica"
+        },
+        {
+          "label": "Murcia: tarjeta sanitaria",
+          "url": "https://www.carm.es/web/servlet/pagina?IDCONTENIDO=67&IDESTRUCTURAJERARQUICA=4762&IDTIPO=200&RASTRO=c%24m120%2C121&__PLANT_PERSONALIZADA=%2FJSP%2FCARM%2Fcarm2018%2Forganigramas%2FplantillaDetalleOrganigrama.jsp",
+          "kind": "Información autonómica"
+        }
+      ]
+    }
+  }
+}

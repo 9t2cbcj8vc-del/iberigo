@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --screenshot=outputs/visual-qa/home-current.png --window-size=1280,900 --hide-scrollbars file://__CMDSUB_OUTPUT__/index.html)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --screenshot=outputs/visual-qa/home-full.png --window-size=1280,2400 --hide-scrollbars file://__CMDSUB_OUTPUT__/index.html)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --screenshot=outputs/visual-qa/mobile-top.png --window-size=390,700 --hide-scrollbars file://__CMDSUB_OUTPUT__/index.html)"
+    ]
+  }
+}
