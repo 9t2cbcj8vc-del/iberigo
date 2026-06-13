@@ -588,7 +588,7 @@ main > section {
   gap: var(--space-phi);
 }
 
-.support-hero h2 {
+.support-hero h1 {
   max-width: 9ch;
   margin: 0;
   font-size: clamp(2.4rem, 6vw, 5.4rem);
@@ -694,6 +694,14 @@ main > section {
   margin: 0;
 }
 
+.site-footer-legal {
+  display: grid;
+  flex-basis: 100%;
+  gap: 4px;
+  color: rgba(110, 110, 115, 0.82);
+  font-size: var(--type-micro);
+}
+
 .site-footer a {
   color: #8f2f28;
   font-weight: 800;
@@ -746,8 +754,8 @@ main > section {
 
 .situation-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: clamp(var(--space-phi), 2.6vw, var(--space-phi-lg));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 28px);
   align-items: stretch;
 }
 
@@ -781,9 +789,10 @@ main > section {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  min-height: clamp(360px, 43vw, 430px);
+  display: grid;
   grid-template-rows: auto minmax(128px, 1fr) auto;
   align-content: stretch;
+  min-height: clamp(360px, 43vw, 430px);
   padding: clamp(30px, 3.4vw, 40px);
   border-color: rgba(196, 59, 47, 0.08);
   background: rgba(255, 255, 255, 0.8);
@@ -811,8 +820,8 @@ main > section {
   object-fit: cover;
   object-position: center 34%;
   opacity: 1;
-  transform: scale(1.015);
-  filter: saturate(0.96) sepia(0.03) brightness(1.02) contrast(0.98);
+  transform: scale(1.01);
+  filter: saturate(1.04) brightness(0.98) contrast(1.02);
   z-index: 0;
   pointer-events: none;
 }
@@ -842,21 +851,12 @@ main > section {
   background-image: none;
 }
 
-.situation-card--illustrated[data-home-card="move"] {
-  grid-template-rows: auto minmax(128px, 1fr) auto;
-}
-
 .situation-card--illustrated[data-home-card="move"] .situation-media {
-  object-position: center 34%;
-  transform: scale(1.02);
+  object-position: center 38%;
 }
 
 .situation-card--illustrated[data-home-card="move"] .card-topics {
   display: none;
-}
-
-.situation-card--illustrated[data-home-card="move"] button {
-  align-self: end;
 }
 
 .situation-card--illustrated[data-home-card="vacation"]::before {
@@ -864,21 +864,12 @@ main > section {
   background-image: none;
 }
 
-.situation-card--illustrated[data-home-card="vacation"] {
-  grid-template-rows: auto minmax(128px, 1fr) auto;
-}
-
 .situation-card--illustrated[data-home-card="vacation"] .card-topics {
   display: none;
 }
 
 .situation-card--illustrated[data-home-card="vacation"] .situation-media {
-  object-position: center 42%;
-  transform: scale(1.02);
-}
-
-.situation-card--illustrated[data-home-card="vacation"] button {
-  align-self: end;
+  object-position: center 48%;
 }
 
 .situation-card--illustrated[data-home-card="living"]::before {
@@ -886,38 +877,30 @@ main > section {
   background-image: none;
 }
 
-.situation-card--illustrated[data-home-card="living"] {
-  grid-template-rows: auto minmax(128px, 1fr) auto;
-}
-
 .situation-card--illustrated[data-home-card="living"] .situation-media {
-  object-position: center 38%;
-  transform: scale(1.02);
+  object-position: center 42%;
 }
 
 .situation-card--illustrated[data-home-card="living"] .card-topics {
   display: none;
 }
 
-.situation-card--illustrated[data-home-card="living"] button {
-  align-self: end;
-}
-
 .situation-card--illustrated button {
-  min-width: 150px;
-  min-height: 46px;
-  margin-top: var(--space-phi-sm);
-  padding-inline: 24px;
+  min-width: 136px;
+  min-height: 44px;
+  margin-top: clamp(18px, 2vw, 24px);
+  padding-inline: 22px;
+  align-self: end;
   justify-self: center;
-  border: 1px solid rgba(122, 31, 25, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.32);
   background: var(--button-bg);
   color: #fffdf9;
-  box-shadow: var(--button-shadow);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
 }
 
 .situation-card--illustrated button:hover {
-  background: var(--button-bg-hover);
-  box-shadow: 0 7px 16px rgba(122, 31, 25, 0.12);
+  background: rgba(255, 255, 255, 0.26);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
 }
 
@@ -926,13 +909,15 @@ main > section {
   max-width: 12ch;
   color: #1d1d1f;
   text-wrap: balance;
+  text-shadow: none;
 }
 
 .situation-card--illustrated p {
   align-self: start;
   max-width: 25ch;
-  color: rgba(60, 60, 67, 0.78);
+  color: rgba(60, 60, 67, 0.85);
   font-weight: 470;
+  text-shadow: none;
 }
 
 .situation-icon {
@@ -1175,11 +1160,11 @@ label small {
 }
 
 .wizard-panel.is-question-flow .person-card[data-person-card="eu"]::before {
-  background-image: url("./assets/question-cards/person-eu-flag-20260606.png");
+  background-image: url("./assets/question-cards/person-eu-flag-20260606.webp");
 }
 
 .wizard-panel.is-question-flow .person-card[data-person-card="non-eu"]::before {
-  background-image: url("./assets/question-cards/person-noneu.png");
+  background-image: url("./assets/question-cards/person-noneu.webp");
 }
 
 .wizard-panel.is-question-flow .goal-card::before {
@@ -1204,23 +1189,23 @@ label small {
 }
 
 .wizard-panel.is-question-flow .goal-card[data-goal-card="work"]::before {
-  background-image: url("./assets/goal-cards/work.png");
+  background-image: url("./assets/goal-cards/work.webp");
 }
 
 .wizard-panel.is-question-flow .goal-card[data-goal-card="no-work"]::before {
-  background-image: url("./assets/goal-cards/no-work.png");
+  background-image: url("./assets/goal-cards/no-work.webp");
 }
 
 .wizard-panel.is-question-flow .goal-card[data-goal-card="study"]::before {
-  background-image: url("./assets/goal-cards/study.png");
+  background-image: url("./assets/goal-cards/study.webp");
 }
 
 .wizard-panel.is-question-flow .goal-card[data-goal-card="remote"]::before {
-  background-image: url("./assets/goal-cards/remote.png");
+  background-image: url("./assets/goal-cards/remote.webp");
 }
 
 .wizard-panel.is-question-flow .goal-card[data-goal-card="family"]::before {
-  background-image: url("./assets/goal-cards/family.png");
+  background-image: url("./assets/goal-cards/family.webp");
 }
 
 .wizard-panel.is-question-flow label input {
@@ -1354,10 +1339,7 @@ select {
 }
 
 .result-card.is-empty {
-  display: grid;
-  align-content: center;
-  background: rgba(255, 255, 255, 0.7);
-  border-color: rgba(0, 0, 0, 0.08);
+  display: none;
 }
 
 .wizard-panel.is-direct-guide .result-card {
@@ -3052,6 +3034,18 @@ select {
   text-transform: lowercase;
 }
 
+.bank-link--wise {
+  --bank-accent: linear-gradient(180deg, #9FE870, #6abf3e);
+  --bank-soft: radial-gradient(circle at top right, rgba(159, 232, 112, 0.18), transparent 68%);
+}
+
+.bank-link--wise .bank-logo {
+  background: linear-gradient(135deg, #9FE870, #6abf3e);
+  border-radius: 12px;
+  font-weight: 700;
+  color: #163300;
+}
+
 .provider-link--movistar {
   --provider-accent: linear-gradient(180deg, #00a9e0, #0070a8);
   --provider-soft: radial-gradient(circle at top right, rgba(0, 169, 224, 0.14), transparent 68%);
@@ -3258,6 +3252,55 @@ select {
   background: linear-gradient(135deg, #c53030, #8f1f1f);
   border-radius: 10px;
   font-size: 0.95rem;
+}
+
+.insurance-link--safetywing {
+  --insurance-accent: linear-gradient(180deg, #FF6B35, #E54A1A);
+  --insurance-soft: radial-gradient(circle at top right, rgba(255, 107, 53, 0.14), transparent 68%);
+}
+
+.insurance-link--safetywing .insurance-logo {
+  background: linear-gradient(135deg, #FF6B35, #E54A1A);
+  border-radius: 10px;
+}
+
+.safetywing-block {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.safetywing-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.25rem;
+}
+
+.safetywing-header strong {
+  font-size: var(--type-card-title);
+  color: var(--ink);
+}
+
+.safetywing-block p {
+  font-size: var(--type-small);
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.safetywing-block a {
+  color: var(--brand-mid);
+  text-underline-offset: 2px;
+}
+
+.safetywing-disclosure,
+.affiliate-disclosure {
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
+  margin-top: 0.25rem;
 }
 
 .travel-link--spaininfo {
@@ -3730,6 +3773,10 @@ select {
 
   .section-heading p {
     font-size: var(--type-body);
+  }
+
+  .situation-grid {
+    grid-template-columns: 1fr;
   }
 
   .situation-card,

@@ -31,7 +31,7 @@ const routes = [
     title: "EU/EEA/Swiss registration",
     badge: "EU stay over 3 months",
     summary:
-      "If you are an EU, EEA, or Swiss citizen living in Spain for more than 3 months, the usual route is the Certificado de Registro de Ciudadano de la Union. Have your NIE details and padrón certificate ready; if you do not already have a NIE, confirm whether the office assigns it through this registration or asks for a separate NIE step first.",
+      "EU, EEA, and Swiss citizens who plan to live in Spain for more than three months must register and obtain the Certificado de Registro de Ciudadano de la Unión — commonly called the 'green NIE' because it shows your NIE number on a small green document. It is not a TIE card. You need to show you can support yourself: through work, sufficient funds, or study with health cover. Have your EX-18 form, NIE, padrón certificate, and proof of means ready before the appointment. The fee is 12.00 EUR via Modelo 790-012. If you do not yet have a NIE, confirm with your local office whether they assign it during this registration or require a separate step first — practice varies by province.",
     appointment: "Certificado de Registro de Ciudadano de la Union Europea",
     documents: [
       "EX-18 form",
@@ -48,7 +48,7 @@ const routes = [
     title: "EU/EEA/Swiss worker registration",
     badge: "EU worker in Spain",
     summary:
-      "If you are an EU, EEA, or Swiss citizen living in Spain for more than 3 months and working there, the usual route is the Certificado de Registro de Ciudadano de la Union. Your employment or self-employment evidence supports the registration, and you should have your NIE details and padrón certificate ready.",
+      "EU, EEA, and Swiss citizens living in Spain for more than three months and working there follow the same Certificado de Registro de Ciudadano de la Unión route — but working status is the simplest basis to register on. Your employment contract or Social Security alta (or autónomo registration if self-employed) is your proof of means, so you normally do not need to show separate funds or private health cover — working gives you access to the public health system. Bring your EX-18 form, NIE, padrón certificate, and work evidence to the appointment. The fee is 12.00 EUR via Modelo 790-012. Keep the certificate and your NIE: you will need both for employment, tax, healthcare, and digital ID steps.",
     appointment: "Certificado de Registro de Ciudadano de la Union Europea",
     documents: [
       "EX-18 form",
@@ -64,7 +64,7 @@ const routes = [
     title: "NIE only",
     badge: "Number, not residence",
     summary:
-      "Use this when you need a Spanish foreigner identity number for an economic, professional, or social reason, but you are not yet registering as resident. A NIE is only an identification number; it does not give a non-EU citizen permission to live in Spain long term or work in Spain.",
+      "The NIE (Número de Identificación de Extranjero) is a lifetime tax ID number Spain assigns to foreigners for any official or financial transaction — buying property, signing a notarial deed, opening some bank accounts. It is just a number, not a card and not a residence permit; having a NIE does not give you the right to live or work in Spain. You need a cita previa at a Policía Nacional foreigners office, or a Spanish consulate if outside Spain, and you must document a concrete reason for needing it such as a property purchase, contract, or specific administrative act. Appointment availability varies sharply by province — Madrid and Barcelona are often severely backlogged, smaller cities much easier. If you attend in person with everything in order, the number is typically assigned the same day.",
     appointment: "Asignacion de NIE",
     documents: [
       "EX-15 form",
@@ -79,7 +79,7 @@ const routes = [
     title: "TIE after approval",
     badge: "Non-EU card step",
     summary:
-      "Many non-EU residents need the Tarjeta de Identidad de Extranjero after a visa or residence authorization is granted. The TIE is the card; the authorization is the legal status.",
+      "The TIE is the physical identity card you receive after your Spanish residence or stay authorization has been approved — it proves who you are in Spain, but your legal right to be here comes from the approval resolution or entry visa, not the card itself. You book a fingerprint appointment (toma de huella) with Policía Nacional, bringing your EX-17 form, passport, approval resolution or entry visa, a recent passport-style photo, and a paid 790-012 receipt (first card is 16.08 EUR). The card takes a few weeks to be ready after the fingerprint appointment; in Madrid, Barcelona, and Valencia appointment slots can stretch weeks out. Apply as soon as your approval resolution arrives — missing the filing window is a real risk, and the exact deadline varies by authorization type.",
     appointment: "POLICIA - Toma de huella / expedicion de tarjeta",
     documents: [
       "EX-17 form",
@@ -94,7 +94,7 @@ const routes = [
     title: "Work residence authorization",
     badge: "Spanish work",
     summary:
-      "For non-EU citizens who want to live in Spain and work for a Spanish employer or as self-employed. The likely path is a residence and work authorization before starting work.",
+      "Non-EU citizens who want to live in Spain and work for a Spanish employer or run their own business typically need a residence and work authorization before starting work. Employed workers usually apply via the EX-03 form (initial authorization for employed work); the self-employed route uses EX-07. The authorization is employer-led in most cases — your Spanish employer initiates the application on your behalf. Processing can take several months, and approval is not guaranteed. Once approved, you apply for your entry visa at a Spanish consulate, enter Spain, and then do the TIE fingerprint appointment within the deadline on your resolution. The whole process from application to card in hand typically takes six months to over a year.",
     appointment: "Residence and work authorization, then visa/TIE steps if approved",
     documents: [
       "Employer contract or self-employment business plan",
@@ -109,7 +109,7 @@ const routes = [
     title: "Digital nomad residence",
     badge: "Remote work",
     summary:
-      "For non-EU workers or professionals who carry out remote work for companies or clients outside Spain. People legally in Spain may be able to apply directly through UGE-CE.",
+      "Spain's digital nomad visa (officially the international telework authorization, introduced under the Ley de Startups) lets non-EU remote workers live legally in Spain while working mainly for employers or clients based outside the country — your Spanish-client work cannot exceed 20% of total professional activity. You will need a work contract or client evidence, private health insurance covering Spain, a criminal record certificate, and proof of your professional background. A minimum monthly income threshold applies (linked to the Spanish minimum wage — check the official page for the current figure as it can update). Two paths exist: apply from abroad at a Spanish consulate, or — if already legally in Spain — apply in-country through the UGE-CE online portal. Processing after a complete filing typically takes one to three months, though incomplete documents are a common reason for delays. If approved, you still need a separate TIE fingerprint appointment to get the physical card.",
     appointment: "UGE-CE online submission, then TIE if approved",
     documents: [
       "Remote work or professional activity evidence",
@@ -124,7 +124,7 @@ const routes = [
     title: "Non-lucrative residence",
     badge: "Live, do not work",
     summary:
-      "For non-EU applicants who want to reside in Spain without carrying out work or professional activity. This is commonly started from the country of origin.",
+      "The non-lucrative residence visa lets non-EU citizens live in Spain without working — it is popular with retirees, people with passive income, rental income, savings, or investments. You must prove you have sufficient funds to support yourself and any dependants without working in Spain (the threshold is linked to the IPREM indicator and updates annually — check the current figure at your consulate). You also need private health insurance covering Spain, a clean criminal record, and a medical certificate. The application is made at a Spanish consulate in your country of residence, not in Spain. Once approved, you enter on a visa, register on the padrón, and collect your TIE. The visa is initially for one year and can be renewed; after five years you can apply for long-term residence.",
     appointment: "Spanish consulate or foreigners office path shown by the official sheet",
     documents: [
       "EX-01 form",
@@ -139,7 +139,7 @@ const routes = [
     title: "Study stay",
     badge: "Studies over 90 days",
     summary:
-      "For studies, training, student mobility, internships, or related activities lasting more than 90 days. Family members may have linked options in some cases.",
+      "Non-EU students planning to study, train, do an internship, or participate in a student mobility programme in Spain for more than 90 days need a study stay authorization. You apply through a Spanish consulate before arriving, with an acceptance letter from your institution, proof of funds, private health insurance, a clean criminal record, and a medical certificate. Once in Spain you collect a student TIE. Work rights are limited but some study authorizations allow part-time work — check the specific terms of your authorization. Family members may be able to join under linked authorization in some cases. Student status gives access to public healthcare in some regions through the health card, but check your autonomous community's rules.",
     appointment: "Study stay authorization route, then TIE if applicable",
     documents: [
       "Admission or enrollment proof",
@@ -154,7 +154,7 @@ const routes = [
     title: "Family reunification",
     badge: "Join family",
     summary:
-      "For eligible relatives of a legal resident in Spain. Requirements depend on the family relationship and the resident sponsor's situation.",
+      "Non-EU relatives of a legal resident in Spain may be able to join them through family reunification (reagrupación familiar). The Spanish resident must have held legal residence for at least one year and have at least one more year's validity remaining, and must show housing and income that meets the threshold for the family size. Eligible relatives typically include spouses or partners, minor children, and dependent parents in some cases. The application is made in Spain by the resident sponsor; once approved, the family member applies for their entry visa at a Spanish consulate. After arrival, they obtain a residence card. Processing typically takes several months and documents often need apostille and sworn Spanish translation.",
     appointment: "Autorizacion de residencia temporal por reagrupacion familiar",
     documents: [
       "Family relationship evidence",
@@ -169,7 +169,7 @@ const routes = [
     title: "Family member of an EU citizen",
     badge: "EU family card",
     summary:
-      "For non-EU family members joining or accompanying an EU, EEA, Swiss, or qualifying Spanish citizen in Spain. The usual route is the residence card for a family member of a Union citizen.",
+      "Non-EU family members joining or accompanying an EU, EEA, or Swiss citizen who is registered as a resident in Spain follow a separate and generally more favourable route than standard family reunification — the Tarjeta de Residencia de Familiar de Ciudadano de la Unión. Eligible relatives include spouses, registered partners, dependent children under 21, and dependent direct relatives in the ascending line. The EU citizen must already hold their EU registration certificate (the green NIE). The non-EU family member applies using the EX-19 form, and the fee is 12.00 EUR via Modelo 790-012 — lower than the standard TIE fee. The card is initially valid for five years. Getting a fingerprint appointment (toma de huellas) in high-demand provinces like Madrid, Barcelona, and Alicante can take time — book as soon as your authorization arrives and document any failed attempts if the 30-day window is at risk.",
     appointment: "Tarjeta de residencia de familiar de ciudadano de la Union",
     documents: [
       "EX-19 form",
@@ -233,7 +233,7 @@ const provinceNotes = {
 
 const feeRows = [
   ["Certificate of EU resident registration or EU-family card", "790-012", "12.00 EUR"],
-  ["NIE assignment at the request of the applicant", "790-012", "9.84 EUR"],
+  ["NIE assignment at the request of the applicant", "790-012", "See official generator"],
   ["TIE first temporary residence, stay, or cross-border worker card", "790-012", "16.08 EUR"],
   ["TIE renewal or stay extension card", "790-012", "19.30 EUR"],
   ["TIE long-term or long-term EU residence card", "790-012", "21.87 EUR"]
@@ -248,7 +248,7 @@ const routeFormsAndTaxes = {
       ["Passport or EU national ID", "Identity document used at the appointment", "Document", ""]
     ],
     taxes: [["790-012", "Certificate of EU resident registration", "12.00 EUR", "790-012"]],
-    links: ["cita", "790-012", "helper"]
+    links: ["cita", "790-012"]
   },
   "eu-vacation": {
     forms: [],
@@ -267,15 +267,21 @@ const routeFormsAndTaxes = {
       ["Padrón", "Town hall registration certificate or volante", "Address evidence", ""]
     ],
     taxes: [["790-012", "Certificate of EU resident registration", "12.00 EUR", "790-012"]],
-    links: ["cita", "790-012", "helper"]
+    links: ["cita", "790-012"]
   },
   "nie-only": {
     forms: [
-      ["EX-15", "NIE assignment request", "Form", "EX-15"],
-      ["Reason document", "Written economic, professional, or social reason for needing the NIE", "Evidence", ""]
+      ["EX-15", "NIE assignment request", "Form", "EX-15"]
     ],
-    taxes: [["790-012", "NIE assignment line in the Police fee form", "9.84 EUR", "790-012"]],
-    links: ["cita", "790-012", "helper"]
+    taxes: [["790-012", "NIE assignment line in the Police fee form", "See official generator", "790-012"]],
+    links: ["cita", "790-012"]
+  },
+  nie: {
+    forms: [
+      ["EX-15", "NIE assignment request", "Form", "EX-15"]
+    ],
+    taxes: [["790-012", "NIE assignment line in the Police fee form", "See official generator", "790-012"]],
+    links: ["cita", "790-012"]
   },
   "tie-after-approval": {
     forms: [
@@ -283,7 +289,7 @@ const routeFormsAndTaxes = {
       ["Favorable resolution or visa", "Proof that the residence or stay authorization was granted", "Evidence", ""]
     ],
     taxes: [["790-012", "First TIE card after approval", "16.08 EUR", "790-012"]],
-    links: ["cita", "790-012", "helper"]
+    links: ["cita", "790-012"]
   },
   "work-authorization": {
     forms: [
@@ -296,7 +302,7 @@ const routeFormsAndTaxes = {
   },
   "digital-nomad": {
     forms: [
-      ["UGE online application", "Authorization application for international telework / digital nomad residence", "Official application portal", ""],
+      ["UGE online application", "Authorization application for international telework / digital nomad residence", "Official application portal", "digital-nomad-official"],
       ["EX-17", "TIE card application after approval", "Form", "EX-17"]
     ],
     taxes: [["790-012", "First TIE card after approval", "16.08 EUR", "790-012"]],
@@ -328,23 +334,24 @@ const routeFormsAndTaxes = {
   },
   "eu-family": {
     forms: [
-      ["EX-19", "Residence card application for a non-EU family member of an EU citizen", "Authorization/card form", "EX-19"]
+      ["EX-19", "Residence card application for a non-EU family member of an EU citizen", "Authorization/card form", "EX-19"],
+      ["EX-17", "TIE card after your application has been approved", "Form", "EX-17"]
     ],
     taxes: [["790-012", "EU-family residence card fee", "12.00 EUR", "790-012"]],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
   }
 };
 
-const routeFormsAndTaxesFi = {
+const routeFormsAndTaxesEs = {
   "eu-registration": {
     forms: [
-      ["EX-18", "EU-/ETA-/Sveitsin kansalaisen rekisteröintitodistus", "Lomake", "EX-18"],
-      ["NIE", "Ulkomaalaisen tunnistenumero Espanjan hallintoa varten", "Pakollinen tieto", ""],
-      ["Padrón", "Kunnallinen padrón-todistus tai volante", "Osoitetodiste", ""],
-      ["Passi tai EU-henkilökortti", "Ajanvarauksessa käytettävä henkilöllisyysasiakirja", "Asiakirja", ""]
+      ["EX-18", "Certificado de registro de ciudadano UE/EEE/Suiza", "Formulario", "EX-18"],
+      ["NIE", "Número de identidad de extranjero usado por la administración española", "Dato requerido", ""],
+      ["Padrón", "Certificado o volante de empadronamiento del ayuntamiento", "Prueba de domicilio", ""],
+      ["Pasaporte o documento nacional de identidad UE", "Documento de identidad usado en la cita", "Documento", ""]
     ],
-    taxes: [["790-012", "EU-rekisteröintitodistus", "12.00 EUR", "790-012"]],
-    links: ["cita", "790-012", "helper"]
+    taxes: [["790-012", "Certificado de registro de ciudadano de la UE", "12.00 EUR", "790-012"]],
+    links: ["cita", "790-012"]
   },
   "eu-vacation": {
     forms: [],
@@ -358,78 +365,90 @@ const routeFormsAndTaxesFi = {
   },
   "eu-working": {
     forms: [
-      ["EX-18", "EU-/ETA-/Sveitsin kansalaisen rekisteröintitodistus", "Lomake", "EX-18"],
-      ["NIE", "Ulkomaalaisen tunnistenumero Espanjan hallintoa varten", "Pakollinen tieto", ""],
-      ["Padrón", "Kunnallinen padrón-todistus tai volante", "Osoitetodiste", ""]
+      ["EX-18", "Certificado de registro de ciudadano UE/EEE/Suiza", "Formulario", "EX-18"],
+      ["NIE", "Número de identidad de extranjero usado por la administración española", "Dato requerido", ""],
+      ["Padrón", "Certificado o volante de empadronamiento del ayuntamiento", "Prueba de domicilio", ""]
     ],
-    taxes: [["790-012", "EU-rekisteröintitodistus", "12.00 EUR", "790-012"]],
-    links: ["cita", "790-012", "helper"]
+    taxes: [["790-012", "Certificado de registro de ciudadano de la UE", "12.00 EUR", "790-012"]],
+    links: ["cita", "790-012"]
   },
   "nie-only": {
     forms: [
-      ["EX-15", "NIE-numeron hakemus", "Lomake", "EX-15"],
-      ["Perusteluasiakirja", "Kirjallinen taloudellinen, ammatillinen tai sosiaalinen syy NIE:n tarpeelle", "Todiste", ""]
+      ["EX-15", "Solicitud de asignación de NIE", "Formulario", "EX-15"]
     ],
-    taxes: [["790-012", "NIE-linja poliisin maksulomakkeessa", "9.84 EUR", "790-012"]],
-    links: ["cita", "790-012", "helper"]
+    taxes: [["790-012", "Línea de asignación de NIE en el formulario de tasa de Policía", "Ver generador oficial", "790-012"]],
+    links: ["cita", "790-012"]
+  },
+  nie: {
+    forms: [
+      ["EX-15", "Solicitud de asignación de NIE", "Formulario", "EX-15"]
+    ],
+    taxes: [["790-012", "Línea de asignación de NIE en el formulario de tasa de Policía", "Ver generador oficial", "790-012"]],
+    links: ["cita", "790-012"]
   },
   "tie-after-approval": {
     forms: [
-      ["EX-17", "TIE-korttihakemus", "Lomake", "EX-17"],
-      ["Myönteinen päätös tai viisumi", "Todiste siitä, että oleskelu tai lupa on hyväksytty", "Todiste", ""]
+      ["EX-17", "Solicitud de tarjeta TIE", "Formulario", "EX-17"],
+      ["Resolución favorable o visado", "Prueba de que la autorización de residencia o estancia fue concedida", "Prueba", ""]
     ],
-    taxes: [["790-012", "Ensimmäinen TIE-kortti hyväksynnän jälkeen", "16.08 EUR", "790-012"]],
-    links: ["cita", "790-012", "helper"]
+    taxes: [["790-012", "Primera tarjeta TIE tras la aprobación", "16.08 EUR", "790-012"]],
+    links: ["cita", "790-012"]
   },
   "work-authorization": {
     forms: [
-      ["EX-03", "Lupahakemus, jos työskentelet espanjalaiselle työnantajalle", "Lupalomake", "EX-03"],
-      ["EX-07", "Lupahakemus, jos toimit itsenäisenä ammatinharjoittajana Espanjassa", "Lupalomake", "EX-07"],
-      ["EX-17", "TIE-korttihakemus hyväksynnän jälkeen", "Lomake", "EX-17"]
+      ["EX-03", "Solicitud de autorización si vas a trabajar por cuenta ajena para una empresa española", "Formulario de autorización", "EX-03"],
+      ["EX-07", "Solicitud de autorización si vas a trabajar por cuenta propia en España", "Formulario de autorización", "EX-07"],
+      ["EX-17", "Solicitud de tarjeta TIE tras la aprobación", "Formulario", "EX-17"]
     ],
-    taxes: [["790-012", "Ensimmäinen TIE-kortti hyväksynnän jälkeen", "16.08 EUR", "790-012"]],
+    taxes: [["790-012", "Primera tarjeta TIE tras la aprobación", "16.08 EUR", "790-012"]],
     links: ["work-employed", "work-self-employed", "cita", "790-012"]
   },
   "digital-nomad": {
     forms: [
-      ["UGE-verkkohakemus", "Lupahakemus kansainväliseen etätyöhön / diginomadioleskeluun", "Virallinen hakukanava", ""],
-      ["EX-17", "TIE-korttihakemus hyväksynnän jälkeen", "Lomake", "EX-17"]
+      ["Solicitud online UGE", "Solicitud de autorización para teletrabajo internacional / nómada digital", "Portal oficial de solicitud", "digital-nomad-official"],
+      ["EX-17", "Solicitud de tarjeta TIE tras la aprobación", "Formulario", "EX-17"]
     ],
-    taxes: [["790-012", "Ensimmäinen TIE-kortti hyväksynnän jälkeen", "16.08 EUR", "790-012"]],
+    taxes: [["790-012", "Primera tarjeta TIE tras la aprobación", "16.08 EUR", "790-012"]],
     links: ["digital-nomad-official", "insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre", "cita", "790-012"]
   },
   "non-lucrative": {
     forms: [
-      ["EX-01", "Hakemus alkuperäiseen työskentelemättömään oleskelulupaan", "Lupalomake", "EX-01"],
-      ["EX-17", "TIE-korttihakemus viisumin/hyväksynnän jälkeen", "Lomake", "EX-17"]
+      ["EX-01", "Solicitud de autorización inicial de residencia temporal no lucrativa", "Formulario de autorización", "EX-01"],
+      ["EX-17", "Solicitud de tarjeta TIE tras visado o aprobación", "Formulario", "EX-17"]
     ],
-    taxes: [["790-012", "Ensimmäinen TIE-kortti hyväksynnän jälkeen", "16.08 EUR", "790-012"]],
+    taxes: [["790-012", "Primera tarjeta TIE tras la aprobación", "16.08 EUR", "790-012"]],
     links: ["non-lucrative-official", "insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre", "cita", "790-012"]
   },
   study: {
     forms: [
-      ["EX-00", "Hakemus opiskeluun perustuvaan oleskeluun", "Lupalomake", "EX-00"],
-      ["EX-17", "TIE-korttihakemus, jos kortti vaaditaan hyväksynnän jälkeen", "Lomake", "EX-17"]
+      ["EX-00", "Solicitud de autorización de estancia por estudios", "Formulario de autorización", "EX-00"],
+      ["EX-17", "Solicitud de tarjeta TIE si la tarjeta es necesaria tras la aprobación", "Formulario", "EX-17"]
     ],
-    taxes: [["790-012", "TIE-kortti tarvittaessa", "16.08 EUR", "790-012"]],
+    taxes: [["790-012", "Tarjeta TIE si corresponde", "16.08 EUR", "790-012"]],
     links: ["study-official", "insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre", "cita", "790-012"]
   },
   family: {
     forms: [
-      ["EX-02", "Hakemus tilapäiseen oleskeluun perheenyhdistämisen perusteella", "Lupalomake", "EX-02"],
-      ["EX-17", "TIE-korttihakemus hyväksynnän jälkeen", "Lomake", "EX-17"]
+      ["EX-02", "Solicitud de autorización de residencia temporal por reagrupación familiar", "Formulario de autorización", "EX-02"],
+      ["EX-17", "Solicitud de tarjeta TIE tras la aprobación", "Formulario", "EX-17"]
     ],
-    taxes: [["790-012", "Ensimmäinen TIE-kortti hyväksynnän jälkeen", "16.08 EUR", "790-012"]],
+    taxes: [["790-012", "Primera tarjeta TIE tras la aprobación", "16.08 EUR", "790-012"]],
     links: ["family-official", "cita", "790-012"]
   },
   "eu-family": {
     forms: [
-      ["EX-19", "EU-kansalaisen EU:n ulkopuolisen perheenjäsenen oleskelukorttihakemus", "Lupa-/korttilomake", "EX-19"]
+      ["EX-19", "Solicitud de tarjeta de residencia para familiar no comunitario de ciudadano de la UE", "Formulario de autorización/tarjeta", "EX-19"],
+      ["EX-17", "TIE después de que la solicitud haya sido aprobada", "Formulario", "EX-17"]
     ],
-    taxes: [["790-012", "EU-perheenjäsenen oleskelukortin maksu", "12.00 EUR", "790-012"]],
+    taxes: [["790-012", "Tasa de tarjeta de residencia de familiar de ciudadano de la UE", "12.00 EUR", "790-012"]],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
   }
 };
+
+function routeFormsAndTaxesFor(routeId) {
+  if (currentLang === "es" && routeFormsAndTaxesEs[routeId]) return routeFormsAndTaxesEs[routeId];
+  return routeFormsAndTaxes[routeId];
+}
 
 const visaRecommendations = {
   "work-authorization": {
@@ -597,23 +616,12 @@ const formHelpers = {
       "Check financial means, health insurance, criminal record, and medical certificate requirements."
     ]
   },
-  "work-evidence": {
-    title: "EU worker evidence checklist",
-    purpose: "Supporting evidence for EU/EEA/Swiss citizens registering residence in Spain as workers or self-employed people.",
-    officialUrl: "",
-    fields: [
-      ["Trabajador por cuenta ajena", "Employee working for an employer in Spain."],
-      ["Contrato de trabajo", "Employment contract. Bring the signed contract if requested."],
-      ["Alta en Seguridad Social", "Social Security registration or equivalent proof that your employment is active."],
-      ["Trabajador por cuenta propia", "Self-employed/autonomo activity in Spain."],
-      ["Alta censal / RETA", "Tax and self-employment registration evidence where applicable."],
-      ["Domicilio en Espana", "Spanish address evidence, and padrón if your province asks for it."]
-    ],
-    checks: [
-      "Bring originals and copies if the province requests copies.",
-      "If you are newly hired, bring the strongest available proof that the job has started or is registered.",
-      "If self-employed, bring tax registration and Social Security/autonomo evidence."
-    ]
+  "digital-nomad-official": {
+    title: "International telework / digital nomad route",
+    purpose: "Official route information for international telework residence applications.",
+    officialUrl: "https://prie.comercio.gob.es/es-es/Paginas/Teletrabajadores-caracter-internacional.aspx",
+    fields: [],
+    checks: []
   },
   "EX-18": {
     title: "EX-18 EU citizen registration",
@@ -783,7 +791,8 @@ const sourcesPanel = document.querySelector("#sources");
 const startLink = document.querySelector('header nav a[href*="#guide-cards"]');
 const VISITOR_COUNTER_URL = "";
 const languageButtons = document.querySelectorAll("[data-lang]");
-let currentLang = localStorage.getItem("holaPapersLang") || "en";
+const supportedLanguages = new Set(["en", "es"]);
+let currentLang = supportedLanguages.has(localStorage.getItem("holaPapersLang")) ? localStorage.getItem("holaPapersLang") : "en";
 let currentDirectRoute = null;
 let currentEntryPreset = null;
 let currentScreenState = { type: "start" };
@@ -793,11 +802,12 @@ const translations = {
   en: {
     headerTitle: "Move, travel and settle in Spain.",
     startNav: "Home",
+    spainFilesNav: "The Spain Files",
     supportNav: "Support IberiGo",
     startHeading: "Where should we begin?",
     startDisclaimer: "This is not legal advice. It is only here to help you understand what you might need before checking official sources.",
     movingTitle: "Move to Spain",
-    movingDesc: "NIE, TIE, padron, EU registration, visas, and residency.",
+    movingDesc: "NIE, TIE, padrón, EU registration, visas, and residency.",
     movingChipVisa: "Visas",
     movingChipEu: "EU register",
     movingChipStudy: "Study",
@@ -875,11 +885,14 @@ const translations = {
     directPhone: "Phone number and internet",
     openGuideButton: "Open guide",
     footerSupportText: "IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.",
-    footerSupportLink: "Support IberiGo"
+    footerSupportLink: "Support IberiGo",
+    footerLegal: "© 2026 IberiGo. Free to use. Not legal advice.",
+    footerReviewed: "Last reviewed: June 2026"
   },
   es: {
     headerTitle: "Mudarte, viajar y establecerte en España.",
     startNav: "Inicio",
+    spainFilesNav: "The Spain Files",
     supportNav: "Apoyar IberiGo",
     startHeading: "¿Por dónde empezamos?",
     startDisclaimer: "Esto no es asesoramiento legal. Solo sirve para ayudarte a entender qué podrías necesitar antes de consultar las fuentes oficiales.",
@@ -962,95 +975,10 @@ const translations = {
     directPhone: "Número de teléfono e internet",
     openGuideButton: "Abrir guía",
     footerSupportText: "IberiGo es gratuito. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.",
-    footerSupportLink: "Apoyar IberiGo"
+    footerSupportLink: "Apoyar IberiGo",
+    footerLegal: "© 2026 IberiGo. Gratuito. No es asesoramiento legal.",
+    footerReviewed: "Última revisión: junio de 2026"
   },
-  fi: {
-    headerTitle: "Muuta, matkusta ja asetu Espanjaan.",
-    startNav: "Etusivu",
-    supportNav: "Tue IberiGoa",
-    startHeading: "Mistä aloitetaan?",
-    startDisclaimer: "Tämä ei ole oikeudellista neuvontaa. Sen tarkoitus on vain auttaa sinua ymmärtämään, mitä saatat tarvita ennen virallisten lähteiden tarkistamista.",
-    movingTitle: "Muutto Espanjaan",
-    movingDesc: "NIE, TIE, padrón, EU-rekisteröinti, viisumit ja oleskelu.",
-    movingChipVisa: "Viisumit",
-    movingChipEu: "EU-rekisteri",
-    movingChipStudy: "Opiskelu",
-    movingChipFamily: "Perhe",
-    movingButton: "Tutustu",
-    vacationTitle: "Loma Espanjassa",
-    vacationDesc: "Lyhyet vierailut, maahantulosäännöt, liikkuminen, majoitus ja käytännöllinen matkan suunnittelu Espanjassa.",
-    vacationChipEntry: "Maahantulo",
-    vacationChipTransport: "Liikkuminen",
-    vacationChipStays: "Majoitus",
-    vacationChipTrips: "Ideat",
-    vacationButton: "Tutustu",
-    livingTitle: "Asuminen Espanjassa",
-    livingDesc: "Terveydenhuolto, pankit, verot, digiasiointi ja tärkeimmät arjen hallinnon vaiheet Espanjassa.",
-    livingChipHealth: "Terveydenhuolto",
-    livingChipBanking: "Pankki",
-    livingChipJobs: "Työnhaku",
-    livingChipTaxes: "Verot",
-    livingChipSocial: "Sosiaaliturva",
-    livingChipDigital: "Digiasiointi",
-    livingButton: "Tutustu",
-    hintPlain: "Selkeät seuraavat askeleet",
-    hintSources: "Espanjan viralliset linkit",
-    hintScope: "Koko Espanjan laajuinen opas",
-    progressPerson: "1. Tilanne",
-    progressGoal: "2. Tavoite",
-    progressResult: "3. Tulos",
-    personLegend: "Oletko?",
-    personEu: "EU-, ETA- tai Sveitsin kansalainen",
-    personEuDesc: "Saatat tarvita EU-rekisteröinnin, jos asut Espanjassa pidempään.",
-    personNonEu: "EU:n ulkopuolinen kansalainen",
-    personNonEuDesc: "Saatat tarvita viisumin, luvan, TIE-kortin tai lyhytaikaisen maahantuloreitin.",
-    goalLegend: "Mitä yrität tehdä?",
-    goalWork: "Asua ja työskennellä Espanjassa",
-    goalWorkDesc: "Palkkatyö, yrittäjyys tai työlupareitti.",
-    goalNoWork: "Asua Espanjassa ilman työntekoa",
-    goalNoWorkDesc: "Omat varat, eläketulot tai ei työtoimintaa Espanjassa.",
-    goalStudy: "Opiskella Espanjassa",
-    goalStudyDesc: "Kurssit, yliopisto, koulutus, harjoittelut tai opiskelijaoikeuden paperit.",
-    goalRemote: "Tehdä etätyötä Espanjasta",
-    goalRemoteDesc: "Etätyö pääasiassa Espanjan ulkopuolisille yrityksille tai asiakkaille.",
-    goalFamily: "Liittyä perheen luo Espanjaan",
-    goalFamilyDesc: "Perheenyhdistäminen tai EU-kansalaisen perheenjäsenen oleskelukortti.",
-    familyLegend: "Kenen luo liityt Espanjassa?",
-    familyEu: "EU-/ETA-/Sveitsin tai kelpoisen Espanjan kansalaisen luo",
-    familyEuDesc: "Yleensä tämä tarkoittaa EU-perheenjäsenen oleskelukorttia, mutta osa Espanjan kansalaisen perhetapauksista voi poiketa tästä.",
-    familyNonEu: "Espanjassa asuvan EU:n ulkopuolisen kansalaisen luo",
-    familyNonEuDesc: "Yleensä tämä tarkoittaa perheenyhdistämistä.",
-    durationLegend: "Kuinka kauan aiot oleskella?",
-    durationShort: "Alle 90 päivää",
-    durationShortDesc: "Yleensä kyse on lyhyestä oleskelusta tai maahantulosäännöistä.",
-    durationLong: "Yli 90 päivää / pitkäaikaisesti",
-    durationLongDesc: "Yleensä vaatii rekisteröinnin, viisumin, luvan tai kortin.",
-    durationNotSure: "En ole varma",
-    durationNotSureDesc: "Valitse tämä, jos suunnittelet vielä ja haluat varovaisen aloituspisteen.",
-    continueButton: "Jatka",
-    showRouteButton: "Näytä todennäköinen reitti",
-    emptyTitle: "Oma reittisi näkyy täällä",
-    emptyText: "Valitse tilannekortti tai vastaa yllä oleviin kysymyksiin nähdäksesi koko Espanjan laajuisen reitin.",
-    nextSteps: "Seuraavat 3 vaihetta",
-    officialLinks: "Viralliset linkit",
-    resultDisclaimer: "Vaatimukset voivat vaihdella henkilökohtaisen tilanteen mukaan ja muuttua ajan myötä. Tarkista tiedot aina virallisista lähteistä.",
-    livingNext: "Mitä tarvitset seuraavaksi?",
-    directPadron: "Padrón / kunnallinen osoiterekisteröinti",
-    directNie: "NIE-numero",
-    directTie: "TIE-kortti viisumin hyväksynnän jälkeen",
-    directSocial: "Sosiaaliturvatunnus",
-    directDigital: "Digiasiointi: Cl@ve tai digitaalinen varmenne",
-    directSip: "Julkinen terveydenhuoltokortti",
-    directPrivateHealth: "Yksityinen sairausvakuutus",
-    directEhic: "Eurooppalainen sairaanhoitokortti",
-    directBanking: "Pankkitili ja pankkiasioinnin perusteet",
-    directJobs: "Työnhaku Espanjassa",
-    directTaxes: "Verot ja verosoite",
-    directPhone: "Puhelinnumero ja internet",
-    openGuideButton: "Avaa opas",
-    footerSupportText: "IberiGo on ilmainen käyttää. Jos sivusto auttaa sinua, voit tukea sen ylläpitoa vapaaehtoisella maksulla.",
-    footerSupportLink: "Tue IberiGoa"
-  }
 };
 
 function t(key) {
@@ -1165,6 +1093,7 @@ const roadmapDetails = {
 const roadmapDetailsEs = {
   "eu-registration": {
     process: "Certificado de registro de ciudadano de la UE",
+    explanation: "Los ciudadanos de la UE, EEE y Suiza que planean vivir en España más de tres meses deben registrarse y obtener el Certificado de Registro de Ciudadano de la Unión, a menudo llamado NIE verde porque muestra tu número NIE en un documento verde pequeño. No es una tarjeta TIE. Debes demostrar que puedes mantenerte: por trabajo, fondos suficientes o estudios con cobertura sanitaria. Ten preparados el formulario EX-18, NIE, certificado de padrón y prueba de medios antes de la cita. La tasa es de 12.00 EUR mediante el Modelo 790-012. Si todavía no tienes NIE, confirma con la oficina local si lo asignan durante este registro o si exigen un paso separado primero, porque la práctica puede variar por provincia.",
     difficulty: "Media",
     timeline: "Normalmente unas semanas, según la disponibilidad de citas",
     steps: [
@@ -1180,6 +1109,7 @@ const roadmapDetailsEs = {
   },
   "eu-working": {
     process: "Certificado de registro de la UE como trabajador",
+    explanation: "Los ciudadanos de la UE, EEE y Suiza que viven en España más de tres meses y trabajan aquí siguen la misma ruta del Certificado de Registro de Ciudadano de la Unión, pero la situación laboral suele ser la base más sencilla para registrarse. Tu contrato de trabajo, alta en la Seguridad Social o registro de autónomo sirve como prueba de medios, por lo que normalmente no necesitas demostrar fondos separados ni seguro médico privado: trabajar te da acceso al sistema sanitario público. Lleva EX-18, NIE, certificado de padrón y prueba laboral a la cita. La tasa es de 12.00 EUR mediante el Modelo 790-012. Guarda el certificado y el NIE porque los necesitarás para empleo, impuestos, sanidad e identificación digital.",
     difficulty: "Media",
     timeline: "Normalmente unas semanas, según la disponibilidad de citas",
     steps: [
@@ -1195,6 +1125,7 @@ const roadmapDetailsEs = {
   },
   "eu-vacation": {
     process: "Estancia corta para ciudadanos de la UE",
+    explanation: "Los ciudadanos de la UE, EEE y Suiza normalmente pueden visitar España hasta 3 meses con pasaporte o documento nacional de identidad válido. Para una visita corta ordinaria no necesitas NIE, TIE, visado ni certificado de registro UE. Si después decides vivir en España más de tres meses, entonces ya entran en juego las normas de registro de residencia.",
     difficulty: "Baja",
     timeline: "No hay trámite de residencia para una visita corta ordinaria",
     steps: ["Viaja con pasaporte o documento nacional de identidad válido.", "Ten disponible cobertura sanitaria o Tarjeta Sanitaria Europea.", "Usa los enlaces oficiales de turismo y transporte para planificar trenes, aeropuertos, autobuses y alojamiento.", "Si después decides vivir en España, usa la ruta de registro de ciudadano de la UE."],
@@ -1203,6 +1134,7 @@ const roadmapDetailsEs = {
   },
   "non-eu-vacation": {
     process: "Estancia corta Schengen",
+    explanation: "Para vacaciones o una visita corta, comprueba si tu pasaporte necesita visado Schengen de corta estancia o si puede entrar sin visado. Los 90 días se cuentan normalmente dentro de todo el espacio Schengen en cualquier periodo de 180 días, no solo en España. Esta ruta sirve para visitas ordinarias, no para vivir o trabajar en España.",
     difficulty: "Baja a media",
     timeline: "Depende de si tu pasaporte necesita visado Schengen",
     steps: ["Comprueba si tu pasaporte necesita visado Schengen de corta estancia.", "Comprueba la regla de 90 días en cualquier periodo de 180 días.", "Prepara seguro de viaje, alojamiento, viaje de regreso o continuación y fondos si te los piden.", "Usa los enlaces de turismo y transporte para planificar trenes, aeropuertos, autobuses y dónde alojarte.", "No trates una estancia corta como permiso para vivir o trabajar en España."],
@@ -1211,6 +1143,7 @@ const roadmapDetailsEs = {
   },
   "work-authorization": {
     process: "Autorización de residencia y trabajo",
+    explanation: "Los ciudadanos no comunitarios que quieren vivir en España y trabajar para una empresa española o montar su propio negocio suelen necesitar una autorización de residencia y trabajo antes de empezar. El trabajo por cuenta ajena normalmente usa el formulario EX-03 y el trabajo por cuenta propia usa EX-07. En muchos casos la solicitud la inicia el empleador español. La tramitación puede tardar varios meses y la aprobación no está garantizada. Tras la aprobación, normalmente se solicita el visado de entrada en el consulado español, se entra en España y después se hace la cita de huellas para la TIE dentro del plazo indicado en la resolución.",
     difficulty: "Alta",
     timeline: "A menudo varios meses",
     steps: ["Confirma si la ruta es trabajo por cuenta ajena o por cuenta propia.", "Prepara contrato, plan de negocio y pruebas profesionales según corresponda.", "Solicita la autorización de residencia y trabajo antes de empezar a trabajar.", "Tras la aprobación, completa el visado y la TIE si corresponde.", "Paga el Modelo 790-012 para el paso de la tarjeta cuando sea aplicable."],
@@ -1219,6 +1152,7 @@ const roadmapDetailsEs = {
   },
   "digital-nomad": {
     process: "Teletrabajo internacional / nómada digital",
+    explanation: "La residencia de teletrabajo internacional, conocida como nómada digital, permite a trabajadores remotos no comunitarios vivir legalmente en España mientras trabajan principalmente para empresas o clientes fuera de España. El trabajo para clientes españoles no puede superar el 20% de la actividad profesional total. Suele requerir contrato o pruebas de clientes, documentos de empresa, seguro médico, certificado de antecedentes y prueba de cualificación o experiencia. También existe un umbral mínimo de ingresos que puede cambiar, por lo que conviene revisar la página oficial. Puede tramitarse desde un consulado o, si ya estás legalmente en España, mediante la UGE-CE. Tras la aprobación, normalmente queda el paso de TIE.",
     difficulty: "Alta",
     timeline: "A menudo de uno a tres meses tras presentar un expediente completo",
     steps: ["Confirma que trabajas principalmente para empresas o clientes fuera de España.", "Prepara contratos, pruebas de empresa, cualificación o experiencia, cobertura sanitaria y documentos de antecedentes si los piden.", "Solicita por la ruta oficial de teletrabajo o por vía consular.", "Tras la aprobación, completa la TIE si corresponde.", "Configura identificación digital cuando seas elegible."],
@@ -1227,6 +1161,7 @@ const roadmapDetailsEs = {
   },
   "non-lucrative": {
     process: "Residencia no lucrativa",
+    explanation: "La residencia no lucrativa permite a ciudadanos no comunitarios vivir en España sin trabajar. Es habitual entre jubilados, personas con ingresos pasivos, alquileres, ahorros o inversiones. Debes demostrar fondos suficientes para mantenerte a ti y a tus familiares sin actividad laboral en España; el umbral se vincula al IPREM y puede actualizarse. También se suele exigir seguro médico privado que cubra España, certificado de antecedentes y certificado médico. La solicitud normalmente se presenta en el consulado español del país de residencia. Tras la aprobación, entras con visado, haces padrón y completas la TIE.",
     difficulty: "Alta",
     timeline: "A menudo varios meses, normalmente mediante consulado",
     steps: ["Confirma que no vas a trabajar ni realizar actividad profesional en España.", "Prepara fondos, seguro médico, antecedentes penales y certificado médico cuando los pidan.", "Solicita por la ruta oficial de residencia no lucrativa.", "Tras la aprobación o el visado, completa la TIE si corresponde.", "Usa padrón e identificación digital después de llegar."],
@@ -1235,6 +1170,7 @@ const roadmapDetailsEs = {
   },
   study: {
     process: "Autorización de estancia por estudios",
+    explanation: "Los estudiantes no comunitarios que van a estudiar, formarse, hacer prácticas o participar en movilidad estudiantil en España durante más de 90 días necesitan una autorización de estancia por estudios. Normalmente se prepara una carta de admisión, prueba de fondos, seguro médico, antecedentes penales y certificado médico cuando corresponda. Tras llegar a España, puede ser necesario obtener una TIE de estudiante. Algunos permisos de estudios permiten trabajar a tiempo parcial, pero siempre hay que revisar las condiciones concretas de la autorización.",
     difficulty: "Media a alta",
     timeline: "A menudo de uno a tres meses tras presentar un expediente completo",
     steps: ["Prepara prueba de admisión o matrícula.", "Prepara fondos, seguro médico, pasaporte y documentos públicos legalizados o traducidos cuando sea necesario.", "Solicita por la ruta oficial de estancia por estudios.", "Si tu estancia requiere tarjeta, completa el paso de la TIE tras la aprobación.", "Controla las fechas de renovación si el curso continúa."],
@@ -1243,6 +1179,7 @@ const roadmapDetailsEs = {
   },
   family: {
     process: "Reagrupación familiar",
+    explanation: "Los familiares no comunitarios de un residente legal en España pueden reunirse con él mediante la reagrupación familiar. El residente en España normalmente debe haber tenido residencia legal durante al menos un año y contar con al menos otro año de validez, además de demostrar vivienda y medios económicos suficientes para el tamaño de la familia. Los familiares elegibles suelen incluir cónyuge o pareja, hijos menores y, en algunos casos, ascendientes dependientes. La solicitud la presenta en España el residente reagrupante; tras la aprobación, el familiar solicita visado en el consulado español y después obtiene tarjeta de residencia.",
     difficulty: "Alta",
     timeline: "A menudo varios meses",
     steps: ["Confirma que el familiar en España es residente legal no comunitario y puede reagruparte.", "Prepara prueba del vínculo familiar, documentos de residencia del reagrupante, vivienda y medios económicos.", "Solicita por la ruta de reagrupación familiar.", "Tras la aprobación y el visado, completa el paso de la TIE.", "Controla las fechas de renovación."],
@@ -1251,115 +1188,19 @@ const roadmapDetailsEs = {
   },
   "eu-family": {
     process: "Tarjeta de residencia de familiar de ciudadano de la UE",
+    explanation: "Los familiares no comunitarios que se reúnen o acompañan a un ciudadano de la UE, EEE o Suiza registrado como residente en España siguen una ruta separada y generalmente más favorable que la reagrupación familiar ordinaria: la Tarjeta de Residencia de Familiar de Ciudadano de la Unión. Entre los familiares elegibles suelen estar cónyuges, parejas registradas, hijos dependientes menores de 21 años y familiares directos ascendientes dependientes. El ciudadano de la UE debe tener ya su certificado de registro de la UE, conocido a veces como el NIE verde. El familiar no comunitario presenta la solicitud con el formulario EX-19, y la tasa es de 12.00 EUR mediante el Modelo 790-012, más baja que la tasa estándar de TIE. La tarjeta inicial suele tener una validez de cinco años. Conseguir cita de huellas en provincias con mucha demanda como Madrid, Barcelona o Alicante puede tardar; reserva en cuanto llegue la autorización y guarda prueba de intentos fallidos si el plazo de 30 días está en riesgo.",
     difficulty: "Media a alta",
     timeline: "A menudo de unas semanas a unos meses",
-    steps: ["Confirma que el familiar es ciudadano de la UE, EEE, Suiza o ciudadano español cualificado.", "Prepara prueba del vínculo y la base de residencia del ciudadano UE/español.", "Completa el formulario EX-19.", "Reserva la cita correspondiente para tarjeta de familiar de ciudadano de la UE.", "Paga el Modelo 790-012 si lo exige el proceso de tarjeta."],
-    documents: ["Pasaporte", "EX-19", "DNI o certificado de registro UE del ciudadano UE/español", "Matrimonio, pareja, nacimiento o prueba de dependencia", "Justificante 790-012 si lo piden"],
-    links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
-  }
-};
-
-const roadmapDetailsFi = {
-  "eu-registration": {
-    process: "EU-rekisteröintitodistus",
-    difficulty: "Keskitaso",
-    timeline: "Usein muutama viikko ajanvarauksen saatavuudesta riippuen",
-    steps: [
-      "Valmistele NIE-numero ja padrón-todistus ennen EU-rekisteröintiaikaa.",
-      "Valmistele todiste varoista, työsopimus, yrittäjyystodiste tai opiskeludokumentit.",
-      "Jos haluat asua Espanjassa ilman työntekoa, järjestä voimassa oleva sairausvakuutus osaksi rekisteröinnin perustetta.",
-      "Maksa Modelo 790-012 EU-rekisteröintitodistusta varten.",
-      "Täytä EX-18-lomake.",
-      "Mene EU-rekisteröintitodistuksen ajanvaraukseen."
-    ],
-    documents: ["Passi tai EU-henkilökortti", "NIE", "Padrón-todistus tai volante", "EX-18", "Todiste työstä, varoista tai opinnoista", "Sairausvakuutus, jos perusteena on asuminen Espanjassa ilman työntekoa", "790-012-maksukuitti"],
-    links: ["eu-certificate", "insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre", "790-012", "cita"]
-  },
-  "eu-working": {
-    process: "EU-rekisteröintitodistus työntekijälle",
-    difficulty: "Keskitaso",
-    timeline: "Usein muutama viikko ajanvarauksen saatavuudesta riippuen",
-    steps: [
-      "Valmistele NIE-numero ja padrón-todistus ennen EU-rekisteröintiaikaa.",
-      "Valmistele työsopimus, alta Seguridad Socialiin tai yrittäjyystodistus.",
-      "Maksa Modelo 790-012.",
-      "Täytä EX-18-lomake.",
-      "Mene EU-rekisteröintitodistuksen ajanvaraukseen.",
-      "Säilytä todistus ja NIE työ-, vero- ja digiasiointia varten."
-    ],
-    documents: ["Passi tai EU-henkilökortti", "NIE", "Padrón-todistus tai volante", "EX-18", "Todiste työstä", "790-012-maksukuitti"],
-    links: ["eu-certificate", "790-012", "cita"]
-  },
-  "eu-vacation": {
-    process: "EU-kansalaisen lyhyt oleskelu",
-    difficulty: "Helppo",
-    timeline: "Tavalliseen lyhyeen vierailuun ei tarvita oleskelumenettelyä",
-    steps: ["Matkusta voimassa olevalla passilla tai henkilökortilla.", "Pidä sairausvakuutus tai eurooppalainen sairaanhoitokortti saatavilla.", "Käytä virallisia matkailu- ja liikkumislinkkejä junien, lentokenttien, bussien ja majoituksen suunnitteluun.", "Jos päätät myöhemmin asua Espanjassa, käytä EU-rekisteröintireittiä."],
-    documents: ["Passi tai henkilökortti", "Sairausvakuutus matkalle", "Matka- ja majoitustiedot"],
-    links: ["eu-short-stay", "travel-spaininfo", "travel-renfe", "travel-aena", "travel-alsa", "travel-paradores", "flight-iberia", "flight-google", "flight-skyscanner", "flight-kayak", "flight-edreams", "car-europcar", "car-sixt", "car-avis", "car-hertz", "stay-booking", "stay-airbnb", "stay-expedia", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "hotel-marriott", "hotel-hilton"]
-  },
-  "non-eu-vacation": {
-    process: "Schengen-alueen lyhyt oleskelu",
-    difficulty: "Helppo tai keskitaso",
-    timeline: "Riippuu siitä, tarvitseeko passisi Schengen-viisumin",
-    steps: ["Tarkista tarvitseeko passisi Schengen-lyhytaikaviisumin.", "Tarkista 90 päivää 180 päivän aikana -sääntö.", "Valmistele matkavakuutus, majoitus, paluu- tai jatkomatkatiedot ja varat, jos niitä pyydetään.", "Käytä matkailu- ja liikkumislinkkejä junien, lentokenttien, bussien ja majoituksen suunnitteluun.", "Älä pidä lyhyttä oleskelua lupana asua tai työskennellä Espanjassa."],
-    documents: ["Passi", "Schengen-viisumi tarvittaessa", "Matkavakuutus tarvittaessa", "Todiste majoituksesta ja paluu- tai jatkomatkasta"],
-    links: ["schengen", "calculator", "travel-spaininfo", "travel-renfe", "travel-aena", "travel-alsa", "travel-paradores", "flight-iberia", "flight-google", "flight-skyscanner", "flight-kayak", "flight-edreams", "car-europcar", "car-sixt", "car-avis", "car-hertz", "stay-booking", "stay-airbnb", "stay-expedia", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "hotel-marriott", "hotel-hilton"]
-  },
-  "work-authorization": {
-    process: "Oleskelu- ja työlupa",
-    difficulty: "Vaikea",
-    timeline: "Usein useita kuukausia",
-    steps: ["Varmista onko kyse palkkatyöstä vai yrittäjyydestä.", "Valmistele työnantajan sopimus tai liiketoimintasuunnitelma sekä ammatilliset todisteet.", "Hae oleskelu- ja työlupaa ennen työn aloittamista.", "Hyväksynnän jälkeen hoida viisumi- ja TIE-korttivaiheet tarvittaessa.", "Maksa Modelo 790-012 korttivaihetta varten tarvittaessa."],
-    documents: ["Passi", "EX-03 palkkatyöhön tai EX-07 yrittäjyyteen", "Sopimus tai liiketoimintasuunnitelma", "Pätevyydet tarvittaessa", "EX-17 hyväksynnän jälkeen", "790-012-korttivaiheen kuitti"],
-    links: ["work-employed", "work-self-employed", "cita", "790-012"]
-  },
-  "digital-nomad": {
-    process: "Kansainvälinen etätyö / digitaalinen nomadi",
-    difficulty: "Vaikea",
-    timeline: "Usein yhdestä kolmeen kuukautta täydellisen hakemuksen jälkeen",
-    steps: ["Varmista, että työsi on pääasiassa Espanjan ulkopuolisille yrityksille tai asiakkaille.", "Valmistele sopimukset, yritystodisteet, pätevyys tai kokemus, sairausvakuutus ja rikosrekisteriote tarvittaessa.", "Hae virallisen etätyöreitin tai konsulaattimenettelyn kautta.", "Hyväksynnän jälkeen hoida TIE-korttivaihe tarvittaessa.", "Ota digitaalinen tunnistautuminen käyttöön, kun se on mahdollista."],
-    documents: ["Passi", "Todiste etätyöstä", "Yritys- tai asiakasasiakirjat", "Pätevyys tai kokemus", "Sairausvakuutus", "Rikosrekisteriote tarvittaessa"],
-    links: ["digital-nomad-official", "insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre", "cita", "790-012"]
-  },
-  "non-lucrative": {
-    process: "Työskentelemätön oleskelulupa",
-    difficulty: "Vaikea",
-    timeline: "Usein useita kuukausia, tavallisesti konsulaatin kautta",
-    steps: ["Varmista, ettet työskentele tai harjoita ammattitoimintaa Espanjassa.", "Valmistele todiste varoista, sairausvakuutus, rikosrekisteriote ja lääkärintodistus tarvittaessa.", "Hae virallisen työskentelemättömän oleskelureitin kautta.", "Hyväksynnän tai viisumin jälkeen hoida TIE-korttivaihe tarvittaessa.", "Hoida padrón ja digiasiointi maahan saapumisen jälkeen."],
-    documents: ["Passi", "EX-01 tai konsulaatin hakureitti", "Todiste varoista", "Sairausvakuutus", "Rikosrekisteriote", "Lääkärintodistus", "EX-17 hyväksynnän jälkeen"],
-    links: ["non-lucrative-official", "insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre", "cita", "790-012"]
-  },
-  study: {
-    process: "Opiskeluun perustuva oleskelu",
-    difficulty: "Keskitaso tai vaikea",
-    timeline: "Usein yhdestä kolmeen kuukautta täydellisen hakemuksen jälkeen",
-    steps: ["Valmistele hyväksymis- tai ilmoittautumistodistus.", "Valmistele varat, sairausvakuutus, passi ja tarvittaessa laillistetut/käännetyt julkiset asiakirjat.", "Hae virallisen opiskelureitin kautta.", "Jos oleskelu vaatii kortin, hoida TIE-vaihe hyväksynnän jälkeen.", "Pidä uusimispäivät näkyvillä, jos opiskelu jatkuu."],
-    documents: ["Passi", "EX-00", "Hyväksymis- tai ilmoittautumistodistus", "Todiste varoista", "Sairausvakuutus", "EX-17 jos TIE vaaditaan"],
-    links: ["study-official", "insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre", "cita", "790-012"]
-  },
-  family: {
-    process: "Perheenyhdistäminen",
-    difficulty: "Vaikea",
-    timeline: "Usein useita kuukausia",
-    steps: ["Varmista, että Espanjassa oleva perheenjäsen on EU:n ulkopuolinen laillinen asukas ja voi toimia sponsorina.", "Valmistele todiste perhesuhteesta, sponsorin oleskeluasiakirjat, asumistodiste ja taloudelliset todisteet.", "Hae perheenyhdistämisreitin kautta.", "Hyväksynnän ja viisumivaiheiden jälkeen hoida TIE-korttivaihe.", "Pidä uusimispäivät näkyvillä."],
-    documents: ["Passi", "EX-02", "Todiste perhesuhteesta", "Sponsorin oleskeluasiakirjat", "Asumis- ja taloudelliset todisteet", "EX-17 hyväksynnän jälkeen"],
-    links: ["family-official", "cita", "790-012"]
-  },
-  "eu-family": {
-    process: "EU-kansalaisen perheenjäsenen oleskelukortti",
-    difficulty: "Keskitaso tai vaikea",
-    timeline: "Usein muutamasta viikosta muutamaan kuukauteen",
-    steps: ["Varmista, että perheenjäsen on EU-, ETA-, Sveitsin tai kelpoinen Espanjan kansalainen.", "Valmistele todiste suhteesta ja EU-/Espanjan kansalaisen oleskeluperusteesta.", "Täytä EX-19.", "Varaa asianmukainen EU-perheenjäsenen oleskelukortin aika.", "Maksa Modelo 790-012, jos korttiprosessi sitä vaatii."],
-    documents: ["Passi", "EX-19", "EU-/Espanjan kansalaisen DNI tai EU-rekisteröintitodistus", "Todiste avioliitosta, parisuhteesta, syntymästä tai riippuvuudesta", "790-012-kuitti tarvittaessa"],
+    steps: ["Confirma que el familiar es ciudadano de la UE, EEE, Suiza o ciudadano español cualificado.", "Prepara prueba del vínculo y la base de residencia del ciudadano UE/español.", "Completa el formulario EX-19.", "Reserva la cita correspondiente para tarjeta de familiar de ciudadano de la UE.", "Después de la aprobación, revisa el paso de TIE con EX-17 si te lo piden.", "Paga el Modelo 790-012 si lo exige el proceso de tarjeta."],
+    documents: ["Pasaporte", "EX-19", "DNI o certificado de registro UE del ciudadano UE/español", "Matrimonio, pareja, nacimiento o prueba de dependencia", "EX-17 tras la aprobación si corresponde", "Justificante 790-012 si lo piden"],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
   },
   "already-spain": {
-    process: "Espanjan perushallintoasiat",
-    difficulty: "Helppo tai keskitaso",
-    timeline: "Yleensä vaiheittain muutaman viikon aikana",
-    steps: ["Hanki padrón, jos sinulla on osoite Espanjassa.", "Tarkista tarvitsetko NIE:n, EU-rekisteröinnin, TIE:n vai uusinnan.", "Valmistele digitaalinen tunnistautuminen FNMT:n kautta, jos sinulla on NIE, tai Cl@ve jos olet oikeutettu.", "Säilytä kopiot ajanvarauksista, kuiteista ja todistuksista."],
-    documents: ["Passi tai henkilökortti", "Vuokra-, omistus- tai osoitetodiste", "Nykyinen NIE/TIE jos on", "Ajanvarausvahvistukset"],
+    process: "Trámites básicos si ya vives en España",
+    difficulty: "Baja a media",
+    timeline: "Normalmente paso a paso durante unas semanas",
+    steps: ["Consigue el padrón si tienes una dirección en España.", "Comprueba si necesitas NIE, registro UE, TIE o algún paso de renovación.", "Prepara identificación digital con FNMT si tienes NIE, o Cl@ve si cumples los requisitos.", "Guarda copias de citas, justificantes y certificados."],
+    documents: ["Pasaporte o documento de identidad", "Contrato, escritura o prueba de domicilio", "NIE/TIE existente si lo tienes", "Confirmaciones de cita"],
     links: ["nie", "fnmt", "clave", "cita"]
   }
 };
@@ -1376,6 +1217,31 @@ function initializeVisitorCounter() {
   script.src = "https://gc.zgo.at/count.js";
   script.dataset.goatcounter = VISITOR_COUNTER_URL;
   document.head.append(script);
+}
+
+function initializeHomeVideos() {
+  document.querySelectorAll(".situation-card--illustrated").forEach((card) => {
+    const video = card.querySelector("video.situation-media");
+    if (!video) return;
+
+    video.pause();
+    video.currentTime = 0;
+
+    const playVideo = () => {
+      video.play().catch(() => {});
+    };
+    const stopVideo = () => {
+      video.pause();
+      video.currentTime = 0;
+    };
+
+    card.addEventListener("mouseenter", playVideo);
+    card.addEventListener("mouseleave", stopVideo);
+    card.addEventListener("focusin", playVideo);
+    card.addEventListener("focusout", (event) => {
+      if (!card.contains(event.relatedTarget)) stopVideo();
+    });
+  });
 }
 
 function trackUsageEvent(path, title) {
@@ -1533,9 +1399,7 @@ function roadmapFor(route) {
   const localizedRoadmap =
     currentLang === "es"
       ? roadmapDetailsEs[route.id]
-      : currentLang === "fi"
-        ? roadmapDetailsFi[route.id]
-        : null;
+      : null;
   const roadmap = localizedRoadmap || roadmapDetails[route.id] || {
     process: route.title,
     difficulty: "Varies",
@@ -1561,9 +1425,7 @@ function resultDisclaimerFor(roadmap) {
   const routeId = roadmap?.route?.id;
   const nonEuNote = currentLang === "es"
     ? "Esto es solo un punto de partida; tu nacionalidad, consulado, situación familiar y documentos pueden cambiar el proceso exacto."
-    : currentLang === "fi"
-      ? "Tämä on vain lähtökohta; kansalaisuutesi, konsulaatti, perhetilanne ja asiakirjat voivat muuttaa tarkkaa prosessia."
-      : "This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process.";
+    : "This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process.";
   return `${t("resultDisclaimer")}${nonEuStartingPointRoutes.has(routeId) ? ` ${nonEuNote}` : ""}`;
 }
 
@@ -1571,13 +1433,11 @@ function resultSectionLabel(key) {
   const labels = {
     purpose: {
       en: "What this is for",
-      es: "Para qué sirve",
-      fi: "Mihin tämä on tarkoitettu"
+      es: "Para qué sirve"
     },
     forms: {
       en: "Forms and documents",
-      es: "Formularios y documentos",
-      fi: "Lomakkeet ja asiakirjat"
+      es: "Formularios y documentos"
     }
   };
   return labels[key]?.[currentLang] || labels[key]?.en || "";
@@ -1585,40 +1445,40 @@ function resultSectionLabel(key) {
 
 function routeVisualFor(routeId = "") {
   const visuals = {
-    "eu-vacation": "./assets/topic-scenes/vacation-entry.png",
-    "non-eu-vacation": "./assets/topic-scenes/vacation-entry.png",
-    "eu-registration": "./assets/topic-scenes/live-nie-20260606.png",
-    "eu-working": "./assets/goal-cards/work.png",
-    "nie-only": "./assets/topic-scenes/live-nie-20260606.png",
-    "tie-after-approval": "./assets/topic-scenes/live-tie-20260606.png",
-    "work-authorization": "./assets/goal-cards/work.png",
-    "digital-nomad": "./assets/goal-cards/remote.png",
-    "non-lucrative": "./assets/goal-cards/no-work.png",
-    study: "./assets/goal-cards/study.png",
-    family: "./assets/goal-cards/family.png",
-    "eu-family": "./assets/goal-cards/family.png",
-    padron: "./assets/topic-scenes/live-padron-20260606.png",
-    digital: "./assets/topic-scenes/live-digital-access-20260606.png",
-    nie: "./assets/topic-scenes/live-nie-20260606.png",
-    "social-security": "./assets/topic-scenes/live-social-security-20260606.png",
-    "sip-card": "./assets/topic-scenes/live-public-health-20260606.png",
-    "public-health": "./assets/topic-scenes/live-public-health-20260606.png",
-    "private-health": "./assets/topic-scenes/live-private-health-20260606.png",
-    "ehic-card": "./assets/topic-scenes/live-ehic-20260606.png",
-    banking: "./assets/topic-scenes/live-banking-20260606.png",
-    phone: "./assets/topic-scenes/phone-direct-20260606.png",
-    "job-search": "./assets/topic-scenes/live-job-search-20260606.png",
-    taxes: "./assets/topic-scenes/live-taxes-20260606.png",
-    "vacation-entry": "./assets/topic-scenes/vacation-entry.png",
-    "vacation-citizenship": "./assets/topic-scenes/vacation-entry.png",
-    "vacation-flights": "./assets/topic-scenes/vacation-flights-airports-20260606.png",
-    "vacation-ground": "./assets/topic-scenes/vacation-ground-transport-20260606.png",
-    "vacation-booking": "./assets/topic-scenes/vacation-booking-platforms-20260606.png",
-    "vacation-hotels": "./assets/topic-scenes/vacation-hotel-chains-20260606.png",
-    "vacation-tourism": "./assets/topic-scenes/vacation-planning.png",
-    "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.png"
+    "eu-vacation": "./assets/topic-scenes/vacation-entry.webp",
+    "non-eu-vacation": "./assets/topic-scenes/vacation-entry.webp",
+    "eu-registration": "./assets/topic-scenes/live-nie-20260606.webp",
+    "eu-working": "./assets/goal-cards/work.webp",
+    "nie-only": "./assets/topic-scenes/live-nie-20260606.webp",
+    "tie-after-approval": "./assets/topic-scenes/live-tie-20260606.webp",
+    "work-authorization": "./assets/goal-cards/work.webp",
+    "digital-nomad": "./assets/goal-cards/remote.webp",
+    "non-lucrative": "./assets/goal-cards/no-work.webp",
+    study: "./assets/goal-cards/study.webp",
+    family: "./assets/goal-cards/family.webp",
+    "eu-family": "./assets/goal-cards/family.webp",
+    padron: "./assets/topic-scenes/live-padron-20260606.webp",
+    digital: "./assets/topic-scenes/live-digital-access-20260606.webp",
+    nie: "./assets/topic-scenes/live-nie-20260606.webp",
+    "social-security": "./assets/topic-scenes/live-social-security-20260606.webp",
+    "sip-card": "./assets/topic-scenes/live-public-health-20260606.webp",
+    "public-health": "./assets/topic-scenes/live-public-health-20260606.webp",
+    "private-health": "./assets/topic-scenes/live-private-health-20260606.webp",
+    "ehic-card": "./assets/topic-scenes/live-ehic-20260606.webp",
+    banking: "./assets/topic-scenes/live-banking-20260606.webp",
+    phone: "./assets/topic-scenes/phone-direct-20260606.webp",
+    "job-search": "./assets/topic-scenes/live-job-search-20260606.webp",
+    taxes: "./assets/topic-scenes/live-taxes-20260606.webp",
+    "vacation-entry": "./assets/topic-scenes/vacation-entry.webp",
+    "vacation-citizenship": "./assets/topic-scenes/vacation-entry.webp",
+    "vacation-flights": "./assets/topic-scenes/vacation-flights-airports-20260606.webp",
+    "vacation-ground": "./assets/topic-scenes/vacation-ground-transport-20260606.webp",
+    "vacation-booking": "./assets/topic-scenes/vacation-booking-platforms-20260606.webp",
+    "vacation-hotels": "./assets/topic-scenes/vacation-hotel-chains-20260606.webp",
+    "vacation-tourism": "./assets/topic-scenes/vacation-planning.webp",
+    "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.webp"
   };
-  return visuals[routeId] || "./assets/home-cards/move-to-spain-matched-20260606.png";
+  return visuals[routeId] || "./assets/home-cards/move-to-spain-matched-20260606.webp";
 }
 
 function renderResultIntro(roadmap, explanation, guideId = roadmap?.route?.id || "") {
@@ -1687,11 +1547,6 @@ function generalRouteResult() {
     explanation: "Empieza aquí si todavía no sabes qué ruta se aplica.",
     steps: ["Identifica tu grupo de nacionalidad.", "Confirma si tu estancia supera los 90 días.", "Elige la guía que coincida con el motivo de tu estancia."],
     links: []
-  } : currentLang === "fi" ? {
-    process: "Yleinen asiakirjayhteenveto",
-    explanation: "Aloita tästä, jos et vielä tiedä mikä reitti sopii tilanteeseesi.",
-    steps: ["Tunnista kansalaisuusryhmäsi.", "Varmista ylittääkö oleskelusi 90 päivää.", "Valitse opas, joka vastaa oleskelusi tarkoitusta."],
-    links: []
   } : {
     process: "General paperwork overview",
     explanation: "Start here if you are not sure which route applies yet.",
@@ -1703,9 +1558,7 @@ function generalRouteResult() {
 function backButtonLabel() {
   return currentLang === "es"
     ? "Volver"
-    : currentLang === "fi"
-      ? "Takaisin"
-      : "Back";
+    : "Back";
 }
 
 function currentSectionLabel() {
@@ -1790,6 +1643,7 @@ function renderRoadmap() {
         <ol class="roadmap-list">${roadmap.steps.slice(0, 3).map((step) => `<li>${step}</li>`).join("")}</ol>
       </div>
       ${renderRoadmapLinks(roadmap.links)}
+      ${renderSafetyWingBlock(goal)}
       <p class="disclaimer">${t("resultDisclaimer")}</p>
     `;
     setCurrentScreenState({
@@ -1806,8 +1660,8 @@ function renderRoadmap() {
     result.hidden = false;
     result.classList.add("is-empty");
     result.innerHTML = `
-      <h3>${currentLang === "es" ? "Responde primero a las preguntas básicas" : currentLang === "fi" ? "Vastaa ensin peruskysymyksiin" : "Answer the basic questions first"}</h3>
-      <p>${currentLang === "es" ? "Cuando completes esas elecciones, IberiGo podrá sugerir la ruta general más probable para España." : currentLang === "fi" ? "Kun olet tehnyt nämä valinnat, IberiGo voi ehdottaa todennäköisintä koko Espanjaa koskevaa reittiä." : "Once those choices are selected, IberiGo can suggest the most likely Spain-wide route."}</p>
+      <h3>${currentLang === "es" ? "Responde primero a las preguntas básicas" : "Answer the basic questions first"}</h3>
+      <p>${currentLang === "es" ? "Cuando completes esas elecciones, IberiGo podrá sugerir la ruta general más probable para España." : "Once those choices are selected, IberiGo can suggest the most likely Spain-wide route."}</p>
     `;
     return;
   }
@@ -1818,9 +1672,7 @@ function renderRoadmap() {
     roadmap.explanation ||
     (currentLang === "es"
       ? "Usa esta ruta como punto de partida práctico antes de comprobar las fuentes oficiales."
-      : currentLang === "fi"
-        ? roadmap.timeline || "Käytä tätä käytännöllisenä lähtökohtana ennen virallisten lähteiden tarkistamista."
-        : route?.summary || "Use this as a practical starting point before checking official sources.");
+      : route?.summary || "Use this as a practical starting point before checking official sources.");
 
   result.hidden = false;
   result.classList.remove("is-empty");
@@ -1833,6 +1685,7 @@ function renderRoadmap() {
     </div>
     ${renderFormsAndTaxesBlock(route)}
     ${renderRoadmapLinks(roadmap.links, formAndTaxUrls(roadmap.route))}
+    ${renderSafetyWingBlock(route?.id)}
     <p class="disclaimer">${resultDisclaimerFor(roadmap)}</p>
   `;
   setCurrentScreenState({
@@ -1856,6 +1709,7 @@ function renderRoadmapCard(roadmap, guideId = roadmap?.route?.id || currentDirec
     </div>
     ${renderFormsAndTaxesBlock(roadmap.route)}
     ${renderRoadmapLinks(roadmap.links, formAndTaxUrls(roadmap.route))}
+    ${renderSafetyWingBlock(roadmap.route?.id || guideId)}
     <p class="disclaimer">${resultDisclaimerFor(roadmap)}</p>
   `;
   setCurrentScreenState(
@@ -1887,17 +1741,12 @@ function directRoadmapFor(goal) {
   if (goal === "padron") {
     return currentLang === "es" ? {
       process: "Padrón / registro en el ayuntamiento",
-      explanation: "Después de elegir padrón, lo importante es comprobar qué acepta tu ayuntamiento como prueba de domicilio. El contrato de alquiler, autorización del titular, escritura, recibos o cita previa pueden variar según municipio.",
+      explanation: "El padrón es el registro de tu domicilio en el ayuntamiento. Es una base práctica de la vida diaria en España: suelen pedir certificado o volante de padrón para TIE, renovaciones de residencia, sanidad, colegio y a veces banca. Cada municipio decide qué acepta como prueba de domicilio, como contrato de alquiler, escritura, autorización del titular o recibos. Conviene hacerlo en cuanto tengas una dirección estable, porque te lo pedirán en muchos pasos posteriores.",
       steps: ["Reúne pasaporte o documento de identidad y prueba de domicilio.", "Comprueba el proceso de tu ayuntamiento, porque cada municipio organiza el padrón a su manera.", "Pide certificado o volante de padrón si lo necesitas para TIE, residencia, sanidad u otro trámite."],
-      links: ["padron-info"]
-    } : currentLang === "fi" ? {
-      process: "Padrón / kunnallinen osoiterekisteröinti",
-      explanation: "Kun valitset padrónin, tärkeintä on tarkistaa mitä oma kunnantalo hyväksyy osoitetodisteeksi. Vuokrasopimus, omistajan valtuutus, omistuskirja, laskut tai ajanvaraussäännöt voivat vaihdella kunnittain.",
-      steps: ["Kerää passi tai henkilökortti sekä osoitetodiste.", "Tarkista oman kunnantalosi menettely, koska jokainen kunta hoitaa padrónin hieman eri tavalla.", "Pyydä padrón-todistus tai volante, jos tarvitset sitä TIE:tä, oleskelua, terveydenhuoltoa tai muuta menettelyä varten."],
       links: ["padron-info"]
     } : {
       process: "Padrón / town hall registration",
-      explanation: "After choosing padrón, the key question is what your town hall accepts as address evidence. Rental contract, owner authorization, deed, utility bills, or appointment rules can vary by municipality.",
+      explanation: "The padrón is your registration with the local town hall (ayuntamiento) confirming your address in Spain. It is the foundation of everyday life here — you need a padrón certificate or volante for your TIE, residence renewals, healthcare registration, school enrolment, and often for opening a bank account. Each municipality sets its own rules for what counts as proof of address: a rental contract, property deed, owner's authorisation letter, or utility bill are common, but accepted documents vary. Register as soon as you have a settled address — the padrón certificate is requested constantly and having it ready saves time at every subsequent step.",
       steps: ["Gather passport or ID and proof of address.", "Check your town hall process, because each municipality handles padrón differently.", "Request a padrón certificate or volante if you need it for TIE, residence, healthcare, or another procedure."],
       links: ["padron-info"]
     };
@@ -1905,17 +1754,12 @@ function directRoadmapFor(goal) {
   if (goal === "digital") {
     return currentLang === "es" ? {
       process: "Cl@ve o certificado digital FNMT",
-      explanation: "Después de elegir acceso digital, decide cuál es realista para tu situación. FNMT suele ser más directo si ya tienes NIE; Cl@ve puede pedir datos del soporte de una tarjeta física como la TIE.",
+      explanation: "Gran parte de la administración española funciona online, y para usarla necesitas una identidad digital. Las dos vías principales son el certificado ciudadano FNMT, que se solicita online y se activa tras acreditar tu identidad, y Cl@ve, el sistema público de identificación con PIN o modalidad permanente. Sirven para presentar impuestos, consultar Seguridad Social, firmar documentos, revisar expedientes de residencia y acceder a servicios sanitarios o prestaciones. Obtener una de estas opciones pronto ahorra muchas citas presenciales.",
       steps: ["Comprueba si ya tienes NIE y documentación aceptada para acreditar identidad.", "Elige FNMT si necesitas firmar documentos o presentar solicitudes electrónicas.", "Usa Cl@ve si cumples los requisitos de registro y quieres acceso frecuente a sedes públicas."],
-      links: ["fnmt", "fnmt-aeat-cita", "fnmt-ss-cita", "clave"]
-    } : currentLang === "fi" ? {
-      process: "Cl@ve tai FNMT-digivarmenne",
-      explanation: "Kun valitset digiasioinnin, päätä mikä reitti sopii asiakirjoillesi. FNMT on usein suoraviivaisempi, jos sinulla on jo NIE; Cl@ve voi pyytää fyysisen kortin, kuten TIE:n, tukinumeroa.",
-      steps: ["Tarkista onko sinulla jo NIE ja hyväksytyt henkilöllisyysasiakirjat.", "Valitse FNMT, jos sinun täytyy allekirjoittaa asiakirjoja tai lähettää virallisia hakemuksia verkossa.", "Käytä Cl@vea, jos täytät rekisteröintivaatimukset ja haluat säännöllisen pääsyn julkisiin palveluportaaleihin."],
       links: ["fnmt", "fnmt-aeat-cita", "fnmt-ss-cita", "clave"]
     } : {
       process: "Cl@ve or FNMT digital certificate",
-      explanation: "After choosing digital access, decide which route is realistic for your documents. FNMT is often more direct if you already have a NIE; Cl@ve may ask for support-number details from a physical card such as a TIE.",
+      explanation: "Spain's public administration runs almost entirely online, and you need a digital identity to access it. The two main options are the FNMT citizen certificate (a software certificate issued after an in-person identity check) and Cl@ve (a government identity system with PIN and permanent modes). Both let you file tax returns, check Social Security records, sign official documents, track residence applications, and access health and benefits portals. Getting one early saves enormous time — many procedures that seem to require an office visit can be done digitally once you have it. EU citizens with an electronic national ID card may also be able to use it directly on some portals.",
       steps: ["Check whether you already have a NIE and accepted identity documents.", "Choose FNMT if you need to sign documents or submit official applications online.", "Use Cl@ve if you meet the registration requirements and want regular access to public-service portals."],
       links: ["fnmt", "fnmt-aeat-cita", "fnmt-ss-cita", "clave"]
     };
@@ -1923,19 +1767,16 @@ function directRoadmapFor(goal) {
   if (goal === "nie") {
     return currentLang === "es" ? {
       process: "Número NIE",
-      explanation: "Después de elegir NIE, céntrate en justificar el motivo. La policía normalmente quiere ver una razón económica, profesional, social o administrativa, no solo que quieres tener el número por si acaso.",
+      explanation: "El NIE (Número de Identidad de Extranjero) es un número de identificación vitalicio que España asigna a los extranjeros para cualquier trámite oficial o financiero: comprar una vivienda, firmar ante notario, abrir una cuenta bancaria, empezar a trabajar o pagar impuestos. Es solo un número — no es una tarjeta ni un permiso de residencia; tener un NIE no da derecho a vivir ni a trabajar en España. La policía exige un motivo concreto y documentado: una compra inmobiliaria, un contrato de trabajo, un acto notarial, un requisito bancario o una obligación fiscal — no simplemente querer tenerlo por si acaso. La disponibilidad de citas varía mucho según la provincia; en zonas como la Costa Blanca pueden aparecer huecos en momentos inesperados, merece la pena comprobar a primera hora de la mañana y los fines de semana. Si acudes con toda la documentación en regla, el número se asigna normalmente el mismo día.",
       steps: ["Escribe o reúne la prueba del motivo: banco, compra, notaría, trabajo, impuestos u otro trámite concreto.", "Prepara pasaporte o documento de identidad y copias si las piden.", "Pide la cita o revisa el trámite oficial de asignación de NIE y la tasa 790-012."],
-      links: ["nie", "cita", "790-012"]
-    } : currentLang === "fi" ? {
-      process: "NIE-numero",
-      explanation: "Kun valitset NIE:n, keskity perustelemaan miksi tarvitset sitä. Poliisi odottaa yleensä tiettyä taloudellista, ammatillista, sosiaalista tai hallinnollista syytä, ei vain varmuuden vuoksi haettua numeroa.",
-      steps: ["Kirjoita tai kokoa todiste syystä: pankki, kauppa, notaari, työ, verotus tai jokin muu konkreettinen menettely.", "Valmistele passi tai henkilökortti ja kopiot, jos niitä pyydetään.", "Varaa aika tai tarkista virallinen NIE-hakumenettely sekä 790-012-maksu."],
-      links: ["nie", "cita", "790-012"]
+      links: ["nie", "cita", "790-012"],
+      route: { id: "nie" }
     } : {
       process: "NIE number",
-      explanation: "After choosing NIE, focus on proving why you need it. Police offices usually expect a specific economic, professional, social, or administrative reason, not just wanting the number in case it is useful later.",
+      explanation: "The NIE (Número de Identidad de Extranjero) is a lifetime identification number Spain assigns to foreigners for any official or financial transaction — buying property, signing a notarial deed, opening a bank account, starting work, or paying tax. It is just a number, not a card and not a residence permit; having a NIE does not give you the right to live or work in Spain. Police offices expect a concrete, documented reason to assign one: a property purchase, employment contract, notarial act, bank requirement, or tax obligation — not just wanting it in case it is useful later. Appointment availability varies sharply by province; in coastal areas like the Costa Blanca, slots can appear unpredictably, so check early in the morning and at weekends. If you attend with everything in order, the number is typically assigned the same day.",
       steps: ["Write or gather proof of the reason: bank, purchase, notary, work, tax, or another concrete procedure.", "Prepare passport or identity document and copies if requested.", "Book the appointment or review the official NIE assignment procedure and 790-012 fee."],
-      links: ["nie", "cita", "790-012"]
+      links: ["nie", "cita", "790-012"],
+      route: { id: "nie" }
     };
   }
   if (goal === "tie") {
@@ -1943,11 +1784,6 @@ function directRoadmapFor(goal) {
       process: "Tarjeta TIE después de aprobar el visado",
       explanation: "Después de elegir TIE, confirma primero que ya existe una concesión, visado o resolución favorable. La TIE no concede la residencia por sí sola; documenta una autorización ya aprobada.",
       steps: ["Comprueba que tienes visado, resolución favorable o autorización que permite pedir la tarjeta.", "Completa EX-17 y paga la tasa 790-012 de expedición de tarjeta.", "Reserva cita de huellas o expedición de tarjeta y lleva pasaporte, foto, aprobación, tasa pagada y padrón si tu domicilio debe constar."],
-      links: ["tie-form", "cita", "790-012"]
-    } : currentLang === "fi" ? {
-      process: "TIE-kortti viisumin hyväksynnän jälkeen",
-      explanation: "Kun valitset TIE:n, varmista ensin että viisumi, lupa tai myönteinen päätös on jo olemassa. TIE ei itsessään myönnä oleskeluoikeutta, vaan dokumentoi jo hyväksytyn luvan.",
-      steps: ["Tarkista, että sinulla on viisumi, myönteinen päätös tai lupa, jonka perusteella voit hakea korttia.", "Täytä EX-17 ja maksa vastaava 790-012-korttimaksu.", "Varaa sormenjälki-/korttiaika ja ota mukaan passi, valokuva, hyväksyntä, maksettu maksu ja padrón, jos osoitteen täytyy näkyä kortissa."],
       links: ["tie-form", "cita", "790-012"]
     } : {
       process: "TIE card after VISA approval",
@@ -1959,35 +1795,25 @@ function directRoadmapFor(goal) {
   if (goal === "social-security") {
     return currentLang === "es" ? {
       process: "Número de la Seguridad Social",
-      explanation: "El número de la Seguridad Social se usa para trabajar, cotizar y acceder a ciertos trámites. Si empiezas un empleo, tu empleador puede ayudarte con el alta; si trabajas por cuenta propia, normalmente tendrás que revisar también el alta de autónomo.",
-      steps: ["Confirma si lo necesitas por empleo, autónomo u otro trámite oficial.", "Prepara documentos de identidad y NIE/TIE o datos del pasaporte si los piden.", "Usa el trámite oficial de la Seguridad Social o pregunta a tu empleador si se encarga del alta."],
-      links: ["social-security-number"]
-    } : currentLang === "fi" ? {
-      process: "Sosiaaliturvatunnus",
-      explanation: "Sosiaaliturvatunnusta käytetään työntekoon, maksuihin ja joihinkin virallisiin menettelyihin. Jos aloitat palkkatyön, työnantaja voi auttaa rekisteröinnissä; jos toimit yrittäjänä, sinun täytyy yleensä tarkistaa myös autónomo-rekisteröinti.",
-      steps: ["Varmista tarvitsetko tunnuksen työtä, yrittäjyyttä vai muuta virallista menettelyä varten.", "Valmistele henkilöllisyysasiakirjat sekä NIE/TIE tai passitiedot, jos niitä pyydetään.", "Käytä virallista sosiaaliturvamenettelyä tai kysy työnantajaltasi hoitaako hän rekisteröinnin."],
+      explanation: "El número de la Seguridad Social, también llamado NUSS o número de afiliación, se asigna cuando empiezas a trabajar por cuenta ajena o por cuenta propia en España, o cuando te das de alta como autónomo. Es distinto del NIE, aunque para trabajar normalmente necesitarás ambos. El número te acompaña de por vida y vincula tus cotizaciones con pensión, desempleo, baja laboral y derecho a asistencia sanitaria. Si trabajas por cuenta ajena, el empleador suele gestionarlo; si lo necesitas antes o por otro trámite, puedes solicitarlo directamente online en la Seguridad Social si puedes identificarte, por ejemplo con certificado digital.",
+      steps: ["Confirma si lo necesitas por empleo, autónomo u otro trámite oficial.", "Prepara documentos de identidad y NIE/TIE o datos del pasaporte si los piden.", "Si tienes certificado digital, úsalo para identificarte y solicitar el NUSS online en la Seguridad Social.", "Si no puedes identificarte online, pregunta a tu empleador si se encarga del alta o revisa las alternativas oficiales."],
       links: ["social-security-number"]
     } : {
       process: "Social Security number",
-      explanation: "A Social Security number is used for work, contributions, and some official procedures. If you start a job, your employer may help with the registration; if you are self-employed, you usually need to check the autónomo registration path too.",
-      steps: ["Confirm whether you need it for employment, self-employment, or another official procedure.", "Prepare identity documents and NIE/TIE or passport details if requested.", "Use the official Social Security process or ask your employer if they are handling registration."],
+      explanation: "Your Social Security number, often shown as NUSS or número de afiliación a la Seguridad Social, is assigned when you start employed or self-employed work in Spain, or when you register as an autónomo. It is separate from your NIE, though both are needed for employment. The number stays with you for life and links your contributions to your future pension, unemployment benefits, sick pay, and healthcare entitlement. If you are employed, your employer typically requests it; if you need it earlier or for another procedure, you can request it directly online through Social Security if you can identify yourself, including with a digital certificate.",
+      steps: ["Confirm whether you need it for employment, self-employment, or another official procedure.", "Prepare identity documents and NIE/TIE or passport details if requested.", "If you have a digital certificate, use it to identify yourself and request the NUSS online through Social Security.", "If you cannot identify yourself online, ask your employer whether they are handling registration or check the official alternatives."],
       links: ["social-security-number"]
     };
   }
   if (goal === "sip-card") {
     return currentLang === "es" ? {
       process: "Tarjeta sanitaria pública",
-      explanation: "Cada comunidad autónoma usa su propio nombre para la tarjeta sanitaria pública. La idea general es la misma: primero confirmar tu derecho a asistencia sanitaria y después obtener la tarjeta regional correspondiente.",
+      explanation: "La tarjeta sanitaria pública te da acceso al sistema sanitario público español. Se llama SIP en la Comunidad Valenciana, TSI en Cataluña y tiene otros nombres según la comunidad autónoma, pero su función es la misma. Normalmente necesitas padrón y derecho reconocido a asistencia sanitaria, ya sea por Seguridad Social, residencia o situación que te dé cobertura. Se usa en tu centro de salud para médico de cabecera, derivaciones, recetas y atención dentro del sistema público.",
       steps: ["Comprueba si tu derecho a asistencia sanitaria ya está reconocido automáticamente o si debes solicitar el alta en asistencia sanitaria en España.", "Nombres que puedes ver según la región: Comunitat Valenciana (SIP), Madrid (Tarjeta Sanitaria Individual), Andalucía (Tarjeta sanitaria), Cataluña (TSI) y Murcia (Tarjeta Sanitaria Individual).", "Lleva identidad, NIE/TIE si ya lo tienes, padrón o prueba de domicilio y cualquier documento de aseguramiento o Seguridad Social que te pidan.", "Si además necesitas cobertura privada para un permiso o por elección propia, usa la guía separada de seguro médico privado."],
-      links: ["healthcare-right-spain", "valencia-health-card", "madrid-health-card", "andalucia-health-card", "cataluna-health-card", "murcia-health-card"]
-    } : currentLang === "fi" ? {
-      process: "Julkinen terveydenhuoltokortti",
-      explanation: "Jokaisella itsehallintoalueella on oma nimensä julkiselle terveydenhuoltokortille. Yleinen ajatus on sama kaikkialla: varmista ensin oikeutesi julkiseen terveydenhuoltoon ja hanki sitten alueellinen kortti.",
-      steps: ["Tarkista, onko oikeutesi julkiseen terveydenhuoltoon jo tunnustettu automaattisesti vai täytyykö sinun hakea rekisteröintiä Espanjassa.", "Alueellisia nimiä voivat olla esimerkiksi Valencian SIP-kortti, Madridin Tarjeta Sanitaria Individual, Andalusian Tarjeta sanitaria, Katalonian TSI ja Murcian Tarjeta Sanitaria Individual.", "Ota mukaan henkilöllisyysasiakirjat, NIE/TIE jos sinulla on se, padrón tai osoitetodiste sekä mahdolliset sosiaaliturva- tai terveydenhuolto-oikeusasiakirjat.", "Jos tarvitset lisäksi yksityisen vakuutuksen lupaa varten tai omasta valinnasta, käytä erillistä yksityisen sairausvakuutuksen opasta."],
       links: ["healthcare-right-spain", "valencia-health-card", "madrid-health-card", "andalucia-health-card", "cataluna-health-card", "murcia-health-card"]
     } : {
       process: "Public health card",
-      explanation: "Each autonomous community uses its own name for the public health card. The general idea is the same everywhere: first confirm your healthcare entitlement, then obtain the regional card.",
+      explanation: "The public health card gives you access to Spain's public healthcare system — it is called SIP in Valencia, TSI in Catalonia, and has different names in each autonomous community, but the function is the same. To get it you typically need to be registered on the padrón and have a Social Security affiliation or qualifying residence status. EU citizens registered as residents and their family members are generally entitled to it. Non-EU residents with a work or residence authorization usually qualify once they have padrón and Social Security registration. Present it at your assigned health centre (centro de salud) for GP appointments, referrals, prescriptions, and emergency care.",
       steps: ["Check whether your right to public healthcare is already recognized automatically or whether you need to request healthcare registration in Spain.", "Card names you may see by region: Valencian Community (SIP card), Madrid (Tarjeta Sanitaria Individual), Andalusia (Tarjeta sanitaria), Catalonia (TSI), and Murcia (Tarjeta Sanitaria Individual).", "Bring identity documents, NIE/TIE if you have it, padrón or address proof, and any Social Security or healthcare-entitlement documents requested.", "If you also need private cover for a permit or by personal choice, use the separate private health insurance guide."],
       links: ["healthcare-right-spain", "valencia-health-card", "madrid-health-card", "andalucia-health-card", "cataluna-health-card", "murcia-health-card"]
     };
@@ -1995,17 +1821,12 @@ function directRoadmapFor(goal) {
   if (goal === "private-health") {
     return currentLang === "es" ? {
       process: "Seguro médico privado",
-      explanation: "El seguro médico privado aparece a menudo en rutas de residencia o estancia, y también puede ser una elección personal aunque tengas o busques acceso a la sanidad pública.",
+      explanation: "El seguro médico privado suele ser necesario en ciertas solicitudes de visado o residencia, como residencia no lucrativa, estancia por estudios o nómada digital. En muchos casos la póliza debe cubrir España sin copagos y con cobertura amplia, por eso conviene leer bien las condiciones antes de contratar. También puede ser útil como cobertura adicional para acceso más rápido a especialistas, médicos que atienden en otros idiomas o centros privados. Compara carencias, exclusiones, copagos, red médica y cobertura territorial.",
       steps: ["Confirma primero si lo necesitas para un permiso concreto, para tiempos de espera más cortos o simplemente como cobertura adicional.", "Revisa si el trámite que te interesa pide una póliza sin copagos, con cobertura completa o con requisitos concretos.", "Compara varias aseguradoras grandes antes de contratar y revisa bien red médica, carencias, copagos y cobertura territorial."],
-      links: ["insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre"]
-    } : currentLang === "fi" ? {
-      process: "Yksityinen sairausvakuutus",
-      explanation: "Yksityinen sairausvakuutus tulee usein vastaan oleskelu- tai lupareiteillä, mutta se voi olla myös oma valinta vaikka sinulla olisi tai hakisit julkista terveydenhuoltoa.",
-      steps: ["Varmista ensin tarvitsetko sitä tiettyä lupaa varten, lyhyempiä odotusaikoja varten vai lisäturvaksi oman valintasi mukaan.", "Tarkista vaatiiko kiinnostava menettely vakuutuksen ilman omavastuuta, kattavan turvan tai muita tarkkoja ehtoja.", "Vertaile useita suuria vakuuttajia ennen sopimusta ja käy läpi hoitoverkosto, odotusajat, omavastuut ja alueellinen kattavuus."],
       links: ["insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre"]
     } : {
       process: "Private health insurance",
-      explanation: "Private health insurance often comes up in residence or stay routes, and it can also be a personal choice even if you already have or are applying for access to public healthcare.",
+      explanation: "Private health insurance in Spain is required for certain visa and residence applications — the non-lucrative visa, study authorization, and digital nomad visa all require it, and it must cover Spain with no copayments and no exclusions for pre-existing conditions in most cases. Beyond visa requirements, many residents choose private cover for faster specialist access, English-speaking doctors, and coverage in private hospitals. Major providers operating in Spain include Sanitas, Adeslas, Asisa, and DKV. Costs vary significantly by age, coverage level, and provider — compare carefully and read the exclusions before signing, especially if the policy is for a visa application where the consulate checks the terms.",
       steps: ["First confirm whether you need it for a specific permit, for shorter waiting times, or simply as extra cover by choice.", "Check whether the route you care about asks for no co-payments, full coverage, or other specific policy conditions.", "Compare several major insurers before buying and review network size, waiting periods, co-payments, and territorial coverage carefully."],
       links: ["insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre"]
     };
@@ -2013,17 +1834,12 @@ function directRoadmapFor(goal) {
   if (goal === "ehic-card") {
     return currentLang === "es" ? {
       process: "Tarjeta Sanitaria Europea",
-      explanation: "La Tarjeta Sanitaria Europea sirve para estancias temporales en otro país de la UE/EEE, Suiza o Reino Unido en las condiciones del sistema público del país de estancia. No sustituye un seguro de viaje ni sirve para mudarte a otro país.",
+      explanation: "La Tarjeta Sanitaria Europea sirve para recibir asistencia sanitaria pública necesaria durante estancias temporales en otros países de la UE/EEE, Suiza y Reino Unido, en las condiciones del país donde estés. Si resides en España y tienes derecho activo a la sanidad pública española, puedes solicitarla por la Seguridad Social española. No sustituye un seguro de viaje y no cubre tratamiento privado, repatriación ni una mudanza a otro país. Revisa siempre la fecha de validez porque caduca.",
       steps: ["Confirma que tienes derecho a asistencia sanitaria en España antes de solicitarla.", "Pide o renueva la TSE por el canal oficial de la Seguridad Social y revisa si la necesitas para ti o también para tus beneficiarios.", "Si viajas pronto y la tarjeta no llega a tiempo, comprueba si necesitas el Certificado Provisional Sustitutorio."],
-      links: ["ehic-card", "healthcare-right-spain"]
-    } : currentLang === "fi" ? {
-      process: "Eurooppalainen sairaanhoitokortti",
-      explanation: "EHIC on tarkoitettu tilapäisiin oleskeluihin toisessa EU-/ETA-maassa, Sveitsissä tai Yhdistyneessä kuningaskunnassa kyseisen maan julkisen järjestelmän ehtojen mukaisesti. Se ei korvaa matkavakuutusta eikä ole asiakirja ulkomaille muuttamista varten.",
-      steps: ["Varmista, että oikeutesi terveydenhuoltoon Espanjassa on voimassa ennen hakemista.", "Hae tai uusi EHIC virallisen sosiaaliturvareitin kautta ja tarkista tarvitsetko sen vain itsellesi vai myös huollettaville.", "Jos matkustat pian eikä kortti ehdi ajoissa, tarkista tarvitsetko väliaikaisen korvaavan todistuksen."],
       links: ["ehic-card", "healthcare-right-spain"]
     } : {
       process: "European Health Insurance Card",
-      explanation: "The EHIC is for temporary stays in another EU/EEA country, Switzerland, or the UK under that country's public-system rules. It does not replace travel insurance and it is not the document for moving your residence abroad.",
+      explanation: "The European Health Insurance Card (EHIC) — or its successor the GHIC for UK citizens — gives you access to medically necessary public healthcare during temporary stays in other European countries, at the same cost as local residents. It is issued by your home country's health authority, not Spain. If you are already a resident in Spain and registered for Spanish public healthcare, your Spanish SIP/TSI card covers you in Spain; your home country EHIC covers temporary visits elsewhere in Europe. It is not a substitute for travel insurance and does not cover private treatment, repatriation, or non-emergency care. Check the validity date — cards expire and must be renewed.",
       steps: ["Confirm that your right to healthcare in Spain is active before requesting it.", "Request or renew the EHIC through the official Social Security route and check whether you need it only for yourself or also for your dependants.", "If you are travelling very soon and the card may not arrive in time, check whether you need a Provisional Replacement Certificate instead."],
       links: ["ehic-card", "healthcare-right-spain"]
     };
@@ -2031,35 +1847,25 @@ function directRoadmapFor(goal) {
   if (goal === "banking") {
     return currentLang === "es" ? {
       process: "Cuenta bancaria y banca básica",
-      explanation: "Para vivir en España, normalmente ayuda separar lo esencial de lo opcional. A veces necesitas una cuenta para nómina, alquiler, recibos o identificación financiera, pero los documentos aceptados cambian según el banco y tu situación de residencia.",
+      explanation: "Abrir una cuenta bancaria en España suele ser uno de los primeros pasos prácticos al instalarte. Puede hacer falta para nómina, alquiler, recibos, suministros y trámites fiscales. Muchos bancos piden pasaporte o documento de identidad, NIE o TIE si ya lo tienes, padrón o prueba de domicilio y justificante de ingresos o empleo. Algunas entidades ofrecen cuentas de no residente o para recién llegados, pero pueden tener límites. Bancos grandes como CaixaBank, Santander, BBVA, Sabadell y Bankinter son habituales; Revolut y bunq pueden servir como opción temporal mientras organizas la documentación local.",
       steps: ["Comprueba primero para qué necesitas la cuenta: nómina, alquiler, autónomo, ahorros o trámites diarios.", "Prepara identificación, NIE/TIE si ya lo tienes, prueba de domicilio y cualquier justificante de ingresos o residencia que el banco pueda pedir.", "Compara si te conviene una cuenta para recién llegado, una cuenta de no residente o una cuenta ordinaria de residente según tu situación real.", "Si todavía no puedes abrir una cuenta bancaria española tradicional, una opción temporal puede ser empezar con Revolut o bunq mientras organizas tu documentación local."],
-      links: ["bank-santander", "bank-bbva", "bank-caixabank", "bank-sabadell", "bank-bankinter", "bank-revolut", "bank-bunq"]
-    } : currentLang === "fi" ? {
-      process: "Pankkitili ja pankkiasioinnin perusteet",
-      explanation: "Espanjassa asumista varten kannattaa yleensä erottaa pakollinen hyödyllisestä. Tiliä voidaan tarvita palkkaa, vuokraa, suoraveloituksia tai taloudellista tunnistautumista varten, mutta hyväksytyt asiakirjat vaihtelevat pankin ja oleskelutilanteen mukaan.",
-      steps: ["Tarkista ensin mihin tarvitset tiliä: palkkaan, vuokraan, yrittäjyyteen, säästöihin vai arjen maksuihin.", "Valmistele henkilöllisyysasiakirjat, NIE/TIE jos sinulla on se, osoitetodiste ja mahdolliset tulo- tai oleskelutodisteet, joita pankki voi pyytää.", "Vertaa sopiiko sinulle paremmin uuden tulijan tili, ei-residentin tili vai tavallinen residenttitili todellisen tilanteesi mukaan.", "Jos et vielä voi avata perinteistä espanjalaista pankkitiliä, väliaikainen aloitusvaihtoehto voi olla Revolut tai bunq samalla kun järjestät paikalliset asiakirjat."],
-      links: ["bank-santander", "bank-bbva", "bank-caixabank", "bank-sabadell", "bank-bankinter", "bank-revolut", "bank-bunq"]
+      links: ["bank-santander", "bank-bbva", "bank-caixabank", "bank-sabadell", "bank-bankinter", "bank-revolut", "bank-bunq", "bank-wise"]
     } : {
       process: "Bank account and banking basics",
-      explanation: "For life in Spain, it helps to separate what is essential from what is optional. You may need a bank account for salary, rent, direct debits, or financial identification, but accepted documents vary by bank and by your residence situation.",
+      explanation: "Opening a Spanish bank account is one of the first practical steps after arriving — you need it for salary payments, rent direct debits, utility contracts, and tax filings. Most banks require your NIE, passport, padrón certificate, and proof of income or employment. Non-residents can open a non-resident account with fewer documents, but these have limitations. Major retail banks include CaixaBank, Santander, BBVA, Sabadell, and Bankinter; online options like Revolut and Wise are popular for day-to-day use but may not satisfy landlords or employers who require a Spanish IBAN. Some banks have English-speaking branches or services in expat-heavy areas — worth asking before you commit.",
       steps: ["First confirm what you need the account for: salary, rent, self-employment, savings, or everyday payments.", "Prepare identity documents, NIE/TIE if you already have one, proof of address, and any income or residence evidence the bank may request.", "Compare whether a newcomer account, non-resident account, or ordinary resident account fits your real situation best.", "If you cannot open a traditional Spanish bank account yet, a temporary starting option can be Revolut or bunq while you sort out your local paperwork."],
-      links: ["bank-santander", "bank-bbva", "bank-caixabank", "bank-sabadell", "bank-bankinter", "bank-revolut", "bank-bunq"]
+      links: ["bank-santander", "bank-bbva", "bank-caixabank", "bank-sabadell", "bank-bankinter", "bank-revolut", "bank-bunq", "bank-wise"]
     };
   }
   if (goal === "job-search") {
     return currentLang === "es" ? {
       process: "Buscar trabajo en España",
-      explanation: "Para empezar a buscar trabajo en España, conviene separar la búsqueda de ofertas de la parte administrativa. Primero mira dónde están las vacantes y qué perfiles piden; luego confirma qué documentación laboral y de residencia necesitas para aceptar un puesto.",
+      explanation: "Buscar trabajo en España combina portales oficiales, plataformas privadas y redes locales. SEPE y Empléate ayudan a ver recursos públicos, orientación y ofertas registradas; InfoJobs, LinkedIn, Indeed, Job Today y portales especializados amplían mucho la búsqueda. Los ciudadanos de la UE pueden trabajar sin autorización adicional, pero los no comunitarios normalmente necesitan una autorización de trabajo antes de empezar. El español abre muchas más opciones fuera de empresas internacionales o zonas muy turísticas.",
       steps: ["Define si buscas empleo local, remoto desde España, trabajo estacional o un sector concreto.", "Prepara CV, datos de contacto y documentación básica para candidaturas, y revisa si tu situación te permite trabajar legalmente en España.", "Empieza por portales públicos y oficiales para ver vacantes, orientación y recursos del mercado laboral.", "Después amplía la búsqueda con portales privados grandes y especializados para comparar volumen, sectores y forma de aplicar."],
-      links: ["jobs-empleate", "jobs-sepe", "jobs-eures", "jobs-infojobs", "jobs-linkedin", "jobs-indeed", "jobs-jobtoday", "jobs-tecnoempleo"]
-    } : currentLang === "fi" ? {
-      process: "Työnhaku Espanjassa",
-      explanation: "Työnhaun alussa Espanjassa kannattaa erottaa itse työpaikkojen etsiminen hallinnollisesta puolesta. Katso ensin missä avoimet paikat ovat ja mitä profiileja haetaan, ja varmista vasta sitten mitä työ- ja oleskeluasiakirjoja tarvitset työn vastaanottamiseen.",
-      steps: ["Määritä etsitkö paikallista työtä, etätyötä Espanjasta, kausityötä vai tietyn alan tehtäviä.", "Valmistele CV, yhteystiedot ja perusasiakirjat hakemuksia varten, ja tarkista salliiko tilanteesi työnteon laillisesti Espanjassa.", "Aloita julkisista ja virallisista portaaleista nähdäksesi työpaikat, ohjauksen ja työmarkkinatiedot.", "Laajenna sen jälkeen hakua suuriin yksityisiin ja erikoistuneisiin portaaleihin vertaillaksesi määrää, aloja ja hakutapoja."],
       links: ["jobs-empleate", "jobs-sepe", "jobs-eures", "jobs-infojobs", "jobs-linkedin", "jobs-indeed", "jobs-jobtoday", "jobs-tecnoempleo"]
     } : {
       process: "Job search in Spain",
-      explanation: "To begin a job search in Spain, it helps to separate finding openings from the admin side. First look at where the vacancies are and what profiles are being asked for; then confirm what work and residence paperwork you need in order to accept a role.",
+      explanation: "Finding work in Spain as a foreigner involves a mix of official portals and local networks. The main public job portal is the SEPE (Servicio Público de Empleo Estatal) at sepe.es, which lists registered vacancies and manages unemployment benefits. InfoJobs, LinkedIn, and Tecnoempleo are the most-used private job boards. EU citizens can work without restriction; non-EU citizens generally need a work authorization tied to a specific employer before starting. Registering with SEPE is also required to access unemployment benefits (prestación por desempleo) if you lose a job — you must register within 15 working days of becoming unemployed. Learning Spanish significantly expands options outside major cities and international companies.",
       steps: ["Decide whether you are looking for local work, remote work from Spain, seasonal work, or a specific sector.", "Prepare a CV, contact details, and basic application documents, and check whether your current status lets you work legally in Spain.", "Start with public and official portals so you can see vacancies, guidance, and labour-market resources.", "Then widen the search through large private and specialist portals so you can compare volume, sectors, and application style."],
       links: ["jobs-empleate", "jobs-sepe", "jobs-eures", "jobs-infojobs", "jobs-linkedin", "jobs-indeed", "jobs-jobtoday", "jobs-tecnoempleo"]
     };
@@ -2067,17 +1873,12 @@ function directRoadmapFor(goal) {
   if (goal === "taxes") {
     return currentLang === "es" ? {
       process: "Impuestos y domicilio fiscal",
-      explanation: "En la vida diaria en España, lo importante es tener claro qué trámite fiscal te toca y qué datos tiene Hacienda sobre ti. Tu domicilio fiscal y tus obligaciones dependen de tu situación real, no solo de vivir aquí.",
+      explanation: "Si eres residente fiscal en España, normalmente por pasar más de 183 días al año en el país u otros criterios de residencia, puedes tener que declarar tu renta ante la Agencia Tributaria. La residencia fiscal puede implicar declarar ingresos mundiales, no solo ingresos españoles. Tu domicilio fiscal debe reflejar dónde vives realmente y se puede revisar o actualizar en la sede de la Agencia Tributaria. También hay regímenes especiales para algunos nuevos residentes, como la llamada Ley Beckham, que conviene revisar si acabas de mudarte.",
       steps: ["Aclara si tu necesidad es solo identificación fiscal, cambio de domicilio fiscal, alta de autónomo o gestión de declaraciones.", "Comprueba qué dirección y datos personales figuran para ti en los servicios oficiales antes de usar notificaciones o trámites online.", "Usa la sede oficial de la Agencia Tributaria para revisar tus datos, certificados y procedimientos relacionados con impuestos."],
-      links: ["tax-agency", "tax-census"]
-    } : currentLang === "fi" ? {
-      process: "Verot ja verosoite",
-      explanation: "Arjessa Espanjassa tärkeää on ymmärtää mikä veromenettely koskee sinua ja mitä tietoja verohallinnolla on sinusta. Verosoite ja velvollisuudet riippuvat todellisesta tilanteestasi, eivät vain siitä että asut täällä.",
-      steps: ["Selvitä, tarvitsetko vain verotunnistetta, verosoitteen muutosta, yrittäjärekisteröintiä vai veroilmoituksiin liittyvää asiointia.", "Tarkista mitä osoite- ja henkilötietoja sinusta näkyy virallisissa palveluissa ennen ilmoitusten tai verkkomenettelyjen käyttöä.", "Käytä verohallinnon virallista portaalia omien tietojen, todistusten ja veromenettelyjen tarkistamiseen."],
       links: ["tax-agency", "tax-census"]
     } : {
       process: "Taxes and tax address",
-      explanation: "For daily life in Spain, it helps to be clear about which tax procedure applies to you and what details the Tax Agency has on file for you. Your tax address and obligations depend on your real situation, not only on the fact that you live here.",
+      explanation: "Once you are a tax resident in Spain — which generally means spending more than 183 days per year in the country — you must file an annual income tax return (declaración de la renta, IRPF) with the Agencia Tributaria. Tax residents are taxed on worldwide income, not just Spanish income. Your tax address (domicilio fiscal) should reflect where you actually live, and you update it through the Tax Agency's online portal or in person. The annual filing window is typically April to June for the previous year. Spain also has specific rules for new residents under the Beckham Law (ley Impatriados), which can allow taxation only on Spanish-source income for up to six years — worth checking if you recently moved to Spain.",
       steps: ["Clarify whether you only need tax identification, a tax-address update, self-employment registration, or help with declarations.", "Check what address and personal details are recorded for you in official services before using online notices or procedures.", "Use the official Tax Agency portal to review your data, certificates, and tax-related procedures."],
       links: ["tax-agency", "tax-census"]
     };
@@ -2085,17 +1886,12 @@ function directRoadmapFor(goal) {
   if (goal === "phone") {
     return currentLang === "es" ? {
       process: "Número de teléfono e internet",
-      explanation: "Para instalarte mejor en España, conviene decidir si solo necesitas una línea rápida al llegar o una opción más estable para banca, verificación por SMS, internet en casa y servicios diarios.",
+      explanation: "Tener un número español suele ser de lo primero que conviene organizar al llegar. Lo necesitarás para banca, códigos SMS, citas, verificaciones y algunos servicios públicos. Las operadoras grandes incluyen Movistar, Vodafone y Orange, y también hay opciones más flexibles o de menor coste como DIGI, O2 o Yoigo. Para contratar una línea pueden pedir pasaporte, NIE o TIE, porque las líneas anónimas no son la norma legal. Para internet en casa, la fibra está muy extendida, pero conviene revisar cobertura, permanencia y condiciones antes de firmar.",
       steps: ["Define si buscas una solución temporal de llegada o una línea estable para vivir en España.", "Prepara pasaporte o NIE/TIE, porque algunas operadoras pueden pedir identificación al contratar o portar un número.", "Antes de elegir tarifa, revisa cobertura en tu zona, permanencia, internet en casa y si necesitas recibir códigos para banca y sedes online.", "Compara primero grandes operadores y opciones más flexibles antes de contratar móvil, fibra o un paquete conjunto."],
-      links: ["provider-movistar", "provider-vodafone", "provider-orange", "provider-digi", "provider-o2", "provider-yoigo"]
-    } : currentLang === "fi" ? {
-      process: "Puhelinnumero ja internet",
-      explanation: "Espanjaan asettuessa kannattaa päättää tarvitsetko vain nopean liittymän saapuessa vai pysyvämmän vaihtoehdon pankkia, tekstiviestivarmennusta, kodin internetiä ja arjen palveluita varten.",
-      steps: ["Määritä tarvitsetko vain väliaikaisen saapumisratkaisun vai vakaan liittymän Espanjassa asumiseen.", "Valmistele passi tai NIE/TIE, koska jotkin operaattorit voivat pyytää henkilöllisyystodistetta sopimusta tai numeronsiirtoa varten.", "Tarkista ennen liittymän valintaa alueesi kuuluvuus, mahdollinen määräaika, kodin internet ja tarvitsetko tekstiviestikoodeja pankkia tai julkisia portaaleja varten.", "Vertaa ensin suuret operaattorit ja joustavammat vaihtoehdot ennen mobiilin, kuidun tai yhdistelmäpaketin valintaa."],
       links: ["provider-movistar", "provider-vodafone", "provider-orange", "provider-digi", "provider-o2", "provider-yoigo"]
     } : {
       process: "Phone number and internet",
-      explanation: "To settle in Spain more smoothly, it helps to decide whether you only need a quick arrival line or a more stable option for banking, SMS verification, home internet, and everyday services.",
+      explanation: "Getting a Spanish SIM is straightforward and often one of the first things to sort on arrival — you need a working Spanish number for bank verification, government SMS codes, appointment confirmations, and Cl@ve PIN registration. Major operators are Movistar, Vodafone, Orange, and MásMóvil; low-cost MVNOs like Simyo, Digi, and Lebara offer good value on the same networks. You need your passport or NIE to register a SIM (anonymous SIMs are not legal in Spain). Prepay SIMs are available in supermarkets, phone shops, and operator stores. For home broadband, fibre coverage in Spain is extensive — Spain has one of the highest fibre penetration rates in Europe — and contracts are typically 12 months with competitive pricing.",
       steps: ["Decide whether you need a temporary arrival solution or a stable line for living in Spain.", "Prepare passport or NIE/TIE, because some providers may ask for identification when opening a contract or porting a number.", "Before choosing a plan, check coverage in your area, contract length, home internet options, and whether you need reliable SMS codes for banking or public portals.", "Compare the larger operators and the more flexible options before choosing mobile, fibre, or a bundled package."],
       links: ["provider-movistar", "provider-vodafone", "provider-orange", "provider-digi", "provider-o2", "provider-yoigo"]
     };
@@ -2103,17 +1899,12 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-entry") {
     return currentLang === "es" ? {
       process: "Reglas de entrada y estancia corta",
-      explanation: "Esta guía resume el punto de partida para visitas de vacaciones a España. Lo primero es saber si tu viaje cae dentro de una visita corta normal y si debes mirar reglas de la UE o reglas Schengen.",
+      explanation: "La entrada a España depende de tu pasaporte. Los ciudadanos de la UE, EEE y Suiza pueden entrar con pasaporte o documento nacional de identidad válido. Muchas nacionalidades no comunitarias pueden entrar sin visado hasta 90 días en cualquier periodo de 180 días dentro de todo el espacio Schengen, no solo España. Otras nacionalidades necesitan visado Schengen antes de viajar. ETIAS, el sistema europeo de autorización de viaje, se aplicará a viajeros no comunitarios exentos de visado cuando esté en vigor, así que conviene revisar el estado actual antes del viaje. El seguro de viaje no suele ser obligatorio para ciudadanos UE, pero es recomendable y puede ser obligatorio para solicitantes de visado Schengen.",
       steps: ["Confirma si tu estancia es una visita corta ordinaria y no una mudanza o residencia.", "Revisa si eres ciudadano de la UE/EEE/Suiza o si tu pasaporte entra por reglas Schengen para no comunitarios.", "Comprueba antes de viajar los documentos de entrada, seguro si aplica y la regla de 90/180 cuando corresponda."],
-      links: ["eu-short-stay", "schengen", "calculator"]
-    } : currentLang === "fi" ? {
-      process: "Maahantulosäännöt ja lyhyt oleskelu",
-      explanation: "Tämä opas kokoaa lähtöpisteen Espanjan lomavierailulle. Ensin kannattaa varmistaa, onko kyse tavallisesta lyhyestä vierailusta ja katsotko EU- vai Schengen-sääntöjä.",
-      steps: ["Varmista, että kyse on tavallisesta lyhyestä vierailusta eikä muutosta tai oleskelusta.", "Tarkista oletko EU-/ETA-/Sveitsin kansalainen vai tuleeko passisi Schengen-sääntöjen kautta.", "Tarkista ennen matkaa maahantuloasiakirjat, mahdollinen vakuutus ja 90/180-sääntö tarvittaessa."],
       links: ["eu-short-stay", "schengen", "calculator"]
     } : {
       process: "Entry rules and short stays",
-      explanation: "This guide gives the starting point for a vacation trip to Spain. The first question is whether your trip is an ordinary short visit and whether you should be looking at EU rules or Schengen rules.",
+      explanation: "Entry to Spain depends on your passport. EU, EEA, and Swiss citizens can enter freely with a valid passport or national ID for any length of stay. Most other nationalities can enter Spain visa-free for up to 90 days in any 180-day period across the whole Schengen area — not just Spain. Some nationalities need a Schengen short-stay visa before travelling. ETIAS (the EU travel authorisation system) is expected to apply to currently visa-free non-EU visitors once launched — check the current status before you travel. Travel insurance is not legally required for EU citizens but is strongly recommended; it may be required for Schengen visa applicants.",
       steps: ["Confirm that your stay is an ordinary short visit rather than a move or residence plan.", "Check whether you are travelling as an EU/EEA/Swiss citizen or under Schengen short-stay rules for non-EU passports.", "Before travelling, review entry documents, any insurance requirement, and the 90/180 rule where relevant."],
       links: ["eu-short-stay", "schengen", "calculator"]
     };
@@ -2121,17 +1912,12 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-citizenship") {
     return currentLang === "es" ? {
       process: "Visita UE frente a no UE",
-      explanation: "Para vacaciones, la diferencia principal es sencilla: los ciudadanos UE suelen mirar reglas de estancia corta dentro del espacio europeo, mientras que muchos viajeros no comunitarios deben confirmar visado, exención o ETIAS cuando corresponda.",
+      explanation: "La separación principal para entrar en España es UE/EEE/Suiza frente al resto de viajeros. Los ciudadanos de la UE, EEE y Suiza se mueven libremente y pueden entrar sin visado ni límite de 90 días, aunque vivir más de tres meses activa normas de registro de residencia. Los visitantes no comunitarios de países exentos de visado pueden entrar sin visado, pero están sujetos al límite Schengen de 90 días en cualquier periodo de 180 días en todos los países Schengen juntos. Los viajeros de países que sí requieren visado deben solicitar un visado Schengen en el consulado español antes de viajar. ETIAS funcionará como autorización previa para muchos viajeros no comunitarios exentos de visado cuando esté en vigor.",
       steps: ["Si eres ciudadano UE/EEE/Suiza, revisa la guía de estancia corta y viaja con documento válido.", "Si eres no comunitario, comprueba si tu nacionalidad necesita visado Schengen o entra por exención.", "Usa la calculadora oficial si necesitas confirmar el límite de 90 días en 180 días."],
-      links: ["eu-short-stay", "schengen", "calculator"]
-    } : currentLang === "fi" ? {
-      process: "EU- ja non-EU-vierailu",
-      explanation: "Lomamatkalla tärkein ero on yksinkertainen: EU-kansalaiset katsovat yleensä lyhyen oleskelun sääntöjä, kun taas monet EU:n ulkopuoliset matkailijat joutuvat tarkistamaan viisumin, viisumivapauden tai ETIAS-vaatimuksen.",
-      steps: ["Jos olet EU-/ETA-/Sveitsin kansalainen, tarkista lyhyen oleskelun ohje ja matkusta voimassa olevalla asiakirjalla.", "Jos olet EU:n ulkopuolelta, tarkista tarvitseeko kansalaisuutesi Schengen-viisumin tai viisumivapauden.", "Käytä virallista laskuria, jos sinun täytyy varmistaa 90 päivää 180 päivän aikana -raja."],
       links: ["eu-short-stay", "schengen", "calculator"]
     } : {
       process: "EU vs non-EU visits",
-      explanation: "For vacations, the main split is simple: EU citizens usually look at short-stay rules inside the European space, while many non-EU travellers need to confirm visa, visa-free, or ETIAS-related requirements.",
+      explanation: "The key split for Spain entry is EU/EEA/Swiss versus everyone else. EU, EEA, and Swiss citizens move freely within the EU and can stay in Spain as long as they like without any visa or time limit — though stays over three months trigger residence registration rules. Non-EU visitors from visa-free countries (such as the US, UK, Canada, and Australia) can enter without a visa but are subject to the 90-day Schengen limit across all Schengen countries combined. Visitors from countries that require a Schengen visa must apply at a Spanish consulate before travelling. ETIAS — a pre-travel authorisation system similar to the US ESTA — is expected to apply to currently visa-free non-EU visitors; check whether it is in force before your trip.",
       steps: ["If you are an EU/EEA/Swiss citizen, review the short-stay guidance and travel with a valid document.", "If you are non-EU, check whether your nationality needs a Schengen visa or enters visa-free.", "Use the official calculator if you need to confirm the 90 days in any 180-day limit."],
       links: ["eu-short-stay", "schengen", "calculator"]
     };
@@ -2139,13 +1925,8 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-flights") {
     return currentLang === "es" ? {
       process: "Vuelos y aeropuertos",
-      explanation: "Si primero quieres aclarar cómo llegar o comparar rutas, empieza por aerolíneas, comparadores y la red oficial de aeropuertos.",
+      explanation: "Para organizar cómo llegar a España, conviene empezar por la ciudad o región real a la que quieres ir. Madrid y Barcelona concentran muchas conexiones internacionales, pero Málaga, Alicante, Valencia, Palma, Sevilla, Bilbao y los aeropuertos canarios pueden ser mejores según el destino. Aena es la fuente oficial para aeropuertos, terminales y servicios. Iberia permite reservar directamente con una aerolínea española, mientras que Google Flights, Skyscanner, KAYAK o eDreams ayudan a comparar fechas, escalas y precios. Antes de pagar, revisa equipaje, aeropuerto exacto, cambios y si la reserva es directa o mediante intermediario.",
       steps: ["Consulta primero aeropuertos y rutas posibles según la ciudad o región a la que quieres llegar.", "Compara fechas y precios antes de decidir si reservas con una aerolínea directa o mediante un comparador.", "Revisa siempre condiciones de equipaje, cambios y aeropuerto exacto antes de pagar."],
-      links: ["travel-aena", "flight-iberia", "flight-google", "flight-skyscanner", "flight-kayak", "flight-edreams"]
-    } : currentLang === "fi" ? {
-      process: "Lennot ja lentoasemat",
-      explanation: "Jos haluat ensin selvittää saapumisen tai vertailla reittejä, aloita lentoyhtiöistä, hakutyökaluista ja virallisesta lentoasemaverkostosta.",
-      steps: ["Katso ensin kentät ja mahdolliset reitit sen kaupungin tai alueen mukaan, jonne olet menossa.", "Vertaa päiviä ja hintoja ennen kuin päätät varata suoraan lentoyhtiöltä tai hakupalvelun kautta.", "Tarkista aina matkatavaraehdot, muutokset ja tarkka lentokenttä ennen maksua."],
       links: ["travel-aena", "flight-iberia", "flight-google", "flight-skyscanner", "flight-kayak", "flight-edreams"]
     } : {
       process: "Flights and airports",
@@ -2157,13 +1938,8 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-ground") {
     return currentLang === "es" ? {
       process: "Trenes, autobuses y coche",
-      explanation: "Dentro de España, la mejor opción depende mucho del trayecto. En algunos viajes gana el tren; en otros, el autobús o el coche de alquiler te da más libertad.",
+      explanation: "Dentro de España, el mejor transporte depende mucho del trayecto. Para rutas entre grandes ciudades, el tren puede ser la opción más cómoda y rápida; Renfe y otros operadores cubren muchas líneas de alta velocidad. Para pueblos, costa o rutas menos conectadas, el autobús puede funcionar mejor. Un coche de alquiler da libertad para zonas rurales, playas pequeñas o varios destinos en pocos días, pero conviene revisar aparcamiento, peajes, cobertura, combustible y condiciones de recogida. En ciudades grandes, a menudo es más fácil moverse en metro, tren local, autobús o taxi que alquilar coche.",
       steps: ["Mira si tu ruta encaja mejor con tren de larga distancia, autobús o coche de alquiler.", "Comprueba horarios, estaciones o aeropuertos de recogida antes de cerrar el plan.", "Si alquilas coche, revisa bien cobertura, combustible, conductor adicional y condiciones de recogida."],
-      links: ["travel-renfe", "travel-alsa", "car-europcar", "car-sixt", "car-avis", "car-hertz"]
-    } : currentLang === "fi" ? {
-      process: "Junat, bussit ja auto",
-      explanation: "Espanjan sisällä paras vaihtoehto riippuu paljon reitistä. Joillakin matkoilla juna on selkein, toisilla bussi tai vuokra-auto antaa enemmän vapautta.",
-      steps: ["Tarkista sopiiko reittisi paremmin pitkän matkan junaan, bussiin vai vuokra-autoon.", "Varmista aikataulut, asemat tai noutopisteet ennen lopullista suunnitelmaa.", "Jos vuokraat auton, tarkista huolellisesti vakuutus, polttoainekäytäntö, lisäkuljettaja ja noutoehdot."],
       links: ["travel-renfe", "travel-alsa", "car-europcar", "car-sixt", "car-avis", "car-hertz"]
     } : {
       process: "Trains, buses, and car hire",
@@ -2175,13 +1951,8 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-booking") {
     return currentLang === "es" ? {
       process: "Buscadores y reservas",
-      explanation: "Para alojamiento, lo práctico suele ser comparar primero plataformas grandes y luego reservar cuando ya tengas clara la zona, el tipo de estancia y las condiciones.",
+      explanation: "Para alojamiento, lo más práctico suele ser comparar primero plataformas grandes y reservar solo cuando tengas clara la zona, el tipo de estancia y las condiciones. Booking.com y Expedia ayudan a comparar hoteles y apartamentos; Airbnb puede ser útil para apartamentos o estancias más largas, pero revisa bien normas, limpieza y cancelación. Tripadvisor sirve para contrastar opiniones y ubicación. Mira siempre si el precio final incluye tasas, limpieza, depósito, desayuno, parking o cancelación. Para viajes con niños, trabajo remoto o llegada tarde, comprueba también horarios de entrada, ascensor, ruido, aire acondicionado y transporte cercano.",
       steps: ["Compara barrio, política de cancelación, horarios de llegada y tipo de alojamiento antes de reservar.", "Mira si te conviene hotel, apartamento o estancia más flexible según la duración del viaje.", "Antes de pagar, revisa bien tasas, condiciones y opiniones recientes."],
-      links: ["stay-booking", "stay-airbnb", "stay-expedia", "stay-tripadvisor"]
-    } : currentLang === "fi" ? {
-      process: "Varaussivustot",
-      explanation: "Majoituksen kohdalla käytännöllistä on yleensä vertailla ensin suuria alustoja ja varata vasta kun alue, majoitustyyppi ja ehdot ovat selvillä.",
-      steps: ["Vertaa aluetta, peruutusehtoja, saapumisaikoja ja majoitustyyppiä ennen varausta.", "Katso sopiiko sinulle paremmin hotelli, asunto vai joustavampi majoitusmatkan pituuden mukaan.", "Tarkista ennen maksua maksut, ehdot ja tuoreet arviot huolellisesti."],
       links: ["stay-booking", "stay-airbnb", "stay-expedia", "stay-tripadvisor"]
     } : {
       process: "Booking platforms",
@@ -2193,13 +1964,8 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-hotels") {
     return currentLang === "es" ? {
       process: "Cadenas hoteleras",
-      explanation: "Si prefieres reservar directamente, las grandes cadenas pueden ayudarte a comparar estilos de estancia: ciudad, playa, negocio, resort o escapada corta.",
+      explanation: "Si prefieres reservar directamente, las cadenas hoteleras pueden ayudarte a comparar estilos de viaje con menos ruido: hoteles urbanos, playa, resort, negocios o escapadas cortas. Meliá, Barceló, RIU e Iberostar tienen fuerte presencia española, especialmente en destinos de vacaciones; NH suele funcionar bien para ciudades; Marriott y Hilton ofrecen opciones internacionales; Paradores es una red pública española con hoteles en edificios históricos o lugares singulares. Reservar directo a veces mejora condiciones, fidelización o comunicación, pero compara siempre ubicación, cancelación y precio final.",
       steps: ["Decide si buscas hotel urbano, resort, playa, viaje de trabajo o una estancia más clásica.", "Compara ubicación, categoría, condiciones y si te conviene reservar directo con la cadena.", "Usa varias cadenas grandes para ver rápidamente qué estilo encaja mejor con tu viaje."],
-      links: ["travel-paradores", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "hotel-marriott", "hotel-hilton"]
-    } : currentLang === "fi" ? {
-      process: "Hotelliketjut",
-      explanation: "Jos haluat varata suoraan, suuret ketjut auttavat vertailemaan eri tyyppisiä majoituksia: kaupunki, ranta, työmatka, resort tai lyhyt irtiotto.",
-      steps: ["Päätä etsitkö kaupunkihotellia, resortia, rantaa, työmatkavaihtoehtoa vai klassisempaa majoitusta.", "Vertaa sijaintia, tasoa, ehtoja ja kannattaako varata suoraan ketjun kautta.", "Käytä useita suuria ketjuja nähdäksesi nopeasti mikä tyyli sopii matkallesi parhaiten."],
       links: ["travel-paradores", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "hotel-marriott", "hotel-hilton"]
     } : {
       process: "Hotel chains",
@@ -2211,17 +1977,12 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-tourism") {
     return currentLang === "es" ? {
       process: "Turismo oficial e ideas",
-      explanation: "A veces lo más útil no es reservar primero, sino entender mejor destinos, regiones y tipos de viaje. Ahí las fuentes oficiales pueden darte una visión más limpia.",
+      explanation: "España ofrece viajes muy distintos según la región. La costa mediterránea, como Costa Brava, Costa Blanca o Costa del Sol, funciona para playa y buen clima; Madrid, Barcelona, Sevilla y Valencia mezclan cultura, comida y arquitectura; Canarias y Baleares son destinos insulares muy populares; y zonas interiores de Andalucía, Castilla, Galicia, Asturias o País Vasco pueden dar una experiencia más local y tranquila. La temporada media, especialmente abril-mayo y septiembre-octubre, suele tener mejor equilibrio entre clima, precios y menos gente. El portal oficial Spain.info es buen punto de partida para ideas sin tanta presión comercial.",
       steps: ["Empieza por el portal oficial de turismo para ver regiones, ciudades y estilos de viaje.", "Usa la información oficial para hacer una primera selección antes de comparar precios.", "Cuando ya tengas la idea clara, pasa a transporte y alojamiento con menos ruido."],
-      links: ["travel-spaininfo", "travel-paradores"]
-    } : currentLang === "fi" ? {
-      process: "Virallinen matkailu ja ideat",
-      explanation: "Joskus hyödyllisintä ei ole varata heti, vaan ymmärtää paremmin kohteita, alueita ja erilaisia matkatyylejä. Siinä viralliset lähteet antavat siistimmän kokonaiskuvan.",
-      steps: ["Aloita virallisesta matkailuportaalista nähdäksesi alueet, kaupungit ja eri matkustustyylit.", "Käytä virallista tietoa ensimmäiseen rajaukseen ennen hintojen vertailua.", "Kun suunta on selvä, siirry kuljetuksiin ja majoitukseen vähemmällä hälyllä."],
       links: ["travel-spaininfo", "travel-paradores"]
     } : {
       process: "Official tourism and ideas",
-      explanation: "Sometimes the most useful move is not to book first, but to understand destinations, regions, and trip styles a little better. Official sources can give you a cleaner overview.",
+      explanation: "Spain is one of the most visited countries in the world, with sharply different experiences by region. The Mediterranean coast (Costa Brava, Costa Blanca, Costa del Sol) offers beach holidays and warm winters; cities like Barcelona, Madrid, Seville, and Valencia offer culture, food, and architecture; the Canary Islands and Balearics are popular year-round island destinations; and inland regions like Andalusia, Castilla, and the Basque Country offer a slower, more local experience. Shoulder season (April–May and September–October) gives you better prices, fewer crowds, and good weather in most regions. The official Spain tourism portal (spain.info) is the clearest starting point for regional ideas without commercial noise.",
       steps: ["Start with the official tourism portal to browse regions, cities, and trip styles.", "Use the official information to narrow choices before you compare prices.", "Once you have a clearer direction, move to transport and accommodation with less noise."],
       links: ["travel-spaininfo", "travel-paradores"]
     };
@@ -2229,17 +1990,12 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-reviews") {
     return currentLang === "es" ? {
       process: "Reseñas y comparación",
-      explanation: "Después de tener una idea general del viaje, las reseñas ayudan a aterrizar mejor una zona, un hotel o una experiencia concreta.",
+      explanation: "Las reseñas son más útiles cuando ya tienes destino y fechas aproximadas. Para hoteles, Tripadvisor y Google Maps dan una visión amplia, mientras que Booking.com y Expedia suelen mostrar opiniones ligadas a estancias verificadas. Para apartamentos, revisa con cuidado la política de cancelación, normas de la casa y reseñas recientes, porque en zonas turísticas las condiciones pueden ser estrictas. Las opiniones de los últimos 3 a 6 meses importan más que la nota histórica, sobre todo en alojamientos pequeños. Si algo parece demasiado perfecto o demasiado raro, contrasta en otra plataforma antes de reservar.",
       steps: ["Compara zonas, hoteles o experiencias concretas con reseñas recientes y fotos reales.", "No uses solo una plataforma: contrasta la información si algo parece demasiado bueno o demasiado raro.", "Después de comparar, vuelve a la reserva o al transporte con una decisión más clara."],
-      links: ["stay-tripadvisor", "stay-booking", "stay-expedia"]
-    } : currentLang === "fi" ? {
-      process: "Arvostelut ja vertailu",
-      explanation: "Kun matkan yleisidea on jo olemassa, arvostelut auttavat valitsemaan paremmin alueen, hotellin tai tietyn kokemuksen.",
-      steps: ["Vertaa alueita, hotelleja tai kokemuksia tuoreiden arvostelujen ja oikeiden kuvien avulla.", "Älä nojaa vain yhteen alustaan: vertaa tietoa, jos jokin näyttää liian hyvältä tai oudolta.", "Vertailun jälkeen palaa varaukseen tai liikkumiseen selkeämmän päätöksen kanssa."],
       links: ["stay-tripadvisor", "stay-booking", "stay-expedia"]
     } : {
       process: "Reviews and comparison",
-      explanation: "Once you have the broad shape of the trip, reviews help you land more confidently on a neighborhood, hotel, or specific experience.",
+      explanation: "Reviews are most useful for narrowing down a neighbourhood or specific property once you have already chosen a destination and rough dates. For hotels, TripAdvisor and Google Maps reviews give a broad picture; Booking.com and Expedia reviews are tied to verified stays and tend to be more reliable. For apartments and short-term rentals, Airbnb and Vrbo both show guest reviews, but check the cancellation policy carefully — Spanish rentals in tourist areas often have strict no-refund terms. Recent reviews (last 3–6 months) matter more than the overall score, especially for smaller properties where management can change. If something looks unusually perfect or unusually bad, cross-check on a second platform before booking.",
       steps: ["Compare neighborhoods, hotels, or specific experiences using recent reviews and real photos.", "Do not rely on only one platform if something looks unusually good or unusually odd.", "After comparing, go back to booking or transport with a clearer choice."],
       links: ["stay-tripadvisor", "stay-booking", "stay-expedia"]
     };
@@ -2250,7 +2006,7 @@ function directRoadmapFor(goal) {
 function livingTopicSummary(goal) {
   const summaries = currentLang === "es" ? {
     padron: "Registro municipal de tu domicilio en España.",
-    nie: "Número de identificación de extranjero para trámites oficiales.",
+    nie: "Tu número de identificación de extranjero para inmuebles, banca, impuestos, trabajo y la mayoría de trámites oficiales en España.",
     tie: "Tarjeta física para ciudadanos no comunitarios con permiso aprobado.",
     "social-security": "Número usado para empleo, autónomos y relación con la Seguridad Social.",
     digital: "Acceso online para sedes públicas, notificaciones y firma electrónica.",
@@ -2261,32 +2017,19 @@ function livingTopicSummary(goal) {
     "job-search": "Portales públicos y pasos básicos para empezar a buscar trabajo.",
     taxes: "Domicilio fiscal y trámites básicos con Hacienda.",
     phone: "Línea móvil e internet para instalarte y verificar servicios."
-  } : currentLang === "fi" ? {
-    padron: "Kunnallinen osoiterekisteröinti Espanjassa.",
-    nie: "Ulkomaalaisen tunnistenumero virallisia menettelyjä varten.",
-    tie: "Fyysinen kortti EU:n ulkopuolisille hyväksytyn luvan jälkeen.",
-    "social-security": "Numero työhön, yrittäjyyteen ja sosiaaliturvatietoihin.",
-    digital: "Verkkoasiointi julkisissa portaaleissa, ilmoituksissa ja sähköisissä allekirjoituksissa.",
-    "sip-card": "Alueellinen julkinen terveydenhuoltokortti, kuten SIP Valenciassa tai TSI Kataloniassa.",
-    "private-health": "Yksityinen vakuutus joitakin lupia varten tai lisäturvaksi.",
-    "ehic-card": "Kortti lääketieteellisesti tarpeelliseen julkiseen hoitoon tilapäisen Euroopan-matkan aikana.",
-    banking: "Tili palkkaa, vuokraa, suoraveloituksia ja päivittäisiä pankkiasioita varten.",
-    "job-search": "Julkiset portaalit ja perusaskeleet työnhaun aloittamiseen.",
-    taxes: "Verosoite ja perusasiointi verohallinnon kanssa.",
-    phone: "Mobiililinja ja internet arkea ja tunnistautumista varten."
   } : {
-    padron: "Town hall registration for your address in Spain.",
-    nie: "Foreigner ID number for official Spanish procedures.",
+    padron: "Town hall address registration — the foundation for TIE, healthcare, and most admin steps.",
+    nie: "Your foreigner ID number for property, banking, tax, work, and most official procedures in Spain.",
     tie: "Physical card for non-EU citizens after permission is approved.",
-    "social-security": "Number used for employment, self-employment, and Social Security records.",
-    digital: "Online access for public portals, notices, and electronic signatures.",
-    "sip-card": "Regional public health card, such as SIP in Valencia or TSI in Catalonia.",
-    "private-health": "Private cover often used for certain permits or as extra health coverage.",
-    "ehic-card": "Card for medically necessary public healthcare during temporary stays in Europe.",
-    banking: "Account for salary, rent, direct debits, and everyday banking.",
-    "job-search": "Public portals and basic first steps for finding work.",
-    taxes: "Tax address and basic tax-agency admin.",
-    phone: "Mobile line and internet for daily life and verification."
+    "social-security": "Número de afiliación — needed for employment, self-employment, and healthcare access.",
+    digital: "FNMT certificate or Cl@ve digital identity for online government portals and e-signatures.",
+    "sip-card": "Regional public health card (SIP, TSI, or equivalent) for GP, referrals, and prescriptions.",
+    "private-health": "Private insurance required for some visas and popular for faster specialist access.",
+    "ehic-card": "EU health card for medically necessary care during temporary stays in other European countries.",
+    banking: "Spanish bank account for salary, rent, utilities, and tax — needed within weeks of arriving.",
+    "job-search": "SEPE, InfoJobs, and LinkedIn are the main channels; EU citizens work freely, non-EU need authorization.",
+    taxes: "Tax residency, annual IRPF return, and the Beckham Law option for recent arrivals.",
+    phone: "Spanish SIM needed for bank verification, Cl@ve PIN, and government SMS codes."
   };
   return summaries[goal] || "";
 }
@@ -2301,15 +2044,6 @@ function vacationTopicSummary(goal) {
     "vacation-hotels": "Cadenas hoteleras importantes presentes en España.",
     "vacation-tourism": "Portales oficiales e ideas para elegir destinos y planificar mejor el viaje.",
     "vacation-reviews": "Reseñas y comparación de zonas, alojamientos y experiencias."
-  } : currentLang === "fi" ? {
-    "vacation-entry": "Perussäännöt lyhyille vierailuille, Schengen-alueelle ja enintään 90 päivän oleskeluihin.",
-    "vacation-citizenship": "Nopea ohjaus EU-vieraille verrattuna EU:n ulkopuolisiin matkailijoihin.",
-    "vacation-flights": "Lennot, lentoasemat ja hakutyökalut Espanjaan saapumiseen ja liikkumiseen.",
-    "vacation-ground": "Junat, bussit ja autonvuokraus Espanjan sisäisiin matkoihin.",
-    "vacation-booking": "Suuret alustat majoituksen vertailuun ennen varausta.",
-    "vacation-hotels": "Suuret hotellibrändit, joilla on vahva läsnäolo Espanjassa.",
-    "vacation-tourism": "Viralliset matkailuportaalit ja ideat kohteiden valintaan ja matkan suunnitteluun.",
-    "vacation-reviews": "Arvostelut ja alueiden, majoitusten sekä kokemusten vertailu."
   } : {
     "vacation-entry": "Basic rules for short visits, Schengen stays, and trips up to 90 days.",
     "vacation-citizenship": "Quick orientation for EU visitors versus non-EU travellers.",
@@ -2325,25 +2059,25 @@ function vacationTopicSummary(goal) {
 
 function topicScene(goal) {
   const photos = {
-    padron: "./assets/topic-scenes/live-padron-20260606.png",
-    nie: "./assets/topic-scenes/live-nie-20260606.png",
-    tie: "./assets/topic-scenes/live-tie-20260606.png",
-    "social-security": "./assets/topic-scenes/live-social-security-20260606.png",
-    digital: "./assets/topic-scenes/live-digital-access-20260606.png",
-    "sip-card": "./assets/topic-scenes/live-public-health-20260606.png",
-    "private-health": "./assets/topic-scenes/live-private-health-20260606.png",
-    "ehic-card": "./assets/topic-scenes/live-ehic-20260606.png",
-    banking: "./assets/topic-scenes/live-banking-20260606.png",
-    "job-search": "./assets/topic-scenes/live-job-search-20260606.png",
-    taxes: "./assets/topic-scenes/live-taxes-20260606.png",
-    phone: "./assets/topic-scenes/phone-direct-20260606.png",
-    "vacation-entry": "./assets/topic-scenes/vacation-entry.png",
-    "vacation-flights": "./assets/topic-scenes/vacation-flights-airports-20260606.png",
-    "vacation-ground": "./assets/topic-scenes/vacation-ground-transport-20260606.png",
-    "vacation-booking": "./assets/topic-scenes/vacation-booking-platforms-20260606.png",
-    "vacation-hotels": "./assets/topic-scenes/vacation-hotel-chains-20260606.png",
-    "vacation-tourism": "./assets/topic-scenes/vacation-planning.png",
-    "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.png"
+    padron: "./assets/topic-scenes/live-padron-20260606.webp",
+    nie: "./assets/topic-scenes/live-nie-20260606.webp",
+    tie: "./assets/topic-scenes/live-tie-20260606.webp",
+    "social-security": "./assets/topic-scenes/live-social-security-20260606.webp",
+    digital: "./assets/topic-scenes/live-digital-access-20260606.webp",
+    "sip-card": "./assets/topic-scenes/live-public-health-20260606.webp",
+    "private-health": "./assets/topic-scenes/live-private-health-20260606.webp",
+    "ehic-card": "./assets/topic-scenes/live-ehic-20260606.webp",
+    banking: "./assets/topic-scenes/live-banking-20260606.webp",
+    "job-search": "./assets/topic-scenes/live-job-search-20260606.webp",
+    taxes: "./assets/topic-scenes/live-taxes-20260606.webp",
+    phone: "./assets/topic-scenes/phone-direct-20260606.webp",
+    "vacation-entry": "./assets/topic-scenes/vacation-entry.webp",
+    "vacation-flights": "./assets/topic-scenes/vacation-flights-airports-20260606.webp",
+    "vacation-ground": "./assets/topic-scenes/vacation-ground-transport-20260606.webp",
+    "vacation-booking": "./assets/topic-scenes/vacation-booking-platforms-20260606.webp",
+    "vacation-hotels": "./assets/topic-scenes/vacation-hotel-chains-20260606.webp",
+    "vacation-tourism": "./assets/topic-scenes/vacation-planning.webp",
+    "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.webp"
   };
   if (photos[goal]) {
     return `<img src="${photos[goal]}" alt="" />`;
@@ -2447,34 +2181,7 @@ function renderLivingSubtopics() {
           summaryFn: livingTopicSummary
         }
       ]
-    : currentLang === "fi"
-      ? [
-          {
-            title: "Asiakirjat ja hallinto",
-            description: "Perusvaiheet henkilöllisyyteen, osoitteen rekisteröintiin ja asiakirjojen järjestämiseen.",
-            topics: [["padron", t("directPadron")], ["nie", t("directNie")], ["tie", t("directTie")], ["social-security", t("directSocial")], ["digital", t("directDigital")]],
-            summaryFn: livingTopicSummary
-          },
-          {
-            title: "Terveys",
-            description: "Julkinen terveydenhuoltokortti, tilapäinen kattavuus ja tavallisimmin pyydetyt asiakirjat.",
-            topics: [["sip-card", t("directSip")], ["private-health", t("directPrivateHealth")], ["ehic-card", t("directEhic")]],
-            summaryFn: livingTopicSummary
-          },
-          {
-            title: "Raha ja työ",
-            description: "Pankki, työnhaku ja verot, jotta arki alkaa toimia sujuvammin.",
-            topics: [["banking", t("directBanking")], ["job-search", t("directJobs")], ["taxes", t("directTaxes")]],
-            summaryFn: livingTopicSummary
-          },
-          {
-            title: "Arjen käyttöönotto",
-            description: "Päivittäiset käytännön asiat, jotka helpottavat muuta asettumista.",
-            topics: [["phone", t("directPhone")]],
-            summaryFn: livingTopicSummary
-          }
-        ]
-      : [
+    : [
           {
             title: "Documents and admin",
             description: "Core steps for your identity, address registration, and basic paperwork footing.",
@@ -2504,11 +2211,9 @@ function renderLivingSubtopics() {
     t("livingNext"),
     currentLang === "es"
       ? "Elige el área que más se parece a lo que te falta resolver ahora."
-      : currentLang === "fi"
-        ? "Valitse se alue, joka vastaa parhaiten sitä mitä sinun täytyy hoitaa seuraavaksi."
-        : "Choose the area that most closely matches what you need to sort out next.",
+      : "Choose the area that most closely matches what you need to sort out next.",
     groups,
-    currentLang === "es" ? "Temas para vivir en España" : currentLang === "fi" ? "Espanjassa asumisen aiheet" : "Living in Spain topics"
+    currentLang === "es" ? "Temas para vivir en España" : "Living in Spain topics"
   );
   setCurrentScreenState({ type: "living-menu", entryPreset: currentEntryPreset });
 }
@@ -2545,34 +2250,7 @@ function renderVacationSubtopics() {
           summaryFn: vacationTopicSummary
         }
       ]
-    : currentLang === "fi"
-      ? [
-        {
-          title: "Maahantulo",
-          description: "Perusasiat lyhyistä vierailuista, Schengen-säännöistä ja EU- vs. non-EU-erosta.",
-          topics: [["vacation-entry", "Maahantulo ja lyhyt oleskelu"]],
-          summaryFn: vacationTopicSummary
-        },
-          {
-            title: "Liikkuminen Espanjassa",
-            description: "Lennot, lentoasemat, junat, bussit ja autonvuokraus eri matkustustapoihin.",
-            topics: [["vacation-flights", "Lennot ja lentoasemat"], ["vacation-ground", "Junat, bussit ja auto"]],
-            summaryFn: vacationTopicSummary
-          },
-          {
-            title: "Missä majoittua",
-            description: "Suuret varaussivustot ja hotellibrändit, joita näkee paljon Espanjassa.",
-            topics: [["vacation-booking", "Varaussivustot"], ["vacation-hotels", "Hotelliketjut"]],
-            summaryFn: vacationTopicSummary
-          },
-          {
-            title: "Ideat ja suunnittelu",
-            description: "Virallista inspiraatiota, arvosteluja ja työkaluja parempiin valintoihin.",
-            topics: [["vacation-tourism", "Virallinen matkailu ja ideat"], ["vacation-reviews", "Arvostelut ja vertailu"]],
-            summaryFn: vacationTopicSummary
-          }
-        ]
-      : [
+    : [
         {
           title: "Entry",
           description: "Short-stay basics, Schengen rules, and the key difference between EU and non-EU visitors.",
@@ -2599,14 +2277,12 @@ function renderVacationSubtopics() {
           }
         ];
   result.innerHTML = renderTopicLibrary(
-    currentLang === "es" ? "Vacaciones en España" : currentLang === "fi" ? "Loma Espanjassa" : "Vacation in Spain",
+    currentLang === "es" ? "Vacaciones en España" : "Vacation in Spain",
     currentLang === "es"
       ? "Empieza por la parte del viaje que quieras aclarar y luego abre la guía concreta."
-      : currentLang === "fi"
-        ? "Aloita siitä matkan osasta, jonka haluat selvittää, ja avaa sitten tarkempi opas."
-        : "Start with the part of the trip you want to sort out, then open the guide that fits.",
+      : "Start with the part of the trip you want to sort out, then open the guide that fits.",
     groups,
-    currentLang === "es" ? "Guías de vacaciones en España" : currentLang === "fi" ? "Espanjan lomaoppaat" : "Vacation in Spain guides"
+    currentLang === "es" ? "Guías de vacaciones en España" : "Vacation in Spain guides"
   );
   setCurrentScreenState({ type: "vacation-menu", entryPreset: currentEntryPreset });
 }
@@ -2622,31 +2298,32 @@ function renderEmptyResult() {
 
 function renderFormsAndTaxesBlock(route) {
   if (!route) return "";
-  const details = currentLang === "fi"
-    ? routeFormsAndTaxesFi[route.id] || routeFormsAndTaxes[route.id]
-    : routeFormsAndTaxes[route.id];
+  const details = routeFormsAndTaxesFor(route.id);
   if (!details || (!details.forms.length && !details.taxes.length)) return "";
   const rows = [...details.forms, ...details.taxes]
     .map(([name, description, kind, helperKey]) => {
       const officialUrl = formHelpers[helperKey]?.officialUrl || "";
-      const directRoute = name === "NIE" ? "nie" : name === "Padrón" ? "padron" : "";
+      const directRoute = name === "NIE" ? "nie" : name === "Padrón" ? "padron" : name === "EX-17" ? "tie" : "";
       const normalizedKind = kind || "";
       const isFeeRow = name === "790-012" || /\bEUR\b/.test(normalizedKind);
       const isFormRow = !isFeeRow;
-      const isFormLink = Boolean(officialUrl) && !isFeeRow;
-      const isGuideLink = Boolean(directRoute) && !officialUrl;
+      const isFormLink = Boolean(officialUrl) && !isFeeRow && !directRoute;
+      const isFeeLink = Boolean(officialUrl) && isFeeRow;
+      const isGuideLink = Boolean(directRoute);
       const plainKindBadge = {
         Document: "Document",
         Documento: "Documento",
         Asiakirja: "Asiakirja",
         Evidence: "Evidence",
+        Prueba: "Prueba",
         Todiste: "Todiste",
         "Official application portal": "Portal",
+        "Portal oficial de solicitud": "Portal",
         "Virallinen hakukanava": "Hakukanava"
       }[normalizedKind];
       const isPlainKindRow = !officialUrl && !isGuideLink && !isFeeRow && Boolean(plainKindBadge);
       const rowClass = isFeeRow
-        ? "doc-row doc-row--fee"
+        ? `doc-row doc-row--fee${isFeeLink ? " doc-row--official" : ""}`
         : isFormLink
           ? "doc-row doc-row--official"
           : isGuideLink
@@ -2655,29 +2332,23 @@ function renderFormsAndTaxesBlock(route) {
       const badgeLabel = isFeeRow
         ? currentLang === "es"
           ? "Tasa"
-          : currentLang === "fi"
-            ? "Maksu"
-            : "Fee"
+          : "Fee"
         : isGuideLink
           ? currentLang === "es"
             ? "Guía"
-            : currentLang === "fi"
-              ? "Opas"
-              : "Guide"
+            : "Guide"
         : isPlainKindRow
           ? plainKindBadge
         : currentLang === "es"
           ? "Modelo"
-          : currentLang === "fi"
-            ? "Lomake"
-            : "Form";
-      const kindLabel = isPlainKindRow || /^(Form|Lomake|Modelo)$/i.test(normalizedKind) ? "" : normalizedKind;
-      const rowTag = officialUrl
-        ? `a class="${rowClass}" href="${officialUrl}" target="_blank" rel="noreferrer"`
-        : isGuideLink
+          : "Form";
+      const kindLabel = isPlainKindRow || /^(Form|Formulario|Lomake|Modelo)$/i.test(normalizedKind) ? "" : normalizedKind;
+      const rowTag = isGuideLink
           ? `button type="button" class="${rowClass}" data-direct-route="${directRoute}"`
+          : officialUrl
+            ? `a class="${rowClass}" href="${officialUrl}" target="_blank" rel="noreferrer"`
           : `div class="${rowClass}"`;
-      const closingTag = officialUrl ? "a" : isGuideLink ? "button" : "div";
+      const closingTag = isGuideLink ? "button" : officialUrl ? "a" : "div";
       return `
         <${rowTag}>
           <span class="doc-row-badge" aria-hidden="true">${isFormRow || isFeeRow ? badgeLabel : ""}</span>
@@ -2698,7 +2369,7 @@ function renderFormsAndTaxesBlock(route) {
 }
 
 function formAndTaxUrls(route) {
-  const details = routeFormsAndTaxes[route?.id];
+  const details = routeFormsAndTaxesFor(route?.id);
   if (!details) return new Set();
   return new Set(
     [...(details.forms || []), ...(details.taxes || [])]
@@ -2719,6 +2390,35 @@ function renderRoadmapLinks(linkTypes, excludedUrls = new Set()) {
   `;
 }
 
+function renderSafetyWingBlock(routeId) {
+  if (routeId !== "digital-nomad") return "";
+  const swUrl = "https://safetywing.com/?referenceID=26543349&utm_source=26543349&utm_medium=Ambassador";
+  if (currentLang === "es") {
+    return `
+      <div class="result-section safetywing-block">
+        <div class="safetywing-header">
+          <a href="${swUrl}" target="_blank" rel="noreferrer sponsored" class="insurance-logo" style="background:linear-gradient(135deg,#FF6B35,#E54A1A);border-radius:12px;color:#fff;text-decoration:none;">SafetyWing</a>
+          <strong>Seguro de salud para tu estancia</strong>
+        </div>
+        <p>La mayoría de las vías de residencia — incluida la de nómada digital — exigen prueba de cobertura sanitaria en España. Para las solicitudes de visado, los consulados suelen exigir un seguro médico privado sin copagos y con una cobertura equivalente al sistema público español, así que consulta los requisitos concretos de tu consulado antes de contratar nada.</p>
+        <p>Si aún estás en fase de planificación, o necesitas cobertura para viajes y el período previo a regularizar tu residencia, una opción que muchos trabajadores remotos usan es <a href="${swUrl}" target="_blank" rel="noreferrer sponsored">SafetyWing</a>, que ofrece seguros por suscripción diseñados para nómadas, además de planes de salud más completos. Compara lo que cubre cada plan con lo que exige tu vía.</p>
+        <p class="safetywing-disclosure">Aviso: este es un enlace de afiliado. Si te registras a través de él, IberiGo recibe una pequeña comisión sin coste adicional para ti. Ayuda a mantener el sitio gratuito.</p>
+      </div>
+    `;
+  }
+  return `
+    <div class="result-section safetywing-block">
+      <div class="safetywing-header">
+        <a href="${swUrl}" target="_blank" rel="noreferrer sponsored" class="insurance-logo" style="background:linear-gradient(135deg,#FF6B35,#E54A1A);border-radius:12px;color:#fff;text-decoration:none;">SafetyWing</a>
+        <strong>Health insurance for your stay</strong>
+      </div>
+      <p>Most residence routes — including the digital nomad path — ask for proof of health coverage in Spain. For visa applications, consulates generally expect full private health insurance with no copayments and coverage equivalent to the Spanish public system, so check the specific requirements for your consulate before buying anything.</p>
+      <p>If you're still in the planning phase, or you need coverage for travel and the gap before your residency is sorted, one option many remote workers use is <a href="${swUrl}" target="_blank" rel="noreferrer sponsored">SafetyWing</a>, which offers subscription-style insurance designed for nomads, plus more complete health plans. Compare what each plan covers against what your route requires.</p>
+      <p class="safetywing-disclosure">Disclosure: this is an affiliate link. If you sign up through it, IberiGo earns a small commission at no extra cost to you. It helps keep the site free.</p>
+    </div>
+  `;
+}
+
 function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
   const bankMeta = {
     en: {
@@ -2728,7 +2428,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "bank-sabadell": { intro: "Common expat-facing option in many parts of Spain, especially coastal areas.", logo: "Sabadell" },
       "bank-bankinter": { intro: "Digital-forward Spanish bank with standard resident-account options.", logo: "Bankinter" },
       "bank-revolut": { intro: "Useful starter option while you are still getting local paperwork in order.", logo: "Revolut" },
-      "bank-bunq": { intro: "Flexible mobile-first starter option before moving to a traditional bank if needed.", logo: "bunq" }
+      "bank-bunq": { intro: "Flexible mobile-first starter option before moving to a traditional bank if needed.", logo: "bunq" },
+      "bank-wise": { intro: "Multi-currency account with a Spanish IBAN. Good for sending money internationally at mid-market rates.", logo: "Wise", affiliate: true, disclosure: "Affiliate link — IberiGo earns a small commission if you sign up. No extra cost to you." }
     },
     es: {
       "bank-santander": { intro: "Gran red de oficinas y una opción muy común para nómina, alquiler y banca local diaria.", logo: "Santander" },
@@ -2737,17 +2438,9 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "bank-sabadell": { intro: "Opción frecuente para expatriados en muchas zonas de España, sobre todo en la costa.", logo: "Sabadell" },
       "bank-bankinter": { intro: "Banco español con enfoque digital y opciones estándar para residentes.", logo: "Bankinter" },
       "bank-revolut": { intro: "Opción útil para empezar mientras todavía organizas la documentación local.", logo: "Revolut" },
-      "bank-bunq": { intro: "Opción móvil flexible para empezar antes de pasar a un banco tradicional si lo necesitas.", logo: "bunq" }
+      "bank-bunq": { intro: "Opción móvil flexible para empezar antes de pasar a un banco tradicional si lo necesitas.", logo: "bunq" },
+      "bank-wise": { intro: "Cuenta multidivisa con IBAN español. Buena opción para transferencias internacionales al tipo de cambio real.", logo: "Wise", affiliate: true, disclosure: "Enlace de afiliado — IberiGo recibe una pequeña comisión si te registras. Sin coste adicional para ti." }
     },
-    fi: {
-      "bank-santander": { intro: "Laaja konttoriverkko ja yleinen valinta palkkaa, vuokraa ja arjen pankkiasioita varten.", logo: "Santander" },
-      "bank-bbva": { intro: "Vahva digitaalinen aloitus ja tavallinen espanjalainen käyttötilireitti.", logo: "BBVA" },
-      "bank-caixabank": { intro: "Näkyy laajasti Espanjassa ja tarjoaa paljon konttoreita ja automaatteja.", logo: "CaixaBank" },
-      "bank-sabadell": { intro: "Monilla alueilla tuttu expat-vaihtoehto, erityisesti rannikkoalueilla.", logo: "Sabadell" },
-      "bank-bankinter": { intro: "Digitaalispainotteinen espanjalainen pankki, jossa on tavalliset residenttitilivaihtoehdot.", logo: "Bankinter" },
-      "bank-revolut": { intro: "Hyvä aloitusvaihtoehto samalla kun paikalliset asiakirjat ovat vielä kesken.", logo: "Revolut" },
-      "bank-bunq": { intro: "Joustava mobiilipainotteinen aloitusvaihtoehto ennen perinteiseen pankkiin siirtymistä tarvittaessa.", logo: "bunq" }
-    }
   };
   const providerMeta = {
     en: {
@@ -2766,14 +2459,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "provider-o2": { intro: "Opción más sencilla y sin extras bajo la red de Movistar, a menudo con tarifas más limpias.", logo: "O2" },
       "provider-yoigo": { intro: "Alternativa común para móvil y fibra con una sensación algo más flexible.", logo: "yoigo" }
     },
-    fi: {
-      "provider-movistar": { intro: "Suuri perinteinen operaattori mobiiliin, kuituun ja täysiin kotipaketteihin.", logo: "M" },
-      "provider-vodafone": { intro: "Tunnettu mobiili- ja laajakaistaoperaattori, jolla on tavallisia yhdistelmäpaketteja.", logo: "V" },
-      "provider-orange": { intro: "Suuri valtakunnallinen tarjoaja mobiiliin, kuituun ja kodin yhdistelmäpaketteihin.", logo: "Orange" },
-      "provider-digi": { intro: "Suosittu edullisempi vaihtoehto mobiiliin ja kuituun, usein hyvä tulijoille.", logo: "DIGI" },
-      "provider-o2": { intro: "Selkeämpi vaihtoehto Movistarin verkossa, usein yksinkertaisemmilla sopimuksilla.", logo: "O2" },
-      "provider-yoigo": { intro: "Yleinen vaihtoehto mobiili- ja kuitupaketteihin hieman joustavammalla tuntumalla.", logo: "yoigo" }
-    }
   };
   const jobsMeta = {
     en: {
@@ -2796,16 +2481,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "jobs-jobtoday": { intro: "Popular para hostelería, comercio y trabajos de servicios con movimiento rápido.", logo: "JOB TODAY" },
       "jobs-tecnoempleo": { intro: "Portal especializado en tecnología, informática y telecomunicaciones en España.", logo: "Tecno" }
     },
-    fi: {
-      "jobs-empleate": { intro: "Julkinen työportaali, joka kokoaa yhteen avoimet paikat ja työmarkkinatiedot.", logo: "Empléate" },
-      "jobs-sepe": { intro: "SEPE:n virallinen alue työnhakuun, ohjaukseen ja työresursseihin Espanjassa.", logo: "SEPE" },
-      "jobs-eures": { intro: "Hyödyllinen, jos etsit Espanjaan liittyviä rajat ylittäviä tai eurooppalaisia työmahdollisuuksia.", logo: "EURES" },
-      "jobs-infojobs": { intro: "Yksi Espanjan suurimmista yleisistä työportaaleista monille aloille.", logo: "InfoJobs" },
-      "jobs-linkedin": { intro: "Vahva ammatillisiin rooleihin, verkostoitumiseen ja yritysvetoiseen rekrytointiin.", logo: "in" },
-      "jobs-indeed": { intro: "Laaja kokoajamainen portaali hyödyllinen monentyyppisiin hakuihin.", logo: "Indeed" },
-      "jobs-jobtoday": { intro: "Suosittu nopealiikkeisiin palvelu-, myynti- ja ravintola-alan töihin.", logo: "JOB TODAY" },
-      "jobs-tecnoempleo": { intro: "Erikoistunut portaali teknologia-, IT- ja tietoliikennetehtäviin Espanjassa.", logo: "Tecno" }
-    }
   };
   const insuranceMeta = {
     en: {
@@ -2822,13 +2497,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "insurance-dkv": { intro: "Aseguradora de salud conocida con foco fuerte en sanidad privada y servicios digitales.", logo: "DKV" },
       "insurance-mapfre": { intro: "Gran aseguradora española con pólizas de salud dentro de una oferta más amplia.", logo: "MAPFRE" }
     },
-    fi: {
-      "insurance-sanitas": { intro: "Suuri yksityinen sairausvakuuttaja Espanjassa, jolla on laaja näkyvyys hoitoverkostossa.", logo: "Sanitas" },
-      "insurance-adeslas": { intro: "Suuri sairausvakuuttaja, jota vertaillaan usein lupiin sopivaa vakuutusta etsiessä.", logo: "Adeslas" },
-      "insurance-asisa": { intro: "Vakiintunut espanjalainen sairausvakuuttaja, jolla on vahva valtakunnallinen kattavuus.", logo: "ASISA" },
-      "insurance-dkv": { intro: "Tunnettu sairausvakuuttaja, jolla on vahva painotus yksityisterveyteen ja digitaalisiin palveluihin.", logo: "DKV" },
-      "insurance-mapfre": { intro: "Suuri espanjalainen vakuuttaja, jolla on sairausvakuutuksia muun tarjonnan rinnalla.", logo: "MAPFRE" }
-    }
   };
   const travelMeta = {
     en: {
@@ -2845,13 +2513,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "travel-alsa": { intro: "Gran operador de autobús de larga distancia útil para rutas menos cubiertas por el tren.", logo: "ALSA" },
       "travel-paradores": { intro: "Red emblemática de hoteles públicos de España para alojamientos con carácter por todo el país.", logo: "Paradores" }
     },
-    fi: {
-      "travel-spaininfo": { intro: "Espanjan virallinen matkailuportaali kohteisiin, ideoihin ja käytännölliseen suunnitteluun.", logo: "Spain" },
-      "travel-renfe": { intro: "Tärkein virallinen junavaihtoehto pitkiin ja moniin kotimaan matkoihin Espanjassa.", logo: "Renfe" },
-      "travel-aena": { intro: "Virallinen lentoasemaverkoston portaali Espanjan kentille, terminaaleille ja matkustajatiedoille.", logo: "Aena" },
-      "travel-alsa": { intro: "Suuri kaukoliikenteen bussiyhtiö, hyödyllinen reiteillä joita junat eivät kata hyvin.", logo: "ALSA" },
-      "travel-paradores": { intro: "Espanjan valtion omistama ikoninen hotelliverkosto erottuviin majoituksiin ympäri maan.", logo: "Paradores" }
-    }
   };
   const flightMeta = {
     en: {
@@ -2868,13 +2529,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "flight-kayak": { intro: "Opción conocida de metabuscador para revisar rutas, rangos de precio y aeropuertos alternativos.", logo: "KAYAK" },
       "flight-edreams": { intro: "Gran agencia de viajes online con base en España, muy usada para comparar y reservar vuelos.", logo: "eDreams" }
     },
-    fi: {
-      "flight-iberia": { intro: "Espanjan kansallinen lentoyhtiö ja hyvä suora vaihtoehto, jos haluat varata ilman välikättä.", logo: "Iberia" },
-      "flight-google": { intro: "Erittäin hyödyllinen päivien, reittien ja hintakäyrien vertailuun ennen varausta.", logo: "Google" },
-      "flight-skyscanner": { intro: "Suosittu lentohaku monien lentoyhtiöiden ja matkatoimistojen vertailuun kerralla.", logo: "Sky" },
-      "flight-kayak": { intro: "Tunnettu metahakuvaihtoehto reittien, hintatasojen ja vaihtoehtoisten kenttien tarkistamiseen.", logo: "KAYAK" },
-      "flight-edreams": { intro: "Suuri espanjalaislähtöinen verkkotoimisto, jota käytetään paljon lentojen vertailuun ja varaukseen.", logo: "eDreams" }
-    }
   };
   const carMeta = {
     en: {
@@ -2889,12 +2543,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "car-avis": { intro: "Marca internacional histórica de alquiler con presencia en aeropuertos y ciudades españolas.", logo: "Avis" },
       "car-hertz": { intro: "Gran compañía internacional de alquiler de coches con amplia disponibilidad en España.", logo: "Hertz" }
     },
-    fi: {
-      "car-europcar": { intro: "Suuri eurooppalainen autovuokraamo, jolla on hyvä kattavuus Espanjan kentillä ja kaupungeissa.", logo: "Europcar" },
-      "car-sixt": { intro: "Tunnettu hieman premium-henkinen vuokrausvaihtoehto, jolla on paljon noutopisteitä Espanjassa.", logo: "SIXT" },
-      "car-avis": { intro: "Pitkään toiminut kansainvälinen vuokrausbrändi, jolla on läsnäoloa Espanjan kentillä ja kaupungeissa.", logo: "Avis" },
-      "car-hertz": { intro: "Suuri kansainvälinen autovuokraamo, jolla on laaja saatavuus eri puolilla Espanjaa.", logo: "Hertz" }
-    }
   };
   const stayMeta = {
     en: {
@@ -2909,12 +2557,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "stay-expedia": { intro: "Gran plataforma de viajes online útil para hoteles y planificación más amplia.", logo: "Expedia" },
       "stay-tripadvisor": { intro: "Muy útil para comparar reseñas, zonas, atracciones e ideas de alojamiento antes de reservar.", logo: "Tripadvisor" }
     },
-    fi: {
-      "stay-booking": { intro: "Yksi suurimmista hotellivaraussivustoista majoituksen vertailuun eri puolilla Espanjaa.", logo: "Booking" },
-      "stay-airbnb": { intro: "Suosittu asuntoihin, huoneisiin ja kodinomaisempiin majoituksiin.", logo: "airbnb" },
-      "stay-expedia": { intro: "Suuri matkailualusta, joka on hyödyllinen hotelleihin ja laajempaan matkan kokoamiseen.", logo: "Expedia" },
-      "stay-tripadvisor": { intro: "Hyödyllinen arvostelujen, alueiden, nähtävyyksien ja majoitusideoiden vertailuun ennen varausta.", logo: "Tripadvisor" }
-    }
   };
   const hotelMeta = {
     en: {
@@ -2935,15 +2577,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "hotel-marriott": { intro: "Grupo hotelero internacional con muchas marcas y amplia presencia en España.", logo: "Marriott" },
       "hotel-hilton": { intro: "Cadena hotelera internacional con opciones de categoría alta y de negocio en España.", logo: "Hilton" }
     },
-    fi: {
-      "hotel-melia": { intro: "Yksi Espanjan tunnetuimmista hotelliryhmistä, jolla on kaupunki-, ranta- ja resort-hotelleja.", logo: "Meliá" },
-      "hotel-nh": { intro: "Vahva espanjalainen ja eurooppalainen kaupunkihotelliketju, hyödyllinen käytännöllisiin kaupunkimajoituksiin.", logo: "NH" },
-      "hotel-barcelo": { intro: "Suuri espanjalainen hotelliryhmä, jolla on laaja valikoima kaupunki-, saari- ja lomakohteita.", logo: "Barceló" },
-      "hotel-riu": { intro: "Espanjalainen ketju, joka tunnetaan erityisesti resort-tyylisistä rantamajoituksista.", logo: "RIU" },
-      "hotel-iberostar": { intro: "Suuri espanjalainen resort- ja rantahotellibrändi, jolla on vahva läsnäolo maassa.", logo: "Iberostar" },
-      "hotel-marriott": { intro: "Kansainvälinen hotelliryhmä, jolla on paljon eri brändejä ja laaja läsnäolo Espanjassa.", logo: "Marriott" },
-      "hotel-hilton": { intro: "Kansainvälinen hotelliketju, jolla on laadukkaita ja liikematkailuun sopivia vaihtoehtoja Espanjassa.", logo: "Hilton" }
-    }
   };
   const linkLabels = {
     en: {
@@ -2974,6 +2607,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "bank-bankinter": "Bankinter",
       "bank-revolut": "Revolut",
       "bank-bunq": "bunq",
+      "bank-wise": "Wise",
       "provider-movistar": "Movistar",
       "provider-vodafone": "Vodafone",
       "provider-orange": "Orange",
@@ -3060,6 +2694,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "bank-bankinter": "Bankinter",
       "bank-revolut": "Revolut",
       "bank-bunq": "bunq",
+      "bank-wise": "Wise",
       "provider-movistar": "Movistar",
       "provider-vodafone": "Vodafone",
       "provider-orange": "Orange",
@@ -3118,92 +2753,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "fnmt-aeat-cita": "Cita FNMT por Agencia Tributaria",
       "fnmt-ss-cita": "Cita FNMT por Seguridad Social"
     },
-    fi: {
-      cita: "Varaa aika",
-      "eu-certificate": "EU-rekisteröintitodistus",
-      nie: "NIE-numeron hakeminen",
-      fnmt: "FNMT-digivarmenne",
-      clave: "Cl@ve-rekisteröinti",
-      schengen: "Tarkista viisumi tai ETIAS",
-      calculator: "Virallinen EU 90/180 -laskuri",
-      "eu-short-stay": "Espanja: enintään 3 kuukauden oleskelu",
-      "work-employed": "Palkkatyö Espanjassa",
-      "work-self-employed": "Yrittäjänä Espanjassa",
-      "digital-nomad-official": "Kansainvälisen etätyön reitti",
-      "non-lucrative-official": "Työskentelemätön oleskelulupa",
-      "study-official": "Opiskeluun perustuva oleskelu",
-      "family-official": "Perheenyhdistäminen",
-      "eu-family-official": "EU-kansalaisen perheenjäsenen oleskelukortti",
-      "eu-family-spain": "EU:n ulkopuolisten perheenjäsenten rekisteröinti",
-      "tie-form": "EX-17 TIE-korttilomake",
-      "790-012": "Luo 790-012",
-      "padron-info": "Etsi oma kunnantalo",
-      "social-security-number": "Hae sosiaaliturvatunnusta",
-      "bank-santander": "Banco Santander",
-      "bank-bbva": "BBVA",
-      "bank-caixabank": "CaixaBank",
-      "bank-sabadell": "Banco Sabadell",
-      "bank-bankinter": "Bankinter",
-      "bank-revolut": "Revolut",
-      "bank-bunq": "bunq",
-      "provider-movistar": "Movistar",
-      "provider-vodafone": "Vodafone",
-      "provider-orange": "Orange",
-      "provider-digi": "DIGI",
-      "provider-o2": "O2",
-      "provider-yoigo": "Yoigo",
-      "jobs-empleate": "Empléate-työportaali",
-      "jobs-sepe": "SEPE-työnhaku",
-      "jobs-eures": "EURES Espanja",
-      "jobs-infojobs": "InfoJobs",
-      "jobs-linkedin": "LinkedIn Jobs",
-      "jobs-indeed": "Indeed",
-      "jobs-jobtoday": "JOB TODAY",
-      "jobs-tecnoempleo": "Tecnoempleo",
-      "insurance-sanitas": "Sanitas",
-      "insurance-adeslas": "Adeslas",
-      "insurance-asisa": "ASISA",
-      "insurance-dkv": "DKV",
-      "insurance-mapfre": "MAPFRE Salud",
-      "travel-spaininfo": "Espanjan matkailu",
-      "travel-renfe": "Renfe-junat",
-      "travel-aena": "Aenan lentoasemat",
-      "travel-alsa": "ALSA-bussit",
-      "travel-paradores": "Paradores",
-      "flight-iberia": "Iberia-lennot",
-      "flight-google": "Google Flights",
-      "flight-skyscanner": "Skyscanner",
-      "flight-kayak": "KAYAK-lennot",
-      "flight-edreams": "eDreams-lennot",
-      "car-europcar": "Europcar",
-      "car-sixt": "SIXT",
-      "car-avis": "Avis",
-      "car-hertz": "Hertz",
-      "stay-booking": "Booking.com",
-      "stay-airbnb": "Airbnb",
-      "stay-expedia": "Expedia-hotellit",
-      "stay-tripadvisor": "Tripadvisor",
-      "hotel-melia": "Meliá-hotellit",
-      "hotel-nh": "NH Hotels",
-      "hotel-barcelo": "Barceló-hotellit",
-      "hotel-riu": "RIU-hotellit",
-      "hotel-iberostar": "Iberostar-hotellit",
-      "hotel-marriott": "Marriott-hotellit",
-      "hotel-hilton": "Hilton-hotellit",
-      "tax-agency": "Verohallinnon portaali",
-      "tax-census": "Verorekisteri ja verosoite",
-      "healthcare-right-spain": "Hae terveydenhuolto-oikeutta Espanjassa",
-      "valencia-health-card": "Valencian alue: SIP-kortti",
-      "madrid-health-card": "Madrid: Tarjeta Sanitaria Individual",
-      "andalucia-health-card": "Andalusia: Tarjeta sanitaria",
-      "cataluna-health-card": "Katalonia: TSI",
-      "murcia-health-card": "Murcia: Tarjeta Sanitaria Individual",
-      "ehic-card": "Hae tai uusi EHIC",
-      "citizenship-residence": "Espanjan kansalaisuus asumisen perusteella",
-      "citizenship-application": "Kansalaisuushakemuksen portaali",
-      "fnmt-aeat-cita": "FNMT-aika veroviraston kautta",
-      "fnmt-ss-cita": "FNMT-aika sosiaaliturvan kautta"
-    }
   };
   const urls = {
     cita: "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES",
@@ -3235,6 +2784,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "bank-bankinter": "https://www.bankinter.com/",
     "bank-revolut": "https://www.revolut.com/es-ES/",
     "bank-bunq": "https://www.bunq.com/es-es/about/bunq-in-spain",
+    "bank-wise": "https://wise.prf.hn/click/camref:1011l5KaZk",
     "provider-movistar": "https://www.movistar.es/",
     "provider-vodafone": "https://www.vodafone.es/c/particulares/es/",
     "provider-orange": "https://www.orange.es/",
@@ -3243,7 +2793,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "provider-yoigo": "https://www.yoigo.com/",
     "jobs-empleate": "https://coeestatal.sepe.es/coe-estatal/servicios/servicio-red/empleate.html",
     "jobs-sepe": "https://www.sepe.es/HomeSepe/es/encontrar-trabajo.html",
-    "jobs-eures": "https://www.sepe.es/HomeSepe/es/encontrar-trabajo/eures.html",
+    "jobs-eures": "https://www.sepe.es/HomeSepe/es/encontrar-trabajo/empleo-europa.html",
     "jobs-infojobs": "https://candidatos.infojobs.net/",
     "jobs-linkedin": "https://es.linkedin.com/jobs",
     "jobs-indeed": "https://es.indeed.com/",
@@ -3254,6 +2804,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "insurance-asisa": "https://www.asisa.es/seguros-medicos",
     "insurance-dkv": "https://dkv.es/particulares/seguros-de-salud",
     "insurance-mapfre": "https://www.mapfre.es/particulares/seguros-de-salud/",
+    "insurance-safetywing": "https://safetywing.com/?referenceID=26543349&utm_source=26543349&utm_medium=Ambassador",
     "travel-spaininfo": "https://www.spain.info/es/",
     "travel-renfe": "https://www.renfe.com/es/en",
     "travel-aena": "https://www.aena.es/en/passengers/passengers.html",
@@ -3275,7 +2826,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "hotel-melia": "https://www.melia.com/",
     "hotel-nh": "https://www.nh-hotels.com/en/hotels/spain",
     "hotel-barcelo": "https://www.barcelo.com/en-gb/hotels/spain/",
-    "hotel-riu": "https://www.riu.com/en/hotels/spain/",
+    "hotel-riu": "https://www.riu.com/en/hotels/europe/spain",
     "hotel-iberostar": "https://www.iberostar.com/en/hotels/spain/",
     "hotel-marriott": "https://www.marriott.com/en-us/destinations/spain.mi",
     "hotel-hilton": "https://www.hilton.com/en/locations/spain/",
@@ -3293,27 +2844,27 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
   };
   const govMeta = {
     cita: {
-      subtitle: currentLang === "es" ? "Sede oficial de la Administración" : currentLang === "fi" ? "Virallinen hallinnon ajanvaraus" : "Official government appointment portal",
+      subtitle: currentLang === "es" ? "Sede oficial de la Administración" : "Official government appointment portal",
       variant: "general",
       system: "spain"
     },
     "790-012": {
-      subtitle: currentLang === "es" ? "Generador oficial de tasas de la Policía" : currentLang === "fi" ? "Poliisin virallinen maksugeneraattori" : "Official Police fee generator",
+      subtitle: currentLang === "es" ? "Generador oficial de tasas de la Policía" : "Official Police fee generator",
       variant: "fee",
       system: "spain"
     },
     "social-security-number": {
-      subtitle: currentLang === "es" ? "Trámite oficial de la Seguridad Social" : currentLang === "fi" ? "Sosiaaliturvan virallinen menettely" : "Official Social Security procedure",
+      subtitle: currentLang === "es" ? "Trámite oficial de la Seguridad Social" : "Official Social Security procedure",
       variant: "social",
       system: "spain"
     },
     "healthcare-right-spain": {
-      subtitle: currentLang === "es" ? "Acceso oficial a asistencia sanitaria" : currentLang === "fi" ? "Virallinen terveydenhuollon oikeus" : "Official healthcare entitlement route",
+      subtitle: currentLang === "es" ? "Acceso oficial a asistencia sanitaria" : "Official healthcare entitlement route",
       variant: "health",
       system: "spain"
     },
     "ehic-card": {
-      subtitle: currentLang === "es" ? "Solicitud oficial de Tarjeta Sanitaria Europea" : currentLang === "fi" ? "Virallinen EHIC-hakemus" : "Official EHIC request",
+      subtitle: currentLang === "es" ? "Solicitud oficial de Tarjeta Sanitaria Europea" : "Official EHIC request",
       variant: "health",
       system: "spain"
     }
@@ -3337,9 +2888,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     subtitle:
       currentLang === "es"
         ? "Web oficial del Gobierno de España"
-        : currentLang === "fi"
-          ? "Espanjan virallinen viranomaissivu"
-          : "Official Spain government website",
+        : "Official Spain government website",
     variant: "general",
     system: "spain"
   };
@@ -3353,9 +2902,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     subtitle:
       currentLang === "es"
         ? "Sitio oficial de la Unión Europea"
-        : currentLang === "fi"
-          ? "Euroopan unionin virallinen sivusto"
-          : "Official European Union website",
+        : "Official European Union website",
     variant: "eu",
     system: "eu"
   };
@@ -3394,11 +2941,16 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       if (type.startsWith("bank-")) {
         const meta = bankMeta[currentLang]?.[type] || bankMeta.en[type];
         const brandClass = `bank-link bank-link--${type.replace("bank-", "")}`;
+        const rel = meta?.affiliate ? "noreferrer sponsored" : "noreferrer";
+        const disclosure = meta?.affiliate
+          ? `<span class="affiliate-disclosure">${meta.disclosure}</span>`
+          : "";
         return `
-          <a class="${brandClass}" href="${urls[type]}" target="_blank" rel="noreferrer">
+          <a class="${brandClass}" href="${urls[type]}" target="_blank" rel="${rel}">
             <span class="bank-logo" aria-hidden="true">${meta?.logo || label}</span>
             <strong>${label}</strong>
             <span>${meta?.intro || ""}</span>
+            ${disclosure}
           </a>
         `;
       }
@@ -3640,6 +3192,10 @@ function applyTranslations() {
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     element.textContent = t(element.dataset.i18n);
   });
+  document.querySelectorAll("[data-language-url]").forEach((element) => {
+    const urls = JSON.parse(element.dataset.languageUrl);
+    if (urls[currentLang]) element.setAttribute("href", urls[currentLang]);
+  });
   languageButtons.forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.lang === currentLang));
   });
@@ -3722,21 +3278,17 @@ wizard.addEventListener("submit", (event) => {
     if (!getValue("personType")) {
       if (currentEntryPreset === "vacation") {
         showWizardPrompt(
-          currentLang === "es" ? "¿Eres?" : currentLang === "fi" ? "Oletko?" : "Are you?",
+          currentLang === "es" ? "¿Eres?" : "Are you?",
           currentLang === "es"
             ? "Elige ciudadano UE/EEE/Suiza o no comunitario para que IberiGo muestre las reglas correctas de estancia corta."
-            : currentLang === "fi"
-              ? "Valitse EU-/ETA-/Sveitsin kansalainen tai EU:n ulkopuolinen, jotta IberiGo voi näyttää oikeat lyhyen oleskelun säännöt."
-              : "Choose EU/EEA/Swiss or non-EU so IberiGo can show the right short-stay rules."
+            : "Choose EU/EEA/Swiss or non-EU so IberiGo can show the right short-stay rules."
         );
       } else {
         showWizardPrompt(
-          currentLang === "es" ? "Elige qué te describe mejor" : currentLang === "fi" ? "Valitse sinua parhaiten kuvaava vaihtoehto" : "Choose what best describes you",
+          currentLang === "es" ? "Elige qué te describe mejor" : "Choose what best describes you",
           currentLang === "es"
             ? "Selecciona primero una opción y continúa a la siguiente pregunta."
-            : currentLang === "fi"
-              ? "Valitse ensin yksi vaihtoehto ja jatka seuraavaan kysymykseen."
-              : "Select one option first, then continue to the next question."
+            : "Select one option first, then continue to the next question."
         );
       }
       return;
@@ -3759,12 +3311,10 @@ wizard.addEventListener("submit", (event) => {
       selections: wizardSelectionState()
     });
     showWizardPrompt(
-      currentLang === "es" ? "Siguiente: ¿qué quieres hacer?" : currentLang === "fi" ? "Seuraavaksi: mitä yrität tehdä?" : "Next: what are you trying to do?",
+      currentLang === "es" ? "Siguiente: ¿qué quieres hacer?" : "Next: what are you trying to do?",
       currentLang === "es"
         ? "Elige el motivo principal por el que necesitas trámites en España."
-        : currentLang === "fi"
-          ? "Valitse tärkein syy, miksi tarvitset Espanjan asiakirjoja."
-          : "Choose the main reason you need Spanish paperwork."
+        : "Choose the main reason you need Spanish paperwork."
     );
     wizard.scrollIntoView({ block: "start", behavior: "smooth" });
     return;
@@ -3773,12 +3323,10 @@ wizard.addEventListener("submit", (event) => {
   if (step === "goal") {
     if (!getValue("goal")) {
       showWizardPrompt(
-        currentLang === "es" ? "Elige qué quieres hacer" : currentLang === "fi" ? "Valitse mitä yrität tehdä" : "Choose what you are trying to do",
+        currentLang === "es" ? "Elige qué quieres hacer" : "Choose what you are trying to do",
         currentLang === "es"
           ? "Selecciona primero una opción y después IberiGo podrá acotar la ruta."
-          : currentLang === "fi"
-            ? "Valitse ensin yksi vaihtoehto, niin IberiGo voi rajata reittiä tarkemmin."
-            : "Select one option first, then IberiGo can narrow the route."
+          : "Select one option first, then IberiGo can narrow the route."
       );
       return;
     }
@@ -3802,12 +3350,10 @@ wizard.addEventListener("submit", (event) => {
         selections: wizardSelectionState()
       });
       showWizardPrompt(
-        currentLang === "es" ? "¿Con quién te reúnes?" : currentLang === "fi" ? "Kenen luo liityt?" : "Who are you joining?",
+        currentLang === "es" ? "¿Con quién te reúnes?" : "Who are you joining?",
         currentLang === "es"
           ? "Elige si tu familiar es ciudadano de la UE/EEE/Suiza o español, o un residente no comunitario en España."
-          : currentLang === "fi"
-            ? "Valitse, onko perheenjäsenesi EU-/ETA-/Sveitsin tai Espanjan kansalainen vai Espanjassa asuva EU:n ulkopuolinen."
-            : "Choose whether your family member is an EU/EEA/Swiss or Spanish citizen, or a non-EU resident in Spain."
+          : "Choose whether your family member is an EU/EEA/Swiss or Spanish citizen, or a non-EU resident in Spain."
       );
       wizard.scrollIntoView({ block: "start", behavior: "smooth" });
       return;
@@ -3824,12 +3370,10 @@ wizard.addEventListener("submit", (event) => {
   if (step === "family") {
     if (!getValue("familySponsor")) {
       showWizardPrompt(
-        currentLang === "es" ? "Elige la situación del familiar" : currentLang === "fi" ? "Valitse perheenjäsenen asema" : "Choose the family member's status",
+        currentLang === "es" ? "Elige la situación del familiar" : "Choose the family member's status",
         currentLang === "es"
           ? "Esto decide si la ruta es tarjeta de familiar de ciudadano de la UE o reagrupación familiar."
-          : currentLang === "fi"
-            ? "Tämä ratkaisee, onko reitti EU-kansalaisen perheenjäsenen oleskelukortti vai perheenyhdistäminen."
-            : "This decides whether the route is an EU-family residence card or family reunification."
+          : "This decides whether the route is an EU-family residence card or family reunification."
       );
       return;
     }
@@ -3884,9 +3428,39 @@ languageButtons.forEach((button) => {
 });
 
 initializeVisitorCounter();
+initializeHomeVideos();
 clearWizardSelections();
 wizard.dataset.step = "person";
 applyTranslations();
 renderEmptyResult();
 showOnlyTopicCards();
 if (!openNavSectionIfRequested()) showNormalApp();
+
+// Auto-open a specific guide when the page was statically generated for it.
+// Generated pages carry data-guide-id and data-guide-lang on the <html> element.
+(function () {
+  const guideId = document.documentElement.dataset.guideId;
+  const guideLang = document.documentElement.dataset.guideLang;
+  if (!guideId) return;
+
+  if (guideLang && guideLang !== currentLang) {
+    currentLang = guideLang;
+    localStorage.setItem("holaPapersLang", currentLang);
+    applyTranslations();
+  }
+
+  const directRoadmap = directRoadmapFor(guideId);
+  if (directRoadmap) {
+    currentDirectRoute = guideId;
+    showDirectGuide();
+    renderRoadmapCard(directRoadmap, guideId);
+    return;
+  }
+
+  const route = routes.find((r) => r.id === guideId);
+  if (route) {
+    const roadmap = roadmapFor(route);
+    showDirectGuide();
+    renderRoadmapCard(roadmap);
+  }
+}());

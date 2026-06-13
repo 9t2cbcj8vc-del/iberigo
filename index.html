@@ -4,28 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
-    <title>IberiGo — Move, Travel and Settle in Spain</title>
-    <meta name="description" content="Your complete guide to moving and settling in Spain. NIE, TIE, visas, healthcare, banking and more." />
-    <meta property="og:title" content="IberiGo — Move, Travel and Settle in Spain" />
-    <meta property="og:description" content="Your complete guide to moving and settling in Spain." />
-    <meta property="og:url" content="https://iberigo.eu" />
+    <title>IberiGo — Your Guide to Spain</title>
+    <meta name="description" content="Your complete guide to moving, travelling and settling in Spain. NIE, TIE, visas, healthcare, banking and more." />
+    <link rel="canonical" href="https://iberigo.eu/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="IberiGo" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="IberiGo — Your Guide to Spain" />
+    <meta property="og:description" content="Your complete guide to moving, travelling and settling in Spain. NIE, TIE, visas, healthcare, banking and more." />
+    <meta property="og:url" content="https://iberigo.eu/" />
+    <meta property="og:image" content="https://iberigo.eu/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="661" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="stylesheet" href="styles.css?v=20260607-logo-tagline" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/favicon.svg" />
   </head>
   <body>
     <div class="app-shell">
       <header class="topbar">
         <div class="brand-lockup">
           <div class="brand-logo" aria-label="IberiGo">
-            <img class="brand-logo-image" src="assets/iberigo-logo.svg" alt="IberiGo" />
+            <img class="brand-logo-image" src="assets/iberigo-logo.svg" alt="IberiGo — Your Guide to Spain" />
           </div>
         </div>
         <nav aria-label="Main sections">
           <a href="?nav=start#guide-cards" data-i18n="startNav">Home</a>
+          <a href="/the-spain-files/" data-i18n="spainFilesNav" data-language-url='{"en":"/the-spain-files/","es":"/the-spain-files/es/"}'>The Spain Files</a>
           <a href="support/index.html" data-i18n="supportNav">Support IberiGo</a>
           <div class="language-switcher" aria-label="Language">
             <button type="button" data-lang="en">EN</button>
             <button type="button" data-lang="es">ES</button>
-            <button type="button" data-lang="fi">FI</button>
           </div>
         </nav>
       </header>
@@ -33,24 +43,30 @@
       <main>
         <section id="guide-cards" class="panel guide-card-panel" aria-labelledby="guideCardsTitle">
           <div class="section-heading">
-            <h2 id="guideCardsTitle" data-i18n="startHeading">Where should we begin?</h2>
+            <h1 id="guideCardsTitle" data-i18n="startHeading">Where should we begin?</h1>
             <p data-i18n="startDisclaimer">This is not legal advice. It is only here to help you understand what you might need before checking official sources.</p>
           </div>
           <div class="situation-grid">
             <article class="situation-card situation-card--illustrated" data-home-card="move">
-              <img class="situation-media" src="./assets/home-cards/move-to-spain-matched-20260606.png" alt="" aria-hidden="true" />
+              <video class="situation-media" loop muted playsinline preload="metadata" poster="./assets/home-cards/move-to-spain-journey-final-20260606.webp">
+                <source src="./assets/videos/moving_to_spain.mp4" type="video/mp4">
+              </video>
               <h3 data-i18n="movingTitle">Move to Spain</h3>
               <p data-i18n="movingDesc">NIE, TIE, padrón, EU registration, visas, and residency.</p>
               <button type="button" data-route-preset="moving" data-i18n="movingButton">Explore</button>
             </article>
             <article class="situation-card situation-card--illustrated" data-home-card="vacation">
-              <img class="situation-media" src="./assets/home-cards/vacation-in-spain-matched-20260606.png" alt="" aria-hidden="true" />
+              <video class="situation-media" loop muted playsinline preload="metadata" poster="./assets/home-cards/vacation-in-spain-coast-20260606.webp">
+                <source src="./assets/videos/vacation_in_spain_v2.mp4" type="video/mp4">
+              </video>
               <h3 data-i18n="vacationTitle">Vacation in Spain</h3>
               <p data-i18n="vacationDesc">Short visits, entry rules, transport, places to stay, and practical trip planning in Spain.</p>
               <button type="button" data-route-preset="vacation" data-i18n="vacationButton">Explore</button>
             </article>
             <article class="situation-card situation-card--illustrated" data-home-card="living">
-              <img class="situation-media" src="./assets/home-cards/live-in-spain-matched-20260606.png" alt="" aria-hidden="true" />
+              <video class="situation-media" loop muted playsinline preload="metadata" poster="./assets/home-cards/live-in-spain-matched-20260606.webp">
+                <source src="./assets/videos/living_in_spain.mp4" type="video/mp4">
+              </video>
               <h3 data-i18n="livingTitle">Live in Spain</h3>
               <p data-i18n="livingDesc">Healthcare, banking, taxes, digital access, and the key admin steps for everyday life in Spain.</p>
               <button type="button" data-route-preset="living" data-i18n="livingButton">Explore</button>
@@ -120,7 +136,7 @@
               <h3>Spain-side basics</h3>
               <ul>
                 <li>Address in Spain and, when requested, padrón certificate.</li>
-                <li>Appointment confirmation from the official appointment system.</li>
+                <li>Immigration appointment confirmation.</li>
                 <li>Correct EX form for your procedure.</li>
                 <li>Paid tasa receipt, often Modelo 790 with the matching code.</li>
               </ul>
@@ -187,8 +203,12 @@
       <footer class="site-footer">
         <p data-i18n="footerSupportText">IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.</p>
         <a href="support/index.html" data-i18n="footerSupportLink">Support IberiGo</a>
+        <div class="site-footer-legal">
+          <p data-i18n="footerLegal">© 2026 IberiGo. Free to use. Not legal advice.</p>
+          <p data-i18n="footerReviewed">Last reviewed: June 2026</p>
+        </div>
       </footer>
     </div>
-    <script src="app.js?v=20260607-appointment-labels"></script>
+    <script src="app.js?v=20260607-footer-legal"></script>
   </body>
 </html>

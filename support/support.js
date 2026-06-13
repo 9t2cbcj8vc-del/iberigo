@@ -1,6 +1,7 @@
 const supportTranslations = {
   en: {
     homeNav: "Home",
+    spainFilesNav: "The Spain Files",
     supportNav: "Support IberiGo",
     supportTitle: "Support IberiGo",
     supportLead: "Help keep IberiGo free, simple and useful.",
@@ -20,10 +21,13 @@ const supportTranslations = {
     disclaimerThree: "IberiGo is not a law firm, gestoría, tax adviser, immigration adviser or public authority.",
     disclaimerFour: "Information on this website is general guidance only. Always check official sources or speak with a qualified professional before making important decisions.",
     footerSupportText: "IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.",
-    footerSupportLink: "Support IberiGo"
+    footerSupportLink: "Support IberiGo",
+    footerLegal: "© 2026 IberiGo. Free to use. Not legal advice.",
+    footerReviewed: "Last reviewed: June 2026"
   },
   es: {
     homeNav: "Inicio",
+    spainFilesNav: "The Spain Files",
     supportNav: "Apoyar IberiGo",
     supportTitle: "Apoyar IberiGo",
     supportLead: "Ayuda a mantener IberiGo gratuito, sencillo y útil.",
@@ -43,35 +47,15 @@ const supportTranslations = {
     disclaimerThree: "IberiGo no es un despacho de abogados, gestoría, asesor fiscal, asesor migratorio ni autoridad pública.",
     disclaimerFour: "La información de este sitio es solo orientación general. Comprueba siempre las fuentes oficiales o habla con un profesional cualificado antes de tomar decisiones importantes.",
     footerSupportText: "IberiGo es gratuito. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.",
-    footerSupportLink: "Apoyar IberiGo"
-  },
-  fi: {
-    homeNav: "Etusivu",
-    supportNav: "Tue IberiGoa",
-    supportTitle: "Tue IberiGoa",
-    supportLead: "Auta pitämään IberiGo ilmaisena, selkeänä ja hyödyllisenä.",
-    bodyOne: "IberiGo on ilmainen ja riippumaton opas, joka auttaa ihmisiä ymmärtämään Espanjaan muuttamista, matkustamista ja asettumista.",
-    bodyTwo: "Sivusto kokoaa selkokielistä tietoa, käytännön tarkistuslistoja ja linkkejä Espanjan virallisiin lähteisiin, jotta kävijät löytävät hyvän lähtökohdan ilman turhaa sekavuutta.",
-    bodyThree: "Jos IberiGo on auttanut sinua, voit tukea sivuston ylläpitoa vapaaehtoisella maksulla.",
-    supportButton: "Tue IberiGoa",
-    helpsTitle: "Tukesi auttaa näissä",
-    helpsHosting: "Verkkosivuston hosting- ja domain-kulut",
-    helpsResearch: "Virallisten lähteiden tutkiminen ja tarkistaminen",
-    helpsUpdates: "Oppaiden päivittäminen, kun linkit, menettelyt tai vaatimukset muuttuvat",
-    helpsGuides: "Uusien Espanjaan muuttoa, asumista ja matkailua koskevien oppaiden luominen",
-    helpsFree: "IberiGon pitäminen ilmaisena kaikille",
-    disclaimerTitle: "Ennen kuin tuet",
-    disclaimerOne: "Tuki on täysin vapaaehtoista.",
-    disclaimerTwo: "Maksu ei osta oikeudellista, maahanmuuttoon liittyvää, vero-, talous- tai muuta ammatillista neuvontaa.",
-    disclaimerThree: "IberiGo ei ole asianajotoimisto, gestoría, veroasiantuntija, maahanmuuttoneuvoja tai viranomainen.",
-    disclaimerFour: "Tämän sivuston tiedot ovat vain yleistä ohjeistusta. Tarkista aina viralliset lähteet tai keskustele pätevän ammattilaisen kanssa ennen tärkeitä päätöksiä.",
-    footerSupportText: "IberiGo on ilmainen käyttää. Jos sivusto auttaa sinua, voit tukea sen ylläpitoa vapaaehtoisella maksulla.",
-    footerSupportLink: "Tue IberiGoa"
+    footerSupportLink: "Apoyar IberiGo",
+    footerLegal: "© 2026 IberiGo. Gratuito. No es asesoramiento legal.",
+    footerReviewed: "Última revisión: junio de 2026"
   }
 };
 
 const supportLanguageButtons = document.querySelectorAll("[data-lang]");
-let supportLang = localStorage.getItem("holaPapersLang") || "en";
+const supportedSupportLanguages = new Set(["en", "es"]);
+let supportLang = supportedSupportLanguages.has(localStorage.getItem("holaPapersLang")) ? localStorage.getItem("holaPapersLang") : "en";
 
 function supportText(key) {
   return supportTranslations[supportLang]?.[key] || supportTranslations.en[key] || "";
@@ -81,6 +65,10 @@ function applySupportTranslations() {
   document.documentElement.lang = supportLang;
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     element.textContent = supportText(element.dataset.i18n);
+  });
+  document.querySelectorAll("[data-language-url]").forEach((element) => {
+    const urls = JSON.parse(element.dataset.languageUrl);
+    if (urls[supportLang]) element.setAttribute("href", urls[supportLang]);
   });
   supportLanguageButtons.forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.lang === supportLang));
