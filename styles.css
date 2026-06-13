@@ -3948,10 +3948,11 @@ select {
 #guide-cards.guide-card-panel {
   padding-top: 0;
   gap: 0;
+  background: #fdf8f2;
 }
 
-.guide-card-panel .section-heading {
-  background: #fdf8f2;
+#guide-cards .section-heading {
+  background: #fdf8f2 !important;
   padding: clamp(32px, 4vw, 48px) clamp(28px, 5vw, 56px) clamp(24px, 3vw, 36px);
   border-bottom: 1px solid #ece7de;
 }
