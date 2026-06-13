@@ -889,12 +889,15 @@ main > section {
   min-width: 136px;
   min-height: 44px;
   margin-top: clamp(18px, 2vw, 24px);
-  padding-inline: 22px;
+  padding: 10px 20px;
   align-self: end;
   justify-self: center;
   border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 10px;
   background: var(--button-bg);
   color: #fffdf9;
+  font-size: 14px;
+  font-weight: 600;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
 }
 
