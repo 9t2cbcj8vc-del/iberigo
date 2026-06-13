@@ -1899,27 +1899,27 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-entry") {
     return currentLang === "es" ? {
       process: "Reglas de entrada y estancia corta",
-      explanation: "La entrada a España depende de tu pasaporte. Los ciudadanos de la UE, EEE y Suiza pueden entrar con pasaporte o documento nacional de identidad válido. Muchas nacionalidades no comunitarias pueden entrar sin visado hasta 90 días en cualquier periodo de 180 días dentro de todo el espacio Schengen, no solo España. Otras nacionalidades necesitan visado Schengen antes de viajar. ETIAS, el sistema europeo de autorización de viaje, se aplicará a viajeros no comunitarios exentos de visado cuando esté en vigor, así que conviene revisar el estado actual antes del viaje. El seguro de viaje no suele ser obligatorio para ciudadanos UE, pero es recomendable y puede ser obligatorio para solicitantes de visado Schengen.",
-      steps: ["Confirma si tu estancia es una visita corta ordinaria y no una mudanza o residencia.", "Revisa si eres ciudadano de la UE/EEE/Suiza o si tu pasaporte entra por reglas Schengen para no comunitarios.", "Comprueba antes de viajar los documentos de entrada, seguro si aplica y la regla de 90/180 cuando corresponda."],
-      links: ["eu-short-stay", "schengen", "calculator"]
+      explanation: "La entrada a España depende de tu pasaporte. Los ciudadanos de la UE, EEE y Suiza pueden entrar con pasaporte o documento nacional de identidad válido. Muchas nacionalidades no comunitarias pueden entrar sin visado hasta 90 días en cualquier periodo de 180 días dentro de todo el espacio Schengen, no solo España. Otras nacionalidades necesitan visado Schengen antes de viajar. Desde abril de 2026 está en vigor el Sistema de Entradas y Salidas (EES): a los viajeros no comunitarios se les registran las huellas y una foto en la frontera en la primera entrada en lugar de sellar el pasaporte, y el sistema controla automáticamente la regla de 90/180 — los ciudadanos de la UE/EEE/Suiza y los no comunitarios con permiso de residencia o visado de larga duración están exentos. ETIAS, una autorización previa al viaje aparte para viajeros no comunitarios exentos de visado, se espera más adelante y todavía no es obligatoria; conviene revisar el estado actual antes del viaje. El seguro de viaje no suele ser obligatorio para ciudadanos UE, pero es recomendable y puede ser obligatorio para solicitantes de visado Schengen.",
+      steps: ["Confirma si tu estancia es una visita corta ordinaria y no una mudanza o residencia.", "Revisa si eres ciudadano de la UE/EEE/Suiza o si tu pasaporte entra por reglas Schengen para no comunitarios.", "Si eres viajero no comunitario, cuenta con el registro biométrico (huellas y foto) en la frontera por el EES a la entrada.", "Comprueba antes de viajar los documentos de entrada, seguro si aplica y la regla de 90/180 cuando corresponda."],
+      links: ["eu-short-stay", "schengen", "ees", "calculator"]
     } : {
       process: "Entry rules and short stays",
-      explanation: "Entry to Spain depends on your passport. EU, EEA, and Swiss citizens can enter freely with a valid passport or national ID for any length of stay. Most other nationalities can enter Spain visa-free for up to 90 days in any 180-day period across the whole Schengen area — not just Spain. Some nationalities need a Schengen short-stay visa before travelling. ETIAS (the EU travel authorisation system) is expected to apply to currently visa-free non-EU visitors once launched — check the current status before you travel. Travel insurance is not legally required for EU citizens but is strongly recommended; it may be required for Schengen visa applicants.",
-      steps: ["Confirm that your stay is an ordinary short visit rather than a move or residence plan.", "Check whether you are travelling as an EU/EEA/Swiss citizen or under Schengen short-stay rules for non-EU passports.", "Before travelling, review entry documents, any insurance requirement, and the 90/180 rule where relevant."],
-      links: ["eu-short-stay", "schengen", "calculator"]
+      explanation: "Entry to Spain depends on your passport. EU, EEA, and Swiss citizens can enter freely with a valid passport or national ID for any length of stay. Most other nationalities can enter Spain visa-free for up to 90 days in any 180-day period across the whole Schengen area — not just Spain. Some nationalities need a Schengen short-stay visa before travelling. Since April 2026 the EU's Entry/Exit System (EES) is in force: non-EU visitors have their fingerprints and photo registered at the border on first entry instead of a passport stamp, and the system tracks the 90/180 allowance automatically — EU/EEA/Swiss citizens and non-EU holders of a Spanish residence permit or long-stay visa are exempt. ETIAS, a separate pre-travel authorisation for currently visa-free non-EU visitors, is expected later and not yet required — check the current status before you travel. Travel insurance is not legally required for EU citizens but is strongly recommended; it may be required for Schengen visa applicants.",
+      steps: ["Confirm that your stay is an ordinary short visit rather than a move or residence plan.", "Check whether you are travelling as an EU/EEA/Swiss citizen or under Schengen short-stay rules for non-EU passports.", "If you are a non-EU visitor, expect biometric registration (fingerprints and photo) at the border under the EES on entry.", "Before travelling, review entry documents, any insurance requirement, and the 90/180 rule where relevant."],
+      links: ["eu-short-stay", "schengen", "ees", "calculator"]
     };
   }
   if (goal === "vacation-citizenship") {
     return currentLang === "es" ? {
       process: "Visita UE frente a no UE",
-      explanation: "La separación principal para entrar en España es UE/EEE/Suiza frente al resto de viajeros. Los ciudadanos de la UE, EEE y Suiza se mueven libremente y pueden entrar sin visado ni límite de 90 días, aunque vivir más de tres meses activa normas de registro de residencia. Los visitantes no comunitarios de países exentos de visado pueden entrar sin visado, pero están sujetos al límite Schengen de 90 días en cualquier periodo de 180 días en todos los países Schengen juntos. Los viajeros de países que sí requieren visado deben solicitar un visado Schengen en el consulado español antes de viajar. ETIAS funcionará como autorización previa para muchos viajeros no comunitarios exentos de visado cuando esté en vigor.",
+      explanation: "La separación principal para entrar en España es UE/EEE/Suiza frente al resto de viajeros. Los ciudadanos de la UE, EEE y Suiza se mueven libremente y pueden entrar sin visado ni límite de 90 días, aunque vivir más de tres meses activa normas de registro de residencia. Los visitantes no comunitarios de países exentos de visado pueden entrar sin visado, pero están sujetos al límite Schengen de 90 días en cualquier periodo de 180 días en todos los países Schengen juntos. Los viajeros de países que sí requieren visado deben solicitar un visado Schengen en el consulado español antes de viajar. Desde abril de 2026, los no comunitarios pasan además por el Sistema de Entradas y Salidas (EES), que registra huellas y foto en la frontera; los ciudadanos UE/EEE/Suiza y quienes tienen permiso de residencia o visado de larga duración están exentos. ETIAS funcionará como autorización previa para muchos viajeros no comunitarios exentos de visado cuando entre en vigor.",
       steps: ["Si eres ciudadano UE/EEE/Suiza, revisa la guía de estancia corta y viaja con documento válido.", "Si eres no comunitario, comprueba si tu nacionalidad necesita visado Schengen o entra por exención.", "Usa la calculadora oficial si necesitas confirmar el límite de 90 días en 180 días."],
-      links: ["eu-short-stay", "schengen", "calculator"]
+      links: ["eu-short-stay", "schengen", "ees", "calculator"]
     } : {
       process: "EU vs non-EU visits",
-      explanation: "The key split for Spain entry is EU/EEA/Swiss versus everyone else. EU, EEA, and Swiss citizens move freely within the EU and can stay in Spain as long as they like without any visa or time limit — though stays over three months trigger residence registration rules. Non-EU visitors from visa-free countries (such as the US, UK, Canada, and Australia) can enter without a visa but are subject to the 90-day Schengen limit across all Schengen countries combined. Visitors from countries that require a Schengen visa must apply at a Spanish consulate before travelling. ETIAS — a pre-travel authorisation system similar to the US ESTA — is expected to apply to currently visa-free non-EU visitors; check whether it is in force before your trip.",
+      explanation: "The key split for Spain entry is EU/EEA/Swiss versus everyone else. EU, EEA, and Swiss citizens move freely within the EU and can stay in Spain as long as they like without any visa or time limit — though stays over three months trigger residence registration rules. Non-EU visitors from visa-free countries (such as the US, UK, Canada, and Australia) can enter without a visa but are subject to the 90-day Schengen limit across all Schengen countries combined. Visitors from countries that require a Schengen visa must apply at a Spanish consulate before travelling. Since April 2026, non-EU visitors also pass through the Entry/Exit System (EES), which registers fingerprints and a photo at the border; EU/EEA/Swiss citizens and holders of a residence permit or long-stay visa are exempt. ETIAS — a pre-travel authorisation similar to the US ESTA — is expected to apply to currently visa-free non-EU visitors later; check whether it is in force before your trip.",
       steps: ["If you are an EU/EEA/Swiss citizen, review the short-stay guidance and travel with a valid document.", "If you are non-EU, check whether your nationality needs a Schengen visa or enters visa-free.", "Use the official calculator if you need to confirm the 90 days in any 180-day limit."],
-      links: ["eu-short-stay", "schengen", "calculator"]
+      links: ["eu-short-stay", "schengen", "ees", "calculator"]
     };
   }
   if (goal === "vacation-flights") {
@@ -2586,6 +2586,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       fnmt: "FNMT digital certificate",
       clave: "Cl@ve registration",
       schengen: "Check visa or ETIAS requirement",
+      ees: "Entry/Exit System (EES)",
       calculator: "Official EU 90/180 calculator",
       "eu-short-stay": "Spain: stays up to 3 months",
       "work-employed": "Employee work in Spain",
@@ -2673,6 +2674,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       fnmt: "Certificado digital FNMT",
       clave: "Registro en Cl@ve",
       schengen: "Comprobar visado o ETIAS",
+      ees: "Sistema de Entradas y Salidas (EES)",
       calculator: "Calculadora oficial UE 90/180",
       "eu-short-stay": "España: estancias de hasta 3 meses",
       "work-employed": "Trabajo por cuenta ajena en España",
@@ -2763,6 +2765,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "fnmt-ss-cita": "https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=CPMSWACS&ORGANISMO=I",
     clave: "https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html",
     schengen: "https://travel-europe.europa.eu/en/etias/about-etias/who-should-apply",
+    ees: "https://travel-europe.europa.eu/ees_en",
     calculator: "https://ec.europa.eu/assets/home/visa-calculator-2/calculator.htm?lang=en",
     "eu-short-stay": "https://administracion.gob.es/pag_Home/es/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/estancia.html",
     "work-employed": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-y-trabajo-por-cuenta-ajena-hi-16-",
