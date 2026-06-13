@@ -1030,6 +1030,10 @@ main > section {
   gap: var(--space-phi);
 }
 
+#routeWizard {
+  transition: opacity 0.15s ease;
+}
+
 .wizard-progress {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

@@ -3298,15 +3298,19 @@ wizard.addEventListener("submit", (event) => {
     }
     if (currentEntryPreset === "vacation") {
       pushCurrentScreenState();
+      wizard.style.opacity = "0";
       wizard.dataset.step = "result";
       showDirectGuide();
       updateQuestionVisibility();
       renderVacationRoadmap();
+      requestAnimationFrame(() => { wizard.style.opacity = "1"; });
       return;
     }
     pushCurrentScreenState();
+    wizard.style.opacity = "0";
     wizard.dataset.step = "goal";
     updateQuestionVisibility();
+    requestAnimationFrame(() => { wizard.style.opacity = "1"; });
     setCurrentScreenState({
       type: "wizard",
       entryPreset: currentEntryPreset,
@@ -3335,9 +3339,11 @@ wizard.addEventListener("submit", (event) => {
     }
     if (getValue("goal") === "vacation") {
       pushCurrentScreenState();
+      wizard.style.opacity = "0";
       wizard.dataset.step = "result";
       updateQuestionVisibility();
       renderRoadmap();
+      requestAnimationFrame(() => { wizard.style.opacity = "1"; });
       const route = pickRoute()?.id || "unknown-route";
       trackUsageEvent(`/guide/${route}`, `Submitted ${route}`);
       return;
@@ -3362,9 +3368,11 @@ wizard.addEventListener("submit", (event) => {
       return;
     }
     pushCurrentScreenState();
+    wizard.style.opacity = "0";
     wizard.dataset.step = "result";
     updateQuestionVisibility();
     renderRoadmap();
+    requestAnimationFrame(() => { wizard.style.opacity = "1"; });
     const route = pickRoute()?.id || "unknown-route";
     trackUsageEvent(`/guide/${route}`, `Submitted ${route}`);
     return;
@@ -3381,18 +3389,22 @@ wizard.addEventListener("submit", (event) => {
       return;
     }
     pushCurrentScreenState();
+    wizard.style.opacity = "0";
     wizard.dataset.step = "result";
     updateQuestionVisibility();
     renderRoadmap();
+    requestAnimationFrame(() => { wizard.style.opacity = "1"; });
     const route = pickRoute()?.id || "unknown-route";
     trackUsageEvent(`/guide/${route}`, `Submitted ${route}`);
     return;
   }
 
   pushCurrentScreenState();
+  wizard.style.opacity = "0";
   wizard.dataset.step = "result";
   updateQuestionVisibility();
   renderRoadmap();
+  requestAnimationFrame(() => { wizard.style.opacity = "1"; });
   const route = pickRoute()?.id || "unknown-route";
   trackUsageEvent(`/guide/${route}`, `Submitted ${route}`);
 });
