@@ -3943,3 +3943,37 @@ select {
     font-size: 1.45rem;
   }
 }
+
+/* ── #guide-cards hero tweaks ── */
+#guide-cards.guide-card-panel {
+  padding-top: 0;
+  gap: 0;
+}
+
+.guide-card-panel .section-heading {
+  background: #fdf8f2;
+  padding: clamp(32px, 4vw, 48px) clamp(28px, 5vw, 56px) clamp(24px, 3vw, 36px);
+  border-bottom: 1px solid #ece7de;
+}
+
+.guide-card-panel .section-heading h1::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 3px;
+  background: #c8834a;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+.hero-disclaimer {
+  background: #fdf8f2;
+  padding: 10px clamp(28px, 5vw, 56px);
+  border-top: 1px solid #ece7de;
+}
+
+.hero-disclaimer p {
+  font-size: 11px;
+  color: #b0a898;
+  margin: 0;
+}
