@@ -334,7 +334,7 @@ const routeFormsAndTaxes = {
   },
   "eu-family": {
     forms: [
-      ["EX-19", "Residence card application for a non-EU family member of an EU citizen", "Authorization/card form", "EX-19"],
+      ["EX-19", "Residence card application for a non-EU family member of an EU citizen", "Authorization form", "EX-19"],
       ["EX-17", "TIE card after your application has been approved", "Form", "EX-17"]
     ],
     taxes: [["790-012", "EU-family residence card fee", "12.00 EUR", "790-012"]],
@@ -437,7 +437,7 @@ const routeFormsAndTaxesEs = {
   },
   "eu-family": {
     forms: [
-      ["EX-19", "Solicitud de tarjeta de residencia para familiar no comunitario de ciudadano de la UE", "Formulario de autorización/tarjeta", "EX-19"],
+      ["EX-19", "Solicitud de tarjeta de residencia para familiar no comunitario de ciudadano de la UE", "Formulario de autorización", "EX-19"],
       ["EX-17", "TIE después de que la solicitud haya sido aprobada", "Formulario", "EX-17"]
     ],
     taxes: [["790-012", "Tasa de tarjeta de residencia de familiar de ciudadano de la UE", "12.00 EUR", "790-012"]],
