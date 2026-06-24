@@ -339,14 +339,6 @@ const routeFormsAndTaxes = {
     ],
     taxes: [["790-012", "EU-family residence card fee", "12.00 EUR", "790-012"]],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
-  },
-  "vida-laboral": {
-    forms: [
-      ["sede.seg-social.gob.es", "Social Security online portal", "Official application portal", ""],
-      ["—", "Informe de Vida Laboral", "Document", ""]
-    ],
-    taxes: [],
-    links: ["vida-laboral-official", "clave-setup"]
   }
 };
 
@@ -450,14 +442,6 @@ const routeFormsAndTaxesEs = {
     ],
     taxes: [["790-012", "Tasa de tarjeta de residencia de familiar de ciudadano de la UE", "12.00 EUR", "790-012"]],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
-  },
-  "vida-laboral": {
-    forms: [
-      ["sede.seg-social.gob.es", "Sede electrónica de la Seguridad Social", "Portal oficial de solicitud", ""],
-      ["—", "Informe de Vida Laboral", "Documento", ""]
-    ],
-    taxes: [],
-    links: ["vida-laboral-official", "clave-setup"]
   }
 };
 
@@ -1936,8 +1920,7 @@ function directRoadmapFor(goal) {
         "Renovación de permiso de trabajo",
         "Gestoría o abogado que tramite tu expediente de residencia"
       ],
-      links: ["vida-laboral-official", "clave-setup"],
-      route: { id: "vida-laboral" }
+      links: ["vida-laboral-official", "clave-setup"]
     } : {
       process: "Vida laboral (Informe de Vida Laboral)",
       explanation: "The Informe de Vida Laboral is an official document issued by Spain's Social Security (Seguridad Social) showing your complete employment history registered in the Spanish system — every job, period of self-employment, unemployment, or contribution gap from your first registration to today. It is not something you apply for once and keep; you request it fresh each time it's needed, and it reflects your situation up to that exact date. It is free to obtain and usually available instantly online.",
@@ -1954,8 +1937,7 @@ function directRoadmapFor(goal) {
         "Work permit renewal",
         "Any gestoria or lawyer handling residency paperwork"
       ],
-      links: ["vida-laboral-official", "clave-setup"],
-      route: { id: "vida-laboral" }
+      links: ["vida-laboral-official", "clave-setup"]
     };
   }
   if (goal === "vacation-entry") {
