@@ -264,6 +264,16 @@ const GUIDES = {
       explanation: "Conseguir número de móvil e internet en casa en España es sencillo con documentación. Compara grandes operadores y opciones flexibles antes de contratar. Algunas operadoras piden NIE o pasaporte."
     }
   },
+  "vida-laboral": {
+    en: {
+      process: "Vida laboral (Informe de Vida Laboral) in Spain",
+      explanation: "The Informe de Vida Laboral is an official Social Security document showing your complete Spanish employment history — every job, self-employment period, or contribution gap. It is free and usually available instantly online with Cl@ve or a digital certificate."
+    },
+    es: {
+      process: "Vida laboral (Informe de Vida Laboral) en España",
+      explanation: "El Informe de Vida Laboral es un documento oficial de la Seguridad Social que muestra tu historial completo de empleo en España: cada trabajo, periodo de autónomo o laguna de cotización. Es gratuito y suele obtenerse al instante online con Cl@ve o certificado digital."
+    }
+  },
 
   // ── Vacation topics ───────────────────────────────────────────────────────
   "vacation-entry": {

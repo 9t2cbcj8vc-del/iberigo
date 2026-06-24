@@ -339,6 +339,14 @@ const routeFormsAndTaxes = {
     ],
     taxes: [["790-012", "EU-family residence card fee", "12.00 EUR", "790-012"]],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
+  },
+  "vida-laboral": {
+    forms: [
+      ["sede.seg-social.gob.es", "Social Security online portal", "Official application portal", ""],
+      ["—", "Informe de Vida Laboral", "Document", ""]
+    ],
+    taxes: [],
+    links: ["vida-laboral-official", "clave-setup"]
   }
 };
 
@@ -442,6 +450,14 @@ const routeFormsAndTaxesEs = {
     ],
     taxes: [["790-012", "Tasa de tarjeta de residencia de familiar de ciudadano de la UE", "12.00 EUR", "790-012"]],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
+  },
+  "vida-laboral": {
+    forms: [
+      ["sede.seg-social.gob.es", "Sede electrónica de la Seguridad Social", "Portal oficial de solicitud", ""],
+      ["—", "Informe de Vida Laboral", "Documento", ""]
+    ],
+    taxes: [],
+    links: ["vida-laboral-official", "clave-setup"]
   }
 };
 
@@ -876,6 +892,7 @@ const translations = {
     directTie: "TIE card after VISA approval",
     directSocial: "Social Security number",
     directDigital: "Digital access: Cl@ve or digital certificate",
+    directVidaLaboral: "Vida laboral (employment history report)",
     directSip: "Public health card",
     directPrivateHealth: "Private health insurance",
     directEhic: "EHIC / European Health Insurance Card",
@@ -966,6 +983,7 @@ const translations = {
     directTie: "Tarjeta TIE después de aprobar el visado",
     directSocial: "Número de la Seguridad Social",
     directDigital: "Acceso digital: Cl@ve o certificado digital",
+    directVidaLaboral: "Vida laboral (informe de vida laboral)",
     directSip: "Tarjeta sanitaria pública",
     directPrivateHealth: "Seguro médico privado",
     directEhic: "Tarjeta Sanitaria Europea",
@@ -1896,6 +1914,29 @@ function directRoadmapFor(goal) {
       links: ["provider-movistar", "provider-vodafone", "provider-orange", "provider-digi", "provider-o2", "provider-yoigo"]
     };
   }
+  if (goal === "vida-laboral") {
+    return currentLang === "es" ? {
+      process: "Vida laboral (Informe de Vida Laboral)",
+      explanation: "El Informe de Vida Laboral es un documento oficial emitido por la Seguridad Social que muestra tu historial completo de empleo registrado en el sistema español: cada trabajo, periodo de autónomo, desempleo o laguna de cotización desde tu primera alta hasta hoy. No es algo que se solicita una vez y se conserva; lo pides de nuevo cada vez que lo necesitas, y refleja tu situación hasta esa fecha exacta. Es gratuito y normalmente se obtiene al instante online.",
+      steps: [
+        "Configura tu PIN Cl@ve o consigue tu <a href=\"/guides/es/digital/\">certificado digital</a> si todavía no lo tienes — lo necesitarás para pedirlo online.",
+        "Entra en sede.seg-social.gob.es y descarga tu informe al instante.",
+        "Si no puedes acceder online, llama al 901 50 20 50 o acude a tu oficina del INSS más cercana con tu NIE y documento de identidad."
+      ],
+      links: ["vida-laboral-official", "clave-setup"],
+      route: { id: "vida-laboral" }
+    } : {
+      process: "Vida laboral (Informe de Vida Laboral)",
+      explanation: "The Informe de Vida Laboral is an official document issued by Spain's Social Security (Seguridad Social) showing your complete employment history registered in the Spanish system — every job, period of self-employment, unemployment, or contribution gap from your first registration to today. It is not something you apply for once and keep; you request it fresh each time it's needed, and it reflects your situation up to that exact date. It is free to obtain and usually available instantly online.",
+      steps: [
+        "Set up your Cl@ve PIN or get your <a href=\"/guides/digital/\">digital certificate</a> if you haven't already — you'll need one to get it online.",
+        "Log in to sede.seg-social.gob.es and download your informe instantly.",
+        "If you can't access it online, call 901 50 20 50 or visit your nearest INSS office with your NIE and ID."
+      ],
+      links: ["vida-laboral-official", "clave-setup"],
+      route: { id: "vida-laboral" }
+    };
+  }
   if (goal === "vacation-entry") {
     return currentLang === "es" ? {
       process: "Reglas de entrada y estancia corta",
@@ -2016,7 +2057,8 @@ function livingTopicSummary(goal) {
     banking: "Cuenta para nómina, alquiler, recibos y operaciones bancarias diarias.",
     "job-search": "Portales públicos y pasos básicos para empezar a buscar trabajo.",
     taxes: "Domicilio fiscal y trámites básicos con Hacienda.",
-    phone: "Línea móvil e internet para instalarte y verificar servicios."
+    phone: "Línea móvil e internet para instalarte y verificar servicios.",
+    "vida-laboral": "Informe oficial con tu historial completo de cotizaciones y empleo en España."
   } : {
     padron: "Town hall address registration — the foundation for TIE, healthcare, and most admin steps.",
     nie: "Your foreigner ID number for property, banking, tax, work, and most official procedures in Spain.",
@@ -2029,7 +2071,8 @@ function livingTopicSummary(goal) {
     banking: "Spanish bank account for salary, rent, utilities, and tax — needed within weeks of arriving.",
     "job-search": "SEPE, InfoJobs, and LinkedIn are the main channels; EU citizens work freely, non-EU need authorization.",
     taxes: "Tax residency, annual IRPF return, and the Beckham Law option for recent arrivals.",
-    phone: "Spanish SIM needed for bank verification, Cl@ve PIN, and government SMS codes."
+    phone: "Spanish SIM needed for bank verification, Cl@ve PIN, and government SMS codes.",
+    "vida-laboral": "Official report covering your complete Spanish employment and contribution history."
   };
   return summaries[goal] || "";
 }
@@ -2171,7 +2214,7 @@ function renderLivingSubtopics() {
         {
           title: "Dinero y trabajo",
           description: "Cuenta bancaria, empleo e impuestos para empezar a funcionar con más normalidad.",
-          topics: [["banking", t("directBanking")], ["job-search", t("directJobs")], ["taxes", t("directTaxes")]],
+          topics: [["banking", t("directBanking")], ["job-search", t("directJobs")], ["taxes", t("directTaxes")], ["vida-laboral", t("directVidaLaboral")]],
           summaryFn: livingTopicSummary
         },
         {
@@ -2197,7 +2240,7 @@ function renderLivingSubtopics() {
           {
             title: "Money and work",
             description: "Banking, job search, and taxes for getting daily life up and running.",
-            topics: [["banking", t("directBanking")], ["job-search", t("directJobs")], ["taxes", t("directTaxes")]],
+            topics: [["banking", t("directBanking")], ["job-search", t("directJobs")], ["taxes", t("directTaxes")], ["vida-laboral", t("directVidaLaboral")]],
             summaryFn: livingTopicSummary
           },
           {
@@ -2665,7 +2708,9 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "citizenship-residence": "Spanish citizenship by residence",
       "citizenship-application": "Citizenship application portal",
       "fnmt-aeat-cita": "FNMT appointment via Tax Agency",
-      "fnmt-ss-cita": "FNMT appointment via Social Security"
+      "fnmt-ss-cita": "FNMT appointment via Social Security",
+      "vida-laboral-official": "Informe de Vida Laboral",
+      "clave-setup": "Cl@ve setup"
     },
     es: {
       cita: "Reservar cita previa",
@@ -2753,7 +2798,9 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "citizenship-residence": "Nacionalidad española por residencia",
       "citizenship-application": "Portal de solicitud de nacionalidad",
       "fnmt-aeat-cita": "Cita FNMT por Agencia Tributaria",
-      "fnmt-ss-cita": "Cita FNMT por Seguridad Social"
+      "fnmt-ss-cita": "Cita FNMT por Seguridad Social",
+      "vida-laboral-official": "Informe de Vida Laboral",
+      "clave-setup": "Configurar Cl@ve"
     },
   };
   const urls = {
@@ -2808,6 +2855,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "insurance-dkv": "https://dkv.es/particulares/seguros-de-salud",
     "insurance-mapfre": "https://www.mapfre.es/particulares/seguros-de-salud/",
     "insurance-safetywing": "https://safetywing.com/?referenceID=26543349&utm_source=26543349&utm_medium=Ambassador",
+    "vida-laboral-official": "https://sede.seg-social.gob.es",
+    "clave-setup": "https://clave.gob.es",
     "travel-spaininfo": "https://www.spain.info/es/",
     "travel-renfe": "https://www.renfe.com/es/en",
     "travel-aena": "https://www.aena.es/en/passengers/passengers.html",
@@ -2878,6 +2927,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "sede.administracionespublicas.gob.es",
     "seg-social.es",
     "prestaciones.seg-social.es",
+    "seg-social.gob.es",
+    "sede.seg-social.gob.es",
     "sede.policia.gob.es",
     "mjusticia.gob.es",
     "sede.mjusticia.gob.es",
