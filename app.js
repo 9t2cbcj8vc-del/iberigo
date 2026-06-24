@@ -1456,6 +1456,10 @@ function resultSectionLabel(key) {
     forms: {
       en: "Forms and documents",
       es: "Formularios y documentos"
+    },
+    whenNeeded: {
+      en: "When you'll need it",
+      es: "Cuándo lo necesitarás"
     }
   };
   return labels[key]?.[currentLang] || labels[key]?.en || "";
@@ -1725,6 +1729,7 @@ function renderRoadmapCard(roadmap, guideId = roadmap?.route?.id || currentDirec
       <strong>${t("nextSteps")}</strong>
       <ol class="roadmap-list">${roadmap.steps.slice(0, 3).map((step) => `<li>${step}</li>`).join("")}</ol>
     </div>
+    ${renderWhenNeededBlock(roadmap)}
     ${renderFormsAndTaxesBlock(roadmap.route)}
     ${renderRoadmapLinks(roadmap.links, formAndTaxUrls(roadmap.route))}
     ${renderSafetyWingBlock(roadmap.route?.id || guideId)}
@@ -1923,6 +1928,14 @@ function directRoadmapFor(goal) {
         "Entra en sede.seg-social.gob.es y descarga tu informe al instante.",
         "Si no puedes acceder online, llama al 901 50 20 50 o acude a tu oficina del INSS más cercana con tu NIE y documento de identidad."
       ],
+      whenNeeded: [
+        "Solicitud de nacionalidad española",
+        "Renovación de visado de residencia no lucrativa o de trabajo",
+        "Apertura de cuenta bancaria o solicitud de hipoteca",
+        "Solicitud de prestación por desempleo (paro)",
+        "Renovación de permiso de trabajo",
+        "Gestoría o abogado que tramite tu expediente de residencia"
+      ],
       links: ["vida-laboral-official", "clave-setup"],
       route: { id: "vida-laboral" }
     } : {
@@ -1932,6 +1945,14 @@ function directRoadmapFor(goal) {
         "Set up your Cl@ve PIN or get your <a href=\"/guides/digital/\">digital certificate</a> if you haven't already — you'll need one to get it online.",
         "Log in to sede.seg-social.gob.es and download your informe instantly.",
         "If you can't access it online, call 901 50 20 50 or visit your nearest INSS office with your NIE and ID."
+      ],
+      whenNeeded: [
+        "Spanish nationality application",
+        "Non-lucrative or work visa renewal",
+        "Bank account or mortgage application",
+        "Unemployment benefit (paro) claim",
+        "Work permit renewal",
+        "Any gestoria or lawyer handling residency paperwork"
       ],
       links: ["vida-laboral-official", "clave-setup"],
       route: { id: "vida-laboral" }
@@ -2336,6 +2357,16 @@ function renderEmptyResult() {
   result.innerHTML = `
     <h3>${t("emptyTitle")}</h3>
     <p>${t("emptyText")}</p>
+  `;
+}
+
+function renderWhenNeededBlock(roadmap) {
+  if (!roadmap?.whenNeeded?.length) return "";
+  return `
+    <div class="result-section">
+      <strong>${resultSectionLabel("whenNeeded")}</strong>
+      <ul class="roadmap-list">${roadmap.whenNeeded.map((item) => `<li>${item}</li>`).join("")}</ul>
+    </div>
   `;
 }
 
