@@ -1573,6 +1573,31 @@ function currentSectionLabel() {
   return t("movingTitle");
 }
 
+// Maps a standalone guide page's id to the breadcrumb section it belongs to.
+// Needed because static guide pages (loaded directly via their own URL, not
+// through in-app navigation) never go through the menu flow that normally
+// sets currentEntryPreset — without this, every guide falls through to the
+// "Move to Spain" default in currentSectionLabel(), even ones that only ever
+// appear under the Living or Vacation menus.
+const guideSectionOverrides = {
+  living: [
+    "padron", "digital", "nie", "tie", "social-security",
+    "sip-card", "private-health", "ehic-card",
+    "banking", "job-search", "taxes", "phone", "vida-laboral"
+  ],
+  vacation: [
+    "eu-vacation", "non-eu-vacation",
+    "vacation-entry", "vacation-citizenship", "vacation-flights", "vacation-ground",
+    "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews"
+  ]
+};
+
+function sectionPresetForGuide(guideId) {
+  if (guideSectionOverrides.living.includes(guideId)) return "living";
+  if (guideSectionOverrides.vacation.includes(guideId)) return "vacation";
+  return null;
+}
+
 function renderBackButton(currentLabel = "") {
   const crumbs = [t("startNav"), currentSectionLabel(), currentLabel].filter(Boolean);
   return `
@@ -3531,7 +3556,7 @@ if (!openNavSectionIfRequested()) showNormalApp();
   const directRoadmap = directRoadmapFor(guideId);
   if (directRoadmap) {
     currentDirectRoute = guideId;
-    if (guideId === "vida-laboral") currentEntryPreset = "living";
+    currentEntryPreset = sectionPresetForGuide(guideId) || currentEntryPreset;
     showDirectGuide();
     renderRoadmapCard(directRoadmap, guideId);
     return;
@@ -3540,6 +3565,7 @@ if (!openNavSectionIfRequested()) showNormalApp();
   const route = routes.find((r) => r.id === guideId);
   if (route) {
     const roadmap = roadmapFor(route);
+    currentEntryPreset = sectionPresetForGuide(guideId) || currentEntryPreset;
     showDirectGuide();
     renderRoadmapCard(roadmap);
   }
