@@ -3531,6 +3531,7 @@ if (!openNavSectionIfRequested()) showNormalApp();
   const directRoadmap = directRoadmapFor(guideId);
   if (directRoadmap) {
     currentDirectRoute = guideId;
+    if (guideId === "vida-laboral") currentEntryPreset = "living";
     showDirectGuide();
     renderRoadmapCard(directRoadmap, guideId);
     return;
