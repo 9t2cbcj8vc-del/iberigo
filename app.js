@@ -907,6 +907,7 @@ const translations = {
     directPrivateHealth: "Private health insurance",
     directEhic: "EHIC / European Health Insurance Card",
     directBanking: "Bank account and banking basics",
+    directRentingHome: "Renting a home",
     directJobs: "Job search in Spain",
     directTaxes: "Taxes and tax address",
     directPhone: "Phone number and internet",
@@ -999,6 +1000,7 @@ const translations = {
     directPrivateHealth: "Seguro médico privado",
     directEhic: "Tarjeta Sanitaria Europea",
     directBanking: "Cuenta bancaria y banca básica",
+    directRentingHome: "Alquilar vivienda",
     directJobs: "Buscar trabajo en España",
     directTaxes: "Impuestos y domicilio fiscal",
     directPhone: "Número de teléfono e internet",
@@ -1504,6 +1506,7 @@ function routeVisualFor(routeId = "") {
     "private-health": "./assets/topic-scenes/live-private-health-20260606.webp",
     "ehic-card": "./assets/topic-scenes/live-ehic-20260606.webp",
     banking: "./assets/topic-scenes/live-banking-20260606.webp",
+    "renting-home": "./assets/topic-scenes/live-renting-home-20260625.webp",
     phone: "./assets/topic-scenes/phone-direct-20260606.webp",
     "job-search": "./assets/topic-scenes/live-job-search-20260606.webp",
     taxes: "./assets/topic-scenes/live-taxes-20260606.webp",
@@ -1616,7 +1619,7 @@ const guideSectionOverrides = {
   living: [
     "padron", "digital", "nie", "tie", "social-security",
     "sip-card", "private-health", "ehic-card",
-    "banking", "job-search", "taxes", "phone", "vida-laboral", "driving-licence-exchange"
+    "banking", "renting-home", "job-search", "taxes", "phone", "vida-laboral", "driving-licence-exchange"
   ],
   vacation: [
     "eu-vacation", "non-eu-vacation",
@@ -1925,6 +1928,33 @@ function directRoadmapFor(goal) {
       links: ["bank-santander", "bank-bbva", "bank-caixabank", "bank-sabadell", "bank-bankinter", "bank-revolut", "bank-bunq", "bank-wise"]
     };
   }
+  if (goal === "renting-home") {
+    return currentLang === "es" ? {
+      process: "Alquilar una vivienda en España",
+      explanation: "Alquilar en España suele empezar por entender qué tipo de contrato necesitas, preparar documentos que demuestren quién eres y que puedes pagar, y revisar bien las condiciones antes de enviar dinero. No es lo mismo una vivienda habitual de larga duración que un alquiler temporal o turístico. Un contrato de alquiler también puede ayudarte después con el padrón, si el ayuntamiento lo acepta como prueba de domicilio.",
+      steps: [
+        "Decide si necesitas vivienda habitual de larga duración, alquiler temporal o alojamiento turístico.",
+        "Prepara pasaporte o documento de identidad, NIE/TIE si ya lo tienes, justificantes de ingresos o fondos, contrato laboral o nóminas, y cuenta bancaria si la tienes.",
+        "Compara zonas, portales y agencias, visita la vivienda cuando sea posible y confirma siempre a quién pagas.",
+        "Antes de firmar, revisa tipo de contrato, fianza, garantías adicionales, suministros, inventario, fotos y si la dirección sirve para padrón."
+      ],
+      links: ["rent-law-boe", "rent-idealista", "rent-fotocasa", "rent-habitaclia"],
+      route: { id: "renting-home" },
+      whatHappensNext: "Después de firmar, guarda el contrato, recibos de pago, inventario o fotos, y datos del propietario o agencia. Luego puedes organizar padrón, suministros, internet y domiciliaciones bancarias."
+    } : {
+      process: "Renting a home in Spain",
+      explanation: "Renting in Spain usually starts with understanding what type of contract you need, preparing documents that prove who you are and that you can pay, and checking the terms before sending money. A long-term main-home rental, a seasonal or temporary rental, and tourist accommodation are different things. A rental contract can also help later with padrón if the town hall accepts it as proof of address.",
+      steps: [
+        "Decide whether you need a long-term main home, a seasonal or temporary rental, or short tourist accommodation.",
+        "Prepare passport or ID, NIE/TIE if you have it, proof of income or funds, work contract or payslips, and a bank account if available.",
+        "Compare areas, portals, and agencies, visit the property where possible, and always confirm who you are paying.",
+        "Before signing, review the contract type, deposit, extra guarantees, utilities, inventory, photos, and whether the address can be used for padrón."
+      ],
+      links: ["rent-law-boe", "rent-idealista", "rent-fotocasa", "rent-habitaclia"],
+      route: { id: "renting-home" },
+      whatHappensNext: "After signing, keep the contract, payment receipts, inventory or photos, and landlord or agency details. Then you can organize padrón, utilities, internet, and bank direct debits."
+    };
+  }
   if (goal === "job-search") {
     return currentLang === "es" ? {
       process: "Buscar trabajo en España",
@@ -2144,6 +2174,7 @@ function livingTopicSummary(goal) {
     "private-health": "Seguro privado útil para ciertos permisos o como cobertura adicional.",
     "ehic-card": "Tarjeta para asistencia sanitaria necesaria durante estancias temporales en Europa.",
     banking: "Cuenta para nómina, alquiler, recibos y operaciones bancarias diarias.",
+    "renting-home": "Cómo buscar vivienda, preparar documentos, revisar contratos y evitar pagos dudosos.",
     "job-search": "Portales públicos y pasos básicos para empezar a buscar trabajo.",
     taxes: "Domicilio fiscal y trámites básicos con Hacienda.",
     phone: "Línea móvil e internet para instalarte y verificar servicios.",
@@ -2159,6 +2190,7 @@ function livingTopicSummary(goal) {
     "private-health": "Private insurance required for some visas and popular for faster specialist access.",
     "ehic-card": "EU health card for medically necessary care during temporary stays in other European countries.",
     banking: "Spanish bank account for salary, rent, utilities, and tax — needed within weeks of arriving.",
+    "renting-home": "How to search, prepare documents, check contracts, and avoid risky payments.",
     "job-search": "SEPE, InfoJobs, and LinkedIn are the main channels; EU citizens work freely, non-EU need authorization.",
     taxes: "Tax residency, annual IRPF return, and the Beckham Law option for recent arrivals.",
     phone: "Spanish SIM needed for bank verification, Cl@ve PIN, and government SMS codes.",
@@ -2202,6 +2234,7 @@ function topicScene(goal) {
     "private-health": "./assets/topic-scenes/live-private-health-20260606.webp",
     "ehic-card": "./assets/topic-scenes/live-ehic-20260606.webp",
     banking: "./assets/topic-scenes/live-banking-20260606.webp",
+    "renting-home": "./assets/topic-scenes/live-renting-home-20260625.webp",
     "job-search": "./assets/topic-scenes/live-job-search-20260606.webp",
     taxes: "./assets/topic-scenes/live-taxes-20260606.webp",
     phone: "./assets/topic-scenes/phone-direct-20260606.webp",
@@ -2306,7 +2339,7 @@ function renderLivingSubtopics() {
         {
           title: "Dinero y trabajo",
           description: "Cuenta bancaria, empleo e impuestos para empezar a funcionar con más normalidad.",
-          topics: [["banking", t("directBanking")], ["job-search", t("directJobs")], ["taxes", t("directTaxes")], ["vida-laboral", t("directVidaLaboral")]],
+          topics: [["banking", t("directBanking")], ["renting-home", t("directRentingHome")], ["job-search", t("directJobs")], ["taxes", t("directTaxes")], ["vida-laboral", t("directVidaLaboral")]],
           summaryFn: livingTopicSummary
         },
         {
@@ -2332,7 +2365,7 @@ function renderLivingSubtopics() {
           {
             title: "Money and work",
             description: "Banking, job search, and taxes for getting daily life up and running.",
-            topics: [["banking", t("directBanking")], ["job-search", t("directJobs")], ["taxes", t("directTaxes")], ["vida-laboral", t("directVidaLaboral")]],
+            topics: [["banking", t("directBanking")], ["renting-home", t("directRentingHome")], ["job-search", t("directJobs")], ["taxes", t("directTaxes")], ["vida-laboral", t("directVidaLaboral")]],
             summaryFn: livingTopicSummary
           },
           {
@@ -2794,6 +2827,18 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "hotel-hilton": { intro: "Cadena hotelera internacional con opciones de categoría alta y de negocio en España.", logo: "Hilton" }
     },
   };
+  const rentMeta = {
+    en: {
+      "rent-idealista": { intro: "Large property portal for comparing long-term rentals, areas, prices, and listings.", logo: "Idealista" },
+      "rent-fotocasa": { intro: "Popular Spanish property portal for rental listings and neighborhood comparisons.", logo: "Fotocasa" },
+      "rent-habitaclia": { intro: "Useful rental-search portal, especially visible in many coastal and Catalan-market searches.", logo: "Habitaclia" }
+    },
+    es: {
+      "rent-idealista": { intro: "Gran portal inmobiliario para comparar alquileres, zonas, precios y anuncios.", logo: "Idealista" },
+      "rent-fotocasa": { intro: "Portal inmobiliario español muy usado para anuncios de alquiler y comparación de zonas.", logo: "Fotocasa" },
+      "rent-habitaclia": { intro: "Portal de búsqueda de alquiler útil, con bastante presencia en zonas costeras y Cataluña.", logo: "Habitaclia" }
+    },
+  };
   const linkLabels = {
     en: {
       cita: "Book an appointment",
@@ -2825,6 +2870,10 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "bank-revolut": "Revolut",
       "bank-bunq": "bunq",
       "bank-wise": "Wise",
+      "rent-law-boe": "Urban Leases Act (BOE)",
+      "rent-idealista": "Idealista rentals",
+      "rent-fotocasa": "Fotocasa rentals",
+      "rent-habitaclia": "Habitaclia rentals",
       "provider-movistar": "Movistar",
       "provider-vodafone": "Vodafone",
       "provider-orange": "Orange",
@@ -2917,6 +2966,10 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "bank-revolut": "Revolut",
       "bank-bunq": "bunq",
       "bank-wise": "Wise",
+      "rent-law-boe": "Ley de Arrendamientos Urbanos (BOE)",
+      "rent-idealista": "Alquileres en Idealista",
+      "rent-fotocasa": "Alquileres en Fotocasa",
+      "rent-habitaclia": "Alquileres en Habitaclia",
       "provider-movistar": "Movistar",
       "provider-vodafone": "Vodafone",
       "provider-orange": "Orange",
@@ -3012,6 +3065,10 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "bank-revolut": "https://www.revolut.com/es-ES/",
     "bank-bunq": "https://www.bunq.com/es-es/about/bunq-in-spain",
     "bank-wise": "https://wise.prf.hn/click/camref:1011l5KaZk",
+    "rent-law-boe": "https://www.boe.es/buscar/act.php?id=BOE-A-1994-26003",
+    "rent-idealista": "https://www.idealista.com/",
+    "rent-fotocasa": "https://www.fotocasa.es/",
+    "rent-habitaclia": "https://www.habitaclia.com/",
     "provider-movistar": "https://www.movistar.es/",
     "provider-vodafone": "https://www.vodafone.es/c/particulares/es/",
     "provider-orange": "https://www.orange.es/",
@@ -3116,6 +3173,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "sede.fnmt.gob.es",
     "dgt.gob.es",
     "sede.dgt.gob.es",
+    "boe.es",
     "agenciatributaria.gob.es",
     "sede.agenciatributaria.gob.es"
   ];
@@ -3186,6 +3244,17 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
             <strong>${label}</strong>
             <span>${meta?.intro || ""}</span>
             ${disclosure}
+          </a>
+        `;
+      }
+      if (type.startsWith("rent-") && type !== "rent-law-boe") {
+        const meta = rentMeta[currentLang]?.[type] || rentMeta.en[type];
+        const brandClass = `stay-link stay-link--${type.replace("rent-", "")}`;
+        return `
+          <a class="${brandClass}" href="${urls[type]}" target="_blank" rel="noreferrer">
+            <span class="stay-logo" aria-hidden="true">${meta?.logo || label}</span>
+            <strong>${label}</strong>
+            <span>${meta?.intro || ""}</span>
           </a>
         `;
       }

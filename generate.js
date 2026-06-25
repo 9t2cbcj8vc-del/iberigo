@@ -236,6 +236,16 @@ const GUIDES = {
       explanation: "Abrir una cuenta bancaria en España normalmente requiere documento de identidad, NIE o TIE si lo tienes y prueba de domicilio. Compara cuentas de residente, no residente y recién llegado antes de decidir."
     }
   },
+  "renting-home": {
+    en: {
+      process: "Renting a home in Spain",
+      explanation: "A practical starting guide for finding a long-term or temporary rental in Spain, preparing documents, checking the contract, and avoiding common red flags before you pay."
+    },
+    es: {
+      process: "Alquilar una vivienda en España",
+      explanation: "Una guía práctica para empezar a buscar alquiler de larga duración o temporal en España, preparar documentos, revisar el contrato y evitar señales de alerta antes de pagar."
+    }
+  },
   "job-search": {
     en: {
       process: "Job search in Spain — how to get started",

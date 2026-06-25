@@ -296,6 +296,18 @@
     <lastmod>2026-06-25</lastmod>
   </url>
   <url>
+    <loc>https://iberigo.eu/guides/renting-home/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-25</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/guides/es/renting-home/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-25</lastmod>
+  </url>
+  <url>
     <loc>https://iberigo.eu/guides/job-search/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
