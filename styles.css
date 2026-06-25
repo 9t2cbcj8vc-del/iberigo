@@ -899,7 +899,7 @@ main > section {
   align-self: end;
   justify-self: center;
   border: 1px solid rgba(255, 255, 255, 0.32);
-  border-radius: 10px;
+  border-radius: 999px;
   background: var(--button-bg);
   color: #fffdf9;
   font-size: 14px;
