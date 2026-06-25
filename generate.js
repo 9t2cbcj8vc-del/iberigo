@@ -276,6 +276,16 @@ const GUIDES = {
       explanation: "El Informe de Vida Laboral es un documento oficial de la Seguridad Social que muestra tu historial completo de empleo en España: cada trabajo, periodo de autónomo o laguna de cotización. Es gratuito y suele obtenerse al instante online con Cl@ve o certificado digital."
     }
   },
+  "driving-licence-exchange": {
+    en: {
+      process: "Exchange your driving licence in Spain",
+      explanation: "If you live in Spain, you'll need to exchange your foreign driving licence for a Spanish one. EU citizens can keep driving on their home licence almost indefinitely; most non-EU citizens have a strict 6-month window from legal residency before their foreign licence stops being valid."
+    },
+    es: {
+      process: "Canjear tu permiso de conducir en España",
+      explanation: "Si vives en España, tendrás que canjear tu permiso de conducir extranjero por uno español. Los ciudadanos de la UE pueden seguir conduciendo con su permiso de origen casi indefinidamente; la mayoría de no comunitarios tienen un plazo estricto de 6 meses desde la residencia legal."
+    }
+  },
 
   // ── Vacation topics ───────────────────────────────────────────────────────
   "vacation-entry": {

@@ -3549,6 +3549,12 @@ select {
   color: #1d5fa4;
 }
 
+.doc-row b a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .compact-fees span {
   color: var(--muted);
   font-size: var(--type-small);
@@ -3630,6 +3636,40 @@ select {
 
 .document-grid h3 {
   margin: 0;
+}
+
+.nationality-path-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
+}
+
+.nationality-path-card {
+  border-left: 3px solid var(--green);
+  padding-left: 16px;
+  display: grid;
+  gap: 6px;
+}
+
+.nationality-path-card--agreement {
+  border-left-color: var(--gold);
+}
+
+.nationality-path-card--no-agreement {
+  border-left-color: var(--spain-red);
+}
+
+.nationality-path-card h4 {
+  margin: 0;
+  font-size: var(--type-card-title);
+  color: var(--ink);
+}
+
+.nationality-path-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--type-small);
+  line-height: 1.5;
 }
 
 .timeline {

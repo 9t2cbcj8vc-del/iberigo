@@ -339,6 +339,18 @@ const routeFormsAndTaxes = {
     ],
     taxes: [["790-012", "EU-family residence card fee", "12.00 EUR", "790-012"]],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
+  },
+  "driving-licence-exchange": {
+    forms: [
+      ["Valid passport", "Plus NIE/TIE or EU Registration Certificate", "Document", ""],
+      ["Original driving licence", "Will be retained by the DGT", "Document", ""],
+      ["<a href=\"/the-spain-files/padron-torrevieja/\">Padrón certificate</a>", "Certificado de empadronamiento", "Document", ""],
+      ["Medical aptitude report", "From authorised CRC, valid 90 days, approx. €30-€50", "Document", ""],
+      ["Passport photo", "32x26mm, plain background, face uncovered", "Document", ""],
+      ["Sworn translation", "Required for non-Latin script licences or if DGT requests", "Document", ""]
+    ],
+    taxes: [["Fee 2.3 payment", "Card or miDGT app only, no cash", "28.87 EUR", ""]],
+    links: ["dgt-licence-exchange", "dgt-bilateral-agreements"]
   }
 };
 
@@ -442,6 +454,18 @@ const routeFormsAndTaxesEs = {
     ],
     taxes: [["790-012", "Tasa de tarjeta de residencia de familiar de ciudadano de la UE", "12.00 EUR", "790-012"]],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
+  },
+  "driving-licence-exchange": {
+    forms: [
+      ["Pasaporte válido", "Más NIE/TIE o Certificado de Registro de la UE", "Documento", ""],
+      ["Permiso de conducir original", "Lo retendrá la DGT", "Documento", ""],
+      ["<a href=\"/the-spain-files/es/padron-torrevieja/\">Certificado de empadronamiento</a>", "Padrón", "Documento", ""],
+      ["Informe de aptitud psicofísica", "De un CRC autorizado, válido 90 días, aprox. 30-50 €", "Documento", ""],
+      ["Foto de carné", "32x26mm, fondo liso, rostro descubierto", "Documento", ""],
+      ["Traducción jurada", "Necesaria para permisos en alfabeto no latino o si la DGT lo solicita", "Documento", ""]
+    ],
+    taxes: [["Tasa 2.3", "Solo tarjeta o app miDGT, sin efectivo", "28.87 EUR", ""]],
+    links: ["dgt-licence-exchange", "dgt-bilateral-agreements"]
   }
 };
 
@@ -878,6 +902,7 @@ const translations = {
     directSocial: "Social Security number",
     directDigital: "Digital access: Cl@ve or digital certificate",
     directVidaLaboral: "Vida laboral (employment history report)",
+    directDrivingLicence: "Exchange your driving licence",
     directSip: "Public health card",
     directPrivateHealth: "Private health insurance",
     directEhic: "EHIC / European Health Insurance Card",
@@ -969,6 +994,7 @@ const translations = {
     directSocial: "Número de la Seguridad Social",
     directDigital: "Acceso digital: Cl@ve o certificado digital",
     directVidaLaboral: "Vida laboral (informe de vida laboral)",
+    directDrivingLicence: "Canjear el permiso de conducir",
     directSip: "Tarjeta sanitaria pública",
     directPrivateHealth: "Seguro médico privado",
     directEhic: "Tarjeta Sanitaria Europea",
@@ -1445,6 +1471,10 @@ function resultSectionLabel(key) {
     whenNeeded: {
       en: "When you'll need it",
       es: "Cuándo lo necesitarás"
+    },
+    whatHappensNext: {
+      en: "What happens next",
+      es: "Qué pasa después"
     }
   };
   return labels[key]?.[currentLang] || labels[key]?.en || "";
@@ -1584,7 +1614,7 @@ const guideSectionOverrides = {
   living: [
     "padron", "digital", "nie", "tie", "social-security",
     "sip-card", "private-health", "ehic-card",
-    "banking", "job-search", "taxes", "phone", "vida-laboral"
+    "banking", "job-search", "taxes", "phone", "vida-laboral", "driving-licence-exchange"
   ],
   vacation: [
     "eu-vacation", "non-eu-vacation",
@@ -1735,12 +1765,15 @@ function renderRoadmapCard(roadmap, guideId = roadmap?.route?.id || currentDirec
   result.innerHTML = `
     ${renderBackButton(roadmap.process)}
     ${renderResultIntro(roadmap, explanation, guideId)}
+    ${renderDeadlineWarningBlock(roadmap.route?.id || guideId)}
+    ${renderNationalityPathBlock(roadmap.route?.id || guideId)}
     <div class="result-section">
       <strong>${t("nextSteps")}</strong>
       <ol class="roadmap-list">${roadmap.steps.slice(0, 3).map((step) => `<li>${step}</li>`).join("")}</ol>
     </div>
     ${renderWhenNeededBlock(roadmap)}
     ${renderFormsAndTaxesBlock(roadmap.route)}
+    ${renderWhatHappensNextBlock(roadmap)}
     ${renderRoadmapLinks(roadmap.links, formAndTaxUrls(roadmap.route))}
     ${renderSafetyWingBlock(roadmap.route?.id || guideId)}
     <p class="disclaimer">${resultDisclaimerFor(roadmap)}</p>
@@ -1966,6 +1999,31 @@ function directRoadmapFor(goal) {
       links: ["vida-laboral-official", "clave-setup"]
     };
   }
+  if (goal === "driving-licence-exchange") {
+    return currentLang === "es" ? {
+      process: "Canjear tu permiso de conducir en España",
+      explanation: "Si vives en España, en algún momento tendrás que canjear tu permiso de conducir extranjero por uno español. Cuándo y cómo depende de dónde se expidió tu permiso. Los ciudadanos de la UE pueden seguir conduciendo con su permiso de origen casi indefinidamente, pero deben canjearlo si caduca o tiene una validez muy larga. La mayoría de las personas no comunitarias tienen un plazo estricto de 6 meses desde que son residentes legales antes de que su permiso extranjero deje de ser válido.",
+      steps: [
+        "Comprueba si tu país tiene un acuerdo bilateral con España en sede.dgt.gob.es — esto determina qué vía te corresponde.",
+        "Reserva tu cita previa en sede.dgt.gob.es → Trámites → Canje de permisos, eligiendo tu Jefatura Provincial de Tráfico más cercana. Reserva cuanto antes — las citas se agotan rápido. Muchos trámites también se pueden gestionar online con <a href=\"/guides/es/digital/\">certificado digital o Cl@ve</a>.",
+        "Consigue tu informe de aptitud psicofísica en un Centro de Reconocimiento de Conductores autorizado — válido 90 días, cuesta aproximadamente 30-50 €."
+      ],
+      links: ["dgt-licence-exchange", "dgt-bilateral-agreements"],
+      route: { id: "driving-licence-exchange" },
+      whatHappensNext: "En tu cita, la DGT se queda con tu permiso original y te entrega un permiso provisional de papel para conducir hasta que llegue tu permiso español. La tramitación suele tardar entre 1 y 3 meses. Tu permiso original se devuelve a la autoridad que lo expidió en tu país de origen — no lo recuperarás."
+    } : {
+      process: "Exchange your driving licence in Spain",
+      explanation: "If you live in Spain, at some point you'll need to exchange your foreign driving licence for a Spanish one. When that is — and how — depends on where your licence was issued. EU citizens can keep driving on their home licence almost indefinitely, but must exchange it if it expires or has a very long validity. Most non-EU citizens have a strict 6-month window from the date they become legally resident before their foreign licence stops being valid.",
+      steps: [
+        "Check whether your country has a bilateral agreement with Spain at sede.dgt.gob.es — this determines which path applies to you.",
+        "Book your cita previa at sede.dgt.gob.es → Trámites → Canje de permisos, selecting your nearest Jefatura Provincial de Tráfico. Book as early as possible — slots fill quickly. Many procedures can also be managed online with a <a href=\"/guides/digital/\">digital certificate or Cl@ve</a>.",
+        "Get your medical aptitude report (informe de aptitud psicofísica) from an authorised Centro de Reconocimiento de Conductores — valid for 90 days, costs approximately €30-€50."
+      ],
+      links: ["dgt-licence-exchange", "dgt-bilateral-agreements"],
+      route: { id: "driving-licence-exchange" },
+      whatHappensNext: "At your appointment the DGT takes your original licence and issues a provisional paper permit to drive on until your Spanish licence arrives. Processing typically takes 1-3 months. Your original licence is sent back to the issuing authority in your home country — you won't get it back."
+    };
+  }
   if (goal === "vacation-entry") {
     return currentLang === "es" ? {
       process: "Reglas de entrada y estancia corta",
@@ -2087,7 +2145,8 @@ function livingTopicSummary(goal) {
     "job-search": "Portales públicos y pasos básicos para empezar a buscar trabajo.",
     taxes: "Domicilio fiscal y trámites básicos con Hacienda.",
     phone: "Línea móvil e internet para instalarte y verificar servicios.",
-    "vida-laboral": "Informe oficial con tu historial completo de cotizaciones y empleo en España."
+    "vida-laboral": "Informe oficial con tu historial completo de cotizaciones y empleo en España.",
+    "driving-licence-exchange": "Canjea tu permiso de conducir extranjero por uno español antes de que caduque el plazo."
   } : {
     padron: "Town hall address registration — the foundation for TIE, healthcare, and most admin steps.",
     nie: "Your foreigner ID number for property, banking, tax, work, and most official procedures in Spain.",
@@ -2101,7 +2160,8 @@ function livingTopicSummary(goal) {
     "job-search": "SEPE, InfoJobs, and LinkedIn are the main channels; EU citizens work freely, non-EU need authorization.",
     taxes: "Tax residency, annual IRPF return, and the Beckham Law option for recent arrivals.",
     phone: "Spanish SIM needed for bank verification, Cl@ve PIN, and government SMS codes.",
-    "vida-laboral": "Official report covering your complete Spanish employment and contribution history."
+    "vida-laboral": "Official report covering your complete Spanish employment and contribution history.",
+    "driving-licence-exchange": "Exchange your foreign driving licence for a Spanish one before your deadline runs out."
   };
   return summaries[goal] || "";
 }
@@ -2231,7 +2291,7 @@ function renderLivingSubtopics() {
         {
           title: "Documentos y administración",
           description: "Pasos básicos para identificarte, registrar tu dirección y dejar tu expediente en orden.",
-          topics: [["padron", t("directPadron")], ["nie", t("directNie")], ["tie", t("directTie")], ["social-security", t("directSocial")], ["digital", t("directDigital")]],
+          topics: [["padron", t("directPadron")], ["nie", t("directNie")], ["tie", t("directTie")], ["social-security", t("directSocial")], ["digital", t("directDigital")], ["driving-licence-exchange", t("directDrivingLicence")]],
           summaryFn: livingTopicSummary
         },
         {
@@ -2257,7 +2317,7 @@ function renderLivingSubtopics() {
           {
             title: "Documents and admin",
             description: "Core steps for your identity, address registration, and basic paperwork footing.",
-            topics: [["padron", t("directPadron")], ["nie", t("directNie")], ["tie", t("directTie")], ["social-security", t("directSocial")], ["digital", t("directDigital")]],
+            topics: [["padron", t("directPadron")], ["nie", t("directNie")], ["tie", t("directTie")], ["social-security", t("directSocial")], ["digital", t("directDigital")], ["driving-licence-exchange", t("directDrivingLicence")]],
             summaryFn: livingTopicSummary
           },
           {
@@ -2374,6 +2434,77 @@ function renderWhenNeededBlock(roadmap) {
     <div class="result-section">
       <strong>${resultSectionLabel("whenNeeded")}</strong>
       <ul class="roadmap-list">${roadmap.whenNeeded.map((item) => `<li>${item}</li>`).join("")}</ul>
+    </div>
+  `;
+}
+
+function renderWhatHappensNextBlock(roadmap) {
+  if (!roadmap?.whatHappensNext) return "";
+  return `
+    <div class="result-section">
+      <strong>${resultSectionLabel("whatHappensNext")}</strong>
+      <p>${roadmap.whatHappensNext}</p>
+    </div>
+  `;
+}
+
+function renderDeadlineWarningBlock(routeId) {
+  if (routeId !== "driving-licence-exchange") return "";
+  return currentLang === "es"
+    ? `
+      <div class="result-section warning-note">
+        <strong>⚠️ Plazo de 6 meses</strong>
+        <p>La mayoría de las personas no comunitarias tienen un plazo estricto de 6 meses desde que son residentes legales antes de que su permiso extranjero deje de ser válido para conducir. No cumplir el plazo implica multas que empiezan en 200 €.</p>
+      </div>
+    `
+    : `
+      <div class="result-section warning-note">
+        <strong>⚠️ The 6-month deadline</strong>
+        <p>Most non-EU citizens have a strict 6-month window from the date they become legally resident before their foreign licence stops being valid to drive on. Missing the deadline means fines starting at €200.</p>
+      </div>
+    `;
+}
+
+function renderNationalityPathBlock(routeId) {
+  if (routeId !== "driving-licence-exchange") return "";
+  if (currentLang === "es") {
+    return `
+      <div class="result-section">
+        <strong>Tu vía depende de tu nacionalidad</strong>
+        <div class="nationality-path-grid">
+          <article class="nationality-path-card">
+            <h4>UE/EEE</h4>
+            <p>Sin examen. El canje es voluntario salvo que tu permiso caduque en España o tenga una validez indefinida o muy larga (15+ años para coche/moto, 5+ años para camión/autobús). En ese caso, debes canjearlo dentro de los 2 años desde que estableces residencia. Tasa: 28,87 €.</p>
+          </article>
+          <article class="nationality-path-card nationality-path-card--agreement">
+            <h4>No UE con acuerdo bilateral</h4>
+            <p>Reino Unido, Suiza, Japón y la mayoría de Latinoamérica. Canje sin examen teórico ni práctico. Reconocimiento médico, documentación y cita en la DGT. Tasa: 28,87 €.</p>
+          </article>
+          <article class="nationality-path-card nationality-path-card--no-agreement">
+            <h4>No UE sin acuerdo bilateral</h4>
+            <p>EE. UU., Canadá, Australia, Nueva Zelanda. No existe vía de canje. Debes aprobar el examen teórico y práctico español completo dentro de los 6 meses de residencia. El examen teórico está disponible en inglés.</p>
+          </article>
+        </div>
+      </div>
+    `;
+  }
+  return `
+    <div class="result-section">
+      <strong>Your path depends on your nationality</strong>
+      <div class="nationality-path-grid">
+        <article class="nationality-path-card">
+          <h4>EU/EEA</h4>
+          <p>No test required. Exchange is voluntary unless your licence expires in Spain or has an indefinite or very long validity (15+ years for cars/motorcycles, 5+ years for trucks/buses). If so, you must exchange within 2 years of establishing residency. Fee: €28.87.</p>
+        </article>
+        <article class="nationality-path-card nationality-path-card--agreement">
+          <h4>Non-EU with a bilateral agreement</h4>
+          <p>UK, Switzerland, Japan, most of Latin America. Exchange without a theory or practical test. Medical check, documents, DGT appointment. Fee: €28.87.</p>
+        </article>
+        <article class="nationality-path-card nationality-path-card--no-agreement">
+          <h4>Non-EU without a bilateral agreement</h4>
+          <p>US, Canada, Australia, New Zealand. No exchange route exists. You must pass the full Spanish theory and practical driving tests within 6 months of residency. The theory exam is available in English.</p>
+        </article>
+      </div>
     </div>
   `;
 }
@@ -2749,7 +2880,9 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "fnmt-aeat-cita": "FNMT appointment via Tax Agency",
       "fnmt-ss-cita": "FNMT appointment via Social Security",
       "vida-laboral-official": "Informe de Vida Laboral",
-      "clave-setup": "Cl@ve setup"
+      "clave-setup": "Cl@ve setup",
+      "dgt-licence-exchange": "DGT licence exchange portal",
+      "dgt-bilateral-agreements": "DGT bilateral agreements list"
     },
     es: {
       cita: "Reservar cita previa",
@@ -2839,7 +2972,9 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "fnmt-aeat-cita": "Cita FNMT por Agencia Tributaria",
       "fnmt-ss-cita": "Cita FNMT por Seguridad Social",
       "vida-laboral-official": "Informe de Vida Laboral",
-      "clave-setup": "Configurar Cl@ve"
+      "clave-setup": "Configurar Cl@ve",
+      "dgt-licence-exchange": "Portal de canje de permisos de la DGT",
+      "dgt-bilateral-agreements": "Lista de acuerdos bilaterales de la DGT"
     },
   };
   const urls = {
@@ -2896,6 +3031,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "insurance-safetywing": "https://safetywing.com/?referenceID=26543349&utm_source=26543349&utm_medium=Ambassador",
     "vida-laboral-official": "https://sede.seg-social.gob.es",
     "clave-setup": "https://clave.gob.es",
+    "dgt-licence-exchange": "https://sede.dgt.gob.es",
+    "dgt-bilateral-agreements": "https://sede.dgt.gob.es",
     "travel-spaininfo": "https://www.spain.info/es/",
     "travel-renfe": "https://www.renfe.com/es/en",
     "travel-aena": "https://www.aena.es/en/passengers/passengers.html",
@@ -2974,6 +3111,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "clave.gob.es",
     "fnmt.gob.es",
     "sede.fnmt.gob.es",
+    "dgt.gob.es",
+    "sede.dgt.gob.es",
     "agenciatributaria.gob.es",
     "sede.agenciatributaria.gob.es"
   ];
