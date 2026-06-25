@@ -2181,6 +2181,23 @@ select {
   border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+.province-links a.rent-link {
+  position: relative;
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  min-height: 168px;
+  border-radius: 16px;
+  padding: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(252, 252, 253, 0.9)),
+    rgba(255, 255, 255, 0.86);
+  color: var(--ink);
+  box-shadow: var(--soft-shadow);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
 .province-links a.provider-link {
   position: relative;
   display: grid;
@@ -2275,6 +2292,15 @@ select {
   background: var(--bank-accent, var(--brand-gradient));
 }
 
+.province-links a.rent-link::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 6px;
+  border-radius: 16px 0 0 16px;
+  background: var(--rent-accent, var(--brand-gradient));
+}
+
 .province-links a.provider-link::before {
   content: "";
   position: absolute;
@@ -2328,6 +2354,17 @@ select {
   height: 92px;
   border-radius: 0 16px 0 999px;
   background: var(--bank-soft, rgba(0, 0, 0, 0.04));
+  pointer-events: none;
+}
+
+.province-links a.rent-link::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: 92px;
+  height: 92px;
+  border-radius: 0 16px 0 999px;
+  background: var(--rent-soft, rgba(0, 0, 0, 0.04));
   pointer-events: none;
 }
 
@@ -2387,6 +2424,22 @@ select {
 }
 
 .bank-logo {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.rent-logo {
   position: relative;
   z-index: 1;
   display: inline-flex;
@@ -2491,6 +2544,15 @@ select {
   line-height: 1.15;
 }
 
+.rent-link strong {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  color: var(--ink);
+  font-size: var(--type-card-title);
+  line-height: 1.15;
+}
+
 .provider-link strong {
   position: relative;
   z-index: 1;
@@ -2537,6 +2599,15 @@ select {
 }
 
 .bank-link span:last-child {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: var(--type-small);
+  line-height: 1.45;
+}
+
+.rent-link span:last-child {
   position: relative;
   z-index: 1;
   margin-top: 8px;
@@ -2592,6 +2663,7 @@ select {
 
 .route-links-note .province-links a:is(
   .bank-link,
+  .rent-link,
   .provider-link,
   .jobs-link,
   .insurance-link,
@@ -2613,6 +2685,7 @@ select {
 
 .route-links-note .province-links a:is(
   .bank-link,
+  .rent-link,
   .provider-link,
   .jobs-link,
   .insurance-link,
@@ -2646,6 +2719,7 @@ select {
 
 .route-links-note :is(
   .bank-logo,
+  .rent-logo,
   .provider-logo,
   .jobs-logo,
   .insurance-logo,
@@ -2664,6 +2738,7 @@ select {
 
 .route-links-note :is(
   .bank-link,
+  .rent-link,
   .provider-link,
   .jobs-link,
   .insurance-link,
@@ -2681,6 +2756,7 @@ select {
 
 .route-links-note :is(
   .bank-link,
+  .rent-link,
   .provider-link,
   .jobs-link,
   .insurance-link,
@@ -3057,6 +3133,40 @@ select {
   border-radius: 12px;
   font-weight: 700;
   color: #163300;
+}
+
+.rent-link--idealista {
+  --rent-accent: linear-gradient(180deg, #9bc93c, #6ea91e);
+  --rent-soft: radial-gradient(circle at top right, rgba(155, 201, 60, 0.18), transparent 68%);
+}
+
+.rent-link--idealista .rent-logo {
+  background: linear-gradient(135deg, #9bc93c, #6ea91e);
+  border-radius: 12px 18px 12px 18px;
+  color: #173300;
+  font-weight: 900;
+}
+
+.rent-link--fotocasa {
+  --rent-accent: linear-gradient(180deg, #f06423, #d74316);
+  --rent-soft: radial-gradient(circle at top right, rgba(240, 100, 35, 0.15), transparent 68%);
+}
+
+.rent-link--fotocasa .rent-logo {
+  background: linear-gradient(135deg, #f06423, #d74316);
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.rent-link--habitaclia {
+  --rent-accent: linear-gradient(180deg, #00a0df, #006ea8);
+  --rent-soft: radial-gradient(circle at top right, rgba(0, 160, 223, 0.14), transparent 68%);
+}
+
+.rent-link--habitaclia .rent-logo {
+  background: linear-gradient(135deg, #00a0df, #006ea8);
+  border-radius: 10px;
+  font-weight: 850;
 }
 
 .provider-link--movistar {

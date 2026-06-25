@@ -3249,10 +3249,10 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       }
       if (type.startsWith("rent-") && type !== "rent-law-boe") {
         const meta = rentMeta[currentLang]?.[type] || rentMeta.en[type];
-        const brandClass = `stay-link stay-link--${type.replace("rent-", "")}`;
+        const brandClass = `rent-link rent-link--${type.replace("rent-", "")}`;
         return `
           <a class="${brandClass}" href="${urls[type]}" target="_blank" rel="noreferrer">
-            <span class="stay-logo" aria-hidden="true">${meta?.logo || label}</span>
+            <span class="rent-logo" aria-hidden="true">${meta?.logo || label}</span>
             <strong>${label}</strong>
             <span>${meta?.intro || ""}</span>
           </a>
