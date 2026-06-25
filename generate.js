@@ -12,7 +12,9 @@ const STATIC_URLS = [
   "/the-spain-files/",
   "/the-spain-files/es/",
   "/the-spain-files/nie-spain/",
-  "/the-spain-files/como-obtener-nie-en-espana/"
+  "/the-spain-files/como-obtener-nie-en-espana/",
+  "/the-spain-files/padron-torrevieja/",
+  "/the-spain-files/es/padron-torrevieja/"
 ];
 
 // Language URL prefixes: en at root, others under /guides/{lang}/
