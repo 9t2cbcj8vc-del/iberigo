@@ -789,6 +789,7 @@ const wizardPanel = document.querySelector("#wizard");
 const documentsPanel = document.querySelector("#documents");
 const sourcesPanel = document.querySelector("#sources");
 const startLink = document.querySelector('header nav a[href*="#guide-cards"]');
+const topbar = document.querySelector(".topbar");
 const VISITOR_COUNTER_URL = "";
 const languageButtons = document.querySelectorAll("[data-lang]");
 const supportedLanguages = new Set(["en", "es"]);
@@ -3530,6 +3531,14 @@ startLink?.addEventListener("click", (event) => {
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
+
+if (topbar) {
+  const updateTopbarScrollState = () => {
+    topbar.classList.toggle("is-scrolled", window.scrollY > 24);
+  };
+  updateTopbarScrollState();
+  window.addEventListener("scroll", updateTopbarScrollState, { passive: true });
+}
 
 initializeVisitorCounter();
 initializeHomeVideos();

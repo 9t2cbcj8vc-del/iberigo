@@ -84,3 +84,12 @@ supportLanguageButtons.forEach((button) => {
 });
 
 applySupportTranslations();
+
+const supportTopbar = document.querySelector(".topbar");
+if (supportTopbar) {
+  const updateSupportTopbarScrollState = () => {
+    supportTopbar.classList.toggle("is-scrolled", window.scrollY > 24);
+  };
+  updateSupportTopbarScrollState();
+  window.addEventListener("scroll", updateSupportTopbarScrollState, { passive: true });
+}

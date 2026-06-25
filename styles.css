@@ -181,18 +181,24 @@ nav a {
   min-width: 0;
 }
 
-.brand-logo {
+.brand-wordmark {
   display: inline-flex;
   align-items: center;
-  width: min(62vw, 500px);
-  max-width: 100%;
-  min-width: 0;
+  font-family: var(--display-font);
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a2b4a;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  transition: font-size 0.2s ease;
 }
 
-.brand-logo-image {
-  display: block;
-  width: 100%;
-  height: auto;
+.brand-wordmark-accent {
+  color: #c8861a;
+}
+
+.topbar.is-scrolled .brand-wordmark {
+  font-size: 16px;
 }
 
 .brand-mark {
@@ -3721,8 +3727,8 @@ select {
     padding: 14px 16px;
   }
 
-  .brand-logo {
-    width: min(100%, 330px);
+  .brand-wordmark {
+    font-size: 22px;
   }
 
   .brand-mark {

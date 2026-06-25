@@ -44,9 +44,7 @@
     <div class="app-shell">
       <header class="topbar">
         <div class="brand-lockup">
-          <div class="brand-logo" aria-label="IberiGo">
-            <img class="brand-logo-image" src="/assets/iberigo-logo.svg" alt="IberiGo — Your Guide to Spain" />
-          </div>
+          <span class="brand-wordmark" aria-label="IberiGo">Iberi<span class="brand-wordmark-accent">Go</span></span>
         </div>
         <nav aria-label="Main sections">
           <a href="/index.html?nav=start#guide-cards" data-i18n="startNav">Home</a>
@@ -232,5 +230,16 @@
         </div>
       </footer>
     </div>
+    <script>
+      (function () {
+        var topbar = document.querySelector(".topbar");
+        if (!topbar) return;
+        var update = function () {
+          topbar.classList.toggle("is-scrolled", window.scrollY > 24);
+        };
+        update();
+        window.addEventListener("scroll", update, { passive: true });
+      })();
+    </script>
   </body>
 </html>
