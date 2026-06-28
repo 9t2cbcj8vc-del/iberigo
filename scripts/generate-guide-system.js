@@ -67,6 +67,7 @@ function basicSkeleton({
     canonical: `https://iberigo.eu${route}`,
     title,
     description,
+    metadata: guideMetadataFor(route),
     breadcrumbs: [
       { label: breadcrumbParent || (route.startsWith("/living") ? "Living in Spain" : "Moving to Spain"), href: route.startsWith("/living") ? "/living-in-spain/opening-a-bank-account/" : "/moving-to-spain/documents-checklist/" },
       { label: h1 }
@@ -150,6 +151,69 @@ const relatedByRoute = {
   ]
 };
 
+function guideMetadataFor(route) {
+  const continueByRoute = {
+    [routes.euRoadmap]: [
+      { label: "View the Padrón Guide", href: routes.padron },
+      { label: "View the Healthcare Guide", href: routes.healthcare },
+      { label: "View the EU Registration Guide", href: routes.euRegistration }
+    ],
+    [routes.euRegistration]: [
+      { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+      { label: "View the Healthcare Guide", href: routes.healthcare },
+      { label: "View the Social Security Guide", href: routes.social }
+    ],
+    [routes.padron]: [
+      { label: "View the EU Registration Guide", href: routes.euRegistration },
+      { label: "View the Healthcare Guide", href: routes.healthcare },
+      { label: "View the Bank Account Guide", href: routes.banking },
+      { label: "View the Digital Certificate Guide", href: routes.digital }
+    ],
+    [routes.healthcare]: [
+      { label: "View the EU Registration Guide", href: routes.euRegistration },
+      { label: "View the Bank Account Guide", href: routes.banking },
+      { label: "View the Digital Certificate Guide", href: routes.digital },
+      { label: "View the Taxes Guide", href: routes.taxes }
+    ]
+  };
+
+  return {
+    status: "draft",
+    lastReviewed: "June 2026",
+    reviewedBy: "",
+    continueJourney: continueByRoute[route] || [
+      { label: "View the Documents Checklist", href: routes.checklist },
+      { label: "View the Healthcare Guide", href: routes.healthcare },
+      { label: "View the Banking Guide", href: routes.banking }
+    ],
+    relatedGuides: relatedByRoute[route] || commonRelated
+  };
+}
+
+function validateInternalLinks(pages) {
+  const generatedRoutes = new Set(pages.map((page) => page.route));
+  const warnings = [];
+  for (const page of pages) {
+    const links = [...page.html.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
+    for (const href of links) {
+      if (!href.startsWith("/") || href.startsWith("//")) continue;
+      const clean = href.split("#")[0].split("?")[0];
+      if (!clean || clean === "/") continue;
+      const existingFile = path.join(root, clean);
+      const existingIndex = path.join(root, clean, "index.html");
+      const exists = generatedRoutes.has(clean.endsWith("/") ? clean : `${clean}/`) || fs.existsSync(existingFile) || fs.existsSync(existingIndex);
+      if (!exists) {
+        warnings.push(`${page.route} links to missing internal path: ${href}`);
+      }
+    }
+  }
+
+  if (warnings.length) {
+    console.warn("Broken internal guide link warnings:");
+    for (const warning of warnings) console.warn(`- ${warning}`);
+  }
+}
+
 const pages = [
   {
     route: routes.euRoadmap,
@@ -158,6 +222,7 @@ const pages = [
       canonical: `https://iberigo.eu${routes.euRoadmap}`,
       title: "Moving to Spain as an EU Citizen: Step-by-Step Guide — IberiGo",
       description: "Draft IberiGo roadmap for EU citizens moving to Spain, from planning to arrival and everyday setup.",
+      metadata: guideMetadataFor(routes.euRoadmap),
       breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "EU Citizen Roadmap" }],
       hero: {
         kicker: "Start here",
@@ -223,6 +288,7 @@ const pages = [
       canonical: `https://iberigo.eu${routes.euRegistration}`,
       title: "EU Registration Certificate in Spain — IberiGo",
       description: "Draft guide to the EU Registration Certificate in Spain for EU, EEA and Swiss citizens staying longer term.",
+      metadata: guideMetadataFor(routes.euRegistration),
       breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "EU Registration Certificate" }],
       hero: {
         kicker: "Core guide",
@@ -266,6 +332,7 @@ pages.push({
     canonical: `https://iberigo.eu${routes.padron}`,
     title: "How to Register on the Padrón in Spain — IberiGo",
     description: "Learn how to register on the padrón in Spain, what documents you'll usually need, how appointments work, and common mistakes to avoid.",
+    metadata: guideMetadataFor(routes.padron),
     breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Padrón" }],
     hero: {
       kicker: "Municipal registration",
@@ -396,6 +463,7 @@ pages.push({
     canonical: `https://iberigo.eu${routes.healthcare}`,
     title: "Healthcare in Spain for EU Citizens — IberiGo",
     description: "Healthcare in Spain for EU citizens moving to Spain, including work, self-employment, retirement, study, savings, S1 certificates and health cards.",
+    metadata: guideMetadataFor(routes.healthcare),
     breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Healthcare" }],
     hero: {
       kicker: "EU citizen guide",
@@ -597,5 +665,7 @@ for (const [, route, title, description, h1, intro, quick] of skeletons) {
 for (const page of pages) {
   writePage(page.route, page.html);
 }
+
+validateInternalLinks(pages);
 
 console.log(`Generated ${pages.length} guide pages with reusable components.`);

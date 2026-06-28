@@ -1,5 +1,15 @@
 const SITE_URL = "https://iberigo.eu";
 const REVIEWED = "June 2026";
+const DEFAULT_EDITORIAL_CHECKLIST = [
+  "Grammar reviewed",
+  "Internal links checked",
+  "External links checked",
+  "Mobile reviewed",
+  "Desktop reviewed",
+  "Accessibility reviewed",
+  "SEO reviewed",
+  "Facts verified"
+];
 
 function escapeHtml(value) {
   return String(value)
@@ -70,6 +80,10 @@ function GuideHero({ kicker = "Guide", title, intro, asideTitle = "Draft guide",
             <p>${escapeHtml(asideText)}</p>
           </aside>
         </section>`;
+}
+
+function ImagePlaceholder({ label = "Guide illustration placeholder" } = {}) {
+  return `<div class="guide-image-placeholder" role="img" aria-label="${escapeHtml(label)}"></div>`;
 }
 
 function QuickAnswer(text) {
@@ -154,16 +168,82 @@ function RelatedGuides(items = []) {
 }
 
 function LastReviewed(date = REVIEWED) {
-  return `<p class="last-reviewed">Last reviewed: ${escapeHtml(date)}</p>`;
+  return date ? `<p class="last-reviewed">Last reviewed: ${escapeHtml(date)}</p>` : "";
+}
+
+function DraftBanner(show) {
+  return show ? `<div class="guide-draft-banner" role="note">DRAFT — Not reviewed for publication.</div>` : "";
+}
+
+function ReadingTime(html) {
+  const words = stripHtml(html).trim().split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  return `<p class="guide-reading-time">${minutes} min read</p>`;
+}
+
+function TableOfContents(items = []) {
+  if (!items.length) return "";
+  const links = items.map((item) => `<li><a href="#${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></li>`).join("");
+  return `<aside class="guide-toc" aria-label="Table of contents">
+          <strong>On this page</strong>
+          <nav><ol>${links}</ol></nav>
+        </aside>`;
+}
+
+function MobileTableOfContents(items = []) {
+  if (!items.length) return "";
+  const links = items.map((item) => `<li><a href="#${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></li>`).join("");
+  return `<details class="guide-toc-mobile">
+          <summary>On this page</summary>
+          <nav><ol>${links}</ol></nav>
+        </details>`;
+}
+
+function EditorialChecklist(items = DEFAULT_EDITORIAL_CHECKLIST) {
+  return `<section hidden data-editorial-checklist aria-label="Editorial checklist">
+          <h2>Editorial Checklist</h2>
+          <ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+        </section>`;
+}
+
+function Frontmatter(data = {}) {
+  const json = JSON.stringify(data, null, 2).replace(/<\/script/gi, "<\\/script");
+  return `<script type="application/json" class="guide-frontmatter">${json}</script>`;
+}
+
+function stripHtml(html = "") {
+  return String(html)
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ");
+}
+
+function tocItemsFromSections(sections = []) {
+  return sections
+    .map((section) => {
+      const match = String(section).match(/<h2 id="([^"]+)">([^<]+)<\/h2>/);
+      return match ? { id: match[1], title: match[2] } : null;
+    })
+    .filter(Boolean);
 }
 
 function guideCss() {
   return `<style>
       .guide-main { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 1.4rem 0 4rem; }
+      .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 1.2rem; align-items: start; }
+      .guide-content { min-width: 0; }
       .guide-breadcrumbs { margin: 0 0 1rem; color: rgba(27, 32, 48, 0.62); font-size: 0.86rem; }
       .guide-breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
       .guide-breadcrumbs li:not(:last-child)::after { content: "/"; margin-left: 0.4rem; color: rgba(27, 32, 48, 0.36); }
       .guide-breadcrumbs a { color: #a64a36; text-decoration: none; font-weight: 800; }
+      .guide-draft-banner { margin: 0 0 1rem; padding: 0.65rem 0.85rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.78rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; width: fit-content; }
+      .guide-reading-time { margin: -0.35rem 0 1rem; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
+      .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
+      .guide-toc strong, .guide-toc-mobile summary { color: #1b2030; font-weight: 900; }
+      .guide-toc ol, .guide-toc-mobile ol { display: grid; gap: 0.45rem; margin: 0.75rem 0 0; padding-left: 1rem; }
+      .guide-toc a, .guide-toc-mobile a { color: rgba(27, 32, 48, 0.68); text-decoration: none; font-size: 0.86rem; font-weight: 800; }
+      .guide-toc-mobile { display: none; margin: 0 0 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); }
       .guide-hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr); gap: clamp(1.2rem, 4vw, 2.4rem); align-items: center; padding: clamp(2rem, 5vw, 4rem); }
       .guide-kicker { display: inline-flex; width: fit-content; color: #a64a36; font-size: 0.74rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
       .guide-hero h1 { max-width: 760px; margin: 0.7rem 0 1rem; color: #1b2030; font-size: clamp(2.35rem, 5.8vw, 4.4rem); line-height: 0.98; }
@@ -195,29 +275,55 @@ function guideCss() {
       .guide-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.6rem; border-radius: 999px; background: #a64a36; color: #fff; font-weight: 900; padding: 0.65rem 1rem; text-decoration: none; }
       .guide-button--secondary { border: 1px solid rgba(166, 74, 54, 0.18); background: #fff; color: #a64a36; }
       .last-reviewed { margin: 1.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
-      @media (max-width: 900px) { .guide-hero, .guide-card-grid { grid-template-columns: 1fr; } }
+      .guide-image-placeholder { min-height: 180px; border: 1px dashed rgba(166, 74, 54, 0.22); border-radius: 18px; background: linear-gradient(135deg, rgba(253, 240, 220, 0.7), rgba(255, 255, 255, 0.72)); }
+      @media (max-width: 900px) { .guide-layout, .guide-hero, .guide-card-grid { grid-template-columns: 1fr; } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
       @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } }
     </style>`;
 }
 
 function GuideLayout(config) {
   const canonical = config.canonical || `${SITE_URL}${config.path}`;
-  const content = [
+  const metadata = config.metadata || {};
+  const status = config.status || metadata.status || "draft";
+  const lastReviewed = config.lastReviewed !== undefined ? config.lastReviewed : metadata.lastReviewed || REVIEWED;
+  const robots = config.robots || (status === "published" ? "index, follow" : "noindex, nofollow");
+  const noindex = robots.includes("noindex");
+  const sections = config.sections || [];
+  const tocItems = tocItemsFromSections(sections);
+  const mainContent = [
     Breadcrumbs(config.breadcrumbs || []),
+    DraftBanner(noindex),
     GuideHero(config.hero),
-    ...(config.sections || []),
-    LastReviewed(config.lastReviewed || REVIEWED),
-    ContinueJourney(config.continueJourney || []),
-    RelatedGuides(config.relatedGuides || [])
+    ReadingTime(sections.join("\n")),
+    MobileTableOfContents(tocItems),
+    ...sections,
+    LastReviewed(lastReviewed),
+    ContinueJourney(metadata.continueJourney || config.continueJourney || []),
+    RelatedGuides(metadata.relatedGuides || config.relatedGuides || [])
   ].join("\n        ");
+  const content = `<div class="guide-layout">
+          <div class="guide-content">
+            ${mainContent}
+          </div>
+          ${TableOfContents(tocItems)}
+        </div>
+        ${EditorialChecklist(config.editorialChecklist)}
+        ${Frontmatter({
+          status,
+          lastReviewed,
+          reviewedBy: config.reviewedBy || metadata.reviewedBy || "",
+          relatedGuides: metadata.relatedGuides || config.relatedGuides || [],
+          continueJourney: metadata.continueJourney || config.continueJourney || [],
+          editorialChecklist: config.editorialChecklist || DEFAULT_EDITORIAL_CHECKLIST
+        })}`;
 
   return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="${escapeHtml(robots)}" />
+    <meta name="googlebot" content="${escapeHtml(robots)}" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
     <title>${escapeHtml(config.title)}</title>
     <meta name="description" content="${escapeHtml(config.description)}" />
@@ -274,6 +380,7 @@ module.exports = {
   ContinueJourney,
   RelatedGuides,
   LastReviewed,
+  ImagePlaceholder,
   Cards,
   ButtonRow
 };

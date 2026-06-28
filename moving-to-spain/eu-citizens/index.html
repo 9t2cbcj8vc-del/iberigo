@@ -21,10 +21,19 @@
     <link rel="apple-touch-icon" href="/assets/favicon.svg" />
     <style>
       .guide-main { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 1.4rem 0 4rem; }
+      .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 1.2rem; align-items: start; }
+      .guide-content { min-width: 0; }
       .guide-breadcrumbs { margin: 0 0 1rem; color: rgba(27, 32, 48, 0.62); font-size: 0.86rem; }
       .guide-breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
       .guide-breadcrumbs li:not(:last-child)::after { content: "/"; margin-left: 0.4rem; color: rgba(27, 32, 48, 0.36); }
       .guide-breadcrumbs a { color: #a64a36; text-decoration: none; font-weight: 800; }
+      .guide-draft-banner { margin: 0 0 1rem; padding: 0.65rem 0.85rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.78rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; width: fit-content; }
+      .guide-reading-time { margin: -0.35rem 0 1rem; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
+      .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
+      .guide-toc strong, .guide-toc-mobile summary { color: #1b2030; font-weight: 900; }
+      .guide-toc ol, .guide-toc-mobile ol { display: grid; gap: 0.45rem; margin: 0.75rem 0 0; padding-left: 1rem; }
+      .guide-toc a, .guide-toc-mobile a { color: rgba(27, 32, 48, 0.68); text-decoration: none; font-size: 0.86rem; font-weight: 800; }
+      .guide-toc-mobile { display: none; margin: 0 0 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); }
       .guide-hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr); gap: clamp(1.2rem, 4vw, 2.4rem); align-items: center; padding: clamp(2rem, 5vw, 4rem); }
       .guide-kicker { display: inline-flex; width: fit-content; color: #a64a36; font-size: 0.74rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
       .guide-hero h1 { max-width: 760px; margin: 0.7rem 0 1rem; color: #1b2030; font-size: clamp(2.35rem, 5.8vw, 4.4rem); line-height: 0.98; }
@@ -56,7 +65,8 @@
       .guide-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.6rem; border-radius: 999px; background: #a64a36; color: #fff; font-weight: 900; padding: 0.65rem 1rem; text-decoration: none; }
       .guide-button--secondary { border: 1px solid rgba(166, 74, 54, 0.18); background: #fff; color: #a64a36; }
       .last-reviewed { margin: 1.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
-      @media (max-width: 900px) { .guide-hero, .guide-card-grid { grid-template-columns: 1fr; } }
+      .guide-image-placeholder { min-height: 180px; border: 1px dashed rgba(166, 74, 54, 0.22); border-radius: 18px; background: linear-gradient(135deg, rgba(253, 240, 220, 0.7), rgba(255, 255, 255, 0.72)); }
+      @media (max-width: 900px) { .guide-layout, .guide-hero, .guide-card-grid { grid-template-columns: 1fr; } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
       @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } }
     </style>
   </head>
@@ -77,13 +87,16 @@
         </nav>
       </header>
       <main class="guide-main">
-        <nav class="guide-breadcrumbs" aria-label="Breadcrumb">
+        <div class="guide-layout">
+          <div class="guide-content">
+            <nav class="guide-breadcrumbs" aria-label="Breadcrumb">
           <ol>
             <li><a href="/index.html?nav=start#guide-cards">Home</a></li>
             <li><a href="/moving-to-spain/documents-checklist/">Moving to Spain</a></li>
             <li><span aria-current="page">EU Citizen Roadmap</span></li>
           </ol>
         </nav>
+        <div class="guide-draft-banner" role="note">DRAFT — Not reviewed for publication.</div>
         <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle">
           <div>
             <span class="guide-kicker">Start here</span>
@@ -95,6 +108,11 @@
             <p>Start with your situation, then move through address, healthcare, registration, banking, tax and driving checks.</p>
           </aside>
         </section>
+        <p class="guide-reading-time">2 min read</p>
+        <details class="guide-toc-mobile">
+          <summary>On this page</summary>
+          <nav><ol><li><a href="#atGlance">At a Glance</a></li><li><a href="#howToUse">How to use this guide</a></li><li><a href="#phaseOne">Phase 1 – Planning</a></li><li><a href="#phaseTwo">Phase 2 – Arrival</a></li><li><a href="#phaseThree">Phase 3 – Settling In</a></li><li><a href="#youreReady">You're Ready</a></li></ol></nav>
+        </details>
         <section class="guide-section" aria-labelledby="atGlance"><h2 id="atGlance">At a Glance</h2>
           <table class="guide-table"><tbody><tr><th>Visa required?</th><td>No.</td></tr><tr><th>Staying longer than 3 months?</th><td>EU registration required.</td></tr><tr><th>Can you work?</th><td>Yes.</td></tr><tr><th>TIE card?</th><td>Normally no. EU citizens receive a Certificate of Registration.</td></tr><tr><th>Difficulty</th><td>Moderate.</td></tr><tr><th>Typical timeline</th><td>A few weeks after arrival, depending on appointments.</td></tr></tbody></table>
         </section>
@@ -121,6 +139,62 @@
           <article class="guide-info-card"><h3>View the Banking Guide</h3><p>Set up everyday payments in Spain.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/moving-to-spain/documents-checklist/">View the Documents Checklist</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View the Healthcare Guide</a>
           <a class="guide-button guide-button--secondary" href="/living-in-spain/opening-a-bank-account/">View the Banking Guide</a></div></section>
+          </div>
+          <aside class="guide-toc" aria-label="Table of contents">
+          <strong>On this page</strong>
+          <nav><ol><li><a href="#atGlance">At a Glance</a></li><li><a href="#howToUse">How to use this guide</a></li><li><a href="#phaseOne">Phase 1 – Planning</a></li><li><a href="#phaseTwo">Phase 2 – Arrival</a></li><li><a href="#phaseThree">Phase 3 – Settling In</a></li><li><a href="#youreReady">You're Ready</a></li></ol></nav>
+        </aside>
+        </div>
+        <section hidden data-editorial-checklist aria-label="Editorial checklist">
+          <h2>Editorial Checklist</h2>
+          <ul><li>Grammar reviewed</li><li>Internal links checked</li><li>External links checked</li><li>Mobile reviewed</li><li>Desktop reviewed</li><li>Accessibility reviewed</li><li>SEO reviewed</li><li>Facts verified</li></ul>
+        </section>
+        <script type="application/json" class="guide-frontmatter">{
+  "status": "draft",
+  "lastReviewed": "June 2026",
+  "reviewedBy": "",
+  "relatedGuides": [
+    {
+      "label": "View the Documents Checklist",
+      "href": "/moving-to-spain/documents-checklist/",
+      "description": "Prepare the paperwork folder before appointments."
+    },
+    {
+      "label": "View the Healthcare Guide",
+      "href": "/moving-to-spain/healthcare/",
+      "description": "Understand healthcare before registration or residence steps."
+    },
+    {
+      "label": "View the Banking Guide",
+      "href": "/living-in-spain/opening-a-bank-account/",
+      "description": "Set up everyday payments in Spain."
+    }
+  ],
+  "continueJourney": [
+    {
+      "label": "View the Padrón Guide",
+      "href": "/moving-to-spain/registering-on-the-padron/"
+    },
+    {
+      "label": "View the Healthcare Guide",
+      "href": "/moving-to-spain/healthcare/"
+    },
+    {
+      "label": "View the EU Registration Guide",
+      "href": "/guides/eu-registration/"
+    }
+  ],
+  "editorialChecklist": [
+    "Grammar reviewed",
+    "Internal links checked",
+    "External links checked",
+    "Mobile reviewed",
+    "Desktop reviewed",
+    "Accessibility reviewed",
+    "SEO reviewed",
+    "Facts verified"
+  ]
+}</script>
       </main>
       <footer class="site-footer">
         <p>IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.</p>
