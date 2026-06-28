@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
+    <title>Moving to Spain as an EU Citizen: Step-by-Step Guide — IberiGo</title>
+    <meta name="description" content="A draft IberiGo roadmap for EU citizens moving to Spain, from planning to everyday setup." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="IberiGo" />
+    <meta property="og:title" content="Moving to Spain as an EU Citizen: Step-by-Step Guide — IberiGo" />
+    <meta property="og:description" content="A draft IberiGo roadmap for EU citizens moving to Spain, from planning to everyday setup." />
+    <meta property="og:url" content="https://iberigo.eu/moving-to-spain/eu-citizens/" />
+    <meta property="og:image" content="https://iberigo.eu/assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://iberigo.eu/moving-to-spain/eu-citizens/" />
+    <link rel="stylesheet" href="/styles.css?v=20260625-wordmark" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+    <style>
+      .roadmap-main {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 2rem 0 4rem;
+      }
+
+      .roadmap-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+        gap: clamp(1.2rem, 4vw, 2.4rem);
+        align-items: center;
+        padding: clamp(2rem, 5vw, 4rem);
+        overflow: hidden;
+      }
+
+      .roadmap-kicker,
+      .phase-kicker {
+        display: inline-flex;
+        width: fit-content;
+        color: #a64a36;
+        font-size: 0.74rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .roadmap-hero h1 {
+        max-width: 760px;
+        margin: 0.7rem 0 1rem;
+        color: #1b2030;
+        font-size: clamp(2.45rem, 6vw, 4.8rem);
+        line-height: 0.96;
+      }
+
+      .roadmap-hero p {
+        max-width: 680px;
+        margin: 0;
+        color: rgba(27, 32, 48, 0.68);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .roadmap-hero-card,
+      .quick-fact,
+      .phase-card,
+      .step-card,
+      .ready-card {
+        border: 1px solid rgba(166, 74, 54, 0.13);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.76);
+        box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08);
+      }
+
+      .roadmap-hero-card {
+        padding: 1.35rem;
+      }
+
+      .roadmap-hero-card strong {
+        display: block;
+        margin-bottom: 0.6rem;
+        color: #1b2030;
+        font-size: 1.15rem;
+      }
+
+      .roadmap-hero-card span {
+        display: block;
+        color: rgba(27, 32, 48, 0.68);
+        line-height: 1.6;
+      }
+
+      .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .quick-fact {
+        padding: 1rem;
+      }
+
+      .quick-fact span {
+        display: block;
+        color: #a64a36;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .quick-fact strong {
+        display: block;
+        margin-top: 0.45rem;
+        color: #1b2030;
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+
+      .how-to-use {
+        max-width: 760px;
+        color: rgba(27, 32, 48, 0.72);
+        font-size: 1.02rem;
+        line-height: 1.75;
+      }
+
+      .phase-card {
+        padding: clamp(1.1rem, 3vw, 1.6rem);
+        margin-top: 1.25rem;
+      }
+
+      .phase-header {
+        display: grid;
+        gap: 0.75rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .phase-header h2 {
+        margin: 0;
+        color: #1b2030;
+        font-size: clamp(1.55rem, 3.4vw, 2.15rem);
+      }
+
+      .phase-progress {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.55rem;
+      }
+
+      .phase-progress span {
+        border: 1px solid rgba(166, 74, 54, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.76);
+        color: rgba(27, 32, 48, 0.55);
+        font-size: 0.78rem;
+        font-weight: 800;
+        padding: 0.55rem 0.65rem;
+        text-align: center;
+      }
+
+      .phase-progress .is-active {
+        background: linear-gradient(135deg, #a64a36, #e1a744);
+        color: #fff;
+      }
+
+      .phase-progress .is-complete {
+        background: #fdf0dc;
+        color: #8a3426;
+      }
+
+      .step-grid {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      .step-card {
+        display: grid;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .step-topline {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .step-number {
+        display: inline-grid;
+        width: 2.25rem;
+        height: 2.25rem;
+        place-items: center;
+        border-radius: 12px;
+        background: #fdf0dc;
+        color: #a64a36;
+        font-weight: 900;
+      }
+
+      .time-badge {
+        display: inline-flex;
+        width: fit-content;
+        border-radius: 999px;
+        background: rgba(38, 57, 94, 0.08);
+        color: #26395e;
+        font-size: 0.76rem;
+        font-weight: 800;
+        padding: 0.35rem 0.65rem;
+      }
+
+      .step-card h3 {
+        margin: 0;
+        color: #1b2030;
+        font-size: 1.15rem;
+      }
+
+      .step-copy {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.85rem;
+      }
+
+      .step-copy div,
+      .need-box {
+        border-radius: 14px;
+        background: rgba(253, 240, 220, 0.48);
+        padding: 0.85rem;
+      }
+
+      .step-copy h4,
+      .need-box h4 {
+        margin: 0 0 0.35rem;
+        color: #1b2030;
+        font-size: 0.86rem;
+      }
+
+      .step-copy p,
+      .need-box p,
+      .step-action p {
+        margin: 0;
+        color: rgba(27, 32, 48, 0.68);
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+
+      .need-box ul {
+        margin: 0;
+        padding-left: 1rem;
+        color: rgba(27, 32, 48, 0.68);
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+
+      .step-action {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+      }
+
+      .step-action a,
+      .ready-card a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.55rem;
+        border-radius: 999px;
+        background: #a64a36;
+        color: #fff;
+        font-weight: 900;
+        padding: 0.65rem 1rem;
+        text-decoration: none;
+      }
+
+      .ready-card {
+        padding: clamp(1.4rem, 4vw, 2rem);
+      }
+
+      .ready-card h2 {
+        margin: 0 0 0.8rem;
+        color: #1b2030;
+        font-size: clamp(1.6rem, 3vw, 2.25rem);
+      }
+
+      .ready-card p {
+        max-width: 760px;
+        color: rgba(27, 32, 48, 0.7);
+        line-height: 1.7;
+      }
+
+      .related-list {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .related-list a {
+        border: 1px solid rgba(166, 74, 54, 0.14);
+        border-radius: 14px;
+        background: #fff;
+        color: #a64a36;
+        font-weight: 900;
+        padding: 0.85rem;
+        text-decoration: none;
+      }
+
+      @media (max-width: 900px) {
+        .roadmap-hero,
+        .step-copy,
+        .related-list {
+          grid-template-columns: 1fr;
+        }
+
+        .quick-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .roadmap-main {
+          width: min(100% - 20px, 1120px);
+          padding-top: 1rem;
+        }
+
+        .roadmap-hero,
+        .phase-card,
+        .ready-card {
+          padding: 1.1rem;
+        }
+
+        .quick-grid,
+        .phase-progress {
+          grid-template-columns: 1fr;
+        }
+
+        .step-action {
+          align-items: stretch;
+        }
+
+        .step-action a {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <span class="brand-wordmark" aria-label="IberiGo">Iberi<span class="brand-wordmark-accent">Go</span></span>
+        </div>
+        <nav aria-label="Main sections">
+          <a href="/index.html?nav=start#guide-cards">Home</a>
+          <a href="/the-spain-files/">The Spain Files</a>
+          <a href="/support/index.html">Support IberiGo</a>
+          <div class="language-switcher" aria-label="Language">
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+          </div>
+        </nav>
+      </header>
+
+      <main class="roadmap-main">
+        <section class="panel guide-card-panel roadmap-hero" aria-labelledby="pageTitle">
+          <div>
+            <span class="roadmap-kicker">IberiGo 2.0 draft roadmap</span>
+            <h1 id="pageTitle">Moving to Spain as an EU Citizen</h1>
+            <p>
+              Planning to move to Spain as an EU citizen? This guide takes you through the process step by step,
+              from preparing your move to settling into everyday life in Spain.
+            </p>
+          </div>
+          <aside class="roadmap-hero-card" aria-label="Guide summary">
+            <strong>Follow the journey, not the paperwork.</strong>
+            <span>We start with your situation, then move through arrival, registration, healthcare, banking, tax and daily life setup.</span>
+          </aside>
+        </section>
+
+        <section class="panel guide-card-panel" aria-labelledby="quickFacts">
+          <div class="section-heading">
+            <h2 id="quickFacts">Quick Facts</h2>
+          </div>
+          <div class="quick-grid">
+            <article class="quick-fact"><span>Visa required?</span><strong>No.</strong></article>
+            <article class="quick-fact"><span>Staying longer than 3 months?</span><strong>EU registration required.</strong></article>
+            <article class="quick-fact"><span>Can you work?</span><strong>Yes.</strong></article>
+            <article class="quick-fact"><span>TIE card?</span><strong>Normally no. EU citizens receive a Certificate of Registration.</strong></article>
+            <article class="quick-fact"><span>Difficulty</span><strong>Moderate.</strong></article>
+            <article class="quick-fact"><span>Typical timeline</span><strong>A few weeks after arrival, depending on appointments.</strong></article>
+          </div>
+        </section>
+
+        <section class="panel guide-card-panel" aria-labelledby="howToUse">
+          <div class="section-heading">
+            <h2 id="howToUse">How to use this guide</h2>
+          </div>
+          <p class="how-to-use">
+            This guide gives you the big picture. Each step links to a more detailed guide with documents,
+            requirements, costs and practical advice.
+          </p>
+        </section>
+
+        <section class="phase-card" aria-labelledby="phasePlanning">
+          <div class="phase-header">
+            <span class="phase-kicker">Phase 1</span>
+            <h2 id="phasePlanning">Planning</h2>
+            <div class="phase-progress" aria-label="Progress: Planning active, Arrival, Settling In">
+              <span class="is-active">Planning active</span>
+              <span>Arrival</span>
+              <span>Settling In</span>
+            </div>
+          </div>
+          <div class="step-grid">
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">1</span><span class="time-badge">30 minutes</span><h3>Confirm your route</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>Your evidence depends on whether you are working, self-employed, studying, retired, joining family or living from savings.</p></div>
+                <div><h4>Practical advice</h4><p>Write your main reason for moving in one sentence before booking appointments or paying fees.</p></div>
+                <div><h4>Next step</h4><p>Choose the situation that matches your real plan, not just the easiest form name.</p></div>
+              </div>
+              <div class="step-action"><p>Read more when you are ready.</p><a href="/guides/eu-registration/">Read more</a></div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">2</span><span class="time-badge">1-2 days</span><h3>Prepare your documents</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>Missing evidence is one of the easiest ways to lose time once you arrive.</p></div>
+                <div><h4>Practical advice</h4><p>Keep scans and paper copies. Make names and addresses match wherever possible.</p></div>
+                <div><h4>Next step</h4><p>Make a small folder for identity, work or funds, healthcare and address documents.</p></div>
+              </div>
+              <div class="need-box"><h4>What you’ll usually need</h4><ul><li>Valid passport or national ID</li><li>Work, study, funds or family evidence</li><li>Healthcare evidence if relevant</li></ul></div>
+              <div class="step-action"><p>Start with the identity and registration basics.</p><a href="/guides/nie/">Read more</a></div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">3</span><span class="time-badge">Before arrival</span><h3>Plan your move</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>A little planning makes the first weeks easier: housing, appointments, money, phone and transport all connect.</p></div>
+                <div><h4>Practical advice</h4><p>Plan your first month around address proof and appointments, not sightseeing alone.</p></div>
+                <div><h4>Next step</h4><p>Decide where you will stay first and what documents that address can support.</p></div>
+              </div>
+              <div class="step-action"><p>Use the housing guide as your next practical step.</p><a href="/guides/renting-home/">Read more</a></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="phase-card" aria-labelledby="phaseArrival">
+          <div class="phase-header">
+            <span class="phase-kicker">Phase 2</span>
+            <h2 id="phaseArrival">Arrival</h2>
+            <div class="phase-progress" aria-label="Progress: Planning complete, Arrival active, Settling In">
+              <span class="is-complete">Planning complete</span>
+              <span class="is-active">Arrival active</span>
+              <span>Settling In</span>
+            </div>
+          </div>
+          <div class="step-grid">
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">4</span><span class="time-badge">Week 1</span><h3>Secure accommodation</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>Your address affects padrón, banking, healthcare and many local admin steps.</p></div>
+                <div><h4>Practical advice</h4><p>Before signing, ask whether the landlord will support padrón registration if you need it.</p></div>
+                <div><h4>Next step</h4><p>Collect your rental contract or other accepted address proof.</p></div>
+              </div>
+              <div class="need-box"><h4>What you’ll usually need</h4><ul><li>Passport or national ID</li><li>Rental contract or host permission</li><li>Local address details</li></ul></div>
+              <div class="step-action"><p>Check the rental basics before committing.</p><a href="/guides/renting-home/">Read more</a></div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">5</span><span class="time-badge">Week 1-3</span><h3>Register on the padrón</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>The padrón is town hall registration and often acts as address evidence.</p></div>
+                <div><h4>Practical advice</h4><p>Check your municipality early. Appointment availability and document rules vary.</p></div>
+                <div><h4>Next step</h4><p>Book or prepare your local town hall appointment.</p></div>
+              </div>
+              <div class="need-box"><h4>What you’ll usually need</h4><ul><li>Identity document</li><li>Address proof</li><li>Town hall form or appointment</li></ul></div>
+              <div class="step-action"><p>Use the padrón guide for the local-administration basics.</p><a href="/guides/padron/">Read more</a></div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">6</span><span class="time-badge">Before registration</span><h3>Arrange your healthcare</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>Healthcare comes before EU registration for many non-working or self-sufficient EU citizens because proof of cover may be needed.</p></div>
+                <div><h4>Practical advice</h4><p>Do not rely on ordinary travel insurance if you are moving to live in Spain.</p></div>
+                <div><h4>Next step</h4><p>Confirm whether your cover comes through work, public entitlement, or private insurance.</p></div>
+              </div>
+              <div class="need-box"><h4>What you’ll usually need</h4><ul><li>Public healthcare evidence, or</li><li>Private health insurance</li><li>Policy documents if using private cover</li></ul></div>
+              <div class="step-action"><p>Start with the healthcare route that fits your situation.</p><a href="/guides/private-health/">Read more</a></div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">7</span><span class="time-badge">After documents ready</span><h3>Register as an EU citizen</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>This is the main residence registration step for EU, EEA and Swiss citizens staying in Spain longer term.</p></div>
+                <div><h4>Practical advice</h4><p>Use the appointment and fee that match EU citizen registration, not a TIE card route.</p></div>
+                <div><h4>Next step</h4><p>Prepare your EX-18 route evidence and book the correct appointment.</p></div>
+              </div>
+              <div class="need-box"><h4>What you’ll usually need</h4><ul><li>Identity document</li><li>EX-18</li><li>Padrón if requested</li><li>Work, funds, study or healthcare evidence</li><li>Modelo 790-012 payment</li></ul></div>
+              <div class="step-action"><p>Use the EU registration guide for forms, fees and appointment wording.</p><a href="/guides/eu-registration/">Read more</a></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="phase-card" aria-labelledby="phaseSettling">
+          <div class="phase-header">
+            <span class="phase-kicker">Phase 3</span>
+            <h2 id="phaseSettling">Settling In</h2>
+            <div class="phase-progress" aria-label="Progress: Planning complete, Arrival complete, Settling In active">
+              <span class="is-complete">Planning complete</span>
+              <span class="is-complete">Arrival complete</span>
+              <span class="is-active">Settling In active</span>
+            </div>
+          </div>
+          <div class="step-grid">
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">8</span><span class="time-badge">If working</span><h3>Register with Social Security, if applicable</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>Employment and self-employment usually connect you to Social Security records.</p></div>
+                <div><h4>Practical advice</h4><p>Separate getting your number from being registered as active for work.</p></div>
+                <div><h4>Next step</h4><p>Confirm whether your employer, gestor or you handle the registration.</p></div>
+              </div>
+              <div class="need-box"><h4>What you’ll usually need</h4><ul><li>Identity document</li><li>NIE or registration details</li><li>Employment or self-employment information</li></ul></div>
+              <div class="step-action"><p>Use this guide for the NUSS and work-record basics.</p><a href="/guides/social-security/">Read more</a></div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">9</span><span class="time-badge">Week 1-4</span><h3>Open a bank account</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>A practical account makes rent, utilities, salary and subscriptions easier.</p></div>
+                <div><h4>Practical advice</h4><p>Ask each bank what it accepts before going in person. Requirements vary by bank.</p></div>
+                <div><h4>Next step</h4><p>Compare Spanish banks and starter digital options.</p></div>
+              </div>
+              <div class="need-box"><h4>What you’ll usually need</h4><ul><li>Identity document</li><li>Address details</li><li>NIE or registration details if requested</li></ul></div>
+              <div class="step-action"><p>Pick a banking starting point.</p><a href="/guides/banking/">Read more</a></div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">10</span><span class="time-badge">After identity setup</span><h3>Get a Digital Certificate or Cl@ve</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>Digital access helps with tax, Social Security, certificates and public services online.</p></div>
+                <div><h4>Practical advice</h4><p>Set it up after your basic identity and Spain setup are clearer.</p></div>
+                <div><h4>Next step</h4><p>Choose whether FNMT digital certificate or Cl@ve is realistic for you first.</p></div>
+              </div>
+              <div class="need-box"><h4>What you’ll usually need</h4><ul><li>NIE or Spanish identifier</li><li>Identity verification route</li><li>Computer or phone access</li></ul></div>
+              <div class="step-action"><p>Use the digital access guide to choose the right route.</p><a href="/guides/digital/">Read more</a></div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">11</span><span class="time-badge">Early review</span><h3>Understand your tax obligations</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>Living in Spain can affect where and how you file taxes.</p></div>
+                <div><h4>Practical advice</h4><p>Review this early if you keep income, property or business interests outside Spain.</p></div>
+                <div><h4>Next step</h4><p>Understand tax residency basics and speak with a qualified adviser when needed.</p></div>
+              </div>
+              <div class="step-action"><p>Start with the plain-language tax overview.</p><a href="/guides/taxes/">Read more</a></div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-topline"><span class="step-number">12</span><span class="time-badge">When resident</span><h3>Check your driving licence</h3></div>
+              <div class="step-copy">
+                <div><h4>Why this matters</h4><p>Driving rules depend on where your licence was issued and whether you become resident.</p></div>
+                <div><h4>Practical advice</h4><p>Check this early if you need a car for work, school or rural living.</p></div>
+                <div><h4>Next step</h4><p>Confirm whether recognition, exchange or renewal rules apply to you.</p></div>
+              </div>
+              <div class="step-action"><p>Use the driving licence guide for the next check.</p><a href="/guides/driving-licence-exchange/">Read more</a></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="ready-card" aria-labelledby="readyTitle">
+          <h2 id="readyTitle">You’re Ready</h2>
+          <p>
+            You’ve completed the main steps most EU citizens follow when moving to Spain. From here,
+            IberiGo’s detailed guides can help with everyday life, healthcare, banking, taxes and local administration.
+          </p>
+          <div class="related-list" aria-label="Related guides">
+            <a href="/guides/eu-registration/">EU Registration</a>
+            <a href="/guides/padron/">Padrón</a>
+            <a href="/guides/private-health/">Healthcare</a>
+            <a href="/guides/banking/">Banking</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.</p>
+        <a href="/support/index.html">Support IberiGo</a>
+        <div class="site-footer-legal">
+          <p>© 2026 IberiGo. Free to use. Not legal advice.</p>
+          <p>Last reviewed: June 2026</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      (function () {
+        var topbar = document.querySelector(".topbar");
+        if (!topbar) return;
+        var update = function () {
+          topbar.classList.toggle("is-scrolled", window.scrollY > 24);
+        };
+        update();
+        window.addEventListener("scroll", update, { passive: true });
+      })();
+    </script>
+  </body>
+</html>
