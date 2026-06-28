@@ -259,8 +259,137 @@ const pages = [
   }
 ];
 
+pages.push({
+  route: routes.padron,
+  html: GuideLayout({
+    path: routes.padron,
+    canonical: `https://iberigo.eu${routes.padron}`,
+    title: "How to Register on the Padrón in Spain — IberiGo",
+    description: "Learn how to register on the padrón in Spain, what documents you'll usually need, how appointments work, and common mistakes to avoid.",
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Padrón" }],
+    hero: {
+      kicker: "Municipal registration",
+      title: "How to Register on the Padrón in Spain",
+      intro: "The padrón is Spain’s local town hall address register. This guide explains what it is, who usually registers, what documents are commonly requested, and how the process normally works.",
+      asideTitle: "Local rules matter",
+      asideText: "The padrón is managed by each municipality. Requirements and appointment systems can vary from one town hall to another."
+    },
+    sections: [
+      QuickAnswer("The padrón is municipal registration with the town hall where you live. It records your address in that municipality. It is useful for many practical steps in Spain, but it is not the same as getting residence permission."),
+      AtAGlance([
+        ["What it is", "Town hall address registration."],
+        ["Where you do it", "At the town hall for the municipality where you live."],
+        ["Does it prove residency?", "No. It records your local address; it does not grant immigration status."],
+        ["Do rules vary?", "Yes. Document lists and appointment systems can vary between municipalities."],
+        ["Typical use", "Address evidence for local services, healthcare, schooling, some residence processes and everyday administration."]
+      ]),
+      GuideSection({
+        id: "beforeStart",
+        title: "Before You Start",
+        children: `${Cards([
+          { title: "Find your municipality", text: "Use the town hall that covers the address where you actually live." },
+          { title: "Check local rules", text: "Do not assume another city’s document list applies to you." },
+          { title: "Prepare address evidence", text: "Your town hall will normally want to see why you can register at that address." }
+        ])}${TipBox("Before signing a rental contract, ask whether you can use the address for padrón registration if you need it.")}`
+      }),
+      GuideSection({
+        id: "whatIsPadron",
+        title: "What is the Padrón?",
+        children: `${Cards([
+          { title: "Municipal register", text: "The padrón, formally the padrón municipal, is the local register of people living in a municipality." },
+          { title: "Address record", text: "It connects you to an address in a town or city. It is not an immigration permit." },
+          { title: "Local administration", text: "Town halls use it for planning and local services. Other offices may ask for a certificate or volante as address evidence." }
+        ])}${WarningBox("Registering on the padrón is different from obtaining residency. It does not give you the right to live or work in Spain by itself.")}`
+      }),
+      GuideSection({
+        id: "whoShouldRegister",
+        title: "Who should register?",
+        children: Cards([
+          { title: "People living in Spain", text: "If you are living in a Spanish municipality, padrón registration is often one of the first local admin steps." },
+          { title: "People preparing other processes", text: "You may need address evidence for healthcare, EU registration, school, social services or other administration." },
+          { title: "People who move address", text: "If you move to a new municipality, you may need to register at the new address." }
+        ])
+      }),
+      GuideSection({
+        id: "whoCannotRegister",
+        title: "Who usually cannot register?",
+        children: `${Cards([
+          { title: "People without a real local address", text: "You normally need to register where you actually live." },
+          { title: "People without acceptable address evidence", text: "If you cannot show the town hall why you can use the address, the process may be blocked." },
+          { title: "People using someone else’s address without permission", text: "Many town halls require the owner, tenant or host to authorize registration if the home is not in your name." }
+        ])}${WarningBox("Local practices differ. If your housing situation is unusual, check directly with the town hall before assuming you can register.")}`
+      }),
+      GuideSection({
+        id: "whyImportant",
+        title: "Why is the Padrón important?",
+        children: Cards([
+          { title: "It proves where you live locally", text: "Many offices use the padrón certificate or volante as address evidence." },
+          { title: "It can unlock next steps", text: "Healthcare, EU registration, school registration and some local services may ask for it." },
+          { title: "It keeps your local record current", text: "If you move, the new municipality may need your updated registration." }
+        ])
+      }),
+      GuideSection({
+        id: "documentsUsuallyNeed",
+        title: "Documents you'll usually need",
+        children: `${ChecklistBox({
+          title: "Common documents to prepare",
+          items: [
+            "Passport, EU national ID, NIE or TIE if you have one.",
+            "Rental contract, property deed, authorization from the owner or tenant, or other accepted address evidence.",
+            "Completed town hall form if your municipality provides one.",
+            "Appointment confirmation if the town hall uses appointments.",
+            "Copies of documents if the town hall requests them."
+          ]
+        })}${InfoBox({ title: "Local variation", text: "This is a general preparation list. Town halls can ask for different documents depending on the municipality and your housing situation." })}`
+      }),
+      GuideSection({
+        id: "stepProcess",
+        title: "Step-by-Step Process",
+        children: StepTimeline([
+          { title: "Identify the correct town hall", text: "Use the municipality where your home is located." },
+          { title: "Check the local appointment system", text: "Some town halls use online appointments. Others allow in-person or local office filing." },
+          { title: "Prepare identity and address evidence", text: "Bring the documents your municipality asks for, plus copies if requested." },
+          { title: "Attend the appointment or submit locally", text: "The town hall checks your identity and whether the address evidence is acceptable." },
+          { title: "Request proof of registration", text: "Ask whether you receive a certificado de empadronamiento, volante, or another confirmation." },
+          { title: "Keep it for next steps", text: "Save the document with your Spain paperwork. Other processes may ask for a recent version." }
+        ])
+      }),
+      CommonMistakes([
+        "Assuming all town halls ask for identical documents.",
+        "Signing housing without checking whether padrón registration is possible.",
+        "Confusing padrón registration with immigration residence permission.",
+        "Waiting until another appointment is blocked by missing address evidence.",
+        "Bringing only digital copies when paper copies or originals are requested."
+      ]),
+      RealQuestions([
+        { question: "Is the padrón the same as residency?", answer: "No. The padrón records your local address. Residency or residence registration is a separate process." },
+        { question: "Do all town halls ask for the same documents?", answer: "No. Requirements can vary between municipalities and housing situations." },
+        { question: "Can I register if I live with someone else?", answer: "Often you need permission or evidence from the owner, tenant or host. The exact document can vary locally." },
+        { question: "What document do I get after registering?", answer: "Town halls may issue or allow you to request a certificate or volante showing your registration. Local wording can vary." },
+        { question: "Do I need this before EU registration?", answer: "It is commonly useful and may be requested. Check the appointment instructions for your exact province and procedure." },
+        { question: "Can I use a hotel or short stay address?", answer: "This depends on local rules and your actual housing situation. Ask the town hall before relying on it." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "What Happens Next?",
+        children: `<p>After registering on the padrón, keep the proof safe. You may need it for EU registration, healthcare, banking, school registration, digital access or other local administration.</p>${TipBox("If another office asks for a recent padrón certificate, check whether your town hall lets you request an updated copy online or in person.")}`
+      })
+    ],
+    continueJourney: [
+      { label: "View the EU Registration Guide", href: routes.euRegistration },
+      { label: "View the Healthcare Guide", href: routes.healthcare },
+      { label: "View the Bank Account Guide", href: routes.banking },
+      { label: "View the Digital Certificate Guide", href: routes.digital }
+    ],
+    relatedGuides: [
+      { label: "View the Accommodation Guide", href: routes.accommodation, description: "Understand how your address affects later paperwork." },
+      { label: "View the Documents Checklist", href: routes.checklist, description: "Prepare your core moving documents." },
+      { label: "View the EU Citizen Roadmap", href: routes.euRoadmap, description: "See where padrón fits in the wider move." }
+    ]
+  })
+});
+
 const skeletons = [
-  ["registering-on-the-padron", routes.padron, "Registering on the padrón in Spain — IberiGo", "Draft guide to registering your address on the padrón in Spain.", "Registering on the Padrón", "The padrón is town hall address registration. This guide explains the practical order of what to check before using it for other Spain admin steps.", "Padrón registration is handled locally by your town hall. Requirements vary, so this page gives the structure first and leaves local detail for editorial review."],
   ["healthcare", routes.healthcare, "Healthcare in Spain when moving — IberiGo", "Draft guide to understanding healthcare when moving to Spain.", "Healthcare in Spain", "Healthcare should be understood early because it can affect residence, work and daily life setup.", "Your healthcare route depends on your status and situation. Do not rely on travel insurance as a long-term moving plan."],
   ["documents-checklist", routes.checklist, "Moving to Spain documents checklist — IberiGo", "Draft checklist for documents people commonly prepare before moving to Spain.", "Documents Checklist for Moving to Spain", "A calm document checklist helps you prepare without pretending every route has the same requirements.", "Start with identity, address, healthcare, money and purpose evidence. Route-specific detail comes during editorial review."],
   ["opening-a-bank-account", routes.banking, "Opening a bank account in Spain — IberiGo", "Draft guide to opening a bank account in Spain.", "Opening a Bank Account in Spain", "A bank account helps with rent, utilities, salary and everyday payments.", "Banks usually need to identify you and understand your address and customer profile. Exact requirements vary by bank."],
