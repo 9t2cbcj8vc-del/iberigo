@@ -48,6 +48,12 @@
       .guide-section { padding: clamp(1.1rem, 3vw, 1.6rem); margin-top: 1.15rem; }
       .guide-section h2 { margin: 0 0 0.85rem; color: #1b2030; font-size: clamp(1.45rem, 3vw, 2rem); }
       .guide-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; }
+      .guide-card-grid--single { grid-template-columns: minmax(0, 1fr); }
+      .guide-continue-journey { display: grid; gap: 1rem; }
+      .guide-journey-group { display: grid; gap: 0.75rem; }
+      .guide-journey-group > h3 { margin: 0; color: rgba(27, 32, 48, 0.58); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
+      .guide-journey-group .guide-info-card { display: grid; gap: 0.65rem; align-content: start; }
+      .guide-journey-group .guide-button { justify-self: start; margin-top: 0.1rem; }
       .guide-info-card, .guide-box { padding: 1rem; }
       .guide-info-card h3, .guide-box h3, .guide-timeline h3 { margin: 0 0 0.45rem; color: #1b2030; font-size: 1rem; }
       .guide-info-card p, .guide-info-card li, .guide-box p, .guide-box li, .guide-timeline p { margin: 0; color: rgba(27, 32, 48, 0.68); font-size: 0.93rem; line-height: 1.58; }
@@ -68,14 +74,10 @@
       .guide-button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
       .guide-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.6rem; border-radius: 999px; background: #a64a36; color: #fff; font-weight: 900; padding: 0.65rem 1rem; text-decoration: none; }
       .guide-button--secondary { border: 1px solid rgba(166, 74, 54, 0.18); background: #fff; color: #a64a36; }
-      .guide-prev-next { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1.15rem; }
-      .guide-prev-next a { display: grid; gap: 0.25rem; min-height: 4rem; padding: 0.9rem 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); color: #1b2030; text-decoration: none; box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
-      .guide-prev-next span { color: rgba(27, 32, 48, 0.58); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
-      .guide-prev-next strong { color: #a64a36; font-size: 1rem; }
       .last-reviewed { margin: 1.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
       .guide-image-placeholder { min-height: 180px; border: 1px dashed rgba(166, 74, 54, 0.22); border-radius: 18px; background: linear-gradient(135deg, rgba(253, 240, 220, 0.7), rgba(255, 255, 255, 0.72)); }
       @media (max-width: 900px) { .guide-layout, .guide-hero, .guide-card-grid { grid-template-columns: 1fr; } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
-      @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } .guide-prev-next { grid-template-columns: 1fr; } }
+      @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
     </style>
   </head>
   <body>
@@ -144,18 +146,24 @@
           <li><span>5</span><div><h3>Check your driving licence</h3><p>Driving rules depend on where your licence was issued and whether you become resident.</p></div></li></ol></section>
         <section class="guide-section" aria-labelledby="youreReady"><h2 id="youreReady">You're Ready</h2><p>You’ve completed the main steps most EU citizens follow when moving to Spain. From here, IberiGo’s detailed guides can help with everyday life, healthcare, banking, taxes and local administration.</p></section>
         <p class="last-reviewed">Last reviewed: June 2026</p>
-        <nav class="guide-prev-next" aria-label="Guide previous and next">
-          <span></span>
-          <a href="/moving-to-spain/documents-checklist/"><span>Next</span><strong>Documents Checklist</strong></a>
-        </nav>
-        <section class="guide-section" aria-labelledby="continueJourney"><h2 id="continueJourney">Continue Your Journey</h2><p>Choose the next guide that matches your situation.</p><div class="guide-button-row"><a class="guide-button" href="/moving-to-spain/registering-on-the-padron/">View the Padrón Guide</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View the Healthcare Guide</a>
-          <a class="guide-button guide-button--secondary" href="/guides/eu-registration/">View the EU Registration Guide</a></div></section>
-        <section class="guide-section" aria-labelledby="relatedGuides"><h2 id="relatedGuides">Related Guides</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>View the Documents Checklist</h3><p>Prepare the paperwork folder before appointments.</p></article>
-          <article class="guide-info-card"><h3>View the Healthcare Guide</h3><p>Understand healthcare before registration or residence steps.</p></article>
-          <article class="guide-info-card"><h3>View the Banking Guide</h3><p>Set up everyday payments in Spain.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/moving-to-spain/documents-checklist/">View the Documents Checklist</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View the Healthcare Guide</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/opening-a-bank-account/">View the Banking Guide</a></div></section>
+        <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney">
+          <h2 id="continueJourney">Continue Your Journey</h2>
+          <div class="guide-journey-group"><h3>Next Step</h3><div class="guide-card-grid guide-card-grid--single"><article class="guide-info-card">
+            <h3>Documents Checklist</h3>
+            <p>Organize the core paperwork folder before appointments and everyday setup.</p>
+            <a class="guide-button guide-button--secondary" href="/moving-to-spain/documents-checklist/">View the Documents Checklist</a>
+          </article></div></div>
+          <div class="guide-journey-group"><h3>Related Guides</h3><div class="guide-card-grid"><article class="guide-info-card">
+            <h3>Healthcare Guide</h3>
+            <p>Compare public healthcare, S1, work-based entitlement and private-cover routes.</p>
+            <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View the Healthcare Guide</a>
+          </article>
+          <article class="guide-info-card">
+            <h3>Bank Account Guide</h3>
+            <p>Set up everyday banking, payments and account documents in Spain.</p>
+            <a class="guide-button guide-button--secondary" href="/living-in-spain/opening-a-bank-account/">View the Bank Account Guide</a>
+          </article></div></div>
+        </section>
           </div>
           <aside class="guide-toc" aria-label="Table of contents">
           <strong>On this page</strong>
@@ -189,7 +197,9 @@
   ],
   "previousGuide": null,
   "nextGuide": {
-    "label": "Documents Checklist",
+    "title": "Documents Checklist",
+    "description": "Organize the core paperwork folder before appointments and everyday setup.",
+    "label": "View the Documents Checklist",
     "href": "/moving-to-spain/documents-checklist/"
   },
   "canonicalUrl": "https://iberigo.eu/moving-to-spain/eu-citizens/",
@@ -199,41 +209,24 @@
   "reviewedBy": "",
   "relatedGuides": [
     {
+      "title": "Documents Checklist",
+      "description": "Organize the core paperwork folder before appointments and everyday setup.",
       "label": "View the Documents Checklist",
-      "href": "/moving-to-spain/documents-checklist/",
-      "description": "Prepare the paperwork folder before appointments."
+      "href": "/moving-to-spain/documents-checklist/"
     },
     {
-      "label": "View the Healthcare Guide",
-      "href": "/moving-to-spain/healthcare/",
-      "description": "Understand healthcare before registration or residence steps."
-    },
-    {
-      "label": "View the Banking Guide",
-      "href": "/living-in-spain/opening-a-bank-account/",
-      "description": "Set up everyday payments in Spain."
-    }
-  ],
-  "continueJourney": [
-    {
-      "label": "View the Padrón Guide",
-      "href": "/moving-to-spain/registering-on-the-padron/"
-    },
-    {
+      "title": "Healthcare Guide",
+      "description": "Compare public healthcare, S1, work-based entitlement and private-cover routes.",
       "label": "View the Healthcare Guide",
       "href": "/moving-to-spain/healthcare/"
     },
     {
-      "label": "View the EU Registration Guide",
-      "href": "/guides/eu-registration/"
+      "title": "Bank Account Guide",
+      "description": "Set up everyday banking, payments and account documents in Spain.",
+      "label": "View the Bank Account Guide",
+      "href": "/living-in-spain/opening-a-bank-account/"
     }
   ],
-  "previousNext": {
-    "next": {
-      "label": "Documents Checklist",
-      "href": "/moving-to-spain/documents-checklist/"
-    }
-  },
   "editorialChecklist": [
     "Grammar reviewed",
     "Internal links checked",

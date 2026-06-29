@@ -59,8 +59,6 @@ function basicSkeleton({
   next,
   warning,
   tip,
-  continueJourney,
-  relatedGuides,
   breadcrumbParent
 }) {
   return GuideLayout({
@@ -92,17 +90,72 @@ function basicSkeleton({
       CommonMistakes(mistakes),
       RealQuestions(questions),
       GuideSection({ id: "whatHappensNext", title: "What Happens Next?", children: `<p>${next}</p>` })
-    ].filter(Boolean),
-    continueJourney,
-    relatedGuides
+    ].filter(Boolean)
   });
 }
 
-const commonRelated = [
-  { label: "View the Documents Checklist", href: routes.checklist, description: "Prepare the paperwork folder before appointments." },
-  { label: "View the Healthcare Guide", href: routes.healthcare, description: "Understand healthcare before registration or residence steps." },
-  { label: "View the Banking Guide", href: routes.banking, description: "Set up everyday payments in Spain." }
-];
+const guideSummaries = {
+  [routes.euRoadmap]: {
+    title: "EU Citizen Roadmap",
+    label: "View the EU Citizen Roadmap",
+    description: "Follow the usual order of moving steps for EU, EEA and Swiss citizens."
+  },
+  [routes.euRegistration]: {
+    title: "EU Registration Certificate",
+    label: "View the EU Registration Guide",
+    description: "Prepare the EU registration certificate step for longer-term stays in Spain."
+  },
+  [routes.padron]: {
+    title: "Padrón Guide",
+    description: "Understand town hall address registration and the documents commonly requested."
+  },
+  [routes.healthcare]: {
+    title: "Healthcare Guide",
+    description: "Compare public healthcare, S1, work-based entitlement and private-cover routes."
+  },
+  [routes.checklist]: {
+    title: "Documents Checklist",
+    label: "View the Documents Checklist",
+    description: "Organize the core paperwork folder before appointments and everyday setup."
+  },
+  [routes.banking]: {
+    title: "Bank Account Guide",
+    description: "Set up everyday banking, payments and account documents in Spain."
+  },
+  [routes.digital]: {
+    title: "Digital Certificate Guide",
+    description: "Set up FNMT digital certificate or Cl@ve access for online public services."
+  },
+  [routes.social]: {
+    title: "Social Security Guide",
+    description: "Understand Social Security numbers, work registration and related healthcare links."
+  },
+  [routes.taxes]: {
+    title: "Taxes Guide",
+    description: "Review tax residence, tax address and first tax-administration questions."
+  },
+  [routes.driving]: {
+    title: "Driving Guide",
+    description: "Check driving licence and resident-driver rules after moving to Spain."
+  },
+  [routes.accommodation]: {
+    title: "Accommodation Guide",
+    description: "Plan housing evidence, rentals and the address documents that later steps may need."
+  }
+};
+
+function guideLink(route) {
+  const summary = guideSummaries[route] || {};
+  const title = summary.title || "IberiGo Guide";
+  return {
+    title,
+    description: summary.description || "",
+    label: summary.label || `View the ${title}`,
+    href: route
+  };
+}
+
+const commonRelatedRoutes = [routes.checklist, routes.healthcare, routes.banking];
 
 const searchMetadataByRoute = {
   [routes.euRoadmap]: {
@@ -184,125 +237,42 @@ const searchMetadataByRoute = {
   }
 };
 
-const relatedByRoute = {
-  [routes.padron]: [
-    { label: "View the Accommodation Guide", href: routes.accommodation, description: "Understand how your address affects later steps." },
-    { label: "View the Healthcare Guide", href: routes.healthcare, description: "Use your local setup to plan healthcare access." },
-    { label: "View the EU Registration Guide", href: routes.euRegistration, description: "Prepare the residence registration step if it applies." }
-  ],
-  [routes.healthcare]: [
-    { label: "View the Social Security Guide", href: routes.social, description: "Understand how work registration can connect to healthcare." },
-    { label: "View the EU Citizen Roadmap", href: routes.euRoadmap, description: "See where healthcare sits in the wider moving order." },
-    { label: "View the Documents Checklist", href: routes.checklist, description: "Keep healthcare proof with your core paperwork." }
-  ],
-  [routes.checklist]: [
-    { label: "View the Padrón Guide", href: routes.padron, description: "Prepare address evidence for local registration." },
-    { label: "View the Healthcare Guide", href: routes.healthcare, description: "Prepare healthcare proof where relevant." },
-    { label: "View the EU Registration Guide", href: routes.euRegistration, description: "Use route-specific evidence for EU registration." }
-  ],
-  [routes.banking]: [
-    { label: "View the Digital Certificate Guide", href: routes.digital, description: "Set up online access for later administration." },
-    { label: "View the Taxes Guide", href: routes.taxes, description: "Understand tax basics before deadlines arrive." },
-    { label: "View the Accommodation Guide", href: routes.accommodation, description: "Use address documents for banking preparation." },
-    { label: "View the Padrón Guide", href: routes.padron, description: "Prepare address evidence that banks may ask for." }
-  ],
-  [routes.digital]: [
-    { label: "View the Social Security Guide", href: routes.social, description: "Use digital access for some Social Security services." },
-    { label: "View the Taxes Guide", href: routes.taxes, description: "Digital access can help with tax services." },
-    { label: "View the Banking Guide", href: routes.banking, description: "Use banking and phone access alongside public-service logins." },
-    { label: "View the Documents Checklist", href: routes.checklist, description: "Keep identity documents ready." }
-  ],
-  [routes.social]: [
-    { label: "View the Healthcare Guide", href: routes.healthcare, description: "Social Security can connect to healthcare access." },
-    { label: "View the Banking Guide", href: routes.banking, description: "Work and salary setup often needs banking." },
-    { label: "View the Taxes Guide", href: routes.taxes, description: "Work can create tax questions." }
-  ],
-  [routes.taxes]: [
-    { label: "View the Banking Guide", href: routes.banking, description: "Keep financial records organized." },
-    { label: "View the Digital Certificate Guide", href: routes.digital, description: "Digital access can help with tax services." },
-    { label: "View the Social Security Guide", href: routes.social, description: "Work registration and tax questions often connect." }
-  ],
-  [routes.driving]: [
-    { label: "View the Accommodation Guide", href: routes.accommodation, description: "Location can affect whether you need a car." },
-    { label: "View the Documents Checklist", href: routes.checklist, description: "Keep licence and identity documents together." },
-    { label: "View the Taxes Guide", href: routes.taxes, description: "Review resident-life obligations after moving." }
-  ],
-  [routes.accommodation]: [
-    { label: "View the Padrón Guide", href: routes.padron, description: "Your address may be needed for town hall registration." },
-    { label: "View the Banking Guide", href: routes.banking, description: "Rent and utilities usually need payment setup." },
-    { label: "View the Healthcare Guide", href: routes.healthcare, description: "Address and local setup can matter for healthcare." }
-  ]
+const relatedRoutesByRoute = {
+  [routes.padron]: [routes.accommodation, routes.healthcare, routes.euRegistration],
+  [routes.healthcare]: [routes.social, routes.euRoadmap, routes.checklist],
+  [routes.checklist]: [routes.padron, routes.healthcare, routes.euRegistration],
+  [routes.banking]: [routes.digital, routes.taxes, routes.accommodation, routes.padron],
+  [routes.digital]: [routes.social, routes.taxes, routes.banking, routes.checklist],
+  [routes.social]: [routes.healthcare, routes.banking, routes.taxes],
+  [routes.taxes]: [routes.banking, routes.digital, routes.social],
+  [routes.driving]: [routes.accommodation, routes.checklist, routes.taxes],
+  [routes.accommodation]: [routes.padron, routes.banking, routes.healthcare]
 };
 
 function guideMetadataFor(route) {
-  const continueByRoute = {
-    [routes.euRoadmap]: [
-      { label: "View the Padrón Guide", href: routes.padron },
-      { label: "View the Healthcare Guide", href: routes.healthcare },
-      { label: "View the EU Registration Guide", href: routes.euRegistration }
-    ],
-    [routes.euRegistration]: [
-      { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
-      { label: "View the Healthcare Guide", href: routes.healthcare },
-      { label: "View the Social Security Guide", href: routes.social }
-    ],
-    [routes.padron]: [
-      { label: "View the EU Registration Guide", href: routes.euRegistration },
-      { label: "View the Healthcare Guide", href: routes.healthcare },
-      { label: "View the Bank Account Guide", href: routes.banking },
-      { label: "View the Digital Certificate Guide", href: routes.digital }
-    ],
-    [routes.healthcare]: [
-      { label: "View the EU Registration Guide", href: routes.euRegistration },
-      { label: "View the Bank Account Guide", href: routes.banking },
-      { label: "View the Digital Certificate Guide", href: routes.digital },
-      { label: "View the Taxes Guide", href: routes.taxes }
-    ],
-    [routes.banking]: [
-      { label: "View the Digital Certificate Guide", href: routes.digital },
-      { label: "View the Taxes Guide", href: routes.taxes },
-      { label: "View the Accommodation Guide", href: routes.accommodation }
-    ],
-    [routes.digital]: [
-      { label: "View the Taxes Guide", href: routes.taxes },
-      { label: "View the Social Security Guide", href: routes.social },
-      { label: "View the Documents Checklist", href: routes.checklist }
-    ],
-    [routes.taxes]: [
-      { label: "View the Digital Certificate Guide", href: routes.digital },
-      { label: "View the Banking Guide", href: routes.banking },
-      { label: "View the EU Citizen Roadmap", href: routes.euRoadmap }
-    ]
+  const journeyRoutesByRoute = {
+    [routes.euRoadmap]: { next: routes.checklist },
+    [routes.checklist]: { previous: routes.euRoadmap, next: routes.accommodation },
+    [routes.accommodation]: { previous: routes.checklist, next: routes.padron },
+    [routes.padron]: { previous: routes.accommodation, next: routes.healthcare },
+    [routes.healthcare]: { previous: routes.padron, next: routes.euRegistration },
+    [routes.euRegistration]: { previous: routes.healthcare, next: routes.social },
+    [routes.social]: { previous: routes.euRegistration, next: routes.banking },
+    [routes.banking]: { previous: routes.social, next: routes.digital },
+    [routes.digital]: { previous: routes.banking, next: routes.taxes },
+    [routes.taxes]: { previous: routes.digital, next: routes.driving },
+    [routes.driving]: { previous: routes.taxes }
   };
-  const previousNextByRoute = {
-    [routes.euRoadmap]: { next: { label: "Documents Checklist", href: routes.checklist } },
-    [routes.checklist]: { previous: { label: "EU Citizen Roadmap", href: routes.euRoadmap }, next: { label: "Finding Accommodation", href: routes.accommodation } },
-    [routes.accommodation]: { previous: { label: "Documents Checklist", href: routes.checklist }, next: { label: "Padrón", href: routes.padron } },
-    [routes.padron]: { previous: { label: "Finding Accommodation", href: routes.accommodation }, next: { label: "Healthcare", href: routes.healthcare } },
-    [routes.healthcare]: { previous: { label: "Padrón", href: routes.padron }, next: { label: "EU Registration", href: routes.euRegistration } },
-    [routes.euRegistration]: { previous: { label: "Healthcare", href: routes.healthcare }, next: { label: "Social Security", href: routes.social } },
-    [routes.social]: { previous: { label: "EU Registration", href: routes.euRegistration }, next: { label: "Bank Account", href: routes.banking } },
-    [routes.banking]: { previous: { label: "Social Security", href: routes.social }, next: { label: "Digital Certificate", href: routes.digital } },
-    [routes.digital]: { previous: { label: "Bank Account", href: routes.banking }, next: { label: "Taxes", href: routes.taxes } },
-    [routes.taxes]: { previous: { label: "Digital Certificate", href: routes.digital }, next: { label: "Driving", href: routes.driving } },
-    [routes.driving]: { previous: { label: "Taxes", href: routes.taxes } }
-  };
-  const previousNext = previousNextByRoute[route] || {};
+  const journeyRoutes = journeyRoutesByRoute[route] || {};
 
   return {
     ...(searchMetadataByRoute[route] || {}),
     status: "draft",
     lastReviewed: "June 2026",
     reviewedBy: "",
-    previousGuide: previousNext.previous || null,
-    nextGuide: previousNext.next || null,
-    previousNext,
-    continueJourney: continueByRoute[route] || [
-      { label: "View the Documents Checklist", href: routes.checklist },
-      { label: "View the Healthcare Guide", href: routes.healthcare },
-      { label: "View the Banking Guide", href: routes.banking }
-    ],
-    relatedGuides: relatedByRoute[route] || commonRelated
+    previousGuide: journeyRoutes.previous ? guideLink(journeyRoutes.previous) : null,
+    nextGuide: journeyRoutes.next ? guideLink(journeyRoutes.next) : null,
+    relatedGuides: (relatedRoutesByRoute[route] || commonRelatedRoutes).map(guideLink)
   };
 }
 
@@ -407,7 +377,7 @@ function isPresent(value) {
 }
 
 function isValidGuideLink(value) {
-  return value === null || (value && typeof value === "object" && isPresent(value.label) && isPresent(value.href));
+  return value === null || (value && typeof value === "object" && isPresent(value.label) && isPresent(value.title) && isPresent(value.description) && isPresent(value.href));
 }
 
 function validateGuideMetadata(pages) {
@@ -456,18 +426,18 @@ function validateGuideMetadata(pages) {
       messages.push({ type: "error", filePath, field: "relatedGuides", message: "invalid value; expected a non-empty list" });
     } else {
       metadata.relatedGuides.forEach((guide, index) => {
-        if (!guide || !isPresent(guide.label) || !isPresent(guide.href)) {
-          messages.push({ type: "error", filePath, field: `relatedGuides[${index}]`, message: "invalid value; expected label and href" });
+        if (!isValidGuideLink(guide)) {
+          messages.push({ type: "error", filePath, field: `relatedGuides[${index}]`, message: "invalid value; expected title, description, label and href" });
         }
       });
     }
 
     if (!isValidGuideLink(metadata.previousGuide)) {
-      messages.push({ type: "error", filePath, field: "previousGuide", message: "invalid value; expected null or { label, href }" });
+      messages.push({ type: "error", filePath, field: "previousGuide", message: "invalid value; expected null or { title, description, label, href }" });
     }
 
     if (!isValidGuideLink(metadata.nextGuide)) {
-      messages.push({ type: "error", filePath, field: "nextGuide", message: "invalid value; expected null or { label, href }" });
+      messages.push({ type: "error", filePath, field: "nextGuide", message: "invalid value; expected null or { title, description, label, href }" });
     }
 
     if (metadata.status === "published" && page.html.includes(reviewPlaceholder)) {
@@ -554,13 +524,7 @@ const pages = [
           ])
         }),
         GuideSection({ id: "youreReady", title: "You're Ready", children: `<p>You’ve completed the main steps most EU citizens follow when moving to Spain. From here, IberiGo’s detailed guides can help with everyday life, healthcare, banking, taxes and local administration.</p>` })
-      ],
-      continueJourney: [
-        { label: "View the Padrón Guide", href: routes.padron },
-        { label: "View the Healthcare Guide", href: routes.healthcare },
-        { label: "View the EU Registration Guide", href: routes.euRegistration }
-      ],
-      relatedGuides: commonRelated
+      ]
     })
   },
   {
@@ -596,13 +560,7 @@ const pages = [
         CommonMistakes(["Confusing EU registration with a TIE card.", "Preparing healthcare evidence too late.", "Booking the wrong appointment label.", "Assuming every province asks for documents in the same way."]),
         RealQuestions([{ question: "Do EU citizens need a visa?", answer: "No, but longer-term residence registration can still be required." }, { question: "Is this the same as NIE?", answer: "No. NIE is an identification number; EU registration is a residence registration certificate." }, { question: "What exact evidence applies to me?", answer: reviewPlaceholder }]),
         GuideSection({ id: "whatHappensNext", title: "What Happens Next?", children: `<p>After registration, continue with healthcare, Social Security if working, banking, digital access and tax review.</p>` })
-      ],
-      continueJourney: [
-        { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
-        { label: "View the Healthcare Guide", href: routes.healthcare },
-        { label: "View the Social Security Guide", href: routes.social }
-      ],
-      relatedGuides: commonRelated
+      ]
     })
   }
 ];
@@ -723,17 +681,6 @@ pages.push({
         title: "What Happens Next?",
         children: `<p>After registering on the padrón, keep the proof safe. You may need it for EU registration, healthcare, banking, school registration, digital access or other local administration.</p>${TipBox("If another office asks for a recent padrón certificate, check whether your town hall lets you request an updated copy online or in person.")}`
       })
-    ],
-    continueJourney: [
-      { label: "View the EU Registration Guide", href: routes.euRegistration },
-      { label: "View the Healthcare Guide", href: routes.healthcare },
-      { label: "View the Bank Account Guide", href: routes.banking },
-      { label: "View the Digital Certificate Guide", href: routes.digital }
-    ],
-    relatedGuides: [
-      { label: "View the Accommodation Guide", href: routes.accommodation, description: "Understand how your address affects later paperwork." },
-      { label: "View the Documents Checklist", href: routes.checklist, description: "Prepare your core moving documents." },
-      { label: "View the EU Citizen Roadmap", href: routes.euRoadmap, description: "See where padrón fits in the wider move." }
     ]
   })
 });
@@ -887,17 +834,6 @@ pages.push({
         title: "What Happens Next?",
         children: `<p>Once you understand your healthcare route, prepare the proof that matches your situation. Then continue with EU registration, banking, digital access and tax planning.</p>${TipBox("Keep healthcare documents in the same folder as your identity, padrón and EU registration paperwork.")}`
       })
-    ],
-    continueJourney: [
-      { label: "View the EU Registration Guide", href: routes.euRegistration },
-      { label: "View the Bank Account Guide", href: routes.banking },
-      { label: "View the Digital Certificate Guide", href: routes.digital },
-      { label: "View the Taxes Guide", href: routes.taxes }
-    ],
-    relatedGuides: [
-      { label: "View the EU Citizen Roadmap", href: routes.euRoadmap, description: "See where healthcare sits in the full moving process." },
-      { label: "View the Social Security Guide", href: routes.social, description: "Understand the work and Social Security connection." },
-      { label: "View the Documents Checklist", href: routes.checklist, description: "Prepare your paperwork before appointments." }
     ]
   })
 });
@@ -1314,13 +1250,7 @@ for (const [, route, title, description, h1, intro, quick] of skeletons) {
       questions: [{ question: "Is this legal advice?", answer: "No. IberiGo gives general guidance only." }, { question: "Are requirements the same everywhere?", answer: "Not always. Some details vary by situation or location." }, { question: "Where is the detailed answer?", answer: reviewPlaceholder }],
       next: "After this step, continue with the related guide that matches your situation.",
       warning: "Do not file, pay or book based only on draft content. Confirm details during editorial review and with official sources.",
-      tip: "Use one folder for identity, address, healthcare, money and appointment documents.",
-      continueJourney: [
-        { label: "View the Documents Checklist", href: routes.checklist },
-        { label: "View the Healthcare Guide", href: routes.healthcare },
-        { label: "View the Banking Guide", href: routes.banking }
-      ],
-      relatedGuides: relatedByRoute[route] || commonRelated
+      tip: "Use one folder for identity, address, healthcare, money and appointment documents."
     })
   });
 }

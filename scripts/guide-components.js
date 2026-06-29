@@ -164,20 +164,35 @@ function ButtonRow(items = []) {
     .join("\n          ")}</div>`;
 }
 
-function ContinueJourney(items = []) {
-  return `<section class="guide-section" aria-labelledby="continueJourney"><h2 id="continueJourney">Continue Your Journey</h2><p>Choose the next guide that matches your situation.</p>${ButtonRow(items)}</section>`;
+function GuideLinkCard(item, modifier = "") {
+  if (!item || !item.href) return "";
+  return `<article class="guide-info-card${modifier ? ` ${modifier}` : ""}">
+            <h3>${escapeHtml(item.title || item.label || "Guide")}</h3>
+            ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ""}
+            <a class="guide-button guide-button--secondary" href="${item.href}">${escapeHtml(item.label || `View the ${item.title || "Guide"}`)}</a>
+          </article>`;
 }
 
-function PreviousNext({ previous, next } = {}) {
-  if (!previous && !next) return "";
-  return `<nav class="guide-prev-next" aria-label="Guide previous and next">
-          ${previous ? `<a href="${previous.href}"><span>Previous</span><strong>${escapeHtml(previous.label)}</strong></a>` : "<span></span>"}
-          ${next ? `<a href="${next.href}"><span>Next</span><strong>${escapeHtml(next.label)}</strong></a>` : "<span></span>"}
-        </nav>`;
-}
+function ContinueJourney({ previousGuide = null, nextGuide = null, relatedGuides = [] } = {}) {
+  const stepHrefs = new Set([previousGuide?.href, nextGuide?.href].filter(Boolean));
+  const visibleRelatedGuides = relatedGuides.filter((guide) => guide?.href && !stepHrefs.has(guide.href));
+  const groups = [
+    previousGuide
+      ? `<div class="guide-journey-group"><h3>Previous Step</h3><div class="guide-card-grid guide-card-grid--single">${GuideLinkCard(previousGuide)}</div></div>`
+      : "",
+    nextGuide
+      ? `<div class="guide-journey-group"><h3>Next Step</h3><div class="guide-card-grid guide-card-grid--single">${GuideLinkCard(nextGuide)}</div></div>`
+      : "",
+    visibleRelatedGuides.length
+      ? `<div class="guide-journey-group"><h3>Related Guides</h3><div class="guide-card-grid">${visibleRelatedGuides.map((guide) => GuideLinkCard(guide)).join("\n          ")}</div></div>`
+      : ""
+  ].filter(Boolean);
 
-function RelatedGuides(items = []) {
-  return `<section class="guide-section" aria-labelledby="relatedGuides"><h2 id="relatedGuides">Related Guides</h2>${Cards(items.map((item) => ({ title: item.label, text: item.description || "Open the related IberiGo guide." })))}${ButtonRow(items)}</section>`;
+  if (!groups.length) return "";
+  return `<section class="guide-section guide-continue-journey" aria-labelledby="continueJourney">
+          <h2 id="continueJourney">Continue Your Journey</h2>
+          ${groups.join("\n          ")}
+        </section>`;
 }
 
 function LastReviewed(date = REVIEWED) {
@@ -276,6 +291,12 @@ function guideCss() {
       .guide-section { padding: clamp(1.1rem, 3vw, 1.6rem); margin-top: 1.15rem; }
       .guide-section h2 { margin: 0 0 0.85rem; color: #1b2030; font-size: clamp(1.45rem, 3vw, 2rem); }
       .guide-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; }
+      .guide-card-grid--single { grid-template-columns: minmax(0, 1fr); }
+      .guide-continue-journey { display: grid; gap: 1rem; }
+      .guide-journey-group { display: grid; gap: 0.75rem; }
+      .guide-journey-group > h3 { margin: 0; color: rgba(27, 32, 48, 0.58); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
+      .guide-journey-group .guide-info-card { display: grid; gap: 0.65rem; align-content: start; }
+      .guide-journey-group .guide-button { justify-self: start; margin-top: 0.1rem; }
       .guide-info-card, .guide-box { padding: 1rem; }
       .guide-info-card h3, .guide-box h3, .guide-timeline h3 { margin: 0 0 0.45rem; color: #1b2030; font-size: 1rem; }
       .guide-info-card p, .guide-info-card li, .guide-box p, .guide-box li, .guide-timeline p { margin: 0; color: rgba(27, 32, 48, 0.68); font-size: 0.93rem; line-height: 1.58; }
@@ -296,14 +317,10 @@ function guideCss() {
       .guide-button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
       .guide-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.6rem; border-radius: 999px; background: #a64a36; color: #fff; font-weight: 900; padding: 0.65rem 1rem; text-decoration: none; }
       .guide-button--secondary { border: 1px solid rgba(166, 74, 54, 0.18); background: #fff; color: #a64a36; }
-      .guide-prev-next { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1.15rem; }
-      .guide-prev-next a { display: grid; gap: 0.25rem; min-height: 4rem; padding: 0.9rem 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); color: #1b2030; text-decoration: none; box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
-      .guide-prev-next span { color: rgba(27, 32, 48, 0.58); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
-      .guide-prev-next strong { color: #a64a36; font-size: 1rem; }
       .last-reviewed { margin: 1.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
       .guide-image-placeholder { min-height: 180px; border: 1px dashed rgba(166, 74, 54, 0.22); border-radius: 18px; background: linear-gradient(135deg, rgba(253, 240, 220, 0.7), rgba(255, 255, 255, 0.72)); }
       @media (max-width: 900px) { .guide-layout, .guide-hero, .guide-card-grid { grid-template-columns: 1fr; } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
-      @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } .guide-prev-next { grid-template-columns: 1fr; } }
+      @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
     </style>`;
 }
 
@@ -323,9 +340,11 @@ function GuideLayout(config) {
     MobileTableOfContents(tocItems),
     ...sections,
     LastReviewed(lastReviewed),
-    PreviousNext(metadata.previousNext || config.previousNext),
-    ContinueJourney(metadata.continueJourney || config.continueJourney || []),
-    RelatedGuides(metadata.relatedGuides || config.relatedGuides || [])
+    ContinueJourney({
+      previousGuide: metadata.previousGuide || config.previousGuide || null,
+      nextGuide: metadata.nextGuide || config.nextGuide || null,
+      relatedGuides: metadata.relatedGuides || config.relatedGuides || []
+    })
   ].filter(Boolean).join("\n        ");
   const content = `<div class="guide-layout">
           <div class="guide-content">
@@ -350,8 +369,6 @@ function GuideLayout(config) {
           lastReviewed,
           reviewedBy: config.reviewedBy || metadata.reviewedBy || "",
           relatedGuides: metadata.relatedGuides || config.relatedGuides || [],
-          continueJourney: metadata.continueJourney || config.continueJourney || [],
-          previousNext: metadata.previousNext || config.previousNext || {},
           editorialChecklist: config.editorialChecklist || DEFAULT_EDITORIAL_CHECKLIST
         })}`;
 
@@ -418,7 +435,6 @@ module.exports = {
   CommonMistakes,
   RealQuestions,
   ContinueJourney,
-  RelatedGuides,
   LastReviewed,
   ImagePlaceholder,
   Cards,
