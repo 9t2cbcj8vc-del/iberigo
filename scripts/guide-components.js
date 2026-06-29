@@ -184,8 +184,13 @@ function LastReviewed(date = REVIEWED) {
   return date ? `<p class="last-reviewed">Last reviewed: ${escapeHtml(date)}</p>` : "";
 }
 
-function DraftBanner(show) {
-  return show ? `<div class="guide-draft-banner" role="note">DRAFT — Not reviewed for publication.</div>` : "";
+function StatusBadge(status) {
+  const labels = {
+    draft: "DRAFT — Not reviewed for publication",
+    review: "IN REVIEW — Needs final approval"
+  };
+  const label = labels[status];
+  return label ? `<div class="guide-status-badge guide-status-badge--${escapeHtml(status)}" role="note">${escapeHtml(label)}</div>` : "";
 }
 
 function ReadingTime(html) {
@@ -253,7 +258,8 @@ function guideCss() {
       .search-nav-link { display: inline-flex; align-items: center; justify-content: center; width: 2.55rem; height: 2.55rem; border: 1px solid rgba(166, 74, 54, 0.16); border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #a64a36; text-decoration: none; box-shadow: 0 10px 28px rgba(42, 32, 25, 0.06); }
       .search-nav-link svg { width: 1.05rem; height: 1.05rem; }
       .search-nav-link:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; }
-      .guide-draft-banner { margin: 0 0 1rem; padding: 0.65rem 0.85rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.78rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; width: fit-content; }
+      .guide-status-badge { margin: 0 0 1rem; padding: 0.65rem 0.85rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.78rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; width: fit-content; }
+      .guide-status-badge--review { border-color: rgba(38, 57, 94, 0.18); background: rgba(38, 57, 94, 0.08); color: #26395e; }
       .guide-reading-time { margin: -0.35rem 0 1rem; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
       .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
       .guide-toc strong, .guide-toc-mobile summary { color: #1b2030; font-weight: 900; }
@@ -307,12 +313,11 @@ function GuideLayout(config) {
   const status = config.status || metadata.status || "draft";
   const lastReviewed = config.lastReviewed !== undefined ? config.lastReviewed : metadata.lastReviewed || REVIEWED;
   const robots = config.robots || (status === "published" ? "index, follow" : "noindex, nofollow");
-  const noindex = robots.includes("noindex");
   const sections = config.sections || [];
   const tocItems = tocItemsFromSections(sections);
   const mainContent = [
     Breadcrumbs(config.breadcrumbs || []),
-    DraftBanner(noindex),
+    StatusBadge(status),
     GuideHero(config.hero),
     ReadingTime(sections.join("\n")),
     MobileTableOfContents(tocItems),
