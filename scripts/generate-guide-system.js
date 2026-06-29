@@ -122,11 +122,13 @@ const relatedByRoute = {
   [routes.banking]: [
     { label: "View the Digital Certificate Guide", href: routes.digital, description: "Set up online access for later administration." },
     { label: "View the Taxes Guide", href: routes.taxes, description: "Understand tax basics before deadlines arrive." },
-    { label: "View the Accommodation Guide", href: routes.accommodation, description: "Use address documents for banking preparation." }
+    { label: "View the Accommodation Guide", href: routes.accommodation, description: "Use address documents for banking preparation." },
+    { label: "View the Padrón Guide", href: routes.padron, description: "Prepare address evidence that banks may ask for." }
   ],
   [routes.digital]: [
     { label: "View the Social Security Guide", href: routes.social, description: "Use digital access for some Social Security services." },
     { label: "View the Taxes Guide", href: routes.taxes, description: "Digital access can help with tax services." },
+    { label: "View the Banking Guide", href: routes.banking, description: "Use banking and phone access alongside public-service logins." },
     { label: "View the Documents Checklist", href: routes.checklist, description: "Keep identity documents ready." }
   ],
   [routes.social]: [
@@ -174,13 +176,47 @@ function guideMetadataFor(route) {
       { label: "View the Bank Account Guide", href: routes.banking },
       { label: "View the Digital Certificate Guide", href: routes.digital },
       { label: "View the Taxes Guide", href: routes.taxes }
+    ],
+    [routes.banking]: [
+      { label: "View the Digital Certificate Guide", href: routes.digital },
+      { label: "View the Taxes Guide", href: routes.taxes },
+      { label: "View the Accommodation Guide", href: routes.accommodation }
+    ],
+    [routes.digital]: [
+      { label: "View the Taxes Guide", href: routes.taxes },
+      { label: "View the Social Security Guide", href: routes.social },
+      { label: "View the Documents Checklist", href: routes.checklist }
+    ],
+    [routes.taxes]: [
+      { label: "View the Digital Certificate Guide", href: routes.digital },
+      { label: "View the Banking Guide", href: routes.banking },
+      { label: "View the EU Citizen Roadmap", href: routes.euRoadmap }
     ]
+  };
+  const previousNextByRoute = {
+    [routes.healthcare]: {
+      previous: { label: "Padrón", href: routes.padron },
+      next: { label: "Bank Account", href: routes.banking }
+    },
+    [routes.banking]: {
+      previous: { label: "Healthcare", href: routes.healthcare },
+      next: { label: "Digital Certificate", href: routes.digital }
+    },
+    [routes.digital]: {
+      previous: { label: "Bank Account", href: routes.banking },
+      next: { label: "Taxes", href: routes.taxes }
+    },
+    [routes.taxes]: {
+      previous: { label: "Digital Certificate", href: routes.digital },
+      next: { label: "Driving", href: routes.driving }
+    }
   };
 
   return {
     status: "draft",
     lastReviewed: "June 2026",
     reviewedBy: "",
+    previousNext: previousNextByRoute[route],
     continueJourney: continueByRoute[route] || [
       { label: "View the Documents Checklist", href: routes.checklist },
       { label: "View the Healthcare Guide", href: routes.healthcare },
@@ -212,6 +248,15 @@ function validateInternalLinks(pages) {
     console.warn("Broken internal guide link warnings:");
     for (const warning of warnings) console.warn(`- ${warning}`);
   }
+}
+
+function SourceLinks(items = []) {
+  return `<div class="guide-button-row">${items
+    .map((item, index) => {
+      const external = /^https?:\/\//.test(item.href);
+      return `<a class="guide-button${index ? " guide-button--secondary" : ""}" href="${item.href}"${external ? ' target="_blank" rel="noreferrer"' : ""}>${item.label}</a>`;
+    })
+    .join("\n          ")}</div>`;
 }
 
 const pages = [
@@ -620,12 +665,393 @@ pages.push({
   })
 });
 
+pages.push({
+  route: routes.banking,
+  html: GuideLayout({
+    path: routes.banking,
+    canonical: `https://iberigo.eu${routes.banking}`,
+    title: "Opening a Bank Account in Spain — IberiGo",
+    description: "Learn how bank accounts work when moving to Spain, what documents banks may ask for, and how to choose between Spanish banks and starter online options.",
+    metadata: guideMetadataFor(routes.banking),
+    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Bank Account" }],
+    hero: {
+      kicker: "Everyday setup",
+      title: "Opening a Bank Account in Spain",
+      intro: "A bank account makes everyday life easier in Spain. It can help with rent, salary, utilities, local payments and tax admin, but the right account depends on whether you are already resident and what documents you have.",
+      asideTitle: "Start practical",
+      asideText: "You do not always need the perfect long-term bank on day one. Some people start with a flexible online option while preparing local documents."
+    },
+    sections: [
+      QuickAnswer("Most people moving to Spain need a bank account for rent, salary, utilities and daily payments. Banks usually need to identify you and may ask for passport or ID, NIE or TIE if you have one, address evidence, income evidence and your tax-residence information. Exact requirements vary by bank and by account type."),
+      AtAGlance([
+        ["Main question", "Do you need a resident account, non-resident account, or temporary starter option?"],
+        ["Usually useful for", "Rent, salary, utilities, card payments, tax and direct debits."],
+        ["Documents vary?", "Yes. Each bank can apply its own onboarding checks."],
+        ["NIE required?", "Often requested, but some banks offer non-resident or newcomer paths."],
+        ["Spanish IBAN", "Useful for local direct debits and some landlords or employers."],
+        ["Next step", "Prepare documents, compare account fees, then choose a bank that fits your situation."]
+      ]),
+      GuideSection({
+        id: "beforeStart",
+        title: "Before You Start",
+        children: `${Cards([
+          { title: "Know why you need it", text: "Salary, rent, utilities, savings, self-employment and daily spending can point to different account needs." },
+          { title: "Check your document stage", text: "Your options may differ if you already have NIE, padrón, EU registration, TIE or proof of income." },
+          { title: "Compare fees", text: "Look at monthly fees, card fees, transfer costs, ATM access and minimum conditions before opening." }
+        ])}${TipBox("If you are still waiting for Spanish paperwork, ask the bank whether it has a non-resident, newcomer or passport-based opening route.")}`
+      }),
+      GuideSection({
+        id: "whoNeeds",
+        title: "Who Needs This?",
+        children: Cards([
+          { title: "People starting daily life", text: "Use this if you need to pay rent, utilities, mobile bills or recurring local expenses." },
+          { title: "People starting work", text: "Employers commonly ask where to pay salary. A Spanish IBAN can make this smoother." },
+          { title: "People still preparing documents", text: "Use this to decide whether to wait for local paperwork or use a temporary option first." }
+        ])
+      }),
+      GuideSection({
+        id: "officialRequirements",
+        title: "Official Requirements",
+        children: `${Cards([
+          { title: "Identity checks", text: "Banks must identify customers before opening accounts. Expect passport, EU national ID, NIE, TIE or equivalent identity evidence depending on your situation." },
+          { title: "Customer profile", text: "Banks may ask where you live, where your money comes from, whether you are tax resident, and how you plan to use the account." },
+          { title: "Account type", text: "Resident, non-resident and online accounts can have different document requests and limits." }
+        ])}${WarningBox("Do not assume one bank’s answer applies everywhere. If one bank cannot open the account yet, another may have a different onboarding route.")}`
+      }),
+      GuideSection({
+        id: "documentsUsuallyNeed",
+        title: "Documents you'll usually prepare",
+        children: `${ChecklistBox({
+          title: "Common bank onboarding documents",
+          items: [
+            "Passport or EU national identity card.",
+            "NIE, TIE or EU registration certificate if you already have one.",
+            "Address evidence such as padrón, rental contract, utility bill or foreign address proof.",
+            "Income evidence such as work contract, payslip, pension statement, tax return or savings evidence.",
+            "Tax-residence information and foreign tax number if the bank asks for it.",
+            "Spanish phone number or email for app and security verification."
+          ]
+        })}${InfoBox({ title: "Document reality", text: "Banks can ask for different evidence depending on your nationality, residency status, income source and account type." })}`
+      }),
+      GuideSection({
+        id: "choosingAccount",
+        title: "Choosing the right account",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Option</th><td><strong>When it may fit</strong></td></tr>
+          <tr><th>Spanish resident account</th><td>Usually best once you have Spanish documents and plan to live in Spain.</td></tr>
+          <tr><th>Non-resident account</th><td>Can help before full local setup, but may have more limits or fees.</td></tr>
+          <tr><th>Online starter account</th><td>Useful while waiting for local paperwork, especially for card spending and international transfers.</td></tr>
+          <tr><th>Business or autónomo account</th><td>Consider this separately if you will invoice, trade or register self-employed activity.</td></tr>
+        </tbody></table>`
+      }),
+      GuideSection({
+        id: "practicalAdvice",
+        title: "Practical Advice",
+        children: `${Cards([
+          { title: "Ask about Spanish IBAN", text: "A Spanish IBAN can make rent, utilities, local payroll and some direct debits easier." },
+          { title: "Keep a backup", text: "Do not rely on one card during your first weeks. Keep a second card or account available." },
+          { title: "Check language support", text: "If you are not comfortable in Spanish yet, ask about English support in branch, app and customer service." }
+        ])}${TipBox("Before choosing, ask the bank to show the full fee schedule, not only the headline account name.")}`
+      }),
+      GuideSection({
+        id: "stepProcess",
+        title: "Step-by-Step Process",
+        children: StepTimeline([
+          { title: "Decide what the account is for", text: "Salary, rent, daily spending, self-employment or savings may point to different choices." },
+          { title: "Prepare identity and address evidence", text: "Gather passport or ID, NIE/TIE if available, address evidence and income evidence." },
+          { title: "Compare account types", text: "Look at resident, non-resident and online options. Compare fees and limits." },
+          { title: "Open the account", text: "Complete the bank’s onboarding process and keep copies of documents you submit." },
+          { title: "Test payments", text: "Check card activation, bank transfers, direct debits, app access and security codes before relying on it." }
+        ])
+      }),
+      CommonMistakes([
+        "Assuming every landlord or employer accepts any European IBAN without friction.",
+        "Opening the first account offered without checking fees.",
+        "Not keeping proof of income or funds ready.",
+        "Relying on one card during the first weeks after arrival.",
+        "Ignoring tax-residence questions during bank onboarding."
+      ]),
+      RealQuestions([
+        { question: "Do I need a Spanish bank account immediately?", answer: "Not always, but it usually makes rent, utilities, payroll and local payments easier." },
+        { question: "Can I open an account before I have a NIE?", answer: "Some banks may offer non-resident or newcomer options, but requirements vary. Ask the bank directly." },
+        { question: "Are Revolut, bunq or Wise enough?", answer: "They can be useful starter options. For long-term life in Spain, you may still want a traditional Spanish bank account depending on rent, payroll and local direct debits." },
+        { question: "Will the bank ask about taxes?", answer: "Often yes. Banks commonly ask about tax residence and customer profile during onboarding." }
+      ]),
+      GuideSection({
+        id: "officialSources",
+        title: "Official and useful sources",
+        children: `${SourceLinks([
+          { label: "Banco de España customer portal", href: "https://clientebancario.bde.es/pcb/en/" },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Taxes Guide", href: routes.taxes }
+        ])}`
+      }),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "What Happens Next?",
+        children: `<p>Once your banking is stable, set up digital access so you can handle public services online, then review your tax address and tax-residence position.</p>${TipBox("Keep your bank contract, IBAN certificate and account-opening documents with your Spain paperwork folder.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.digital,
+  html: GuideLayout({
+    path: routes.digital,
+    canonical: `https://iberigo.eu${routes.digital}`,
+    title: "Digital Certificate and Cl@ve in Spain — IberiGo",
+    description: "Understand Spain's main digital access options, when to use an FNMT digital certificate or Cl@ve, and what to prepare before registering.",
+    metadata: guideMetadataFor(routes.digital),
+    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Digital Certificate" }],
+    hero: {
+      kicker: "Online access",
+      title: "Digital Certificate and Cl@ve in Spain",
+      intro: "Spain’s public administration is heavily online. A digital certificate or Cl@ve can save time with tax, Social Security, municipal certificates and many everyday procedures.",
+      asideTitle: "Two different tools",
+      asideText: "The FNMT digital certificate is a certificate used for identification and signing. Cl@ve is a public login system with different registration levels."
+    },
+    sections: [
+      QuickAnswer("For many newcomers, the FNMT citizen digital certificate is the most useful first digital tool once you have a NIE or Spanish tax identity. Cl@ve is also useful, but the registration path can depend on your identity documents and verification method. You may eventually want both."),
+      AtAGlance([
+        ["Main question", "Do you need a certificate, Cl@ve, or both?"],
+        ["Useful for", "Tax Agency, Social Security, certificates, notifications and public-service portals."],
+        ["FNMT certificate", "Software certificate after online request and identity verification."],
+        ["Cl@ve", "Government login system for public administration services."],
+        ["NIE helpful?", "Yes. Many newcomers need a NIE before digital access becomes realistic."],
+        ["Next step", "Choose the route you can actually verify with your current documents."]
+      ]),
+      GuideSection({
+        id: "beforeStart",
+        title: "Before You Start",
+        children: `${Cards([
+          { title: "Check your identity document", text: "Your route depends on whether you have DNI, NIE, TIE, EU ID, passport or another accepted document." },
+          { title: "Use one browser and device", text: "For certificate requests, follow the official browser and device instructions carefully." },
+          { title: "Plan identity verification", text: "Some routes require in-person or video identity accreditation before activation." }
+        ])}${WarningBox("Do not start a certificate request casually and then switch devices or browsers. Certificate processes can be sensitive to where and how the request was started.")}`
+      }),
+      GuideSection({
+        id: "whoNeeds",
+        title: "Who Needs This?",
+        children: Cards([
+          { title: "EU citizens settling in Spain", text: "Digital access helps with tax, Social Security, certificates and some local services." },
+          { title: "People working or self-employed", text: "Online access becomes especially useful for Social Security, tax and professional admin." },
+          { title: "People managing paperwork remotely", text: "Digital access can reduce office visits once it is correctly set up." }
+        ])
+      }),
+      GuideSection({
+        id: "officialRequirements",
+        title: "Official Requirements",
+        children: `${Cards([
+          { title: "FNMT certificate", text: "The citizen certificate process normally starts with an online application and continues with identity accreditation before download." },
+          { title: "Cl@ve", text: "Cl@ve registration depends on the accepted identity method and the level of registration you complete." },
+          { title: "Electronic ID", text: "Some EU citizens may also use an electronic national ID on certain portals if supported." }
+        ])}${InfoBox({ title: "Plain-language meaning", text: "A digital certificate is closer to an electronic signature. Cl@ve is closer to a login system for public services." })}`
+      }),
+      GuideSection({
+        id: "compareOptions",
+        title: "Certificate or Cl@ve?",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Option</th><td><strong>Best use</strong></td></tr>
+          <tr><th>FNMT digital certificate</th><td>Useful for signing, downloading certificates, Tax Agency services and many official procedures.</td></tr>
+          <tr><th>Cl@ve PIN</th><td>Useful for frequent public-service login where PIN access is accepted.</td></tr>
+          <tr><th>Cl@ve Permanente</th><td>Useful for more stable access where permanent credentials are accepted.</td></tr>
+          <tr><th>Electronic DNI or EU eID</th><td>Useful only where the portal supports your document and technical setup.</td></tr>
+        </tbody></table>`
+      }),
+      GuideSection({
+        id: "practicalAdvice",
+        title: "Practical Advice",
+        children: `${Cards([
+          { title: "Start with the route you can verify", text: "If you have a NIE but not a TIE, the FNMT certificate may be easier than some Cl@ve paths." },
+          { title: "Keep access secure", text: "Store certificate backups and passwords carefully. Losing them can mean repeating the process." },
+          { title: "Use official portals", text: "Avoid unofficial sites that charge for simple registration instructions or ask for sensitive data." }
+        ])}${TipBox("After setup, test your access on the Tax Agency or Social Security site before you urgently need it.")}`
+      }),
+      GuideSection({
+        id: "documentsUsuallyNeed",
+        title: "Documents and details you'll usually prepare",
+        children: ChecklistBox({
+          title: "Digital access preparation",
+          items: [
+            "NIE, DNI, TIE or accepted identity document.",
+            "Email address and mobile phone number you control.",
+            "Computer or browser setup required by the official certificate process.",
+            "Appointment or identity-verification confirmation if required.",
+            "Safe place to store certificate passwords and backup files."
+          ]
+        })
+      }),
+      GuideSection({
+        id: "stepProcess",
+        title: "Step-by-Step Process",
+        children: StepTimeline([
+          { title: "Decide what you need access for", text: "Tax, Social Security, certificates, local admin and notifications can point to different access needs." },
+          { title: "Check whether FNMT or Cl@ve fits your documents", text: "Use the official pages to confirm the route your current identity documents support." },
+          { title: "Start the official registration", text: "Follow the official request steps carefully, especially device and browser instructions." },
+          { title: "Complete identity verification", text: "Use the accepted in-person, video or online verification method if required." },
+          { title: "Test and store access safely", text: "Confirm it works, then protect passwords, certificate files and recovery options." }
+        ])
+      }),
+      CommonMistakes([
+        "Confusing Cl@ve with an FNMT digital certificate.",
+        "Starting a certificate request on one device and trying to finish on another.",
+        "Using unofficial paid pages instead of official registration portals.",
+        "Waiting until a tax or Social Security deadline before setting up access.",
+        "Losing certificate passwords or backup files."
+      ]),
+      RealQuestions([
+        { question: "Do I need both Cl@ve and a digital certificate?", answer: "Not always, but many residents eventually find both useful. Start with the route you can verify now." },
+        { question: "Can I get an FNMT certificate with a NIE?", answer: "The FNMT citizen certificate route can be available with Spanish tax/identity details. Check the official FNMT instructions for your exact document." },
+        { question: "Why is Cl@ve difficult for some newcomers?", answer: "Some registration methods depend on accepted identity details and address or document records that newcomers may not yet have." },
+        { question: "Is this the same as my bank login?", answer: "No. Bank logins are private banking access. Cl@ve and digital certificates are for public administration services." }
+      ]),
+      GuideSection({
+        id: "officialSources",
+        title: "Official sources",
+        children: SourceLinks([
+          { label: "FNMT citizen certificate", href: "https://www.sede.fnmt.gob.es/certificados/persona-fisica" },
+          { label: "Cl@ve registration", href: "https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html" },
+          { label: "FNMT appointment via Tax Agency", href: "https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion" }
+        ])
+      }),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "What Happens Next?",
+        children: `<p>Once your digital access works, use it to review tax details, Social Security services and certificates you may need later.</p>${TipBox("Before filing anything important, log in once just to confirm your access works and your personal details look correct.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.taxes,
+  html: GuideLayout({
+    path: routes.taxes,
+    canonical: `https://iberigo.eu${routes.taxes}`,
+    title: "Taxes When Living in Spain — IberiGo",
+    description: "A practical first guide to tax residence, tax address, IRPF, foreign income and when to get professional tax advice after moving to Spain.",
+    metadata: guideMetadataFor(routes.taxes),
+    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Taxes" }],
+    hero: {
+      kicker: "Money and residency",
+      title: "Taxes When Living in Spain",
+      intro: "Tax is one of the areas where early planning matters. This guide explains the first concepts to understand before you rely on assumptions from your home country.",
+      asideTitle: "Get advice early",
+      asideText: "Small tax decisions can become expensive later. Use this page as orientation, not as personal tax advice."
+    },
+    sections: [
+      QuickAnswer("If you live in Spain, you need to understand tax residence, tax address, annual income tax, foreign income and reporting obligations. Tax residence is not the same as immigration residence, and the answer can depend on days in Spain, where your main interests are, family ties and treaty rules."),
+      AtAGlance([
+        ["Main question", "Could Spain consider you tax resident?"],
+        ["Common day test", "More than 183 days in Spain is a major tax-residence indicator."],
+        ["Other indicators", "Economic interests, family and personal centre can also matter."],
+        ["Tax address", "Your domicilio fiscal should reflect your real tax address."],
+        ["Worldwide income", "Spanish tax residents may need to declare worldwide income."],
+        ["Professional advice", "Strongly recommended if you have foreign income, assets, company work or self-employment."]
+      ]),
+      GuideSection({
+        id: "beforeStart",
+        title: "Before You Start",
+        children: `${Cards([
+          { title: "Separate immigration from tax", text: "Having EU registration or a visa does not automatically answer every tax-residence question." },
+          { title: "Map your income", text: "List salary, pensions, dividends, rent, business income, capital gains and foreign accounts." },
+          { title: "Track days", text: "Keep a simple record of time spent in Spain and other countries." }
+        ])}${WarningBox("Do not wait until the filing season if you have income outside Spain, remote work, a company, property, investments or complex family ties.")}`
+      }),
+      GuideSection({
+        id: "whoNeeds",
+        title: "Who Needs This?",
+        children: Cards([
+          { title: "People moving long term", text: "Use this if Spain may become your normal home or main base." },
+          { title: "Remote workers and self-employed people", text: "Tax and Social Security questions can be more complex when income crosses borders." },
+          { title: "Retirees and people with assets", text: "Pensions, investments, property and foreign accounts can create reporting questions." }
+        ])
+      }),
+      GuideSection({
+        id: "officialRequirements",
+        title: "Official Requirements",
+        children: `${Cards([
+          { title: "Tax residence", text: "Spain looks at factors such as days in Spain, economic interests and personal/family centre. Tax treaties can also matter." },
+          { title: "IRPF", text: "Spanish resident income tax is commonly known as IRPF, or declaración de la renta when filing the annual return." },
+          { title: "Tax address", text: "Your domicilio fiscal is the tax address recorded with the Tax Agency and should be kept current." }
+        ])}${InfoBox({ title: "Important distinction", text: "This guide explains the starting concepts. It does not calculate your tax residence or tax due." })}`
+      }),
+      GuideSection({
+        id: "firstQuestions",
+        title: "The first questions to answer",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Question</th><td><strong>Why it matters</strong></td></tr>
+          <tr><th>How many days will you spend in Spain?</th><td>The 183-day test is a major indicator for tax residence.</td></tr>
+          <tr><th>Where is your main work or business?</th><td>Economic interests can affect tax-residence analysis.</td></tr>
+          <tr><th>Where does your family live?</th><td>Personal and family centre can matter in some cases.</td></tr>
+          <tr><th>Do you have foreign income or assets?</th><td>Spanish tax residents may have worldwide reporting obligations.</td></tr>
+          <tr><th>Are you newly arrived for work?</th><td>Special regimes may exist, but they have conditions and deadlines.</td></tr>
+        </tbody></table>`
+      }),
+      GuideSection({
+        id: "practicalAdvice",
+        title: "Practical Advice",
+        children: `${Cards([
+          { title: "Organize evidence", text: "Keep travel records, work contracts, payslips, pension statements, bank statements and rental contracts." },
+          { title: "Check before invoicing", text: "If you plan to freelance or invoice clients, get advice before you start billing." },
+          { title: "Review double-tax issues", text: "Foreign income can interact with tax treaties, home-country filing and Spanish filing." }
+        ])}${TipBox("Create a simple tax folder before you need it: identity documents, NIE, address proof, bank details, income records and foreign tax documents.")}`
+      }),
+      GuideSection({
+        id: "taxAddress",
+        title: "Tax address and notifications",
+        children: `${Cards([
+          { title: "Domicilio fiscal", text: "This is the address the Tax Agency uses for tax purposes. It may need updating after you settle." },
+          { title: "Digital access", text: "A digital certificate or Cl@ve can help you review data, certificates and some procedures online." },
+          { title: "Notices", text: "Once you use online services, pay attention to electronic notices and official messages." }
+        ])}${WarningBox("Ignoring tax notices can create problems even if you did not understand the online system. Set up access carefully and check it periodically.")}`
+      }),
+      GuideSection({
+        id: "stepProcess",
+        title: "Step-by-Step Process",
+        children: StepTimeline([
+          { title: "Map your situation", text: "List where you live, work, earn income, hold assets and spend time." },
+          { title: "Check whether Spain may treat you as tax resident", text: "Look at days, economic interests, family centre and treaty questions." },
+          { title: "Update or confirm your tax address", text: "Review what address the Tax Agency has recorded for you." },
+          { title: "Set up digital access", text: "Use a digital certificate or Cl@ve so you can manage official services online." },
+          { title: "Get professional help if needed", text: "Use a qualified tax adviser for foreign income, self-employment, companies, assets or special regimes." }
+        ])
+      }),
+      CommonMistakes([
+        "Assuming immigration residence and tax residence are the same thing.",
+        "Counting only salary and forgetting pensions, rent, investments or foreign income.",
+        "Waiting until tax season to ask for advice.",
+        "Ignoring the tax address recorded with the Tax Agency.",
+        "Assuming a home-country accountant understands Spanish residence rules."
+      ]),
+      RealQuestions([
+        { question: "Does spending more than 183 days in Spain make me tax resident?", answer: "It is a major indicator, but not the only factor. Economic interests, family centre and treaty rules can also matter." },
+        { question: "Do I pay tax only on Spanish income?", answer: "If you are Spanish tax resident, worldwide income can become relevant. Get advice if you have income or assets abroad." },
+        { question: "What is domicilio fiscal?", answer: "It is your tax address recorded with the Tax Agency. It should match your real tax situation." },
+        { question: "Should I use a gestor or tax adviser?", answer: "If you have foreign income, self-employment, a company, assets or uncertainty about residence, professional advice is sensible." }
+      ]),
+      GuideSection({
+        id: "officialSources",
+        title: "Official sources",
+        children: SourceLinks([
+          { label: "Tax Agency portal", href: "https://sede.agenciatributaria.gob.es/Sede/en_gb/inicio.html" },
+          { label: "Tax census and fiscal address", href: "https://sede.agenciatributaria.gob.es/Sede/censos-nif-domicilio-fiscal.html" },
+          { label: "View the Digital Certificate Guide", href: routes.digital }
+        ])
+      }),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "What Happens Next?",
+        children: `<p>After reviewing tax basics, check whether your work, income or assets create specific filing or registration steps. If the answer is not obvious, speak with a qualified tax adviser before deadlines arrive.</p>${TipBox("Your next practical step is to make sure your digital access works and your tax address is not outdated.")}`
+      })
+    ]
+  })
+});
+
 const skeletons = [
   ["documents-checklist", routes.checklist, "Moving to Spain documents checklist — IberiGo", "Draft checklist for documents people commonly prepare before moving to Spain.", "Documents Checklist for Moving to Spain", "A calm document checklist helps you prepare without pretending every route has the same requirements.", "Start with identity, address, healthcare, money and purpose evidence. Route-specific detail comes during editorial review."],
-  ["opening-a-bank-account", routes.banking, "Opening a bank account in Spain — IberiGo", "Draft guide to opening a bank account in Spain.", "Opening a Bank Account in Spain", "A bank account helps with rent, utilities, salary and everyday payments.", "Banks usually need to identify you and understand your address and customer profile. Exact requirements vary by bank."],
-  ["digital-certificate", routes.digital, "Digital certificate and Cl@ve in Spain — IberiGo", "Draft guide to digital certificate and Cl@ve access in Spain.", "Digital Certificate and Cl@ve", "Digital access helps you use Spanish public services online.", "A digital certificate or Cl@ve can help with tax, Social Security, certificates and public-service access."],
   ["social-security", routes.social, "Social Security number in Spain — IberiGo", "Draft guide to Social Security number and work registration concepts in Spain.", "Social Security in Spain", "Social Security is important for work records and can connect to healthcare access.", "The Social Security number identifies your file. Being registered as active for employment or self-employment is a related but separate step."],
-  ["taxes", routes.taxes, "Taxes when living in Spain — IberiGo", "Draft guide to tax basics when living in Spain.", "Taxes When Living in Spain", "Tax should be reviewed early, especially if you work, own assets, run a business or keep income abroad.", "If you may live in Spain, check your tax position before deadlines arrive."],
   ["driving", routes.driving, "Driving licence rules when living in Spain — IberiGo", "Draft guide to driving licence checks when living in Spain.", "Driving in Spain", "Driving rules depend on where your licence was issued and whether you are visiting or living in Spain.", "Do not assume tourist driving rules stay the same after moving."],
   ["finding-accommodation", routes.accommodation, "Finding accommodation in Spain — IberiGo", "Draft guide to finding accommodation when moving to Spain.", "Finding Accommodation in Spain", "Accommodation is also an admin step because your address can affect padrón, banking and healthcare.", "Ask early whether the address can support the paperwork you need."]
 ];

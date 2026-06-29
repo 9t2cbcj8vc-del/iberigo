@@ -64,10 +64,14 @@
       .guide-button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
       .guide-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.6rem; border-radius: 999px; background: #a64a36; color: #fff; font-weight: 900; padding: 0.65rem 1rem; text-decoration: none; }
       .guide-button--secondary { border: 1px solid rgba(166, 74, 54, 0.18); background: #fff; color: #a64a36; }
+      .guide-prev-next { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1.15rem; }
+      .guide-prev-next a { display: grid; gap: 0.25rem; min-height: 4rem; padding: 0.9rem 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); color: #1b2030; text-decoration: none; box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
+      .guide-prev-next span { color: rgba(27, 32, 48, 0.58); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
+      .guide-prev-next strong { color: #a64a36; font-size: 1rem; }
       .last-reviewed { margin: 1.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
       .guide-image-placeholder { min-height: 180px; border: 1px dashed rgba(166, 74, 54, 0.22); border-radius: 18px; background: linear-gradient(135deg, rgba(253, 240, 220, 0.7), rgba(255, 255, 255, 0.72)); }
       @media (max-width: 900px) { .guide-layout, .guide-hero, .guide-card-grid { grid-template-columns: 1fr; } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
-      @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } }
+      @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } .guide-prev-next { grid-template-columns: 1fr; } }
     </style>
   </head>
   <body>
@@ -166,6 +170,10 @@
           <article class="guide-info-card"><h3>Should I arrange healthcare before EU registration?</h3><p>Yes, if your EU registration route may require healthcare evidence. Do not wait until the appointment to discover what proof you need.</p></article></div></section>
         <section class="guide-section" aria-labelledby="whatHappensNext"><h2 id="whatHappensNext">What Happens Next?</h2><p>Once you understand your healthcare route, prepare the proof that matches your situation. Then continue with EU registration, banking, digital access and tax planning.</p><div class="guide-box guide-box--tip"><strong>Tip</strong><p>Keep healthcare documents in the same folder as your identity, padrón and EU registration paperwork.</p></div></section>
         <p class="last-reviewed">Last reviewed: June 2026</p>
+        <nav class="guide-prev-next" aria-label="Guide previous and next">
+          <a href="/moving-to-spain/registering-on-the-padron/"><span>Previous</span><strong>Padrón</strong></a>
+          <a href="/living-in-spain/opening-a-bank-account/"><span>Next</span><strong>Bank Account</strong></a>
+        </nav>
         <section class="guide-section" aria-labelledby="continueJourney"><h2 id="continueJourney">Continue Your Journey</h2><p>Choose the next guide that matches your situation.</p><div class="guide-button-row"><a class="guide-button" href="/guides/eu-registration/">View the EU Registration Guide</a>
           <a class="guide-button guide-button--secondary" href="/living-in-spain/opening-a-bank-account/">View the Bank Account Guide</a>
           <a class="guide-button guide-button--secondary" href="/living-in-spain/digital-certificate/">View the Digital Certificate Guide</a>
@@ -224,6 +232,16 @@
       "href": "/living-in-spain/taxes/"
     }
   ],
+  "previousNext": {
+    "previous": {
+      "label": "Padrón",
+      "href": "/moving-to-spain/registering-on-the-padron/"
+    },
+    "next": {
+      "label": "Bank Account",
+      "href": "/living-in-spain/opening-a-bank-account/"
+    }
+  },
   "editorialChecklist": [
     "Grammar reviewed",
     "Internal links checked",
