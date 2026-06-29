@@ -108,56 +108,78 @@ const searchMetadataByRoute = {
   [routes.euRoadmap]: {
     category: "Moving to Spain",
     difficulty: "Moderate",
+    estimatedTime: "12 min",
+    appliesTo: ["EU citizens moving to Spain", "EEA citizens moving to Spain", "Swiss citizens moving to Spain"],
     keywords: ["EU citizen", "EU registration", "moving to Spain", "roadmap", "padrón", "healthcare", "banking", "taxes"]
   },
   [routes.euRegistration]: {
     category: "Moving to Spain",
     difficulty: "Moderate",
+    estimatedTime: "10 min",
+    appliesTo: ["EU citizens staying longer than 3 months", "EEA citizens staying longer than 3 months", "Swiss citizens staying longer than 3 months"],
     keywords: ["EU registration", "certificate of registration", "EX-18", "Modelo 790-012", "NIE", "padrón"]
   },
   [routes.padron]: {
     category: "Moving to Spain",
     difficulty: "Easy",
+    estimatedTime: "9 min",
+    appliesTo: ["People living at a Spanish address", "People preparing local address registration"],
     keywords: ["padrón", "empadronamiento", "town hall", "address registration", "municipal registration"]
   },
   [routes.healthcare]: {
     category: "Moving to Spain",
     difficulty: "Moderate",
+    estimatedTime: "14 min",
+    appliesTo: ["EU citizens working in Spain", "EU citizens studying in Spain", "EU retirees", "EU citizens living from savings"],
     keywords: ["healthcare", "public healthcare", "S1", "SIP card", "health card", "private insurance", "EU registration"]
   },
   [routes.checklist]: {
     category: "Moving to Spain",
     difficulty: "Easy",
+    estimatedTime: "8 min",
+    appliesTo: ["People preparing documents before moving to Spain", "People organizing route evidence"],
     keywords: ["documents", "checklist", "passport", "apostille", "translation", "moving documents"]
   },
   [routes.banking]: {
     category: "Living in Spain",
     difficulty: "Easy",
+    estimatedTime: "9 min",
+    appliesTo: ["People opening a Spanish bank account", "People setting up payments in Spain"],
     keywords: ["bank", "banking", "bank account", "IBAN", "fees", "payments", "Spanish bank"]
   },
   [routes.digital]: {
     category: "Living in Spain",
     difficulty: "Moderate",
+    estimatedTime: "10 min",
+    appliesTo: ["People who need online public-service access", "People applying for a digital certificate or Cl@ve"],
     keywords: ["digital certificate", "Cl@ve", "FNMT", "online services", "digital access"]
   },
   [routes.social]: {
     category: "Living in Spain",
     difficulty: "Moderate",
+    estimatedTime: "9 min",
+    appliesTo: ["People working in Spain", "People who need a Social Security number"],
     keywords: ["Social Security", "NUSS", "NAF", "work registration", "healthcare entitlement"]
   },
   [routes.taxes]: {
     category: "Living in Spain",
     difficulty: "Hard",
+    estimatedTime: "11 min",
+    appliesTo: ["People living in Spain", "People with income or assets to review before moving"],
     keywords: ["taxes", "tax residency", "domicilio fiscal", "Agencia Tributaria", "income tax"]
   },
   [routes.driving]: {
     category: "Living in Spain",
     difficulty: "Moderate",
+    estimatedTime: "8 min",
+    appliesTo: ["People driving in Spain", "People checking licence rules after moving"],
     keywords: ["driving", "driving licence", "licence exchange", "DGT", "resident driver"]
   },
   [routes.accommodation]: {
     category: "Moving to Spain",
     difficulty: "Moderate",
+    estimatedTime: "10 min",
+    appliesTo: ["People looking for accommodation in Spain", "People preparing address evidence"],
     keywords: ["accommodation", "renting", "rental", "housing", "address", "padrón"]
   }
 };
@@ -253,30 +275,28 @@ function guideMetadataFor(route) {
     ]
   };
   const previousNextByRoute = {
-    [routes.healthcare]: {
-      previous: { label: "Padrón", href: routes.padron },
-      next: { label: "Bank Account", href: routes.banking }
-    },
-    [routes.banking]: {
-      previous: { label: "Healthcare", href: routes.healthcare },
-      next: { label: "Digital Certificate", href: routes.digital }
-    },
-    [routes.digital]: {
-      previous: { label: "Bank Account", href: routes.banking },
-      next: { label: "Taxes", href: routes.taxes }
-    },
-    [routes.taxes]: {
-      previous: { label: "Digital Certificate", href: routes.digital },
-      next: { label: "Driving", href: routes.driving }
-    }
+    [routes.euRoadmap]: { next: { label: "Documents Checklist", href: routes.checklist } },
+    [routes.checklist]: { previous: { label: "EU Citizen Roadmap", href: routes.euRoadmap }, next: { label: "Finding Accommodation", href: routes.accommodation } },
+    [routes.accommodation]: { previous: { label: "Documents Checklist", href: routes.checklist }, next: { label: "Padrón", href: routes.padron } },
+    [routes.padron]: { previous: { label: "Finding Accommodation", href: routes.accommodation }, next: { label: "Healthcare", href: routes.healthcare } },
+    [routes.healthcare]: { previous: { label: "Padrón", href: routes.padron }, next: { label: "EU Registration", href: routes.euRegistration } },
+    [routes.euRegistration]: { previous: { label: "Healthcare", href: routes.healthcare }, next: { label: "Social Security", href: routes.social } },
+    [routes.social]: { previous: { label: "EU Registration", href: routes.euRegistration }, next: { label: "Bank Account", href: routes.banking } },
+    [routes.banking]: { previous: { label: "Social Security", href: routes.social }, next: { label: "Digital Certificate", href: routes.digital } },
+    [routes.digital]: { previous: { label: "Bank Account", href: routes.banking }, next: { label: "Taxes", href: routes.taxes } },
+    [routes.taxes]: { previous: { label: "Digital Certificate", href: routes.digital }, next: { label: "Driving", href: routes.driving } },
+    [routes.driving]: { previous: { label: "Taxes", href: routes.taxes } }
   };
+  const previousNext = previousNextByRoute[route] || {};
 
   return {
     ...(searchMetadataByRoute[route] || {}),
     status: "draft",
     lastReviewed: "June 2026",
     reviewedBy: "",
-    previousNext: previousNextByRoute[route],
+    previousGuide: previousNext.previous || null,
+    nextGuide: previousNext.next || null,
+    previousNext,
     continueJourney: continueByRoute[route] || [
       { label: "View the Documents Checklist", href: routes.checklist },
       { label: "View the Healthcare Guide", href: routes.healthcare },
@@ -374,6 +394,97 @@ function buildSearchIndex(pages) {
 
   fs.writeFileSync(path.join(root, "search-index.json"), `${JSON.stringify(index, null, 2)}\n`);
   return index.length;
+}
+
+function pageFilePath(route) {
+  return path.join(route, "index.html").replace(/^\//, "");
+}
+
+function isPresent(value) {
+  if (Array.isArray(value)) return value.length > 0;
+  if (value && typeof value === "object") return true;
+  return value !== undefined && value !== null && String(value).trim() !== "";
+}
+
+function isValidGuideLink(value) {
+  return value === null || (value && typeof value === "object" && isPresent(value.label) && isPresent(value.href));
+}
+
+function validateGuideMetadata(pages) {
+  const allowedStatuses = new Set(["draft", "review", "published"]);
+  const requiredFields = [
+    "title",
+    "description",
+    "status",
+    "category",
+    "lastReviewed",
+    "difficulty",
+    "estimatedTime",
+    "appliesTo",
+    "previousGuide",
+    "nextGuide",
+    "relatedGuides",
+    "canonicalUrl"
+  ];
+  const messages = [];
+
+  for (const page of pages) {
+    const filePath = pageFilePath(page.route);
+    const metadata = frontmatterFromHtml(page.html);
+
+    for (const field of requiredFields) {
+      const value = metadata[field];
+      const allowsNull = field === "previousGuide" || field === "nextGuide";
+      if (!isPresent(value) && !(allowsNull && value === null)) {
+        messages.push({ type: "error", filePath, field, message: "missing field" });
+      }
+    }
+
+    if (!allowedStatuses.has(metadata.status)) {
+      messages.push({ type: "error", filePath, field: "status", message: `invalid value "${metadata.status || ""}"` });
+    }
+
+    if (metadata.canonicalUrl && !String(metadata.canonicalUrl).startsWith("https://iberigo.eu/")) {
+      messages.push({ type: "error", filePath, field: "canonicalUrl", message: `invalid value "${metadata.canonicalUrl}"` });
+    }
+
+    if (!Array.isArray(metadata.appliesTo) || metadata.appliesTo.some((item) => !isPresent(item))) {
+      messages.push({ type: "error", filePath, field: "appliesTo", message: "invalid value; expected a non-empty list" });
+    }
+
+    if (!Array.isArray(metadata.relatedGuides) || metadata.relatedGuides.length === 0) {
+      messages.push({ type: "error", filePath, field: "relatedGuides", message: "invalid value; expected a non-empty list" });
+    } else {
+      metadata.relatedGuides.forEach((guide, index) => {
+        if (!guide || !isPresent(guide.label) || !isPresent(guide.href)) {
+          messages.push({ type: "error", filePath, field: `relatedGuides[${index}]`, message: "invalid value; expected label and href" });
+        }
+      });
+    }
+
+    if (!isValidGuideLink(metadata.previousGuide)) {
+      messages.push({ type: "error", filePath, field: "previousGuide", message: "invalid value; expected null or { label, href }" });
+    }
+
+    if (!isValidGuideLink(metadata.nextGuide)) {
+      messages.push({ type: "error", filePath, field: "nextGuide", message: "invalid value; expected null or { label, href }" });
+    }
+
+    if (metadata.status === "published" && page.html.includes(reviewPlaceholder)) {
+      messages.push({ type: "error", filePath, field: "content", message: `published page contains "${reviewPlaceholder}"` });
+    }
+  }
+
+  if (messages.length) {
+    console.error("Guide metadata validation failed:");
+    for (const item of messages) {
+      console.error(`- ${item.filePath}: ${item.field} — ${item.message}`);
+    }
+    process.exitCode = 1;
+    throw new Error("Guide metadata validation failed.");
+  }
+
+  console.log(`Validated metadata for ${pages.length} guide pages.`);
 }
 
 function SourceLinks(items = []) {
@@ -1213,6 +1324,8 @@ for (const [, route, title, description, h1, intro, quick] of skeletons) {
     })
   });
 }
+
+validateGuideMetadata(pages);
 
 for (const page of pages) {
   writePage(page.route, page.html);
