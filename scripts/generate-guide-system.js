@@ -560,7 +560,7 @@ const pages = [
       path: routes.euRoadmap,
       canonical: `https://iberigo.eu${routes.euRoadmap}`,
       title: "Moving to Spain as an EU Citizen: Step-by-Step Guide — IberiGo",
-      description: "Draft IberiGo roadmap for EU citizens moving to Spain, from planning to arrival and everyday setup.",
+      description: "A practical roadmap for EU, EEA and Swiss citizens moving to Spain, from planning to arrival and everyday setup.",
       metadata: guideMetadataFor(routes.euRoadmap),
       breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "EU Citizen Roadmap" }],
       hero: {
@@ -571,6 +571,7 @@ const pages = [
         asideText: "Start with your situation, then move through address, healthcare, registration, banking, tax and driving checks."
       },
       sections: [
+        QuickAnswer("EU citizens can move to Spain without a visa, but living in Spain longer term still involves practical admin: housing, padrón, healthcare, EU registration, banking, digital access, tax review and driving checks. The right order depends on your route and local appointment availability."),
         AtAGlance([
           ["Visa required?", "No."],
           ["Staying longer than 3 months?", "EU registration required."],
@@ -579,7 +580,25 @@ const pages = [
           ["Difficulty", "Moderate."],
           ["Typical timeline", "A few weeks after arrival, depending on appointments."]
         ]),
-        GuideSection({ id: "howToUse", title: "How to use this guide", children: `<p>This guide gives you the big picture. Each step points to a more detailed IberiGo guide with documents, requirements, costs and practical advice.</p>` }),
+        GuideSection({ id: "howToUse", title: "How to use this guide", children: `<p>Use this as the order-of-operations page. Start with your situation, then follow the links to the detailed guides when a step needs documents or local decisions.</p>` }),
+        GuideSection({
+          id: "officialRequirements",
+          title: "Official Requirements",
+          children: `${Cards([
+            { title: "No visa for EU citizens", text: "EU, EEA and Swiss citizens do not need a visa to enter Spain for this route." },
+            { title: "Longer-term stay", text: "If you live in Spain longer term, you usually need the EU Registration Certificate rather than a TIE card." },
+            { title: "Evidence depends on your route", text: "Work, self-employment, study, retirement and living from savings can point to different proof for healthcare and EU registration." }
+          ])}<!-- TODO: Verify exact official wording and timing before moving this roadmap from draft to review. -->${WarningBox("This roadmap explains the usual sequence. Always check the official appointment instructions for the specific process you are about to complete.")}`
+        }),
+        GuideSection({
+          id: "practicalAdvice",
+          title: "Practical Advice",
+          children: Cards([
+            { title: "Do not wait for perfect order", text: "Appointments may not line up neatly. Prepare documents in parallel so one delay does not block every next step." },
+            { title: "Treat address proof as a foundation", text: "Housing and padrón often affect healthcare, banking, school and registration steps." },
+            { title: "Keep one Spain folder", text: "Save identity, address, healthcare, registration, banking and tax documents in one place from the first week." }
+          ])
+        }),
         GuideSection({
           id: "phaseOne",
           title: "Phase 1 – Planning",
@@ -610,7 +629,21 @@ const pages = [
             { title: "Check your driving licence", text: "Driving rules depend on where your licence was issued and whether you become resident." }
           ])
         }),
-        GuideSection({ id: "youreReady", title: "You're Ready", children: `<p>You’ve completed the main steps most EU citizens follow when moving to Spain. From here, IberiGo’s detailed guides can help with everyday life, healthcare, banking, taxes and local administration.</p>` })
+        CommonMistakes([
+          "Assuming EU freedom of movement means there is no local administration.",
+          "Booking a TIE appointment when the EU Registration Certificate is the relevant route.",
+          "Leaving healthcare evidence until the EU registration appointment.",
+          "Signing accommodation without checking whether it can support padrón registration.",
+          "Ignoring tax and driving questions until they become urgent."
+        ]),
+        RealQuestions([
+          { question: "Do EU citizens need a visa to move to Spain?", answer: "No. EU citizens do not need a visa for this route, but longer-term residence registration and local admin can still apply." },
+          { question: "Should I get the padrón before EU registration?", answer: "It is often useful and may be requested. Check your appointment instructions and prepare address evidence early." },
+          { question: "Does every EU citizen need private health insurance?", answer: "No. Healthcare evidence depends on whether you work, are self-employed, retired, studying or living from savings." },
+          { question: "Is the TIE for EU citizens?", answer: "Usually no. EU citizens normally receive a Certificate of Registration. TIE cards are generally for non-EU nationals." }
+        ]),
+        GuideSection({ id: "whatHappensNext", title: "What Happens Next?", children: `<p>Start with the <a href="${routes.checklist}">Documents Checklist</a>, then move through accommodation, padrón, healthcare and EU registration as your situation becomes clear.</p>` }),
+        GuideSection({ id: "youreReady", title: "You're Ready", children: `<p>You have the main sequence most EU citizens follow when moving to Spain. From here, use the detailed IberiGo guides for each step instead of trying to solve everything on one page.</p>` })
       ]
     })
   },
@@ -620,7 +653,7 @@ const pages = [
       path: routes.euRegistration,
       canonical: `https://iberigo.eu${routes.euRegistration}`,
       title: "EU Registration Certificate in Spain — IberiGo",
-      description: "Draft guide to the EU Registration Certificate in Spain for EU, EEA and Swiss citizens staying longer term.",
+      description: "A practical guide to the EU Registration Certificate in Spain for EU, EEA and Swiss citizens staying longer term.",
       metadata: guideMetadataFor(routes.euRegistration),
       breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "EU Registration Certificate" }],
       hero: {
@@ -636,17 +669,33 @@ const pages = [
           ["Common form", "EX-18"],
           ["Common fee generator", "Modelo 790-012"],
           ["Card type", "Certificate of Registration, not TIE"],
-          ["Editorial status", "Framework migrated to reusable guide system"]
+          ["Main dependency", "Your evidence depends on why you live in Spain."]
         ]),
         GuideSection({ id: "beforeStart", title: "Before You Start", children: `${Cards(["Confirm whether you are working, self-employed, studying, retired, or living from savings.", "Prepare identity, address, healthcare and route evidence.", "Check the official appointment wording before booking."])}${TipBox("If you are not working, arrange healthcare evidence before the registration appointment.")}` }),
         GuideSection({ id: "whoNeeds", title: "Who Needs This?", children: Cards(["EU, EEA or Swiss citizens living in Spain longer term.", "People preparing the green EU registration certificate step.", "People who need to understand why this is different from a TIE."]) }),
-        GuideSection({ id: "officialRequirements", title: "Official Requirements", children: `${Cards(["The procedure is for EU, EEA and Swiss citizen registration.", "Evidence depends on your situation, such as work, study, funds or healthcare cover.", reviewPlaceholder])}${WarningBox("Use the EU registration route. Do not book a TIE card appointment unless a separate official process tells you to.")}` }),
-        GuideSection({ id: "practicalAdvice", title: "Practical Advice", children: Cards(["Prepare your NIE details and padrón certificate if requested.", "Bring copies and originals where the appointment instructions ask for them.", "Generate the fee form close to the appointment and check the official amount."]) }),
-        DocumentsChecklist(["Passport or EU national ID", "EX-18", "Padrón if requested", "Work, funds, study or healthcare evidence", "Modelo 790-012 payment proof"]),
+        GuideSection({ id: "officialRequirements", title: "Official Requirements", children: `${Cards([
+          "The procedure is for EU, EEA and Swiss citizen registration.",
+          "Evidence depends on your situation, such as work, self-employment, study, sufficient funds or healthcare cover.",
+          "The common form is EX-18 and the common fee form is Modelo 790-012, but appointment instructions should be checked before attending."
+        ])}<!-- TODO: Verify province-specific evidence lists and fee wording before review status. -->${WarningBox("Use the EU registration route. Do not book a TIE card appointment unless a separate official process tells you to.")}` }),
+        GuideSection({ id: "practicalAdvice", title: "Practical Advice", children: `${Cards([
+          "Prepare your NIE details and padrón certificate if requested.",
+          "Bring copies and originals where the appointment instructions ask for them.",
+          "If you are not working, settle your healthcare evidence before the appointment.",
+          "Keep the certificate safe after the appointment. You may need it for banking, healthcare, work and other administration."
+        ])}${TipBox("Read the Healthcare Guide before your appointment if your route depends on private cover, S1 or another entitlement.")}` }),
+        GuideSection({
+          id: "documentsChecklist",
+          title: "Documents Checklist",
+          children: `${ChecklistBox({
+            title: "Documents to prepare",
+            items: ["Passport or EU national ID", "EX-18", "Padrón if requested", "Work, funds, study or healthcare evidence", "Modelo 790-012 payment proof"]
+          })}<!-- TODO: Verify province-specific document wording before review status. -->${InfoBox({ title: "Document check", text: "Use this as a preparation list, then compare it with the official appointment instructions for your route." })}`
+        }),
         GuideSection({ id: "stepProcess", title: "Step-by-Step Process", children: StepTimeline([{ title: "Confirm your basis", text: "Work, self-employment, study, retirement or savings can lead to different evidence." }, { title: "Prepare documents", text: "Collect identity, address and route evidence." }, { title: "Pay the fee", text: "Use the official Modelo 790-012 generator." }, { title: "Attend the appointment", text: "Bring the documents requested for your appointment." }]) }),
         CommonMistakes(["Confusing EU registration with a TIE card.", "Preparing healthcare evidence too late.", "Booking the wrong appointment label.", "Assuming every province asks for documents in the same way."]),
-        RealQuestions([{ question: "Do EU citizens need a visa?", answer: "No, but longer-term residence registration can still be required." }, { question: "Is this the same as NIE?", answer: "No. NIE is an identification number; EU registration is a residence registration certificate." }, { question: "What exact evidence applies to me?", answer: reviewPlaceholder }]),
-        GuideSection({ id: "whatHappensNext", title: "What Happens Next?", children: `<p>After registration, continue with healthcare, Social Security if working, banking, digital access and tax review.</p>` })
+        RealQuestions([{ question: "Do EU citizens need a visa?", answer: "No, but longer-term residence registration can still be required." }, { question: "Is this the same as NIE?", answer: "No. NIE is an identification number; EU registration is a residence registration certificate." }, { question: "What exact evidence applies to me?", answer: "It depends on your basis for living in Spain and the appointment instructions. Do not rely on another person’s document list without checking your route." }]),
+        GuideSection({ id: "whatHappensNext", title: "What Happens Next?", children: `<p>After registration, continue with <a href="${routes.healthcare}">healthcare</a>, Social Security if working, <a href="${routes.banking}">banking</a>, digital access and tax review.</p>` })
       ]
     })
   }
@@ -714,6 +763,15 @@ pages.push({
         ])}${WarningBox("Local practices differ. If your housing situation is unusual, check directly with the town hall before assuming you can register.")}`
       }),
       GuideSection({
+        id: "officialRequirements",
+        title: "Official Requirements",
+        children: `${Cards([
+          { title: "Register where you live", text: "The padrón belongs to the municipality where you actually live." },
+          { title: "Show identity", text: "Town halls normally ask for identity documents for the people being registered." },
+          { title: "Show address evidence", text: "Town halls normally ask for proof that you can register at that address, such as a rental contract, property document or authorization." }
+        ])}<!-- TODO: Verify whether any municipality-specific examples need official source links before review status. -->${WarningBox("The padrón is local. Use your town hall’s current requirements, not a document list copied from another municipality.")}`
+      }),
+      GuideSection({
         id: "whyImportant",
         title: "Why is the Padrón important?",
         children: Cards([
@@ -721,6 +779,15 @@ pages.push({
           { title: "It can unlock next steps", text: "Healthcare, EU registration, school registration and some local services may ask for it." },
           { title: "It keeps your local record current", text: "If you move, the new municipality may need your updated registration." }
         ])
+      }),
+      GuideSection({
+        id: "practicalAdvice",
+        title: "Practical Advice",
+        children: `${Cards([
+          { title: "Check before you sign", text: "If you need padrón registration, ask about it before committing to accommodation." },
+          { title: "Bring address permission", text: "If the contract is not in your name, ask the owner, tenant or host what authorization the town hall accepts." },
+          { title: "Keep a recent copy", text: "Other offices may ask for a recent certificate or volante, so know how to request a fresh version." }
+        ])}${TipBox("If housing is still uncertain, read the Accommodation Guide before relying on an address for later admin.")}`
       }),
       GuideSection({
         id: "documentsUsuallyNeed",
@@ -799,6 +866,15 @@ pages.push({
         ["Local variation", "Health cards and registration steps can vary by autonomous community."]
       ]),
       GuideSection({
+        id: "beforeStart",
+        title: "Before You Start",
+        children: `${Cards([
+          { title: "Name your route", text: "Decide whether your likely route is work, self-employment, S1, student cover, private insurance or another public entitlement." },
+          { title: "Check timing", text: "Healthcare proof may be needed before EU registration, especially if you are not working." },
+          { title: "Separate temporary and resident cover", text: "EHIC and travel cover are not the same as planning healthcare as a resident." }
+        ])}${TipBox("If you are preparing EU registration, read this page before booking or attending the EU Registration Certificate appointment.")}`
+      }),
+      GuideSection({
         id: "routeApplies",
         title: "Which healthcare route applies to me?",
         children: `<table class="guide-table"><tbody>
@@ -809,6 +885,33 @@ pages.push({
           <tr><th>Student</th><td>Check whether you have accepted public entitlement or need comprehensive health insurance.</td></tr>
           <tr><th>Living from savings</th><td>Check whether you need comprehensive private insurance or another accepted healthcare entitlement for EU registration.</td></tr>
         </tbody></table>${WarningBox("Healthcare requirements for EU registration depend on the applicant’s circumstances. Do not use one person’s route as proof that the same evidence applies to you.")}`
+      }),
+      GuideSection({
+        id: "whoNeeds",
+        title: "Who Needs This?",
+        children: Cards([
+          { title: "EU citizens moving to Spain", text: "Use this if you need to understand which healthcare evidence may apply before settling in." },
+          { title: "Non-working applicants", text: "Use this if your route may depend on private cover, S1 or another accepted entitlement." },
+          { title: "Workers and self-employed people", text: "Use this to connect Social Security registration with public healthcare planning." }
+        ])
+      }),
+      GuideSection({
+        id: "officialRequirements",
+        title: "Official Requirements",
+        children: `${Cards([
+          { title: "Evidence follows your situation", text: "EU registration and healthcare access can depend on whether you work, are self-employed, study, receive an S1 or live from savings." },
+          { title: "Public entitlement must be recognized", text: "Public healthcare usually starts with a recognized entitlement before the regional health service issues a card." },
+          { title: "Private cover may need to be comprehensive", text: "If private insurance is your evidence route, check that the policy is suitable for living in Spain and for the process using it." }
+        ])}<!-- TODO: Verify accepted insurance wording and any regional card process details before review status. -->${WarningBox("Do not treat travel insurance or an EHIC as automatic proof for living in Spain. Check the evidence required for your route.")}`
+      }),
+      GuideSection({
+        id: "practicalAdvice",
+        title: "Practical Advice",
+        children: Cards([
+          { title: "Start with your reason for moving", text: "The right healthcare route is usually easier to identify once you know whether work, self-employment, retirement, study or savings applies." },
+          { title: "Ask for written proof", text: "Keep certificates, policy summaries, Social Security evidence and regional health-service confirmations." },
+          { title: "Plan for local variation", text: "The health card name, appointment process and documents can vary by autonomous community." }
+        ])
       }),
       GuideSection({
         id: "workingSpain",
