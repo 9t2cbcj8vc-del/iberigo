@@ -278,26 +278,113 @@ function guideMetadataFor(route) {
 
 function validateInternalLinks(pages) {
   const generatedRoutes = new Set(pages.map((page) => page.route));
+  const knownInternalPaths = collectKnownInternalPaths(generatedRoutes);
   const warnings = [];
+  const errors = [];
   for (const page of pages) {
-    const links = [...page.html.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
+    const metadata = frontmatterFromHtml(page.html);
+    const status = metadata.status || "draft";
+    const filePath = pageFilePath(page.route);
+    const links = [...page.html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)].map((match) => match[1]);
     for (const href of links) {
       if (!href.startsWith("/") || href.startsWith("//")) continue;
-      const clean = href.split("#")[0].split("?")[0];
-      if (!clean || clean === "/") continue;
-      const existingFile = path.join(root, clean);
-      const existingIndex = path.join(root, clean, "index.html");
-      const exists = generatedRoutes.has(clean.endsWith("/") ? clean : `${clean}/`) || fs.existsSync(existingFile) || fs.existsSync(existingIndex);
-      if (!exists) {
-        warnings.push(`${page.route} links to missing internal path: ${href}`);
+      const target = internalLinkTarget(href);
+      if (!target.path || target.path === "/") continue;
+      if (!internalPathExists(target.path, generatedRoutes)) {
+        const item = {
+          filePath,
+          href,
+          suggestion: suggestInternalLink(target.path, knownInternalPaths),
+          status
+        };
+        if (status === "review" || status === "published") errors.push(item);
+        else warnings.push(item);
       }
     }
   }
 
   if (warnings.length) {
-    console.warn("Broken internal guide link warnings:");
-    for (const warning of warnings) console.warn(`- ${warning}`);
+    console.warn("Broken internal link warnings:");
+    for (const warning of warnings) console.warn(formatBrokenLinkMessage(warning));
   }
+
+  if (errors.length) {
+    console.error("Broken internal links found on review/published pages:");
+    for (const error of errors) console.error(formatBrokenLinkMessage(error));
+    process.exitCode = 1;
+    throw new Error("Broken internal link validation failed.");
+  }
+}
+
+function internalLinkTarget(href) {
+  const withoutHash = String(href).split("#")[0];
+  const cleanPath = withoutHash.split("?")[0];
+  return { path: cleanPath || "/" };
+}
+
+function internalPathExists(targetPath, generatedRoutes) {
+  const routePath = targetPath.endsWith("/") ? targetPath : `${targetPath}/`;
+  if (generatedRoutes.has(routePath)) return true;
+
+  const existingFile = path.join(root, targetPath);
+  const existingIndex = path.join(root, targetPath, "index.html");
+  return fs.existsSync(existingFile) || fs.existsSync(existingIndex);
+}
+
+function collectKnownInternalPaths(generatedRoutes) {
+  const paths = new Set(["/"]);
+  for (const route of generatedRoutes) paths.add(route);
+
+  const stack = [root];
+  while (stack.length) {
+    const directory = stack.pop();
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      if (entry.name === ".git" || entry.name === ".netlify" || entry.name === "node_modules") continue;
+      const fullPath = path.join(directory, entry.name);
+      const relativePath = path.relative(root, fullPath);
+      if (entry.isDirectory()) {
+        stack.push(fullPath);
+        continue;
+      }
+      if (entry.name !== "index.html") continue;
+      const route = `/${path.dirname(relativePath).replace(/\\/g, "/")}/`.replace("/./", "/");
+      paths.add(route);
+      paths.add(`/${relativePath.replace(/\\/g, "/")}`);
+    }
+  }
+
+  return [...paths].sort();
+}
+
+function suggestInternalLink(targetPath, knownPaths) {
+  let best = null;
+  for (const candidate of knownPaths) {
+    const distance = levenshteinDistance(targetPath, candidate);
+    if (!best || distance < best.distance) best = { path: candidate, distance };
+  }
+
+  const threshold = Math.max(4, Math.ceil(targetPath.length * 0.35));
+  return best && best.distance <= threshold ? best.path : "";
+}
+
+function levenshteinDistance(a = "", b = "") {
+  const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
+  for (let i = 0; i < a.length; i += 1) {
+    const current = [i + 1];
+    for (let j = 0; j < b.length; j += 1) {
+      current[j + 1] = Math.min(
+        current[j] + 1,
+        previous[j + 1] + 1,
+        previous[j] + (a[i] === b[j] ? 0 : 1)
+      );
+    }
+    previous.splice(0, previous.length, ...current);
+  }
+  return previous[b.length];
+}
+
+function formatBrokenLinkMessage({ filePath, href, suggestion, status }) {
+  return `- ${filePath} [${status}]: ${href}${suggestion ? ` — suggested fix: ${suggestion}` : " — suggested fix: check the intended route"}`;
 }
 
 function stripHtml(value = "") {
@@ -1255,16 +1342,27 @@ for (const [, route, title, description, h1, intro, quick] of skeletons) {
   });
 }
 
-validateGuideMetadata(pages);
+function run() {
+  validateGuideMetadata(pages);
 
-for (const page of pages) {
-  writePage(page.route, page.html);
+  for (const page of pages) {
+    writePage(page.route, page.html);
+  }
+
+  writePage("/search/", SearchPage());
+  const searchCount = buildSearchIndex(pages);
+
+  validateInternalLinks(pages);
+
+  console.log(`Generated ${pages.length} guide pages with reusable components.`);
+  console.log(`Generated search index with ${searchCount} published guides.`);
 }
 
-writePage("/search/", SearchPage());
-const searchCount = buildSearchIndex(pages);
+if (require.main === module) {
+  run();
+}
 
-validateInternalLinks(pages);
-
-console.log(`Generated ${pages.length} guide pages with reusable components.`);
-console.log(`Generated search index with ${searchCount} published guides.`);
+module.exports = {
+  validateInternalLinks,
+  run
+};
