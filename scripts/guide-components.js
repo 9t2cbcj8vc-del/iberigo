@@ -35,6 +35,11 @@ function Header() {
           <a href="/index.html?nav=start#guide-cards">Home</a>
           <a href="/the-spain-files/">The Spain Files</a>
           <a href="/support/index.html">Support IberiGo</a>
+          <a class="search-nav-link" href="/search/" aria-label="Search IberiGo">
+            <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+              <path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </a>
           <div class="language-switcher" aria-label="Language">
             <button type="button" data-lang="en" aria-pressed="true">EN</button>
             <button type="button" data-lang="es" aria-pressed="false">ES</button>
@@ -245,6 +250,9 @@ function guideCss() {
       .guide-breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
       .guide-breadcrumbs li:not(:last-child)::after { content: "/"; margin-left: 0.4rem; color: rgba(27, 32, 48, 0.36); }
       .guide-breadcrumbs a { color: #a64a36; text-decoration: none; font-weight: 800; }
+      .search-nav-link { display: inline-flex; align-items: center; justify-content: center; width: 2.55rem; height: 2.55rem; border: 1px solid rgba(166, 74, 54, 0.16); border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #a64a36; text-decoration: none; box-shadow: 0 10px 28px rgba(42, 32, 25, 0.06); }
+      .search-nav-link svg { width: 1.05rem; height: 1.05rem; }
+      .search-nav-link:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; }
       .guide-draft-banner { margin: 0 0 1rem; padding: 0.65rem 0.85rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.78rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; width: fit-content; }
       .guide-reading-time { margin: -0.35rem 0 1rem; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
       .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
@@ -322,6 +330,12 @@ function GuideLayout(config) {
         </div>
         ${EditorialChecklist(config.editorialChecklist)}
         ${Frontmatter({
+          title: config.title,
+          description: config.description,
+          keywords: metadata.keywords || config.keywords || [],
+          category: metadata.category || config.category || "",
+          difficulty: metadata.difficulty || config.difficulty || "",
+          url: config.path || "",
           status,
           lastReviewed,
           reviewedBy: config.reviewedBy || metadata.reviewedBy || "",
@@ -377,6 +391,8 @@ function GuideLayout(config) {
 }
 
 module.exports = {
+  Header,
+  Footer,
   GuideLayout,
   GuideHero,
   Breadcrumbs,

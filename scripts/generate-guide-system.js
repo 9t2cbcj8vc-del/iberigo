@@ -15,6 +15,7 @@ const {
   RealQuestions,
   Cards
 } = require("./guide-components");
+const { SearchPage } = require("./search-components");
 
 const root = path.resolve(__dirname, "..");
 const reviewPlaceholder = "Content under editorial review.";
@@ -102,6 +103,64 @@ const commonRelated = [
   { label: "View the Healthcare Guide", href: routes.healthcare, description: "Understand healthcare before registration or residence steps." },
   { label: "View the Banking Guide", href: routes.banking, description: "Set up everyday payments in Spain." }
 ];
+
+const searchMetadataByRoute = {
+  [routes.euRoadmap]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    keywords: ["EU citizen", "EU registration", "moving to Spain", "roadmap", "padrón", "healthcare", "banking", "taxes"]
+  },
+  [routes.euRegistration]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    keywords: ["EU registration", "certificate of registration", "EX-18", "Modelo 790-012", "NIE", "padrón"]
+  },
+  [routes.padron]: {
+    category: "Moving to Spain",
+    difficulty: "Easy",
+    keywords: ["padrón", "empadronamiento", "town hall", "address registration", "municipal registration"]
+  },
+  [routes.healthcare]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    keywords: ["healthcare", "public healthcare", "S1", "SIP card", "health card", "private insurance", "EU registration"]
+  },
+  [routes.checklist]: {
+    category: "Moving to Spain",
+    difficulty: "Easy",
+    keywords: ["documents", "checklist", "passport", "apostille", "translation", "moving documents"]
+  },
+  [routes.banking]: {
+    category: "Living in Spain",
+    difficulty: "Easy",
+    keywords: ["bank", "banking", "bank account", "IBAN", "fees", "payments", "Spanish bank"]
+  },
+  [routes.digital]: {
+    category: "Living in Spain",
+    difficulty: "Moderate",
+    keywords: ["digital certificate", "Cl@ve", "FNMT", "online services", "digital access"]
+  },
+  [routes.social]: {
+    category: "Living in Spain",
+    difficulty: "Moderate",
+    keywords: ["Social Security", "NUSS", "NAF", "work registration", "healthcare entitlement"]
+  },
+  [routes.taxes]: {
+    category: "Living in Spain",
+    difficulty: "Hard",
+    keywords: ["taxes", "tax residency", "domicilio fiscal", "Agencia Tributaria", "income tax"]
+  },
+  [routes.driving]: {
+    category: "Living in Spain",
+    difficulty: "Moderate",
+    keywords: ["driving", "driving licence", "licence exchange", "DGT", "resident driver"]
+  },
+  [routes.accommodation]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    keywords: ["accommodation", "renting", "rental", "housing", "address", "padrón"]
+  }
+};
 
 const relatedByRoute = {
   [routes.padron]: [
@@ -213,6 +272,7 @@ function guideMetadataFor(route) {
   };
 
   return {
+    ...(searchMetadataByRoute[route] || {}),
     status: "draft",
     lastReviewed: "June 2026",
     reviewedBy: "",
@@ -248,6 +308,72 @@ function validateInternalLinks(pages) {
     console.warn("Broken internal guide link warnings:");
     for (const warning of warnings) console.warn(`- ${warning}`);
   }
+}
+
+function stripHtml(value = "") {
+  return String(value)
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function decodeEntities(value = "") {
+  return String(value)
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
+function frontmatterFromHtml(html = "") {
+  const match = String(html).match(/<script type="application\/json" class="guide-frontmatter">([\s\S]*?)<\/script>/);
+  if (!match) return {};
+  try {
+    return JSON.parse(match[1]);
+  } catch {
+    return {};
+  }
+}
+
+function metaDescriptionFromHtml(html = "") {
+  const match = String(html).match(/<meta name="description" content="([^"]*)"/);
+  return match ? decodeEntities(match[1]) : "";
+}
+
+function titleFromHtml(html = "") {
+  const match = String(html).match(/<title>([^<]*)<\/title>/);
+  return match ? decodeEntities(match[1]).replace(/\s+—\s+IberiGo$/, "") : "";
+}
+
+function headingsFromHtml(html = "") {
+  return [...String(html).matchAll(/<h2 id="[^"]+">([\s\S]*?)<\/h2>/g)]
+    .map((match) => decodeEntities(stripHtml(match[1])))
+    .filter(Boolean);
+}
+
+function buildSearchIndex(pages) {
+  const index = pages
+    .map((page) => {
+      const metadata = frontmatterFromHtml(page.html);
+      if (metadata.status !== "published") return null;
+
+      return {
+        title: metadata.title || titleFromHtml(page.html),
+        description: metadata.description || metaDescriptionFromHtml(page.html),
+        headings: headingsFromHtml(page.html),
+        keywords: metadata.keywords || [],
+        category: metadata.category || "",
+        difficulty: metadata.difficulty || "",
+        url: metadata.url || page.route
+      };
+    })
+    .filter(Boolean);
+
+  fs.writeFileSync(path.join(root, "search-index.json"), `${JSON.stringify(index, null, 2)}\n`);
+  return index.length;
 }
 
 function SourceLinks(items = []) {
@@ -1092,6 +1218,10 @@ for (const page of pages) {
   writePage(page.route, page.html);
 }
 
+writePage("/search/", SearchPage());
+const searchCount = buildSearchIndex(pages);
+
 validateInternalLinks(pages);
 
 console.log(`Generated ${pages.length} guide pages with reusable components.`);
+console.log(`Generated search index with ${searchCount} published guides.`);

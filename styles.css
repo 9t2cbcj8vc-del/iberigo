@@ -337,6 +337,21 @@ nav a[aria-current="page"] {
   color: #7a351f;
 }
 
+nav a.search-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  min-width: 40px;
+  padding: 0;
+  color: #9a4632;
+}
+
+nav a.search-nav-link svg {
+  width: 17px;
+  height: 17px;
+}
+
 .language-switcher {
   display: inline-flex;
   gap: 5px;
