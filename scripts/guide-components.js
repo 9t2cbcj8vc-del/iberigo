@@ -214,22 +214,23 @@ function ReadingTime(html) {
   return `<p class="guide-reading-time">${minutes} min read</p>`;
 }
 
-function TableOfContents(items = []) {
-  if (!items.length) return "";
-  const links = items.map((item) => `<li><a href="#${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></li>`).join("");
-  return `<aside class="guide-toc" aria-label="Table of contents">
+function GuideTableOfContents(items = [], { variant = "desktop" } = {}) {
+  if (items.length < 3) return "";
+  const links = items
+    .map((item, index) => `<li><a href="#${escapeHtml(item.id)}" data-guide-toc-link${index === 0 ? ' aria-current="true"' : ""}>${escapeHtml(item.title)}</a></li>`)
+    .join("");
+
+  if (variant === "mobile") {
+    return `<details class="guide-toc-mobile" data-guide-toc>
+          <summary>On this page</summary>
+          <nav aria-label="On this page"><ol>${links}</ol></nav>
+        </details>`;
+  }
+
+  return `<aside class="guide-toc" data-guide-toc aria-label="Table of contents">
           <strong>On this page</strong>
           <nav><ol>${links}</ol></nav>
         </aside>`;
-}
-
-function MobileTableOfContents(items = []) {
-  if (!items.length) return "";
-  const links = items.map((item) => `<li><a href="#${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></li>`).join("");
-  return `<details class="guide-toc-mobile">
-          <summary>On this page</summary>
-          <nav><ol>${links}</ol></nav>
-        </details>`;
 }
 
 function EditorialChecklist(items = DEFAULT_EDITORIAL_CHECKLIST) {
@@ -263,8 +264,10 @@ function tocItemsFromSections(sections = []) {
 
 function guideCss() {
   return `<style>
+      html { scroll-behavior: smooth; }
       .guide-main { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 1.4rem 0 4rem; }
       .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 1.2rem; align-items: start; }
+      .guide-layout--single { grid-template-columns: minmax(0, 1fr); }
       .guide-content { min-width: 0; }
       .guide-breadcrumbs { margin: 0 0 1rem; color: rgba(27, 32, 48, 0.62); font-size: 0.86rem; }
       .guide-breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
@@ -280,6 +283,8 @@ function guideCss() {
       .guide-toc strong, .guide-toc-mobile summary { color: #1b2030; font-weight: 900; }
       .guide-toc ol, .guide-toc-mobile ol { display: grid; gap: 0.45rem; margin: 0.75rem 0 0; padding-left: 1rem; }
       .guide-toc a, .guide-toc-mobile a { color: rgba(27, 32, 48, 0.68); text-decoration: none; font-size: 0.86rem; font-weight: 800; }
+      .guide-toc a[aria-current="true"], .guide-toc-mobile a[aria-current="true"] { color: #a64a36; }
+      .guide-toc a:focus-visible, .guide-toc-mobile a:focus-visible, .guide-toc-mobile summary:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; border-radius: 8px; }
       .guide-toc-mobile { display: none; margin: 0 0 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); }
       .guide-hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr); gap: clamp(1.2rem, 4vw, 2.4rem); align-items: center; padding: clamp(2rem, 5vw, 4rem); }
       .guide-kicker { display: inline-flex; width: fit-content; color: #a64a36; font-size: 0.74rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -288,7 +293,7 @@ function guideCss() {
       .guide-hero-card, .guide-section, .guide-info-card { border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
       .guide-hero-card { padding: 1.35rem; }
       .guide-hero-card strong { display: block; margin-bottom: 0.55rem; color: #1b2030; font-size: 1.05rem; }
-      .guide-section { padding: clamp(1.1rem, 3vw, 1.6rem); margin-top: 1.15rem; }
+      .guide-section { padding: clamp(1.1rem, 3vw, 1.6rem); margin-top: 1.15rem; scroll-margin-top: 96px; }
       .guide-section h2 { margin: 0 0 0.85rem; color: #1b2030; font-size: clamp(1.45rem, 3vw, 2rem); }
       .guide-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; }
       .guide-card-grid--single { grid-template-columns: minmax(0, 1fr); }
@@ -321,6 +326,7 @@ function guideCss() {
       .guide-image-placeholder { min-height: 180px; border: 1px dashed rgba(166, 74, 54, 0.22); border-radius: 18px; background: linear-gradient(135deg, rgba(253, 240, 220, 0.7), rgba(255, 255, 255, 0.72)); }
       @media (max-width: 900px) { .guide-layout, .guide-hero, .guide-card-grid { grid-template-columns: 1fr; } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
       @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>`;
 }
 
@@ -332,12 +338,13 @@ function GuideLayout(config) {
   const robots = config.robots || (status === "published" ? "index, follow" : "noindex, nofollow");
   const sections = config.sections || [];
   const tocItems = tocItemsFromSections(sections);
+  const showToc = tocItems.length >= 3;
   const mainContent = [
     Breadcrumbs(config.breadcrumbs || []),
     StatusBadge(status),
     GuideHero(config.hero),
     ReadingTime(sections.join("\n")),
-    MobileTableOfContents(tocItems),
+    GuideTableOfContents(tocItems, { variant: "mobile" }),
     ...sections,
     LastReviewed(lastReviewed),
     ContinueJourney({
@@ -346,11 +353,11 @@ function GuideLayout(config) {
       relatedGuides: metadata.relatedGuides || config.relatedGuides || []
     })
   ].filter(Boolean).join("\n        ");
-  const content = `<div class="guide-layout">
+  const content = `<div class="guide-layout${showToc ? "" : " guide-layout--single"}">
           <div class="guide-content">
             ${mainContent}
           </div>
-          ${TableOfContents(tocItems)}
+          ${showToc ? GuideTableOfContents(tocItems) : ""}
         </div>
         ${EditorialChecklist(config.editorialChecklist)}
         ${Frontmatter({
@@ -411,6 +418,45 @@ function GuideLayout(config) {
         update();
         window.addEventListener("scroll", update, { passive: true });
       })();
+      (function () {
+        var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));
+        if (!tocLinks.length) return;
+        var headings = tocLinks
+          .map(function (link) {
+            var id = decodeURIComponent(link.getAttribute("href").slice(1));
+            return document.getElementById(id);
+          })
+          .filter(Boolean);
+        var setCurrent = function (id) {
+          tocLinks.forEach(function (link) {
+            var isCurrent = link.getAttribute("href") === "#" + id;
+            if (isCurrent) {
+              link.setAttribute("aria-current", "true");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        };
+        if ("IntersectionObserver" in window) {
+          var visible = new Map();
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) visible.set(entry.target.id, entry.boundingClientRect.top);
+              else visible.delete(entry.target.id);
+            });
+            if (!visible.size) return;
+            var current = Array.from(visible.entries()).sort(function (a, b) { return a[1] - b[1]; })[0][0];
+            setCurrent(current);
+          }, { rootMargin: "-20% 0px -65% 0px", threshold: [0, 1] });
+          headings.forEach(function (heading) { observer.observe(heading); });
+        }
+        tocLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            var id = decodeURIComponent(link.getAttribute("href").slice(1));
+            setCurrent(id);
+          });
+        });
+      })();
     </script>
   </body>
 </html>
@@ -434,6 +480,7 @@ module.exports = {
   StepTimeline,
   CommonMistakes,
   RealQuestions,
+  GuideTableOfContents,
   ContinueJourney,
   LastReviewed,
   ImagePlaceholder,
