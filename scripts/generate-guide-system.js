@@ -21,6 +21,7 @@ const root = path.resolve(__dirname, "..");
 const reviewPlaceholder = "Content under editorial review.";
 
 const routes = {
+  startHere: "/start-here/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   euRegistration: "/guides/eu-registration/",
   padron: "/moving-to-spain/registering-on-the-padron/",
@@ -158,6 +159,13 @@ function guideLink(route) {
 const commonRelatedRoutes = [routes.checklist, routes.healthcare, routes.banking];
 
 const searchMetadataByRoute = {
+  [routes.startHere]: {
+    category: "Moving to Spain",
+    difficulty: "Easy",
+    estimatedTime: "3 min",
+    appliesTo: ["People planning a move to Spain", "People choosing the right IberiGo guide"],
+    keywords: ["start here", "moving to Spain", "EU citizen", "non-EU citizen", "student", "worker", "retiree", "family"]
+  },
   [routes.euRoadmap]: {
     category: "Moving to Spain",
     difficulty: "Moderate",
@@ -238,6 +246,7 @@ const searchMetadataByRoute = {
 };
 
 const relatedRoutesByRoute = {
+  [routes.startHere]: [routes.euRoadmap, routes.euRegistration, routes.padron, routes.healthcare],
   [routes.padron]: [routes.accommodation, routes.healthcare, routes.euRegistration],
   [routes.healthcare]: [routes.social, routes.euRoadmap, routes.checklist],
   [routes.checklist]: [routes.padron, routes.healthcare, routes.euRegistration],
@@ -275,6 +284,7 @@ const officialSourcesByRoute = {
 
 function guideMetadataFor(route) {
   const journeyRoutesByRoute = {
+    [routes.startHere]: { next: routes.euRoadmap },
     [routes.euRoadmap]: { next: routes.checklist },
     [routes.checklist]: { previous: routes.euRoadmap, next: routes.accommodation },
     [routes.accommodation]: { previous: routes.checklist, next: routes.padron },
@@ -578,7 +588,88 @@ function SourceLinks(items = []) {
     .join("\n          ")}</div>`;
 }
 
+function StartHereCards(items = []) {
+  return `<div class="guide-card-grid">${items
+    .map((item) => `<article class="guide-info-card">
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
+            <a class="guide-button${item.comingSoon ? " guide-button--secondary" : ""}" href="${item.href}"${item.comingSoon ? ' aria-disabled="true"' : ""}>${item.label}</a>
+          </article>`)
+    .join("\n          ")}</div>`;
+}
+
+function StartHereGuideCards(items = []) {
+  return `<div class="guide-card-grid">${items
+    .map((item) => `<article class="guide-info-card">
+            <h3>${item.title}</h3>
+            <p>${item.text}</p>
+            <a class="guide-button guide-button--secondary" href="${item.href}">${item.label}</a>
+          </article>`)
+    .join("\n          ")}</div>`;
+}
+
 const pages = [
+  {
+    route: routes.startHere,
+    html: GuideLayout({
+      path: routes.startHere,
+      canonical: `https://iberigo.eu${routes.startHere}`,
+      title: "Start Here: Moving to Spain — IberiGo",
+      description: "Find the right IberiGo guide for your move to Spain, whether you are an EU citizen, non-EU citizen, student, worker, retiree or joining family.",
+      metadata: guideMetadataFor(routes.startHere),
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Start Here" }],
+      hero: {
+        kicker: "Start here",
+        title: "Moving to Spain starts here.",
+        intro: "Choose the situation that sounds most like you, and we’ll point you to the guide that explains what to do next.",
+        asideTitle: "Simple starting point",
+        asideText: "You do not need to know the immigration terminology before choosing a path."
+      },
+      sections: [
+        GuideSection({
+          id: "chooseYourPath",
+          title: "Choose your path",
+          children: StartHereCards([
+            { title: "I’m an EU citizen", text: "Start with the roadmap for EU, EEA and Swiss citizens moving to Spain.", href: routes.euRoadmap, label: "View the EU Citizen Roadmap" },
+            { title: "I’m a non-EU citizen", text: "Visa and residence routes for non-EU citizens will be added after editorial review.", href: "#", label: "Coming soon", comingSoon: true },
+            { title: "I’m joining family in Spain", text: "Family routes vary by relationship, nationality and residence status.", href: "#", label: "Coming soon", comingSoon: true },
+            { title: "I’m moving for work", text: "Work routes depend on employment, self-employment and authorization details.", href: "#", label: "Coming soon", comingSoon: true },
+            { title: "I’m moving to study", text: "Study routes depend on programme, duration and nationality.", href: "#", label: "Coming soon", comingSoon: true },
+            { title: "I’m retiring in Spain", text: "Retirement planning can involve residence, healthcare and tax questions.", href: "#", label: "Coming soon", comingSoon: true },
+            { title: "I’m self-employed", text: "Self-employment can affect residence, tax, Social Security and healthcare.", href: "#", label: "Coming soon", comingSoon: true }
+          ])
+        }),
+        GuideSection({
+          id: "mostPeopleStartHere",
+          title: "Most people start here",
+          children: StartHereGuideCards([
+            { title: "Moving to Spain as an EU Citizen", text: "Follow the usual order of planning, arrival and settling-in steps.", href: routes.euRoadmap, label: "View the EU Citizen Roadmap" },
+            { title: "EU Registration", text: "Understand the EU Registration Certificate route for longer-term stays.", href: routes.euRegistration, label: "View the EU Registration Guide" },
+            { title: "Registering on the Padrón", text: "Learn how town hall address registration fits into the move.", href: routes.padron, label: "View the Padrón Guide" },
+            { title: "Healthcare in Spain", text: "Compare the main healthcare routes before registration and daily-life setup.", href: routes.healthcare, label: "View the Healthcare Guide" }
+          ])
+        }),
+        GuideSection({
+          id: "howGuidesWork",
+          title: "How IberiGo guides work",
+          children: `${Cards([
+            { title: "Planning", text: "Understand your route and the documents that may matter." },
+            { title: "Arrival", text: "Handle address, healthcare and registration steps in a practical order." },
+            { title: "Settling In", text: "Move into banking, digital access, taxes and everyday administration." }
+          ])}${ChecklistBox({
+            title: "Each guide explains",
+            items: ["what the step is", "who needs it", "what to prepare", "what to do next"]
+          })}`
+        }),
+        GuideSection({
+          id: "notSure",
+          title: "Not sure where to begin?",
+          children: `<p>If you are unsure which route applies to you, start with the EU or non-EU path. Every guide explains who it applies to and points you to the next step.</p>`
+        })
+      ]
+    })
+  },
   {
     route: routes.euRoadmap,
     html: GuideLayout({

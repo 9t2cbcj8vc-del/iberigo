@@ -32,6 +32,7 @@ function Header() {
           <span class="brand-wordmark" aria-label="IberiGo">Iberi<span class="brand-wordmark-accent">Go</span></span>
         </div>
         <nav aria-label="Main sections">
+          <a href="/start-here/">Start Here</a>
           <a href="/index.html?nav=start#guide-cards">Home</a>
           <a href="/the-spain-files/">The Spain Files</a>
           <a href="/support/index.html">Support IberiGo</a>
@@ -370,6 +371,7 @@ function GuideLayout(config) {
   const showToc = tocItems.length >= 3;
   const officialSources = metadata.officialSources || config.officialSources || [];
   const showTrustBlocks = Boolean(metadata.showTrustBlocks || config.showTrustBlocks || officialSources.length);
+  const showContinueJourney = config.showContinueJourney !== false;
   const mainContent = [
     Breadcrumbs(config.breadcrumbs || []),
     StatusBadge(status),
@@ -381,11 +383,11 @@ function GuideLayout(config) {
     OfficialSources(officialSources),
     showTrustBlocks ? LegalDisclaimer() : "",
     LastReviewed(lastReviewed, showTrustBlocks),
-    ContinueJourney({
+    showContinueJourney ? ContinueJourney({
       previousGuide: metadata.previousGuide || config.previousGuide || null,
       nextGuide: metadata.nextGuide || config.nextGuide || null,
       relatedGuides: metadata.relatedGuides || config.relatedGuides || []
-    })
+    }) : ""
   ].filter(Boolean).join("\n        ");
   const content = `<div class="guide-layout${showToc ? "" : " guide-layout--single"}">
           <div class="guide-content">
