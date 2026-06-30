@@ -195,8 +195,37 @@ function ContinueJourney({ previousGuide = null, nextGuide = null, relatedGuides
         </section>`;
 }
 
-function LastReviewed(date = REVIEWED) {
-  return date ? `<p class="last-reviewed">Last reviewed: ${escapeHtml(date)}</p>` : "";
+function ScopeNotice() {
+  return `<section class="guide-section guide-scope-notice" aria-labelledby="scopeNotice">
+          <h2 id="scopeNotice">Scope Notice</h2>
+          <p>This guide provides general information for Spain. Some procedures and supporting documents may vary by province or municipality.</p>
+        </section>`;
+}
+
+function OfficialSources(items = []) {
+  if (!items.length) return "";
+  return GuideSection({
+    id: "officialSources",
+    title: "Official Sources",
+    children: `${Cards(items.map((item) => ({
+      title: item.name || "Official source",
+      text: item.note || "Official reference placeholder. URL to be verified before publication."
+    })))}${InfoBox({ title: "Source status", text: "Official references are listed as placeholders until URLs and wording are verified during editorial review." })}`
+  });
+}
+
+function LegalDisclaimer() {
+  return `<section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
+          <h2 id="legalDisclaimer">Legal Disclaimer</h2>
+          <p>This guide is for informational purposes and is not legal advice.</p>
+        </section>`;
+}
+
+function LastReviewed(date = REVIEWED, reviewedAgainstOfficialGuidance = false) {
+  if (!date) return "";
+  return reviewedAgainstOfficialGuidance
+    ? `<div class="last-reviewed"><p><strong>Last reviewed:</strong> ${escapeHtml(date)}</p><p>Reviewed against official guidance.</p></div>`
+    : `<p class="last-reviewed">Last reviewed: ${escapeHtml(date)}</p>`;
 }
 
 function StatusBadge(status) {
@@ -339,6 +368,8 @@ function GuideLayout(config) {
   const sections = config.sections || [];
   const tocItems = tocItemsFromSections(sections);
   const showToc = tocItems.length >= 3;
+  const officialSources = metadata.officialSources || config.officialSources || [];
+  const showTrustBlocks = Boolean(metadata.showTrustBlocks || config.showTrustBlocks || officialSources.length);
   const mainContent = [
     Breadcrumbs(config.breadcrumbs || []),
     StatusBadge(status),
@@ -346,7 +377,10 @@ function GuideLayout(config) {
     ReadingTime(sections.join("\n")),
     GuideTableOfContents(tocItems, { variant: "mobile" }),
     ...sections,
-    LastReviewed(lastReviewed),
+    showTrustBlocks ? ScopeNotice() : "",
+    OfficialSources(officialSources),
+    showTrustBlocks ? LegalDisclaimer() : "",
+    LastReviewed(lastReviewed, showTrustBlocks),
     ContinueJourney({
       previousGuide: metadata.previousGuide || config.previousGuide || null,
       nextGuide: metadata.nextGuide || config.nextGuide || null,
@@ -375,6 +409,7 @@ function GuideLayout(config) {
           status,
           lastReviewed,
           reviewedBy: config.reviewedBy || metadata.reviewedBy || "",
+          ...(officialSources.length ? { officialSources } : {}),
           relatedGuides: metadata.relatedGuides || config.relatedGuides || [],
           editorialChecklist: config.editorialChecklist || DEFAULT_EDITORIAL_CHECKLIST
         })}`;
@@ -482,6 +517,9 @@ module.exports = {
   RealQuestions,
   GuideTableOfContents,
   ContinueJourney,
+  ScopeNotice,
+  OfficialSources,
+  LegalDisclaimer,
   LastReviewed,
   ImagePlaceholder,
   Cards,

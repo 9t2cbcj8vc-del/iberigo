@@ -103,7 +103,7 @@ const guideSummaries = {
   [routes.euRegistration]: {
     title: "EU Registration Certificate",
     label: "View the EU Registration Guide",
-    description: "Prepare the EU registration certificate step for longer-term stays in Spain."
+    description: "Prepare the EU Registration Certificate step for longer-term stays in Spain."
   },
   [routes.padron]: {
     title: "Padrón Guide",
@@ -170,7 +170,7 @@ const searchMetadataByRoute = {
     difficulty: "Moderate",
     estimatedTime: "10 min",
     appliesTo: ["EU citizens staying longer than 3 months", "EEA citizens staying longer than 3 months", "Swiss citizens staying longer than 3 months"],
-    keywords: ["EU registration", "certificate of registration", "EX-18", "Modelo 790-012", "NIE", "padrón"]
+    keywords: ["EU registration", "EU Registration Certificate", "EX-18", "Modelo 790-012", "NIE", "padrón"]
   },
   [routes.padron]: {
     category: "Moving to Spain",
@@ -249,6 +249,30 @@ const relatedRoutesByRoute = {
   [routes.accommodation]: [routes.padron, routes.banking, routes.healthcare]
 };
 
+const officialSourcesByRoute = {
+  [routes.euRoadmap]: [
+    { name: "Spanish Government", note: "General official guidance placeholder. URL to be verified before publication." },
+    { name: "Ministry responsible for immigration", note: "EU citizen residence guidance placeholder. URL to be verified before publication." },
+    { name: "Police appointment portal", note: "Appointment-system reference placeholder for EU registration steps. URL to be verified before publication." },
+    { name: "Local Town Halls", note: "Municipal guidance placeholder for padrón and local address steps. URLs vary by municipality." }
+  ],
+  [routes.euRegistration]: [
+    { name: "Spanish Government", note: "EU citizen registration guidance placeholder. URL to be verified before publication." },
+    { name: "Ministry responsible for immigration", note: "Official procedure and document guidance placeholder. URL to be verified before publication." },
+    { name: "Police appointment portal", note: "Appointment and form-routing placeholder. URL to be verified before publication." }
+  ],
+  [routes.padron]: [
+    { name: "Spanish Government", note: "General municipal registration reference placeholder. URL to be verified before publication." },
+    { name: "Local Town Halls", note: "Padrón requirements and appointment guidance vary by municipality. Local URLs to be verified before publication." }
+  ],
+  [routes.healthcare]: [
+    { name: "Spanish Government", note: "Public healthcare entitlement guidance placeholder. URL to be verified before publication." },
+    { name: "Ministry responsible for immigration", note: "Healthcare evidence for EU registration placeholder. URL to be verified before publication." },
+    { name: "Regional health services", note: "Health-card process placeholders. URLs and names vary by autonomous community." },
+    { name: "Social Security", note: "Work-linked healthcare entitlement placeholder. URL to be verified before publication." }
+  ]
+};
+
 function guideMetadataFor(route) {
   const journeyRoutesByRoute = {
     [routes.euRoadmap]: { next: routes.checklist },
@@ -270,6 +294,7 @@ function guideMetadataFor(route) {
     status: "draft",
     lastReviewed: "June 2026",
     reviewedBy: "",
+    officialSources: officialSourcesByRoute[route] || [],
     previousGuide: journeyRoutes.previous ? guideLink(journeyRoutes.previous) : null,
     nextGuide: journeyRoutes.next ? guideLink(journeyRoutes.next) : null,
     relatedGuides: (relatedRoutesByRoute[route] || commonRelatedRoutes).map(guideLink)
@@ -574,9 +599,9 @@ const pages = [
         QuickAnswer("EU citizens can move to Spain without a visa, but living in Spain longer term still involves practical admin: housing, padrón, healthcare, EU registration, banking, digital access, tax review and driving checks. The right order depends on your route and local appointment availability."),
         AtAGlance([
           ["Visa required?", "No."],
-          ["Staying longer than 3 months?", "EU registration required."],
+          ["Staying longer than 3 months?", "EU registration is usually required."],
           ["Can you work?", "Yes."],
-          ["TIE card?", "Normally no. EU citizens receive a Certificate of Registration."],
+          ["TIE card?", "Normally no. EU citizens usually receive a Certificate of Registration."],
           ["Difficulty", "Moderate."],
           ["Typical timeline", "A few weeks after arrival, depending on appointments."]
         ]),
@@ -603,7 +628,7 @@ const pages = [
           id: "officialRequirements",
           title: "Official Requirements",
           children: `${Cards([
-            { title: "No visa for EU citizens", text: "EU, EEA and Swiss citizens do not need a visa to enter Spain for this route." },
+            { title: "No visa for EU citizens", text: "EU, EEA and Swiss citizens normally do not need a visa to enter Spain for this route." },
             { title: "Longer-term stay", text: "If you live in Spain longer term, you usually need the EU Registration Certificate rather than a TIE card." },
             { title: "Your situation controls the proof", text: "The documents you prepare depend on whether you work, study, retire, run a business or live from savings." }
           ])}<!-- TODO: editorial verification required - confirm official wording and timing before moving this roadmap from draft to review. -->${WarningBox("This roadmap explains the usual sequence. Always check the official appointment instructions for the specific process you are about to complete.")}`
@@ -655,10 +680,10 @@ const pages = [
           "Ignoring tax and driving questions until they become urgent."
         ]),
         RealQuestions([
-          { question: "Do EU citizens need a visa to move to Spain?", answer: "No. EU citizens do not need a visa for this route, but longer-term residence registration and local admin can still apply." },
+          { question: "Do EU citizens need a visa to move to Spain?", answer: "Normally no. EU citizens do not usually need a visa for this route, but longer-term residence registration and local admin can still apply." },
           { question: "Should I get the padrón before EU registration?", answer: "It is often useful and may be requested. Check your appointment instructions and prepare address evidence early." },
           { question: "Does every EU citizen need private health insurance?", answer: "No. Healthcare evidence depends on whether you work, are self-employed, retired, studying or living from savings." },
-          { question: "Is the TIE for EU citizens?", answer: "Usually no. EU citizens normally receive a Certificate of Registration. TIE cards are generally for non-EU nationals." }
+          { question: "Is the TIE for EU citizens?", answer: "Usually no. EU citizens normally use the Certificate of Registration route. TIE cards are generally for non-EU nationals." }
         ]),
         GuideSection({ id: "whatHappensNext", title: "What Happens Next?", children: `<p>Start with the <a href="${routes.checklist}">Documents Checklist</a>, then move through accommodation, padrón, healthcare and EU registration as your situation becomes clear.</p>` }),
         GuideSection({ id: "youreReady", title: "Ready for the next step", children: `<p>You have the main sequence most EU citizens follow when moving to Spain. From here, use the detailed IberiGo guides for each step instead of trying to solve everything on one page.</p>` })
@@ -677,23 +702,23 @@ const pages = [
       hero: {
         kicker: "Core guide",
         title: "EU Registration Certificate in Spain",
-        intro: "EU, EEA and Swiss citizens who live in Spain longer term usually need to register and receive a Certificate of Registration.",
+        intro: "EU, EEA and Swiss citizens who live in Spain longer term usually need to register through the Certificate of Registration route.",
         asideTitle: "Not a TIE",
         asideText: "EU citizens normally apply for the EU Registration Certificate. TIE cards are generally for non-EU nationals."
       },
       sections: [
-        QuickAnswer("If you are an EU, EEA or Swiss citizen living in Spain longer term, the usual route is the Certificate of Registration. The evidence depends on whether you work, study, have funds or have another basis for residence."),
+        QuickAnswer("If you are an EU, EEA or Swiss citizen living in Spain longer term, the usual route is the EU Registration Certificate. The evidence depends on whether you work, study, have funds or have another basis for residence."),
         AtAGlance([
           ["Common form", "EX-18"],
           ["Common fee generator", "Modelo 790-012"],
-          ["Card type", "Certificate of Registration, not TIE"],
+          ["Card type", "EU Registration Certificate, not TIE"],
           ["Main dependency", "Your evidence depends on why you live in Spain."]
         ]),
         GuideSection({ id: "beforeStart", title: "Before You Start", children: `${Cards(["Confirm whether you are working, self-employed, studying, retired, or living from savings.", "Prepare identity, address, healthcare and route evidence.", "Check the official appointment wording before booking."])}${TipBox("If you are not working, arrange healthcare evidence before the registration appointment.")}` }),
         GuideSection({ id: "whoNeeds", title: "Do I need this?", children: Cards([
           { title: "You probably need this", text: "If you are an EU, EEA or Swiss citizen living in Spain longer term, this is usually the registration route to understand." },
           { title: "This is not a visa", text: "You do not need this to enter Spain as an EU citizen, but you may need it once you live here." },
-          { title: "This is not a TIE", text: "Use this guide if you are preparing the green EU registration certificate rather than a non-EU residence card." }
+          { title: "This is not a TIE", text: "Use this guide if you are preparing the EU Registration Certificate rather than a non-EU residence card." }
         ]) }),
         GuideSection({ id: "officialRequirements", title: "Official Requirements", children: `${Cards([
           "The procedure is for EU, EEA and Swiss citizen registration.",
@@ -788,7 +813,7 @@ pages.push({
         id: "officialRequirements",
         title: "Official Requirements",
         children: `${Cards([
-          { title: "Register where you live", text: "The padrón belongs to the municipality where you actually live." },
+          { title: "Register where you live", text: "The padrón is handled by the municipality where you actually live." },
           { title: "Show identity", text: "Town halls normally ask for identity documents for the people being registered." },
           { title: "Show address evidence", text: "Town halls normally ask for proof that you can register at that address, such as a rental contract, property document or authorization." }
         ])}<!-- TODO: editorial verification required - confirm whether municipality-specific examples need official source links before review status. -->${WarningBox("The padrón is local. Use your town hall’s current requirements, not a document list copied from another municipality.")}`
@@ -995,7 +1020,7 @@ pages.push({
         children: `${Cards([
           { title: "What it means", text: "Public healthcare access generally starts with a recognized right to healthcare, then registration with the regional health service." },
           { title: "Common starting points", text: "Work registration, self-employment registration, recognized dependent status, or an S1-type route may be relevant depending on your situation." },
-          { title: "Regional card", text: "Once your right is recognized, the regional health service issues the local health card." }
+          { title: "Regional card", text: "Once your right is recognized, the regional health service can issue the local health card." }
         ])}${WarningBox("Spain’s public healthcare system is national in structure but administered through regional health services. The card name and steps can vary by autonomous community.")}`
       }),
       GuideSection({
