@@ -1313,125 +1313,122 @@ pages.push({
     path: routes.banking,
     canonical: `https://iberigo.eu${routes.banking}`,
     title: "Opening a Bank Account in Spain — IberiGo",
-    description: "Learn how bank accounts work when moving to Spain, what documents banks may ask for, and how to choose between Spanish banks and starter online options.",
+    description: "A practical guide to opening a bank account in Spain, including resident and non-resident accounts, documents, fees, direct debits and common mistakes.",
     metadata: guideMetadataFor(routes.banking),
+    showContinueJourney: false,
     breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Bank Account" }],
     hero: {
       kicker: "Everyday setup",
       title: "Opening a Bank Account in Spain",
-      intro: "A bank account makes everyday life easier in Spain. It can help with rent, salary, utilities, local payments and tax admin, but the right account depends on whether you are already resident and what documents you have.",
-      asideTitle: "Start practical",
-      asideText: "You do not always need the perfect long-term bank on day one. Some people start with a flexible online option while preparing local documents."
+      intro: "A practical guide to choosing and opening a Spanish bank account, understanding common documents, avoiding unnecessary fees, and preparing for everyday payments in Spain.",
+      asideTitle: "Compare before opening",
+      asideText: "Do not choose a bank only from the account name or a promotion. Conditions, fees and document requests may vary by bank."
     },
     sections: [
-      QuickAnswer("Most people moving to Spain need a bank account for rent, salary, utilities and daily payments. Banks usually need to identify you and may ask for passport or ID, NIE or TIE if you have one, address evidence, income evidence and your tax-residence information. Exact requirements vary by bank and by account type."),
+      QuickAnswer("You can often open either a resident or non-resident account in Spain, depending on your residency status and documents. Requirements vary by bank. A Spanish IBAN can be useful for salary, rent, utilities and local payments. Some people use online banks, but certain Spanish services may still work more smoothly with a traditional Spanish bank."),
       AtAGlance([
-        ["Main question", "Do you need a resident account, non-resident account, or temporary starter option?"],
-        ["Usually useful for", "Rent, salary, utilities, card payments, tax and direct debits."],
-        ["Documents vary?", "Yes. Each bank can apply its own onboarding checks."],
-        ["NIE required?", "Often requested, but some banks offer non-resident or newcomer paths."],
-        ["Spanish IBAN", "Useful for local direct debits and some landlords or employers."],
-        ["Next step", "Prepare documents, compare account fees, then choose a bank that fits your situation."]
+        ["Account type", "Resident or non-resident account, depending on your status and documents."],
+        ["Usually useful for", "Salary, rent, utilities, taxes, Social Security payments and direct debits."],
+        ["Requirements vary?", "Yes. Exact requirements vary by bank."],
+        ["Fees vary?", "Yes. Check the current conditions before opening an account."],
+        ["Spanish IBAN", "Often useful for local payments and some Spanish providers."]
       ]),
       GuideSection({
-        id: "beforeStart",
-        title: "Before You Start",
-        children: `${Cards([
-          { title: "Know why you need it", text: "Salary, rent, utilities, savings, self-employment and daily spending can point to different account needs." },
-          { title: "Check your document stage", text: "Your options may differ if you already have NIE, padrón, EU registration, TIE or proof of income." },
-          { title: "Compare fees", text: "Look at monthly fees, card fees, transfer costs, ATM access and minimum conditions before opening." }
-        ])}${TipBox("If you are still waiting for Spanish paperwork, ask the bank whether it has a non-resident, newcomer or passport-based opening route.")}`
-      }),
-      GuideSection({
-        id: "whoNeeds",
-        title: "Who Needs This?",
+        id: "whoThisGuideIsFor",
+        title: "Who this guide is for",
         children: Cards([
-          { title: "People starting daily life", text: "Use this if you need to pay rent, utilities, mobile bills or recurring local expenses." },
-          { title: "People starting work", text: "Employers commonly ask where to pay salary. A Spanish IBAN can make this smoother." },
-          { title: "People still preparing documents", text: "Use this to decide whether to wait for local paperwork or use a temporary option first." }
+          { title: "EU citizens moving to Spain", text: "Use this if you are preparing everyday payments after arrival or during your registration steps." },
+          { title: "Non-EU residents", text: "Use this if you have or are preparing residence documents and need a practical account for life in Spain." },
+          { title: "Workers", text: "Use this if you need an account for salary, work expenses or Social Security-related payments." },
+          { title: "Retirees", text: "Use this if you need an account for pension payments, rent, utilities or regular transfers." },
+          { title: "Students", text: "Use this if you need an account for rent, fees, phone contracts or everyday spending." },
+          { title: "People setting up payments", text: "Use this if you are arranging rent, utilities, mobile phone, internet or salary payments." }
         ])
       }),
       GuideSection({
-        id: "officialRequirements",
-        title: "Official Requirements",
+        id: "residentVsNonResident",
+        title: "Resident vs non-resident accounts",
         children: `${Cards([
-          { title: "Identity checks", text: "Banks must identify customers before opening accounts. Expect passport, EU national ID, NIE, TIE or equivalent identity evidence depending on your situation." },
-          { title: "Customer profile", text: "Banks may ask where you live, where your money comes from, whether you are tax resident, and how you plan to use the account." },
-          { title: "Account type", text: "Resident, non-resident and online accounts can have different document requests and limits." }
-        ])}${WarningBox("Do not assume one bank’s answer applies everywhere. If one bank cannot open the account yet, another may have a different onboarding route.")}`
+          { title: "Resident account", text: "A resident account is normally for people who can show they live in Spain and provide the documents the bank requests for that status." },
+          { title: "Non-resident account", text: "A non-resident account may be available before your local paperwork is complete, depending on the bank and your documents." },
+          { title: "Updating status later", text: "After you receive residency documents or your tax-residence position changes, the bank may ask you to update your account details." }
+        ])}${WarningBox("Avoid treating account labels as legal advice. Account options, document requests and status updates may vary by bank and depending on your residency status.")}`
       }),
       GuideSection({
-        id: "documentsUsuallyNeed",
-        title: "Documents you'll usually prepare",
+        id: "commonDocuments",
+        title: "Common documents banks may ask for",
         children: `${ChecklistBox({
           title: "Common bank onboarding documents",
           items: [
-            "Passport or EU national identity card.",
-            "NIE, TIE or EU registration certificate if you already have one.",
-            "Address evidence such as padrón, rental contract, utility bill or foreign address proof.",
-            "Income evidence such as work contract, payslip, pension statement, tax return or savings evidence.",
-            "Tax-residence information and foreign tax number if the bank asks for it.",
-            "Spanish phone number or email for app and security verification."
+            "Passport or national ID.",
+            "NIE, if available.",
+            "Proof of address.",
+            "Employment contract or proof of income, if applicable.",
+            "Residency certificate or residence card, if available.",
+            "Tax residency information."
           ]
-        })}${InfoBox({ title: "Document reality", text: "Banks can ask for different evidence depending on your nationality, residency status, income source and account type." })}`
+        })}${InfoBox({ title: "Exact requirements vary by bank", text: "Banks can ask for different evidence depending on your nationality, residency status, income source, tax residency and account type." })}`
       }),
       GuideSection({
-        id: "choosingAccount",
-        title: "Choosing the right account",
-        children: `<table class="guide-table"><tbody>
-          <tr><th>Option</th><td><strong>When it may fit</strong></td></tr>
-          <tr><th>Spanish resident account</th><td>Usually best once you have Spanish documents and plan to live in Spain.</td></tr>
-          <tr><th>Non-resident account</th><td>Can help before full local setup, but may have more limits or fees.</td></tr>
-          <tr><th>Online starter account</th><td>Useful while waiting for local paperwork, especially for card spending and international transfers.</td></tr>
-          <tr><th>Business or autónomo account</th><td>Consider this separately if you will invoice, trade or register self-employed activity.</td></tr>
-        </tbody></table>`
-      }),
-      GuideSection({
-        id: "practicalAdvice",
-        title: "Practical Advice",
+        id: "feesCommissions",
+        title: "Fees and commissions",
         children: `${Cards([
-          { title: "Ask about Spanish IBAN", text: "A Spanish IBAN can make rent, utilities, local payroll and some direct debits easier." },
-          { title: "Keep a backup", text: "Do not rely on one card during your first weeks. Keep a second card or account available." },
-          { title: "Check language support", text: "If you are not comfortable in Spanish yet, ask about English support in branch, app and customer service." }
-        ])}${TipBox("Before choosing, ask the bank to show the full fee schedule, not only the headline account name.")}`
+          { title: "Maintenance fees", text: "Some accounts may charge monthly or quarterly maintenance fees. Check the current conditions before opening an account." },
+          { title: "Card fees", text: "Debit or credit cards may have separate fees, renewal fees or conditions for avoiding charges." },
+          { title: "Transfer fees", text: "Transfers may be free in some cases and charged in others, depending on the bank, destination and account conditions." },
+          { title: "Fee conditions", text: "Some banks reduce or remove fees if you meet conditions such as salary, pension or recurring income deposits." },
+          { title: "Direct deposit requirements", text: "Salary or pension direct deposit requirements may vary by bank and account type." },
+          { title: "Product bundles", text: "Some offers may involve insurance, credit cards or other products. Understand whether they are optional before accepting them." }
+        ])}${WarningBox("Do not rely on old fee tables, promotions or another customer’s conditions. Fees and account conditions may change, so check the current terms before opening an account.")}`
       }),
       GuideSection({
-        id: "stepProcess",
-        title: "Step-by-Step Process",
-        children: StepTimeline([
-          { title: "Decide what the account is for", text: "Salary, rent, daily spending, self-employment or savings may point to different choices." },
-          { title: "Prepare identity and address evidence", text: "Gather passport or ID, NIE/TIE if available, address evidence and income evidence." },
-          { title: "Compare account types", text: "Look at resident, non-resident and online options. Compare fees and limits." },
-          { title: "Open the account", text: "Complete the bank’s onboarding process and keep copies of documents you submit." },
-          { title: "Test payments", text: "Check card activation, bank transfers, direct debits, app access and security codes before relying on it." }
-        ])
+        id: "directDebitsEverydayUse",
+        title: "Direct debits and everyday use",
+        children: `${Cards([
+          { title: "Utilities", text: "Electricity and water companies commonly use bank direct debits for regular bills." },
+          { title: "Home services", text: "Internet and mobile phone providers may ask for bank details when setting up contracts." },
+          { title: "Rent and salary", text: "A Spanish IBAN can make rent payments and salary deposits smoother, depending on the landlord or employer." },
+          { title: "Taxes", text: "A bank account can be useful for tax payments or direct debit arrangements when they apply." },
+          { title: "Social Security", text: "If you are self-employed or have other contribution obligations, bank payments may be part of the setup." },
+          { title: "Proof of ownership", text: "Keep an IBAN certificate or account ownership document because landlords, employers or offices may ask for it." }
+        ])}${TipBox("Ask how to download proof of account ownership from the app or branch before you need it urgently.")}`
+      }),
+      GuideSection({
+        id: "onlineVsTraditional",
+        title: "Online banks vs traditional banks",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Option</th><td><strong>What to consider</strong></td></tr>
+          <tr><th>Online banks</th><td>Online banks may offer easier setup, lower fees and a strong app experience. They can be useful for spending, transfers and early setup, depending on your documents and needs.</td></tr>
+          <tr><th>Traditional Spanish banks</th><td>Traditional Spanish banks offer branch access and may be easier for some local paperwork. They may also be more familiar to landlords, employers or utility companies.</td></tr>
+          <tr><th>Neutral comparison</th><td>Neither option is automatically best. Compare documents, fees, Spanish IBAN availability, customer support, direct debits and your expected use.</td></tr>
+        </tbody></table>${InfoBox({ title: "Practical reality", text: "Some Spanish services may work more smoothly with a traditional Spanish bank, while many everyday payments can work well with online banks. Check before relying on one account for everything." })}`
       }),
       CommonMistakes([
-        "Assuming every landlord or employer accepts any European IBAN without friction.",
         "Opening the first account offered without checking fees.",
-        "Not keeping proof of income or funds ready.",
-        "Relying on one card during the first weeks after arrival.",
+        "Accepting paid extras without understanding them.",
+        "Not updating details after becoming resident.",
+        "Assuming every provider accepts every IBAN smoothly.",
+        "Not keeping proof of account ownership.",
         "Ignoring tax-residence questions during bank onboarding."
       ]),
       RealQuestions([
-        { question: "Do I need a Spanish bank account immediately?", answer: "Not always, but it usually makes rent, utilities, payroll and local payments easier." },
-        { question: "Can I open an account before I have a NIE?", answer: "Some banks may offer non-resident or newcomer options, but requirements vary. Ask the bank directly." },
-        { question: "Are Revolut, bunq or Wise enough?", answer: "They can be useful starter options. For long-term life in Spain, you may still want a traditional Spanish bank account depending on rent, payroll and local direct debits." },
-        { question: "Will the bank ask about taxes?", answer: "Often yes. Banks commonly ask about tax residence and customer profile during onboarding." }
+        { question: "Can I open a bank account before getting my NIE?", answer: "Some banks may offer non-resident or passport-based routes, but this varies by bank. Ask what documents they require before booking an appointment or starting an online application." },
+        { question: "Do I need a Spanish bank account to live in Spain?", answer: "Not always legally, but it can make salary, rent, utilities, taxes and local direct debits easier. Some providers may work more smoothly with a Spanish IBAN." },
+        { question: "Can I use an online bank?", answer: "Yes, many people use online banks for everyday payments. Check whether the account works for your rent, salary, direct debits and any Spanish paperwork you need." },
+        { question: "Should I choose a resident or non-resident account?", answer: "It depends on your residency status and documents. If you open a non-resident account first, ask how to update it after you receive residency documents." },
+        { question: "Can banks charge fees?", answer: "Yes. Fees, commissions and conditions may vary by bank and by account type. Check the current fee schedule before opening the account." },
+        { question: "Do I need to change my account after getting residency?", answer: "You may need to update your details or account status after becoming resident. Ask the bank what it requires and keep proof of the update." }
       ]),
       GuideSection({
-        id: "officialSources",
-        title: "Official and useful sources",
-        children: `${SourceLinks([
-          { label: "Banco de España customer portal", href: "https://clientebancario.bde.es/pcb/en/" },
-          { label: "View the Padrón Guide", href: routes.padron },
-          { label: "View the Taxes Guide", href: routes.taxes }
-        ])}`
-      }),
-      GuideSection({
         id: "whatHappensNext",
-        title: "What Happens Next?",
-        children: `<p>Once your banking is stable, set up digital access so you can handle public services online, then review your tax address and tax-residence position.</p>${TipBox("Keep your bank contract, IBAN certificate and account-opening documents with your Spain paperwork folder.")}`
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Digital Certificate Guide", href: routes.digital },
+          { label: "View the Taxes Guide", href: routes.taxes },
+          { label: "View the Social Security Guide", href: routes.social },
+          { label: "View the Healthcare Guide", href: routes.healthcare }
+        ])}${TipBox("Keep your bank contract, IBAN certificate and account-opening documents with your Spain paperwork folder.")}`
       })
     ]
   })
