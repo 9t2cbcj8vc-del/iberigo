@@ -23,6 +23,7 @@ const reviewPlaceholder = "Content under editorial review.";
 const routes = {
   startHere: "/start-here/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
+  settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/guides/eu-registration/",
   padron: "/moving-to-spain/registering-on-the-padron/",
   healthcare: "/moving-to-spain/healthcare/",
@@ -101,6 +102,11 @@ const guideSummaries = {
     label: "View the EU Citizen Roadmap",
     description: "Follow the usual order of moving steps for EU, EEA and Swiss citizens."
   },
+  [routes.settling]: {
+    title: "Settling Into Spain",
+    label: "View the Settling Into Spain Guide",
+    description: "Follow the main arrival steps after reaching Spain without relying on fixed timelines."
+  },
   [routes.euRegistration]: {
     title: "EU Registration Certificate",
     label: "View the EU Registration Guide",
@@ -172,6 +178,13 @@ const searchMetadataByRoute = {
     estimatedTime: "12 min",
     appliesTo: ["EU citizens moving to Spain", "EEA citizens moving to Spain", "Swiss citizens moving to Spain"],
     keywords: ["EU citizen", "EU registration", "moving to Spain", "roadmap", "padrón", "healthcare", "banking", "taxes"]
+  },
+  [routes.settling]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "12 min",
+    appliesTo: ["People who have arrived in Spain", "People planning the order of arrival admin", "EU citizens checking practical next steps"],
+    keywords: ["settling into Spain", "arrival steps", "padrón", "healthcare", "EU registration", "bank account", "digital certificate", "Cl@ve"]
   },
   [routes.euRegistration]: {
     category: "Moving to Spain",
@@ -247,6 +260,7 @@ const searchMetadataByRoute = {
 
 const relatedRoutesByRoute = {
   [routes.startHere]: [routes.euRoadmap, routes.euRegistration, routes.padron, routes.healthcare],
+  [routes.settling]: [routes.healthcare, routes.euRegistration, routes.banking, routes.digital],
   [routes.padron]: [routes.accommodation, routes.healthcare, routes.euRegistration],
   [routes.healthcare]: [routes.social, routes.euRoadmap, routes.checklist],
   [routes.checklist]: [routes.padron, routes.healthcare, routes.euRegistration],
@@ -286,6 +300,7 @@ function guideMetadataFor(route) {
   const journeyRoutesByRoute = {
     [routes.startHere]: { next: routes.euRoadmap },
     [routes.euRoadmap]: { next: routes.checklist },
+    [routes.settling]: { previous: routes.euRoadmap, next: routes.padron },
     [routes.checklist]: { previous: routes.euRoadmap, next: routes.accommodation },
     [routes.accommodation]: { previous: routes.checklist, next: routes.padron },
     [routes.padron]: { previous: routes.accommodation, next: routes.healthcare },
@@ -778,6 +793,132 @@ const pages = [
         ]),
         GuideSection({ id: "whatHappensNext", title: "What Happens Next?", children: `<p>Start with the <a href="${routes.checklist}">Documents Checklist</a>, then move through accommodation, padrón, healthcare and EU registration as your situation becomes clear.</p>` }),
         GuideSection({ id: "youreReady", title: "Ready for the next step", children: `<p>You have the main sequence most EU citizens follow when moving to Spain. From here, use the detailed IberiGo guides for each step instead of trying to solve everything on one page.</p>` })
+      ]
+    })
+  },
+  {
+    route: routes.settling,
+    html: GuideLayout({
+      path: routes.settling,
+      canonical: `https://iberigo.eu${routes.settling}`,
+      title: "Settling Into Spain: Your First Steps After Arrival — IberiGo",
+      description: "A practical guide to the first steps after arriving in Spain, including accommodation, padrón, healthcare, registration, banking and digital access.",
+      metadata: guideMetadataFor(routes.settling),
+      breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Settling Into Spain" }],
+      hero: {
+        kicker: "Arrival guide",
+        title: "Settling Into Spain",
+        intro: "A calm, practical guide to the first steps after you arrive in Spain. Follow the steps in order, but remember that appointment availability can vary by province and municipality.",
+        asideTitle: "Sequence, not deadlines",
+        asideText: "Use this guide to understand what usually comes before what, then check the detailed guide for each step."
+      },
+      sections: [
+        QuickAnswer("After arriving in Spain, the practical sequence usually starts with accommodation and local address evidence, then padrón, healthcare, residence registration if applicable, banking, digital access, Social Security if working, tax review and driving checks. The exact order can shift depending on your situation and local appointment availability."),
+        GuideSection({
+          id: "timelinesVary",
+          title: "Timelines vary",
+          children: `<p>The order of these steps matters more than the speed. In some areas, appointments may be available quickly. In others, including high-demand municipalities, waiting times can be much longer. This guide explains what to do next without promising a fixed timeline.</p>`
+        }),
+        AtAGlance([
+          ["Main purpose", "Understand the practical sequence after arrival."],
+          ["Fixed timeline?", "No. Appointment availability can vary by province and municipality."],
+          ["Core dependency", "Address evidence often affects padrón, healthcare, banking and other steps."],
+          ["Who should use this?", "People who have arrived in Spain or are planning their arrival admin."]
+        ]),
+        GuideSection({
+          id: "secureAccommodation",
+          title: "Secure accommodation",
+          children: `${Cards([
+            { title: "Arrival", text: "Your address is often the foundation for later steps, even if your first accommodation is temporary." },
+            { title: "Official requirements", text: "Requirements depend on the process using the address evidence. Town halls and other offices may ask for different proof." },
+            { title: "Practical advice", text: "Before signing or paying, ask whether the address can support the paperwork you expect to need, especially padrón." }
+          ])}${TipBox("Keep rental contracts, authorization letters, receipts and host details together so you can compare them with local instructions.")}`
+        }),
+        GuideSection({
+          id: "registerPadron",
+          title: "Register on the padrón",
+          children: `${Cards([
+            { title: "Registration", text: "The padrón is municipal address registration at the town hall for the place where you live." },
+            { title: "Official requirements", text: "Documents vary by municipality and by housing situation. The town hall decides what evidence it accepts." },
+            { title: "Practical advice", text: "Check your town hall process early because appointment availability and accepted documents can vary by municipality." }
+          ])}<p>Use the <a href="${routes.padron}">Padrón Guide</a> when you are ready to prepare documents for this step.</p>`
+        }),
+        GuideSection({
+          id: "arrangeHealthcare",
+          title: "Arrange healthcare",
+          children: `${Cards([
+            { title: "Registration", text: "Healthcare should be understood before any process that asks you to prove cover or entitlement." },
+            { title: "Official requirements", text: "Your route may depend on work, self-employment, an S1, student status, private insurance or another entitlement." },
+            { title: "Practical advice", text: "Do not assume the same route applies to every newcomer. Healthcare evidence depends on your circumstances." }
+          ])}<p>The <a href="${routes.healthcare}">Healthcare Guide</a> explains the main routes and common evidence questions.</p>`
+        }),
+        GuideSection({
+          id: "registerEuResident",
+          title: "Register as an EU resident, if applicable",
+          children: `${Cards([
+            { title: "Registration", text: "EU, EEA and Swiss citizens living in Spain longer term usually use the EU Registration Certificate route." },
+            { title: "Official requirements", text: "Evidence depends on whether you work, are self-employed, study, retire or live from savings." },
+            { title: "Practical advice", text: "Prepare healthcare, address and route evidence before the appointment, and check the exact appointment instructions for your province." }
+          ])}<p>Use the <a href="${routes.euRegistration}">EU Registration Guide</a> if this route applies to you.</p>${WarningBox("EU citizens normally prepare for the EU Registration Certificate, not a TIE. Non-EU family members or other routes may follow different processes.")}`
+        }),
+        GuideSection({
+          id: "openBankAccount",
+          title: "Open a bank account",
+          children: `${Cards([
+            { title: "Everyday Setup", text: "A Spanish bank account can help with rent, utilities, salary, taxes and local payments." },
+            { title: "Official requirements", text: "Banks must identify customers, but accepted documents and account types can vary by bank and by your situation." },
+            { title: "Practical advice", text: "Compare fees, document requests and whether the account fits a resident or non-resident situation." }
+          ])}<p>The <a href="${routes.banking}">Bank Account Guide</a> explains what to compare before choosing an account.</p>`
+        }),
+        GuideSection({
+          id: "digitalCertificateClave",
+          title: "Set up Digital Certificate or Cl@ve",
+          children: `${Cards([
+            { title: "Everyday Setup", text: "Digital access helps you use tax, Social Security, municipal and other public-service portals online." },
+            { title: "Official requirements", text: "The route you can use may depend on your identity documents, NIE and verification options." },
+            { title: "Practical advice", text: "Set this up when your identity details are ready enough for the verification route you choose." }
+          ])}<p>Use the <a href="${routes.digital}">Digital Certificate Guide</a> to compare FNMT digital certificate and Cl@ve options.</p>`
+        }),
+        GuideSection({
+          id: "reviewSocialSecurity",
+          title: "Review Social Security, if working",
+          children: `${Cards([
+            { title: "Everyday Setup", text: "If you work or become self-employed in Spain, Social Security registration may affect work, contributions and healthcare entitlement." },
+            { title: "Official requirements", text: "Requirements depend on whether you are employed, self-employed or in another work-related situation." },
+            { title: "Practical advice", text: "Separate getting a Social Security number from being correctly registered for work or contributions." }
+          ])}<p>If work applies to you, review the <a href="${routes.social}">Social Security Guide</a> before assuming your employer, client or gestor has completed every step.</p>`
+        }),
+        GuideSection({
+          id: "understandTax",
+          title: "Understand tax obligations",
+          children: `${Cards([
+            { title: "Everyday Setup", text: "Tax questions can arise from residence, income, assets, work, self-employment or property." },
+            { title: "Official requirements", text: "Tax obligations depend on your circumstances and can involve Spanish and non-Spanish income or assets." },
+            { title: "Practical advice", text: "Review your tax position before deadlines or notices become urgent, especially if your situation crosses countries." }
+          ])}<p>The <a href="${routes.taxes}">Taxes Guide</a> gives a plain-English starting point for tax residence, tax address and first checks.</p>`
+        }),
+        GuideSection({
+          id: "checkDriving",
+          title: "Check driving licence rules",
+          children: `${Cards([
+            { title: "Everyday Setup", text: "Driving rules depend on where your licence was issued and whether you are visiting or living in Spain." },
+            { title: "Official requirements", text: "Licence validity, exchange or renewal questions can vary depending on your country of issue and residence position." },
+            { title: "Practical advice", text: "Check the rules before relying on old assumptions from tourist visits or from another country." }
+          ])}<p>Use the <a href="${routes.driving}">Driving Guide</a> to understand which licence questions to check next.</p>`
+        }),
+        CommonMistakes([
+          "Treating the arrival steps as fixed deadlines instead of a sequence that depends on appointments and local rules.",
+          "Signing accommodation without checking whether it can support padrón or later address evidence.",
+          "Assuming healthcare evidence is the same for workers, retirees, students and self-funded residents.",
+          "Booking the wrong residence appointment because the terminology is confusing.",
+          "Leaving banking, digital access, tax and driving questions until another process is blocked."
+        ]),
+        RealQuestions([
+          { question: "Should I do everything in this exact order?", answer: "Use this as the normal sequence, but adapt it to your situation and local appointment availability. Some preparation can happen in parallel." },
+          { question: "Can I register on the padrón with temporary accommodation?", answer: "It depends on the municipality and the evidence you have. Check the town hall instructions before assuming the address will be accepted." },
+          { question: "Do I need healthcare before EU registration?", answer: "It depends on your EU registration route. If you are not working, healthcare evidence may be an important part of the registration file." },
+          { question: "Is this only for EU citizens?", answer: "No. Many arrival steps apply broadly, but EU registration is only relevant if that route applies to you." }
+        ])
       ]
     })
   },
