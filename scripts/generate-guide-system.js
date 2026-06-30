@@ -1440,125 +1440,126 @@ pages.push({
     path: routes.digital,
     canonical: `https://iberigo.eu${routes.digital}`,
     title: "Digital Certificate and Cl@ve in Spain — IberiGo",
-    description: "Understand Spain's main digital access options, when to use an FNMT digital certificate or Cl@ve, and what to prepare before registering.",
+    description: "A practical guide to Spain’s Digital Certificate and Cl@ve, including what they are used for, who needs them, how they differ, and common mistakes.",
     metadata: guideMetadataFor(routes.digital),
+    showContinueJourney: false,
     breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Digital Certificate" }],
     hero: {
       kicker: "Online access",
       title: "Digital Certificate and Cl@ve in Spain",
-      intro: "Spain’s public administration is heavily online. A digital certificate or Cl@ve can save time with tax, Social Security, municipal certificates and many everyday procedures.",
+      intro: "A practical guide to Spain’s main digital identity systems, why they matter, and how they help you complete official procedures online.",
       asideTitle: "Two different tools",
-      asideText: "The FNMT digital certificate is a certificate used for identification and signing. Cl@ve is a public login system with different registration levels."
+      asideText: "Digital Certificate and Cl@ve can both help with online public services, but they are not the same system."
     },
     sections: [
-      QuickAnswer("For many newcomers, the FNMT citizen digital certificate is the most useful first digital tool once you have a NIE or Spanish tax identity. Cl@ve is also useful, but the registration path can depend on your identity documents and verification method. You may eventually want both."),
+      QuickAnswer("Digital Certificate and Cl@ve are used to identify yourself online with Spanish public administrations. They may help with tax, Social Security, health, immigration, municipal and other official procedures, depending on the administration and the specific process. They are not the same system, and many residents eventually need at least one of them."),
       AtAGlance([
-        ["Main question", "Do you need a certificate, Cl@ve, or both?"],
-        ["Useful for", "Tax Agency, Social Security, certificates, notifications and public-service portals."],
-        ["FNMT certificate", "Software certificate after online request and identity verification."],
-        ["Cl@ve", "Government login system for public administration services."],
-        ["NIE helpful?", "Yes. Many newcomers need a NIE before digital access becomes realistic."],
-        ["Next step", "Choose the route you can actually verify with your current documents."]
+        ["Main purpose", "Identify yourself online with Spanish public administrations."],
+        ["Digital Certificate", "A digital identity certificate installed or managed on a device or browser."],
+        ["Cl@ve", "Spain’s electronic identification system for public-service access."],
+        ["Same system?", "No. They work differently and are accepted differently depending on the procedure."],
+        ["Useful for", "Tax, Social Security, notifications, certificates and some local or regional services."]
       ]),
       GuideSection({
-        id: "beforeStart",
-        title: "Before You Start",
-        children: `${Cards([
-          { title: "Check your identity document", text: "Your route depends on whether you have DNI, NIE, TIE, EU ID, passport or another accepted document." },
-          { title: "Use one browser and device", text: "For certificate requests, follow the official browser and device instructions carefully." },
-          { title: "Plan identity verification", text: "Some routes require in-person or video identity accreditation before activation." }
-        ])}${WarningBox("Do not start a certificate request casually and then switch devices or browsers. Certificate processes can be sensitive to where and how the request was started.")}`
-      }),
-      GuideSection({
-        id: "whoNeeds",
-        title: "Who Needs This?",
+        id: "whoThisGuideIsFor",
+        title: "Who this guide is for",
         children: Cards([
-          { title: "EU citizens settling in Spain", text: "Digital access helps with tax, Social Security, certificates and some local services." },
-          { title: "People working or self-employed", text: "Online access becomes especially useful for Social Security, tax and professional admin." },
-          { title: "People managing paperwork remotely", text: "Digital access can reduce office visits once it is correctly set up." }
+          { title: "EU citizens living in Spain", text: "Use this if you need online access for tax, Social Security, municipal certificates or residence-related admin." },
+          { title: "Non-EU residents", text: "Use this if you manage residence, tax, notifications or other official services online." },
+          { title: "Workers", text: "Use this if you need to check Social Security, tax or employment-related records." },
+          { title: "Self-employed people", text: "Use this if you handle tax, Social Security, notifications or certificates for professional activity." },
+          { title: "Retirees", text: "Use this if you need access to healthcare, certificates, tax or pension-related administration." },
+          { title: "Students", text: "Use this if you deal with study, residence, health or municipal procedures online." },
+          { title: "Anyone dealing with public administration", text: "Use this if Spanish public offices direct you to an online portal or notification system." }
         ])
       }),
       GuideSection({
-        id: "officialRequirements",
-        title: "Official Requirements",
+        id: "whatIsDigitalCertificate",
+        title: "What is a Digital Certificate?",
         children: `${Cards([
-          { title: "FNMT certificate", text: "The citizen certificate process normally starts with an online application and continues with identity accreditation before download." },
-          { title: "Cl@ve", text: "Cl@ve registration depends on the accepted identity method and the level of registration you complete." },
-          { title: "Electronic ID", text: "Some EU citizens may also use an electronic national ID on certain portals if supported." }
-        ])}${InfoBox({ title: "Plain-language meaning", text: "A digital certificate is closer to an electronic signature. Cl@ve is closer to a login system for public services." })}`
+          { title: "Digital identity certificate", text: "A Digital Certificate is a digital identity certificate installed or managed on a device or browser." },
+          { title: "Official portal access", text: "It can be used to sign in to official government portals where certificates are accepted." },
+          { title: "Electronic signing", text: "It may also allow you to sign documents electronically, depending on the portal and procedure." },
+          { title: "Common uses", text: "It is commonly used for tax, Social Security and administrative procedures." }
+        ])}${InfoBox({ title: "Keep it general", text: "Technical setup and accepted browsers can change. Check the official site before applying or installing anything." })}`
       }),
       GuideSection({
-        id: "compareOptions",
-        title: "Certificate or Cl@ve?",
+        id: "whatIsClave",
+        title: "What is Cl@ve?",
+        children: `${Cards([
+          { title: "Electronic identification system", text: "Cl@ve is Spain’s electronic identification system for accessing public services." },
+          { title: "Access methods", text: "It may use app-based or code-based access depending on the setup and registration level." },
+          { title: "Regular online access", text: "Cl@ve is often easier for regular sign-in access across public portals." },
+          { title: "Different from a certificate", text: "Cl@ve is not exactly the same as a Digital Certificate and may not be accepted for every certificate-based action." }
+        ])}${WarningBox("Do not assume Cl@ve and a Digital Certificate can be used interchangeably. Which one you need depends on the procedure.")}`
+      }),
+      GuideSection({
+        id: "digitalCertificateVsClave",
+        title: "Digital Certificate vs Cl@ve",
         children: `<table class="guide-table"><tbody>
-          <tr><th>Option</th><td><strong>Best use</strong></td></tr>
-          <tr><th>FNMT digital certificate</th><td>Useful for signing, downloading certificates, Tax Agency services and many official procedures.</td></tr>
-          <tr><th>Cl@ve PIN</th><td>Useful for frequent public-service login where PIN access is accepted.</td></tr>
-          <tr><th>Cl@ve Permanente</th><td>Useful for more stable access where permanent credentials are accepted.</td></tr>
-          <tr><th>Electronic DNI or EU eID</th><td>Useful only where the portal supports your document and technical setup.</td></tr>
+          <tr><th>System</th><td><strong>What to know</strong></td></tr>
+          <tr><th>Digital Certificate</th><td>Often stronger for electronic signing, installed or managed on a device, and useful for many official procedures.</td></tr>
+          <tr><th>Cl@ve</th><td>Often easier for sign-in access, useful across many public portals, and may be simpler for day-to-day access.</td></tr>
+          <tr><th>Which one?</th><td>Which one you need depends on the procedure, the administration and the verification level required.</td></tr>
         </tbody></table>`
       }),
       GuideSection({
-        id: "practicalAdvice",
-        title: "Practical Advice",
+        id: "whatCanUseFor",
+        title: "What can you use them for?",
         children: `${Cards([
-          { title: "Start with the route you can verify", text: "If you have a NIE but not a TIE, the FNMT certificate may be easier than some Cl@ve paths." },
-          { title: "Keep access secure", text: "Store certificate backups and passwords carefully. Losing them can mean repeating the process." },
-          { title: "Use official portals", text: "Avoid unofficial sites that charge for simple registration instructions or ask for sensitive data." }
-        ])}${TipBox("After setup, test your access on the Tax Agency or Social Security site before you urgently need it.")}`
+          { title: "Tax Agency procedures", text: "They may allow you to access tax data, file or review tax procedures, and manage some tax notifications." },
+          { title: "Social Security procedures", text: "They may allow you to check Social Security records, certificates or contribution-related information." },
+          { title: "Notifications", text: "Digital access can help you check official notifications where the relevant administration uses online notice systems." },
+          { title: "Municipal procedures", text: "Some town halls may allow certificate requests, local tax tasks or other municipal procedures online." },
+          { title: "Immigration-related procedures", text: "Some immigration or residence-related processes may be available online where the relevant portal supports them." },
+          { title: "Health service access", text: "Regional health services may support online access depending on the autonomous community and procedure." },
+          { title: "Certificates and official documents", text: "They may allow downloading certificates or official documents from public portals." }
+        ])}${WarningBox("Availability depends on the public administration and the specific procedure. Do not assume every process can be completed online.")}`
       }),
       GuideSection({
-        id: "documentsUsuallyNeed",
-        title: "Documents and details you'll usually prepare",
-        children: ChecklistBox({
-          title: "Digital access preparation",
+        id: "beforeStart",
+        title: "Before you start",
+        children: `${ChecklistBox({
+          title: "Details that may be needed",
           items: [
-            "NIE, DNI, TIE or accepted identity document.",
-            "Email address and mobile phone number you control.",
-            "Computer or browser setup required by the official certificate process.",
-            "Appointment or identity-verification confirmation if required.",
-            "Safe place to store certificate passwords and backup files."
+            "NIE.",
+            "Passport or national ID.",
+            "Spanish phone number, in some cases.",
+            "Email address.",
+            "Appointment or identity verification, depending on the route.",
+            "Access to official government websites."
           ]
-        })
-      }),
-      GuideSection({
-        id: "stepProcess",
-        title: "Step-by-Step Process",
-        children: StepTimeline([
-          { title: "Decide what you need access for", text: "Tax, Social Security, certificates, local admin and notifications can point to different access needs." },
-          { title: "Check whether FNMT or Cl@ve fits your documents", text: "Use the official pages to confirm the route your current identity documents support." },
-          { title: "Start the official registration", text: "Follow the official request steps carefully, especially device and browser instructions." },
-          { title: "Complete identity verification", text: "Use the accepted in-person, video or online verification method if required." },
-          { title: "Test and store access safely", text: "Confirm it works, then protect passwords, certificate files and recovery options." }
-        ])
+        })}${InfoBox({ title: "Requirements can vary", text: "These details are not always required in the same way. The process may vary by route, document type and public administration." })}`
       }),
       CommonMistakes([
-        "Confusing Cl@ve with an FNMT digital certificate.",
-        "Starting a certificate request on one device and trying to finish on another.",
-        "Using unofficial paid pages instead of official registration portals.",
-        "Waiting until a tax or Social Security deadline before setting up access.",
-        "Losing certificate passwords or backup files."
+        "Confusing Digital Certificate with Cl@ve.",
+        "Losing access after changing device or browser.",
+        "Not saving backup or export instructions where they apply.",
+        "Using unofficial websites that ask for sensitive data or charge for basic instructions.",
+        "Ignoring official notifications once online access is active.",
+        "Assuming every process is available online.",
+        "Waiting until an urgent deadline before setting up access."
       ]),
       RealQuestions([
-        { question: "Do I need both Cl@ve and a digital certificate?", answer: "Not always, but many residents eventually find both useful. Start with the route you can verify now." },
-        { question: "Can I get an FNMT certificate with a NIE?", answer: "The FNMT citizen certificate route can be available with Spanish tax/identity details. Check the official FNMT instructions for your exact document." },
-        { question: "Why is Cl@ve difficult for some newcomers?", answer: "Some registration methods depend on accepted identity details and address or document records that newcomers may not yet have." },
-        { question: "Is this the same as my bank login?", answer: "No. Bank logins are private banking access. Cl@ve and digital certificates are for public administration services." }
+        { question: "Do I need both Digital Certificate and Cl@ve?", answer: "Not always. Many residents eventually use at least one, and some find both useful. Which one you need depends on the procedure." },
+        { question: "Can I use them without being Spanish?", answer: "Often yes, depending on your identity documents and the registration route. Check the official site for the exact requirements that apply to you." },
+        { question: "Do I need a NIE?", answer: "A NIE is commonly relevant for foreign residents using Spanish public administration online, but exact requirements may vary by system and route." },
+        { question: "Can I use them on my phone?", answer: "Cl@ve may support app-based access. Digital Certificate use on phones depends on the certificate, device and portal, so check official instructions before relying on it." },
+        { question: "What happens if I change computer?", answer: "You may need backup, export or reinstallation steps for a Digital Certificate. Save official recovery or export guidance where applicable." },
+        { question: "Are they useful for taxes?", answer: "Yes. They may allow you to access Tax Agency services, check data, manage notifications or complete tax procedures, depending on the process." },
+        { question: "Are they useful for Social Security?", answer: "Yes. They may allow access to Social Security services, certificates and records, depending on the service and identification method accepted." }
       ]),
       GuideSection({
-        id: "officialSources",
-        title: "Official sources",
-        children: SourceLinks([
-          { label: "FNMT citizen certificate", href: "https://www.sede.fnmt.gob.es/certificados/persona-fisica" },
-          { label: "Cl@ve registration", href: "https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html" },
-          { label: "FNMT appointment via Tax Agency", href: "https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion" }
-        ])
-      }),
-      GuideSection({
         id: "whatHappensNext",
-        title: "What Happens Next?",
-        children: `<p>Once your digital access works, use it to review tax details, Social Security services and certificates you may need later.</p>${TipBox("Before filing anything important, log in once just to confirm your access works and your personal details look correct.")}`
-      })
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Opening a Bank Account Guide", href: routes.banking },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Before filing anything important, log in once to confirm your access works and your personal details look correct.")}`
+      }),
     ]
   })
 });
