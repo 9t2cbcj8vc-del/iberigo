@@ -1569,121 +1569,141 @@ pages.push({
   html: GuideLayout({
     path: routes.taxes,
     canonical: `https://iberigo.eu${routes.taxes}`,
-    title: "Taxes When Living in Spain — IberiGo",
-    description: "A practical first guide to tax residence, tax address, IRPF, foreign income and when to get professional tax advice after moving to Spain.",
+    title: "Taxes in Spain for New Residents — IberiGo",
+    description: "A practical introduction to taxes in Spain for new residents, including tax residency, income tax, worldwide income, common obligations and mistakes to avoid.",
     metadata: guideMetadataFor(routes.taxes),
+    showContinueJourney: false,
     breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Taxes" }],
     hero: {
       kicker: "Money and residency",
-      title: "Taxes When Living in Spain",
-      intro: "Tax is one of the areas where early planning matters. This guide explains the first concepts to understand before you rely on assumptions from your home country.",
-      asideTitle: "Get advice early",
-      asideText: "Small tax decisions can become expensive later. Use this page as orientation, not as personal tax advice."
+      title: "Taxes in Spain for New Residents",
+      intro: "A practical guide to understanding when Spain may consider you tax resident, what that can mean, and which tax topics new residents should review carefully.",
+      asideTitle: "General information",
+      asideText: "This guide helps you identify questions to review. It does not calculate your tax residence, filings or tax due."
     },
     sections: [
-      QuickAnswer("If you live in Spain, you need to understand tax residence, tax address, annual income tax, foreign income and reporting obligations. Tax residence is not the same as immigration residence, and the answer can depend on days in Spain, where your main interests are, family ties and treaty rules."),
+      QuickAnswer("Living in Spain can create Spanish tax obligations. Tax residency is not the same as immigration residency. Spain may tax residents on worldwide income, while non-residents may still have Spanish tax obligations if they have Spanish income or property. New residents should review their situation early."),
+      GuideSection({
+        id: "taxDisclaimer",
+        title: "Important tax note",
+        children: `<p>This guide is general information only and is not tax advice. Tax residency and tax obligations can depend on your personal circumstances, income sources, family situation and international tax treaties. If you are unsure, speak with a qualified tax adviser.</p>`
+      }),
       AtAGlance([
         ["Main question", "Could Spain consider you tax resident?"],
-        ["Common day test", "More than 183 days in Spain is a major tax-residence indicator."],
-        ["Other indicators", "Economic interests, family and personal centre can also matter."],
-        ["Tax address", "Your domicilio fiscal should reflect your real tax address."],
+        ["Immigration vs tax", "They are separate questions."],
+        ["Calendar year", "Spanish tax residency is commonly assessed by calendar year."],
         ["Worldwide income", "Spanish tax residents may need to declare worldwide income."],
-        ["Professional advice", "Strongly recommended if you have foreign income, assets, company work or self-employment."]
+        ["Professional advice", "Seek professional advice if you are unsure."]
       ]),
       GuideSection({
-        id: "beforeStart",
-        title: "Before You Start",
-        children: `${Cards([
-          { title: "Separate immigration from tax", text: "Having EU registration or a visa does not automatically answer every tax-residence question." },
-          { title: "Map your income", text: "List salary, pensions, dividends, rent, business income, capital gains and foreign accounts." },
-          { title: "Track days", text: "Keep a simple record of time spent in Spain and other countries." }
-        ])}${WarningBox("Do not wait until the filing season if you have income outside Spain, remote work, a company, property, investments or complex family ties.")}`
-      }),
-      GuideSection({
-        id: "whoNeeds",
-        title: "Who Needs This?",
+        id: "whoThisGuideIsFor",
+        title: "Who this guide is for",
         children: Cards([
-          { title: "People moving long term", text: "Use this if Spain may become your normal home or main base." },
-          { title: "Remote workers and self-employed people", text: "Tax and Social Security questions can be more complex when income crosses borders." },
-          { title: "Retirees and people with assets", text: "Pensions, investments, property and foreign accounts can create reporting questions." }
+          { title: "EU citizens moving to Spain", text: "Use this if Spain may become your home or main base." },
+          { title: "Non-EU residents", text: "Use this if you have or are preparing residence documents and need to understand tax questions separately." },
+          { title: "Workers", text: "Use this if you earn salary or other work income while living in Spain." },
+          { title: "Remote workers", text: "Use this if your work, employer or clients are connected to another country." },
+          { title: "Retirees", text: "Use this if you receive pensions or investment income while living in Spain." },
+          { title: "Self-employed people", text: "Use this if you invoice clients or run business activity from Spain." },
+          { title: "Property owners", text: "Use this if you own property in Spain or receive rental income." },
+          { title: "People with foreign income", text: "Use this if you receive income from another country." },
+          { title: "People receiving pensions, dividends or rental income", text: "Use this if your income sources cross borders or involve investments." }
         ])
       }),
       GuideSection({
-        id: "officialRequirements",
-        title: "Official Requirements",
+        id: "taxVsImmigration",
+        title: "Tax residency vs immigration residency",
         children: `${Cards([
-          { title: "Tax residence", text: "Spain looks at factors such as days in Spain, economic interests and personal/family centre. Tax treaties can also matter." },
-          { title: "IRPF", text: "Spanish resident income tax is commonly known as IRPF, or declaración de la renta when filing the annual return." },
-          { title: "Tax address", text: "Your domicilio fiscal is the tax address recorded with the Tax Agency and should be kept current." }
-        ])}${InfoBox({ title: "Important distinction", text: "This guide explains the starting concepts. It does not calculate your tax residence or tax due." })}`
+          { title: "Immigration residency", text: "Immigration residency is your legal right to live in Spain." },
+          { title: "Tax residency", text: "Tax residency is whether Spain treats you as resident for tax purposes." },
+          { title: "Documents are not the full answer", text: "Having EU registration, a TIE, NIE or padrón does not automatically answer every tax question by itself." }
+        ])}${WarningBox("Do not assume that getting residence papers settles your tax position. Tax residency can depend on your circumstances and may require professional review.")}`
       }),
       GuideSection({
-        id: "firstQuestions",
-        title: "The first questions to answer",
-        children: `<table class="guide-table"><tbody>
-          <tr><th>Question</th><td><strong>Why it matters</strong></td></tr>
-          <tr><th>How many days will you spend in Spain?</th><td>The 183-day test is a major indicator for tax residence.</td></tr>
-          <tr><th>Where is your main work or business?</th><td>Economic interests can affect tax-residence analysis.</td></tr>
-          <tr><th>Where does your family live?</th><td>Personal and family centre can matter in some cases.</td></tr>
-          <tr><th>Do you have foreign income or assets?</th><td>Spanish tax residents may have worldwide reporting obligations.</td></tr>
-          <tr><th>Are you newly arrived for work?</th><td>Special regimes may exist, but they have conditions and deadlines.</td></tr>
-        </tbody></table>`
-      }),
-      GuideSection({
-        id: "practicalAdvice",
-        title: "Practical Advice",
+        id: "dayRule",
+        title: "The 183-day rule",
         children: `${Cards([
-          { title: "Organize evidence", text: "Keep travel records, work contracts, payslips, pension statements, bank statements and rental contracts." },
-          { title: "Check before invoicing", text: "If you plan to freelance or invoice clients, get advice before you start billing." },
-          { title: "Review double-tax issues", text: "Foreign income can interact with tax treaties, home-country filing and Spanish filing." }
-        ])}${TipBox("Create a simple tax folder before you need it: identity documents, NIE, address proof, bank details, income records and foreign tax documents.")}`
+          { title: "Calendar year", text: "Spain commonly considers time spent in Spain during a calendar year when assessing tax residency." },
+          { title: "Days of presence", text: "Spending more than 183 days in Spain during a calendar year is one important factor." },
+          { title: "Not the only factor", text: "Personal and economic interests may also matter, and family situation may matter in some cases." }
+        ])}${InfoBox({ title: "Careful wording", text: "The 183-day rule is important, but it is not the only rule. Tax treaties may affect the outcome, and rules may change." })}`
       }),
       GuideSection({
-        id: "taxAddress",
-        title: "Tax address and notifications",
+        id: "worldwideIncome",
+        title: "Worldwide income",
         children: `${Cards([
-          { title: "Domicilio fiscal", text: "This is the address the Tax Agency uses for tax purposes. It may need updating after you settle." },
-          { title: "Digital access", text: "A digital certificate or Cl@ve can help you review data, certificates and some procedures online." },
-          { title: "Notices", text: "Once you use online services, pay attention to electronic notices and official messages." }
-        ])}${WarningBox("Ignoring tax notices can create problems even if you did not understand the online system. Set up access carefully and check it periodically.")}`
+          { title: "Salary", text: "Salary from Spain or another country may need review if Spain treats you as tax resident." },
+          { title: "Pension", text: "Pensions can be complex and may depend on the pension type and treaty rules." },
+          { title: "Dividends", text: "Dividend income may need to be declared if worldwide income reporting applies." },
+          { title: "Rental income", text: "Rental income from Spain or abroad may create tax questions." },
+          { title: "Self-employment income", text: "Self-employment income can create filing, payment and Social Security questions." },
+          { title: "Investment income", text: "Investment income and accounts may create reporting or tax questions." }
+        ])}${WarningBox("If Spain treats you as tax resident, you may need to declare worldwide income. Foreign tax rules and double taxation treaties may affect how income is taxed.")}`
       }),
       GuideSection({
-        id: "stepProcess",
-        title: "Step-by-Step Process",
-        children: StepTimeline([
-          { title: "Map your situation", text: "List where you live, work, earn income, hold assets and spend time." },
-          { title: "Check whether Spain may treat you as tax resident", text: "Look at days, economic interests, family centre and treaty questions." },
-          { title: "Update or confirm your tax address", text: "Review what address the Tax Agency has recorded for you." },
-          { title: "Set up digital access", text: "Use a digital certificate or Cl@ve so you can manage official services online." },
-          { title: "Get professional help if needed", text: "Use a qualified tax adviser for foreign income, self-employment, companies, assets or special regimes." }
-        ])
+        id: "commonTaxTopics",
+        title: "Common tax topics for new residents",
+        children: `${Cards([
+          { title: "Income tax", text: "Residents may need to review annual income tax obligations." },
+          { title: "Savings income", text: "Interest, dividends and investment gains may need separate review." },
+          { title: "Pensions", text: "Pension taxation can depend on the pension source and applicable treaty rules." },
+          { title: "Rental income", text: "Rental income from Spanish or foreign property can create filing questions." },
+          { title: "Self-employment tax obligations", text: "Self-employed people usually have additional filing and payment obligations." },
+          { title: "Property taxes", text: "Owning property may create tax obligations even if you do not rent it out." },
+          { title: "Local taxes", text: "Some taxes and charges are local and may depend on the municipality." },
+          { title: "Wealth-related reporting", text: "Wealth-related reporting may apply in some circumstances." },
+          { title: "Foreign assets reporting", text: "Foreign assets reporting may be relevant depending on your assets and thresholds." }
+        ])}${InfoBox({ title: "Introductory only", text: "This section highlights topics to review. It does not explain full filing rules or calculate tax outcomes." })}`
+      }),
+      GuideSection({
+        id: "ifYouWork",
+        title: "If you work in Spain",
+        children: `${Cards([
+          { title: "Employees", text: "Employees may have tax withheld through payroll, but payroll withholding may not answer every tax question." },
+          { title: "Self-employed people", text: "Self-employed people usually have additional filing and payment obligations." },
+          { title: "Remote and cross-border work", text: "Remote work, foreign employers and cross-border clients can depend on your circumstances and may need professional review." }
+        ])}${InfoBox({ title: "Self-employed detail", text: "Detailed autónomo tax instructions belong in a dedicated self-employed guide. For now, seek professional advice before invoicing or registering activity." })}`
+      }),
+      GuideSection({
+        id: "foreignIncome",
+        title: "If you receive income from another country",
+        children: `${Cards([
+          { title: "Pensions", text: "Foreign pensions are common for retirees and can be affected by treaty rules." },
+          { title: "Foreign salary", text: "Foreign salary can be complex if you live or work from Spain." },
+          { title: "Dividends", text: "Dividends from another country may need review if Spain treats you as tax resident." },
+          { title: "Rental income", text: "Rental income from property outside Spain may still matter." },
+          { title: "Investment accounts", text: "Investment accounts outside Spain may create income and reporting questions." }
+        ])}${WarningBox("International income can be complex, and tax treaty rules may matter. Seek professional advice if you receive income from another country.")}`
       }),
       CommonMistakes([
-        "Assuming immigration residence and tax residence are the same thing.",
-        "Counting only salary and forgetting pensions, rent, investments or foreign income.",
-        "Waiting until tax season to ask for advice.",
-        "Ignoring the tax address recorded with the Tax Agency.",
-        "Assuming a home-country accountant understands Spanish residence rules."
+        "Assuming immigration residency and tax residency are the same.",
+        "Ignoring foreign income.",
+        "Not checking pension taxation.",
+        "Misunderstanding the 183-day rule.",
+        "Forgetting local or property taxes.",
+        "Waiting until the tax deadline.",
+        "Relying only on informal advice.",
+        "Not asking about foreign asset reporting when relevant."
       ]),
       RealQuestions([
-        { question: "Does spending more than 183 days in Spain make me tax resident?", answer: "It is a major indicator, but not the only factor. Economic interests, family centre and treaty rules can also matter." },
-        { question: "Do I pay tax only on Spanish income?", answer: "If you are Spanish tax resident, worldwide income can become relevant. Get advice if you have income or assets abroad." },
-        { question: "What is domicilio fiscal?", answer: "It is your tax address recorded with the Tax Agency. It should match your real tax situation." },
-        { question: "Should I use a gestor or tax adviser?", answer: "If you have foreign income, self-employment, a company, assets or uncertainty about residence, professional advice is sensible." }
+        { question: "Am I tax resident if I live in Spain?", answer: "Possibly. Living in Spain can be relevant, but the answer can depend on days of presence, personal and economic interests, family situation and treaty rules." },
+        { question: "Is tax residency the same as getting residency papers?", answer: "No. Immigration residency and tax residency are separate. Residence documents do not automatically answer every tax question." },
+        { question: "Do I need to declare income from Finland or another country?", answer: "If Spain treats you as tax resident, worldwide income may need to be declared. Tax treaties may affect the outcome, so get advice if you have foreign income." },
+        { question: "Are pensions taxed in Spain?", answer: "They may be, depending on the pension type, your tax residency and any applicable treaty rules." },
+        { question: "What if I only live in Spain part of the year?", answer: "Part-year living can still create tax questions. Days in Spain, calendar-year presence and your personal and economic ties may matter." },
+        { question: "Do I need a gestor?", answer: "Not everyone does, but a qualified tax adviser or gestor can be useful if you have foreign income, self-employment, property, pensions or uncertainty." },
+        { question: "Can double taxation treaties help?", answer: "They may affect which country can tax certain income or how double taxation is relieved. Do not assume the outcome without advice." }
       ]),
       GuideSection({
-        id: "officialSources",
-        title: "Official sources",
-        children: SourceLinks([
-          { label: "Tax Agency portal", href: "https://sede.agenciatributaria.gob.es/Sede/en_gb/inicio.html" },
-          { label: "Tax census and fiscal address", href: "https://sede.agenciatributaria.gob.es/Sede/censos-nif-domicilio-fiscal.html" },
-          { label: "View the Digital Certificate Guide", href: routes.digital }
-        ])
-      }),
-      GuideSection({
         id: "whatHappensNext",
-        title: "What Happens Next?",
-        children: `<p>After reviewing tax basics, check whether your work, income or assets create specific filing or registration steps. If the answer is not obvious, speak with a qualified tax adviser before deadlines arrive.</p>${TipBox("Your next practical step is to make sure your digital access works and your tax address is not outdated.")}`
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View the Settling Into Spain Guide", href: routes.settling },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Opening a Bank Account Guide", href: routes.banking },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap }
+        ])}${TipBox("Before a deadline appears, collect your income records, travel records, address details and foreign tax documents so a tax adviser can review them properly.")}`
       })
     ]
   })
