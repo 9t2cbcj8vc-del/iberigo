@@ -1565,6 +1565,142 @@ pages.push({
 });
 
 pages.push({
+  route: routes.social,
+  html: GuideLayout({
+    path: routes.social,
+    canonical: `https://iberigo.eu${routes.social}`,
+    title: "Social Security in Spain — IberiGo",
+    description: "A practical guide to Spain’s Social Security system for new residents, including who may need a Social Security number, when it matters, and how it connects to work, healthcare and administration.",
+    metadata: guideMetadataFor(routes.social),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Social Security" }],
+    hero: {
+      kicker: "Work and administration",
+      title: "Social Security in Spain",
+      intro: "A practical guide to understanding Spain’s Social Security system, when you may need a Social Security number, and how it connects to work, healthcare and everyday administration.",
+      asideTitle: "Not the same as NIE",
+      asideText: "Social Security number, NIE, healthcare card, employment registration and tax identification are related admin concepts, but they are not the same thing."
+    },
+    sections: [
+      QuickAnswer("Spain’s Social Security system is connected to work, contributions, public healthcare access and certain benefits. Many people receive or need a Social Security number when they start working or become self-employed. Employees are usually registered by their employer. Self-employed people usually need to deal with registration themselves or through a gestor. Not every newcomer needs to handle Social Security immediately."),
+      AtAGlance([
+        ["Main purpose", "Work records, contributions, public healthcare access routes and certain benefits."],
+        ["Same as NIE?", "No. NIE is a foreigner identification number; Social Security uses its own number."],
+        ["Employees", "Usually registered by the employer, but you should keep proof."],
+        ["Self-employed", "Usually more complex and often handled with a gestor."],
+        ["Healthcare", "Can be connected, but a Social Security number is not the same as a health card."]
+      ]),
+      GuideSection({
+        id: "whoThisGuideIsFor",
+        title: "Who this guide is for",
+        children: Cards([
+          { title: "Employees", text: "Use this if you will work for an employer in Spain or need to confirm employment registration." },
+          { title: "Self-employed people", text: "Use this if you plan to register activity and may need Social Security and tax setup." },
+          { title: "EU citizens moving to Spain", text: "Use this if work, healthcare or administration may involve Social Security." },
+          { title: "Non-EU residents", text: "Use this if your residence, work or healthcare route connects to Spanish employment or contributions." },
+          { title: "Students who may work", text: "Use this if you expect paid work or internships and need to understand the admin concepts." },
+          { title: "Retirees checking healthcare access", text: "Use this if you need to understand whether healthcare access comes from pension status, S1 or another route." },
+          { title: "People applying for public healthcare access", text: "Use this if Social Security recognition may be part of your healthcare route." },
+          { title: "People trying to understand Spanish administration", text: "Use this if you are sorting out how Social Security differs from NIE, padrón, tax and healthcare documents." }
+        ])
+      }),
+      GuideSection({
+        id: "whatIsSocialSecurity",
+        title: "What is Social Security in Spain?",
+        children: `${Cards([
+          { title: "Work and contributions", text: "Social Security is the system connected to contributions and employment registration." },
+          { title: "Healthcare and benefits", text: "It can connect to public healthcare access and certain benefits, depending on your situation." },
+          { title: "Separate from immigration", text: "It is separate from immigration residency and does not by itself prove your right to live in Spain." },
+          { title: "Separate from padrón", text: "It is separate from the padrón, which is municipal address registration." },
+          { title: "Separate from tax residency", text: "It is also separate from tax residency and tax identification questions." }
+        ])}${InfoBox({ title: "Keep the concepts separate", text: "A Social Security number, healthcare card, public healthcare entitlement, employment registration and tax identification can interact, but they are different things." })}`
+      }),
+      GuideSection({
+        id: "socialSecurityNumber",
+        title: "What is a Social Security number?",
+        children: Cards([
+          { title: "System identification", text: "It is an identification number used within Spain’s Social Security system." },
+          { title: "When it may be needed", text: "You may need it for employment, self-employment or certain public services." },
+          { title: "Not your NIE", text: "It is not the same as your NIE, even though both are identification numbers used in administration." },
+          { title: "Not residence proof", text: "It is not proof of immigration residency by itself." }
+        ])
+      }),
+      GuideSection({
+        id: "whenYouMayNeedIt",
+        title: "When you may need it",
+        children: Cards([
+          { title: "Starting work as an employee", text: "You may need a Social Security number so your employer can register your employment correctly." },
+          { title: "Registering as self-employed", text: "Self-employment usually involves Social Security and tax registration steps." },
+          { title: "Public healthcare through work", text: "If your healthcare route comes through work or contributions, Social Security may be part of the process." },
+          { title: "Official procedures", text: "Some procedures may ask for Social Security details depending on your situation." },
+          { title: "Employment records", text: "You may use Social Security access to check employment records or contribution information." }
+        ])
+      }),
+      GuideSection({
+        id: "employees",
+        title: "Employees",
+        children: `${Cards([
+          { title: "Employer registration", text: "Employers usually handle employment registration, but you should not assume it is complete without confirmation." },
+          { title: "Documents", text: "You may need to provide identity documents and your NIE if available." },
+          { title: "Keep proof", text: "Keep copies of contracts, registration confirmations, payslips and any Social Security documents you receive." },
+          { title: "Ask if unsure", text: "If you are unsure, ask your employer or gestor to confirm that you are correctly registered." }
+        ])}${TipBox("When starting a job, ask what documents the employer needs and when you will receive proof of registration or payslips.")}`
+      }),
+      GuideSection({
+        id: "selfEmployed",
+        title: "Self-employed people",
+        children: `${Cards([
+          { title: "More complex setup", text: "Self-employed registration is more complex than being registered by an employer." },
+          { title: "Social Security and tax", text: "It may involve both Social Security and tax registration." },
+          { title: "Gestor support", text: "Many people use a gestor because registrations, contributions and filing obligations can depend on the activity." },
+          { title: "Future detailed guide", text: "A separate autónomo guide can cover this in detail later." }
+        ])}<!-- TODO: editorial verification required - add a dedicated self-employed/autónomo guide route before linking this section. -->${WarningBox("Do not start invoicing or self-employed activity based only on this overview. Get qualified advice if you are unsure.")}`
+      }),
+      GuideSection({
+        id: "healthcareConnection",
+        title: "Healthcare connection",
+        children: `${Cards([
+          { title: "One possible route", text: "Social Security can be one route into public healthcare, especially through work or contributions." },
+          { title: "Different recognised routes", text: "Public healthcare access may depend on employment, contributions, pension status, family status or other recognised routes." },
+          { title: "Regional health services", text: "Regional health services manage healthcare cards and local health-centre registration." },
+          { title: "Not the same as a health card", text: "A Social Security number and health card are related in some cases, but they are not the same thing." }
+        ])}<p>Use the <a href="${routes.healthcare}">Healthcare in Spain Guide</a> to compare healthcare routes before assuming Social Security is the only path.</p>`
+      }),
+      CommonMistakes([
+        "Confusing Social Security number with NIE.",
+        "Assuming padrón gives automatic Social Security registration.",
+        "Assuming immigration residency and Social Security are the same.",
+        "Not checking employer registration.",
+        "Waiting until there is an urgent healthcare or work issue.",
+        "Losing official registration documents.",
+        "Assuming procedures are identical in every province."
+      ]),
+      RealQuestions([
+        { question: "Is my Social Security number the same as my NIE?", answer: "No. Your NIE is a foreigner identification number. Your Social Security number identifies you within the Social Security system." },
+        { question: "Do I need Social Security if I am not working?", answer: "Not always. It depends on your situation and whether a healthcare, benefits or administrative route requires it." },
+        { question: "Does my employer register me?", answer: "Employers usually handle employment registration, but you should ask for confirmation and keep your contract, payslips and registration documents." },
+        { question: "Do I need it for healthcare?", answer: "You may need it if your healthcare access comes through work, contributions or another recognised Social Security route. Other healthcare routes can also exist." },
+        { question: "Do retirees need it?", answer: "Retirees may need to understand healthcare access, pension status or S1-type routes. The answer depends on their circumstances." },
+        { question: "Can I get it before starting work?", answer: "It may be possible in some situations, but procedures and document requirements can vary. Check the official route or ask the employer or gestor handling the process." },
+        { question: "Is it the same as tax registration?", answer: "No. Social Security registration and tax registration are separate, although self-employed activity may involve both." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Opening a Bank Account Guide", href: routes.banking },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Settling Into Spain Guide", href: routes.settling },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap }
+        ])}${TipBox("Keep Social Security documents with your identity, work, healthcare, banking and tax paperwork so you can find them when another procedure asks.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
   route: routes.taxes,
   html: GuideLayout({
     path: routes.taxes,
@@ -1711,7 +1847,6 @@ pages.push({
 
 const skeletons = [
   ["documents-checklist", routes.checklist, "Moving to Spain documents checklist — IberiGo", "Draft checklist for documents people commonly prepare before moving to Spain.", "Documents Checklist for Moving to Spain", "A calm document checklist helps you prepare without pretending every route has the same requirements.", "Start with identity, address, healthcare, money and purpose evidence. Route-specific detail comes during editorial review."],
-  ["social-security", routes.social, "Social Security number in Spain — IberiGo", "Draft guide to Social Security number and work registration concepts in Spain.", "Social Security in Spain", "Social Security is important for work records and can connect to healthcare access.", "The Social Security number identifies your file. Being registered as active for employment or self-employment is a related but separate step."],
   ["driving", routes.driving, "Driving licence rules when living in Spain — IberiGo", "Draft guide to driving licence checks when living in Spain.", "Driving in Spain", "Driving rules depend on where your licence was issued and whether you are visiting or living in Spain.", "Do not assume tourist driving rules stay the same after moving."],
   ["finding-accommodation", routes.accommodation, "Finding accommodation in Spain — IberiGo", "Draft guide to finding accommodation when moving to Spain.", "Finding Accommodation in Spain", "Accommodation is also an admin step because your address can affect padrón, banking and healthcare.", "Ask early whether the address can support the paperwork you need."]
 ];
