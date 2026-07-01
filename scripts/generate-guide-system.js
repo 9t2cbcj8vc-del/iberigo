@@ -1118,185 +1118,132 @@ pages.push({
   html: GuideLayout({
     path: routes.healthcare,
     canonical: `https://iberigo.eu${routes.healthcare}`,
-    title: "Healthcare in Spain for EU Citizens — IberiGo",
-    description: "Healthcare in Spain for EU citizens moving to Spain, including work, self-employment, retirement, study, savings, S1 certificates and health cards.",
+    title: "Healthcare in Spain for New Residents — IberiGo",
+    description: "A practical guide to healthcare in Spain for new residents, including public healthcare, private insurance, S1 forms, regional health cards and common mistakes.",
     metadata: guideMetadataFor(routes.healthcare),
     breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Healthcare" }],
     hero: {
-      kicker: "EU citizen guide",
-      title: "Healthcare in Spain for EU Citizens",
-      intro: "Healthcare in Spain depends on why you are moving. This guide separates the main EU citizen situations so you can see which route may apply before EU registration or daily-life setup.",
+      kicker: "Healthcare routes",
+      title: "Healthcare in Spain for New Residents",
+      intro: "A practical guide to understanding public healthcare, private insurance, S1 forms and regional health cards before and after moving to Spain.",
       asideTitle: "No single answer",
-      asideText: "A worker, retiree, student and self-sufficient person may need different healthcare evidence. Do not assume everyone needs private insurance."
+      asideText: "Healthcare access can depend on work status, Social Security, pension rights, S1 entitlement, private insurance, region, residence route and family status."
     },
     sections: [
-      QuickAnswer("Your healthcare route depends on why you are moving to Spain. If you work or are self-employed, public healthcare may connect to Social Security. If you are retired, an S1 certificate may apply. If you study or live from savings, you may need public entitlement or comprehensive private cover, especially when proving healthcare for EU registration."),
+      QuickAnswer("Spain has a public healthcare system and private healthcare options. Access to public healthcare depends on your situation. Workers are often connected through Social Security. Some pensioners may use an S1 form. Some residents need private health insurance, especially for certain immigration or self-sufficient routes. Healthcare rules and regional health card procedures can vary by autonomous community."),
       AtAGlance([
-        ["Main question", "Why are you moving to Spain?"],
-        ["Everyone needs private insurance?", "No. It depends on your situation."],
-        ["EU registration link", "Healthcare evidence may be required depending on the applicant’s circumstances."],
-        ["Public healthcare route", "Usually linked to recognized entitlement, Social Security, or an S1-type route."],
-        ["Health card", "Issued through the regional health service after your right to healthcare is recognized."],
-        ["Local variation", "Health cards and registration steps can vary by autonomous community."]
+        ["Public healthcare", "May be available through work, Social Security, pension rights, family status or another recognised route."],
+        ["Private insurance", "May be useful or required depending on your residence route."],
+        ["S1 form", "May apply to some pensioners or people covered by another EU/EEA country."],
+        ["Health card", "Usually issued by the regional health service, not by immigration offices."],
+        ["Regional variation", "Documents and health-card procedures can vary by autonomous community."]
       ]),
       GuideSection({
-        id: "beforeStart",
-        title: "Before You Start",
-        children: `${Cards([
-          { title: "Name your route", text: "Decide whether your likely route is work, self-employment, S1, student cover, private insurance or another public entitlement." },
-          { title: "Check timing", text: "Healthcare proof may be needed before EU registration, especially if you are not working." },
-          { title: "Separate temporary and resident cover", text: "EHIC and travel cover are not the same as planning healthcare as a resident." }
-        ])}${TipBox("If you are preparing EU registration, read this page before booking or attending the EU Registration Certificate appointment.")}`
-      }),
-      GuideSection({
-        id: "routeApplies",
-        title: "Which healthcare route applies to me?",
-        children: `<table class="guide-table"><tbody>
-          <tr><th>Your situation</th><td><strong>Likely starting point</strong></td></tr>
-          <tr><th>Working as an employee</th><td>Check Social Security registration and public healthcare entitlement through work.</td></tr>
-          <tr><th>Self-employed</th><td>Check autónomo registration, Social Security contribution and healthcare entitlement.</td></tr>
-          <tr><th>Retired</th><td>Check whether an S1 certificate from your competent country applies.</td></tr>
-          <tr><th>Student</th><td>Check whether you have accepted public entitlement or need comprehensive health insurance.</td></tr>
-          <tr><th>Living from savings</th><td>Check whether you need comprehensive private insurance or another accepted healthcare entitlement for EU registration.</td></tr>
-        </tbody></table>${WarningBox("Healthcare requirements for EU registration depend on the applicant’s circumstances. Do not use one person’s route as proof that the same evidence applies to you.")}`
-      }),
-      GuideSection({
-        id: "whoNeeds",
-        title: "Do I need this?",
+        id: "whoThisGuideIsFor",
+        title: "Who this guide is for",
         children: Cards([
-          { title: "You are moving to Spain", text: "Use this if you need to understand which healthcare route may apply before settling in." },
-          { title: "You are not working in Spain", text: "Use this if your route may depend on private cover, S1 or another accepted entitlement." },
-          { title: "You work or will be self-employed", text: "Use this to connect Social Security registration with public healthcare planning." }
+          { title: "EU citizens", text: "Use this if your healthcare evidence may affect EU registration or local setup." },
+          { title: "Non-EU residents", text: "Use this if your residence route may require healthcare cover or proof." },
+          { title: "Workers", text: "Use this if employment and Social Security may connect you to public healthcare." },
+          { title: "Self-employed people", text: "Use this if Social Security contributions and tax setup may affect your healthcare route." },
+          { title: "Retirees", text: "Use this if pension status, S1 entitlement or private cover may apply." },
+          { title: "Students", text: "Use this if you need to compare student cover, public entitlement and private insurance." },
+          { title: "Family members", text: "Use this if your route may depend on family status or another person's entitlement." },
+          { title: "Residence applicants", text: "Use this if you need healthcare evidence for an immigration or registration procedure." },
+          { title: "People comparing options", text: "Use this if you are deciding between public healthcare and private insurance." }
         ])
       }),
       GuideSection({
-        id: "officialRequirements",
-        title: "Official Requirements",
+        id: "publicHealthcare",
+        title: "Public healthcare in Spain",
         children: `${Cards([
-          { title: "Evidence follows your situation", text: "EU registration and healthcare access can depend on whether you work, are self-employed, study, receive an S1 or live from savings." },
-          { title: "Public entitlement must be recognized", text: "Public healthcare usually starts with a recognized entitlement before the regional health service issues a card." },
-          { title: "Private cover may need to be comprehensive", text: "If private insurance is your evidence route, check that the policy is suitable for living in Spain and for the process using it." }
-        ])}<!-- TODO: editorial verification required - confirm accepted insurance wording and regional card process details before review status. -->${WarningBox("Do not treat travel insurance or an EHIC as automatic proof for living in Spain. Check the evidence required for your route.")}`
-      }),
-      GuideSection({
-        id: "practicalAdvice",
-        title: "Practical Advice",
-        children: Cards([
-          { title: "Start with your reason for moving", text: "The right healthcare route is usually easier to identify once you know whether work, self-employment, retirement, study or savings applies." },
-          { title: "Ask for written proof", text: "Keep certificates, policy summaries, Social Security evidence and regional health-service confirmations." },
-          { title: "Plan for local variation", text: "The health card name, appointment process and documents can vary by autonomous community." }
-        ])
-      }),
-      GuideSection({
-        id: "workingSpain",
-        title: "Working in Spain",
-        children: `${Cards([
-          { title: "Official requirement", text: "If you are working as an employee, your employer-related Social Security registration is usually the starting point for public healthcare entitlement." },
-          { title: "Practical advice", text: "Confirm that your employer has handled the correct work registration before relying on healthcare access." },
-          { title: "What to keep", text: "Save your Social Security number, work registration evidence and any healthcare entitlement confirmation." }
-        ])}${TipBox("Ask your employer who handles Social Security registration and when you can request or activate your regional health card.")}`
-      }),
-      GuideSection({
-        id: "selfEmployed",
-        title: "Self-employed",
-        children: `${Cards([
-          { title: "Official requirement", text: "Self-employed EU citizens usually need to look at autónomo registration and Social Security contribution as the starting point." },
-          { title: "Practical advice", text: "Do not separate healthcare planning from your tax and autónomo setup. They often move together." },
-          { title: "What to keep", text: "Save autónomo registration, Social Security documents and payment confirmations." }
-        ])}${WarningBox("Self-employment setup has tax and Social Security consequences. Get qualified help if you are unsure.")}`
-      }),
-      GuideSection({
-        id: "retired",
-        title: "Retired",
-        children: `${Cards([
-          { title: "Official requirement", text: "Many EU retirees start by checking whether their competent country can issue an S1 certificate for healthcare in Spain." },
-          { title: "Practical advice", text: "Request the S1 early. It can take time, and you may need it before completing later steps in Spain." },
-          { title: "What to keep", text: "Keep the S1 certificate, identity documents, address evidence and any Spanish health service registration proof." }
-        ])}${TipBox("If the S1 route applies to you, keep copies of the certificate before handing documents to any office.")}`
-      }),
-      GuideSection({
-        id: "student",
-        title: "Student",
-        children: `${Cards([
-          { title: "Official requirement", text: "Students should check whether they have public healthcare entitlement, accepted EU coverage, or need comprehensive insurance." },
-          { title: "Practical advice", text: "Ask your school or university what proof they expect, but verify official requirements separately." },
-          { title: "What to keep", text: "Keep enrolment proof, insurance documents, public entitlement evidence and identity documents together." }
-        ])}${InfoBox({ title: "Editorial note", text: "Student healthcare evidence can depend on the programme, length of stay and personal situation." })}`
-      }),
-      GuideSection({
-        id: "livingFromSavings",
-        title: "Living from savings",
-        children: `${Cards([
-          { title: "Official requirement", text: "EU citizens who are not working may need to show sufficient healthcare cover when registering as residents." },
-          { title: "Practical advice", text: "Do not assume travel insurance is enough for living in Spain. Check whether the cover is comprehensive and accepted for your process." },
-          { title: "What to keep", text: "Keep policy documents, coverage summaries, payment proof and any official entitlement evidence." }
-        ])}${WarningBox("This is the situation where people often wrongly assume private insurance is optional or that travel insurance is enough. Verify before the EU registration appointment.")}`
+          { title: "Regional management", text: "Public healthcare is managed through regional health services in each autonomous community." },
+          { title: "Eligibility routes", text: "Eligibility may come through employment, Social Security, pension rights, family status or other recognised routes." },
+          { title: "Separate documents", text: "The regional health card is not the same as the NIE, padrón or Social Security number." },
+          { title: "Regional procedures", text: "Health-card procedures and document requests can vary by autonomous community." }
+        ])}${WarningBox("Do not assume public healthcare is automatic just because you live in Spain or have a padrón. Your recognised healthcare route still matters.")}`
       }),
       GuideSection({
         id: "privateInsurance",
         title: "Private health insurance",
         children: `${Cards([
-          { title: "When it may be relevant", text: "Private insurance may be relevant if you are not covered through work, self-employment, an S1 or another public entitlement." },
-          { title: "What to check", text: "Check whether the policy is comprehensive, valid in Spain, and suitable for the process you are using it for." },
-          { title: "What not to assume", text: "Do not assume every policy, travel policy, excess or limited cover will be accepted." }
-        ])}${TipBox("Ask the insurer for a clear certificate or policy summary in a format you can show during admin steps.")}`
+          { title: "May be useful or required", text: "Private insurance may be useful or required depending on your residency route and whether you have a recognised public healthcare route." },
+          { title: "Comprehensive cover", text: "Some immigration or residence procedures may require comprehensive health cover." },
+          { title: "Policy details", text: "Coverage, exclusions, waiting periods and copayments can vary by policy." },
+          { title: "Check the exact requirement", text: "Before buying, check whether the policy meets the requirement for your specific procedure." }
+        ])}${WarningBox("Do not choose an insurer based only on price. Check the coverage, exclusions and whether the policy is suitable for the procedure using it.")}`
       }),
       GuideSection({
-        id: "publicHealthcare",
-        title: "Public healthcare",
+        id: "s1Form",
+        title: "S1 form",
         children: `${Cards([
-          { title: "What it means", text: "Public healthcare access generally starts with a recognized right to healthcare, then registration with the regional health service." },
-          { title: "Common starting points", text: "Work registration, self-employment registration, recognized dependent status, or an S1-type route may be relevant depending on your situation." },
-          { title: "Regional card", text: "Once your right is recognized, the regional health service can issue the local health card." }
-        ])}${WarningBox("Spain’s public healthcare system is national in structure but administered through regional health services. The card name and steps can vary by autonomous community.")}`
+          { title: "Who it may help", text: "Some pensioners or people covered by another EU/EEA country may be able to use an S1 form." },
+          { title: "What it does", text: "It can help register healthcare entitlement in Spain." },
+          { title: "Eligibility", text: "Eligibility depends on the issuing country and your personal situation." },
+          { title: "Where to check", text: "Check with the authority responsible for healthcare cover in your home or competent country." }
+        ])}${InfoBox({ title: "S1 is not the same as EHIC", text: "An S1 is used for certain residence-linked healthcare entitlement situations. EHIC is generally for temporary stays." })}`
       }),
       GuideSection({
-        id: "s1Certificate",
-        title: "S1 certificate",
+        id: "regionalHealthCard",
+        title: "Regional health card",
         children: `${Cards([
-          { title: "What it is for", text: "An S1 certificate can allow certain people, often pensioners or posted workers, to register healthcare cover in another EU country." },
-          { title: "Who issues it", text: "The competent country normally issues the S1, not the Spanish health centre." },
-          { title: "What to do next", text: "Once issued, it is normally used in Spain to register healthcare entitlement through the relevant process." }
-        ])}${InfoBox({ title: "Check your country", text: "Whether you can get an S1 depends on your personal situation and competent country. Check with the institution responsible for your healthcare cover." })}`
-      }),
-      GuideSection({
-        id: "sipCard",
-        title: "How to get a SIP card",
-        children: `${Cards([
-          { title: "What SIP means", text: "SIP is the common name for the health card in the Valencian Community. Other regions use names such as tarjeta sanitaria individual or their own regional wording." },
-          { title: "Step 1", text: "First, confirm your right to healthcare through work, self-employment, S1, public entitlement or accepted cover." },
-          { title: "Step 2", text: "Then follow your regional health service process to register and request the health card." }
+          { title: "Issued regionally", text: "The health card is usually issued by the regional health service in your autonomous community." },
+          { title: "Requirements vary", text: "Documents and steps can vary by autonomous community." },
+          { title: "Common documents", text: "You may need padrón, identity documents, Social Security recognition, S1 registration or other proof." },
+          { title: "Separate from residency", text: "The health card is separate from immigration residency, NIE, padrón and Social Security number." }
         ])}${ChecklistBox({
-          title: "Documents often useful for a regional health card",
+          title: "Documents you may need",
           items: [
-            "Identity document.",
-            "NIE or residence/registration details if you have them.",
-            "Padrón or local address evidence if requested.",
-            "Proof of healthcare entitlement, such as Social Security recognition or S1 registration.",
-            "Contact details and regional application form if required."
+            "Passport, national ID or residence document",
+            "NIE, if available",
+            "Padrón certificate, where required",
+            "Social Security recognition or registration, if applicable",
+            "S1 registration, if applicable",
+            "Regional health service form, if required"
           ]
-        })}${WarningBox("SIP is region-specific wording. Do not assume the same card name or exact process applies outside the Valencian Community.")}`
+        })}${TipBox("Check with your regional health service before the appointment so you know which documents they expect.")}`
+      }),
+      GuideSection({
+        id: "healthcareBeforeEuRegistration",
+        title: "Healthcare before EU registration",
+        children: `${Cards([
+          { title: "Why timing matters", text: "Some EU citizens may need to show healthcare cover before or during EU Registration Certificate steps." },
+          { title: "Self-sufficient, retired or students", text: "People applying as self-sufficient, retired or students may need to prepare healthcare evidence before the appointment." },
+          { title: "Workers", text: "Workers may use work-related Social Security evidence, depending on the appointment requirements." },
+          { title: "Check before booking", text: "Review the exact appointment instructions before assuming which healthcare proof will be accepted." }
+        ])}${WarningBox("Healthcare planning may need to happen before the EU registration appointment, especially if your route is not based on employment in Spain.")}`
       }),
       CommonMistakes([
-        "Assuming every EU citizen needs private insurance.",
-        "Assuming no EU citizen needs private insurance.",
-        "Using travel insurance as if it were long-term resident healthcare cover.",
-        "Leaving healthcare proof until the EU registration appointment.",
-        "Confusing an EHIC for temporary stays with resident healthcare planning.",
-        "Following a province-specific process without checking whether it applies to your region."
+        "Assuming padrón alone gives full healthcare access.",
+        "Assuming NIE is the same as healthcare entitlement.",
+        "Buying private insurance without checking residency requirements.",
+        "Ignoring copayments or exclusions.",
+        "Waiting until a medical issue is urgent.",
+        "Not checking regional procedures.",
+        "Confusing S1 with EHIC.",
+        "Assuming tourist healthcare cover is enough for residence."
       ]),
       RealQuestions([
-        { question: "Do all EU citizens moving to Spain need private health insurance?", answer: "No. It depends on why you are moving and whether you have public healthcare entitlement through work, self-employment, S1 or another accepted route." },
-        { question: "Do I need healthcare proof for EU registration?", answer: "It depends on your circumstances. Non-working or self-sufficient applicants often need to show healthcare cover, while workers may use work-related evidence." },
-        { question: "Is EHIC enough if I move to Spain?", answer: "EHIC is for temporary stays. Moving to Spain normally requires thinking about resident healthcare access, not only travel cover." },
-        { question: "What is the difference between SIP and a health card?", answer: "SIP is the Valencian Community health card name. Other regions use different wording for their regional health card." },
-        { question: "Can I get public healthcare if I work in Spain?", answer: "Work registration and Social Security are usually the starting point, but you should confirm your registration and health entitlement." },
-        { question: "Should I arrange healthcare before EU registration?", answer: "Yes, if your EU registration route may require healthcare evidence. Do not wait until the appointment to discover what proof you need." }
+        { question: "Do I automatically get public healthcare if I move to Spain?", answer: "No. Public healthcare access depends on your recognised route, such as work, Social Security, pension rights, family status or another entitlement." },
+        { question: "Is private health insurance required?", answer: "Sometimes. It depends on your residency route and whether you have another accepted healthcare route." },
+        { question: "Is padrón enough to get healthcare?", answer: "Usually not by itself. Padrón may be part of local registration, but healthcare entitlement depends on your situation." },
+        { question: "What is an S1 form?", answer: "An S1 is a form that may allow certain people, often pensioners or people covered by another EU/EEA country, to register healthcare entitlement in Spain." },
+        { question: "Can I use my EHIC after moving?", answer: "EHIC is generally for temporary stays. If you move to Spain, you should plan resident healthcare access rather than relying only on tourist cover." },
+        { question: "Do I need healthcare before EU registration?", answer: "You may, especially if you are applying as self-sufficient, retired or a student. Check your appointment instructions." },
+        { question: "Is the health card the same as Social Security?", answer: "No. A regional health card, Social Security number, NIE and padrón are separate documents or records, even when they interact." },
+        { question: "Does healthcare work the same in every region?", answer: "No. Public healthcare is managed through regional health services, so procedures and health-card requirements can vary." }
       ]),
       GuideSection({
         id: "whatHappensNext",
-        title: "What Happens Next?",
-        children: `<p>Once you understand your healthcare route, prepare the proof that matches your situation. Then continue with EU registration, banking, digital access and tax planning.</p>${TipBox("Keep healthcare documents in the same folder as your identity, padrón and EU registration paperwork.")}`
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the EU Registration Guide", href: routes.euRegistration },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Settling Into Spain Guide", href: routes.settling },
+          { label: "View the Documents Checklist", href: routes.checklist }
+        ])}${TipBox("Keep healthcare documents in the same folder as your identity, padrón, Social Security and residence paperwork.")}`
       })
     ]
   })
