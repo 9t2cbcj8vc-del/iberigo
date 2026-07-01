@@ -53,3 +53,30 @@ The final 2 pages without a prior editorial pass — `living-in-spain/digital-ce
 - `guaranteed`
 - `within 30 days`
 - `first week`
+
+## Source verification phase (Sprint 42)
+
+Full detail lives in `docs/SOURCE_VERIFICATION_MATRIX.md` — this section summarizes the risk-relevant findings from building that matrix.
+
+### Unresolved official source needs
+
+- ~~Taxes, Social Security, and Driving Licence have zero official-source cards~~ — **resolved in Sprint 43.** Added Agencia Tributaria (`sede.agenciatributaria.gob.es`, verified via curl — HTTP 200, "Agencia Tributaria: Inicio"), Seguridad Social (`www.seg-social.es`, reachable but content-verification blocked by an Akamai bot-detection challenge — same caveat as its existing use on Healthcare), and DGT (`www.dgt.es`, verified via curl — HTTP 200, "DGT - Inicio"). All 7 High-priority pages now have at least one linked source. **This is source coverage, not legal sign-off** — see below.
+- **Documents Checklist names specific form numbers (EX-18, Modelo 790-012) with no linked source.** The same forms are sourced (indirectly, via the Police/Ministry links) on the EU Registration guide, but not here. Still open.
+- All 7 High-priority pages (the 4 from Sprint 36 plus the 3 added in Sprint 43) should have their sources re-confirmed during formal legal review rather than assumed still current, since government URLs can move.
+- **Overclaim found and fixed while adding these sources (Sprint 43):** the shared `LastReviewed()` component displayed "Reviewed against official guidance" on any page with at least one official source linked, regardless of whether the content had actually been checked against that source. This affected all 7 pages with sources (not just the 3 added this sprint). Reworded to state sources are linked for further checking, not that verification occurred.
+
+### Claims needing human/professional verification
+
+All claims listed under "Step 4 — Extracted risky claims" in `docs/SOURCE_VERIFICATION_MATRIX.md` for the 7 High-priority pages, most importantly:
+- The NIE / EU Registration Certificate / TIE distinction (EU Registration, EU Citizen Roadmap, Documents Checklist).
+- Tax residency vs. immigration residency and the 183-day rule (Taxes).
+- Social Security number vs. NIE vs. healthcare card vs. tax ID (Social Security).
+- Public healthcare non-automaticity and S1/EHIC distinctions (Healthcare).
+- Padrón's non-immigration-status nature and municipal variation (Padrón).
+- EU/non-EU licence recognition and exchange-agreement dependency (Driving Licence).
+
+None of these are currently marked as legally verified anywhere in the repo — the editorial passes (Sprints 36–39) checked tone, hedging, and terminology consistency, and Sprint 43 added source *links*, but none of this is legal/professional accuracy review.
+
+### Pages that should not be published before review
+
+**All 14.** No page should move out of `draft`/`noindex,nofollow` before this source-verification and legal-review phase completes. All 7 High-priority pages now have official-source coverage as of Sprint 43, but "official source coverage added" and "legally reviewed" remain two separate, both-still-open bars — see the per-page status in `docs/SOURCE_VERIFICATION_MATRIX.md`.

@@ -236,7 +236,7 @@ function LegalDisclaimer() {
 function LastReviewed(date = REVIEWED, reviewedAgainstOfficialGuidance = false) {
   if (!date) return "";
   return reviewedAgainstOfficialGuidance
-    ? `<div class="last-reviewed"><p><strong>Last reviewed:</strong> ${escapeHtml(date)}</p><p>Reviewed against official guidance.</p></div>`
+    ? `<div class="last-reviewed"><p><strong>Last reviewed:</strong> ${escapeHtml(date)}</p><p>Official sources linked below for further checking; content has not been verified against them by a qualified professional.</p></div>`
     : `<p class="last-reviewed">Last reviewed: ${escapeHtml(date)}</p>`;
 }
 

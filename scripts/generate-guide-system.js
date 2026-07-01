@@ -293,6 +293,15 @@ const officialSourcesByRoute = {
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
     { name: "Regional health services", varies: true, note: "No single official URL — health-card processes and names vary by autonomous community. Link the reader's specific regional health service during editorial review." },
     { name: "Social Security", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — official Social Security site. Note: could not be re-fetched for verification during this pass (site blocked automated requests), but this is the long-established canonical government domain." }
+  ],
+  [routes.taxes]: [
+    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration. Supports further checking of tax residency, filing and worldwide-income questions; it does not replace professional tax advice, and this guide is not tax advice." }
+  ],
+  [routes.social]: [
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — official Social Security site. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on the Healthcare guide." }
+  ],
+  [routes.driving]: [
+    { name: "Dirección General de Tráfico (DGT)", url: "https://www.dgt.es", note: "DGT is Spain's traffic authority and the official place to check current driving-licence, exchange, renewal and medical-check rules referenced throughout this guide." }
   ]
 };
 
