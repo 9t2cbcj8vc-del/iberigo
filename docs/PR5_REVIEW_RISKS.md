@@ -4,11 +4,15 @@ Searched all 14 rendered draft pages (the generator's output, which is what a re
 
 `guaranteed`, `within 30 days`, and `first week` produced **zero matches** across all 14 pages — no fixed-timeline or overclaiming language of that kind was found.
 
-## Genuine open item
+## Resolved in Sprint 36
 
-| File | Route | Context | Risk type | Recommended action |
-|---|---|---|---|---|
-| `moving-to-spain/eu-citizens/index.html`, `moving-to-spain/healthcare/index.html`, `moving-to-spain/eu-registration/index.html` | `/moving-to-spain/eu-citizens/`, `/moving-to-spain/healthcare/`, `/moving-to-spain/eu-registration/` | Official-source card: `"Ministry responsible for immigration" — "TODO: verify and link the Ministry of Inclusion, Social Security and Migrations' extranjería portal — could not be confirmed reachable during this pass."` | Unverified official source (already flagged in Sprint 34) | Verify the ministry's current extranjería portal domain and link it, or keep as an explicit TODO through review — do not guess the URL. Already tracked in `docs/BACKLOG.md`. |
+| File | Route | Original finding | Resolution |
+|---|---|---|---|
+| `moving-to-spain/eu-citizens/index.html`, `moving-to-spain/healthcare/index.html`, `moving-to-spain/eu-registration/index.html` | `/moving-to-spain/eu-citizens/`, `/moving-to-spain/healthcare/`, `/moving-to-spain/eu-registration/` | Official-source card: `"Ministry responsible for immigration" — "TODO: verify and link..."` (Sprint 34 finding) | **Verified.** `extranjeros.inclusion.gob.es` redirects to `https://www.inclusion.gob.es/web/migraciones/home`, confirmed via `curl` (HTTP 200, page titled "Home - Migraciones - Ministerio de Inclusión, Seguridad Social y Migraciones"). The earlier connection failures were bot-blocking on a generic user-agent, not a dead or incorrect site — retrying with a standard browser user-agent resolved it. All 3 pages now link to this URL. |
+| `moving-to-spain/eu-citizens/index.html`, `moving-to-spain/registering-on-the-padron/index.html`, `moving-to-spain/healthcare/index.html` | same 3 pages plus padrón | `stillPending` status banner logic didn't distinguish "genuinely no single URL" (Local Town Halls, Regional health services) from "unverified TODO," so it kept saying "pending verification (marked TODO)" even after the ministry link was fixed | Added a `varies: true` flag to those entries and updated the status-banner logic in `guide-components.js` so intentionally location-dependent sources read differently from open TODOs. |
+| `living-in-spain/taxes/index.html` | `/living-in-spain/taxes/` | FAQ question named a specific country ("Do I need to declare income from Finland or another country?") — the only country-specific example in an otherwise neutral guide | Removed "Finland," now reads "Do I need to declare income from another country?" |
+
+**No remaining open TODOs** in the official-source cards across the 14 draft pages as of Sprint 36.
 
 ## Reviewed and judged low-risk (no action needed, listed for transparency)
 

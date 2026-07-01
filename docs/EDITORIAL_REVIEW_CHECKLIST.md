@@ -50,3 +50,91 @@ Preview base: https://deploy-preview-5--iberigo.netlify.app
 14. `/search/` (functional/UX review only — not applicable for factual-accuracy/legal-risk/timeline items)
 
 See `docs/PR5_REVIEW_ROUTES.md` for a per-route priority/risk summary, and `docs/PR5_REVIEW_RISKS.md` for a pre-scanned list of specific risk-keyword hits to check first.
+
+---
+
+## Sprint 36 — completed editorial passes
+
+Five pages received a content-level editorial read-through against the checklist above. **None of this is legal or tax-professional sign-off** — the "Legal/tax/immigration risk" item is intentionally left unchecked on every page below; that box can only be checked by a qualified human reviewer.
+
+### `/moving-to-spain/eu-citizens/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — reviewed, no incorrect claims found
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming — consistently hedged ("appointment availability can vary")
+- [x] Official-source links checked — ministry link verified and added this sprint
+- [x] TODOs reviewed — the only TODO (ministry link) was resolved
+- [x] Internal links correct — validated by `generate-guide-system.js`
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Status:** Editorial pass completed — legal verification still required.
+
+### `/moving-to-spain/eu-registration/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — NIE/EU-Registration/TIE distinction, EX-18 form, and Modelo 790-012 fee reference all read correctly
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming
+- [x] Official-source links checked — ministry link verified and added this sprint
+- [x] TODOs reviewed — the only TODO (ministry link) was resolved
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Status:** Editorial pass completed — legal verification still required. Also flagging: this page was moved off the live `/guides/eu-registration/` URL in Sprint 34 — the move itself may warrant separate sign-off alongside content review.
+
+### `/moving-to-spain/registering-on-the-padron/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming — this page has the highest sensitivity to this issue (see the Torrevieja precedent) and is consistently hedged throughout
+- [x] Official-source links checked — "Local Town Halls" intentionally has no single URL (varies by municipality); no TODO was ever open here
+- [x] TODOs reviewed
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Status:** Editorial pass completed — legal verification still required.
+
+### `/moving-to-spain/healthcare/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — public healthcare, S1, EHIC, and regional health card distinctions all read correctly
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming — correctly attributes variation to autonomous community, not implying automatic entitlement
+- [x] Official-source links checked — ministry link verified and added this sprint; "Regional health services" intentionally has no single URL
+- [x] TODOs reviewed — the only TODO (ministry link) was resolved
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Status:** Editorial pass completed — legal verification still required.
+
+### `/living-in-spain/taxes/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — tax-residency-vs-immigration-residency distinction, 183-day-rule caveat, and treaty caveat all read correctly
+- [ ] Legal/tax/immigration risk — **needs human/legal review** (highest-risk page in the set)
+- [x] No fixed timelines
+- [x] No province-specific overclaiming (not applicable — tax rules are national, not municipal)
+- [x] Official-source links checked — no official-source cards on this page currently
+- [x] TODOs reviewed
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Small fix made:** removed a stray country-specific example ("Finland") from one FAQ question for consistency with the rest of the guide's neutral phrasing. No other edits.
+
+**Status:** Editorial pass completed — legal verification still required.

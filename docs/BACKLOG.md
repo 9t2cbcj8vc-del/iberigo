@@ -4,11 +4,10 @@ This is the internal product backlog for IberiGo.
 
 ## In Progress
 
-- Editorial/legal review of the core guides (PR #5)
+- Editorial/legal review of the core guides (PR #5) — editorial pass completed on 5 of 14 pages (EU Citizen Roadmap, EU Registration, Padrón, Healthcare, Taxes) as of Sprint 36; legal/tax verification still outstanding on all pages; 9 pages not yet reviewed
 
 ## Planned
 
-- Official source verification — the "Ministry responsible for immigration" link (3 pages), and the location-dependent "Local Town Halls" / "Regional health services" entries (see `docs/PR5_AUDIT_REPORT.md`)
 - Legacy guide migration — decide keep/migrate/redirect/rewrite for overlapping `/guides/` pages vs. the new core structure (see `docs/MIGRATION_PLAN.md`)
 - Redirect strategy for overlapping legacy/new pages, including `/guides/eu-registration/` vs. `/moving-to-spain/eu-registration/`
 - hreflang preservation — any future redirect must keep the existing en/es pairing intact
@@ -27,6 +26,7 @@ This is the internal product backlog for IberiGo.
 
 ## Done
 
+- Official source verification — "Ministry responsible for immigration" link verified and linked on all 3 affected pages (Sprint 36)
 - Start Here
 - EU Citizen Roadmap
 - Settling Into Spain
