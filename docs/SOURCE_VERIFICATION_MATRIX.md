@@ -1,0 +1,93 @@
+# Source Verification Matrix — PR #5 Draft Guides
+
+**Purpose:** structure the upcoming legal/tax/immigration source-verification phase. This document does not verify or add any new sources itself — it maps what exists today, what's missing, and what kind of official source each gap needs, so a human reviewer (or a future sprint with explicit verification authority) can work through it systematically.
+
+**Rule followed while building this:** no URLs were invented and no unofficial links were added. "Suggested official source type" names an institution/category only, not a link, unless that link was already verified and added in an earlier sprint (Sprint 36).
+
+All 14 pages remain `status: draft`, `noindex, nofollow`.
+
+---
+
+## Matrix
+
+| Route | Page title | Topic category | Sensitivity | Key claims requiring verification | Current official sources linked | Missing official sources | Suggested official source type | Reviewer notes | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| `/start-here/` | Start Here: Moving to Spain — IberiGo | Navigation / index | Low | None — persona-selector cards, no procedural claims | None | None needed | N/A | Purely a router to other guides; no independent factual claims to source | Not applicable |
+| `/moving-to-spain/eu-citizens/` | Moving to Spain as an EU Citizen — IberiGo | Immigration / roadmap | **High** | Visa-free entry for EU/EEA/Swiss citizens; 3-month threshold for registration; TIE vs. Certificate of Registration; work rights before registration | Spanish Government (administracion.gob.es), Ministry responsible for immigration (inclusion.gob.es/web/migraciones/home), Police appointment portal (sede.policia.gob.es); "Local Town Halls" intentionally has no single URL | None of the 3 linked sources are missing; roadmap-level claims about tax/driving/Social Security are covered by their own guides, not duplicated here | Immigration / extranjería (covered); no additional type needed | Sources already verified in Sprint 36 | Editorial pass complete; sources verified; legal review pending |
+| `/moving-to-spain/settling-into-spain/` | Settling Into Spain — IberiGo | Arrival sequence / hub | Medium | Sequencing claims across padrón, healthcare, EU registration, banking, digital access, Social Security, tax, driving — each one summarized, not sourced independently | None (this page is a summary/hub; it links to the specific guides that carry their own sources) | No direct source cards on this page | General Spanish administration (if a source section is ever added, it should point to the same ministry/DGT/AEAT sources used on the specific guides, not duplicate new ones) | Low incremental risk since every specific claim is repeated (and sourced or flagged) on its own dedicated guide | Editorial pass complete; legal review pending |
+| `/moving-to-spain/documents-checklist/` | Documents Checklist for Moving to Spain — IberiGo | Immigration / administrative preparation | Medium-High | EX-18 form reference; Modelo 790-012 fee reference; TIE appointment and "relevant EX form" for non-EU routes; apostille/legalisation requirements | None | Extranjería/immigration source for EX-18 and EX forms generally; Agencia Tributaria or the fee-form issuer for Modelo 790-012; Ministerio de Asuntos Exteriores (apostille/legalisation is a consular/foreign-affairs function) | Immigration / extranjería; Agencia Tributaria; Ministerio de Asuntos Exteriores (apostille) | This page names specific form numbers (EX-18, Modelo 790-012) without a linked source — highest documentation-accuracy risk among the "Medium" tier pages | Editorial pass complete; legal review pending; no official sources linked yet |
+| `/moving-to-spain/finding-accommodation/` | Finding Accommodation in Spain — IberiGo | Housing / consumer practice | Medium | Rental contract terms, deposits, notice rules, scam patterns — practical guidance framed as general, not legal, advice | None | Official housing/tenancy authority reference (if any is added) | Ministerio de Vivienda y Agenda Urbana, or regional housing authority, for rental-law-adjacent claims (deposits, notice periods); no official body needed for the scam-avoidance advice, which is general practical guidance | Content is careful to frame this as practical advice rather than legal advice already; lower risk than the immigration/tax pages | Editorial pass complete; legal review pending |
+| `/moving-to-spain/registering-on-the-padron/` | Registering on the Padrón in Spain — IberiGo | Municipal administration | **High** | Padrón as address registration (not immigration status); municipal variation in documents/appointments; padrón's role in healthcare/EU-registration/TIE processes | Spanish Government (www.ine.es — INE padrón municipal statistics/Padrón Online), "Local Town Halls" intentionally has no single URL | None beyond the inherent municipal variation (by design, no single town-hall URL exists) | Town hall / municipal padrón (inherently variable, no single source); INE (covered) | Highest sensitivity to overclaiming in the whole set (see the Torrevieja precedent) — content is consistently hedged | Editorial pass complete; sources verified in Sprint 36; legal review pending |
+| `/moving-to-spain/healthcare/` | Healthcare in Spain for New Residents — IberiGo | Healthcare / immigration | **High** | Public healthcare access routes; S1 form eligibility; EHIC vs. resident healthcare; regional health-card variation; healthcare evidence before EU registration | Spanish Government (www.sanidad.gob.es), Ministry responsible for immigration (inclusion.gob.es/web/migraciones/home), Social Security (www.seg-social.es); "Regional health services" intentionally has no single URL | None of the 3 linked sources are missing; regional health service links intentionally vary | Ministry of Health (covered); Social Security (covered); regional health services (inherently variable) | Sources already verified in Sprint 36 | Editorial pass complete; sources verified; legal review pending |
+| `/moving-to-spain/eu-registration/` | EU Registration in Spain — IberiGo | Immigration | **High** | NIE vs. EU Registration Certificate vs. TIE distinction; EX-18 form; Modelo 790-012 fee; healthcare evidence requirement by route; appointment-type mistakes | Spanish Government (administracion.gob.es), Ministry responsible for immigration (inclusion.gob.es/web/migraciones/home), Police appointment portal (sede.policia.gob.es) | Modelo 790-012 fee-form issuer is named but not separately sourced (may be covered by the Police/Ministry links, but the specific fee-payment portal is not confirmed) | Immigration / extranjería (covered); Policía Nacional (covered); Agencia Tributaria, if the 790-012 fee portal turns out to be AEAT-hosted rather than Interior/Migraciones-hosted | Highest-profile immigration page in the set; terminology (NIE/EU Registration/TIE) was specifically reviewed and found precise | Editorial pass complete; sources verified in Sprint 36; legal review pending |
+| `/living-in-spain/opening-a-bank-account/` | Opening a Bank Account in Spain — IberiGo | Financial / consumer practice | Medium | Resident vs. non-resident account distinctions; KYC identification requirement; fee variability; no bank is endorsed | None | Financial regulator reference, if one is ever added | Banco de España, for the general KYC/account-type regulatory framing (the guide currently sources this to "banks generally," not to a regulator) | Content is deliberately bank-neutral and hedged; lower legal risk than immigration/tax pages, but the KYC claim ("banks generally need to identify customers") is a real regulatory fact worth a source | Editorial pass complete; legal review pending |
+| `/living-in-spain/digital-certificate/` | Digital Certificate and Cl@ve in Spain — IberiGo | Digital identity / administrative | Medium | Digital Certificate vs. Cl@ve distinction; both used to access tax/Social Security/health/municipal portals; not every procedure is online | None | Digital-identity issuer reference (Digital Certificate is issued via FNMT; Cl@ve is a separate government identity system) | FNMT (issuer of the most common Digital Certificate) and the Cl@ve system's own official page | Content is careful never to claim the two systems are interchangeable; risk is mostly about staying current as these systems change, not legal exposure | Editorial pass complete; legal review pending |
+| `/living-in-spain/social-security/` | Social Security in Spain — IberiGo | Employment / administration | **High** | Social Security number vs. NIE vs. healthcare card vs. tax ID; employer vs. self-employed registration responsibility; Social Security's link (or non-link) to healthcare entitlement | **None** — despite the topic, this page currently has zero official-source cards | Seguridad Social (the obvious, directly on-topic source) is entirely absent from this page, even though it's already used as a source on the Healthcare guide | Seguridad Social (Instituto Nacional de la Seguridad Social / Tesorería General de la Seguridad Social) | **Structural gap:** the page most in need of a Seguridad Social link doesn't have one, while a less directly-related page (Healthcare) does | Editorial pass complete (content); **no official sources linked yet** — flagged for source-verification phase |
+| `/living-in-spain/taxes/` | Taxes in Spain for New Residents — IberiGo | Tax | **High** | Tax residency vs. immigration residency; 183-day rule; worldwide income for tax residents; double-taxation treaties; explicit "not tax advice" disclaimer | **None** — zero official-source cards on this page | Agencia Tributaria (AEAT) is the obvious, entirely absent source for a guide about Spanish tax residency | Agencia Tributaria (AEAT) | Highest legal/tax risk page in the entire set, and the only one of the 7 High-priority pages with **no official source at all** | Editorial pass complete (content); **no official sources linked yet** — highest-priority gap for the source-verification phase |
+| `/living-in-spain/driving/` | Driving Licence in Spain for New Residents — IberiGo | Transport / administrative | **High** | EU vs. non-EU licence recognition; exchange agreements by country; renewal-after-residence rules; medical-check requirement; consistently defers to "current DGT rules" | **None** — zero official-source cards on this page | DGT (Dirección General de Tráfico) is named repeatedly in the guide's own text ("Check DGT guidance," "DGT is the authority to check") but is never linked | DGT (Dirección General de Tráfico) | The guide's own text tells readers to check DGT — but doesn't link to DGT. This is the clearest source gap in the set: the source is named in prose but absent as a link | Editorial pass complete (content); **no official sources linked yet** — flagged for source-verification phase |
+| `/search/` | Search IberiGo Guides — IberiGo | Functional | Low | None — search UI only | N/A | N/A | N/A | Not editorial content | Not applicable |
+
+---
+
+## Structural finding: 3 of the 7 High-priority pages have zero official sources
+
+Taxes, Social Security, and Driving Licence are all marked High sensitivity, and all three currently have **no official-source cards at all** — not even a TODO placeholder, because `officialSourcesByRoute` in `scripts/generate-guide-system.js` simply has no entry for `routes.taxes`, `routes.social`, or `routes.driving`. This is a different, more basic gap than the "unverified TODO" issue resolved in Sprint 36 (that was about existing-but-unverified entries; this is about entries that don't exist yet). This should be the first fix in the source-verification phase, ahead of re-checking the already-linked sources on the other 4 High-priority pages.
+
+## Step 4 — Extracted risky claims for the 7 High-priority pages
+
+### `/moving-to-spain/eu-citizens/`
+- EU/EEA/Swiss citizens can enter Spain without a visa.
+- Registration is "usually required" past 3 months.
+- EU citizens "usually" receive a Certificate of Registration, not a TIE.
+- Appointment availability "can vary" by province/office (hedged, but still a claim about the system's real-world behavior).
+
+### `/moving-to-spain/eu-registration/`
+- NIE ≠ EU Registration Certificate ≠ TIE (terminology claim, load-bearing for the whole guide).
+- EX-18 is "the common form."
+- Modelo 790-012 is "usually paid before the appointment."
+- Healthcare evidence requirement varies by applicant route (work/self-employed/student/retired/sufficient resources).
+- The certificate is "commonly a green certificate rather than a photo ID card."
+
+### `/moving-to-spain/registering-on-the-padron/`
+- Padrón is separate from immigration residency ("it does not grant immigration status").
+- Documents/appointments vary by municipality (province-specific variation claim, core to the whole page).
+- Padrón may be requested for EU registration, TIE, healthcare, and school procedures.
+
+### `/moving-to-spain/healthcare/`
+- Public healthcare access depends on work/Social Security/pension/family status/other recognised routes — not automatic.
+- S1 form relevance for pensioners/cross-border-covered people.
+- EHIC is "generally for temporary stays," distinct from resident healthcare access.
+- Regional health card procedures vary by autonomous community.
+- Healthcare evidence "may need to happen before" EU registration for non-employment routes.
+
+### `/living-in-spain/taxes/`
+- Tax residency ≠ immigration residency (foundational distinction for the whole guide).
+- 183-day rule is "important, but not the only factor" — personal/economic interests and treaties also matter.
+- Spanish tax residents "may need to declare worldwide income."
+- Double-taxation treaties "may affect how income is taxed."
+- Explicit disclaimer: general information only, not tax advice.
+
+### `/living-in-spain/social-security/`
+- Social Security number ≠ NIE ≠ healthcare card ≠ tax ID (foundational distinction for the whole guide).
+- Employees are "usually registered by their employer"; self-employed people "usually" handle registration themselves or via a gestor.
+- Social Security is "one possible route" into public healthcare, not the only one.
+- Not every newcomer needs Social Security immediately.
+
+### `/living-in-spain/driving/`
+- EU/EEA licences are "generally recognised" while valid; renewal rules may apply once resident.
+- Non-EU licence recognition "depends on the country of issue and whether Spain has an exchange agreement."
+- An International Driving Permit "may help temporarily" but "does not replace residency rules."
+- Medical check requirement for renewal/exchange, dependent on licence category/age.
+- Vehicle registration, insurance, and ITV are "different administrative questions" from licence exchange.
+
+---
+
+## Pages that should not be published before source/legal review
+
+All 14 draft pages remain unpublished (`noindex,nofollow`) and none should move to `review`/`published` status before this phase completes. Within that, the priority order for the source-verification phase itself:
+
+1. **Taxes, Social Security, Driving Licence** — no official sources linked at all; add sources before anything else.
+2. **EU Citizen Roadmap, EU Registration, Padrón, Healthcare** — sources already linked and verified (Sprint 36), but should be re-confirmed as part of a formal legal review pass rather than re-relying on the earlier technical verification alone.
+3. **Documents Checklist** — names specific form numbers (EX-18, Modelo 790-012) without a source; should be sourced alongside the immigration pages above, given the overlap.
+4. **Settling Into Spain, Finding Accommodation, Opening a Bank Account, Digital Certificate** — Medium sensitivity; source once the High-priority pages are done.
+5. **Start Here, Search** — no action needed; not applicable.

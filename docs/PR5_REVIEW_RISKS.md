@@ -53,3 +53,32 @@ The final 2 pages without a prior editorial pass — `living-in-spain/digital-ce
 - `guaranteed`
 - `within 30 days`
 - `first week`
+
+## Source verification phase (Sprint 42)
+
+Full detail lives in `docs/SOURCE_VERIFICATION_MATRIX.md` — this section summarizes the risk-relevant findings from building that matrix.
+
+### Unresolved official source needs
+
+- **Taxes, Social Security, and Driving Licence have zero official-source cards** — not an unverified TODO like the Sprint 36 finding, but a structural absence: `officialSourcesByRoute` in `scripts/generate-guide-system.js` has no entry at all for `routes.taxes`, `routes.social`, or `routes.driving`. This is the single biggest gap found in this pass.
+  - Taxes needs Agencia Tributaria (AEAT).
+  - Social Security needs Seguridad Social — notably, this exact source is already linked on the *Healthcare* guide but missing from the guide that's actually about Social Security.
+  - Driving Licence needs DGT — the guide's own text repeatedly tells readers to "check DGT rules," but never links to DGT.
+- **Documents Checklist names specific form numbers (EX-18, Modelo 790-012) with no linked source.** The same forms are sourced (indirectly, via the Police/Ministry links) on the EU Registration guide, but not here.
+- 4 pages (EU Citizen Roadmap, EU Registration, Padrón, Healthcare) already have verified sources from Sprint 36 — these should be re-confirmed during formal legal review rather than assumed still current, since government URLs can move.
+
+### Claims needing human/professional verification
+
+All claims listed under "Step 4 — Extracted risky claims" in `docs/SOURCE_VERIFICATION_MATRIX.md` for the 7 High-priority pages, most importantly:
+- The NIE / EU Registration Certificate / TIE distinction (EU Registration, EU Citizen Roadmap, Documents Checklist).
+- Tax residency vs. immigration residency and the 183-day rule (Taxes).
+- Social Security number vs. NIE vs. healthcare card vs. tax ID (Social Security).
+- Public healthcare non-automaticity and S1/EHIC distinctions (Healthcare).
+- Padrón's non-immigration-status nature and municipal variation (Padrón).
+- EU/non-EU licence recognition and exchange-agreement dependency (Driving Licence).
+
+None of these are currently marked as legally verified anywhere in the repo — the editorial passes (Sprints 36–39) checked tone, hedging, and terminology consistency, not legal/professional accuracy.
+
+### Pages that should not be published before review
+
+**All 14.** No page should move out of `draft`/`noindex,nofollow` before this source-verification and legal-review phase completes — this applies equally to the 4 pages with already-verified sources and the 3 pages with none, since "source verified" and "legally reviewed" are different bars and neither has been cleared yet.
