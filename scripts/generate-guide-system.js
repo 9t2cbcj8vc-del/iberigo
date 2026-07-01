@@ -35,7 +35,8 @@ const routes = {
   driving: "/living-in-spain/driving/",
   accommodation: "/moving-to-spain/finding-accommodation/",
   nonEuRoadmap: "/moving-to-spain/non-eu-citizens/",
-  euFamilyMemberRoadmap: "/moving-to-spain/family-member-eu-citizen/"
+  euFamilyMemberRoadmap: "/moving-to-spain/family-member-eu-citizen/",
+  students: "/moving-to-spain/students/"
 };
 
 function writePage(route, html) {
@@ -160,6 +161,11 @@ const guideSummaries = {
     title: "Family Member of an EU Citizen Roadmap",
     label: "View the Family Member of an EU Citizen Roadmap",
     description: "Understand the broad journey for non-EU family members of EU citizens moving to or living in Spain."
+  },
+  [routes.students]: {
+    title: "Student Roadmap",
+    label: "View the Student Roadmap",
+    description: "Understand the broad student route for studying in Spain, for EU and non-EU students alike."
   }
 };
 
@@ -281,6 +287,13 @@ const searchMetadataByRoute = {
     estimatedTime: "11 min",
     appliesTo: ["Non-EU spouses of EU citizens", "Registered partners of EU citizens, where recognised", "Children and dependent relatives of EU citizens", "EU citizens bringing or joining family in Spain"],
     keywords: ["family member of an EU citizen", "residence card", "spouse visa", "TIE", "NIE", "EU Registration", "family reunification"]
+  },
+  [routes.students]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "11 min",
+    appliesTo: ["Non-EU students planning to study in Spain", "EU students planning to study in Spain", "Exchange, university, language and vocational students"],
+    keywords: ["student visa", "study in Spain", "TIE", "EU Registration", "student residence", "university", "language school"]
   }
 };
 
@@ -297,7 +310,8 @@ const relatedRoutesByRoute = {
   [routes.driving]: [routes.accommodation, routes.checklist, routes.taxes],
   [routes.accommodation]: [routes.padron, routes.banking, routes.healthcare],
   [routes.nonEuRoadmap]: [routes.checklist, routes.settling, routes.healthcare],
-  [routes.euFamilyMemberRoadmap]: [routes.checklist, routes.padron, routes.healthcare]
+  [routes.euFamilyMemberRoadmap]: [routes.checklist, routes.padron, routes.healthcare],
+  [routes.students]: [routes.checklist, routes.healthcare, routes.accommodation]
 };
 
 const officialSourcesByRoute = {
@@ -342,6 +356,13 @@ const officialSourcesByRoute = {
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Family-member residence card appointment booking is linked from here — confirm the specific appointment path before publication." },
     { name: "EU official information for families", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, titled \"Help and advice for EU nationals and their family.\" Verified reachable this sprint (HTTP 200, page titled correctly)." }
+  ],
+  [routes.students]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for students is linked from here — confirm the specific appointment path before publication." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for student visa applications handled through Spanish consulates abroad." },
+    { name: "Ministry of Education", url: "https://www.educacionyfp.gob.es", note: "Ministerio de Educación, Formación Profesional y Deportes. Verified reachable this sprint (HTTP 200, redirects to educacionfpydeportes.gob.es, page titled correctly)." }
   ]
 };
 
@@ -699,7 +720,7 @@ const pages = [
             { title: "I’m a non-EU citizen", text: "Start with the roadmap for non-EU citizens moving to Spain.", href: routes.nonEuRoadmap, label: "View the Non-EU Citizen Roadmap" },
             { title: "I’m joining family in Spain", text: "Start with the roadmap for family members of an EU citizen moving to Spain.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
             { title: "I’m moving for work", text: "Work routes depend on employment, self-employment and authorization details.", href: "#", label: "Coming soon", comingSoon: true },
-            { title: "I’m moving to study", text: "Study routes depend on programme, duration and nationality.", href: "#", label: "Coming soon", comingSoon: true },
+            { title: "I’m moving to study", text: "Start with the roadmap for students moving to Spain.", href: routes.students, label: "View the Student Roadmap" },
             { title: "I’m retiring in Spain", text: "Retirement planning can involve residence, healthcare and tax questions.", href: "#", label: "Coming soon", comingSoon: true },
             { title: "I’m self-employed", text: "Self-employment can affect residence, tax, Social Security and healthcare.", href: "#", label: "Coming soon", comingSoon: true }
           ])
@@ -2433,7 +2454,7 @@ pages.push({
         title: "Choose your route",
         children: StartHereCards([
           { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: "#", label: "Coming soon", comingSoon: true },
-          { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: "#", label: "Coming soon", comingSoon: true },
+          { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: routes.students, label: "View the Student Roadmap" },
           { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: "#", label: "Coming soon", comingSoon: true },
           { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
           { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: "#", label: "Coming soon", comingSoon: true },
@@ -2664,6 +2685,165 @@ pages.push({
           { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
           { label: "View the Settling Into Spain Guide", href: routes.settling }
         ])}${TipBox("Keep a folder for identity, relationship, translated and legalised documents so you can respond quickly once you know your exact case requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.students,
+  html: GuideLayout({
+    path: routes.students,
+    canonical: `https://iberigo.eu${routes.students}`,
+    title: "Moving to Spain as a Student — IberiGo",
+    description: "A practical roadmap for students planning to study in Spain, including study routes, documents, healthcare, accommodation, TIE basics and common mistakes.",
+    metadata: guideMetadataFor(routes.students),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Student Roadmap" }],
+    hero: {
+      kicker: "Study route",
+      title: "Moving to Spain as a Student",
+      intro: "A practical starting point for understanding student routes, what you may need to prepare, and which steps usually come before and after arriving in Spain.",
+      asideTitle: "Not one process for every student",
+      asideText: "Student residence rules can depend on your nationality, course type, study length, documents, financial situation, healthcare cover and where you apply."
+    },
+    sections: [
+      QuickAnswer("Students from outside Spain may need a recognised study route, visa or authorisation depending on nationality and length of stay. Requirements can depend on course type, duration, nationality and where the application is made. Non-EU students may eventually need a TIE if staying longer. EU students follow a different process and may need EU Registration if staying longer than three months. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal advice. Student residence rules can depend on your nationality, course type, study length, documents, financial situation, healthcare cover and where you apply. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Visa or authorisation?", "May be required, depending on nationality, course type and study length."],
+        ["Same for everyone?", "No. EU and non-EU students follow different processes, and requirements vary by case."],
+        ["Non-EU students", "May eventually need a TIE if staying longer."],
+        ["EU students", "May need EU Registration if staying longer than three months."],
+        ["Professional advice", "May be useful, especially for unusual course types or nationalities."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Non-EU students", text: "Use this if you are planning to study in Spain from outside the EU." },
+          { title: "EU students", text: "Use this if you are an EU, EEA or Swiss citizen planning to study in Spain." },
+          { title: "Exchange students", text: "Use this if you are studying in Spain as part of an exchange programme." },
+          { title: "University students", text: "Use this if you are enrolling in a Spanish university programme." },
+          { title: "Language students", text: "Use this if you are attending a language course or school." },
+          { title: "Vocational or recognised training students", text: "Use this if you are enrolling in vocational or other recognised training." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand whether the student route applies to your situation now." }
+        ])}${InfoBox({ title: "Related roadmaps", text: "EU citizens should also check the EU Citizen Roadmap. Non-EU students should also check the Non-EU Citizen Roadmap for the broader non-EU journey." })}`
+      }),
+      GuideSection({
+        id: "beforeYouApplyOrMove",
+        title: "Before you apply or move",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport or national ID is usually central to the application." },
+          { title: "Admission or enrolment proof", text: "Proof of admission or enrolment is usually needed before applying for a study route." },
+          { title: "Healthcare cover", text: "Healthcare cover may be required, depending on your route and nationality." },
+          { title: "Financial evidence, depending on route", text: "Some routes may require proof of sufficient funds or income." },
+          { title: "Accommodation planning", text: "Where you will live can affect padrón and other later steps." },
+          { title: "Criminal record certificate, where required", text: "Some routes may ask for a criminal record certificate." },
+          { title: "Medical certificate, where required", text: "Some routes may ask for a medical certificate." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." }
+        ])}<p>Exact requirements depend on nationality, course type, study length and application route. Use the <a href="${routes.checklist}">Documents Checklist</a> as a general starting point, then confirm the exact list for your specific case.</p>`
+      }),
+      GuideSection({
+        id: "euStudents",
+        title: "EU students",
+        children: `${Cards([
+          { title: "Usually no visa needed", text: "EU, EEA and Swiss students do not usually need a visa to study in Spain." },
+          { title: "EU registration if staying longer", text: "If staying longer than three months, EU registration may apply." },
+          { title: "Healthcare and resources may matter", text: "Healthcare cover and sufficient resources may matter for EU registration." },
+          { title: "Check your exact situation", text: "EU students should check whether their situation falls under student, worker or another route." }
+        ])}${SourceLinks([
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the EU Registration Guide", href: routes.euRegistration },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare }
+        ])}`
+      }),
+      GuideSection({
+        id: "nonEuStudents",
+        title: "Non-EU students",
+        children: `${Cards([
+          { title: "Visa or study authorisation", text: "Non-EU students may need a student visa or study authorisation depending on their situation." },
+          { title: "May start before travel", text: "Some processes may start before travel through a Spanish consulate." },
+          { title: "May depend on current status", text: "Other procedures may depend on current legal status and route." },
+          { title: "TIE may follow", text: "TIE may be required after approval or arrival." },
+          { title: "Different from tourist stays", text: "Student procedures are different from ordinary tourist stays." }
+        ])}${SourceLinks([
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist }
+        ])}`
+      }),
+      GuideSection({
+        id: "healthcareAndAccommodation",
+        title: "Healthcare and accommodation",
+        children: `${Cards([
+          { title: "Healthcare varies by case", text: "Healthcare requirements can depend on nationality, route and study length." },
+          { title: "Private insurance", text: "Some students may need private insurance." },
+          { title: "Accommodation affects later steps", text: "Accommodation can affect padrón and later administrative steps." },
+          { title: "Temporary accommodation has limits", text: "Temporary accommodation may not always work for every administrative need." },
+          { title: "Requirements vary", text: "Requirements vary by case and location." }
+        ])}${SourceLinks([
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron }
+        ])}`
+      }),
+      GuideSection({
+        id: "tieBasicsForStudents",
+        title: "TIE basics for students",
+        children: `${Cards([
+          { title: "Many non-EU students need one", text: "Many non-EU students staying longer may need a TIE." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      GuideSection({
+        id: "workWhileStudying",
+        title: "Work while studying",
+        children: `${Cards([
+          { title: "Limited work may be allowed", text: "Some student routes may allow limited work or require specific conditions." },
+          { title: "Depends on status and route", text: "Work rights depend on the student's status, route and current rules." },
+          { title: "Verify before accepting work", text: "Students should verify work conditions before accepting work." }
+        ])}${WarningBox("Do not assume student status automatically gives work rights. Check the conditions that apply to your specific route before working.")}`
+      }),
+      CommonMistakes([
+        "Assuming every course qualifies for a study route.",
+        "Assuming tourist stay is enough for long-term study.",
+        "Confusing NIE and TIE.",
+        "Ignoring healthcare requirements.",
+        "Preparing documents too late.",
+        "Ignoring translations, legalisation or apostille needs.",
+        "Assuming student status automatically gives work rights.",
+        "Waiting until appointments are urgent.",
+        "Relying only on informal advice."
+      ]),
+      RealQuestions([
+        { question: "Do I need a visa to study in Spain?", answer: "It depends on your nationality, course type and study length. Some students need a visa or study authorisation; others may not. Check the official requirements for your case." },
+        { question: "Can EU citizens study in Spain without a visa?", answer: "Usually yes. EU, EEA and Swiss students do not usually need a visa, though EU registration may apply if staying longer than three months." },
+        { question: "Do students need a TIE?", answer: "Many non-EU students staying longer may need a TIE. Requirements depend on your route and approval." },
+        { question: "Can students work in Spain?", answer: "It depends on the student's status, route and current rules. Do not assume work rights are automatic — verify before accepting work." },
+        { question: "Is NIE the same as TIE?", answer: "No. NIE is an identification number. TIE is a physical foreigner identity card. They are not the same document." },
+        { question: "Do I need private health insurance?", answer: "It depends on your route and nationality. Some students may need private insurance; others may use another healthcare route." },
+        { question: "Can I use temporary accommodation?", answer: "It may work for some initial needs, but temporary accommodation may not always support every administrative step, such as padrón. Check before relying on it." },
+        { question: "What if I am already in Spain?", answer: "Use Start Here and this roadmap together to understand which route may apply, and check official requirements before assuming a specific process fits your situation." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, admission, financial and translated documents so you can respond quickly once you know your exact route requirements.")}`
       })
     ]
   })
