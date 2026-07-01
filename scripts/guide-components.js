@@ -205,10 +205,13 @@ function ScopeNotice() {
 
 function OfficialSources(items = []) {
   if (!items.length) return "";
-  const stillPending = items.some((item) => !item.url);
+  const stillPending = items.some((item) => !item.url && !item.varies);
+  const hasVarying = items.some((item) => item.varies);
   const statusText = stillPending
     ? "Some official references below are still pending verification (marked TODO). Confirm and link them during editorial review before publication."
-    : "Official references below link to their official domain. Confirm the specific page still matches this guide's content before publication.";
+    : hasVarying
+      ? "Official references below link to their official domain where one exists. Entries marked as varying by location have no single official URL — link the reader's specific municipality/region during editorial review."
+      : "Official references below link to their official domain. Confirm the specific page still matches this guide's content before publication.";
   return GuideSection({
     id: "officialSources",
     title: "Official Sources",

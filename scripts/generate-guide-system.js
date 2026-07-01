@@ -275,23 +275,23 @@ const relatedRoutesByRoute = {
 const officialSourcesByRoute = {
   [routes.euRoadmap]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
-    { name: "Ministry responsible for immigration", note: "TODO: verify and link the Ministry of Inclusion, Social Security and Migrations' extranjería portal — could not be confirmed reachable during this pass." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Appointment booking for foreigners' procedures is linked from here — confirm the specific EU-registration appointment path before publication." },
-    { name: "Local Town Halls", note: "No single official URL — padrón and local address requirements are set by each municipality. Link the reader's specific town hall page during editorial review." }
+    { name: "Local Town Halls", varies: true, note: "No single official URL — padrón and local address requirements are set by each municipality. Link the reader's specific town hall page during editorial review." }
   ],
   [routes.euRegistration]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
-    { name: "Ministry responsible for immigration", note: "TODO: verify and link the Ministry of Inclusion, Social Security and Migrations' extranjería portal — could not be confirmed reachable during this pass." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Appointment booking for EU registration certificate appointments is linked from here — confirm the specific appointment path before publication." }
   ],
   [routes.padron]: [
     { name: "Spanish Government", url: "https://www.ine.es", note: "Instituto Nacional de Estadística (INE) — national padrón municipal statistics and the Padrón Online portal." },
-    { name: "Local Town Halls", note: "No single official URL — padrón requirements and appointment systems are set by each municipality. Link the reader's specific town hall page during editorial review." }
+    { name: "Local Town Halls", varies: true, note: "No single official URL — padrón requirements and appointment systems are set by each municipality. Link the reader's specific town hall page during editorial review." }
   ],
   [routes.healthcare]: [
     { name: "Spanish Government", url: "https://www.sanidad.gob.es", note: "Ministerio de Sanidad — Spain's national health ministry." },
-    { name: "Ministry responsible for immigration", note: "TODO: verify and link the Ministry of Inclusion, Social Security and Migrations' extranjería portal — could not be confirmed reachable during this pass." },
-    { name: "Regional health services", note: "No single official URL — health-card processes and names vary by autonomous community. Link the reader's specific regional health service during editorial review." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
+    { name: "Regional health services", varies: true, note: "No single official URL — health-card processes and names vary by autonomous community. Link the reader's specific regional health service during editorial review." },
     { name: "Social Security", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — official Social Security site. Note: could not be re-fetched for verification during this pass (site blocked automated requests), but this is the long-established canonical government domain." }
   ]
 };
