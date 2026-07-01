@@ -1968,9 +1968,155 @@ pages.push({
   })
 });
 
+pages.push({
+  route: routes.accommodation,
+  html: GuideLayout({
+    path: routes.accommodation,
+    canonical: `https://iberigo.eu${routes.accommodation}`,
+    title: "Finding Accommodation in Spain — IberiGo",
+    description: "A practical guide to finding accommodation in Spain, including short-term rentals, long-term rentals, documents, contracts, deposits, scams and common mistakes.",
+    metadata: guideMetadataFor(routes.accommodation),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.euRoadmap }, { label: "Finding Accommodation" }],
+    hero: {
+      kicker: "Housing and address",
+      title: "Finding Accommodation in Spain",
+      intro: "A practical guide to finding a place to live in Spain, understanding rental basics, preparing documents, and avoiding common problems before you sign.",
+      asideTitle: "Your address affects later steps",
+      asideText: "A rental may affect padrón registration, healthcare, banking, official notifications and local services, so check address paperwork before you commit."
+    },
+    sections: [
+      QuickAnswer("Many newcomers start with temporary accommodation before signing a long-term rental. Long-term rentals often require documents and proof of income. The padrón may depend on having an address where registration is possible. Rental contracts should be reviewed carefully before signing. Scams and misleading listings are possible, especially online."),
+      AtAGlance([
+        ["Common first step", "Temporary accommodation can give you time to visit areas and view properties in person."],
+        ["Long-term rental", "Usually better for stability and may support later administration."],
+        ["Documents", "Landlords and agencies may ask for identity, income and payment evidence."],
+        ["Padrón", "Ask whether the landlord can provide the documents needed for padrón registration."],
+        ["Before paying", "Verify the property, contract and payment recipient carefully."]
+      ]),
+      GuideSection({
+        id: "whoThisGuideIsFor",
+        title: "Who this guide is for",
+        children: Cards([
+          { title: "EU citizens moving to Spain", text: "Use this if you need an address before padrón, healthcare, banking or EU registration steps." },
+          { title: "Non-EU residents", text: "Use this if accommodation paperwork may connect to residency, notifications or local registration." },
+          { title: "Workers", text: "Use this if you need housing near work, transport or required offices." },
+          { title: "Retirees", text: "Use this if you are comparing stable housing, local services and healthcare access." },
+          { title: "Students", text: "Use this if you are comparing student housing, shared rentals or short-term arrival options." },
+          { title: "Families", text: "Use this if schools, healthcare, transport and local services affect where you live." },
+          { title: "People without a permanent address yet", text: "Use this if you need a landing option while you search in person." },
+          { title: "People preparing for padrón", text: "Use this if you need to check whether an address can support municipal registration." }
+        ])
+      }),
+      GuideSection({
+        id: "temporaryVsLongTerm",
+        title: "Temporary vs long-term accommodation",
+        children: `${Cards([
+          { title: "Temporary: useful when arriving", text: "Temporary accommodation can help you arrive calmly while you learn the area and view homes in person." },
+          { title: "Temporary: easier before documents", text: "It may be easier to book before you have Spanish documents or proof of local income." },
+          { title: "Temporary: padrón may not be possible", text: "Short-term accommodation may not always provide the documents needed for padrón registration." },
+          { title: "Long-term: more stability", text: "A long-term rental is usually better for stable living, local services and daily administration." },
+          { title: "Long-term: more documents", text: "Long-term rentals usually require more documents and stronger proof of income or guarantees." },
+          { title: "Long-term: contract terms matter", text: "Contract duration, notice rules, deposits, utilities and address paperwork should be checked before signing." }
+        ])}${InfoBox({ title: "Ask before you sign", text: "Do not assume every rental allows padrón. Ask in writing whether the landlord or agency can provide the documents needed for municipal registration." })}`
+      }),
+      GuideSection({
+        id: "whyAddressMatters",
+        title: "Why the address matters",
+        children: `${Cards([
+          { title: "Padrón registration", text: "Your address may affect whether and where you can register on the padrón." },
+          { title: "Healthcare registration", text: "Local healthcare registration may depend on where you live and your regional health service." },
+          { title: "School registration", text: "For families, school access or catchment questions may depend on address." },
+          { title: "Bank paperwork", text: "Banks may ask for address information or proof depending on the account and your status." },
+          { title: "Official notifications", text: "Your address may be used for official correspondence and administrative records." },
+          { title: "Local services", text: "Transport, health centres, town hall offices and daily services vary by neighbourhood and municipality." }
+        ])}${WarningBox("Before signing, ask whether the landlord will provide the documents needed for padrón registration. Get important confirmations in writing.")}`
+      }),
+      GuideSection({
+        id: "documentsLandlordsMayAskFor",
+        title: "Documents landlords may ask for",
+        children: `${Cards([
+          { title: "Identity document", text: "A passport or national ID is commonly requested." },
+          { title: "NIE, if available", text: "Some landlords or agencies may ask for a NIE if you already have one." },
+          { title: "Work and income", text: "An employment contract, payslips, proof of income or bank references may be requested." },
+          { title: "Rental history", text: "Previous rental references may help, especially in competitive areas." },
+          { title: "Deposit", text: "A deposit and upfront payment are commonly requested before move-in." },
+          { title: "Guarantee", text: "A guarantor or additional guarantee may be requested in some cases." }
+        ])}${TipBox("Exact requirements vary by landlord and agency. Ask for the required document list before arranging a viewing or sending sensitive information.")}`
+      }),
+      GuideSection({
+        id: "rentalContracts",
+        title: "Rental contracts",
+        children: Cards([
+          { title: "Read carefully", text: "Read the contract carefully and consider professional advice before signing if anything is unclear." },
+          { title: "Core terms", text: "Check rent, deposit, duration, renewal, notice rules and move-in date." },
+          { title: "Utilities", text: "Check which utilities are included and which must be contracted or paid separately." },
+          { title: "Extra charges", text: "Ask who pays community fees, rubbish tax or other recurring charges where applicable." },
+          { title: "Padrón documents", text: "Check whether the property can be used for padrón and what documents the landlord will provide." },
+          { title: "Keep proof", text: "Keep signed copies, receipts, bank-transfer records and written confirmations." }
+        ])
+      }),
+      GuideSection({
+        id: "depositsAndPayments",
+        title: "Deposits and upfront payments",
+        children: `${Cards([
+          { title: "Deposit and guarantees", text: "Landlords may ask for a deposit and additional guarantees, depending on the rental and your situation." },
+          { title: "Agency fees", text: "Agency fees may apply in some situations, so ask what each payment is for before agreeing." },
+          { title: "Verify before paying", text: "Never send large payments without verifying the property, contract and recipient." },
+          { title: "Traceable payments", text: "Use traceable payment methods and avoid unclear payment routes." },
+          { title: "Receipts", text: "Keep receipts and written confirmation for every payment." }
+        ])}${WarningBox("If you feel pressured to pay before you can verify the listing or contract, slow down and check the details carefully.")}`
+      }),
+      GuideSection({
+        id: "avoidingScams",
+        title: "Avoiding scams",
+        children: Cards([
+          { title: "Too good to be true", text: "A very low price in a high-demand area can be a warning sign." },
+          { title: "No viewing or video call", text: "Be cautious if the landlord refuses a viewing, video call or reasonable verification." },
+          { title: "Pressure to pay quickly", text: "Scammers often create urgency so you do not check the details." },
+          { title: "Poor or stolen photos", text: "Photos that look inconsistent, generic or reused can be a warning sign." },
+          { title: "No contract", text: "Avoid paying large sums without a clear contract or written terms." },
+          { title: "Suspicious payment details", text: "Check whether the payment recipient and account details make sense for the property and agreement." },
+          { title: "Sensitive documents too early", text: "Be cautious if identity documents are requested unusually early without context." },
+          { title: "Details do not match", text: "Verify that address, photos, viewing details, landlord or agency information and contract details match." }
+        ])
+      }),
+      CommonMistakes([
+        "Signing before checking padrón possibility.",
+        "Relying only on photos.",
+        "Not checking extra costs.",
+        "Not keeping payment records.",
+        "Assuming short-term rentals work for residency steps.",
+        "Ignoring the official notification address.",
+        "Not checking transport and daily services.",
+        "Moving too far from required offices or work."
+      ]),
+      RealQuestions([
+        { question: "Can I use Airbnb or temporary accommodation for padrón?", answer: "Sometimes it may be possible, but do not assume it. Ask whether the accommodation can provide the documents your town hall requires." },
+        { question: "Do I need a rental contract for padrón?", answer: "Town halls usually ask for some form of address evidence. The exact documents can vary by municipality and situation." },
+        { question: "Can I rent before getting a NIE?", answer: "It may be possible, depending on the landlord or agency. Some may accept a passport or national ID, while others may ask for a NIE." },
+        { question: "What documents do landlords ask for?", answer: "They may ask for identity documents, NIE if available, proof of income, work contract, payslips, references, deposit and sometimes extra guarantees." },
+        { question: "Should I pay before viewing?", answer: "Be very cautious. If you cannot view in person, try to verify through a video call, agency checks, contract review and traceable payments before sending money." },
+        { question: "Can a landlord refuse padrón registration?", answer: "The practical issue is often whether the landlord will provide the documents needed by the town hall. Ask before signing and keep written confirmation." },
+        { question: "Is it better to rent short-term first?", answer: "Many newcomers do because it gives time to compare areas and avoid rushing. It may not solve padrón or long-term paperwork needs, so plan the next step early." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View the Settling Into Spain Guide", href: routes.settling },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Opening a Bank Account Guide", href: routes.banking },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap }
+        ])}${TipBox("Before committing to a rental, keep a written checklist for padrón documents, total move-in cost, contract terms, transport, healthcare access and work or school distance.")}`
+      })
+    ]
+  })
+});
+
 const skeletons = [
   ["documents-checklist", routes.checklist, "Moving to Spain documents checklist — IberiGo", "Draft checklist for documents people commonly prepare before moving to Spain.", "Documents Checklist for Moving to Spain", "A calm document checklist helps you prepare without pretending every route has the same requirements.", "Start with identity, address, healthcare, money and purpose evidence. Route-specific detail comes during editorial review."],
-  ["finding-accommodation", routes.accommodation, "Finding accommodation in Spain — IberiGo", "Draft guide to finding accommodation when moving to Spain.", "Finding Accommodation in Spain", "Accommodation is also an admin step because your address can affect padrón, banking and healthcare.", "Ask early whether the address can support the paperwork you need."]
 ];
 
 for (const [, route, title, description, h1, intro, quick] of skeletons) {
