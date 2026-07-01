@@ -1845,9 +1845,131 @@ pages.push({
   })
 });
 
+pages.push({
+  route: routes.driving,
+  html: GuideLayout({
+    path: routes.driving,
+    canonical: `https://iberigo.eu${routes.driving}`,
+    title: "Driving Licence in Spain for New Residents — IberiGo",
+    description: "A practical guide to driving in Spain as a new resident, including EU licences, non-EU licences, licence exchange, renewals, insurance and common mistakes.",
+    metadata: guideMetadataFor(routes.driving),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Driving Licence" }],
+    hero: {
+      kicker: "Driving and transport",
+      title: "Driving Licence in Spain for New Residents",
+      intro: "A practical guide to understanding when you can use your existing licence in Spain, when you may need to exchange or renew it, and what new residents should check after moving.",
+      asideTitle: "Check your licence type",
+      asideText: "Driving rules can depend on your country of issue, residency status, licence category, expiry date, medical requirements and current DGT rules."
+    },
+    sections: [
+      QuickAnswer("If you have an EU or EEA driving licence, you can usually drive in Spain with it while it is valid, but renewal rules may apply once you are resident. If you have a non-EU licence, the answer depends on the country of issue and whether Spain has an exchange agreement. Some residents may need to exchange, renew or register their licence. Always check the current DGT rules for your licence type."),
+      AtAGlance([
+        ["Main authority", "DGT is the authority to check for Spanish driving-licence rules."],
+        ["EU/EEA licences", "Generally recognised in Spain while valid, with resident renewal rules to review."],
+        ["Non-EU licences", "Rules may vary by country of issue and exchange agreement."],
+        ["Medical checks", "Renewal or exchange may involve a Spanish medical check."],
+        ["Car paperwork", "Vehicle registration and insurance are separate from licence exchange."]
+      ]),
+      GuideSection({
+        id: "whoThisGuideIsFor",
+        title: "Who this guide is for",
+        children: Cards([
+          { title: "EU citizens moving to Spain", text: "Use this if you hold an EU or EEA licence and need to understand resident-driver rules." },
+          { title: "Non-EU residents", text: "Use this if your licence was issued outside the EU or EEA and you need to check exchange or testing rules." },
+          { title: "Retirees", text: "Use this if you drive regularly and need to check renewal, medical or age-related rules." },
+          { title: "Workers", text: "Use this if commuting, business travel or professional activity depends on driving." },
+          { title: "Students", text: "Use this if you plan to drive while studying or after becoming resident." },
+          { title: "People bringing a car to Spain", text: "Use this to separate driving-licence questions from vehicle-registration questions." },
+          { title: "Regular drivers", text: "Use this if you will drive often and need to avoid relying on tourist assumptions." },
+          { title: "Expiring licences", text: "Use this if your licence is close to expiry and you need to know where renewal may happen." }
+        ])
+      }),
+      GuideSection({
+        id: "euLicences",
+        title: "EU/EEA driving licences",
+        children: `${Cards([
+          { title: "Generally recognised", text: "EU and EEA driving licences are generally recognised in Spain while they are valid." },
+          { title: "Renewal after residence", text: "If your licence expires while you are resident in Spain, you may need to renew it through Spain." },
+          { title: "Spanish rules may apply", text: "Spanish medical and renewal rules may apply depending on your licence, category and circumstances." },
+          { title: "Long-validity licences", text: "Long-validity or indefinite licences may have special requirements, so check current DGT guidance." }
+        ])}${InfoBox({ title: "Avoid tourist assumptions", text: "A licence that is simple to use as a visitor may raise different questions once you become resident in Spain." })}`
+      }),
+      GuideSection({
+        id: "nonEuLicences",
+        title: "Non-EU driving licences",
+        children: Cards([
+          { title: "Temporary use may be limited", text: "Some non-EU licences may be valid only temporarily after becoming resident." },
+          { title: "Exchange agreements", text: "Some countries have licence-exchange agreements with Spain, but the exact rules may vary by country of issue." },
+          { title: "Testing may be required", text: "If no exchange agreement applies, a Spanish driving test may be required." },
+          { title: "International Driving Permit", text: "An International Driving Permit may help temporarily, but it does not replace residency rules." }
+        ])
+      }),
+      GuideSection({
+        id: "licenceExchange",
+        title: "Licence exchange",
+        children: `${Cards([
+          { title: "What exchange means", text: "Licence exchange means replacing your foreign licence with a Spanish driving licence." },
+          { title: "Requirements vary", text: "Requirements may vary depending on the issuing country and the category of licence." },
+          { title: "Common items", text: "You may need an appointment, identity documents, residence documents, photo, medical report and official fee." },
+          { title: "Check with DGT", text: "DGT is the authority to check before you book, pay or submit documents." }
+        ])}${WarningBox("Do not assume your country has an exchange agreement. Check the current DGT rules for your specific licence before making plans.")}`
+      }),
+      GuideSection({
+        id: "renewalInSpain",
+        title: "Renewal in Spain",
+        children: Cards([
+          { title: "Resident renewal", text: "If you are resident in Spain and your licence expires, you may need to renew through Spain." },
+          { title: "Medical check", text: "Renewal usually involves a medical check at an authorised centre." },
+          { title: "Licence category and age", text: "Rules may depend on licence category, age and other circumstances." },
+          { title: "Expiry dates", text: "Keep track of your expiry date so you are not forced to resolve the issue urgently." }
+        ])
+      }),
+      GuideSection({
+        id: "foreignCar",
+        title: "Driving with a foreign car",
+        children: `${Cards([
+          { title: "Separate from the licence", text: "Car registration rules are separate from driving-licence rules." },
+          { title: "Insurance matters", text: "You should confirm that your insurance is valid for your situation and where the car is being used." },
+          { title: "ITV may apply", text: "Spanish vehicle-inspection rules may apply depending on the vehicle and registration status." },
+          { title: "Complex procedures", text: "Import and registration procedures can be complex, especially after becoming resident." }
+        ])}<!-- TODO: Create separate guide for bringing a car to Spain. -->${InfoBox({ title: "Keep the topics separate", text: "Licence exchange, vehicle registration, insurance and ITV are connected in everyday driving, but they are different administrative questions." })}`
+      }),
+      CommonMistakes([
+        "Assuming NIE or residency automatically changes driving licence status.",
+        "Ignoring the licence expiry date.",
+        "Assuming an International Driving Permit is enough forever.",
+        "Not checking DGT rules after becoming resident.",
+        "Confusing licence exchange with car registration.",
+        "Driving without valid insurance.",
+        "Relying on outdated forum advice."
+      ]),
+      RealQuestions([
+        { question: "Can I drive in Spain with an EU licence?", answer: "Usually yes while the licence is valid, but resident renewal and medical rules may apply. Check DGT guidance for your exact licence." },
+        { question: "Do I need to exchange my Finnish licence?", answer: "A Finnish licence is an EU licence, so it is generally recognised while valid. If it expires while you are resident in Spain, renewal may need to happen in Spain." },
+        { question: "Can I drive with a non-EU licence?", answer: "Possibly for a limited period, depending on the country of issue, your residency status and whether an exchange agreement applies." },
+        { question: "What is the DGT?", answer: "DGT is Spain’s traffic authority and the official place to check driving-licence, exchange and renewal rules." },
+        { question: "Do I need a medical check?", answer: "You may need one for renewal or exchange. Requirements can depend on your licence category, age and procedure." },
+        { question: "Is car registration the same as licence exchange?", answer: "No. Licence exchange is about your right to drive. Car registration is about the vehicle." },
+        { question: "What happens if my licence expires while I live in Spain?", answer: "You may need to renew it in Spain if you are resident. Check the current DGT process before it expires." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View the Settling Into Spain Guide", href: routes.settling },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare }
+        ])}${TipBox("Before you drive regularly as a resident, check your licence expiry date, insurance position and whether DGT requires any exchange or renewal step.")}`
+      })
+    ]
+  })
+});
+
 const skeletons = [
   ["documents-checklist", routes.checklist, "Moving to Spain documents checklist — IberiGo", "Draft checklist for documents people commonly prepare before moving to Spain.", "Documents Checklist for Moving to Spain", "A calm document checklist helps you prepare without pretending every route has the same requirements.", "Start with identity, address, healthcare, money and purpose evidence. Route-specific detail comes during editorial review."],
-  ["driving", routes.driving, "Driving licence rules when living in Spain — IberiGo", "Draft guide to driving licence checks when living in Spain.", "Driving in Spain", "Driving rules depend on where your licence was issued and whether you are visiting or living in Spain.", "Do not assume tourist driving rules stay the same after moving."],
   ["finding-accommodation", routes.accommodation, "Finding accommodation in Spain — IberiGo", "Draft guide to finding accommodation when moving to Spain.", "Finding Accommodation in Spain", "Accommodation is also an admin step because your address can affect padrón, banking and healthcare.", "Ask early whether the address can support the paperwork you need."]
 ];
 
