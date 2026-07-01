@@ -34,7 +34,8 @@ const routes = {
   taxes: "/living-in-spain/taxes/",
   driving: "/living-in-spain/driving/",
   accommodation: "/moving-to-spain/finding-accommodation/",
-  nonEuRoadmap: "/moving-to-spain/non-eu-citizens/"
+  nonEuRoadmap: "/moving-to-spain/non-eu-citizens/",
+  euFamilyMemberRoadmap: "/moving-to-spain/family-member-eu-citizen/"
 };
 
 function writePage(route, html) {
@@ -154,6 +155,11 @@ const guideSummaries = {
     title: "Non-EU Citizen Roadmap",
     label: "View the Non-EU Citizen Roadmap",
     description: "Understand the main non-EU residence routes and what to check before relying on any single process."
+  },
+  [routes.euFamilyMemberRoadmap]: {
+    title: "Family Member of an EU Citizen Roadmap",
+    label: "View the Family Member of an EU Citizen Roadmap",
+    description: "Understand the broad journey for non-EU family members of EU citizens moving to or living in Spain."
   }
 };
 
@@ -268,6 +274,13 @@ const searchMetadataByRoute = {
     estimatedTime: "12 min",
     appliesTo: ["Non-EU citizens planning to move to Spain", "People moving for work, study, family or retirement", "Digital nomads and self-employed people considering Spain"],
     keywords: ["non-EU citizen", "visa", "residence authorisation", "TIE", "NIE", "moving to Spain", "family member of an EU citizen"]
+  },
+  [routes.euFamilyMemberRoadmap]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "11 min",
+    appliesTo: ["Non-EU spouses of EU citizens", "Registered partners of EU citizens, where recognised", "Children and dependent relatives of EU citizens", "EU citizens bringing or joining family in Spain"],
+    keywords: ["family member of an EU citizen", "residence card", "spouse visa", "TIE", "NIE", "EU Registration", "family reunification"]
   }
 };
 
@@ -283,7 +296,8 @@ const relatedRoutesByRoute = {
   [routes.taxes]: [routes.banking, routes.digital, routes.social],
   [routes.driving]: [routes.accommodation, routes.checklist, routes.taxes],
   [routes.accommodation]: [routes.padron, routes.banking, routes.healthcare],
-  [routes.nonEuRoadmap]: [routes.checklist, routes.settling, routes.healthcare]
+  [routes.nonEuRoadmap]: [routes.checklist, routes.settling, routes.healthcare],
+  [routes.euFamilyMemberRoadmap]: [routes.checklist, routes.padron, routes.healthcare]
 };
 
 const officialSourcesByRoute = {
@@ -322,6 +336,12 @@ const officialSourcesByRoute = {
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking is linked from here — confirm the specific appointment path for your route before publication." },
     { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for visa applications handled through Spanish consulates abroad. Verified reachable this sprint (HTTP 200, page titled correctly)." }
+  ],
+  [routes.euFamilyMemberRoadmap]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Family-member residence card appointment booking is linked from here — confirm the specific appointment path before publication." },
+    { name: "EU official information for families", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, titled \"Help and advice for EU nationals and their family.\" Verified reachable this sprint (HTTP 200, page titled correctly)." }
   ]
 };
 
@@ -677,7 +697,7 @@ const pages = [
           children: StartHereCards([
             { title: "I’m an EU citizen", text: "Start with the roadmap for EU, EEA and Swiss citizens moving to Spain.", href: routes.euRoadmap, label: "View the EU Citizen Roadmap" },
             { title: "I’m a non-EU citizen", text: "Start with the roadmap for non-EU citizens moving to Spain.", href: routes.nonEuRoadmap, label: "View the Non-EU Citizen Roadmap" },
-            { title: "I’m joining family in Spain", text: "Family routes vary by relationship, nationality and residence status.", href: "#", label: "Coming soon", comingSoon: true },
+            { title: "I’m joining family in Spain", text: "Start with the roadmap for family members of an EU citizen moving to Spain.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
             { title: "I’m moving for work", text: "Work routes depend on employment, self-employment and authorization details.", href: "#", label: "Coming soon", comingSoon: true },
             { title: "I’m moving to study", text: "Study routes depend on programme, duration and nationality.", href: "#", label: "Coming soon", comingSoon: true },
             { title: "I’m retiring in Spain", text: "Retirement planning can involve residence, healthcare and tax questions.", href: "#", label: "Coming soon", comingSoon: true },
@@ -2415,7 +2435,7 @@ pages.push({
           { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: "#", label: "Coming soon", comingSoon: true },
           { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: "#", label: "Coming soon", comingSoon: true },
           { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: "#", label: "Coming soon", comingSoon: true },
-          { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: "#", label: "Coming soon", comingSoon: true },
+          { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
           { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: "#", label: "Coming soon", comingSoon: true },
           { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: "#", label: "Coming soon", comingSoon: true },
           { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: "#", label: "Coming soon", comingSoon: true },
@@ -2504,6 +2524,146 @@ pages.push({
           { label: "View the Opening a Bank Account Guide", href: routes.banking },
           { label: "View the Taxes in Spain Guide", href: routes.taxes }
         ])}${TipBox("Keep a folder for identity, civil-status, income and translated documents so you can respond quickly once you know your exact route.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.euFamilyMemberRoadmap,
+  html: GuideLayout({
+    path: routes.euFamilyMemberRoadmap,
+    canonical: `https://iberigo.eu${routes.euFamilyMemberRoadmap}`,
+    title: "Moving to Spain as a Family Member of an EU Citizen — IberiGo",
+    description: "A practical roadmap for family members of EU citizens moving to Spain, including eligibility, documents, padrón, healthcare, residence card basics and common mistakes.",
+    metadata: guideMetadataFor(routes.euFamilyMemberRoadmap),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Family Member of an EU Citizen" }],
+    hero: {
+      kicker: "Family residence route",
+      title: "Moving to Spain as a Family Member of an EU Citizen",
+      intro: "A practical starting point for understanding the family-member route, what you may need to prepare, and which steps usually come before and after applying in Spain.",
+      asideTitle: "Not one process for every family",
+      asideText: "Family-member residence rules can depend on nationality, relationship type, documents, dependency, the EU citizen's situation and where the application is made."
+    },
+    sections: [
+      QuickAnswer("Some non-EU family members of EU citizens may have a specific residence route in Spain, different from ordinary non-EU visa routes. The relationship to the EU citizen and supporting documents are central to the process. Many successful applicants eventually receive a residence card as a family member of an EU citizen. This roadmap helps you understand the broad journey — it does not replace legal advice."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal advice. Family-member residence rules can depend on nationality, relationship type, documents, dependency, the EU citizen's situation and where the application is made. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Who this may apply to", "Non-EU spouses, recognised partners, children and dependent relatives of an EU citizen."],
+        ["Same as ordinary routes?", "No. This is a distinct route from standard non-EU visas and from the EU citizen's own registration."],
+        ["Central factor", "The relationship to the EU citizen and the evidence that supports it."],
+        ["Usual result", "Many applicants eventually receive a residence card as a family member of an EU citizen."],
+        ["Professional advice", "May be useful, especially for less common relationships or complex family situations."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Non-EU spouses of EU citizens", text: "Use this if you are married to an EU, EEA or Swiss citizen and considering Spain." },
+          { title: "Registered partners, where recognised", text: "Use this if your partnership may be recognised under the family-member route." },
+          { title: "Children, where applicable", text: "Use this if children may be included in a family application." },
+          { title: "Dependent relatives, where applicable", text: "Use this if a dependent relative's situation may support a family-member case." },
+          { title: "EU citizens bringing or joining family in Spain", text: "Use this if you are the EU citizen supporting a family member's move." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand whether the family-member route applies to your situation now." }
+        ])}${InfoBox({ title: "If you are the EU citizen yourself", text: "EU citizens should use the EU Citizen Roadmap for their own registration. Non-EU citizens who are not applying through an EU family relationship should use the Non-EU Citizen Roadmap instead." })}`
+      }),
+      GuideSection({
+        id: "relationshipEligibilityBasics",
+        title: "Relationship and eligibility basics",
+        children: `${Cards([
+          { title: "Depends on the relationship", text: "Eligibility depends on the relationship to the EU citizen and the evidence available." },
+          { title: "Spouses and partners", text: "Spouses and recognised partners may have different document requirements from each other." },
+          { title: "Children and dependants", text: "Children and dependent relatives may need additional evidence of the relationship and dependency." },
+          { title: "The EU citizen's situation matters", text: "The EU citizen's own residence or registration situation in Spain can matter to the case." },
+          { title: "Varies by case and office", text: "Requirements can vary depending on the specific case and the office handling it." }
+        ])}${WarningBox("This is not a definitive eligibility list. Check the official requirements for your specific relationship and situation before assuming you qualify.")}`
+      }),
+      GuideSection({
+        id: "beforeYouStart",
+        title: "Before you start",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport is usually central to the application." },
+          { title: "Proof of relationship", text: "Marriage certificate, partnership certificate or birth certificate may be needed, depending on the relationship." },
+          { title: "Legalisation or apostille, if required", text: "Some foreign civil-status documents may need legalisation or apostille." },
+          { title: "Sworn translation, if required", text: "Some documents may need an official sworn translation." },
+          { title: "The EU citizen's documents", text: "The EU citizen's identity document and evidence of their situation in Spain may be requested." },
+          { title: "Address or padrón evidence, where requested", text: "Proof of address may be part of the file, depending on the office." },
+          { title: "Healthcare or financial evidence, depending on situation", text: "Some cases may require healthcare cover or financial evidence." }
+        ])}<p>Exact documents depend on the relationship, country of issue and procedure. Use the <a href="${routes.checklist}">Documents Checklist</a> as a general starting point, then confirm the exact list for your specific case.</p>`
+      }),
+      GuideSection({
+        id: "movingTogetherVsJoiningLater",
+        title: "Moving together vs joining later",
+        children: `${Cards([
+          { title: "Moving together", text: "Some families move to Spain together and prepare documents in parallel." },
+          { title: "Joining later", text: "Others join an EU citizen who is already living in Spain, which can change the practical order of steps." },
+          { title: "Order may differ", text: "The practical order of steps may differ depending on which situation applies to you." },
+          { title: "Accommodation and padrón can affect timing", text: "Accommodation and padrón preparation can affect how the rest of the process unfolds." },
+          { title: "Appointment availability varies", text: "Appointment availability varies by province and office, and can change over time." }
+        ])}`
+      }),
+      GuideSection({
+        id: "afterArrivalInSpain",
+        title: "After arrival in Spain",
+        children: `${Cards([
+          { title: "Secure accommodation", text: "Your address may affect padrón, healthcare and later steps." },
+          { title: "Register on the padrón, where possible", text: "Padrón requirements can vary by municipality." },
+          { title: "Arrange healthcare if needed", text: "Healthcare routes can depend on the family member's and EU citizen's situation." },
+          { title: "Prepare family relationship documents", text: "Have relationship evidence, translations and legalisations ready before applying." },
+          { title: "Submit the relevant family-member residence application", text: "The application route depends on the case type and office." },
+          { title: "Attend fingerprinting or card appointment where required", text: "Many cases involve a fingerprinting or card-collection appointment." },
+          { title: "Collect the residence card if approved", text: "Collection procedures depend on the office and case." }
+        ])}${InfoBox({ title: "Depends on case type", text: "This process depends heavily on the case type. Do not assume the same order or timing applies to every family." })}`
+      }),
+      GuideSection({
+        id: "residenceCardBasics",
+        title: "Residence card basics",
+        children: `${Cards([
+          { title: "Family-member residence card", text: "Many non-EU family members receive a residence card connected to their status as family member of an EU citizen." },
+          { title: "Different from the EU citizen's certificate", text: "This is different from the EU citizen's own green EU Registration Certificate." },
+          { title: "Different from a NIE", text: "It is also different from simply having a NIE, which is an identification number, not a residence card." },
+          { title: "Appointments and fingerprints", text: "Card procedures may involve appointments, fingerprints and a separate collection step." },
+          { title: "Depends on approval and procedure", text: "The exact process depends on approval and the local procedure used by the office." }
+        ])}${WarningBox("Do not confuse the family-member residence card, the EU citizen's registration certificate, and a NIE. Confirm which document applies to your case before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming marriage alone automatically solves everything.",
+        "Confusing EU Registration with the family-member residence card.",
+        "Confusing NIE with residence rights.",
+        "Not preparing legalised or translated documents early.",
+        "Assuming every municipality or province works the same way.",
+        "Signing accommodation without checking padrón possibility.",
+        "Relying only on informal advice.",
+        "Missing official notifications.",
+        "Ignoring healthcare or financial-document requirements."
+      ]),
+      RealQuestions([
+        { question: "Can my non-EU spouse live with me in Spain?", answer: "Often yes, through the family-member route, but it depends on your situation, documents and the relationship recognised by the office handling your case." },
+        { question: "Is this the same as a normal non-EU visa?", answer: "No. The family-member route is generally distinct from ordinary non-EU visa routes, though details still depend on your case." },
+        { question: "Does marriage automatically give residence?", answer: "No. Marriage may support eligibility, but residence still depends on the application, evidence and approval." },
+        { question: "Is NIE the same as residence?", answer: "No. NIE is an identification number. Residence as a family member of an EU citizen is a separate status, usually evidenced by a residence card." },
+        { question: "Does the EU citizen need to register first?", answer: "It can matter. The EU citizen's own situation in Spain may be part of the family member's case — check the requirements that apply to your situation." },
+        { question: "Do we need padrón?", answer: "It may be requested as part of the process, depending on the office. Check the requirements for your specific application." },
+        { question: "What documents prove the relationship?", answer: "Typically a marriage certificate, partnership certificate or birth certificate, depending on the relationship, sometimes with legalisation or translation. Exact needs vary by case." },
+        { question: "What if we are already in Spain?", answer: "Use Start Here and this roadmap together to understand which route may apply, and check official requirements before assuming a specific process fits your situation." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, relationship, translated and legalised documents so you can respond quickly once you know your exact case requirements.")}`
       })
     ]
   })
