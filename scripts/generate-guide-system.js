@@ -1992,7 +1992,7 @@ pages.push({
       ]),
       RealQuestions([
         { question: "Can I drive in Spain with an EU licence?", answer: "Usually yes while the licence is valid, but resident renewal and medical rules may apply. Check DGT guidance for your exact licence." },
-        { question: "Do I need to exchange my Finnish licence?", answer: "A Finnish licence is an EU licence, so it is generally recognised while valid. If it expires while you are resident in Spain, renewal may need to happen in Spain." },
+        { question: "Do I need to exchange my licence from another EU country?", answer: "An EU licence is generally recognised while valid, regardless of which EU country issued it. If it expires while you are resident in Spain, renewal may need to happen in Spain." },
         { question: "Can I drive with a non-EU licence?", answer: "Possibly for a limited period, depending on the country of issue, your residency status and whether an exchange agreement applies." },
         { question: "What is the DGT?", answer: "DGT is Spain’s traffic authority and the official place to check driving-licence, exchange and renewal rules." },
         { question: "Do I need a medical check?", answer: "You may need one for renewal or exchange. Requirements can depend on your licence category, age and procedure." },
