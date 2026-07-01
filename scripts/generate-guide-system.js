@@ -1870,7 +1870,7 @@ pages.push({
       RealQuestions([
         { question: "Am I tax resident if I live in Spain?", answer: "Possibly. Living in Spain can be relevant, but the answer can depend on days of presence, personal and economic interests, family situation and treaty rules." },
         { question: "Is tax residency the same as getting residency papers?", answer: "No. Immigration residency and tax residency are separate. Residence documents do not automatically answer every tax question." },
-        { question: "Do I need to declare income from Finland or another country?", answer: "If Spain treats you as tax resident, worldwide income may need to be declared. Tax treaties may affect the outcome, so get advice if you have foreign income." },
+        { question: "Do I need to declare income from another country?", answer: "If Spain treats you as tax resident, worldwide income may need to be declared. Tax treaties may affect the outcome, so get advice if you have foreign income." },
         { question: "Are pensions taxed in Spain?", answer: "They may be, depending on the pension type, your tax residency and any applicable treaty rules." },
         { question: "What if I only live in Spain part of the year?", answer: "Part-year living can still create tax questions. Days in Spain, calendar-year presence and your personal and economic ties may matter." },
         { question: "Do I need a gestor?", answer: "Not everyone does, but a qualified tax adviser or gestor can be useful if you have foreign income, self-employment, property, pensions or uncertainty." },
