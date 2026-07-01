@@ -232,3 +232,67 @@ Five additional draft pages received a content-level editorial read-through agai
 **Status:** Editorial pass completed — legal verification still required.
 
 **Sprint 37 routing note:** the `/guides/eu-registration/` → `/moving-to-spain/eu-registration/` route move remains a separate pending routing decision and is not approved by editorial review.
+
+---
+
+## Sprint 39 — completed editorial passes
+
+The final 3 draft pages received a content-level editorial read-through against the checklist above, reviewed with the Digital Certificate/Cl@ve, Social Security, and Driving Licence special guidance in mind. **None of this is legal, tax or immigration-professional sign-off** — the "Legal/tax/immigration risk" item is intentionally left unchecked on every page below. All 14 draft pages now have a completed editorial pass.
+
+### `/living-in-spain/digital-certificate/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — Digital Certificate vs. Cl@ve distinction reviewed, both defined correctly as separate systems
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming
+- [x] Official-source links checked — no official-source cards on this page currently
+- [x] TODOs reviewed
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Special guidance check:** does not imply Digital Certificate and Cl@ve are the same thing (explicit warning box: "Do not assume Cl@ve and a Digital Certificate can be used interchangeably"); does not imply every procedure can be completed online (explicit warning box: "Do not assume every process can be completed online"); technical-setup wording is already cautious ("Technical setup and accepted browsers can change. Check the official site before applying or installing anything."). No edits needed.
+
+**Status:** Editorial pass completed — legal verification still required.
+
+### `/living-in-spain/social-security/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — Social Security number, NIE, healthcare card, employment registration and tax identity are all kept distinct
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming
+- [x] Official-source links checked — no official-source cards on this page currently
+- [x] TODOs reviewed — the autónomo forward-reference note ("a separate autónomo guide can cover this in detail later") was already resolved to a plain-text mention in Sprint 34, no dangling link
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Special guidance check:** explicitly states "Not every newcomer needs to handle Social Security immediately" and "Do I need Social Security if I am not working? Not always" — does not imply immediate universal need; explicitly separates Social Security number from NIE, healthcare card, and tax identification in a dedicated "Keep the concepts separate" info box; correctly states employees are usually registered by their employer while self-employed people usually handle registration themselves or through a gestor. No edits needed.
+
+**Status:** Editorial pass completed — legal verification still required.
+
+### `/living-in-spain/driving/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — EU/non-EU licence, exchange, renewal and DGT-authority claims reviewed
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming
+- [x] Official-source links checked — no official-source cards on this page currently
+- [x] TODOs reviewed — the car-import forward-reference note was already resolved to a plain-text mention in Sprint 34
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Special guidance check:** does not give absolute advice for all licences — every claim is conditioned on EU vs. non-EU, country of issue, residency status, licence category, or age; DGT verification language is used consistently throughout ("Check DGT guidance," "check the current DGT rules," "DGT is the authority to check").
+
+**Small fix made:** removed a stray country-specific example ("Do I need to exchange my Finnish licence?") for consistency with the rest of the guide's neutral EU/non-EU phrasing — same class of issue as the taxes guide's "Finland" fix in Sprint 36.
+
+**Status:** Editorial pass completed — legal verification still required.
+
+**All 14 draft pages now have a completed editorial pass. Legal/tax/immigration professional sign-off remains outstanding on every page — this checklist item cannot be self-certified.**
