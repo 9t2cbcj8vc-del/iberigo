@@ -40,7 +40,8 @@ const routes = {
   workInSpain: "/moving-to-spain/work-in-spain/",
   retireInSpain: "/moving-to-spain/retire-in-spain/",
   familyReunification: "/moving-to-spain/family-reunification/",
-  digitalNomad: "/moving-to-spain/digital-nomad-spain/"
+  digitalNomad: "/moving-to-spain/digital-nomad-spain/",
+  selfEmployed: "/moving-to-spain/self-employed-spain/"
 };
 
 function writePage(route, html) {
@@ -190,6 +191,11 @@ const guideSummaries = {
     title: "Digital Nomad Roadmap",
     label: "View the Digital Nomad Roadmap",
     description: "Understand the broad remote-work and digital nomad route for moving to Spain."
+  },
+  [routes.selfEmployed]: {
+    title: "Self-Employed / Autónomo Roadmap",
+    label: "View the Self-Employed Roadmap",
+    description: "Understand the broad self-employment and autónomo route for moving to or living in Spain."
   }
 };
 
@@ -346,6 +352,13 @@ const searchMetadataByRoute = {
     estimatedTime: "11 min",
     appliesTo: ["Non-EU remote workers considering Spain", "Digital nomads", "Freelancers with foreign clients", "Employees working remotely for a foreign employer"],
     keywords: ["digital nomad visa", "remote work Spain", "TIE", "tax residency", "Social Security", "freelancer"]
+  },
+  [routes.selfEmployed]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "12 min",
+    appliesTo: ["Freelancers, contractors and sole traders in Spain", "Small business owners", "EU and non-EU citizens planning self-employment"],
+    keywords: ["autónomo", "self-employed Spain", "freelancer", "IAE", "Social Security", "TIE", "gestor"]
   }
 };
 
@@ -367,7 +380,8 @@ const relatedRoutesByRoute = {
   [routes.workInSpain]: [routes.social, routes.taxes, routes.checklist],
   [routes.retireInSpain]: [routes.healthcare, routes.taxes, routes.accommodation],
   [routes.familyReunification]: [routes.checklist, routes.padron, routes.healthcare],
-  [routes.digitalNomad]: [routes.taxes, routes.social, routes.healthcare]
+  [routes.digitalNomad]: [routes.taxes, routes.social, routes.healthcare],
+  [routes.selfEmployed]: [routes.taxes, routes.social, routes.digital]
 };
 
 const officialSourcesByRoute = {
@@ -451,6 +465,14 @@ const officialSourcesByRoute = {
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and foreign-income questions for remote workers." },
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for Social Security treatment of employees, freelancers and business owners. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for digital nomads is linked from here — confirm the specific appointment path before publication." }
+  ],
+  [routes.selfEmployed]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including self-employment-related routes." },
+    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for autónomo tax registration and obligations." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for autónomo Social Security registration and contributions. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
+    { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social. Previously verified in Sprint 43 (HTTP 200, page titled \"Página principal. Ministerio de Trabajo y Economía Social\")." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for self-employed non-EU residents is linked from here — confirm the specific appointment path before publication." }
   ]
 };
 
@@ -810,7 +832,7 @@ const pages = [
             { title: "I’m moving for work", text: "Start with the roadmap for moving to Spain for work.", href: routes.workInSpain, label: "View the Work in Spain Roadmap" },
             { title: "I’m moving to study", text: "Start with the roadmap for students moving to Spain.", href: routes.students, label: "View the Student Roadmap" },
             { title: "I’m retiring in Spain", text: "Start with the roadmap for retiring in Spain.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
-            { title: "I’m self-employed", text: "Self-employment can affect residence, tax, Social Security and healthcare.", href: "#", label: "Coming soon", comingSoon: true }
+            { title: "I’m self-employed", text: "Start with the roadmap for self-employment and autónomo in Spain.", href: routes.selfEmployed, label: "View the Self-Employed Roadmap" }
           ])
         }),
         GuideSection({
@@ -2547,7 +2569,7 @@ pages.push({
           { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
           { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
           { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: routes.digitalNomad, label: "View the Digital Nomad Roadmap" },
-          { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: "#", label: "Coming soon", comingSoon: true },
+          { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: routes.selfEmployed, label: "View the Self-Employed Roadmap" },
           { title: "Already in Spain and unsure what applies", text: "Use the Start Here page and this roadmap together to narrow down what may apply.", href: routes.startHere, label: "View Start Here" }
         ])
       }),
@@ -3477,7 +3499,7 @@ pages.push({
           <tr><th>Route</th><td><strong>What to know</strong></td></tr>
           <tr><th>Digital nomad / remote-work route</th><td>May apply to some people working remotely for foreign employers or clients. Requirements depend on work structure and official rules. Tax and immigration review is important.</td></tr>
           <tr><th>Employee route</th><td>Usually connected to employment in Spain. May involve employer-side processes. Use the <a href="${routes.workInSpain}">Work in Spain Roadmap</a>.</td></tr>
-          <tr><th>Self-employed / autónomo route</th><td>Usually connected to independent economic activity in Spain. Tax and Social Security setup can be complex. Use the future Self-employed roadmap once available.</td></tr>
+          <tr><th>Self-employed / autónomo route</th><td>Usually connected to independent economic activity in Spain. Tax and Social Security setup can be complex. Use the <a href="${routes.selfEmployed}">Self-Employed Roadmap</a>.</td></tr>
         </tbody></table>${WarningBox("Do not assume these routes are interchangeable. Confirm which one matches your actual work structure before applying.")}`
       }),
       GuideSection({
@@ -3576,6 +3598,195 @@ pages.push({
           { label: "View the Opening a Bank Account Guide", href: routes.banking },
           { label: "View the Settling Into Spain Guide", href: routes.settling }
         ])}${TipBox("Keep a folder for identity, contracts, income and tax documents so you can respond quickly once you know your exact route requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.selfEmployed,
+  html: GuideLayout({
+    path: routes.selfEmployed,
+    canonical: `https://iberigo.eu${routes.selfEmployed}`,
+    title: "Self-Employed and Autónomo in Spain — IberiGo",
+    description: "A practical roadmap for people considering self-employment in Spain, including autónomo basics, documents, tax, Social Security, healthcare, non-EU routes and common mistakes.",
+    metadata: guideMetadataFor(routes.selfEmployed),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Self-Employed Roadmap" }],
+    hero: {
+      kicker: "Self-employment route",
+      title: "Self-Employed and Autónomo in Spain",
+      intro: "A practical starting point for understanding self-employment in Spain, what you may need to prepare, and which tax, Social Security and residence questions to check early.",
+      asideTitle: "Not automatic for everyone",
+      asideText: "Self-employment rules can depend on your nationality, residence status, business activity, income, clients, tax situation, Social Security registration and where you apply."
+    },
+    sections: [
+      QuickAnswer("Self-employment in Spain is often connected to autónomo registration, tax obligations and Social Security. EU citizens and non-EU citizens may face different residence questions. Non-EU citizens usually need the correct residence/work route before carrying out self-employed activity. Autónomo registration is not the same as immigration permission. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal, tax, immigration or financial advice. Self-employment rules can depend on your nationality, residence status, business activity, income, clients, tax situation, Social Security registration and where you apply. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["What autónomo usually means", "Self-employed status in Spain, connected to tax and Social Security registration."],
+        ["Same for everyone?", "No. EU and non-EU citizens face different residence questions, and requirements vary by case."],
+        ["Automatic residence?", "No. Autónomo registration is not the same as immigration permission."],
+        ["Non-EU self-employed", "May eventually need a TIE after approval or arrival."],
+        ["Professional advice", "May be useful — many people use a gestor or professional adviser."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Freelancers", text: "Use this if you invoice clients as an independent professional." },
+          { title: "Contractors", text: "Use this if you work on a contract basis rather than as an employee." },
+          { title: "Sole traders", text: "Use this if you run an individual business activity." },
+          { title: "Small business owners", text: "Use this if you are setting up or running a small business in Spain." },
+          { title: "EU citizens planning self-employment", text: "Use this if you are an EU, EEA or Swiss citizen considering self-employment in Spain." },
+          { title: "Non-EU citizens considering self-employment", text: "Use this if you are a non-EU citizen exploring the self-employed route." },
+          { title: "Remote workers comparing routes", text: "Use this if you are comparing self-employed and digital nomad routes." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand autónomo basics for your current situation." }
+        ])}${InfoBox({ title: "Related roadmaps", text: "People employed by a Spanish company should use the Work in Spain Roadmap. Remote workers with foreign employers or clients should also compare the Digital Nomad Roadmap." })}`
+      }),
+      GuideSection({
+        id: "autonomoBasics",
+        title: "Autónomo basics",
+        children: `${Cards([
+          { title: "What autónomo usually means", text: "Autónomo usually refers to self-employed status in Spain." },
+          { title: "Tax and Social Security registration", text: "It can involve tax registration and Social Security registration." },
+          { title: "Ongoing obligations", text: "It may involve invoices, quarterly filings, contributions and record-keeping." },
+          { title: "Depends on activity and circumstances", text: "The exact obligations depend on activity and circumstances." },
+          { title: "Many people use a gestor", text: "Many people use a gestor or professional adviser to help manage this." }
+        ])}`
+      }),
+      GuideSection({
+        id: "euCitizensSelfEmployment",
+        title: "EU citizens and self-employment",
+        children: `${Cards([
+          { title: "Usually no visa needed", text: "EU, EEA and Swiss citizens do not usually need a visa to move to Spain." },
+          { title: "EU registration if staying longer", text: "If staying longer than three months, EU Registration may apply." },
+          { title: "Self-employment as one route", text: "Self-employment can be one route for EU registration, but supporting evidence may be required." },
+          { title: "Review tax and Social Security early", text: "Tax and Social Security obligations should be reviewed early." }
+        ])}${SourceLinks([
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the EU Registration Guide", href: routes.euRegistration },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes }
+        ])}`
+      }),
+      GuideSection({
+        id: "nonEuCitizensSelfEmployment",
+        title: "Non-EU citizens and self-employment",
+        children: `${Cards([
+          { title: "Correct route needed first", text: "Non-EU citizens usually need the correct residence/work route before carrying out self-employed activity in Spain." },
+          { title: "May involve a business plan", text: "The process may involve a business plan, professional documents, authorisation or consular steps depending on route." },
+          { title: "Not permission by itself", text: "Autónomo registration alone should not be treated as permission to live or work." },
+          { title: "TIE may follow", text: "A TIE may be required after approval or arrival." }
+        ])}${SourceLinks([
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Digital Nomad Roadmap", href: routes.digitalNomad },
+          { label: "View the Documents Checklist", href: routes.checklist }
+        ])}`
+      }),
+      GuideSection({
+        id: "beforeYouStart",
+        title: "Before you start",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport or national ID is usually central to the process." },
+          { title: "Residence or work authorisation, depending on route", text: "Residence or work authorisation documents may be needed, depending on your route." },
+          { title: "NIE or TIE, depending on situation", text: "NIE or TIE requirements depend on your situation." },
+          { title: "Business plan, where required", text: "A business plan may be required for some routes." },
+          { title: "Professional qualifications, where relevant", text: "Some activities may require recognised qualification documents." },
+          { title: "Client contracts or expected-income evidence, where relevant", text: "Some routes may ask for client contracts or expected-income evidence." },
+          { title: "Tax-registration information", text: "Tax-registration information is usually part of starting activity." },
+          { title: "Social Security registration", text: "Social Security registration is usually part of starting activity." },
+          { title: "Healthcare planning", text: "Healthcare planning should be reviewed alongside your route." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." }
+        ])}<p>Exact requirements depend on nationality, residence status, business activity and route.</p>`
+      }),
+      GuideSection({
+        id: "taxesInvoicesRecords",
+        title: "Taxes, invoices and records",
+        children: `${Cards([
+          { title: "Spanish tax obligations may apply", text: "Self-employed people may have Spanish tax obligations." },
+          { title: "Registration, invoicing, declarations, records", text: "These may include registration, invoicing, declarations and record-keeping." },
+          { title: "Depends on activity", text: "VAT/IVA, income tax and other obligations can depend on activity." },
+          { title: "Tax residency is separate", text: "Tax residency is different from immigration residency." },
+          { title: "A tax adviser may be useful", text: "A tax adviser or gestor may be useful for your specific situation." }
+        ])}${WarningBox("This is not exact filing guidance. Get professional advice for your specific tax and invoicing obligations.")}${SourceLinks([
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital }
+        ])}`
+      }),
+      GuideSection({
+        id: "socialSecurityAndHealthcare",
+        title: "Social Security and healthcare",
+        children: `${Cards([
+          { title: "Often connected to Social Security", text: "Self-employment is often connected to Social Security registration." },
+          { title: "May affect healthcare and benefits", text: "Social Security contributions may affect healthcare access and benefits." },
+          { title: "Depends on situation and route", text: "Healthcare access depends on situation and route." },
+          { title: "Keep the concepts separate", text: "Do not confuse Social Security number with NIE, TIE or healthcare card." }
+        ])}${SourceLinks([
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare }
+        ])}`
+      }),
+      GuideSection({
+        id: "digitalCertificateAndAdministration",
+        title: "Digital Certificate and administration",
+        children: `${Cards([
+          { title: "Online administration is common", text: "Many self-employed people need to deal with online administration." },
+          { title: "Digital Certificate or Cl@ve can help", text: "Digital Certificate or Cl@ve can help with tax and Social Security procedures." },
+          { title: "Not everything is online", text: "Not every process is identical or fully online." },
+          { title: "Keep records", text: "Keep official notifications and records." }
+        ])}<p>Use the <a href="${routes.digital}">Digital Certificate and Cl@ve Guide</a> to compare the two systems.</p>`
+      }),
+      GuideSection({
+        id: "tieBasicsForSelfEmployed",
+        title: "TIE basics for non-EU self-employed people",
+        children: `${Cards([
+          { title: "Many non-EU residents need one", text: "Many non-EU residents may need a TIE after approval or arrival." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming autónomo registration automatically gives residence rights.",
+        "Confusing self-employed, employee and digital nomad routes.",
+        "Starting activity before permission is clear.",
+        "Ignoring tax registration.",
+        "Ignoring Social Security obligations.",
+        "Confusing NIE and TIE.",
+        "Underestimating record-keeping.",
+        "Relying only on informal advice.",
+        "Waiting until tax or Social Security deadlines are urgent."
+      ]),
+      RealQuestions([
+        { question: "What does autónomo mean?", answer: "Autónomo usually refers to self-employed status in Spain, generally connected to tax and Social Security registration. Exact obligations depend on your activity." },
+        { question: "Can foreigners become self-employed in Spain?", answer: "Often yes, but the correct route depends on your nationality and residence status. Check the official requirements for your case." },
+        { question: "Can non-EU citizens register as autónomo?", answer: "It depends on having the correct residence/work route first. Autónomo registration alone should not be treated as permission to live or work." },
+        { question: "Is autónomo the same as permission to live in Spain?", answer: "No. Autónomo is a tax and Social Security registration status. It is not the same as immigration permission." },
+        { question: "Do self-employed people pay Social Security?", answer: "Self-employment is often connected to Social Security registration and contributions, but exact obligations depend on your situation." },
+        { question: "Do I need a gestor?", answer: "Not everyone does, but many self-employed people use a gestor or tax adviser to manage registration, filings and contributions." },
+        { question: "Is NIE the same as TIE?", answer: "No. NIE is an identification number. TIE is a physical foreigner identity card. They are not the same document." },
+        { question: "Should I choose digital nomad or self-employed route?", answer: "It depends on your work structure, clients and situation. Compare the Digital Nomad Roadmap and this roadmap, and check official requirements before deciding." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Digital Nomad Roadmap", href: routes.digitalNomad },
+          { label: "View the Work in Spain Roadmap", href: routes.workInSpain },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare }
+        ])}${TipBox("Keep a folder for identity, business, tax and Social Security documents so you can respond quickly once you know your exact route requirements.")}`
       })
     ]
   })
