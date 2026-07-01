@@ -690,109 +690,126 @@ const pages = [
     html: GuideLayout({
       path: routes.euRoadmap,
       canonical: `https://iberigo.eu${routes.euRoadmap}`,
-      title: "Moving to Spain as an EU Citizen: Step-by-Step Guide — IberiGo",
-      description: "A practical roadmap for EU, EEA and Swiss citizens moving to Spain, from planning to arrival and everyday setup.",
+      title: "Moving to Spain as an EU Citizen — IberiGo",
+      description: "A practical roadmap for EU citizens moving to Spain, including planning, arrival, padrón, healthcare, EU registration, banking, taxes and everyday setup.",
       metadata: guideMetadataFor(routes.euRoadmap),
       breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "EU Citizen Roadmap" }],
       hero: {
         kicker: "Start here",
         title: "Moving to Spain as an EU Citizen",
-        intro: "Planning to move to Spain as an EU citizen? This roadmap shows the usual order of decisions and admin steps, from preparation to settling into daily life.",
-        asideTitle: "Follow the journey",
-        asideText: "Start with your situation, then move through address, healthcare, registration, banking, tax and driving checks."
+        intro: "A practical roadmap for EU, EEA and Swiss citizens moving to Spain. Follow the steps in this general order, then use the detailed guides when a step needs documents or local checks.",
+        asideTitle: "Sequence, not deadlines",
+        asideText: "Appointment availability can vary, and some steps may take longer in high-demand areas."
       },
       sections: [
-        QuickAnswer("EU citizens can move to Spain without a visa, but living in Spain longer term still involves practical admin: housing, padrón, healthcare, EU registration, banking, digital access, tax review and driving checks. The right order depends on your route and local appointment availability."),
+        QuickAnswer("EU, EEA and Swiss citizens can move to Spain without a visa. If you are staying longer than three months, you normally need to register as an EU resident. The main journey usually includes accommodation, padrón, healthcare, EU registration and everyday setup. The exact order and requirements can vary depending on your situation and location."),
         AtAGlance([
           ["Visa required?", "No."],
           ["Staying longer than 3 months?", "EU registration is usually required."],
           ["Can you work?", "Yes."],
           ["TIE card?", "Normally no. EU citizens usually receive a Certificate of Registration."],
-          ["Difficulty", "Moderate."],
-          ["Typical timeline", "A few weeks after arrival, depending on appointments."]
+          ["Main dependency", "Your route: work, self-employment, study, retirement or sufficient resources."],
+          ["Timing", "Appointment availability and requirements may vary by office and location."]
         ]),
-        GuideSection({ id: "howToUse", title: "How to use this guide", children: `<p>Use this as the order-of-operations page. Start with your situation, then follow the links to the detailed guides when a step needs documents or local decisions.</p>` }),
+        GuideSection({
+          id: "openingNote",
+          title: "Use this as a roadmap",
+          children: `${InfoBox({ title: "The order matters more than the speed", text: "In some municipalities or provinces, appointments may be available quickly. In others, waiting times can be much longer. This roadmap helps you understand what to prepare and what usually comes next." })}`
+        }),
         GuideSection({
           id: "whoNeeds",
           title: "Who this roadmap is for",
-          children: Cards([
-            { title: "EU, EEA and Swiss citizens", text: "Use this if you can enter Spain under EU free-movement rules and want the usual moving sequence." },
-            { title: "People staying longer term", text: "Use this if Spain will become your home rather than a short visit." },
-            { title: "People planning the first month", text: "Use this to see which steps often depend on address, healthcare or appointment availability." }
-          ])
-        }),
-        GuideSection({
-          id: "whatYouNeed",
-          title: "What you need before you start",
-          children: Cards([
-            { title: "A clear reason for moving", text: "Work, self-employment, study, retirement or savings affects later evidence." },
-            { title: "A realistic address plan", text: "Your first home can affect padrón, healthcare, banking and other admin steps." },
-            { title: "A document folder", text: "Start with identity, address, healthcare, work or funds evidence, and appointment confirmations." }
-          ])
-        }),
-        GuideSection({
-          id: "officialRequirements",
-          title: "Official Requirements",
           children: `${Cards([
-            { title: "No visa for EU citizens", text: "EU, EEA and Swiss citizens normally do not need a visa to enter Spain for this route." },
-            { title: "Longer-term stay", text: "If you live in Spain longer term, you usually need the EU Registration Certificate rather than a TIE card." },
-            { title: "Your situation controls the proof", text: "The documents you prepare depend on whether you work, study, retire, run a business or live from savings." }
-          ])}<!-- TODO: editorial verification required - confirm official wording and timing before moving this roadmap from draft to review. -->${WarningBox("This roadmap explains the usual sequence. Always check the official appointment instructions for the specific process you are about to complete.")}`
-        }),
-        GuideSection({
-          id: "practicalAdvice",
-          title: "Practical Advice",
-          children: Cards([
-            { title: "Do not wait for perfect order", text: "Appointments may not line up neatly. Prepare documents in parallel so one delay does not block every next step." },
-            { title: "Treat address proof as a foundation", text: "Housing and padrón often affect healthcare, banking, school and registration steps." },
-            { title: "Keep one Spain folder", text: "Save identity, address, healthcare, registration, banking and tax documents in one place from the first week." }
-          ])
+            { title: "EU citizens", text: "Use this if you are an EU citizen planning a longer stay in Spain." },
+            { title: "EEA citizens", text: "EEA citizens usually follow the same broad route." },
+            { title: "Swiss citizens", text: "Swiss citizens are commonly included in the EU citizen registration route." },
+            { title: "Workers", text: "Employees should plan for work, Social Security, healthcare and residence registration steps." },
+            { title: "Self-employed people", text: "Self-employed movers may need tax, activity and Social Security evidence." },
+            { title: "Students", text: "Students may need study, healthcare and resources evidence." },
+            { title: "Retirees", text: "Retirees may need pension, healthcare and resources evidence." },
+            { title: "People living from savings or investments", text: "Self-sufficient movers may need resources and healthcare evidence." },
+            { title: "People moving with family", text: "Family documents may matter, especially when civil status or dependants are relevant." }
+          ])}${WarningBox("Non-EU family members follow a different process. This roadmap is for the EU, EEA or Swiss citizen journey.")}`
         }),
         GuideSection({
           id: "phaseOne",
-          title: "Step 1: Plan your route",
-          children: StepTimeline([
-            { title: "Confirm your route", text: "Your evidence depends on whether you are working, self-employed, studying, retired, or living from savings." },
-            { title: "Prepare your documents", text: "Make a small folder for identity, work or funds, healthcare and address documents." },
-            { title: "Plan your move", text: "Plan the first month around address proof and appointments, not only travel logistics." }
-          ])
+          title: "Phase 1: Planning before you move",
+          children: `${Cards([
+            { title: "Confirm your route", text: "Working, self-employed, student, retired or self-sufficient routes can need different evidence." },
+            { title: "Prepare your documents", text: "Start with identity, income, healthcare and civil status documents if relevant." },
+            { title: "Research accommodation", text: "Check whether an address can support padrón registration before relying on it." },
+            { title: "Understand healthcare needs", text: "Some routes may need healthcare proof before EU registration." }
+          ])}${SourceLinks([
+            { label: "View the EU Registration Guide", href: routes.euRegistration },
+            { label: "View the Documents Checklist", href: routes.checklist },
+            { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+            { label: "View the Healthcare Guide", href: routes.healthcare }
+          ])}`
         }),
         GuideSection({
           id: "phaseTwo",
-          title: "Step 2: Handle arrival admin",
-          children: `${StepTimeline([
-            { title: "Secure accommodation", text: "Your address affects padrón, banking, healthcare and many local admin steps." },
-            { title: "Register on the padrón", text: "The padrón is town hall address registration and often acts as local address evidence." },
-            { title: "Arrange your healthcare", text: "Healthcare comes before EU registration for many non-working or self-sufficient EU citizens because proof of cover may be needed." },
-            { title: "Register as an EU citizen", text: "Prepare your EX-18 route evidence and book the correct EU registration appointment." }
-          ])}${WarningBox("EU citizens normally apply for the EU Registration Certificate, not a TIE. TIE cards are generally for non-EU nationals.")}`
+          title: "Phase 2: After arrival",
+          children: `${Cards([
+            { title: "Secure accommodation", text: "Your address can affect padrón, healthcare, banking and other local admin steps." },
+            { title: "Register on the padrón", text: "The padrón is municipal address registration. Requirements may vary by town hall." },
+            { title: "Arrange healthcare", text: "Healthcare may need to be arranged before EU registration for some routes." },
+            { title: "Register as an EU resident", text: "If staying longer than three months, you normally need EU registration." }
+          ])}${SourceLinks([
+            { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+            { label: "View the Padrón Guide", href: routes.padron },
+            { label: "View the Healthcare Guide", href: routes.healthcare },
+            { label: "View the EU Registration Guide", href: routes.euRegistration }
+          ])}${WarningBox("Do not treat these as fixed deadlines. Appointment availability can vary, and some steps may take longer in high-demand areas.")}`
         }),
         GuideSection({
           id: "phaseThree",
-          title: "Step 3: Settle into daily life",
-          children: StepTimeline([
-            { title: "Register with Social Security, if applicable", text: "Separate getting a Social Security number from being registered as active for work." },
-            { title: "Open a bank account", text: "Compare documents, fees and account options before choosing." },
-            { title: "Get a Digital Certificate or Cl@ve", text: "Digital access helps with tax, Social Security and many public services." },
-            { title: "Understand your tax obligations", text: "Review tax risk early, especially if you have income or assets outside Spain." },
-            { title: "Check your driving licence", text: "Driving rules depend on where your licence was issued and whether you become resident." }
-          ])
+          title: "Phase 3: Everyday setup",
+          children: `${Cards([
+            { title: "Open a bank account", text: "A Spanish account can help with rent, utilities, salary and local payments." },
+            { title: "Set up Digital Certificate or Cl@ve", text: "Digital access helps with tax, Social Security and many public services." },
+            { title: "Check Social Security if working", text: "If you work in Spain, understand Social Security registration and active status." },
+            { title: "Understand tax obligations", text: "Review tax residency and reporting questions early, especially if you have income or assets outside Spain." },
+            { title: "Check driving licence rules", text: "Driving rules depend on where your licence was issued and whether you become resident." }
+          ])}${SourceLinks([
+            { label: "View the Bank Account Guide", href: routes.banking },
+            { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital },
+            { label: "View the Social Security Guide", href: routes.social },
+            { label: "View the Taxes in Spain Guide", href: routes.taxes },
+            { label: "View the Driving Licence Guide", href: routes.driving }
+          ])}`
         }),
         CommonMistakes([
-          "Assuming EU freedom of movement means there is no local administration.",
-          "Booking a TIE appointment when the EU Registration Certificate is the relevant route.",
-          "Leaving healthcare evidence until the EU registration appointment.",
+          "Assuming EU citizens need a TIE.",
+          "Confusing NIE with EU registration.",
+          "Leaving healthcare planning too late.",
           "Signing accommodation without checking whether it can support padrón registration.",
-          "Ignoring tax and driving questions until they become urgent."
+          "Assuming all provinces work the same way.",
+          "Expecting all steps to finish quickly.",
+          "Ignoring tax residency.",
+          "Waiting until a deadline becomes urgent."
         ]),
         RealQuestions([
-          { question: "Do EU citizens need a visa to move to Spain?", answer: "Normally no. EU citizens do not usually need a visa for this route, but longer-term residence registration and local admin can still apply." },
-          { question: "Should I get the padrón before EU registration?", answer: "It is often useful and may be requested. Check your appointment instructions and prepare address evidence early." },
-          { question: "Does every EU citizen need private health insurance?", answer: "No. Healthcare evidence depends on whether you work, are self-employed, retired, studying or living from savings." },
-          { question: "Is the TIE for EU citizens?", answer: "Usually no. EU citizens normally use the Certificate of Registration route. TIE cards are generally for non-EU nationals." }
+          { question: "Can EU citizens move to Spain without a visa?", answer: "Yes, EU, EEA and Swiss citizens can usually enter Spain without a visa. Longer stays still involve local administration and EU residence registration." },
+          { question: "Do EU citizens need a TIE?", answer: "Normally no. EU citizens usually receive a green EU Registration Certificate. TIE cards are generally used by non-EU citizens." },
+          { question: "Is NIE the same as EU registration?", answer: "No. NIE is an identification number. EU registration is the residence registration process for EU citizens staying longer than three months." },
+          { question: "Do I need padrón before EU registration?", answer: "It may be requested locally and can be useful for other steps. Check the requirements for your appointment and municipality." },
+          { question: "Do I need healthcare before registering?", answer: "It depends on your route. Students, retirees and self-sufficient applicants may need healthcare proof before EU registration." },
+          { question: "Can I work before EU registration?", answer: "EU citizens can generally work in Spain, but employment, Social Security and residence registration steps still need to be handled correctly." },
+          { question: "What if appointments are not available?", answer: "Appointment availability can vary by province. Keep preparing documents, check official channels and avoid booking the wrong process out of frustration." },
+          { question: "What should I do first after arriving?", answer: "Secure accommodation and understand whether the address can support padrón registration. From there, arrange padrón, healthcare and EU registration according to your situation." }
         ]),
-        GuideSection({ id: "whatHappensNext", title: "What Happens Next?", children: `<p>Start with the <a href="${routes.checklist}">Documents Checklist</a>, then move through accommodation, padrón, healthcare and EU registration as your situation becomes clear.</p>` }),
-        GuideSection({ id: "youreReady", title: "Ready for the next step", children: `<p>You have the main sequence most EU citizens follow when moving to Spain. From here, use the detailed IberiGo guides for each step instead of trying to solve everything on one page.</p>` })
+        GuideSection({
+          id: "whatHappensNext",
+          title: "Your Next Step",
+          children: SourceLinks([
+            { label: "View the Settling Into Spain Guide", href: routes.settling },
+            { label: "View the Documents Checklist", href: routes.checklist },
+            { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+            { label: "View the Padrón Guide", href: routes.padron },
+            { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+            { label: "View the EU Registration Guide", href: routes.euRegistration }
+          ])
+        })
       ]
     })
   },
