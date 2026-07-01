@@ -883,7 +883,7 @@ const pages = [
           title: "Open a bank account",
           children: `${Cards([
             { title: "Everyday Setup", text: "A Spanish bank account can help with rent, utilities, salary, taxes and local payments." },
-            { title: "Official requirements", text: "Banks must identify customers, but accepted documents and account types can vary by bank and by your situation." },
+            { title: "Official requirements", text: "Banks generally need to identify customers, but accepted documents and account types can vary by bank and by your situation." },
             { title: "Practical advice", text: "Compare fees, document requests and whether the account fits a resident or non-resident situation." }
           ])}<p>The <a href="${routes.banking}">Bank Account Guide</a> explains what to compare before choosing an account.</p>`
         }),
@@ -931,7 +931,7 @@ const pages = [
           "Leaving banking, digital access, tax and driving questions until another process is blocked."
         ]),
         RealQuestions([
-          { question: "Should I do everything in this exact order?", answer: "Use this as the normal sequence, but adapt it to your situation and local appointment availability. Some preparation can happen in parallel." },
+          { question: "Should I do everything in this exact order?", answer: "Use this as a general sequence, but adapt it to your situation and local appointment availability. Some preparation can happen in parallel." },
           { question: "Can I register on the padrón with temporary accommodation?", answer: "It depends on the municipality and the evidence you have. Check the town hall instructions before assuming the address will be accepted." },
           { question: "Do I need healthcare before EU registration?", answer: "It depends on your EU registration route. If you are not working, healthcare evidence may be an important part of the registration file." },
           { question: "Is this only for EU citizens?", answer: "No. Many arrival steps apply broadly, but EU registration is only relevant if that route applies to you." }
@@ -2032,7 +2032,7 @@ pages.push({
       asideText: "A rental may affect padrón registration, healthcare, banking, official notifications and local services, so check address paperwork before you commit."
     },
     sections: [
-      QuickAnswer("Many newcomers start with temporary accommodation before signing a long-term rental. Long-term rentals often require documents and proof of income. The padrón may depend on having an address where registration is possible. Rental contracts should be reviewed carefully before signing. Scams and misleading listings are possible, especially online."),
+      QuickAnswer("Many newcomers start with temporary accommodation before signing a long-term rental. Long-term rentals may require documents and proof of income. The padrón may depend on having an address where registration is possible. Rental contracts should be reviewed carefully before signing. Scams and misleading listings are possible, especially online."),
       AtAGlance([
         ["Common first step", "Temporary accommodation can give you time to visit areas and view properties in person."],
         ["Long-term rental", "Usually better for stability and may support later administration."],
@@ -2062,7 +2062,7 @@ pages.push({
           { title: "Temporary: easier before documents", text: "It may be easier to book before you have Spanish documents or proof of local income." },
           { title: "Temporary: padrón may not be possible", text: "Short-term accommodation may not always provide the documents needed for padrón registration." },
           { title: "Long-term: more stability", text: "A long-term rental is usually better for stable living, local services and daily administration." },
-          { title: "Long-term: more documents", text: "Long-term rentals usually require more documents and stronger proof of income or guarantees." },
+          { title: "Long-term: more documents", text: "Long-term rentals may require more documents and stronger proof of income or guarantees." },
           { title: "Long-term: contract terms matter", text: "Contract duration, notice rules, deposits, utilities and address paperwork should be checked before signing." }
         ])}${InfoBox({ title: "Ask before you sign", text: "Do not assume every rental allows padrón. Ask in writing whether the landlord or agency can provide the documents needed for municipal registration." })}`
       }),
@@ -2108,7 +2108,7 @@ pages.push({
         children: `${Cards([
           { title: "Deposit and guarantees", text: "Landlords may ask for a deposit and additional guarantees, depending on the rental and your situation." },
           { title: "Agency fees", text: "Agency fees may apply in some situations, so ask what each payment is for before agreeing." },
-          { title: "Verify before paying", text: "Never send large payments without verifying the property, contract and recipient." },
+          { title: "Verify before paying", text: "Avoid sending large payments without verifying the property, contract and recipient." },
           { title: "Traceable payments", text: "Use traceable payment methods and avoid unclear payment routes." },
           { title: "Receipts", text: "Keep receipts and written confirmation for every payment." }
         ])}${WarningBox("If you feel pressured to pay before you can verify the listing or contract, slow down and check the details carefully.")}`
@@ -2179,7 +2179,7 @@ pages.push({
       asideText: "Your documents depend on nationality, route, municipality and appointment type. Check the requirements for your own procedure before relying on any checklist."
     },
     sections: [
-      QuickAnswer("The documents you need depend on your nationality, residency route and local procedure. Most newcomers should prepare identity documents, proof of income, healthcare documents, accommodation documents and copies. Some foreign documents may need translation or legalisation. It is usually better to prepare early than wait until the appointment."),
+      QuickAnswer("The documents you need depend on your nationality, residency route and local procedure. Many newcomers should prepare identity documents, proof of income, healthcare documents, accommodation documents and copies. Some foreign documents may need translation or legalisation. It is usually better to prepare early than wait until the appointment."),
       AtAGlance([
         ["Core idea", "Prepare identity, income, healthcare, address and appointment documents early."],
         ["Not universal", "Not everyone needs every document on this checklist."],
@@ -2279,7 +2279,7 @@ pages.push({
         id: "bankFinancialDocuments",
         title: "Bank and financial documents",
         children: `${Cards([
-          { title: "Identity", text: "Passport or national ID is usually required." },
+          { title: "Identity", text: "Passport or national ID is commonly requested." },
           { title: "NIE, if available", text: "Some banks may ask for a NIE if you already have one." },
           { title: "Address", text: "Proof of address may be requested depending on the bank and account type." },
           { title: "Income", text: "Employment contract, payslips, proof of income or savings may be requested." },

@@ -138,3 +138,97 @@ Five pages received a content-level editorial read-through against the checklist
 **Small fix made:** removed a stray country-specific example ("Finland") from one FAQ question for consistency with the rest of the guide's neutral phrasing. No other edits.
 
 **Status:** Editorial pass completed — legal verification still required.
+
+---
+
+## Sprint 37 — completed editorial passes
+
+Five additional draft pages received a content-level editorial read-through against the checklist above. **None of this is legal, tax or immigration-professional sign-off** — the "Legal/tax/immigration risk" item is intentionally left unchecked on every page below.
+
+### `/start-here/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — low factual surface area; path cards and guide links reviewed
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming
+- [x] Official-source links checked — no official-source cards on this page currently
+- [x] TODOs reviewed
+- [x] Internal links correct
+- [x] CTA labels descriptive — "Coming soon" cards are clearly labelled
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Status:** Editorial pass completed — legal verification still required.
+
+### `/moving-to-spain/settling-into-spain/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — sequence framing reviewed; one banking/KYC statement softened
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming — appointment and municipality variation remain explicit
+- [x] Official-source links checked — no official-source cards on this page currently
+- [x] TODOs reviewed
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Small fixes made:** softened "Banks must identify customers" to "Banks generally need to identify customers" and changed "normal sequence" to "general sequence."
+
+**Status:** Editorial pass completed — legal verification still required.
+
+### `/moving-to-spain/documents-checklist/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — document lists reviewed as conditional preparation, not universal requirements
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming — local office and appointment variation remain explicit
+- [x] Official-source links checked — no official-source cards on this page currently
+- [x] TODOs reviewed
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Small fixes made:** softened "Most newcomers should prepare" to "Many newcomers should prepare" and changed one bank-document phrase from "usually required" to "commonly requested."
+
+**Status:** Editorial pass completed — legal verification still required.
+
+### `/moving-to-spain/finding-accommodation/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — rental, padrón and scam guidance reviewed as practical guidance
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming — municipality and landlord variation remain explicit
+- [x] Official-source links checked — no official-source cards on this page currently
+- [x] TODOs reviewed
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Small fixes made:** softened long-term-rental document wording and changed "Never send large payments" to "Avoid sending large payments."
+
+**Status:** Editorial pass completed — legal verification still required.
+
+### `/living-in-spain/opening-a-bank-account/`
+**Reviewer:** Claude (editorial pass) · **Date:** 2026-07-01
+- [x] Factual accuracy — resident/non-resident account, fee, direct-debit and bank-document wording reviewed
+- [ ] Legal/tax/immigration risk — **needs human/legal review**
+- [x] No fixed timelines
+- [x] No province-specific overclaiming — bank-by-bank variation is explicit throughout
+- [x] Official-source links checked — no official-source cards on this page currently
+- [x] TODOs reviewed
+- [x] Internal links correct
+- [x] CTA labels descriptive
+- [x] noindex,nofollow intentional
+- [x] Tone matches IberiGo style
+- [x] Next-step section useful
+
+**Status:** Editorial pass completed — legal verification still required.
+
+**Sprint 37 routing note:** the `/guides/eu-registration/` → `/moving-to-spain/eu-registration/` route move remains a separate pending routing decision and is not approved by editorial review.
