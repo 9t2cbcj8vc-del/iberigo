@@ -4,11 +4,12 @@ This is the internal product backlog for IberiGo.
 
 ## In Progress
 
-- Legal/tax/immigration professional review of the core guides — editorial pass completed on **all 14 pages** as of Sprint 39; legal/tax verification is the only outstanding item on every page, and is the actual publish blocker (not a code or content-structure issue)
+- Legal/tax/immigration professional review of the core guides — editorial pass completed on **all 14 pages** as of Sprint 39; official source coverage added for all 7 High-priority pages as of Sprint 43 (see `docs/SOURCE_VERIFICATION_MATRIX.md`); human/professional legal/tax verification is the only outstanding item on every page, and is the actual publish blocker (not a code or content-structure issue)
+- Official source needed for Documents Checklist (names EX-18 and Modelo 790-012 with no linked source)
 
 ## Planned
 
-- Legal/editorial review of the high-risk guides (EU Registration, Healthcare, Padrón, Taxes) by a qualified professional
+- Legal/editorial review of the high-risk guides (EU Registration, Healthcare, Padrón, Taxes, Social Security, Driving Licence) by a qualified professional
 - Legacy guide migration — decide keep/migrate/redirect/rewrite for overlapping `/guides/` pages vs. the new core structure (see `docs/MIGRATION_PLAN.md`)
 - Redirect strategy for overlapping legacy/new pages, including `/guides/eu-registration/` vs. `/moving-to-spain/eu-registration/` — design only after migration decisions are made; do not execute until approved
 - hreflang strategy for any redirect — preserve the existing en/es pairing on `/guides/eu-registration/` ↔ `/guides/es/eu-registration/`
@@ -45,3 +46,4 @@ This is the internal product backlog for IberiGo.
 - Driving Licence Guide
 - Editorial pass (content-level, non-legal) on all 14 draft guide pages — completed Sprint 39
 - PR #5 merged into `main` as an internal draft foundation (all pages remain `noindex,nofollow`) — Sprint 38
+- Official source coverage added — human/professional verification still required: Taxes (Agencia Tributaria), Social Security (Seguridad Social), Driving Licence (DGT) — Sprint 43
