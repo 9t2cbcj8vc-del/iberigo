@@ -205,13 +205,21 @@ function ScopeNotice() {
 
 function OfficialSources(items = []) {
   if (!items.length) return "";
+  const stillPending = items.some((item) => !item.url);
+  const statusText = stillPending
+    ? "Some official references below are still pending verification (marked TODO). Confirm and link them during editorial review before publication."
+    : "Official references below link to their official domain. Confirm the specific page still matches this guide's content before publication.";
   return GuideSection({
     id: "officialSources",
     title: "Official Sources",
-    children: `${Cards(items.map((item) => ({
-      title: item.name || "Official source",
-      text: item.note || "Official reference placeholder. URL to be verified before publication."
-    })))}${InfoBox({ title: "Source status", text: "Official references are listed as placeholders until URLs and wording are verified during editorial review." })}`
+    children: `<div class="guide-card-grid">${items
+      .map((item) => {
+        const heading = item.url
+          ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.name || "Official source")}</a>`
+          : escapeHtml(item.name || "Official source");
+        return `<article class="guide-info-card"><h3>${heading}</h3><p>${escapeHtml(item.note || "Official reference placeholder. URL to be verified before publication.")}</p></article>`;
+      })
+      .join("\n          ")}</div>${InfoBox({ title: "Source status", text: statusText })}`
   });
 }
 

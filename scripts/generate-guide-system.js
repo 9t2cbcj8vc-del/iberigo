@@ -274,25 +274,25 @@ const relatedRoutesByRoute = {
 
 const officialSourcesByRoute = {
   [routes.euRoadmap]: [
-    { name: "Spanish Government", note: "General official guidance placeholder. URL to be verified before publication." },
-    { name: "Ministry responsible for immigration", note: "EU citizen residence guidance placeholder. URL to be verified before publication." },
-    { name: "Police appointment portal", note: "Appointment-system reference placeholder for EU registration steps. URL to be verified before publication." },
-    { name: "Local Town Halls", note: "Municipal guidance placeholder for padrón and local address steps. URLs vary by municipality." }
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", note: "TODO: verify and link the Ministry of Inclusion, Social Security and Migrations' extranjería portal — could not be confirmed reachable during this pass." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Appointment booking for foreigners' procedures is linked from here — confirm the specific EU-registration appointment path before publication." },
+    { name: "Local Town Halls", note: "No single official URL — padrón and local address requirements are set by each municipality. Link the reader's specific town hall page during editorial review." }
   ],
   [routes.euRegistration]: [
-    { name: "Spanish Government", note: "EU citizen registration guidance placeholder. URL to be verified before publication." },
-    { name: "Ministry responsible for immigration", note: "Official procedure and document guidance placeholder. URL to be verified before publication." },
-    { name: "Police appointment portal", note: "Appointment and form-routing placeholder. URL to be verified before publication." }
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", note: "TODO: verify and link the Ministry of Inclusion, Social Security and Migrations' extranjería portal — could not be confirmed reachable during this pass." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Appointment booking for EU registration certificate appointments is linked from here — confirm the specific appointment path before publication." }
   ],
   [routes.padron]: [
-    { name: "Spanish Government", note: "General municipal registration reference placeholder. URL to be verified before publication." },
-    { name: "Local Town Halls", note: "Padrón requirements and appointment guidance vary by municipality. Local URLs to be verified before publication." }
+    { name: "Spanish Government", url: "https://www.ine.es", note: "Instituto Nacional de Estadística (INE) — national padrón municipal statistics and the Padrón Online portal." },
+    { name: "Local Town Halls", note: "No single official URL — padrón requirements and appointment systems are set by each municipality. Link the reader's specific town hall page during editorial review." }
   ],
   [routes.healthcare]: [
-    { name: "Spanish Government", note: "Public healthcare entitlement guidance placeholder. URL to be verified before publication." },
-    { name: "Ministry responsible for immigration", note: "Healthcare evidence for EU registration placeholder. URL to be verified before publication." },
-    { name: "Regional health services", note: "Health-card process placeholders. URLs and names vary by autonomous community." },
-    { name: "Social Security", note: "Work-linked healthcare entitlement placeholder. URL to be verified before publication." }
+    { name: "Spanish Government", url: "https://www.sanidad.gob.es", note: "Ministerio de Sanidad — Spain's national health ministry." },
+    { name: "Ministry responsible for immigration", note: "TODO: verify and link the Ministry of Inclusion, Social Security and Migrations' extranjería portal — could not be confirmed reachable during this pass." },
+    { name: "Regional health services", note: "No single official URL — health-card processes and names vary by autonomous community. Link the reader's specific regional health service during editorial review." },
+    { name: "Social Security", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — official Social Security site. Note: could not be re-fetched for verification during this pass (site blocked automated requests), but this is the long-established canonical government domain." }
   ]
 };
 
