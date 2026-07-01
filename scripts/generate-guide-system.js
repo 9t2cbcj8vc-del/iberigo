@@ -39,7 +39,8 @@ const routes = {
   students: "/moving-to-spain/students/",
   workInSpain: "/moving-to-spain/work-in-spain/",
   retireInSpain: "/moving-to-spain/retire-in-spain/",
-  familyReunification: "/moving-to-spain/family-reunification/"
+  familyReunification: "/moving-to-spain/family-reunification/",
+  digitalNomad: "/moving-to-spain/digital-nomad-spain/"
 };
 
 function writePage(route, html) {
@@ -184,6 +185,11 @@ const guideSummaries = {
     title: "Family Reunification Roadmap",
     label: "View the Family Reunification Roadmap",
     description: "Understand the broad family reunification route for joining a non-EU resident sponsor in Spain."
+  },
+  [routes.digitalNomad]: {
+    title: "Digital Nomad Roadmap",
+    label: "View the Digital Nomad Roadmap",
+    description: "Understand the broad remote-work and digital nomad route for moving to Spain."
   }
 };
 
@@ -333,6 +339,13 @@ const searchMetadataByRoute = {
     estimatedTime: "11 min",
     appliesTo: ["Non-EU family members joining a non-EU resident sponsor in Spain", "Sponsors in Spain trying to understand what may be involved"],
     keywords: ["family reunification", "reagrupación familiar", "sponsor", "TIE", "NIE", "family-based residence"]
+  },
+  [routes.digitalNomad]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "11 min",
+    appliesTo: ["Non-EU remote workers considering Spain", "Digital nomads", "Freelancers with foreign clients", "Employees working remotely for a foreign employer"],
+    keywords: ["digital nomad visa", "remote work Spain", "TIE", "tax residency", "Social Security", "freelancer"]
   }
 };
 
@@ -353,7 +366,8 @@ const relatedRoutesByRoute = {
   [routes.students]: [routes.checklist, routes.healthcare, routes.accommodation],
   [routes.workInSpain]: [routes.social, routes.taxes, routes.checklist],
   [routes.retireInSpain]: [routes.healthcare, routes.taxes, routes.accommodation],
-  [routes.familyReunification]: [routes.checklist, routes.padron, routes.healthcare]
+  [routes.familyReunification]: [routes.checklist, routes.padron, routes.healthcare],
+  [routes.digitalNomad]: [routes.taxes, routes.social, routes.healthcare]
 };
 
 const officialSourcesByRoute = {
@@ -429,6 +443,14 @@ const officialSourcesByRoute = {
     { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for family members is linked from here — confirm the specific appointment path before publication." },
     { name: "EU official information for families (comparison only)", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, relevant only for comparing this route with the separate Family Member of an EU Citizen route. Previously verified in Sprint 49." }
+  ],
+  [routes.digitalNomad]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including remote-work-related routes." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
+    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and foreign-income questions for remote workers." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for Social Security treatment of employees, freelancers and business owners. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for digital nomads is linked from here — confirm the specific appointment path before publication." }
   ]
 };
 
@@ -2524,7 +2546,7 @@ pages.push({
           { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: routes.familyReunification, label: "View the Family Reunification Roadmap" },
           { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
           { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
-          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: "#", label: "Coming soon", comingSoon: true },
+          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: routes.digitalNomad, label: "View the Digital Nomad Roadmap" },
           { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: "#", label: "Coming soon", comingSoon: true },
           { title: "Already in Spain and unsure what applies", text: "Use the Start Here page and this roadmap together to narrow down what may apply.", href: routes.startHere, label: "View Start Here" }
         ])
@@ -3401,6 +3423,159 @@ pages.push({
           { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
           { label: "View the Settling Into Spain Guide", href: routes.settling }
         ])}${TipBox("Keep a folder for identity, relationship, sponsor and translated documents so you can respond quickly once you know your exact case requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.digitalNomad,
+  html: GuideLayout({
+    path: routes.digitalNomad,
+    canonical: `https://iberigo.eu${routes.digitalNomad}`,
+    title: "Digital Nomad Visa and Remote Work in Spain — IberiGo",
+    description: "A practical roadmap for remote workers and digital nomads considering Spain, including eligibility basics, documents, taxes, healthcare, TIE basics and common mistakes.",
+    metadata: guideMetadataFor(routes.digitalNomad),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Digital Nomad Roadmap" }],
+    hero: {
+      kicker: "Remote work route",
+      title: "Digital Nomad Visa and Remote Work in Spain",
+      intro: "A practical starting point for understanding remote-work routes, what you may need to prepare, and which issues to check before moving to Spain.",
+      asideTitle: "Not automatic for every remote worker",
+      asideText: "Digital nomad and remote-work rules can depend on your nationality, employer or client structure, income, tax residence, documents, healthcare cover, family situation and where you apply."
+    },
+    sections: [
+      QuickAnswer("Spain has routes that may apply to some remote workers or digital nomads. The correct path depends on nationality, work structure, employer/client location, income and documents. Remote work is not the same as ordinary employment in Spain. Tax residency and Spanish tax obligations should be reviewed early. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal, tax or financial advice. Digital nomad and remote-work rules can depend on your nationality, employer or client structure, income, tax residence, documents, healthcare cover, family situation and where you apply. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Who this may apply to", "Some non-EU remote workers, digital nomads, freelancers and employees working for a foreign employer or clients."],
+        ["Automatic?", "No. Remote work does not by itself allow residence in Spain."],
+        ["Central factors", "Work structure, income source, nationality and tax situation."],
+        ["Non-EU digital nomads", "May eventually need a TIE after approval or arrival."],
+        ["Professional advice", "May be useful, especially for tax and Social Security questions."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Non-EU remote workers", text: "Use this if you work remotely and are considering Spain as a non-EU citizen." },
+          { title: "Digital nomads", text: "Use this if you work location-independently for foreign employers or clients." },
+          { title: "Freelancers with foreign clients", text: "Use this if you invoice clients outside Spain." },
+          { title: "Employees working remotely for a foreign employer", text: "Use this if your employer is based outside Spain." },
+          { title: "People comparing routes", text: "Use this if you are comparing digital nomad, work and self-employed routes." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand whether a remote-work route applies to your situation now." }
+        ])}${InfoBox({ title: "Related roadmaps", text: "People employed by a Spanish company should use the Work in Spain Roadmap. People planning to run a Spanish self-employed activity should use the future Self-employed / Autónomo roadmap." })}`
+      }),
+      GuideSection({
+        id: "digitalNomadVsEmployeeVsSelfEmployed",
+        title: "Digital nomad vs employee vs self-employed route",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Route</th><td><strong>What to know</strong></td></tr>
+          <tr><th>Digital nomad / remote-work route</th><td>May apply to some people working remotely for foreign employers or clients. Requirements depend on work structure and official rules. Tax and immigration review is important.</td></tr>
+          <tr><th>Employee route</th><td>Usually connected to employment in Spain. May involve employer-side processes. Use the <a href="${routes.workInSpain}">Work in Spain Roadmap</a>.</td></tr>
+          <tr><th>Self-employed / autónomo route</th><td>Usually connected to independent economic activity in Spain. Tax and Social Security setup can be complex. Use the future Self-employed roadmap once available.</td></tr>
+        </tbody></table>${WarningBox("Do not assume these routes are interchangeable. Confirm which one matches your actual work structure before applying.")}`
+      }),
+      GuideSection({
+        id: "beforeYouApplyOrMove",
+        title: "Before you apply or move",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport is usually central to the application." },
+          { title: "Employment or client contracts, where relevant", text: "Employment contracts or client contracts may support the application." },
+          { title: "Proof of remote work", text: "Evidence that your work is genuinely remote may be requested." },
+          { title: "Proof of income, where required", text: "Some routes may require proof of income." },
+          { title: "Company or business documents, where relevant", text: "Business documents may be requested for freelancers or business owners." },
+          { title: "Professional qualifications, where relevant", text: "Some roles may require recognised qualification documents." },
+          { title: "Healthcare cover", text: "Healthcare cover may be required depending on your route." },
+          { title: "Criminal record certificate, where required", text: "Some routes may ask for a criminal record certificate." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." },
+          { title: "Tax review before moving", text: "Reviewing your tax situation before moving can help you plan." }
+        ])}<p>Exact requirements depend on nationality, work structure, income source and where the application is made. Use the <a href="${routes.checklist}">Documents Checklist</a> as a general starting point, then confirm the exact list for your specific case.</p>`
+      }),
+      GuideSection({
+        id: "employerClientsWorkStructure",
+        title: "Employer, clients and work structure",
+        children: `${Cards([
+          { title: "Different possible situations", text: "Remote workers may have different situations: employee, contractor, freelancer or business owner." },
+          { title: "Affects immigration, tax and Social Security", text: "The work structure can affect immigration, tax and Social Security questions." },
+          { title: "Not automatically eligible", text: "A foreign employer or foreign clients do not automatically guarantee eligibility." },
+          { title: "Verify your structure matches the route", text: "Users should verify whether their work structure matches the official route before applying." }
+        ])}`
+      }),
+      GuideSection({
+        id: "taxesAndRemoteWork",
+        title: "Taxes and remote work",
+        children: `${Cards([
+          { title: "Can affect tax residency", text: "Moving to Spain can affect tax residency." },
+          { title: "Different from immigration residency", text: "Tax residency is different from immigration residency." },
+          { title: "Worldwide income may apply", text: "Spain may tax residents on worldwide income depending on circumstances." },
+          { title: "Several issues to review", text: "Remote workers should review income tax, social contributions, invoicing and foreign income issues." },
+          { title: "Check special tax treatment with a professional", text: "Any special tax treatment should be checked with a qualified adviser." }
+        ])}${WarningBox("Do not treat any tax benefit as guaranteed. Tax outcomes depend on your specific circumstances and should be checked with a qualified adviser.")}<p>Use the <a href="${routes.taxes}">Taxes in Spain Guide</a> for a plain-English starting point.</p>`
+      }),
+      GuideSection({
+        id: "healthcareAndSocialSecurity",
+        title: "Healthcare and Social Security",
+        children: `${Cards([
+          { title: "Depends on route and structure", text: "Healthcare requirements can depend on route, work structure and nationality." },
+          { title: "Private insurance may be needed", text: "Some remote workers may need private insurance." },
+          { title: "Social Security varies", text: "Social Security treatment may depend on work structure and applicable rules." },
+          { title: "Not treated the same", text: "Employees, freelancers and business owners may not be treated the same." }
+        ])}${SourceLinks([
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Social Security in Spain Guide", href: routes.social }
+        ])}`
+      }),
+      GuideSection({
+        id: "tieBasicsForDigitalNomads",
+        title: "TIE basics for digital nomads",
+        children: `${Cards([
+          { title: "Many non-EU residents need one", text: "Many non-EU residents may need a TIE after approval or arrival." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming remote work automatically gives residence rights.",
+        "Assuming tourist status is enough for long-term remote work.",
+        "Confusing digital nomad, employee and self-employed routes.",
+        "Ignoring tax residency.",
+        "Assuming tax benefits are automatic.",
+        "Not checking Social Security implications.",
+        "Confusing NIE and TIE.",
+        "Preparing contracts or income documents too late.",
+        "Relying only on informal advice."
+      ]),
+      RealQuestions([
+        { question: "Can I move to Spain as a digital nomad?", answer: "It may be possible, depending on your nationality, work structure and income. Check the official requirements before assuming a specific route applies." },
+        { question: "Is remote work the same as working for a Spanish employer?", answer: "No. Remote work for a foreign employer or foreign clients is treated differently from ordinary employment with a Spanish company. Use the Work in Spain Roadmap if you have a Spanish employer." },
+        { question: "Can I work remotely from Spain as a tourist?", answer: "Tourist status is generally not enough for long-term remote work residence. Check the official requirements for the route that matches your situation." },
+        { question: "Do digital nomads need a TIE?", answer: "Many non-EU residents may need a TIE after approval or arrival. Requirements depend on your route." },
+        { question: "Is NIE the same as permission to live or work?", answer: "No. NIE is an identification number. Permission to live or work depends on your residence and work authorisation, which is separate." },
+        { question: "Will Spain tax my foreign income?", answer: "It may, depending on your tax residency and circumstances. This is not tax advice — get professional advice for your specific situation." },
+        { question: "Do I need private health insurance?", answer: "It depends on your route and work structure. Some remote workers may need private insurance; others may use another healthcare route." },
+        { question: "Should I speak with a tax adviser?", answer: "Often yes, especially if you have foreign income, multiple clients, or an unclear work structure. Professional advice may be useful before you commit to a route." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Work in Spain Roadmap", href: routes.workInSpain },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Opening a Bank Account Guide", href: routes.banking },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, contracts, income and tax documents so you can respond quickly once you know your exact route requirements.")}`
       })
     ]
   })
