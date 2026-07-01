@@ -34,9 +34,19 @@ Every occurrence is the standard footer line ("Free to use. Not legal advice."),
 | `living-in-spain/digital-certificate/index.html` | "These details are not **always** required in the same way." / "Do I need both Digital Certificate and Cl@ve? Not **always**." | Both hedged negations. Safe. |
 | `living-in-spain/social-security/index.html` | "Do I need Social Security if I am not working? Not **always**. It depends on your situation..." | Hedged negation. Safe. |
 | `living-in-spain/driving/index.html` | "**Always** check the current DGT rules for your licence type." | Advice to verify with the official source (DGT) — the encouraged pattern, not an overclaim about the procedure itself. Safe. |
-| `moving-to-spain/settling-into-spain/index.html` | "Banks **must** identify customers, but accepted documents and account types can vary by bank and by your situation." | States a real regulatory fact (KYC/AML identification requirement) rather than a promise to the reader. Low risk — reviewer should confirm this is accurately worded, but it is not a fixed-timeline or overclaiming issue. |
+| `moving-to-spain/settling-into-spain/index.html` | Originally: "Banks **must** identify customers, but accepted documents and account types can vary by bank and by your situation." | States a real regulatory fact (KYC/AML identification requirement) rather than a promise to the reader. **Resolved in Sprint 37:** softened to "Banks generally need to identify customers..." for consistency with the rest of the guide's hedged tone. |
 
 No instance of "always" or "must" asserts a fixed timeline, a guaranteed outcome, or a nationwide-uniform procedure — all either hedge explicitly, describe a misconception, cite a real regulatory fact, or point the reader to check an official source.
+
+## Resolved in Sprint 39
+
+| File | Route | Original finding | Resolution |
+|---|---|---|---|
+| `living-in-spain/driving/index.html` | `/living-in-spain/driving/` | FAQ question named a specific country ("Do I need to exchange my Finnish licence?") — the only country-specific example in an otherwise neutral EU/non-EU guide | Removed "Finnish," now reads "Do I need to exchange my licence from another EU country?" — same class of fix as the taxes guide's "Finland" fix in Sprint 36. |
+
+The final 2 pages without a prior editorial pass — `living-in-spain/digital-certificate/index.html` and `living-in-spain/social-security/index.html` — were reviewed against the special guidance in Sprint 39 (do not conflate Digital Certificate/Cl@ve, do not imply every procedure is online, do not conflate Social Security number/NIE/healthcare card/tax identity, do not imply immediate universal need). Both already read correctly hedged; **no edits were needed** on either page.
+
+**All 14 draft pages now have a completed editorial pass as of Sprint 39.**
 
 ## Confirmed clean (zero matches)
 
