@@ -24,7 +24,7 @@ const routes = {
   startHere: "/start-here/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
-  euRegistration: "/guides/eu-registration/",
+  euRegistration: "/moving-to-spain/eu-registration/",
   padron: "/moving-to-spain/registering-on-the-padron/",
   healthcare: "/moving-to-spain/healthcare/",
   checklist: "/moving-to-spain/documents-checklist/",
