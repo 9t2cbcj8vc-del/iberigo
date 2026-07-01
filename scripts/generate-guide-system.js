@@ -38,7 +38,8 @@ const routes = {
   euFamilyMemberRoadmap: "/moving-to-spain/family-member-eu-citizen/",
   students: "/moving-to-spain/students/",
   workInSpain: "/moving-to-spain/work-in-spain/",
-  retireInSpain: "/moving-to-spain/retire-in-spain/"
+  retireInSpain: "/moving-to-spain/retire-in-spain/",
+  familyReunification: "/moving-to-spain/family-reunification/"
 };
 
 function writePage(route, html) {
@@ -178,6 +179,11 @@ const guideSummaries = {
     title: "Retiring in Spain Roadmap",
     label: "View the Retiring in Spain Roadmap",
     description: "Understand the broad retirement and sufficient-resources route for moving to Spain, for EU and non-EU citizens alike."
+  },
+  [routes.familyReunification]: {
+    title: "Family Reunification Roadmap",
+    label: "View the Family Reunification Roadmap",
+    description: "Understand the broad family reunification route for joining a non-EU resident sponsor in Spain."
   }
 };
 
@@ -320,6 +326,13 @@ const searchMetadataByRoute = {
     estimatedTime: "12 min",
     appliesTo: ["EU citizens retiring in Spain", "Non-EU citizens retiring in Spain", "People living from pensions, savings or investments"],
     keywords: ["retire in Spain", "sufficient resources", "non-lucrative", "pension", "S1", "TIE", "EU Registration", "tax residency"]
+  },
+  [routes.familyReunification]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "11 min",
+    appliesTo: ["Non-EU family members joining a non-EU resident sponsor in Spain", "Sponsors in Spain trying to understand what may be involved"],
+    keywords: ["family reunification", "reagrupación familiar", "sponsor", "TIE", "NIE", "family-based residence"]
   }
 };
 
@@ -339,7 +352,8 @@ const relatedRoutesByRoute = {
   [routes.euFamilyMemberRoadmap]: [routes.checklist, routes.padron, routes.healthcare],
   [routes.students]: [routes.checklist, routes.healthcare, routes.accommodation],
   [routes.workInSpain]: [routes.social, routes.taxes, routes.checklist],
-  [routes.retireInSpain]: [routes.healthcare, routes.taxes, routes.accommodation]
+  [routes.retireInSpain]: [routes.healthcare, routes.taxes, routes.accommodation],
+  [routes.familyReunification]: [routes.checklist, routes.padron, routes.healthcare]
 };
 
 const officialSourcesByRoute = {
@@ -408,6 +422,13 @@ const officialSourcesByRoute = {
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for pension-linked healthcare entitlement and S1-type routes. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and pension/investment income questions." },
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for non-EU retirees is linked from here — confirm the specific appointment path before publication." }
+  ],
+  [routes.familyReunification]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence and family-based procedures." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for family members is linked from here — confirm the specific appointment path before publication." },
+    { name: "EU official information for families (comparison only)", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, relevant only for comparing this route with the separate Family Member of an EU Citizen route. Previously verified in Sprint 49." }
   ]
 };
 
@@ -2500,7 +2521,7 @@ pages.push({
         children: StartHereCards([
           { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: routes.workInSpain, label: "View the Work in Spain Roadmap" },
           { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: routes.students, label: "View the Student Roadmap" },
-          { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: "#", label: "Coming soon", comingSoon: true },
+          { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: routes.familyReunification, label: "View the Family Reunification Roadmap" },
           { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
           { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
           { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: "#", label: "Coming soon", comingSoon: true },
@@ -3230,6 +3251,156 @@ pages.push({
           { label: "View the Padrón Guide", href: routes.padron },
           { label: "View the Settling Into Spain Guide", href: routes.settling }
         ])}${TipBox("Keep a folder for identity, pension, financial and translated documents so you can respond quickly once you know your exact route requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.familyReunification,
+  html: GuideLayout({
+    path: routes.familyReunification,
+    canonical: `https://iberigo.eu${routes.familyReunification}`,
+    title: "Family Reunification in Spain — IberiGo",
+    description: "A practical roadmap for people joining family in Spain, including relationship documents, eligibility basics, residence routes, TIE basics and common mistakes.",
+    metadata: guideMetadataFor(routes.familyReunification),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Family Reunification Roadmap" }],
+    hero: {
+      kicker: "Family-based residence route",
+      title: "Family Reunification in Spain",
+      intro: "A practical starting point for understanding family-based residence routes, what you may need to prepare, and how this differs from the EU family member route.",
+      asideTitle: "Not the EU family member route",
+      asideText: "Family reunification and family-based residence rules can depend on nationality, relationship type, residence status of the sponsor, income, housing, documents, dependency and where the application is made."
+    },
+    sections: [
+      QuickAnswer("Some people may be able to join family in Spain through a family reunification or family-based residence route. The correct route depends on the family relationship and the residence status of the person already in Spain. This is not the same as the Family Member of an EU Citizen route. Relationship documents, legalisation, translation and proof of circumstances can be central. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal advice. Family reunification and family-based residence rules can depend on nationality, relationship type, residence status of the sponsor, income, housing, documents, dependency and where the application is made. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Who this may apply to", "Non-EU family members joining a non-EU resident sponsor in Spain."],
+        ["Same as EU family route?", "No. This is a separate route from Family Member of an EU Citizen."],
+        ["Central factors", "The relationship to the sponsor and the sponsor's residence status in Spain."],
+        ["Usual result", "Many applicants eventually receive a residence document or card, depending on the route."],
+        ["Professional advice", "May be useful, especially for less common relationships or complex situations."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Non-EU family members joining a non-EU resident in Spain", text: "Use this if you are joining a family member who is already a non-EU resident in Spain." },
+          { title: "Spouses or partners, where recognised", text: "Use this if your relationship may be recognised under a family-based route." },
+          { title: "Children, where applicable", text: "Use this if children may be included in a family application." },
+          { title: "Dependent relatives, where applicable", text: "Use this if a dependent relative's situation may support a family-based case." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand whether a family-based option applies to your situation now." },
+          { title: "Sponsors in Spain", text: "Use this if you are the resident sponsor trying to understand what may be involved." }
+        ])}${InfoBox({ title: "Family members of EU citizens", text: "Family members of EU citizens should use the Family Member of an EU Citizen Roadmap instead — that is a separate, different route." })}`
+      }),
+      GuideSection({
+        id: "familyReunificationVsEuFamilyMember",
+        title: "Family reunification vs EU family member route",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Route</th><td><strong>What to know</strong></td></tr>
+          <tr><th>Family reunification</th><td>Usually connected to joining a resident sponsor in Spain. May involve sponsor requirements, and income, housing or residence-status checks. The procedure depends on the family relationship and the sponsor's status.</td></tr>
+          <tr><th>Family Member of an EU Citizen</th><td>Connected to an EU citizen's free-movement/family-member route. Different rules and documents may apply. Use the separate <a href="${routes.euFamilyMemberRoadmap}">Family Member of an EU Citizen Roadmap</a> for this route.</td></tr>
+        </tbody></table>${WarningBox("Do not assume these two routes are interchangeable. Confirm which one applies to your situation before preparing documents.")}`
+      }),
+      GuideSection({
+        id: "relationshipAndSponsorBasics",
+        title: "Relationship and sponsor basics",
+        children: `${Cards([
+          { title: "Relationship to the sponsor matters", text: "The relationship to the sponsor matters for which route may apply." },
+          { title: "Sponsor's residence status matters", text: "The sponsor's residence status in Spain can matter to the case." },
+          { title: "Different evidence by relationship", text: "Spouses, partners, children and dependent relatives may have different evidence requirements." },
+          { title: "Housing, income or dependency evidence", text: "Housing, income or dependency evidence may be relevant depending on the route." }
+        ])}${WarningBox("This page does not provide a definitive eligibility list. Check the official requirements for your specific relationship and situation before assuming you qualify.")}`
+      }),
+      GuideSection({
+        id: "beforeYouApplyOrMove",
+        title: "Before you apply or move",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport is usually central to the application." },
+          { title: "Proof of relationship", text: "Marriage certificate, partnership certificate or birth certificate may be needed, depending on the relationship." },
+          { title: "Sponsor's residence documents", text: "The sponsor's residence documents may be requested." },
+          { title: "Sponsor's identity documents", text: "The sponsor's identity documents may be requested." },
+          { title: "Proof of address or housing, where required", text: "Housing evidence may be part of the file, depending on the office." },
+          { title: "Income or employment evidence, where required", text: "Some cases may require income or employment evidence." },
+          { title: "Healthcare documents, where required", text: "Some cases may require healthcare evidence." },
+          { title: "Criminal record certificate, where required", text: "Some routes may ask for a criminal record certificate." },
+          { title: "Medical certificate, where required", text: "Some routes may ask for a medical certificate." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." }
+        ])}<p>Exact requirements depend on the relationship, sponsor status, nationality, document country of issue and procedure. Use the <a href="${routes.checklist}">Documents Checklist</a> as a general starting point, then confirm the exact list for your specific case.</p>`
+      }),
+      GuideSection({
+        id: "whereTheProcessMayStart",
+        title: "Where the process may start",
+        children: `${Cards([
+          { title: "Some steps may happen in Spain first", text: "Some family-based routes may involve steps in Spain before the family member travels." },
+          { title: "Some steps may involve a consulate", text: "Some steps may involve a Spanish consulate." },
+          { title: "Depends on current situation", text: "Some situations may depend on whether the family member is already in Spain." },
+          { title: "Not covered here", text: "This roadmap does not give route-specific instructions. The correct path depends on the residence route and legal situation — check the official requirements that apply to your case." }
+        ])}`
+      }),
+      GuideSection({
+        id: "afterApprovalOrArrival",
+        title: "After approval or arrival",
+        children: `${Cards([
+          { title: "Travel to Spain, if applicable", text: "Some routes require approval before travel; others may not." },
+          { title: "Secure accommodation", text: "Your address may affect padrón, healthcare and other later steps." },
+          { title: "Register on the padrón, where possible", text: "Padrón requirements can vary by municipality." },
+          { title: "Arrange healthcare if needed", text: "Healthcare routes can depend on the family member's and sponsor's situation." },
+          { title: "Apply for or collect TIE where required", text: "Many cases involve a fingerprinting or card-collection appointment." },
+          { title: "Keep copies of approvals and notifications", text: "Keep copies of all approvals and official notifications." },
+          { title: "Review tax, school or local registration needs if relevant", text: "Other administrative needs may follow, depending on your situation." }
+        ])}${InfoBox({ title: "Order can vary", text: "Not everyone follows the same order. Do not assume the same sequence or timing applies to every family." })}`
+      }),
+      GuideSection({
+        id: "tieBasics",
+        title: "TIE basics",
+        children: `${Cards([
+          { title: "Many non-EU family members need one", text: "Many non-EU family members may need a TIE after approval or arrival." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming marriage automatically gives residence rights.",
+        "Confusing family reunification with the EU family member route.",
+        "Confusing NIE and TIE.",
+        "Not preparing legalised or translated documents early.",
+        "Ignoring sponsor requirements.",
+        "Assuming every family relationship qualifies.",
+        "Relying only on informal advice.",
+        "Missing official notifications.",
+        "Assuming rules are the same in every case."
+      ]),
+      RealQuestions([
+        { question: "Can I bring my spouse to Spain?", answer: "Often yes, through a family-based route, but it depends on your relationship, the sponsor's residence status, and the documents available. Check the official requirements for your case." },
+        { question: "Is family reunification the same as the EU family member route?", answer: "No. Family reunification is generally connected to joining a non-EU resident sponsor. The Family Member of an EU Citizen route is a separate, different process — check which one applies to your situation." },
+        { question: "Does marriage automatically give residence?", answer: "No. Marriage may support eligibility, but residence still depends on the application, evidence and approval." },
+        { question: "Can children join family in Spain?", answer: "Often yes, depending on the relationship and route, but requirements vary by case. Check the official requirements that apply." },
+        { question: "Do family members need a TIE?", answer: "Many non-EU family members may need a TIE after approval or arrival. Requirements depend on your route." },
+        { question: "Is NIE the same as residence?", answer: "No. NIE is an identification number. Residence is a separate status, usually evidenced by a residence card or document." },
+        { question: "Do documents need translation or apostille?", answer: "Some foreign documents may need official translation, legalisation or apostille, depending on the document and country of issue. Check before applying." },
+        { question: "What if the family member is already in Spain?", answer: "Use Start Here and this roadmap together to understand which route may apply, and check official requirements before assuming a specific process fits your situation." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Family Member of an EU Citizen Roadmap", href: routes.euFamilyMemberRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, relationship, sponsor and translated documents so you can respond quickly once you know your exact case requirements.")}`
       })
     ]
   })
