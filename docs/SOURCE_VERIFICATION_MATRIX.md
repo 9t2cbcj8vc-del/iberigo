@@ -4,7 +4,7 @@
 
 **Rule followed while building this:** no URLs were invented and no unofficial links were added. "Suggested official source type" names an institution/category only, not a link, unless that link was already verified and added in an earlier sprint (Sprint 36).
 
-All 14 pages remain `status: draft`, `noindex, nofollow`.
+All 15 pages (the original 14 plus the Non-EU Citizen Roadmap added in Sprint 46) remain `status: draft`, `noindex, nofollow`.
 
 ---
 
@@ -26,6 +26,7 @@ All 14 pages remain `status: draft`, `noindex, nofollow`.
 | `/living-in-spain/taxes/` | Taxes in Spain for New Residents — IberiGo | Tax | **High** | Tax residency vs. immigration residency; 183-day rule; worldwide income for tax residents; double-taxation treaties; explicit "not tax advice" disclaimer | Agencia Tributaria (sede.agenciatributaria.gob.es) — added Sprint 43, verified via curl (HTTP 200, page titled "Agencia Tributaria: Inicio") | None remaining | Agencia Tributaria (covered) | Was the only High-priority page with no source at all; now resolved | **Official source coverage added — human/professional verification still required** |
 | `/living-in-spain/driving/` | Driving Licence in Spain for New Residents — IberiGo | Transport / administrative | **High** | EU vs. non-EU licence recognition; exchange agreements by country; renewal-after-residence rules; medical-check requirement; consistently defers to "current DGT rules" | DGT / Dirección General de Tráfico (www.dgt.es) — added Sprint 43, verified via curl (HTTP 200, page titled "DGT - Inicio") | None remaining | DGT (covered) | The guide's own text already told readers to check DGT; now it links there too | **Official source coverage added — human/professional verification still required** |
 | `/search/` | Search IberiGo Guides — IberiGo | Functional | Low | None — search UI only | N/A | N/A | N/A | Not editorial content | Not applicable |
+| `/moving-to-spain/non-eu-citizens/` | Moving to Spain as a Non-EU Citizen — IberiGo | Immigration / roadmap (added Sprint 46) | **High** | Visa/authorisation requirement varies by nationality and route; TIE vs. NIE vs. EU Registration distinction; 8 route categories (work, study, family, EU-family-member, retirement, digital nomad, self-employed) each need their own eventual verification; explicit "not legal advice" disclaimer | Spanish Government (administracion.gob.es), Ministry responsible for immigration (inclusion.gob.es/web/migraciones/home), Police appointment portal (sede.policia.gob.es) — all reused/already verified in Sprint 36; Ministry of Foreign Affairs (exteriores.gob.es) — newly verified in Sprint 46, HTTP 200, page titled "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación" | None of the 4 linked sources are missing; the 7 route-specific sub-guides this page points to (all "Coming soon") will need their own sources once built | Immigration / extranjería (covered); Policía Nacional / TIE (covered); Spanish consular information (covered) | Broadest-scope, most nationality-dependent page in the set — deliberately avoids route-specific instructions and income/fee/deadline specifics per its editorial brief | Editorial pass complete (content, Sprint 46); sources verified; legal/immigration review pending |
 
 ---
 
@@ -88,10 +89,11 @@ A related issue surfaced while adding these: the shared `LastReviewed()` compone
 
 ## Pages that should not be published before source/legal review
 
-All 14 draft pages remain unpublished (`noindex,nofollow`) and none should move to `review`/`published` status before this phase completes. Within that, the priority order for the remaining source-verification work:
+All 15 draft pages remain unpublished (`noindex,nofollow`) and none should move to `review`/`published` status before this phase completes. Within that, the priority order for the remaining source-verification work:
 
 1. ~~Taxes, Social Security, Driving Licence — no official sources linked at all~~ — **resolved in Sprint 43.**
 2. **EU Citizen Roadmap, EU Registration, Padrón, Healthcare, Taxes, Social Security, Driving Licence** (all 7 High-priority pages) — all now have at least one linked source, but every one still needs human/professional legal-review sign-off; linking a source is not the same as verifying content against it.
 3. **Documents Checklist** — names specific form numbers (EX-18, Modelo 790-012) without a source; should be sourced alongside the immigration pages above, given the overlap.
 4. **Settling Into Spain, Finding Accommodation, Opening a Bank Account, Digital Certificate** — Medium sensitivity; source once the Documents Checklist gap above is addressed.
 5. **Start Here, Search** — no action needed; not applicable.
+6. **Non-EU Citizen Roadmap** (added Sprint 46) — High sensitivity, sources already added; needs its own legal/immigration review pass given its broader, more nationality-dependent scope. Its 7 route-specific sub-guides don't exist yet and aren't part of this matrix until they're drafted.
