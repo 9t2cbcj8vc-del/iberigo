@@ -927,54 +927,141 @@ const pages = [
     html: GuideLayout({
       path: routes.euRegistration,
       canonical: `https://iberigo.eu${routes.euRegistration}`,
-      title: "EU Registration Certificate in Spain — IberiGo",
-      description: "A practical guide to the EU Registration Certificate in Spain for EU, EEA and Swiss citizens staying longer term.",
+      title: "EU Registration in Spain — IberiGo",
+      description: "A practical guide to registering as an EU citizen in Spain, including who needs it, documents, healthcare proof, common mistakes and what happens after registration.",
       metadata: guideMetadataFor(routes.euRegistration),
       breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "EU Registration Certificate" }],
       hero: {
-        kicker: "Core guide",
-        title: "EU Registration Certificate in Spain",
-        intro: "EU, EEA and Swiss citizens who live in Spain longer term usually need to register through the Certificate of Registration route.",
+        kicker: "EU citizen registration",
+        title: "EU Registration in Spain",
+        intro: "A practical guide to registering as an EU, EEA or Swiss citizen in Spain, preparing the right evidence, and avoiding confusion with NIE, TIE and padrón.",
         asideTitle: "Not a TIE",
-        asideText: "EU citizens normally apply for the EU Registration Certificate. TIE cards are generally for non-EU nationals."
+        asideText: "EU citizens usually receive a green EU Registration Certificate. TIE cards are generally used by non-EU citizens."
       },
       sections: [
-        QuickAnswer("If you are an EU, EEA or Swiss citizen living in Spain longer term, the usual route is the EU Registration Certificate. The evidence depends on whether you work, study, have funds or have another basis for residence."),
+        QuickAnswer("EU, EEA and Swiss citizens can enter Spain without a visa. If you are staying longer than three months, you normally need to register as an EU resident. The result is usually the EU Registration Certificate, which includes a NIE. It is not the same as a TIE."),
         AtAGlance([
-          ["Common form", "EX-18"],
-          ["Common fee generator", "Modelo 790-012"],
-          ["Card type", "EU Registration Certificate, not TIE"],
-          ["Main dependency", "Your evidence depends on why you live in Spain."]
+          ["Who it is for", "EU, EEA and Swiss citizens staying in Spain longer than three months."],
+          ["Usual result", "A green EU Registration Certificate that includes a NIE."],
+          ["Not a TIE", "TIE cards are generally used by non-EU citizens."],
+          ["Common form", "EX-18."],
+          ["Evidence", "Depends on whether you work, are self-employed, study, retire or live from sufficient resources."]
         ]),
-        GuideSection({ id: "beforeStart", title: "Before You Start", children: `${Cards(["Confirm whether you are working, self-employed, studying, retired, or living from savings.", "Prepare identity, address, healthcare and route evidence.", "Check the official appointment wording before booking."])}${TipBox("If you are not working, arrange healthcare evidence before the registration appointment.")}` }),
-        GuideSection({ id: "whoNeeds", title: "Do I need this?", children: Cards([
-          { title: "You probably need this", text: "If you are an EU, EEA or Swiss citizen living in Spain longer term, this is usually the registration route to understand." },
-          { title: "This is not a visa", text: "You do not need this to enter Spain as an EU citizen, but you may need it once you live here." },
-          { title: "This is not a TIE", text: "Use this guide if you are preparing the EU Registration Certificate rather than a non-EU residence card." }
-        ]) }),
-        GuideSection({ id: "officialRequirements", title: "Official Requirements", children: `${Cards([
-          "The procedure is for EU, EEA and Swiss citizen registration.",
-          "Evidence depends on your situation, such as work, self-employment, study, sufficient funds or healthcare cover.",
-          "The common form is EX-18 and the common fee form is Modelo 790-012, but appointment instructions should be checked before attending."
-        ])}<!-- TODO: editorial verification required - confirm province-specific evidence lists and fee wording before review status. -->${WarningBox("Use the EU registration route. Do not book a TIE card appointment unless a separate official process tells you to.")}` }),
-        GuideSection({ id: "practicalAdvice", title: "Practical Advice", children: `${Cards([
-          "Prepare your NIE details and padrón certificate if requested.",
-          "Bring copies and originals where the appointment instructions ask for them.",
-          "If you are not working, settle your healthcare evidence before the appointment.",
-          "Keep the certificate safe after the appointment. You may need it for banking, healthcare, work and other administration."
-        ])}${TipBox("Read the Healthcare Guide before your appointment if your route depends on private cover, S1 or another entitlement.")}` }),
+        GuideSection({
+          id: "whoNeedsEuRegistration",
+          title: "Who needs EU registration?",
+          children: `${Cards([
+            { title: "EU citizens staying longer than three months", text: "If you live in Spain beyond a short stay, EU registration is normally the residence registration route to understand." },
+            { title: "EEA citizens", text: "EEA citizens usually follow the same general registration route." },
+            { title: "Swiss citizens", text: "Swiss citizens are commonly included in this registration framework." },
+            { title: "Workers", text: "Employees may need work evidence and related registration documents." },
+            { title: "Self-employed people", text: "Self-employed applicants may need evidence of activity, tax or Social Security setup." },
+            { title: "Students", text: "Students may need study evidence, healthcare proof and resources evidence depending on the appointment." },
+            { title: "Retirees", text: "Retirees may need pension or sufficient resources evidence and healthcare proof." },
+            { title: "People living from savings or investments", text: "Self-sufficient applicants may need resources evidence and suitable healthcare cover." }
+          ])}${InfoBox({ title: "Short stays", text: "Short stays under three months usually follow different rules. This guide focuses on residence registration for longer stays." })}`
+        }),
+        GuideSection({
+          id: "nieEuRegistrationTie",
+          title: "NIE vs EU Registration vs TIE",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>NIE</th><td>Identification number used for tax and administrative purposes. It is not automatically proof of residence by itself.</td></tr>
+            <tr><th>EU Registration Certificate</th><td>Residence registration for EU citizens. It is usually a green certificate and includes a NIE.</td></tr>
+            <tr><th>TIE</th><td>Physical residence card generally used by non-EU citizens. It is not normally the document EU citizens apply for.</td></tr>
+          </tbody></table>${WarningBox("Do not describe EU registration simply as getting a NIE. The NIE is an identification number; EU registration is the residence registration process for EU citizens staying longer than three months.")}`
+        }),
+        GuideSection({
+          id: "mainRoutesToQualify",
+          title: "Main routes to qualify",
+          children: Cards([
+            { title: "Working in Spain", text: "You may be asked for an employment contract, employer evidence, work registration or related documents." },
+            { title: "Self-employed in Spain", text: "You may be asked for self-employment, tax, activity or Social Security evidence." },
+            { title: "Studying", text: "You may be asked for enrolment evidence, healthcare proof and resources evidence." },
+            { title: "Retired", text: "You may be asked for pension evidence, healthcare proof such as S1 or suitable insurance, and resources evidence." },
+            { title: "Sufficient resources", text: "You may be asked for proof of funds or income and suitable healthcare cover." }
+          ])
+        }),
         GuideSection({
           id: "documentsChecklist",
-          title: "Documents Checklist",
+          title: "Documents you may need",
           children: `${ChecklistBox({
             title: "Documents to prepare",
-            items: ["Passport or EU national ID", "EX-18", "Padrón if requested", "Work, funds, study or healthcare evidence", "Modelo 790-012 payment proof"]
-          })}<!-- TODO: editorial verification required - confirm province-specific document wording before review status. -->${InfoBox({ title: "Document check", text: "Use this as a preparation list, then compare it with the official appointment instructions for your route." })}`
+            items: [
+              "Passport or national ID",
+              "Completed EX-18 form",
+              "Proof of appointment",
+              "Paid Modelo 790-012 fee",
+              "Proof of work, self-employment, studies, pension or sufficient resources",
+              "Healthcare proof, if required for your route",
+              "Padrón certificate, if requested locally",
+              "Copies of documents"
+            ]
+          })}${InfoBox({ title: "Requirements vary", text: "Exact requirements can vary by office and personal situation. Check the requirements for your appointment before attending." })}`
         }),
-        GuideSection({ id: "stepProcess", title: "Step-by-Step Process", children: StepTimeline([{ title: "Confirm your basis", text: "Work, self-employment, study, retirement or savings can lead to different evidence." }, { title: "Prepare documents", text: "Collect identity, address and route evidence." }, { title: "Pay the fee", text: "Use the official Modelo 790-012 generator." }, { title: "Attend the appointment", text: "Bring the documents requested for your appointment." }]) }),
-        CommonMistakes(["Confusing EU registration with a TIE card.", "Preparing healthcare evidence too late.", "Booking the wrong appointment label.", "Assuming every province asks for documents in the same way."]),
-        RealQuestions([{ question: "Do EU citizens need a visa?", answer: "No, but longer-term residence registration can still be required." }, { question: "Is this the same as NIE?", answer: "No. NIE is an identification number; EU registration is a residence registration certificate." }, { question: "What exact evidence applies to me?", answer: "It depends on your basis for living in Spain and the appointment instructions. Do not rely on another person’s document list without checking your route." }]),
-        GuideSection({ id: "whatHappensNext", title: "What Happens Next?", children: `<p>After registration, continue with <a href="${routes.healthcare}">healthcare</a>, Social Security if working, <a href="${routes.banking}">banking</a>, digital access and tax review.</p>` })
+        GuideSection({
+          id: "healthcareBeforeRegistration",
+          title: "Healthcare before EU registration",
+          children: `${Cards([
+            { title: "Why it matters", text: "Some EU citizens may need to show healthcare cover as part of the EU registration file." },
+            { title: "Students", text: "Students may need healthcare proof depending on their route and appointment requirements." },
+            { title: "Retirees", text: "Retirees may need S1 evidence, private insurance or another accepted healthcare route." },
+            { title: "Sufficient resources", text: "People applying with sufficient resources may need suitable healthcare cover before the appointment." }
+          ])}<p>Use the <a href="${routes.healthcare}">Healthcare in Spain Guide</a> to compare healthcare routes before attending the EU registration appointment.</p>${WarningBox("Healthcare planning may need to happen before your EU registration appointment if your route is not based on employment in Spain.")}`
+        }),
+        GuideSection({
+          id: "appointmentAndFee",
+          title: "Appointment and fee",
+          children: `${Cards([
+            { title: "Appointment availability", text: "Appointment availability varies by province and can change over time." },
+            { title: "Correct appointment type", text: "Make sure you book the EU citizen registration appointment, not a non-EU TIE appointment." },
+            { title: "Fee payment", text: "The official fee is usually paid before the appointment using the relevant fee form." },
+            { title: "Fee amount", text: "The fee amount can change, so check the current form and instructions before paying." }
+          ])}${WarningBox("Do not rely on an old screenshot or forum post for the fee or appointment label. Check the current official instructions before paying or booking.")}`
+        }),
+        GuideSection({
+          id: "processOverview",
+          title: "Process overview",
+          children: StepTimeline([
+            { title: "Confirm your route", text: "Work, self-employment, study, retirement or sufficient resources can lead to different evidence." },
+            { title: "Check the appointment requirements", text: "Review the province or office instructions before collecting documents." },
+            { title: "Prepare forms and evidence", text: "Prepare identity, EX-18, fee proof, route evidence, healthcare proof if needed and copies." },
+            { title: "Attend the appointment", text: "Bring the documents requested for your appointment and answer based on your actual situation." },
+            { title: "Keep the certificate safe", text: "The green EU Registration Certificate can be useful for banking, healthcare, work, tax and other administration." }
+          ])
+        }),
+        CommonMistakes([
+          "Booking the wrong appointment type.",
+          "Confusing EU Registration with TIE.",
+          "Thinking NIE alone always means residence registration is complete.",
+          "Arriving without healthcare proof when required.",
+          "Bringing incomplete documents.",
+          "Assuming all provinces ask for exactly the same documents.",
+          "Leaving the appointment too late.",
+          "Not keeping copies."
+        ]),
+        RealQuestions([
+          { question: "Is EU Registration the same as NIE?", answer: "No. NIE is an identification number. EU Registration is the residence registration process for EU citizens staying longer than three months, and the certificate usually includes a NIE." },
+          { question: "Do EU citizens get a TIE?", answer: "Normally no. EU citizens usually receive a green EU Registration Certificate. TIE cards are generally used by non-EU citizens." },
+          { question: "Do I need padrón first?", answer: "It may be requested locally, depending on the office and appointment requirements. Check before attending." },
+          { question: "Do I need private health insurance?", answer: "It depends on your route. Workers may use work-related evidence, while students, retirees or self-sufficient applicants may need healthcare proof such as S1 or suitable insurance." },
+          { question: "Can I work before registering?", answer: "EU citizens can generally enter Spain without a visa, but work, Social Security and registration steps should be handled correctly. Check your employment and registration obligations." },
+          { question: "What if there are no appointments?", answer: "Appointment availability can vary by province. Keep checking official channels and avoid booking the wrong process out of frustration." },
+          { question: "What happens after I receive the certificate?", answer: "Keep it safe. You may need it for banking, healthcare, employment, tax, digital access and other administration." },
+          { question: "Is the green certificate a card?", answer: "It is commonly a green certificate rather than a photo ID card. It is not the same as a TIE." }
+        ]),
+        GuideSection({
+          id: "whatHappensNext",
+          title: "Your Next Step",
+          children: `${SourceLinks([
+            { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+            { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+            { label: "View the Padrón Guide", href: routes.padron },
+            { label: "View the Opening a Bank Account Guide", href: routes.banking },
+            { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital },
+            { label: "View the Taxes in Spain Guide", href: routes.taxes },
+            { label: "View the Settling Into Spain Guide", href: routes.settling }
+          ])}${TipBox("Keep your EU Registration Certificate with your identity, padrón, healthcare, work, banking and tax documents.")}`
+        })
       ]
     })
   }
