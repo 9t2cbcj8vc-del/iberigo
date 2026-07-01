@@ -2115,8 +2115,181 @@ pages.push({
   })
 });
 
+pages.push({
+  route: routes.checklist,
+  html: GuideLayout({
+    path: routes.checklist,
+    canonical: `https://iberigo.eu${routes.checklist}`,
+    title: "Documents Checklist for Moving to Spain — IberiGo",
+    description: "A practical checklist of documents to prepare before moving to Spain, including identity documents, residency paperwork, healthcare, income proof, housing documents and official copies.",
+    metadata: guideMetadataFor(routes.checklist),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.euRoadmap }, { label: "Documents Checklist" }],
+    hero: {
+      kicker: "Documents and preparation",
+      title: "Documents Checklist for Moving to Spain",
+      intro: "A practical guide to the documents you may need before and after arriving in Spain, so you can prepare early and avoid unnecessary delays.",
+      asideTitle: "Not every item applies",
+      asideText: "Your documents depend on nationality, route, municipality and appointment type. Check the requirements for your own procedure before relying on any checklist."
+    },
+    sections: [
+      QuickAnswer("The documents you need depend on your nationality, residency route and local procedure. Most newcomers should prepare identity documents, proof of income, healthcare documents, accommodation documents and copies. Some foreign documents may need translation or legalisation. It is usually better to prepare early than wait until the appointment."),
+      AtAGlance([
+        ["Core idea", "Prepare identity, income, healthcare, address and appointment documents early."],
+        ["Not universal", "Not everyone needs every document on this checklist."],
+        ["Local variation", "Requirements may vary by municipality, office and appointment type."],
+        ["Foreign documents", "Some documents may need official translation, legalisation or apostille."],
+        ["Copies", "Keep originals, paper copies and secure digital scans where possible."]
+      ]),
+      GuideSection({
+        id: "whoThisGuideIsFor",
+        title: "Who this guide is for",
+        children: Cards([
+          { title: "EU citizens moving to Spain", text: "Use this to prepare common documents before padrón, healthcare and EU registration steps." },
+          { title: "Non-EU residents", text: "Use this as a general preparation list alongside the requirements for your specific residence route." },
+          { title: "Family members", text: "Use this if family status, certificates or supporting documents may be part of your route." },
+          { title: "Workers", text: "Use this if employment documents, income proof or Social Security steps may be relevant." },
+          { title: "Retirees", text: "Use this if pension, healthcare or income evidence may support your move." },
+          { title: "Students", text: "Use this if enrolment, healthcare and accommodation documents may be needed." },
+          { title: "Self-employed people", text: "Use this if tax, Social Security, income or activity evidence may be part of your setup." },
+          { title: "People preparing admin steps", text: "Use this if you are preparing for padrón, healthcare, banking or residency appointments." }
+        ])
+      }),
+      GuideSection({
+        id: "coreDocuments",
+        title: "Core documents to prepare",
+        children: `${ChecklistBox({
+          title: "Document checklist",
+          items: [
+            "Passport or national ID",
+            "Birth certificate, if relevant",
+            "Marriage certificate, if relevant",
+            "Proof of address",
+            "Rental contract or accommodation document",
+            "Employment contract, if applicable",
+            "Proof of income or savings",
+            "Healthcare insurance or entitlement documents",
+            "School or university enrolment, if applicable",
+            "Pension certificate, if applicable",
+            "Criminal record certificate, if required for your route",
+            "Passport photos, if required",
+            "Appointment confirmations",
+            "Paid fee forms",
+            "Copies of all important documents"
+          ]
+        })}${InfoBox({ title: "Not everyone needs every item", text: "Use this as a preparation checklist, not a legal list. Your exact documents depend on your route, appointment and local office." })}`
+      }),
+      GuideSection({
+        id: "euCitizenDocuments",
+        title: "Documents for EU citizens",
+        children: `${Cards([
+          { title: "Identity", text: "Passport or national ID is usually the starting point." },
+          { title: "EX-18, where applicable", text: "EU registration may involve the EX-18 form, depending on the procedure." },
+          { title: "Route evidence", text: "You may need proof of work, self-employment, studies, retirement or sufficient resources." },
+          { title: "Healthcare proof", text: "Healthcare proof can depend on whether you work, study, retire, use S1, have private insurance or use another recognised route." },
+          { title: "Fee proof", text: "Modelo 790-012 fee proof may be needed for EU Registration Certificate appointments." },
+          { title: "Padrón certificate", text: "A padrón certificate may be requested locally, depending on the office and situation." }
+        ])}${WarningBox("Requirements can vary by office and situation. Check the current appointment requirements before attending.")}`
+      }),
+      GuideSection({
+        id: "nonEuDocuments",
+        title: "Documents for non-EU citizens",
+        children: `${Cards([
+          { title: "Visa or authorisation", text: "You may need visa or residence authorisation documents for your route." },
+          { title: "Passport", text: "A valid passport is usually central to non-EU immigration and residence procedures." },
+          { title: "TIE appointment", text: "A TIE appointment confirmation may be needed for card-related steps." },
+          { title: "Relevant EX form", text: "The relevant EX form depends on the specific procedure." },
+          { title: "Photos and fee payment", text: "Passport-style photos and official fee payment may be required." },
+          { title: "Address and supporting documents", text: "Proof of address and route-specific supporting documents may be requested." }
+        ])}<!-- TODO: Link to future Non-EU Roadmap. -->${InfoBox({ title: "Introductory only", text: "Non-EU routes vary significantly. Use the official requirements for your specific visa or residence procedure." })}`
+      }),
+      GuideSection({
+        id: "housingPadronDocuments",
+        title: "Housing and padrón documents",
+        children: `${ChecklistBox({
+          title: "Address evidence you may need",
+          items: [
+            "Rental contract",
+            "Property deed, if owner",
+            "Landlord authorisation, if applicable",
+            "ID copy of the person authorising registration, if applicable",
+            "Utility bill, if requested locally"
+          ]
+        })}${WarningBox("Padrón document rules vary by municipality. Check your town hall requirements before the appointment.")}`
+      }),
+      GuideSection({
+        id: "healthcareDocuments",
+        title: "Healthcare documents",
+        children: `${Cards([
+          { title: "Private health insurance", text: "A private health insurance certificate may be needed for some routes." },
+          { title: "S1 form", text: "An S1 form may be relevant for some pensioners or cross-border healthcare routes." },
+          { title: "Work or Social Security", text: "Employment or Social Security registration may support some public healthcare routes." },
+          { title: "Regional health service documents", text: "Regional health services may request their own forms or confirmations." },
+          { title: "Identity and NIE", text: "Passport, national ID or NIE may be requested depending on the process." },
+          { title: "Padrón certificate", text: "A padrón certificate may be required for local health-centre registration." }
+        ])}<p>Use the <a href="${routes.healthcare}">Healthcare in Spain Guide</a> to compare healthcare routes before preparing documents.</p>`
+      }),
+      GuideSection({
+        id: "bankFinancialDocuments",
+        title: "Bank and financial documents",
+        children: `${Cards([
+          { title: "Identity", text: "Passport or national ID is usually required." },
+          { title: "NIE, if available", text: "Some banks may ask for a NIE if you already have one." },
+          { title: "Address", text: "Proof of address may be requested depending on the bank and account type." },
+          { title: "Income", text: "Employment contract, payslips, proof of income or savings may be requested." },
+          { title: "Tax information", text: "Banks may ask for tax residency information." },
+          { title: "Residency documents", text: "A residency certificate or card may be requested if available." }
+        ])}<p>Use the <a href="${routes.banking}">Opening a Bank Account Guide</a> to prepare bank-specific documents.</p>`
+      }),
+      GuideSection({
+        id: "translationsApostillesCopies",
+        title: "Translations, apostilles and copies",
+        children: Cards([
+          { title: "Official translation", text: "Some foreign documents may need an official translation." },
+          { title: "Legalisation or apostille", text: "Some documents may need legalisation or apostille, depending on the procedure and country of issue." },
+          { title: "Procedure-specific rules", text: "Do not assume the same translation or apostille rule applies to every appointment." },
+          { title: "Originals and copies", text: "Bring originals and copies when possible, unless the appointment instructions say otherwise." },
+          { title: "Secure scans", text: "Keep digital scans in a secure place so you can find them quickly." },
+          { title: "Check expiry dates", text: "Some documents may need to be recent or valid on the appointment date." }
+        ])
+      }),
+      CommonMistakes([
+        "Assuming one checklist fits everyone.",
+        "Forgetting copies.",
+        "Relying only on phone screenshots.",
+        "Not checking document expiry dates.",
+        "Not preparing translations early.",
+        "Bringing documents that are not accepted locally.",
+        "Losing appointment confirmations.",
+        "Not keeping proof of fee payment.",
+        "Assuming padrón requirements are the same everywhere."
+      ]),
+      RealQuestions([
+        { question: "Do I need originals or copies?", answer: "Often you should bring originals and copies where possible. Check the appointment instructions because some procedures may keep copies or ask to see originals." },
+        { question: "Do foreign documents need translation?", answer: "Some may need official translation, depending on the document, procedure and country of issue. Check before the appointment." },
+        { question: "Do I need an apostille?", answer: "Some foreign documents may need legalisation or apostille. The answer depends on the country of issue and the procedure." },
+        { question: "Can I use digital copies?", answer: "Digital scans are useful for your records, but many appointments may still ask for originals or paper copies." },
+        { question: "Which documents should I bring from my home country?", answer: "Identity documents, civil-status certificates, education or work documents, pension evidence, criminal-record certificates and healthcare documents may be harder to obtain after moving." },
+        { question: "Do EU citizens need the same documents as non-EU citizens?", answer: "No. EU and non-EU routes are different, and requirements also vary by situation." },
+        { question: "Should I prepare documents before arriving in Spain?", answer: "Usually yes. Some documents are easier to collect, translate or legalise before you move." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Settling Into Spain Guide", href: routes.settling },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the EU Registration Guide", href: routes.euRegistration }
+        ])}${TipBox("Make one folder for originals, one for copies and one secure digital folder. Name files clearly by document type and date.")}`
+      })
+    ]
+  })
+});
+
 const skeletons = [
-  ["documents-checklist", routes.checklist, "Moving to Spain documents checklist — IberiGo", "Draft checklist for documents people commonly prepare before moving to Spain.", "Documents Checklist for Moving to Spain", "A calm document checklist helps you prepare without pretending every route has the same requirements.", "Start with identity, address, healthcare, money and purpose evidence. Route-specific detail comes during editorial review."],
 ];
 
 for (const [, route, title, description, h1, intro, quick] of skeletons) {
