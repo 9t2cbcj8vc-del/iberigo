@@ -1700,7 +1700,7 @@ pages.push({
           { title: "Social Security and tax", text: "It may involve both Social Security and tax registration." },
           { title: "Gestor support", text: "Many people use a gestor because registrations, contributions and filing obligations can depend on the activity." },
           { title: "Future detailed guide", text: "A separate autónomo guide can cover this in detail later." }
-        ])}<!-- TODO: editorial verification required - add a dedicated self-employed/autónomo guide route before linking this section. -->${WarningBox("Do not start invoicing or self-employed activity based only on this overview. Get qualified advice if you are unsure.")}`
+        ])}${WarningBox("Do not start invoicing or self-employed activity based only on this overview. Get qualified advice if you are unsure.")}`
       }),
       GuideSection({
         id: "healthcareConnection",
@@ -1979,7 +1979,7 @@ pages.push({
           { title: "Insurance matters", text: "You should confirm that your insurance is valid for your situation and where the car is being used." },
           { title: "ITV may apply", text: "Spanish vehicle-inspection rules may apply depending on the vehicle and registration status." },
           { title: "Complex procedures", text: "Import and registration procedures can be complex, especially after becoming resident." }
-        ])}<!-- TODO: Create separate guide for bringing a car to Spain. -->${InfoBox({ title: "Keep the topics separate", text: "Licence exchange, vehicle registration, insurance and ITV are connected in everyday driving, but they are different administrative questions." })}`
+        ])}${InfoBox({ title: "Keep the topics separate", text: "Licence exchange, vehicle registration, insurance and ITV are connected in everyday driving, but they are different administrative questions." })}`
       }),
       CommonMistakes([
         "Assuming NIE or residency automatically changes driving licence status.",
@@ -2247,7 +2247,7 @@ pages.push({
           { title: "Relevant EX form", text: "The relevant EX form depends on the specific procedure." },
           { title: "Photos and fee payment", text: "Passport-style photos and official fee payment may be required." },
           { title: "Address and supporting documents", text: "Proof of address and route-specific supporting documents may be requested." }
-        ])}<!-- TODO: Link to future Non-EU Roadmap. -->${InfoBox({ title: "Introductory only", text: "Non-EU routes vary significantly. Use the official requirements for your specific visa or residence procedure." })}`
+        ])}${InfoBox({ title: "Introductory only", text: "Non-EU routes vary significantly. Use the official requirements for your specific visa or residence procedure." })}`
       }),
       GuideSection({
         id: "housingPadronDocuments",
