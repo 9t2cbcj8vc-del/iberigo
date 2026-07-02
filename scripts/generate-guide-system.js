@@ -477,7 +477,8 @@ const officialSourcesByRoute = {
   [routes.checklist]: [
     { name: "Modelo 790-012 official fee form", url: "https://sede.policia.gob.es/Tasa790_012/index.jsp", note: "Policía Nacional e-office — the official Tasa 790-012 fee-payment page referenced by this checklist. Verified reachable this sprint (HTTP 200, URL path itself confirms \"Tasa790_012\")." },
     { name: "EX-18 official form (Ministry responsible for immigration)", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section. The specific EX-18 download page could not be independently verified this sprint (guessed deep links returned 404); this links to the verified general portal instead. Confirm the exact EX-18 form page during editorial review." },
-    { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office — general appointment and registration portal referenced throughout this checklist." }
+    { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office — general appointment and registration portal referenced throughout this checklist." },
+    { name: "Apostille and legalisation", url: "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Legalizacion-y-apostilla.aspx", note: "Ministerio de Asuntos Exteriores — \"Legalización diplomática\" page, covering legalisation and apostille of foreign documents. Verified this sprint (HTTP 200, page titled \"Legalización diplomática\", discovered via a live link on the ministry's own citizen-services page rather than guessed)." }
   ]
 };
 
