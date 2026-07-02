@@ -21,6 +21,8 @@
 
 **This was an implementation-side QA pass, not the human visual QA approval.** Group 1 still requires human visual QA sign-off against `docs/IBERIGO_GUIDE_SYSTEM_V1.md` §8 before the "changes requested" status can move forward. No page is approved for publication; all pages remain `noindex, nofollow`.
 
+**Sprint 69 update — local visual QA pack prepared. Visual QA status for all 5 Group 1 pages: Visual QA prepared — awaiting human visual review.** Full-page screenshots (mobile 390px + desktop 1280px, faithful viewports via puppeteer-core) are saved locally in `visual-qa/group1/` (untracked, not committed). Per-page results, cross-page checklist verdicts, and issues are in `docs/GROUP1_VISUAL_QA_REPORT.md`. Summary: zero visual/CSS issues found; one **content** finding — internal verification commentary (e.g. "Verified reachable this sprint (HTTP 200…)") is visible to readers inside official-source card notes, flagged for a small follow-up cleanup. Publish decision unchanged for every page: **do not publish yet, keep `noindex, nofollow`.**
+
 Allowed status values as review progresses: *Awaiting human review* → *Human review in progress* → *Human review changes requested* or *Human review completed — still not published*. No other statuses (in particular: never "legally approved," "ready to publish," or "approved for indexing" — publication is a separate decision made outside this document).
 
 ---
