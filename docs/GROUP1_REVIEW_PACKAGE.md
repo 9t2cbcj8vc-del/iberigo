@@ -7,6 +7,10 @@
 
 **Group 1 is the safest first-publish candidate group, but no page is approved for publication yet.** All 5 pages below still require human review before any `noindex, nofollow` removal. Nothing in this document should be read as a recommendation to publish immediately — it is a review aid, not a review outcome.
 
+**Current review status (all 5 pages): Awaiting human review.**
+
+Allowed status values as review progresses: *Awaiting human review* → *Human review in progress* → *Human review changes requested* or *Human review completed — still not published*. No other statuses (in particular: never "legally approved," "ready to publish," or "approved for indexing" — publication is a separate decision made outside this document).
+
 ---
 
 ## 1. `/start-here/`
@@ -22,6 +26,15 @@
   - [ ] Confirm tone matches site style (calm, practical, no "Read more")
 - **Publication recommendation:** Lowest-risk candidate for the first page to clear review, given it makes no claims that could be wrong.
 - **Exact reason it must remain `noindex, nofollow` for now:** It is the entry point to the entire unreviewed guide set — publishing it would functionally advertise the existence of 21 other unreviewed pages, even though the page itself is low-risk.
+- **Review status:** Awaiting human review
+
+**Reviewer notes:**
+
+**Required changes:**
+
+**Publish decision:**
+
+**Follow-up questions:**
 
 ---
 
@@ -40,6 +53,15 @@
   - [ ] Confirm apostille/legalisation guidance doesn't overstate which documents need it
 - **Publication recommendation:** Ready to enter the review queue; not blocked on further source work.
 - **Exact reason it must remain `noindex, nofollow` for now:** Names specific government form numbers and fee codes — an error here could send a reader to the wrong appointment or payment, which is a real-world consequence even though the page's tone is appropriately cautious.
+- **Review status:** Awaiting human review
+
+**Reviewer notes:**
+
+**Required changes:**
+
+**Publish decision:**
+
+**Follow-up questions:**
 
 ---
 
@@ -56,6 +78,15 @@
   - [ ] Confirm scam-avoidance section doesn't name or imply specific bad actors
 - **Publication recommendation:** Ready to enter the review queue.
 - **Exact reason it must remain `noindex, nofollow` for now:** No source gap, but still unreviewed by a human — the blanket rule applies equally here.
+- **Review status:** Awaiting human review
+
+**Reviewer notes:**
+
+**Required changes:**
+
+**Publish decision:**
+
+**Follow-up questions:**
 
 ---
 
@@ -72,6 +103,15 @@
   - [ ] Confirm this page doesn't duplicate detail that belongs on its sub-guides
 - **Publication recommendation:** Ready to enter the review queue, but logically should be reviewed *after* the pages it links to, since its accuracy depends on theirs.
 - **Exact reason it must remain `noindex, nofollow` for now:** Its accuracy is derivative of several other still-unreviewed pages; publishing it before those would create a page that correctly summarizes content nobody has yet confirmed is correct.
+- **Review status:** Awaiting human review
+
+**Reviewer notes:**
+
+**Required changes:**
+
+**Publish decision:**
+
+**Follow-up questions:**
 
 ---
 
@@ -88,6 +128,15 @@
   - [ ] Confirm resident vs. non-resident account guidance doesn't overstate certainty
 - **Publication recommendation:** Ready to enter the review queue.
 - **Exact reason it must remain `noindex, nofollow` for now:** No source gap, but still unreviewed by a human.
+- **Review status:** Awaiting human review
+
+**Reviewer notes:**
+
+**Required changes:**
+
+**Publish decision:**
+
+**Follow-up questions:**
 
 ---
 
