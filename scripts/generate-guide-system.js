@@ -473,6 +473,11 @@ const officialSourcesByRoute = {
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for autónomo Social Security registration and contributions. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
     { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social. Previously verified in Sprint 43 (HTTP 200, page titled \"Página principal. Ministerio de Trabajo y Economía Social\")." },
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for self-employed non-EU residents is linked from here — confirm the specific appointment path before publication." }
+  ],
+  [routes.checklist]: [
+    { name: "Modelo 790-012 official fee form", url: "https://sede.policia.gob.es/Tasa790_012/index.jsp", note: "Policía Nacional e-office — the official Tasa 790-012 fee-payment page referenced by this checklist. Verified reachable this sprint (HTTP 200, URL path itself confirms \"Tasa790_012\")." },
+    { name: "EX-18 official form (Ministry responsible for immigration)", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section. The specific EX-18 download page could not be independently verified this sprint (guessed deep links returned 404); this links to the verified general portal instead. Confirm the exact EX-18 form page during editorial review." },
+    { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office — general appointment and registration portal referenced throughout this checklist." }
   ]
 };
 
