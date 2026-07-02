@@ -4,6 +4,16 @@ This is the internal product backlog for IberiGo.
 
 ## In Progress
 
+- **Group 1 visual QA before publication** (from Sprint 65 human review — content acceptable for now, visual/design work required before any Group 1 page publishes):
+  - review page layout
+  - check mobile layout
+  - check desktop layout
+  - check spacing and card design
+  - check typography hierarchy
+  - check CTA presentation
+  - check consistency across Group 1
+  - only after visual QA, reconsider publication readiness
+  - open question from the reviewer: which visual/design system should Group 1 use before publication?
 - Legal/tax/immigration professional review of the core guides — editorial pass completed on **all 14 pages** as of Sprint 39; official source coverage added for all 7 High-priority pages as of Sprint 43 (see `docs/SOURCE_VERIFICATION_MATRIX.md`); human/professional legal/tax verification is the only outstanding item on every page, and is the actual publish blocker (not a code or content-structure issue)
 - Documents Checklist source gaps fully closed (Sprints 62–63): Modelo 790-012 and apostille/legalisation both directly verified; EX-18 links to the general Migraciones portal (exact form page couldn't be independently confirmed, documented rather than guessed). No source gaps remain open on this page.
 - **Non-EU Roadmap route-card batch complete in draft form (Sprint 57).** All 7 of the Non-EU Citizen Roadmap's route cards now have a drafted sub-guide: Family Member of an EU Citizen (Sprint 49), Student (Sprint 52), Work in Spain (Sprint 53), Retiring in Spain (Sprint 54), Family Reunification (Sprint 55), Digital Nomad (Sprint 56), and Self-Employed / Autónomo (Sprint 57). None are published — all remain `noindex,nofollow` pending legal/tax/immigration review.
