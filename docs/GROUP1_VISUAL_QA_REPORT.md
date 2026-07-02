@@ -1,7 +1,7 @@
 # Group 1 Visual QA Report — Guide System v1
 
-**Date:** 2026-07-02 (Sprint 69)
-**Overall visual status: Visual QA prepared — awaiting human visual review.**
+**Date:** 2026-07-02 (updated Sprint 72)
+**Overall visual status: Visual changes applied — awaiting human visual re-check.**
 
 Local QA was run against the Guide System v1 scoped pass (Sprint 68) using a real Chromium instance at two viewports — mobile 390px and desktop 1280px — with full-page screenshots saved to `visual-qa/group1/` (untracked, not committed). Overflow and tap-target results below were measured programmatically in the browser, not eyeballed.
 
@@ -64,11 +64,14 @@ Files live in `visual-qa/group1/` (local only). Naming: `<page>-mobile-390.png` 
 ## Issues summary
 
 1. ~~(Content, not CSS) Internal verification commentary visible in official-source notes~~ — **Resolved in Sprint 70.** All 63 `note` fields in `officialSourcesByRoute` were rewritten to reader-facing wording, the "Source status" banner texts were similarly cleaned, and one positional error in the Last-reviewed transparency line ("linked below" → sources actually render above it) was corrected. A full-page sweep for internal wording (HTTP 200 / this sprint / guessed / 404 / bot-detection / editorial review / before publication / pending verification / marked TODO) now returns zero hits across all generated pages. Documents Checklist source cards were visually confirmed clean in a browser. Verification history remains preserved in `docs/SOURCE_VERIFICATION_MATRIX.md` and `docs/PR5_REVIEW_RISKS.md`.
-2. No visual/CSS issues found requiring changes.
+2. ~~(Visual, TOC) Human visual review found the desktop "On this page" table of contents could overlap and feel cramped, especially on the Bank Account guide~~ — **Resolved in Sprint 72.** The generated guide TOC now renders as a clean vertical text list with comfortable line-height and subtle active-state emphasis instead of narrow pill links. The sticky desktop sidebar is hidden at medium widths where it becomes cramped, and the mobile collapsible TOC behavior remains intact.
+3. ~~(Visual, reading time) Human visual review found the reading-time label appeared detached below the hero card~~ — **Resolved in Sprint 72.** Reading time now renders inside the generated hero/meta area so it reads as intentional page metadata rather than a misplaced caption.
 
-**Note on screenshots:** the `visual-qa/group1/` screenshot pack predates the Sprint 70 note cleanup, so the Documents Checklist captures show the old note wording. Everything visual (layout, spacing, cards, CTAs) is unchanged; recapture only if pixel-exact source-card text matters for the human review.
+**Sprint 72 verification:** Group 1 was rechecked in the browser at 1280px, 1000px, and 390px. Results: no horizontal overflow; no TOC text overlap; TOC pill styling removed on desktop; reading time appears inside the hero; CTAs remain at least 44px tall; the Bank Account tables still stack correctly on mobile.
+
+**Note on screenshots:** the original `visual-qa/group1/` screenshot pack predates the Sprint 70 note cleanup and Sprint 72 visual polish. Use it as historical QA context only; Group 1 needs a fresh human visual re-check of the current pages before any publication decision.
 
 ## Status and next step
 
-- **Status: Visual QA prepared — awaiting human visual review.** (Not "visual review completed" — that's the human's call, made by reviewing the pages and/or the screenshot pack against `docs/IBERIGO_GUIDE_SYSTEM_V1.md` §8.)
+- **Status: Visual changes applied — awaiting human visual re-check.** (Not "visual review completed" — that's the human's call, made by reviewing the current pages against `docs/IBERIGO_GUIDE_SYSTEM_V1.md` §8.)
 - No page is published; all remain `noindex, nofollow`. Publish decision unchanged: do not publish yet.

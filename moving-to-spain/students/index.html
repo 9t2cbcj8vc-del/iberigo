@@ -23,7 +23,7 @@
       html { scroll-behavior: smooth; }
       .guide-main { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 1.5rem 0 4.5rem; }
       .guide-main a { overflow-wrap: anywhere; }
-      .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 1.4rem; align-items: start; }
+      .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 260px); gap: 1.75rem; align-items: start; }
       .guide-layout--single { grid-template-columns: minmax(0, 1fr); }
       .guide-content { min-width: 0; }
       .guide-breadcrumbs { margin: 0 0 1.1rem; color: rgba(27, 32, 48, 0.62); font-size: 0.86rem; }
@@ -36,12 +36,16 @@
       .search-nav-link:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; }
       .guide-status-badge { margin: 0 0 1rem; padding: 0.6rem 0.95rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.76rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; width: fit-content; }
       .guide-status-badge--review { border-color: rgba(38, 57, 94, 0.18); background: rgba(38, 57, 94, 0.08); color: #26395e; }
-      .guide-reading-time { margin: -0.3rem 0 1.1rem; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
-      .guide-toc { position: sticky; top: 1rem; padding: 1.1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 14px 36px rgba(42, 32, 25, 0.06); }
+      .guide-reading-time { display: inline-flex; width: fit-content; margin: 0.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; font-weight: 800; }
+      .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 14px 36px rgba(42, 32, 25, 0.06); }
       .guide-toc strong, .guide-toc-mobile summary { color: #1b2030; font-weight: 900; }
-      .guide-toc ol, .guide-toc-mobile ol { display: grid; gap: 0.5rem; margin: 0.8rem 0 0; padding-left: 1rem; }
-      .guide-toc a, .guide-toc-mobile a { color: rgba(27, 32, 48, 0.68); text-decoration: none; font-size: 0.86rem; font-weight: 800; }
-      .guide-toc a[aria-current="true"], .guide-toc-mobile a[aria-current="true"] { color: #a64a36; }
+      .guide-toc ol, .guide-toc-mobile ol { display: grid; gap: 0.58rem; margin: 0.85rem 0 0; padding: 0; list-style: none; }
+      .guide-toc li, .guide-toc-mobile li { min-width: 0; }
+      .guide-toc a, .guide-toc-mobile a { display: block; min-height: 0; color: rgba(27, 32, 48, 0.68); text-decoration: none; font-size: 0.84rem; font-weight: 800; line-height: 1.42; text-align: left; background: transparent; border: 0; border-radius: 0; box-shadow: none; overflow-wrap: break-word; }
+      .guide-toc a { padding: 0.12rem 0 0.12rem 0.7rem; border-left: 2px solid rgba(166, 74, 54, 0.12); }
+      .guide-toc-mobile a { min-height: 2.75rem; padding: 0.2rem 0; }
+      .guide-toc a[aria-current="true"] { border-left-color: #a64a36; color: #a64a36; }
+      .guide-toc-mobile a[aria-current="true"] { color: #a64a36; }
       .guide-toc a:focus-visible, .guide-toc-mobile a:focus-visible, .guide-toc-mobile summary:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; border-radius: 8px; }
       .guide-toc-mobile { display: none; margin: 0 0 1.1rem; padding: 1.1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); }
       .guide-hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr); gap: clamp(1.2rem, 4vw, 2.2rem); align-items: center; padding: clamp(1.6rem, 4.5vw, 3.2rem); }
@@ -88,7 +92,8 @@
       .guide-button[aria-disabled="true"] { background: rgba(27, 32, 48, 0.08); border-color: transparent; color: rgba(27, 32, 48, 0.45); cursor: default; }
       .last-reviewed { margin: 1.25rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
       .guide-image-placeholder { min-height: 180px; border: 1px dashed rgba(166, 74, 54, 0.22); border-radius: 16px; background: linear-gradient(135deg, rgba(253, 240, 220, 0.7), rgba(255, 255, 255, 0.72)); }
-      @media (max-width: 900px) { .guide-layout, .guide-hero { grid-template-columns: 1fr; } .guide-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
+      @media (max-width: 1040px) { .guide-layout { grid-template-columns: minmax(0, 1fr); } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
+      @media (max-width: 900px) { .guide-hero { grid-template-columns: 1fr; } .guide-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
@@ -131,13 +136,13 @@
             <span class="guide-kicker">Study route</span>
             <h1 id="pageTitle">Moving to Spain as a Student</h1>
             <p>A practical starting point for understanding student routes, what you may need to prepare, and which steps usually come before and after arriving in Spain.</p>
+            <p class="guide-reading-time">7 min read</p>
           </div>
           <aside class="guide-hero-card" aria-label="Guide summary">
             <strong>Not one process for every student</strong>
             <p>Student residence rules can depend on your nationality, course type, study length, documents, financial situation, healthcare cover and where you apply.</p>
           </aside>
         </section>
-        <p class="guide-reading-time">7 min read</p>
         <details class="guide-toc-mobile" data-guide-toc>
           <summary>On this page</summary>
           <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#importantNote" data-guide-toc-link>Important note</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#whoThisRoadmapIsFor" data-guide-toc-link>Who this roadmap is for</a></li><li><a href="#beforeYouApplyOrMove" data-guide-toc-link>Before you apply or move</a></li><li><a href="#euStudents" data-guide-toc-link>EU students</a></li><li><a href="#nonEuStudents" data-guide-toc-link>Non-EU students</a></li><li><a href="#healthcareAndAccommodation" data-guide-toc-link>Healthcare and accommodation</a></li><li><a href="#tieBasicsForStudents" data-guide-toc-link>TIE basics for students</a></li><li><a href="#workWhileStudying" data-guide-toc-link>Work while studying</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
