@@ -208,10 +208,10 @@ function OfficialSources(items = []) {
   const stillPending = items.some((item) => !item.url && !item.varies);
   const hasVarying = items.some((item) => item.varies);
   const statusText = stillPending
-    ? "Some official references below are still pending verification (marked TODO). Confirm and link them during editorial review before publication."
+    ? "Some official references for this guide are still being confirmed. Always check current requirements directly with the official administration."
     : hasVarying
-      ? "Official references below link to their official domain where one exists. Entries marked as varying by location have no single official URL — link the reader's specific municipality/region during editorial review."
-      : "Official references below link to their official domain. Confirm the specific page still matches this guide's content before publication.";
+      ? "These links go to official websites where a single one exists. Some sources vary by municipality or region — check your own town hall or regional service for local instructions. Official details can change, so always confirm with the official source."
+      : "These links go to official websites. Official details can change, so always confirm current requirements directly with the official source.";
   return GuideSection({
     id: "officialSources",
     title: "Official Sources",
@@ -236,7 +236,7 @@ function LegalDisclaimer() {
 function LastReviewed(date = REVIEWED, reviewedAgainstOfficialGuidance = false) {
   if (!date) return "";
   return reviewedAgainstOfficialGuidance
-    ? `<div class="last-reviewed"><p><strong>Last reviewed:</strong> ${escapeHtml(date)}</p><p>Official sources linked below for further checking; content has not been verified against them by a qualified professional.</p></div>`
+    ? `<div class="last-reviewed"><p><strong>Last reviewed:</strong> ${escapeHtml(date)}</p><p>Official sources are linked on this page for further checking; content has not been verified against them by a qualified professional.</p></div>`
     : `<p class="last-reviewed">Last reviewed: ${escapeHtml(date)}</p>`;
 }
 

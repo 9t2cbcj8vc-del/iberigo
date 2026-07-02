@@ -63,8 +63,10 @@ Files live in `visual-qa/group1/` (local only). Naming: `<page>-mobile-390.png` 
 
 ## Issues summary
 
-1. **(Content, not CSS) Internal verification commentary visible in official-source notes** — affects Documents Checklist directly and other draft pages that reuse the same source entries. Recommended fix: reader-appropriate note wording in `officialSourcesByRoute`; verification history stays in `docs/SOURCE_VERIFICATION_MATRIX.md`. Needs its own small sprint.
+1. ~~(Content, not CSS) Internal verification commentary visible in official-source notes~~ — **Resolved in Sprint 70.** All 63 `note` fields in `officialSourcesByRoute` were rewritten to reader-facing wording, the "Source status" banner texts were similarly cleaned, and one positional error in the Last-reviewed transparency line ("linked below" → sources actually render above it) was corrected. A full-page sweep for internal wording (HTTP 200 / this sprint / guessed / 404 / bot-detection / editorial review / before publication / pending verification / marked TODO) now returns zero hits across all generated pages. Documents Checklist source cards were visually confirmed clean in a browser. Verification history remains preserved in `docs/SOURCE_VERIFICATION_MATRIX.md` and `docs/PR5_REVIEW_RISKS.md`.
 2. No visual/CSS issues found requiring changes.
+
+**Note on screenshots:** the `visual-qa/group1/` screenshot pack predates the Sprint 70 note cleanup, so the Documents Checklist captures show the old note wording. Everything visual (layout, spacing, cards, CTAs) is unchanged; recapture only if pixel-exact source-card text matters for the human review.
 
 ## Status and next step
 

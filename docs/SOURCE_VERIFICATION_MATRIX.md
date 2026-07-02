@@ -4,6 +4,8 @@
 
 **Rule followed while building this:** no URLs were invented and no unofficial links were added. "Suggested official source type" names an institution/category only, not a link, unless that link was already verified and added in an earlier sprint (Sprint 36).
 
+**Canonical home for verification detail (Sprint 70):** the user-facing official-source card notes on generated pages were cleaned of internal verification commentary (HTTP statuses, "this sprint", 404 attempts, bot-detection caveats, editorial-review reminders) — pages now show calm, reader-facing descriptions only. This document (plus `docs/PR5_REVIEW_RISKS.md` where relevant) is the sole home for technical verification history; the per-row details recorded in Sprints 36/43/46/49/52/53/62/63 below remain the record of how each URL was verified.
+
 All 22 pages (the original 14, plus the Non-EU Citizen Roadmap added in Sprint 46, the Family Member of an EU Citizen Roadmap added in Sprint 49, the Student Roadmap added in Sprint 52, the Work in Spain Roadmap added in Sprint 53, the Retiring in Spain Roadmap added in Sprint 54, the Family Reunification Roadmap added in Sprint 55, the Digital Nomad Roadmap added in Sprint 56, and the Self-Employed / Autónomo Roadmap added in Sprint 57) remain `status: draft`, `noindex, nofollow`. As of Sprint 57, all 7 of the Non-EU Citizen Roadmap's route cards have a drafted sub-guide.
 
 ---

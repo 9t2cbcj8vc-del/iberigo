@@ -23,6 +23,8 @@
 
 **Sprint 69 update — local visual QA pack prepared. Visual QA status for all 5 Group 1 pages: Visual QA prepared — awaiting human visual review.** Full-page screenshots (mobile 390px + desktop 1280px, faithful viewports via puppeteer-core) are saved locally in `visual-qa/group1/` (untracked, not committed). Per-page results, cross-page checklist verdicts, and issues are in `docs/GROUP1_VISUAL_QA_REPORT.md`. Summary: zero visual/CSS issues found; one **content** finding — internal verification commentary (e.g. "Verified reachable this sprint (HTTP 200…)") is visible to readers inside official-source card notes, flagged for a small follow-up cleanup. Publish decision unchanged for every page: **do not publish yet, keep `noindex, nofollow`.**
 
+**Sprint 70 update — source-note cleanup completed.** The Sprint 69 content finding is resolved: all user-facing official-source card notes and the "Source status" banner now use calm, reader-facing wording; technical verification history lives only in `docs/SOURCE_VERIFICATION_MATRIX.md` / `docs/PR5_REVIEW_RISKS.md`. Documents Checklist source cards were confirmed clean in a browser, and a full-page sweep for internal process language returns zero hits across all generated pages. The visual QA package remains prepared; **Group 1 still awaits human visual review; no page is approved for publication; all pages remain `noindex, nofollow`.**
+
 Allowed status values as review progresses: *Awaiting human review* → *Human review in progress* → *Human review changes requested* or *Human review completed — still not published*. No other statuses (in particular: never "legally approved," "ready to publish," or "approved for indexing" — publication is a separate decision made outside this document).
 
 ---
