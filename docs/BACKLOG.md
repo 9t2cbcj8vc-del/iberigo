@@ -13,7 +13,8 @@ This is the internal product backlog for IberiGo.
   - check CTA presentation
   - check consistency across Group 1
   - only after visual QA, reconsider publication readiness
-  - open question from the reviewer: which visual/design system should Group 1 use before publication?
+  - ~~open question from the reviewer: which visual/design system should Group 1 use before publication?~~ **Answered (Sprint 66): IberiGo Guide System v1** — calm, practical, government-adjacent, card-based, mobile-first; see `docs/IBERIGO_GUIDE_SYSTEM_V1.md`
+  - **Next visual task: apply Guide System v1 to Group 1 pages and run visual QA** (per-page checklist is in the Guide System doc)
 - Legal/tax/immigration professional review of the core guides — editorial pass completed on **all 14 pages** as of Sprint 39; official source coverage added for all 7 High-priority pages as of Sprint 43 (see `docs/SOURCE_VERIFICATION_MATRIX.md`); human/professional legal/tax verification is the only outstanding item on every page, and is the actual publish blocker (not a code or content-structure issue)
 - Documents Checklist source gaps fully closed (Sprints 62–63): Modelo 790-012 and apostille/legalisation both directly verified; EX-18 links to the general Migraciones portal (exact form page couldn't be independently confirmed, documented rather than guessed). No source gaps remain open on this page.
 - **Non-EU Roadmap route-card batch complete in draft form (Sprint 57).** All 7 of the Non-EU Citizen Roadmap's route cards now have a drafted sub-guide: Family Member of an EU Citizen (Sprint 49), Student (Sprint 52), Work in Spain (Sprint 53), Retiring in Spain (Sprint 54), Family Reunification (Sprint 55), Digital Nomad (Sprint 56), and Self-Employed / Autónomo (Sprint 57). None are published — all remain `noindex,nofollow` pending legal/tax/immigration review.
@@ -80,3 +81,4 @@ This is the internal product backlog for IberiGo.
 - Non-EU route batch consistency audit (routes/nav, terminology, risk language, duplication, source coverage) — clean, no content fixes needed; see `docs/NON_EU_BATCH_AUDIT.md` — Sprint 58
 - Non-EU route batch merged into `main` via PR #11 (commit `f365a7e`) — all 8 pages live-deployed, still `noindex,nofollow` — Sprint 60
 - Publish readiness audit across all 22 draft pages — no page cleared to publish; every page still needs human legal/tax/immigration sign-off; see `docs/PUBLISH_READINESS_AUDIT.md` for per-page status, launch grouping, and recommended review sequencing — Sprint 61
+- IberiGo Guide System v1 defined (calm, practical, government-adjacent, card-based, mobile-first) — answers the Sprint 65 reviewer question; see `docs/IBERIGO_GUIDE_SYSTEM_V1.md`. Next visual task: apply Guide System v1 to Group 1 pages and run visual QA — Sprint 66
