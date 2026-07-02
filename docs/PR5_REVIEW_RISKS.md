@@ -80,3 +80,7 @@ None of these are currently marked as legally verified anywhere in the repo — 
 ### Pages that should not be published before review
 
 **All 14.** No page should move out of `draft`/`noindex,nofollow` before this source-verification and legal-review phase completes. All 7 High-priority pages now have official-source coverage as of Sprint 43, but "official source coverage added" and "legally reviewed" remain two separate, both-still-open bars — see the per-page status in `docs/SOURCE_VERIFICATION_MATRIX.md`.
+
+## Non-EU batch risk-language audit (Sprint 58)
+
+The 8-page Non-EU route batch (`/moving-to-spain/non-eu-citizens/` and its 7 sub-guides — Family Member of an EU Citizen, Student, Work in Spain, Retiring in Spain, Family Reunification, Digital Nomad, Self-Employed) was swept for the same class of risky absolute language as the Sprint 39 checks (`always`, `guaranteed`, `automatic(ally)`, `everyone`, `must`, `will`, `within`, `first week`, `30 days`, plus batch-specific phrases like "gives residence" and "can work"). Full detail in `docs/NON_EU_BATCH_AUDIT.md`. Result: `must`, `within`, `first week`, and `30 days` had zero matches across all 8 pages; every other hit was a negation, a stated-and-corrected misconception, or hedged question/answer phrasing. **No edits were needed.** These 8 pages carry the same "not published before review" status as the rest of the batch.

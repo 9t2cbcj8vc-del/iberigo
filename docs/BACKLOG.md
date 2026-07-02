@@ -28,7 +28,7 @@ This is the internal product backlog for IberiGo.
 - Spanish-language content for the new core guides (currently English-only; legacy `/guides/es/*` pages are unaffected)
 - Decide whether Start Here's "joining family" card should eventually point to a persona-chooser between the EU family member and family reunification routes, instead of defaulting to the EU family member roadmap
 - Decide whether Start Here needs a dedicated remote-work/digital-nomad card, since one doesn't exist yet and the Digital Nomad roadmap is currently only linked from the Non-EU Roadmap
-- Now that all Non-EU Roadmap sub-guides are drafted: open the PR for the full `content/non-eu-route-drafts` batch, and plan the legal/tax/immigration review sequence across all 7 new roadmaps
+- Batch consistency audit passed clean (Sprint 58, `docs/NON_EU_BATCH_AUDIT.md`) — next: open the PR for the full `content/non-eu-route-drafts` batch, and plan the legal/tax/immigration review sequence across all 7 new roadmaps
 - Dedicated TIE guide
 - Car import guide
 - Renting Guide
@@ -67,3 +67,4 @@ This is the internal product backlog for IberiGo.
 - Family Reunification Roadmap draft created, `/moving-to-spain/family-reunification/`, `noindex,nofollow` — includes a comparison table distinguishing it from the Family Member of an EU Citizen route; the Non-EU Roadmap's "Join family in Spain" card now links to it (Start Here's "joining family" card intentionally left pointing to the EU family member roadmap) — Sprint 55
 - Digital Nomad Roadmap draft created, `/moving-to-spain/digital-nomad-spain/`, `noindex,nofollow` — includes a comparison table distinguishing it from the Work in Spain and Self-Employed routes; the Non-EU Roadmap's "Digital nomad / remote work" card now links to it (Start Here has no dedicated remote-work card, so it was intentionally left unchanged) — Sprint 56
 - Self-Employed / Autónomo Roadmap draft created, `/moving-to-spain/self-employed-spain/`, `noindex,nofollow` — Start Here's "self-employed" card, the Non-EU Roadmap's "Self-employed / business activity" card, and the Digital Nomad Roadmap's comparison-table reference all now link to it. This completes drafts for all 7 of the Non-EU Roadmap's route cards — Sprint 57
+- Non-EU route batch consistency audit (routes/nav, terminology, risk language, duplication, source coverage) — clean, no content fixes needed; see `docs/NON_EU_BATCH_AUDIT.md` — Sprint 58

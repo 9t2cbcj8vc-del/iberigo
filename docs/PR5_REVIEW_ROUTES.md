@@ -53,3 +53,5 @@
 **Sprint 56 update:** added a 21st draft page, the Digital Nomad Roadmap (`/moving-to-spain/digital-nomad-spain/`), with its own editorial pass completed at creation time. Legal/tax/immigration professional sign-off is outstanding on this page too. This is the sixth of the Non-EU Roadmap's 7 route-specific sub-guides to be built — only self-employed remains.
 
 **Sprint 57 update:** added a 22nd draft page, the Self-Employed / Autónomo Roadmap (`/moving-to-spain/self-employed-spain/`), with its own editorial pass completed at creation time. Legal/tax/immigration professional sign-off is outstanding on this page too. This is the seventh and final route-specific sub-guide for the Non-EU Roadmap — the entire initial route-card batch is now drafted, none published.
+
+**Sprint 58 update:** ran a consistency audit across all 8 Non-EU batch pages (routes/navigation, terminology, risk language, duplication, source coverage) — see `docs/NON_EU_BATCH_AUDIT.md`. Result: clean, no content fixes required. Confirmed Start Here and the Non-EU Roadmap now have zero remaining "Coming soon" cards between them.
