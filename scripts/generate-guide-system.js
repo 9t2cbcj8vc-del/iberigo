@@ -34,7 +34,14 @@ const routes = {
   taxes: "/living-in-spain/taxes/",
   driving: "/living-in-spain/driving/",
   accommodation: "/moving-to-spain/finding-accommodation/",
-  nonEuRoadmap: "/moving-to-spain/non-eu-citizens/"
+  nonEuRoadmap: "/moving-to-spain/non-eu-citizens/",
+  euFamilyMemberRoadmap: "/moving-to-spain/family-member-eu-citizen/",
+  students: "/moving-to-spain/students/",
+  workInSpain: "/moving-to-spain/work-in-spain/",
+  retireInSpain: "/moving-to-spain/retire-in-spain/",
+  familyReunification: "/moving-to-spain/family-reunification/",
+  digitalNomad: "/moving-to-spain/digital-nomad-spain/",
+  selfEmployed: "/moving-to-spain/self-employed-spain/"
 };
 
 function writePage(route, html) {
@@ -154,6 +161,41 @@ const guideSummaries = {
     title: "Non-EU Citizen Roadmap",
     label: "View the Non-EU Citizen Roadmap",
     description: "Understand the main non-EU residence routes and what to check before relying on any single process."
+  },
+  [routes.euFamilyMemberRoadmap]: {
+    title: "Family Member of an EU Citizen Roadmap",
+    label: "View the Family Member of an EU Citizen Roadmap",
+    description: "Understand the broad journey for non-EU family members of EU citizens moving to or living in Spain."
+  },
+  [routes.students]: {
+    title: "Student Roadmap",
+    label: "View the Student Roadmap",
+    description: "Understand the broad student route for studying in Spain, for EU and non-EU students alike."
+  },
+  [routes.workInSpain]: {
+    title: "Work in Spain Roadmap",
+    label: "View the Work in Spain Roadmap",
+    description: "Understand the broad work-related routes for moving to Spain, for EU and non-EU citizens alike."
+  },
+  [routes.retireInSpain]: {
+    title: "Retiring in Spain Roadmap",
+    label: "View the Retiring in Spain Roadmap",
+    description: "Understand the broad retirement and sufficient-resources route for moving to Spain, for EU and non-EU citizens alike."
+  },
+  [routes.familyReunification]: {
+    title: "Family Reunification Roadmap",
+    label: "View the Family Reunification Roadmap",
+    description: "Understand the broad family reunification route for joining a non-EU resident sponsor in Spain."
+  },
+  [routes.digitalNomad]: {
+    title: "Digital Nomad Roadmap",
+    label: "View the Digital Nomad Roadmap",
+    description: "Understand the broad remote-work and digital nomad route for moving to Spain."
+  },
+  [routes.selfEmployed]: {
+    title: "Self-Employed / Autónomo Roadmap",
+    label: "View the Self-Employed Roadmap",
+    description: "Understand the broad self-employment and autónomo route for moving to or living in Spain."
   }
 };
 
@@ -268,6 +310,55 @@ const searchMetadataByRoute = {
     estimatedTime: "12 min",
     appliesTo: ["Non-EU citizens planning to move to Spain", "People moving for work, study, family or retirement", "Digital nomads and self-employed people considering Spain"],
     keywords: ["non-EU citizen", "visa", "residence authorisation", "TIE", "NIE", "moving to Spain", "family member of an EU citizen"]
+  },
+  [routes.euFamilyMemberRoadmap]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "11 min",
+    appliesTo: ["Non-EU spouses of EU citizens", "Registered partners of EU citizens, where recognised", "Children and dependent relatives of EU citizens", "EU citizens bringing or joining family in Spain"],
+    keywords: ["family member of an EU citizen", "residence card", "spouse visa", "TIE", "NIE", "EU Registration", "family reunification"]
+  },
+  [routes.students]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "11 min",
+    appliesTo: ["Non-EU students planning to study in Spain", "EU students planning to study in Spain", "Exchange, university, language and vocational students"],
+    keywords: ["student visa", "study in Spain", "TIE", "EU Registration", "student residence", "university", "language school"]
+  },
+  [routes.workInSpain]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "11 min",
+    appliesTo: ["EU citizens moving to Spain for work", "Non-EU citizens with a job offer in Spain", "People comparing employee, remote-work or self-employed routes"],
+    keywords: ["work in Spain", "work visa", "work permit", "TIE", "EU Registration", "Social Security", "employer registration"]
+  },
+  [routes.retireInSpain]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "12 min",
+    appliesTo: ["EU citizens retiring in Spain", "Non-EU citizens retiring in Spain", "People living from pensions, savings or investments"],
+    keywords: ["retire in Spain", "sufficient resources", "non-lucrative", "pension", "S1", "TIE", "EU Registration", "tax residency"]
+  },
+  [routes.familyReunification]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "11 min",
+    appliesTo: ["Non-EU family members joining a non-EU resident sponsor in Spain", "Sponsors in Spain trying to understand what may be involved"],
+    keywords: ["family reunification", "reagrupación familiar", "sponsor", "TIE", "NIE", "family-based residence"]
+  },
+  [routes.digitalNomad]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "11 min",
+    appliesTo: ["Non-EU remote workers considering Spain", "Digital nomads", "Freelancers with foreign clients", "Employees working remotely for a foreign employer"],
+    keywords: ["digital nomad visa", "remote work Spain", "TIE", "tax residency", "Social Security", "freelancer"]
+  },
+  [routes.selfEmployed]: {
+    category: "Moving to Spain",
+    difficulty: "Moderate",
+    estimatedTime: "12 min",
+    appliesTo: ["Freelancers, contractors and sole traders in Spain", "Small business owners", "EU and non-EU citizens planning self-employment"],
+    keywords: ["autónomo", "self-employed Spain", "freelancer", "IAE", "Social Security", "TIE", "gestor"]
   }
 };
 
@@ -283,7 +374,14 @@ const relatedRoutesByRoute = {
   [routes.taxes]: [routes.banking, routes.digital, routes.social],
   [routes.driving]: [routes.accommodation, routes.checklist, routes.taxes],
   [routes.accommodation]: [routes.padron, routes.banking, routes.healthcare],
-  [routes.nonEuRoadmap]: [routes.checklist, routes.settling, routes.healthcare]
+  [routes.nonEuRoadmap]: [routes.checklist, routes.settling, routes.healthcare],
+  [routes.euFamilyMemberRoadmap]: [routes.checklist, routes.padron, routes.healthcare],
+  [routes.students]: [routes.checklist, routes.healthcare, routes.accommodation],
+  [routes.workInSpain]: [routes.social, routes.taxes, routes.checklist],
+  [routes.retireInSpain]: [routes.healthcare, routes.taxes, routes.accommodation],
+  [routes.familyReunification]: [routes.checklist, routes.padron, routes.healthcare],
+  [routes.digitalNomad]: [routes.taxes, routes.social, routes.healthcare],
+  [routes.selfEmployed]: [routes.taxes, routes.social, routes.digital]
 };
 
 const officialSourcesByRoute = {
@@ -322,6 +420,59 @@ const officialSourcesByRoute = {
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking is linked from here — confirm the specific appointment path for your route before publication." },
     { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for visa applications handled through Spanish consulates abroad. Verified reachable this sprint (HTTP 200, page titled correctly)." }
+  ],
+  [routes.euFamilyMemberRoadmap]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Family-member residence card appointment booking is linked from here — confirm the specific appointment path before publication." },
+    { name: "EU official information for families", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, titled \"Help and advice for EU nationals and their family.\" Verified reachable this sprint (HTTP 200, page titled correctly)." }
+  ],
+  [routes.students]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for students is linked from here — confirm the specific appointment path before publication." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for student visa applications handled through Spanish consulates abroad." },
+    { name: "Ministry of Education", url: "https://www.educacionyfp.gob.es", note: "Ministerio de Educación, Formación Profesional y Deportes. Verified reachable this sprint (HTTP 200, redirects to educacionfpydeportes.gob.es, page titled correctly)." }
+  ],
+  [routes.workInSpain]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for work-related residence procedures." },
+    { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social. Verified reachable this sprint (HTTP 200, page titled \"Página principal. Ministerio de Trabajo y Economía Social\")." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — official Social Security site. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on the Healthcare and Social Security guides." },
+    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax obligations arising from work in Spain." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for workers is linked from here — confirm the specific appointment path before publication." }
+  ],
+  [routes.retireInSpain]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including sufficient-resources and non-lucrative-type routes." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for non-EU applications handled through Spanish consulates abroad." },
+    { name: "Ministry of Health", url: "https://www.sanidad.gob.es", note: "Ministerio de Sanidad — Spain's national health ministry, relevant for retiree healthcare routes." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for pension-linked healthcare entitlement and S1-type routes. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
+    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and pension/investment income questions." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for non-EU retirees is linked from here — confirm the specific appointment path before publication." }
+  ],
+  [routes.familyReunification]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence and family-based procedures." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for family members is linked from here — confirm the specific appointment path before publication." },
+    { name: "EU official information for families (comparison only)", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, relevant only for comparing this route with the separate Family Member of an EU Citizen route. Previously verified in Sprint 49." }
+  ],
+  [routes.digitalNomad]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including remote-work-related routes." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
+    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and foreign-income questions for remote workers." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for Social Security treatment of employees, freelancers and business owners. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for digital nomads is linked from here — confirm the specific appointment path before publication." }
+  ],
+  [routes.selfEmployed]: [
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including self-employment-related routes." },
+    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for autónomo tax registration and obligations." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for autónomo Social Security registration and contributions. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
+    { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social. Previously verified in Sprint 43 (HTTP 200, page titled \"Página principal. Ministerio de Trabajo y Economía Social\")." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for self-employed non-EU residents is linked from here — confirm the specific appointment path before publication." }
   ]
 };
 
@@ -677,11 +828,11 @@ const pages = [
           children: StartHereCards([
             { title: "I’m an EU citizen", text: "Start with the roadmap for EU, EEA and Swiss citizens moving to Spain.", href: routes.euRoadmap, label: "View the EU Citizen Roadmap" },
             { title: "I’m a non-EU citizen", text: "Start with the roadmap for non-EU citizens moving to Spain.", href: routes.nonEuRoadmap, label: "View the Non-EU Citizen Roadmap" },
-            { title: "I’m joining family in Spain", text: "Family routes vary by relationship, nationality and residence status.", href: "#", label: "Coming soon", comingSoon: true },
-            { title: "I’m moving for work", text: "Work routes depend on employment, self-employment and authorization details.", href: "#", label: "Coming soon", comingSoon: true },
-            { title: "I’m moving to study", text: "Study routes depend on programme, duration and nationality.", href: "#", label: "Coming soon", comingSoon: true },
-            { title: "I’m retiring in Spain", text: "Retirement planning can involve residence, healthcare and tax questions.", href: "#", label: "Coming soon", comingSoon: true },
-            { title: "I’m self-employed", text: "Self-employment can affect residence, tax, Social Security and healthcare.", href: "#", label: "Coming soon", comingSoon: true }
+            { title: "I’m joining family in Spain", text: "Start with the roadmap for family members of an EU citizen moving to Spain.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
+            { title: "I’m moving for work", text: "Start with the roadmap for moving to Spain for work.", href: routes.workInSpain, label: "View the Work in Spain Roadmap" },
+            { title: "I’m moving to study", text: "Start with the roadmap for students moving to Spain.", href: routes.students, label: "View the Student Roadmap" },
+            { title: "I’m retiring in Spain", text: "Start with the roadmap for retiring in Spain.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
+            { title: "I’m self-employed", text: "Start with the roadmap for self-employment and autónomo in Spain.", href: routes.selfEmployed, label: "View the Self-Employed Roadmap" }
           ])
         }),
         GuideSection({
@@ -2412,13 +2563,13 @@ pages.push({
         id: "chooseYourRoute",
         title: "Choose your route",
         children: StartHereCards([
-          { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: "#", label: "Coming soon", comingSoon: true },
-          { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: "#", label: "Coming soon", comingSoon: true },
-          { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: "#", label: "Coming soon", comingSoon: true },
-          { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: "#", label: "Coming soon", comingSoon: true },
-          { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: "#", label: "Coming soon", comingSoon: true },
-          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: "#", label: "Coming soon", comingSoon: true },
-          { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: "#", label: "Coming soon", comingSoon: true },
+          { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: routes.workInSpain, label: "View the Work in Spain Roadmap" },
+          { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: routes.students, label: "View the Student Roadmap" },
+          { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: routes.familyReunification, label: "View the Family Reunification Roadmap" },
+          { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
+          { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
+          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: routes.digitalNomad, label: "View the Digital Nomad Roadmap" },
+          { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: routes.selfEmployed, label: "View the Self-Employed Roadmap" },
           { title: "Already in Spain and unsure what applies", text: "Use the Start Here page and this roadmap together to narrow down what may apply.", href: routes.startHere, label: "View Start Here" }
         ])
       }),
@@ -2504,6 +2655,1138 @@ pages.push({
           { label: "View the Opening a Bank Account Guide", href: routes.banking },
           { label: "View the Taxes in Spain Guide", href: routes.taxes }
         ])}${TipBox("Keep a folder for identity, civil-status, income and translated documents so you can respond quickly once you know your exact route.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.euFamilyMemberRoadmap,
+  html: GuideLayout({
+    path: routes.euFamilyMemberRoadmap,
+    canonical: `https://iberigo.eu${routes.euFamilyMemberRoadmap}`,
+    title: "Moving to Spain as a Family Member of an EU Citizen — IberiGo",
+    description: "A practical roadmap for family members of EU citizens moving to Spain, including eligibility, documents, padrón, healthcare, residence card basics and common mistakes.",
+    metadata: guideMetadataFor(routes.euFamilyMemberRoadmap),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Family Member of an EU Citizen" }],
+    hero: {
+      kicker: "Family residence route",
+      title: "Moving to Spain as a Family Member of an EU Citizen",
+      intro: "A practical starting point for understanding the family-member route, what you may need to prepare, and which steps usually come before and after applying in Spain.",
+      asideTitle: "Not one process for every family",
+      asideText: "Family-member residence rules can depend on nationality, relationship type, documents, dependency, the EU citizen's situation and where the application is made."
+    },
+    sections: [
+      QuickAnswer("Some non-EU family members of EU citizens may have a specific residence route in Spain, different from ordinary non-EU visa routes. The relationship to the EU citizen and supporting documents are central to the process. Many successful applicants eventually receive a residence card as a family member of an EU citizen. This roadmap helps you understand the broad journey — it does not replace legal advice."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal advice. Family-member residence rules can depend on nationality, relationship type, documents, dependency, the EU citizen's situation and where the application is made. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Who this may apply to", "Non-EU spouses, recognised partners, children and dependent relatives of an EU citizen."],
+        ["Same as ordinary routes?", "No. This is a distinct route from standard non-EU visas and from the EU citizen's own registration."],
+        ["Central factor", "The relationship to the EU citizen and the evidence that supports it."],
+        ["Usual result", "Many applicants eventually receive a residence card as a family member of an EU citizen."],
+        ["Professional advice", "May be useful, especially for less common relationships or complex family situations."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Non-EU spouses of EU citizens", text: "Use this if you are married to an EU, EEA or Swiss citizen and considering Spain." },
+          { title: "Registered partners, where recognised", text: "Use this if your partnership may be recognised under the family-member route." },
+          { title: "Children, where applicable", text: "Use this if children may be included in a family application." },
+          { title: "Dependent relatives, where applicable", text: "Use this if a dependent relative's situation may support a family-member case." },
+          { title: "EU citizens bringing or joining family in Spain", text: "Use this if you are the EU citizen supporting a family member's move." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand whether the family-member route applies to your situation now." }
+        ])}${InfoBox({ title: "If you are the EU citizen yourself", text: "EU citizens should use the EU Citizen Roadmap for their own registration. Non-EU citizens who are not applying through an EU family relationship should use the Non-EU Citizen Roadmap instead." })}`
+      }),
+      GuideSection({
+        id: "relationshipEligibilityBasics",
+        title: "Relationship and eligibility basics",
+        children: `${Cards([
+          { title: "Depends on the relationship", text: "Eligibility depends on the relationship to the EU citizen and the evidence available." },
+          { title: "Spouses and partners", text: "Spouses and recognised partners may have different document requirements from each other." },
+          { title: "Children and dependants", text: "Children and dependent relatives may need additional evidence of the relationship and dependency." },
+          { title: "The EU citizen's situation matters", text: "The EU citizen's own residence or registration situation in Spain can matter to the case." },
+          { title: "Varies by case and office", text: "Requirements can vary depending on the specific case and the office handling it." }
+        ])}${WarningBox("This is not a definitive eligibility list. Check the official requirements for your specific relationship and situation before assuming you qualify.")}`
+      }),
+      GuideSection({
+        id: "beforeYouStart",
+        title: "Before you start",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport is usually central to the application." },
+          { title: "Proof of relationship", text: "Marriage certificate, partnership certificate or birth certificate may be needed, depending on the relationship." },
+          { title: "Legalisation or apostille, if required", text: "Some foreign civil-status documents may need legalisation or apostille." },
+          { title: "Sworn translation, if required", text: "Some documents may need an official sworn translation." },
+          { title: "The EU citizen's documents", text: "The EU citizen's identity document and evidence of their situation in Spain may be requested." },
+          { title: "Address or padrón evidence, where requested", text: "Proof of address may be part of the file, depending on the office." },
+          { title: "Healthcare or financial evidence, depending on situation", text: "Some cases may require healthcare cover or financial evidence." }
+        ])}<p>Exact documents depend on the relationship, country of issue and procedure. Use the <a href="${routes.checklist}">Documents Checklist</a> as a general starting point, then confirm the exact list for your specific case.</p>`
+      }),
+      GuideSection({
+        id: "movingTogetherVsJoiningLater",
+        title: "Moving together vs joining later",
+        children: `${Cards([
+          { title: "Moving together", text: "Some families move to Spain together and prepare documents in parallel." },
+          { title: "Joining later", text: "Others join an EU citizen who is already living in Spain, which can change the practical order of steps." },
+          { title: "Order may differ", text: "The practical order of steps may differ depending on which situation applies to you." },
+          { title: "Accommodation and padrón can affect timing", text: "Accommodation and padrón preparation can affect how the rest of the process unfolds." },
+          { title: "Appointment availability varies", text: "Appointment availability varies by province and office, and can change over time." }
+        ])}`
+      }),
+      GuideSection({
+        id: "afterArrivalInSpain",
+        title: "After arrival in Spain",
+        children: `${Cards([
+          { title: "Secure accommodation", text: "Your address may affect padrón, healthcare and later steps." },
+          { title: "Register on the padrón, where possible", text: "Padrón requirements can vary by municipality." },
+          { title: "Arrange healthcare if needed", text: "Healthcare routes can depend on the family member's and EU citizen's situation." },
+          { title: "Prepare family relationship documents", text: "Have relationship evidence, translations and legalisations ready before applying." },
+          { title: "Submit the relevant family-member residence application", text: "The application route depends on the case type and office." },
+          { title: "Attend fingerprinting or card appointment where required", text: "Many cases involve a fingerprinting or card-collection appointment." },
+          { title: "Collect the residence card if approved", text: "Collection procedures depend on the office and case." }
+        ])}${InfoBox({ title: "Depends on case type", text: "This process depends heavily on the case type. Do not assume the same order or timing applies to every family." })}`
+      }),
+      GuideSection({
+        id: "residenceCardBasics",
+        title: "Residence card basics",
+        children: `${Cards([
+          { title: "Family-member residence card", text: "Many non-EU family members receive a residence card connected to their status as family member of an EU citizen." },
+          { title: "Different from the EU citizen's certificate", text: "This is different from the EU citizen's own green EU Registration Certificate." },
+          { title: "Different from a NIE", text: "It is also different from simply having a NIE, which is an identification number, not a residence card." },
+          { title: "Appointments and fingerprints", text: "Card procedures may involve appointments, fingerprints and a separate collection step." },
+          { title: "Depends on approval and procedure", text: "The exact process depends on approval and the local procedure used by the office." }
+        ])}${WarningBox("Do not confuse the family-member residence card, the EU citizen's registration certificate, and a NIE. Confirm which document applies to your case before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming marriage alone automatically solves everything.",
+        "Confusing EU Registration with the family-member residence card.",
+        "Confusing NIE with residence rights.",
+        "Not preparing legalised or translated documents early.",
+        "Assuming every municipality or province works the same way.",
+        "Signing accommodation without checking padrón possibility.",
+        "Relying only on informal advice.",
+        "Missing official notifications.",
+        "Ignoring healthcare or financial-document requirements."
+      ]),
+      RealQuestions([
+        { question: "Can my non-EU spouse live with me in Spain?", answer: "Often yes, through the family-member route, but it depends on your situation, documents and the relationship recognised by the office handling your case." },
+        { question: "Is this the same as a normal non-EU visa?", answer: "No. The family-member route is generally distinct from ordinary non-EU visa routes, though details still depend on your case." },
+        { question: "Does marriage automatically give residence?", answer: "No. Marriage may support eligibility, but residence still depends on the application, evidence and approval." },
+        { question: "Is NIE the same as residence?", answer: "No. NIE is an identification number. Residence as a family member of an EU citizen is a separate status, usually evidenced by a residence card." },
+        { question: "Does the EU citizen need to register first?", answer: "It can matter. The EU citizen's own situation in Spain may be part of the family member's case — check the requirements that apply to your situation." },
+        { question: "Do we need padrón?", answer: "It may be requested as part of the process, depending on the office. Check the requirements for your specific application." },
+        { question: "What documents prove the relationship?", answer: "Typically a marriage certificate, partnership certificate or birth certificate, depending on the relationship, sometimes with legalisation or translation. Exact needs vary by case." },
+        { question: "What if we are already in Spain?", answer: "Use Start Here and this roadmap together to understand which route may apply, and check official requirements before assuming a specific process fits your situation." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, relationship, translated and legalised documents so you can respond quickly once you know your exact case requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.students,
+  html: GuideLayout({
+    path: routes.students,
+    canonical: `https://iberigo.eu${routes.students}`,
+    title: "Moving to Spain as a Student — IberiGo",
+    description: "A practical roadmap for students planning to study in Spain, including study routes, documents, healthcare, accommodation, TIE basics and common mistakes.",
+    metadata: guideMetadataFor(routes.students),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Student Roadmap" }],
+    hero: {
+      kicker: "Study route",
+      title: "Moving to Spain as a Student",
+      intro: "A practical starting point for understanding student routes, what you may need to prepare, and which steps usually come before and after arriving in Spain.",
+      asideTitle: "Not one process for every student",
+      asideText: "Student residence rules can depend on your nationality, course type, study length, documents, financial situation, healthcare cover and where you apply."
+    },
+    sections: [
+      QuickAnswer("Students from outside Spain may need a recognised study route, visa or authorisation depending on nationality and length of stay. Requirements can depend on course type, duration, nationality and where the application is made. Non-EU students may eventually need a TIE if staying longer. EU students follow a different process and may need EU Registration if staying longer than three months. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal advice. Student residence rules can depend on your nationality, course type, study length, documents, financial situation, healthcare cover and where you apply. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Visa or authorisation?", "May be required, depending on nationality, course type and study length."],
+        ["Same for everyone?", "No. EU and non-EU students follow different processes, and requirements vary by case."],
+        ["Non-EU students", "May eventually need a TIE if staying longer."],
+        ["EU students", "May need EU Registration if staying longer than three months."],
+        ["Professional advice", "May be useful, especially for unusual course types or nationalities."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Non-EU students", text: "Use this if you are planning to study in Spain from outside the EU." },
+          { title: "EU students", text: "Use this if you are an EU, EEA or Swiss citizen planning to study in Spain." },
+          { title: "Exchange students", text: "Use this if you are studying in Spain as part of an exchange programme." },
+          { title: "University students", text: "Use this if you are enrolling in a Spanish university programme." },
+          { title: "Language students", text: "Use this if you are attending a language course or school." },
+          { title: "Vocational or recognised training students", text: "Use this if you are enrolling in vocational or other recognised training." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand whether the student route applies to your situation now." }
+        ])}${InfoBox({ title: "Related roadmaps", text: "EU citizens should also check the EU Citizen Roadmap. Non-EU students should also check the Non-EU Citizen Roadmap for the broader non-EU journey." })}`
+      }),
+      GuideSection({
+        id: "beforeYouApplyOrMove",
+        title: "Before you apply or move",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport or national ID is usually central to the application." },
+          { title: "Admission or enrolment proof", text: "Proof of admission or enrolment is usually needed before applying for a study route." },
+          { title: "Healthcare cover", text: "Healthcare cover may be required, depending on your route and nationality." },
+          { title: "Financial evidence, depending on route", text: "Some routes may require proof of sufficient funds or income." },
+          { title: "Accommodation planning", text: "Where you will live can affect padrón and other later steps." },
+          { title: "Criminal record certificate, where required", text: "Some routes may ask for a criminal record certificate." },
+          { title: "Medical certificate, where required", text: "Some routes may ask for a medical certificate." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." }
+        ])}<p>Exact requirements depend on nationality, course type, study length and application route. Use the <a href="${routes.checklist}">Documents Checklist</a> as a general starting point, then confirm the exact list for your specific case.</p>`
+      }),
+      GuideSection({
+        id: "euStudents",
+        title: "EU students",
+        children: `${Cards([
+          { title: "Usually no visa needed", text: "EU, EEA and Swiss students do not usually need a visa to study in Spain." },
+          { title: "EU registration if staying longer", text: "If staying longer than three months, EU registration may apply." },
+          { title: "Healthcare and resources may matter", text: "Healthcare cover and sufficient resources may matter for EU registration." },
+          { title: "Check your exact situation", text: "EU students should check whether their situation falls under student, worker or another route." }
+        ])}${SourceLinks([
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the EU Registration Guide", href: routes.euRegistration },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare }
+        ])}`
+      }),
+      GuideSection({
+        id: "nonEuStudents",
+        title: "Non-EU students",
+        children: `${Cards([
+          { title: "Visa or study authorisation", text: "Non-EU students may need a student visa or study authorisation depending on their situation." },
+          { title: "May start before travel", text: "Some processes may start before travel through a Spanish consulate." },
+          { title: "May depend on current status", text: "Other procedures may depend on current legal status and route." },
+          { title: "TIE may follow", text: "TIE may be required after approval or arrival." },
+          { title: "Different from tourist stays", text: "Student procedures are different from ordinary tourist stays." }
+        ])}${SourceLinks([
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist }
+        ])}`
+      }),
+      GuideSection({
+        id: "healthcareAndAccommodation",
+        title: "Healthcare and accommodation",
+        children: `${Cards([
+          { title: "Healthcare varies by case", text: "Healthcare requirements can depend on nationality, route and study length." },
+          { title: "Private insurance", text: "Some students may need private insurance." },
+          { title: "Accommodation affects later steps", text: "Accommodation can affect padrón and later administrative steps." },
+          { title: "Temporary accommodation has limits", text: "Temporary accommodation may not always work for every administrative need." },
+          { title: "Requirements vary", text: "Requirements vary by case and location." }
+        ])}${SourceLinks([
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron }
+        ])}`
+      }),
+      GuideSection({
+        id: "tieBasicsForStudents",
+        title: "TIE basics for students",
+        children: `${Cards([
+          { title: "Many non-EU students need one", text: "Many non-EU students staying longer may need a TIE." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      GuideSection({
+        id: "workWhileStudying",
+        title: "Work while studying",
+        children: `${Cards([
+          { title: "Limited work may be allowed", text: "Some student routes may allow limited work or require specific conditions." },
+          { title: "Depends on status and route", text: "Work rights depend on the student's status, route and current rules." },
+          { title: "Verify before accepting work", text: "Students should verify work conditions before accepting work." }
+        ])}${WarningBox("Do not assume student status automatically gives work rights. Check the conditions that apply to your specific route before working.")}`
+      }),
+      CommonMistakes([
+        "Assuming every course qualifies for a study route.",
+        "Assuming tourist stay is enough for long-term study.",
+        "Confusing NIE and TIE.",
+        "Ignoring healthcare requirements.",
+        "Preparing documents too late.",
+        "Ignoring translations, legalisation or apostille needs.",
+        "Assuming student status automatically gives work rights.",
+        "Waiting until appointments are urgent.",
+        "Relying only on informal advice."
+      ]),
+      RealQuestions([
+        { question: "Do I need a visa to study in Spain?", answer: "It depends on your nationality, course type and study length. Some students need a visa or study authorisation; others may not. Check the official requirements for your case." },
+        { question: "Can EU citizens study in Spain without a visa?", answer: "Usually yes. EU, EEA and Swiss students do not usually need a visa, though EU registration may apply if staying longer than three months." },
+        { question: "Do students need a TIE?", answer: "Many non-EU students staying longer may need a TIE. Requirements depend on your route and approval." },
+        { question: "Can students work in Spain?", answer: "It depends on the student's status, route and current rules. Do not assume work rights are automatic — verify before accepting work." },
+        { question: "Is NIE the same as TIE?", answer: "No. NIE is an identification number. TIE is a physical foreigner identity card. They are not the same document." },
+        { question: "Do I need private health insurance?", answer: "It depends on your route and nationality. Some students may need private insurance; others may use another healthcare route." },
+        { question: "Can I use temporary accommodation?", answer: "It may work for some initial needs, but temporary accommodation may not always support every administrative step, such as padrón. Check before relying on it." },
+        { question: "What if I am already in Spain?", answer: "Use Start Here and this roadmap together to understand which route may apply, and check official requirements before assuming a specific process fits your situation." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, admission, financial and translated documents so you can respond quickly once you know your exact route requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.workInSpain,
+  html: GuideLayout({
+    path: routes.workInSpain,
+    canonical: `https://iberigo.eu${routes.workInSpain}`,
+    title: "Moving to Spain for Work — IberiGo",
+    description: "A practical roadmap for people planning to work in Spain, including employee routes, documents, Social Security, healthcare, taxes, TIE basics and common mistakes.",
+    metadata: guideMetadataFor(routes.workInSpain),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Work in Spain Roadmap" }],
+    hero: {
+      kicker: "Work route",
+      title: "Moving to Spain for Work",
+      intro: "A practical starting point for understanding work-related routes, what you may need to prepare, and which steps usually come before and after starting work in Spain.",
+      asideTitle: "Not one process for every worker",
+      asideText: "Work and residence rules can depend on your nationality, job offer, employer, contract type, qualifications, residence route and where the application is made."
+    },
+    sections: [
+      QuickAnswer("People moving to Spain for work may follow different routes depending on nationality and job situation. EU citizens and non-EU citizens follow different processes. Non-EU citizens usually need the correct work and residence authorisation before working. Employees, highly qualified workers, seasonal workers and remote workers may follow different routes. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal advice. Work and residence rules can depend on your nationality, job offer, employer, contract type, qualifications, residence route and where the application is made. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Visa or authorisation?", "May be required, depending on nationality, job type and route."],
+        ["Same for everyone?", "No. EU and non-EU citizens follow different processes, and requirements vary by case."],
+        ["Job offer alone?", "Usually not enough by itself — the correct authorisation still needs to be in place before working."],
+        ["Non-EU workers", "May eventually need a TIE after approval or arrival."],
+        ["Professional advice", "May be useful, especially for less common contract types or qualifications."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "EU citizens moving to Spain for work", text: "Use this if you are an EU, EEA or Swiss citizen planning to work in Spain." },
+          { title: "Non-EU citizens with a job offer", text: "Use this if you have a job offer and are considering the non-EU work route." },
+          { title: "People considering employment in Spain", text: "Use this if you are comparing options before committing to a move." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand whether a work-based route applies to your situation now." },
+          { title: "Workers whose employer is helping with paperwork", text: "Use this if your employer is supporting part of the process." },
+          { title: "People comparing employee, remote-work or self-employed routes", text: "Use this if you are unsure which route fits your situation." }
+        ])}${InfoBox({ title: "Related roadmaps", text: "Self-employed people should use the future self-employed/autónomo roadmap. Digital nomads should use the future digital nomad roadmap once available." })}`
+      }),
+      GuideSection({
+        id: "euCitizensWorking",
+        title: "EU citizens working in Spain",
+        children: `${Cards([
+          { title: "Usually no visa needed", text: "EU, EEA and Swiss citizens do not usually need a visa to work in Spain." },
+          { title: "EU registration if staying longer", text: "If staying longer than three months, EU Registration may apply." },
+          { title: "Connected to Social Security, healthcare and tax", text: "Employment can affect Social Security, healthcare and tax obligations." },
+          { title: "Keep your records", text: "Workers should keep contracts, payslips and Social Security records." }
+        ])}${SourceLinks([
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the EU Registration Guide", href: routes.euRegistration },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes }
+        ])}`
+      }),
+      GuideSection({
+        id: "nonEuCitizensWorking",
+        title: "Non-EU citizens working in Spain",
+        children: `${Cards([
+          { title: "Correct route needed first", text: "Non-EU citizens usually need the correct work and residence route before working." },
+          { title: "Different channels depending on route", text: "The process may involve an employer, consulate, immigration office or other official channel, depending on the route." },
+          { title: "A job offer is not enough by itself", text: "A job offer alone does not automatically mean the person can work legally." },
+          { title: "TIE may follow", text: "TIE may be required after approval or arrival." }
+        ])}${SourceLinks([
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist }
+        ])}`
+      }),
+      GuideSection({
+        id: "beforeAcceptingOrStartingWork",
+        title: "Before accepting or starting work",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport or national ID is usually central to the process." },
+          { title: "Job offer or employment contract", text: "A job offer or employment contract is usually needed to support the route." },
+          { title: "Qualification documents, if relevant", text: "Some roles may require recognised qualification documents." },
+          { title: "Professional recognition documents, if relevant", text: "Some professions may require recognition of foreign qualifications." },
+          { title: "Criminal record certificate, where required", text: "Some routes may ask for a criminal record certificate." },
+          { title: "Healthcare documents, where required", text: "Some routes may ask for healthcare evidence." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." },
+          { title: "NIE/TIE/residence documents, depending on route", text: "Identification and residence documents depend on your route and stage of the process." },
+          { title: "Social Security registration, where applicable", text: "Social Security registration may be part of starting work." }
+        ])}<p>Exact requirements depend on nationality, job type, employer and residence route.</p>`
+      }),
+      GuideSection({
+        id: "employerRole",
+        title: "Employer role",
+        children: `${Cards([
+          { title: "Employer may need to start or support the process", text: "In some work routes, the employer may need to start or support the process." },
+          { title: "Social Security registration", text: "Employees are usually registered with Social Security by the employer once the employment relationship is valid." },
+          { title: "Ask for confirmation", text: "Workers should ask for confirmation of registration and keep copies." },
+          { title: "Still check official requirements", text: "Employer involvement does not remove the need to check official requirements yourself." }
+        ])}`
+      }),
+      GuideSection({
+        id: "socialSecurityHealthcareTaxes",
+        title: "Social Security, healthcare and taxes",
+        children: `${Cards([
+          { title: "Often connected to Social Security", text: "Work in Spain is often connected to Social Security registration." },
+          { title: "May connect to healthcare access", text: "Social Security can connect to public healthcare access, depending on your situation." },
+          { title: "Tax obligations can arise", text: "Working in Spain can create Spanish tax obligations." },
+          { title: "Tax residency is separate", text: "Tax residency is separate from immigration residency." },
+          { title: "Review taxes early", text: "Review your tax position early rather than waiting until a deadline." }
+        ])}${SourceLinks([
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes }
+        ])}`
+      }),
+      GuideSection({
+        id: "tieBasicsForWorkers",
+        title: "TIE basics for workers",
+        children: `${Cards([
+          { title: "Many non-EU workers need one", text: "Many non-EU workers may need a TIE after approval or arrival." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming a job offer automatically gives residence rights.",
+        "Starting work before permission is clear.",
+        "Confusing NIE and TIE.",
+        "Confusing EU Registration with non-EU residence cards.",
+        "Not checking employer responsibilities.",
+        "Not keeping contract and Social Security proof.",
+        "Ignoring tax residency.",
+        "Assuming self-employed and employee routes are the same.",
+        "Relying only on informal advice."
+      ]),
+      RealQuestions([
+        { question: "Can I move to Spain for work?", answer: "Often yes, but the correct route depends on your nationality, job offer and situation. Check the official requirements that apply to your case." },
+        { question: "Can EU citizens work in Spain without a visa?", answer: "Usually yes. EU, EEA and Swiss citizens do not usually need a visa to work, though EU Registration may apply if staying longer than three months." },
+        { question: "Can non-EU citizens work in Spain with only a job offer?", answer: "Not by itself. A job offer usually needs to be supported by the correct work and residence authorisation before working legally." },
+        { question: "Is NIE the same as permission to work?", answer: "No. NIE is an identification number. Permission to work depends on your residence and work authorisation, which is separate." },
+        { question: "Do workers need a TIE?", answer: "Many non-EU workers may need a TIE after approval or arrival. Requirements depend on your route." },
+        { question: "Does my employer register me with Social Security?", answer: "Employers usually handle this once the employment relationship is valid, but you should ask for confirmation and keep your own records." },
+        { question: "Do I need healthcare before working?", answer: "It depends on your route and situation. Some healthcare evidence may be requested as part of certain procedures." },
+        { question: "Will working in Spain affect my taxes?", answer: "It can. Working in Spain may create Spanish tax obligations, and tax residency is a separate question from immigration residency. Review your tax position early." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Opening a Bank Account Guide", href: routes.banking },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, contract, Social Security and tax documents so you can respond quickly once you know your exact route requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.retireInSpain,
+  html: GuideLayout({
+    path: routes.retireInSpain,
+    canonical: `https://iberigo.eu${routes.retireInSpain}`,
+    title: "Retiring in Spain — IberiGo",
+    description: "A practical roadmap for people planning to retire in Spain or live from sufficient resources, including documents, healthcare, tax considerations, EU registration, non-EU routes and common mistakes.",
+    metadata: guideMetadataFor(routes.retireInSpain),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Retiring in Spain Roadmap" }],
+    hero: {
+      kicker: "Retirement and resources",
+      title: "Retiring in Spain",
+      intro: "A practical starting point for understanding how retirement, pensions, healthcare, sufficient resources and residence routes can fit together when moving to Spain.",
+      asideTitle: "Not one process for every retiree",
+      asideText: "Retirement and sufficient-resources routes can depend on your nationality, income, pension status, healthcare cover, family situation, assets, tax residence and where you apply."
+    },
+    sections: [
+      QuickAnswer("People retiring in Spain may follow different routes depending on nationality and financial situation. EU citizens and non-EU citizens follow different processes. Healthcare cover and proof of resources are often important. Pension income, savings, investments and tax residency should be reviewed early. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal, tax or financial advice. Retirement and sufficient-resources routes can depend on your nationality, income, pension status, healthcare cover, family situation, assets, tax residence and where you apply. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Visa or authorisation?", "May be required for non-EU citizens, depending on nationality and route."],
+        ["Same for everyone?", "No. EU and non-EU citizens follow different processes, and requirements vary by case."],
+        ["Central factors", "Healthcare cover and proof of sufficient resources are often central to the process."],
+        ["Non-EU retirees", "May eventually need a TIE after approval or arrival."],
+        ["Professional advice", "May be useful, especially for pension, tax or cross-border financial questions."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "EU citizens retiring in Spain", text: "Use this if you are an EU, EEA or Swiss citizen planning to retire in Spain." },
+          { title: "Non-EU citizens retiring in Spain", text: "Use this if you are a non-EU citizen considering retirement in Spain." },
+          { title: "People living from pensions", text: "Use this if pension income supports your move." },
+          { title: "People living from savings or investments", text: "Use this if savings or investment income supports your move." },
+          { title: "People not planning to work in Spain", text: "Use this if you are not planning to take up employment in Spain." },
+          { title: "Couples or families moving together", text: "Use this if you are moving with a spouse, partner or family." },
+          { title: "People comparing routes", text: "Use this if you are comparing retirement, sufficient-resources or non-lucrative-type routes." }
+        ])}${InfoBox({ title: "Related roadmaps", text: "People planning to work should use the Work in Spain Roadmap. Self-employed people should use the future self-employed/autónomo roadmap." })}`
+      }),
+      GuideSection({
+        id: "euCitizensRetiring",
+        title: "EU citizens retiring or living from resources",
+        children: `${Cards([
+          { title: "Usually no visa needed", text: "EU, EEA and Swiss citizens do not usually need a visa to move to Spain." },
+          { title: "EU registration if staying longer", text: "If staying longer than three months, EU Registration may apply." },
+          { title: "Resources and healthcare cover", text: "Retired or self-sufficient EU citizens may need to show sufficient resources and healthcare cover." },
+          { title: "Depends on office and situation", text: "The exact evidence can depend on the office and personal situation." }
+        ])}${SourceLinks([
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the EU Registration Guide", href: routes.euRegistration },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes }
+        ])}`
+      }),
+      GuideSection({
+        id: "nonEuCitizensRetiring",
+        title: "Non-EU citizens retiring in Spain",
+        children: `${Cards([
+          { title: "Correct route needed first", text: "Non-EU citizens usually need the correct visa or residence route before living in Spain long term." },
+          { title: "Routes for self-sufficient applicants", text: "Some routes may be designed for people who can support themselves without working in Spain." },
+          { title: "Different channels depending on route", text: "The process may involve a Spanish consulate, immigration authorities or other official channels, depending on the route." },
+          { title: "TIE may follow", text: "A TIE may be required after approval or arrival." }
+        ])}${SourceLinks([
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist }
+        ])}`
+      }),
+      GuideSection({
+        id: "beforeYouApplyOrMove",
+        title: "Before you apply or move",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport or national ID is usually central to the application." },
+          { title: "Pension documents", text: "Pension evidence may be needed depending on your route." },
+          { title: "Proof of savings or regular income", text: "Some routes may require proof of savings or regular income." },
+          { title: "Healthcare cover or S1, if applicable", text: "Healthcare cover or an S1 form may be relevant depending on your situation." },
+          { title: "Civil-status documents, if moving with spouse or family", text: "Marriage or family documents may matter if moving together." },
+          { title: "Accommodation planning", text: "Where you will live can affect padrón and other later steps." },
+          { title: "Criminal record certificate, where required", text: "Some routes may ask for a criminal record certificate." },
+          { title: "Medical certificate, where required", text: "Some routes may ask for a medical certificate." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." },
+          { title: "Tax-residency review", text: "Reviewing your tax-residency position early can help you plan." }
+        ])}<p>Exact requirements depend on nationality, residence route, income source and where the application is made.</p>`
+      }),
+      GuideSection({
+        id: "healthcareForRetirees",
+        title: "Healthcare for retirees",
+        children: `${Cards([
+          { title: "Often a key planning point", text: "Healthcare is often one of the most important planning points for retirees." },
+          { title: "Pension-based or S1 routes", text: "Some retirees may use public healthcare routes, such as pension-based entitlement or S1 where applicable." },
+          { title: "Private insurance may be needed", text: "Others may need private health insurance depending on route and situation." },
+          { title: "Depends on the procedure", text: "Private insurance requirements can depend on the specific procedure." },
+          { title: "Regional variation", text: "Regional health card procedures can vary." }
+        ])}${WarningBox("Do not assume private health insurance always satisfies every route. Check the requirement for your specific procedure.")}${SourceLinks([
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Social Security in Spain Guide", href: routes.social }
+        ])}`
+      }),
+      GuideSection({
+        id: "taxesAndPensions",
+        title: "Taxes and pensions",
+        children: `${Cards([
+          { title: "Can affect tax residency", text: "Moving to Spain can affect tax residency." },
+          { title: "Different from immigration residency", text: "Tax residency is different from immigration residency." },
+          { title: "Worldwide income may apply", text: "Spain may tax residents on worldwide income depending on circumstances." },
+          { title: "Multiple income types to review", text: "Pensions, investment income, rental income and savings income should be reviewed." },
+          { title: "Treaties may matter", text: "Double-taxation treaties may affect outcomes." }
+        ])}${WarningBox("This is not country-specific pension tax advice. Get professional advice for your specific pension and tax situation.")}${SourceLinks([
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital }
+        ])}`
+      }),
+      GuideSection({
+        id: "accommodationAndPadron",
+        title: "Accommodation and padrón",
+        children: `${Cards([
+          { title: "Stable address often needed", text: "Retirees often need a stable address for administrative steps." },
+          { title: "Padrón for several purposes", text: "Padrón may be needed for healthcare, residence procedures and local services." },
+          { title: "Varies by municipality", text: "Requirements vary by municipality." },
+          { title: "Check before signing", text: "Before signing a rental contract, check whether the address can support padrón registration." }
+        ])}${SourceLinks([
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron }
+        ])}`
+      }),
+      GuideSection({
+        id: "tieBasicsForRetirees",
+        title: "TIE basics for non-EU retirees",
+        children: `${Cards([
+          { title: "Many non-EU residents need one", text: "Many non-EU residents may need a TIE after approval or arrival." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming owning property gives residence rights.",
+        "Assuming pension income is automatically enough.",
+        "Confusing immigration residency with tax residency.",
+        "Ignoring healthcare requirements.",
+        "Buying private insurance without checking route requirements.",
+        "Assuming EU and non-EU retirees follow the same process.",
+        "Preparing financial documents too late.",
+        "Ignoring translations, legalisation or apostille.",
+        "Relying only on informal advice."
+      ]),
+      RealQuestions([
+        { question: "Can I retire in Spain?", answer: "Often yes, but the correct route depends on your nationality, income and situation. Check the official requirements that apply to your case." },
+        { question: "Can EU citizens retire in Spain without a visa?", answer: "Usually yes. EU, EEA and Swiss citizens do not usually need a visa, though EU Registration may apply if staying longer than three months, along with evidence of resources and healthcare cover." },
+        { question: "Can non-EU citizens retire in Spain?", answer: "Often yes, through a route designed for people who can support themselves, but exact requirements depend on nationality and situation. Check official requirements before assuming a specific route applies." },
+        { question: "Does buying property give me residence rights?", answer: "No. Owning property in Spain does not by itself give residence rights. Residence still depends on the correct route and application." },
+        { question: "Do retirees need private health insurance?", answer: "It depends on the route and situation. Some retirees may use pension-based or S1 healthcare routes; others may need private insurance. Check the requirement for your specific procedure." },
+        { question: "What is an S1 form?", answer: "An S1 is a form that may allow certain people, often pensioners covered by another EU/EEA country, to register healthcare entitlement in Spain. Eligibility depends on your situation." },
+        { question: "Will Spain tax my pension?", answer: "It may, depending on your tax residency, the pension type and any applicable tax treaty. This is not tax advice — get professional advice for your specific situation." },
+        { question: "Do non-EU retirees need a TIE?", answer: "Many non-EU residents may need a TIE after approval or arrival. Requirements depend on your route." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, pension, financial and translated documents so you can respond quickly once you know your exact route requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.familyReunification,
+  html: GuideLayout({
+    path: routes.familyReunification,
+    canonical: `https://iberigo.eu${routes.familyReunification}`,
+    title: "Family Reunification in Spain — IberiGo",
+    description: "A practical roadmap for people joining family in Spain, including relationship documents, eligibility basics, residence routes, TIE basics and common mistakes.",
+    metadata: guideMetadataFor(routes.familyReunification),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Family Reunification Roadmap" }],
+    hero: {
+      kicker: "Family-based residence route",
+      title: "Family Reunification in Spain",
+      intro: "A practical starting point for understanding family-based residence routes, what you may need to prepare, and how this differs from the EU family member route.",
+      asideTitle: "Not the EU family member route",
+      asideText: "Family reunification and family-based residence rules can depend on nationality, relationship type, residence status of the sponsor, income, housing, documents, dependency and where the application is made."
+    },
+    sections: [
+      QuickAnswer("Some people may be able to join family in Spain through a family reunification or family-based residence route. The correct route depends on the family relationship and the residence status of the person already in Spain. This is not the same as the Family Member of an EU Citizen route. Relationship documents, legalisation, translation and proof of circumstances can be central. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal advice. Family reunification and family-based residence rules can depend on nationality, relationship type, residence status of the sponsor, income, housing, documents, dependency and where the application is made. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Who this may apply to", "Non-EU family members joining a non-EU resident sponsor in Spain."],
+        ["Same as EU family route?", "No. This is a separate route from Family Member of an EU Citizen."],
+        ["Central factors", "The relationship to the sponsor and the sponsor's residence status in Spain."],
+        ["Usual result", "Many applicants eventually receive a residence document or card, depending on the route."],
+        ["Professional advice", "May be useful, especially for less common relationships or complex situations."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Non-EU family members joining a non-EU resident in Spain", text: "Use this if you are joining a family member who is already a non-EU resident in Spain." },
+          { title: "Spouses or partners, where recognised", text: "Use this if your relationship may be recognised under a family-based route." },
+          { title: "Children, where applicable", text: "Use this if children may be included in a family application." },
+          { title: "Dependent relatives, where applicable", text: "Use this if a dependent relative's situation may support a family-based case." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand whether a family-based option applies to your situation now." },
+          { title: "Sponsors in Spain", text: "Use this if you are the resident sponsor trying to understand what may be involved." }
+        ])}${InfoBox({ title: "Family members of EU citizens", text: "Family members of EU citizens should use the Family Member of an EU Citizen Roadmap instead — that is a separate, different route." })}`
+      }),
+      GuideSection({
+        id: "familyReunificationVsEuFamilyMember",
+        title: "Family reunification vs EU family member route",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Route</th><td><strong>What to know</strong></td></tr>
+          <tr><th>Family reunification</th><td>Usually connected to joining a resident sponsor in Spain. May involve sponsor requirements, and income, housing or residence-status checks. The procedure depends on the family relationship and the sponsor's status.</td></tr>
+          <tr><th>Family Member of an EU Citizen</th><td>Connected to an EU citizen's free-movement/family-member route. Different rules and documents may apply. Use the separate <a href="${routes.euFamilyMemberRoadmap}">Family Member of an EU Citizen Roadmap</a> for this route.</td></tr>
+        </tbody></table>${WarningBox("Do not assume these two routes are interchangeable. Confirm which one applies to your situation before preparing documents.")}`
+      }),
+      GuideSection({
+        id: "relationshipAndSponsorBasics",
+        title: "Relationship and sponsor basics",
+        children: `${Cards([
+          { title: "Relationship to the sponsor matters", text: "The relationship to the sponsor matters for which route may apply." },
+          { title: "Sponsor's residence status matters", text: "The sponsor's residence status in Spain can matter to the case." },
+          { title: "Different evidence by relationship", text: "Spouses, partners, children and dependent relatives may have different evidence requirements." },
+          { title: "Housing, income or dependency evidence", text: "Housing, income or dependency evidence may be relevant depending on the route." }
+        ])}${WarningBox("This page does not provide a definitive eligibility list. Check the official requirements for your specific relationship and situation before assuming you qualify.")}`
+      }),
+      GuideSection({
+        id: "beforeYouApplyOrMove",
+        title: "Before you apply or move",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport is usually central to the application." },
+          { title: "Proof of relationship", text: "Marriage certificate, partnership certificate or birth certificate may be needed, depending on the relationship." },
+          { title: "Sponsor's residence documents", text: "The sponsor's residence documents may be requested." },
+          { title: "Sponsor's identity documents", text: "The sponsor's identity documents may be requested." },
+          { title: "Proof of address or housing, where required", text: "Housing evidence may be part of the file, depending on the office." },
+          { title: "Income or employment evidence, where required", text: "Some cases may require income or employment evidence." },
+          { title: "Healthcare documents, where required", text: "Some cases may require healthcare evidence." },
+          { title: "Criminal record certificate, where required", text: "Some routes may ask for a criminal record certificate." },
+          { title: "Medical certificate, where required", text: "Some routes may ask for a medical certificate." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." }
+        ])}<p>Exact requirements depend on the relationship, sponsor status, nationality, document country of issue and procedure. Use the <a href="${routes.checklist}">Documents Checklist</a> as a general starting point, then confirm the exact list for your specific case.</p>`
+      }),
+      GuideSection({
+        id: "whereTheProcessMayStart",
+        title: "Where the process may start",
+        children: `${Cards([
+          { title: "Some steps may happen in Spain first", text: "Some family-based routes may involve steps in Spain before the family member travels." },
+          { title: "Some steps may involve a consulate", text: "Some steps may involve a Spanish consulate." },
+          { title: "Depends on current situation", text: "Some situations may depend on whether the family member is already in Spain." },
+          { title: "Not covered here", text: "This roadmap does not give route-specific instructions. The correct path depends on the residence route and legal situation — check the official requirements that apply to your case." }
+        ])}`
+      }),
+      GuideSection({
+        id: "afterApprovalOrArrival",
+        title: "After approval or arrival",
+        children: `${Cards([
+          { title: "Travel to Spain, if applicable", text: "Some routes require approval before travel; others may not." },
+          { title: "Secure accommodation", text: "Your address may affect padrón, healthcare and other later steps." },
+          { title: "Register on the padrón, where possible", text: "Padrón requirements can vary by municipality." },
+          { title: "Arrange healthcare if needed", text: "Healthcare routes can depend on the family member's and sponsor's situation." },
+          { title: "Apply for or collect TIE where required", text: "Many cases involve a fingerprinting or card-collection appointment." },
+          { title: "Keep copies of approvals and notifications", text: "Keep copies of all approvals and official notifications." },
+          { title: "Review tax, school or local registration needs if relevant", text: "Other administrative needs may follow, depending on your situation." }
+        ])}${InfoBox({ title: "Order can vary", text: "Not everyone follows the same order. Do not assume the same sequence or timing applies to every family." })}`
+      }),
+      GuideSection({
+        id: "tieBasics",
+        title: "TIE basics",
+        children: `${Cards([
+          { title: "Many non-EU family members need one", text: "Many non-EU family members may need a TIE after approval or arrival." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming marriage automatically gives residence rights.",
+        "Confusing family reunification with the EU family member route.",
+        "Confusing NIE and TIE.",
+        "Not preparing legalised or translated documents early.",
+        "Ignoring sponsor requirements.",
+        "Assuming every family relationship qualifies.",
+        "Relying only on informal advice.",
+        "Missing official notifications.",
+        "Assuming rules are the same in every case."
+      ]),
+      RealQuestions([
+        { question: "Can I bring my spouse to Spain?", answer: "Often yes, through a family-based route, but it depends on your relationship, the sponsor's residence status, and the documents available. Check the official requirements for your case." },
+        { question: "Is family reunification the same as the EU family member route?", answer: "No. Family reunification is generally connected to joining a non-EU resident sponsor. The Family Member of an EU Citizen route is a separate, different process — check which one applies to your situation." },
+        { question: "Does marriage automatically give residence?", answer: "No. Marriage may support eligibility, but residence still depends on the application, evidence and approval." },
+        { question: "Can children join family in Spain?", answer: "Often yes, depending on the relationship and route, but requirements vary by case. Check the official requirements that apply." },
+        { question: "Do family members need a TIE?", answer: "Many non-EU family members may need a TIE after approval or arrival. Requirements depend on your route." },
+        { question: "Is NIE the same as residence?", answer: "No. NIE is an identification number. Residence is a separate status, usually evidenced by a residence card or document." },
+        { question: "Do documents need translation or apostille?", answer: "Some foreign documents may need official translation, legalisation or apostille, depending on the document and country of issue. Check before applying." },
+        { question: "What if the family member is already in Spain?", answer: "Use Start Here and this roadmap together to understand which route may apply, and check official requirements before assuming a specific process fits your situation." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Family Member of an EU Citizen Roadmap", href: routes.euFamilyMemberRoadmap },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Finding Accommodation Guide", href: routes.accommodation },
+          { label: "View the Padrón Guide", href: routes.padron },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, relationship, sponsor and translated documents so you can respond quickly once you know your exact case requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.digitalNomad,
+  html: GuideLayout({
+    path: routes.digitalNomad,
+    canonical: `https://iberigo.eu${routes.digitalNomad}`,
+    title: "Digital Nomad Visa and Remote Work in Spain — IberiGo",
+    description: "A practical roadmap for remote workers and digital nomads considering Spain, including eligibility basics, documents, taxes, healthcare, TIE basics and common mistakes.",
+    metadata: guideMetadataFor(routes.digitalNomad),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Digital Nomad Roadmap" }],
+    hero: {
+      kicker: "Remote work route",
+      title: "Digital Nomad Visa and Remote Work in Spain",
+      intro: "A practical starting point for understanding remote-work routes, what you may need to prepare, and which issues to check before moving to Spain.",
+      asideTitle: "Not automatic for every remote worker",
+      asideText: "Digital nomad and remote-work rules can depend on your nationality, employer or client structure, income, tax residence, documents, healthcare cover, family situation and where you apply."
+    },
+    sections: [
+      QuickAnswer("Spain has routes that may apply to some remote workers or digital nomads. The correct path depends on nationality, work structure, employer/client location, income and documents. Remote work is not the same as ordinary employment in Spain. Tax residency and Spanish tax obligations should be reviewed early. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal, tax or financial advice. Digital nomad and remote-work rules can depend on your nationality, employer or client structure, income, tax residence, documents, healthcare cover, family situation and where you apply. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["Who this may apply to", "Some non-EU remote workers, digital nomads, freelancers and employees working for a foreign employer or clients."],
+        ["Automatic?", "No. Remote work does not by itself allow residence in Spain."],
+        ["Central factors", "Work structure, income source, nationality and tax situation."],
+        ["Non-EU digital nomads", "May eventually need a TIE after approval or arrival."],
+        ["Professional advice", "May be useful, especially for tax and Social Security questions."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Non-EU remote workers", text: "Use this if you work remotely and are considering Spain as a non-EU citizen." },
+          { title: "Digital nomads", text: "Use this if you work location-independently for foreign employers or clients." },
+          { title: "Freelancers with foreign clients", text: "Use this if you invoice clients outside Spain." },
+          { title: "Employees working remotely for a foreign employer", text: "Use this if your employer is based outside Spain." },
+          { title: "People comparing routes", text: "Use this if you are comparing digital nomad, work and self-employed routes." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand whether a remote-work route applies to your situation now." }
+        ])}${InfoBox({ title: "Related roadmaps", text: "People employed by a Spanish company should use the Work in Spain Roadmap. People planning to run a Spanish self-employed activity should use the future Self-employed / Autónomo roadmap." })}`
+      }),
+      GuideSection({
+        id: "digitalNomadVsEmployeeVsSelfEmployed",
+        title: "Digital nomad vs employee vs self-employed route",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Route</th><td><strong>What to know</strong></td></tr>
+          <tr><th>Digital nomad / remote-work route</th><td>May apply to some people working remotely for foreign employers or clients. Requirements depend on work structure and official rules. Tax and immigration review is important.</td></tr>
+          <tr><th>Employee route</th><td>Usually connected to employment in Spain. May involve employer-side processes. Use the <a href="${routes.workInSpain}">Work in Spain Roadmap</a>.</td></tr>
+          <tr><th>Self-employed / autónomo route</th><td>Usually connected to independent economic activity in Spain. Tax and Social Security setup can be complex. Use the <a href="${routes.selfEmployed}">Self-Employed Roadmap</a>.</td></tr>
+        </tbody></table>${WarningBox("Do not assume these routes are interchangeable. Confirm which one matches your actual work structure before applying.")}`
+      }),
+      GuideSection({
+        id: "beforeYouApplyOrMove",
+        title: "Before you apply or move",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport is usually central to the application." },
+          { title: "Employment or client contracts, where relevant", text: "Employment contracts or client contracts may support the application." },
+          { title: "Proof of remote work", text: "Evidence that your work is genuinely remote may be requested." },
+          { title: "Proof of income, where required", text: "Some routes may require proof of income." },
+          { title: "Company or business documents, where relevant", text: "Business documents may be requested for freelancers or business owners." },
+          { title: "Professional qualifications, where relevant", text: "Some roles may require recognised qualification documents." },
+          { title: "Healthcare cover", text: "Healthcare cover may be required depending on your route." },
+          { title: "Criminal record certificate, where required", text: "Some routes may ask for a criminal record certificate." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." },
+          { title: "Tax review before moving", text: "Reviewing your tax situation before moving can help you plan." }
+        ])}<p>Exact requirements depend on nationality, work structure, income source and where the application is made. Use the <a href="${routes.checklist}">Documents Checklist</a> as a general starting point, then confirm the exact list for your specific case.</p>`
+      }),
+      GuideSection({
+        id: "employerClientsWorkStructure",
+        title: "Employer, clients and work structure",
+        children: `${Cards([
+          { title: "Different possible situations", text: "Remote workers may have different situations: employee, contractor, freelancer or business owner." },
+          { title: "Affects immigration, tax and Social Security", text: "The work structure can affect immigration, tax and Social Security questions." },
+          { title: "Not automatically eligible", text: "A foreign employer or foreign clients do not automatically guarantee eligibility." },
+          { title: "Verify your structure matches the route", text: "Users should verify whether their work structure matches the official route before applying." }
+        ])}`
+      }),
+      GuideSection({
+        id: "taxesAndRemoteWork",
+        title: "Taxes and remote work",
+        children: `${Cards([
+          { title: "Can affect tax residency", text: "Moving to Spain can affect tax residency." },
+          { title: "Different from immigration residency", text: "Tax residency is different from immigration residency." },
+          { title: "Worldwide income may apply", text: "Spain may tax residents on worldwide income depending on circumstances." },
+          { title: "Several issues to review", text: "Remote workers should review income tax, social contributions, invoicing and foreign income issues." },
+          { title: "Check special tax treatment with a professional", text: "Any special tax treatment should be checked with a qualified adviser." }
+        ])}${WarningBox("Do not treat any tax benefit as guaranteed. Tax outcomes depend on your specific circumstances and should be checked with a qualified adviser.")}<p>Use the <a href="${routes.taxes}">Taxes in Spain Guide</a> for a plain-English starting point.</p>`
+      }),
+      GuideSection({
+        id: "healthcareAndSocialSecurity",
+        title: "Healthcare and Social Security",
+        children: `${Cards([
+          { title: "Depends on route and structure", text: "Healthcare requirements can depend on route, work structure and nationality." },
+          { title: "Private insurance may be needed", text: "Some remote workers may need private insurance." },
+          { title: "Social Security varies", text: "Social Security treatment may depend on work structure and applicable rules." },
+          { title: "Not treated the same", text: "Employees, freelancers and business owners may not be treated the same." }
+        ])}${SourceLinks([
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Social Security in Spain Guide", href: routes.social }
+        ])}`
+      }),
+      GuideSection({
+        id: "tieBasicsForDigitalNomads",
+        title: "TIE basics for digital nomads",
+        children: `${Cards([
+          { title: "Many non-EU residents need one", text: "Many non-EU residents may need a TIE after approval or arrival." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming remote work automatically gives residence rights.",
+        "Assuming tourist status is enough for long-term remote work.",
+        "Confusing digital nomad, employee and self-employed routes.",
+        "Ignoring tax residency.",
+        "Assuming tax benefits are automatic.",
+        "Not checking Social Security implications.",
+        "Confusing NIE and TIE.",
+        "Preparing contracts or income documents too late.",
+        "Relying only on informal advice."
+      ]),
+      RealQuestions([
+        { question: "Can I move to Spain as a digital nomad?", answer: "It may be possible, depending on your nationality, work structure and income. Check the official requirements before assuming a specific route applies." },
+        { question: "Is remote work the same as working for a Spanish employer?", answer: "No. Remote work for a foreign employer or foreign clients is treated differently from ordinary employment with a Spanish company. Use the Work in Spain Roadmap if you have a Spanish employer." },
+        { question: "Can I work remotely from Spain as a tourist?", answer: "Tourist status is generally not enough for long-term remote work residence. Check the official requirements for the route that matches your situation." },
+        { question: "Do digital nomads need a TIE?", answer: "Many non-EU residents may need a TIE after approval or arrival. Requirements depend on your route." },
+        { question: "Is NIE the same as permission to live or work?", answer: "No. NIE is an identification number. Permission to live or work depends on your residence and work authorisation, which is separate." },
+        { question: "Will Spain tax my foreign income?", answer: "It may, depending on your tax residency and circumstances. This is not tax advice — get professional advice for your specific situation." },
+        { question: "Do I need private health insurance?", answer: "It depends on your route and work structure. Some remote workers may need private insurance; others may use another healthcare route." },
+        { question: "Should I speak with a tax adviser?", answer: "Often yes, especially if you have foreign income, multiple clients, or an unclear work structure. Professional advice may be useful before you commit to a route." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Work in Spain Roadmap", href: routes.workInSpain },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Opening a Bank Account Guide", href: routes.banking },
+          { label: "View the Settling Into Spain Guide", href: routes.settling }
+        ])}${TipBox("Keep a folder for identity, contracts, income and tax documents so you can respond quickly once you know your exact route requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.selfEmployed,
+  html: GuideLayout({
+    path: routes.selfEmployed,
+    canonical: `https://iberigo.eu${routes.selfEmployed}`,
+    title: "Self-Employed and Autónomo in Spain — IberiGo",
+    description: "A practical roadmap for people considering self-employment in Spain, including autónomo basics, documents, tax, Social Security, healthcare, non-EU routes and common mistakes.",
+    metadata: guideMetadataFor(routes.selfEmployed),
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Self-Employed Roadmap" }],
+    hero: {
+      kicker: "Self-employment route",
+      title: "Self-Employed and Autónomo in Spain",
+      intro: "A practical starting point for understanding self-employment in Spain, what you may need to prepare, and which tax, Social Security and residence questions to check early.",
+      asideTitle: "Not automatic for everyone",
+      asideText: "Self-employment rules can depend on your nationality, residence status, business activity, income, clients, tax situation, Social Security registration and where you apply."
+    },
+    sections: [
+      QuickAnswer("Self-employment in Spain is often connected to autónomo registration, tax obligations and Social Security. EU citizens and non-EU citizens may face different residence questions. Non-EU citizens usually need the correct residence/work route before carrying out self-employed activity. Autónomo registration is not the same as immigration permission. This roadmap helps you understand the general journey — it does not replace official requirements."),
+      GuideSection({
+        id: "importantNote",
+        title: "Important note",
+        children: `${WarningBox("This guide provides general information only and is not legal, tax, immigration or financial advice. Self-employment rules can depend on your nationality, residence status, business activity, income, clients, tax situation, Social Security registration and where you apply. Always check the official requirements for your specific case before making decisions.")}`
+      }),
+      AtAGlance([
+        ["What autónomo usually means", "Self-employed status in Spain, connected to tax and Social Security registration."],
+        ["Same for everyone?", "No. EU and non-EU citizens face different residence questions, and requirements vary by case."],
+        ["Automatic residence?", "No. Autónomo registration is not the same as immigration permission."],
+        ["Non-EU self-employed", "May eventually need a TIE after approval or arrival."],
+        ["Professional advice", "May be useful — many people use a gestor or professional adviser."]
+      ]),
+      GuideSection({
+        id: "whoThisRoadmapIsFor",
+        title: "Who this roadmap is for",
+        children: `${Cards([
+          { title: "Freelancers", text: "Use this if you invoice clients as an independent professional." },
+          { title: "Contractors", text: "Use this if you work on a contract basis rather than as an employee." },
+          { title: "Sole traders", text: "Use this if you run an individual business activity." },
+          { title: "Small business owners", text: "Use this if you are setting up or running a small business in Spain." },
+          { title: "EU citizens planning self-employment", text: "Use this if you are an EU, EEA or Swiss citizen considering self-employment in Spain." },
+          { title: "Non-EU citizens considering self-employment", text: "Use this if you are a non-EU citizen exploring the self-employed route." },
+          { title: "Remote workers comparing routes", text: "Use this if you are comparing self-employed and digital nomad routes." },
+          { title: "People already in Spain", text: "Use this if you are trying to understand autónomo basics for your current situation." }
+        ])}${InfoBox({ title: "Related roadmaps", text: "People employed by a Spanish company should use the Work in Spain Roadmap. Remote workers with foreign employers or clients should also compare the Digital Nomad Roadmap." })}`
+      }),
+      GuideSection({
+        id: "autonomoBasics",
+        title: "Autónomo basics",
+        children: `${Cards([
+          { title: "What autónomo usually means", text: "Autónomo usually refers to self-employed status in Spain." },
+          { title: "Tax and Social Security registration", text: "It can involve tax registration and Social Security registration." },
+          { title: "Ongoing obligations", text: "It may involve invoices, quarterly filings, contributions and record-keeping." },
+          { title: "Depends on activity and circumstances", text: "The exact obligations depend on activity and circumstances." },
+          { title: "Many people use a gestor", text: "Many people use a gestor or professional adviser to help manage this." }
+        ])}`
+      }),
+      GuideSection({
+        id: "euCitizensSelfEmployment",
+        title: "EU citizens and self-employment",
+        children: `${Cards([
+          { title: "Usually no visa needed", text: "EU, EEA and Swiss citizens do not usually need a visa to move to Spain." },
+          { title: "EU registration if staying longer", text: "If staying longer than three months, EU Registration may apply." },
+          { title: "Self-employment as one route", text: "Self-employment can be one route for EU registration, but supporting evidence may be required." },
+          { title: "Review tax and Social Security early", text: "Tax and Social Security obligations should be reviewed early." }
+        ])}${SourceLinks([
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the EU Registration Guide", href: routes.euRegistration },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes }
+        ])}`
+      }),
+      GuideSection({
+        id: "nonEuCitizensSelfEmployment",
+        title: "Non-EU citizens and self-employment",
+        children: `${Cards([
+          { title: "Correct route needed first", text: "Non-EU citizens usually need the correct residence/work route before carrying out self-employed activity in Spain." },
+          { title: "May involve a business plan", text: "The process may involve a business plan, professional documents, authorisation or consular steps depending on route." },
+          { title: "Not permission by itself", text: "Autónomo registration alone should not be treated as permission to live or work." },
+          { title: "TIE may follow", text: "A TIE may be required after approval or arrival." }
+        ])}${SourceLinks([
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Digital Nomad Roadmap", href: routes.digitalNomad },
+          { label: "View the Documents Checklist", href: routes.checklist }
+        ])}`
+      }),
+      GuideSection({
+        id: "beforeYouStart",
+        title: "Before you start",
+        children: `${Cards([
+          { title: "Identity", text: "A valid passport or national ID is usually central to the process." },
+          { title: "Residence or work authorisation, depending on route", text: "Residence or work authorisation documents may be needed, depending on your route." },
+          { title: "NIE or TIE, depending on situation", text: "NIE or TIE requirements depend on your situation." },
+          { title: "Business plan, where required", text: "A business plan may be required for some routes." },
+          { title: "Professional qualifications, where relevant", text: "Some activities may require recognised qualification documents." },
+          { title: "Client contracts or expected-income evidence, where relevant", text: "Some routes may ask for client contracts or expected-income evidence." },
+          { title: "Tax-registration information", text: "Tax-registration information is usually part of starting activity." },
+          { title: "Social Security registration", text: "Social Security registration is usually part of starting activity." },
+          { title: "Healthcare planning", text: "Healthcare planning should be reviewed alongside your route." },
+          { title: "Translations, legalisation or apostille, where required", text: "Some foreign documents may need official translation, legalisation or apostille." }
+        ])}<p>Exact requirements depend on nationality, residence status, business activity and route.</p>`
+      }),
+      GuideSection({
+        id: "taxesInvoicesRecords",
+        title: "Taxes, invoices and records",
+        children: `${Cards([
+          { title: "Spanish tax obligations may apply", text: "Self-employed people may have Spanish tax obligations." },
+          { title: "Registration, invoicing, declarations, records", text: "These may include registration, invoicing, declarations and record-keeping." },
+          { title: "Depends on activity", text: "VAT/IVA, income tax and other obligations can depend on activity." },
+          { title: "Tax residency is separate", text: "Tax residency is different from immigration residency." },
+          { title: "A tax adviser may be useful", text: "A tax adviser or gestor may be useful for your specific situation." }
+        ])}${WarningBox("This is not exact filing guidance. Get professional advice for your specific tax and invoicing obligations.")}${SourceLinks([
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital }
+        ])}`
+      }),
+      GuideSection({
+        id: "socialSecurityAndHealthcare",
+        title: "Social Security and healthcare",
+        children: `${Cards([
+          { title: "Often connected to Social Security", text: "Self-employment is often connected to Social Security registration." },
+          { title: "May affect healthcare and benefits", text: "Social Security contributions may affect healthcare access and benefits." },
+          { title: "Depends on situation and route", text: "Healthcare access depends on situation and route." },
+          { title: "Keep the concepts separate", text: "Do not confuse Social Security number with NIE, TIE or healthcare card." }
+        ])}${SourceLinks([
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare }
+        ])}`
+      }),
+      GuideSection({
+        id: "digitalCertificateAndAdministration",
+        title: "Digital Certificate and administration",
+        children: `${Cards([
+          { title: "Online administration is common", text: "Many self-employed people need to deal with online administration." },
+          { title: "Digital Certificate or Cl@ve can help", text: "Digital Certificate or Cl@ve can help with tax and Social Security procedures." },
+          { title: "Not everything is online", text: "Not every process is identical or fully online." },
+          { title: "Keep records", text: "Keep official notifications and records." }
+        ])}<p>Use the <a href="${routes.digital}">Digital Certificate and Cl@ve Guide</a> to compare the two systems.</p>`
+      }),
+      GuideSection({
+        id: "tieBasicsForSelfEmployed",
+        title: "TIE basics for non-EU self-employed people",
+        children: `${Cards([
+          { title: "Many non-EU residents need one", text: "Many non-EU residents may need a TIE after approval or arrival." },
+          { title: "Not the same as NIE", text: "TIE is not the same as NIE." },
+          { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
+          { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
+          { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
+      }),
+      CommonMistakes([
+        "Assuming autónomo registration automatically gives residence rights.",
+        "Confusing self-employed, employee and digital nomad routes.",
+        "Starting activity before permission is clear.",
+        "Ignoring tax registration.",
+        "Ignoring Social Security obligations.",
+        "Confusing NIE and TIE.",
+        "Underestimating record-keeping.",
+        "Relying only on informal advice.",
+        "Waiting until tax or Social Security deadlines are urgent."
+      ]),
+      RealQuestions([
+        { question: "What does autónomo mean?", answer: "Autónomo usually refers to self-employed status in Spain, generally connected to tax and Social Security registration. Exact obligations depend on your activity." },
+        { question: "Can foreigners become self-employed in Spain?", answer: "Often yes, but the correct route depends on your nationality and residence status. Check the official requirements for your case." },
+        { question: "Can non-EU citizens register as autónomo?", answer: "It depends on having the correct residence/work route first. Autónomo registration alone should not be treated as permission to live or work." },
+        { question: "Is autónomo the same as permission to live in Spain?", answer: "No. Autónomo is a tax and Social Security registration status. It is not the same as immigration permission." },
+        { question: "Do self-employed people pay Social Security?", answer: "Self-employment is often connected to Social Security registration and contributions, but exact obligations depend on your situation." },
+        { question: "Do I need a gestor?", answer: "Not everyone does, but many self-employed people use a gestor or tax adviser to manage registration, filings and contributions." },
+        { question: "Is NIE the same as TIE?", answer: "No. NIE is an identification number. TIE is a physical foreigner identity card. They are not the same document." },
+        { question: "Should I choose digital nomad or self-employed route?", answer: "It depends on your work structure, clients and situation. Compare the Digital Nomad Roadmap and this roadmap, and check official requirements before deciding." }
+      ]),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Your Next Step",
+        children: `${SourceLinks([
+          { label: "View Start Here", href: routes.startHere },
+          { label: "View the EU Citizen Roadmap", href: routes.euRoadmap },
+          { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
+          { label: "View the Digital Nomad Roadmap", href: routes.digitalNomad },
+          { label: "View the Work in Spain Roadmap", href: routes.workInSpain },
+          { label: "View the Documents Checklist", href: routes.checklist },
+          { label: "View the Social Security in Spain Guide", href: routes.social },
+          { label: "View the Taxes in Spain Guide", href: routes.taxes },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital },
+          { label: "View the Healthcare in Spain Guide", href: routes.healthcare }
+        ])}${TipBox("Keep a folder for identity, business, tax and Social Security documents so you can respond quickly once you know your exact route requirements.")}`
       })
     ]
   })
