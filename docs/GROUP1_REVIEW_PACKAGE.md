@@ -9,6 +9,18 @@
 
 **Current review status (all 5 pages): Human review changes requested** (Sprint 65). Content was judged acceptable for now; visual/design changes and visual QA are required before publication. No page is published — all remain `noindex, nofollow`.
 
+**Sprint 68 update — Guide System v1 scoped visual pass applied.** All visual changes were made inside the generated-page inline `guideCss()` block per the Sprint 67 scope plan; `styles.css` and live indexed pages were verified untouched (git-status scope check passed: only `scripts/guide-components.js` + the 21 generated draft pages changed). A first visual QA pass was run on all 5 Group 1 pages in a real browser at ~390px and 1280px:
+
+- No horizontal overflow on any Group 1 page at 390px (verified programmatically, `scrollWidth == clientWidth`).
+- CTAs measure 44px tall and full-width on mobile; 0 buttons below the 44px tap-target bar (checked on the CTA-densest page, Settling Into Spain).
+- The Bank Account comparison/at-a-glance tables stack to block layout at 390px with no overflow.
+- Card radius unified at 16px; body text 15.2px with 24.6px line-height; card padding 17.6px.
+- Warning boxes render with the calm cream background (no alarming styling).
+- Official-source external links show a quiet ↗ affordance (reference, not certification, per the Guide System).
+- Desktop (1280px): 3-column card grid, hero H1 reduced to ~54px max (calmer than the previous ~70px), generous hero padding; a new 2-column intermediate breakpoint (641–900px) verified working.
+
+**This was an implementation-side QA pass, not the human visual QA approval.** Group 1 still requires human visual QA sign-off against `docs/IBERIGO_GUIDE_SYSTEM_V1.md` §8 before the "changes requested" status can move forward. No page is approved for publication; all pages remain `noindex, nofollow`.
+
 Allowed status values as review progresses: *Awaiting human review* → *Human review in progress* → *Human review changes requested* or *Human review completed — still not published*. No other statuses (in particular: never "legally approved," "ready to publish," or "approved for indexing" — publication is a separate decision made outside this document).
 
 ---
