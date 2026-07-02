@@ -21,7 +21,7 @@ Legend for **Source coverage**: number of linked official sources (`.gob.es`/`eu
 | `/search/` | Search IberiGo Guides — IberiGo | Complete (functional) | Low | N/A | Complete | Not applicable | OK | **1. Ready for human/legal review** | Indexes 0 guides while everything is draft — this is correct/by-design behavior, not a bug, but worth knowing before flipping any page to `published` |
 | `/moving-to-spain/eu-citizens/` | Moving to Spain as an EU Citizen — IberiGo | Complete | **High** | 4 (Sprint 36) | Complete (Sprint 36) | **Required** | OK | **4. Needs major review before publication** | Flagship EU roadmap; sequencing claims span the whole journey |
 | `/moving-to-spain/settling-into-spain/` | Settling Into Spain — IberiGo | Complete | Medium | 0 (hub page; links to sourced sub-guides instead) | Complete (Sprint 37) | Recommended | OK | **2. Needs light editorial cleanup first** — actually none identified; could move to review directly | Every specific claim is repeated (and sourced) on its own dedicated guide, so the lack of direct sources here is low-risk |
-| `/moving-to-spain/documents-checklist/` | Documents Checklist for Moving to Spain — IberiGo | Complete | Medium-High | 0 — **names EX-18 and Modelo 790-012 without a source** | Complete (Sprint 37) | **Required** | OK | **3. Needs source verification first** | The one original-14 page with a genuine unresolved source gap; fix before legal review to avoid re-reviewing later |
+| `/moving-to-spain/documents-checklist/` | Documents Checklist for Moving to Spain — IberiGo | Complete | Medium-High | 3 — Modelo 790-012 directly verified; EX-18 links to the general Migraciones portal (exact form page unconfirmed, documented not guessed); apostille source still not added | Complete (Sprint 37); wording re-checked in Sprint 62 against "may need" vs. "must," EU/non-EU split, and universality framing — already compliant, no edits needed | **Required** | OK | **1. Ready for human/legal review** (upgraded from Tier 3 in Sprint 62) | Source gap closed — human/professional review still required. A smaller residual gap (apostille/legalisation source) remains but doesn't block moving this page into the review queue |
 | `/moving-to-spain/finding-accommodation/` | Finding Accommodation in Spain — IberiGo | Complete | Medium | 0 | Complete (Sprint 37) | Recommended (consumer-protection framing, not immigration law) | OK | **2. Needs light editorial cleanup first** — none identified; ready | Practical/consumer guidance, not immigration law; lower legal exposure than the rest of the set |
 | `/moving-to-spain/registering-on-the-padron/` | Registering on the Padrón in Spain — IberiGo | Complete | **High** | 2 (Sprint 36) | Complete (Sprint 36) | **Required** | OK | **4. Needs major review before publication** | Highest sensitivity to municipal-variation overclaiming in the whole set (Torrevieja precedent) |
 | `/moving-to-spain/healthcare/` | Healthcare in Spain for New Residents — IberiGo | Complete | **High** | 4 (Sprint 36) | Complete (Sprint 36) | **Required** | OK | **4. Needs major review before publication** | Entitlement depends on many personal factors; highest-consequence factual-error page for readers |
@@ -56,7 +56,7 @@ None of the 22 pages are placed in **"5. Should stay draft for now"** — every 
 Ranked by how little damage a residual factual error could do, **not** by how "done" the content is (everything is equally content-complete):
 
 1. **`/start-here/`** — no factual claims, purely a router. Closest thing to a zero-risk page in the set.
-2. **`/moving-to-spain/documents-checklist/`** and **`/moving-to-spain/finding-accommodation/`** — practical/consumer guidance, not immigration or tax law. Documents Checklist needs its source gap closed first (see Step 1).
+2. **`/moving-to-spain/documents-checklist/`** and **`/moving-to-spain/finding-accommodation/`** — practical/consumer guidance, not immigration or tax law. Documents Checklist's source gap was closed in Sprint 62 (Modelo 790-012 directly verified; EX-18 links to the general portal with the residual gap documented).
 3. **`/moving-to-spain/settling-into-spain/`** — a sequencing hub that defers detail to its sourced sub-guides; low standalone risk.
 4. **`/living-in-spain/opening-a-bank-account/`** — consumer-facing, bank-neutral, no immigration/tax claims of consequence.
 
@@ -103,9 +103,21 @@ Ranked by how little damage a residual factual error could do, **not** by how "d
 ## Step 5 — Suggested launch groups
 
 ### Group 1 — Low-risk orientation pages
-`/start-here/`, `/search/`, `/moving-to-spain/settling-into-spain/`, `/moving-to-spain/documents-checklist/`, `/moving-to-spain/finding-accommodation/`
+`/start-here/`, `/search/`, `/moving-to-spain/settling-into-spain/`, `/moving-to-spain/documents-checklist/`, `/moving-to-spain/finding-accommodation/`, `/living-in-spain/opening-a-bank-account/`
 
-**Must happen first:** close the Documents Checklist source gap (EX-18 / Modelo 790-012); confirm `/search/`'s "0 guides indexed" behavior is acceptable for a first launch or needs revisiting once other pages go live; light legal sign-off given the low factual-claim density.
+**Must happen first (updated Sprint 62):** ~~close the Documents Checklist source gap~~ — done. Confirm `/search/`'s "0 guides indexed" behavior is acceptable for a first launch or needs revisiting once other pages go live; light legal sign-off given the low factual-claim density across the group.
+
+#### Group 1 re-check (Sprint 62)
+
+| Page | Source gap | Editorial status | Sensitivity | Remaining human review | `noindex,nofollow` |
+|---|---|---|---|---|---|
+| `/start-here/` | None (no factual claims) | Complete | Low | Formality only | Confirmed |
+| `/moving-to-spain/documents-checklist/` | **Closed this sprint** (Modelo 790-012 verified; EX-18 links to general portal, gap documented; apostille source still open but non-blocking) | Complete; wording re-checked, no edits needed | Medium-High | Required — but content and sources are now ready for it | Confirmed |
+| `/moving-to-spain/finding-accommodation/` | None identified (consumer/practical framing) | Complete | Medium | Recommended | Confirmed |
+| `/moving-to-spain/settling-into-spain/` | None (hub page defers to sourced sub-guides) | Complete | Medium | Recommended | Confirmed |
+| `/living-in-spain/opening-a-bank-account/` | None identified | Complete | Medium | Recommended | Confirmed |
+
+Group 1 now has **zero pages sitting in Tier 3 (needs source verification first)** — Documents Checklist was the only one and it moved to Tier 1 this sprint. The group is ready for the same human/legal review step as a batch; nothing left in Group 1 is blocked on further source work.
 
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
