@@ -35,6 +35,8 @@
 
 **Sprint 82 update — owner risk pass preview QA completed. Status: Owner risk pass preview QA completed — still not published.** PR #14 preview was checked at desktop (~1280px) and mobile (~390px) for all five Group 1 pages. The added trust/disclaimer blocks are calm, appear once per page, sit near the end of the guide flow, and do not dominate the pages. No mobile overflow, TOC regression, reading-time regression, card/CTA alignment issue, or alarming repetition was found. This is preview QA only: **Group 1 is still not published; no page is approved for indexing; all pages remain `noindex, nofollow`.**
 
+**Sprint 84 update — publication decision package created. Status: Eligible for owner publication decision — still not published.** A final owner-publication decision package now exists at `docs/GROUP1_PUBLICATION_DECISION.md`, with the technical launch checklist at `docs/GROUP1_TECHNICAL_LAUNCH_CHECKLIST.md`. This prepares a future decision only: **Group 1 is still not published; owner publication decision is pending; no page is approved for indexing; all pages remain `noindex, nofollow`.**
+
 Allowed editorial/legal review status values as review progresses: *Awaiting human review* → *Human review in progress* → *Human review changes requested* or *Human review completed — still not published*. Visual QA may separately use *Visual review completed — still not published*. No other statuses (in particular: never "legally approved," "ready to publish," or "approved for indexing" — publication is a separate decision made outside this document).
 
 ---
