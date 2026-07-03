@@ -173,6 +173,10 @@ A small homepage link to `/start-here/` (with calm supporting copy, no legal/pro
 
 PR #18 (commit `7ed2612`) was checked on its Netlify deploy preview at 1280px and 390px: homepage returns `200`, the `/start-here/` link is visible and naturally placed under the hero cards with calm copy, no crowding, no legal/professional-advice implication, and no overflow or style regression. `/start-here/` returns `200` and remains `index, follow`. All five launched pages remain `index, follow`; eight representative non-selected drafts remain `noindex, nofollow`; the preview's `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` are byte-identical to `main`. No redirects or legacy migration; `/guides/banking/` and `/guides/eu-registration/` both return `200`. No issues found, no fixes needed. Status: **Homepage discovery link preview QA passed — merge pending.** PR #18 remains unmerged.
 
+#### Move to Spain card link prepared (Sprint 94 revision)
+
+PR #18 (which added a standalone "Start here" block) was merged and is currently live in production. This has now been revised: the standalone block is removed from `index.html`, and the homepage's existing "Move to Spain" card "Explore" button now links directly to `/start-here/` using the existing `.primary-action` style. "Vacation" and "Live" cards are unchanged; no global navigation change was made. The five launched pages remain `index, follow`, non-selected drafts remain `noindex, nofollow`, and `sitemap.xml`/`search-index.json`/`robots.txt`/`styles.css` are unchanged (verified byte-identical to `main`). No redirects or legacy migration. Status: **Homepage Move to Spain link preview QA pending.** Prepared on a new PR, not yet merged.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 
