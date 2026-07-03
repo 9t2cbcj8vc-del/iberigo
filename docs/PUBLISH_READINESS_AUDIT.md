@@ -137,6 +137,12 @@ No external legal/professional reviewer is available yet, so an owner-review con
 
 Small conservative wording changes were made to reduce obvious risk: the generated legal disclaimer was broadened, Group 1 pages now include the shared trust/disclaimer blocks, Start Here route-card language was softened, Documents Checklist universality language was softened, and minor accommodation/settling wording was adjusted. This is **not** legal, tax, immigration, rental or financial approval. Group 1 remains not published, no page is approved for indexing, and all pages remain `noindex, nofollow`.
 
+#### Group 1 owner risk pass preview QA (Sprint 82)
+
+PR #14 preview QA was completed for the five Group 1 pages at desktop (~1280px) and mobile (~390px). The added disclaimer/trust blocks were confirmed calm, useful, and not visually dominant; each page shows the disclaimer once near the end of the guide flow. No mobile overflow, TOC regression, reading-time regression, card/CTA alignment issue, or alarming repetition was found.
+
+This preview QA does not change publication readiness: Group 1 remains not published, no page is approved for indexing, and all pages remain `noindex, nofollow`.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 
