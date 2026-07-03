@@ -1,11 +1,41 @@
 # Group 1 Legal Review Brief
 
 **Date:** 2026-07-03  
-**Branch:** `legal-review/group1-prep`  
-**Status:** Review not started  
+**Branch:** `group1/reviewer-changes`  
+**Status:** Owner review risk pass completed — still not published  
 **Publication status:** Not published. All pages remain `noindex, nofollow`.
 
 This brief prepares the lowest-risk draft guide pages for human/professional review. It does not legally approve any page, authorize indexing, or change publication status.
+
+## Sprint 80 Owner-Review Risk Pass
+
+No external legal, tax, immigration, rental or financial professional review is available at this stage. An owner-review conservative risk pass was completed to reduce obvious wording risk before any future professional review.
+
+This pass does **not** equal legal approval, financial advice approval, rental-law approval, immigration approval, publication approval, or indexing approval. Group 1 remains not published, and every page remains `noindex, nofollow`.
+
+Wording risks checked:
+
+- universal wording such as "must", "required", "always", "everyone", "you need" and "you must"
+- fixed timelines or implied speed
+- Spain-wide claims where municipality, office, landlord or bank practice may vary
+- route labels that could sound like they decide immigration status
+- rental, banking, tax or immigration advice tone
+
+Conservative changes made:
+
+- broadened the generated legal disclaimer so it covers legal, tax, immigration, financial and rental advice risk
+- added the shared trust/disclaimer blocks to the five Group 1 pages
+- softened Start Here route-card language so it frames cards as orientation, not route decisions
+- softened Documents Checklist language from universal "need/core" wording toward "may need/common"
+- softened accommodation wording around contract review and utilities
+- softened Settling Into Spain address-dependency wording
+
+Remaining publication blockers:
+
+- no external professional review has been completed
+- no page is approved for publication or indexing
+- reviewer questions below remain open
+- route, redirect, sitemap and legacy migration decisions remain separate
 
 ## Purpose of the Review
 

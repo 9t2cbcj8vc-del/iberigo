@@ -230,7 +230,7 @@ function OfficialSources(items = []) {
 function LegalDisclaimer() {
   return `<section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
           <h2 id="legalDisclaimer">Legal Disclaimer</h2>
-          <p>This guide is for informational purposes and is not legal advice.</p>
+          <p>This guide is practical information, not legal, tax, immigration, financial or rental advice. Requirements can vary by municipality, office, bank and personal situation. Always check the current official source or ask the relevant office before making decisions.</p>
         </section>`;
 }
 
@@ -396,6 +396,7 @@ function GuideLayout(config) {
   const showToc = tocItems.length >= 3;
   const officialSources = metadata.officialSources || config.officialSources || [];
   const showTrustBlocks = Boolean(metadata.showTrustBlocks || config.showTrustBlocks || officialSources.length);
+  const hasOfficialSources = officialSources.length > 0;
   const showContinueJourney = config.showContinueJourney !== false;
   const mainContent = [
     Breadcrumbs(config.breadcrumbs || []),
@@ -406,7 +407,7 @@ function GuideLayout(config) {
     showTrustBlocks ? ScopeNotice() : "",
     OfficialSources(officialSources),
     showTrustBlocks ? LegalDisclaimer() : "",
-    LastReviewed(lastReviewed, showTrustBlocks),
+    LastReviewed(lastReviewed, hasOfficialSources),
     showContinueJourney ? ContinueJourney({
       previousGuide: metadata.previousGuide || config.previousGuide || null,
       nextGuide: metadata.nextGuide || config.nextGuide || null,
