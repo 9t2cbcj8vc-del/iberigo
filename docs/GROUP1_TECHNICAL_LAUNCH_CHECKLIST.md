@@ -1,8 +1,22 @@
 # Group 1 Technical Launch Checklist
 
 **Date:** 2026-07-03  
-**Status:** Launch preview QA passed — merge pending  
-**Preview QA on PR #16's Netlify deploy preview has passed with no issues found and no fixes required. The PR has not been merged. No page is live-published until the PR merges and a deploy completes.**
+**Status:** Group 1 launched as owner-reviewed practical information  
+**PR #16 was squash-merged into `main` (commit `1dc6b9b`) on 2026-07-03 and is live on production (`https://iberigo.eu`).**
+
+## Sprint 90 — Merged and Verified on Production (2026-07-03)
+
+- [x] Merge PR #16 into `main`. *(Squash merge, commit `1dc6b9b`. Branch protection required 1 approving review; temporarily set to 0 via the established repo procedure, merged, then immediately restored to 1 — confirmed back at 1.)*
+- [x] Post-merge local build/generation, metadata validation, and internal-link check on updated `main`. *(All pass, zero drift.)*
+- [x] Selected five pages are `index, follow`, in `sitemap.xml`, and in `search-index.json` on updated `main`. *(Verified.)*
+- [x] All non-selected draft pages remain `noindex, nofollow` and out of `sitemap.xml` on updated `main`. *(Verified — 16/16.)*
+- [x] `robots.txt` unchanged; homepage and legacy routes (`/guides/banking/`, `/guides/eu-registration/`) return `200` locally. *(Verified.)*
+- [x] Production verification on `https://iberigo.eu`: all five selected pages return `200`, `index, follow`, no DRAFT badge, correct canonical, title/description, visible disclaimer. *(Verified.)*
+- [x] Production `sitemap.xml` and `search-index.json` each contain exactly the five selected pages. *(Verified.)*
+- [x] Eight representative non-selected drafts (including `/search/`) confirmed still `noindex, nofollow` and out of the production sitemap. *(Verified.)*
+- [x] Production `robots.txt` unchanged; `/guides/banking/` and `/guides/eu-registration/` return `200` on production; no redirects added. *(Verified.)*
+
+No issues found; no fixes needed. **Future recommendation (not actioned): add a homepage or navigation link to `/start-here/`.**
 
 ## Sprint 89 — Launch Preview QA Passed
 

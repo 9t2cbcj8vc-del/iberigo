@@ -2,8 +2,23 @@
 
 **Date:** 2026-07-03  
 **Branch:** `group1/owner-publication-choice`  
-**Status:** Launch preview QA passed — merge pending  
-**Publication status:** Selected pages are proposed for indexing in an open, unmerged PR. All non-selected draft pages remain `noindex, nofollow`. No page is live-published until the PR merges.
+**Status:** Group 1 launched as owner-reviewed practical information  
+**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`) as of 2026-07-03. All non-selected draft pages remain `noindex, nofollow`.
+
+## Sprint 90 — Group 1 Launched (2026-07-03)
+
+PR #16 ("Launch Group 1 owner-reviewed pages") was squash-merged into `main` (merge commit `1dc6b9b`). Branch protection required 1 approving review; per the established repo procedure, required approving reviews were temporarily set to 0, the PR was merged, and required reviews were immediately restored to 1 (confirmed back at 1).
+
+Production verification on `https://iberigo.eu` confirmed:
+
+- All five selected pages return `200`, show `index, follow`, no DRAFT badge, correct canonical URL, title/meta description, and the visible practical-information disclaimer.
+- Production `sitemap.xml` contains exactly the five selected routes; production `search-index.json` contains exactly the five selected pages.
+- Eight representative non-selected draft pages (including `/search/`) confirmed still `noindex, nofollow` and absent from the sitemap.
+- `robots.txt` unchanged. `/guides/banking/` and `/guides/eu-registration/` both still return `200`. No redirects were added, no legacy guide was migrated, and no homepage/navigation change was made.
+
+This launch is owner-reviewed practical information. It is **not** legal, tax, immigration, financial or rental advice, and does not constitute professional approval.
+
+**Future recommendation (not actioned):** add a homepage or navigation link to `/start-here/` for improved discovery.
 
 ## Sprint 89 — Launch Preview QA Passed
 
