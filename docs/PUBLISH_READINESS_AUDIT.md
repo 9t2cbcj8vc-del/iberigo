@@ -157,6 +157,10 @@ The owner has selected the option to proceed toward publishing all five Group 1 
 
 The technical launch has been prepared and opened as a PR into `main` (not merged): `noindex, nofollow` removed only from the five selected pages via a `publishedRoutes` set in `guideMetadataFor()` (`scripts/generate-guide-system.js`); the five pages added to `sitemap.xml`; `robots.txt` inspected and left unchanged since it did not block the routes; no redirects added; no legacy guide migrated; `/guides/banking/` and `/guides/eu-registration/` both confirmed still returning `200`. All 16 other draft pages verified still `noindex, nofollow`. No external legal/professional review was available. Status: **Technical launch PR prepared — preview review pending.** The PR must be checked in the Netlify deploy preview before merge.
 
+#### Group 1 launch preview QA passed (Sprint 89)
+
+PR #16 (commit `7ff11a4`) was checked on its Netlify deploy preview (`https://deploy-preview-16--iberigo.netlify.app`). All five selected pages passed: `200` response, no DRAFT badge, no `noindex`/`nofollow`, correct canonical URL, title/description/Open Graph metadata, visible disclaimer, working CTAs, no layout break at 1280px/390px. The preview's `sitemap.xml` and `search-index.json` each contained exactly the five selected pages. Nine representative non-selected draft pages were confirmed still `noindex, nofollow` and absent from the sitemap. `robots.txt` unchanged; `/guides/banking/` and `/guides/eu-registration/` still return `200`; no redirects or legacy migrations were made. No issues found, no fixes needed. Status: **Launch preview QA passed — merge pending.** PR #16 remains unmerged.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 

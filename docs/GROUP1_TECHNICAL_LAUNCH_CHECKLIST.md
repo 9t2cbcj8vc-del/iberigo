@@ -1,8 +1,20 @@
 # Group 1 Technical Launch Checklist
 
 **Date:** 2026-07-03  
-**Status:** Technical launch PR prepared — preview review pending  
-**Technical launch changes are prepared in an open PR and have not been merged. No page is live-published until the PR merges and a deploy completes.**
+**Status:** Launch preview QA passed — merge pending  
+**Preview QA on PR #16's Netlify deploy preview has passed with no issues found and no fixes required. The PR has not been merged. No page is live-published until the PR merges and a deploy completes.**
+
+## Sprint 89 — Launch Preview QA Passed
+
+- [x] Confirm Netlify deploy preview is successful. *(`https://deploy-preview-16--iberigo.netlify.app`, PR #16, commit `7ff11a4`, deploy status: ready.)*
+- [x] Confirm each selected page returns `200`, has no DRAFT badge, no `noindex`/`nofollow`, `index, follow` robots, correct canonical, title/description/Open Graph present, disclaimer block visible, working CTAs, and no layout break at 1280px/390px. *(All 5 pages passed.)*
+- [x] Confirm `sitemap.xml` on the preview contains exactly the 5 selected routes and nothing else.
+- [x] Confirm 9 representative non-selected draft pages remain `noindex, nofollow` and absent from the sitemap on the preview.
+- [x] Confirm `search-index.json` on the preview contains exactly the 5 selected pages.
+- [x] Confirm `robots.txt` unchanged and does not block selected pages; `/guides/banking/` and `/guides/eu-registration/` return `200`; no redirects added; no legacy migration.
+- [x] Confirm the 5 pages remain internally reachable without a homepage/navigation change. *(Future recommendation only: add a homepage/navigation link to `/start-here/`.)*
+
+No issues were found; no fixes were needed. **PR #16 remains unmerged.**
 
 ## Sprint 88 — Launch PR Prepared
 

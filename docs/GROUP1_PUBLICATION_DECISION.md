@@ -2,8 +2,21 @@
 
 **Date:** 2026-07-03  
 **Branch:** `group1/owner-publication-choice`  
-**Status:** Technical launch PR prepared — preview review pending  
+**Status:** Launch preview QA passed — merge pending  
 **Publication status:** Selected pages are proposed for indexing in an open, unmerged PR. All non-selected draft pages remain `noindex, nofollow`. No page is live-published until the PR merges.
+
+## Sprint 89 — Launch Preview QA Passed
+
+PR #16 (commit `7ff11a4`) was checked on its Netlify deploy preview (`https://deploy-preview-16--iberigo.netlify.app`, deploy status: ready).
+
+- All five selected pages: return `200`, no `noindex`/`nofollow`, `robots` is `index, follow`, no DRAFT badge rendered, canonical URL points to the correct production `iberigo.eu` route, title/meta description/Open Graph tags present, the practical-information disclaimer block is visible, all CTA links resolve to `200`, and no horizontal overflow at 1280px or 390px.
+- `sitemap.xml` on the preview contains exactly the five selected routes and no other draft, legacy, test, or internal path.
+- `search-index.json` on the preview contains exactly the five selected pages — no non-selected drafts or internal docs.
+- Nine representative non-selected draft pages (`/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`, `/moving-to-spain/non-eu-citizens/`, `/moving-to-spain/family-member-eu-citizen/`, `/living-in-spain/taxes/`, `/living-in-spain/driving/`, `/search/`) all confirmed still `noindex, nofollow` and absent from the sitemap.
+- `robots.txt` unchanged, does not block the selected pages. `/guides/banking/` and `/guides/eu-registration/` both still return `200`. No redirects added, no legacy guide migrated.
+- All five pages remain internally reachable through existing guide cross-links; no homepage/navigation change was made. **Future recommendation: add a homepage or navigation link to `/start-here/`** for improved discovery — not actioned this sprint.
+
+No fixes were required. This is preview QA only — **PR #16 remains unmerged; no page is live-published.**
 
 ## Sprint 88 — Technical Launch PR Prepared
 
