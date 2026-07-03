@@ -149,6 +149,14 @@ A final owner-publication decision package has been created at `docs/GROUP1_PUBL
 
 This is decision preparation only: Group 1 is eligible for an owner publication decision, but still not published. No page is approved for indexing, and all pages remain `noindex, nofollow`.
 
+#### Group 1 owner publication choice recorded (Sprint 87)
+
+The owner has selected the option to proceed toward publishing all five Group 1 pages as owner-reviewed practical information, with clear disclaimers and known limitations, since no external legal/professional review is available. This is not legal, tax, immigration, financial or rental advice, and it does not equal legal approval. Technical launch has not happened: `noindex, nofollow` remains on all five pages (and all other draft surfaces), the sitemap is unchanged, robots is unchanged, no redirects have been added, and no homepage/navigation change has been made. Status: **Owner publication selected — technical launch pending.** See `docs/GROUP1_PUBLICATION_DECISION.md` and `docs/GROUP1_TECHNICAL_LAUNCH_CHECKLIST.md`.
+
+#### Group 1 technical launch PR prepared (Sprint 88)
+
+The technical launch has been prepared and opened as a PR into `main` (not merged): `noindex, nofollow` removed only from the five selected pages via a `publishedRoutes` set in `guideMetadataFor()` (`scripts/generate-guide-system.js`); the five pages added to `sitemap.xml`; `robots.txt` inspected and left unchanged since it did not block the routes; no redirects added; no legacy guide migrated; `/guides/banking/` and `/guides/eu-registration/` both confirmed still returning `200`. All 16 other draft pages verified still `noindex, nofollow`. No external legal/professional review was available. Status: **Technical launch PR prepared — preview review pending.** The PR must be checked in the Netlify deploy preview before merge.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 

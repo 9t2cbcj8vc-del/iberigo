@@ -1,1 +1,158 @@
-[]
+[
+  {
+    "title": "Start Here: Moving to Spain — IberiGo",
+    "description": "Find the right IberiGo guide for your move to Spain, whether you are an EU citizen, non-EU citizen, student, worker, retiree or joining family.",
+    "headings": [
+      "Choose your path",
+      "Most people start here",
+      "How IberiGo guides work",
+      "Not sure where to begin?",
+      "Scope Notice",
+      "Legal Disclaimer"
+    ],
+    "keywords": [
+      "start here",
+      "moving to Spain",
+      "EU citizen",
+      "non-EU citizen",
+      "student",
+      "worker",
+      "retiree",
+      "family"
+    ],
+    "category": "Moving to Spain",
+    "difficulty": "Easy",
+    "url": "/start-here/"
+  },
+  {
+    "title": "Settling Into Spain: Your First Steps After Arrival — IberiGo",
+    "description": "A practical guide to the first steps after arriving in Spain, including accommodation, padrón, healthcare, registration, banking and digital access.",
+    "headings": [
+      "Quick Answer",
+      "Timelines vary",
+      "At a Glance",
+      "Secure accommodation",
+      "Register on the padrón",
+      "Arrange healthcare",
+      "Register as an EU resident, if applicable",
+      "Open a bank account",
+      "Set up Digital Certificate or Cl@ve",
+      "Review Social Security, if working",
+      "Understand tax obligations",
+      "Check driving licence rules",
+      "Common Mistakes",
+      "Real Questions People Ask",
+      "Scope Notice",
+      "Legal Disclaimer",
+      "Continue Your Journey"
+    ],
+    "keywords": [
+      "settling into Spain",
+      "arrival steps",
+      "padrón",
+      "healthcare",
+      "EU registration",
+      "bank account",
+      "digital certificate",
+      "Cl@ve"
+    ],
+    "category": "Moving to Spain",
+    "difficulty": "Moderate",
+    "url": "/moving-to-spain/settling-into-spain/"
+  },
+  {
+    "title": "Opening a Bank Account in Spain — IberiGo",
+    "description": "A practical guide to opening a bank account in Spain, including resident and non-resident accounts, documents, fees, direct debits and common mistakes.",
+    "headings": [
+      "Quick Answer",
+      "At a Glance",
+      "Who this guide is for",
+      "Resident vs non-resident accounts",
+      "Common documents banks may ask for",
+      "Fees and commissions",
+      "Direct debits and everyday use",
+      "Online banks vs traditional banks",
+      "Common Mistakes",
+      "Real Questions People Ask",
+      "Your Next Step",
+      "Scope Notice",
+      "Legal Disclaimer"
+    ],
+    "keywords": [
+      "bank",
+      "banking",
+      "bank account",
+      "IBAN",
+      "fees",
+      "payments",
+      "Spanish bank"
+    ],
+    "category": "Living in Spain",
+    "difficulty": "Easy",
+    "url": "/living-in-spain/opening-a-bank-account/"
+  },
+  {
+    "title": "Finding Accommodation in Spain — IberiGo",
+    "description": "A practical guide to finding accommodation in Spain, including short-term rentals, long-term rentals, documents, contracts, deposits, scams and common mistakes.",
+    "headings": [
+      "Quick Answer",
+      "At a Glance",
+      "Who this guide is for",
+      "Temporary vs long-term accommodation",
+      "Why the address matters",
+      "Documents landlords may ask for",
+      "Rental contracts",
+      "Deposits and upfront payments",
+      "Avoiding scams",
+      "Common Mistakes",
+      "Real Questions People Ask",
+      "Your Next Step",
+      "Scope Notice",
+      "Legal Disclaimer"
+    ],
+    "keywords": [
+      "accommodation",
+      "renting",
+      "rental",
+      "housing",
+      "address",
+      "padrón"
+    ],
+    "category": "Moving to Spain",
+    "difficulty": "Moderate",
+    "url": "/moving-to-spain/finding-accommodation/"
+  },
+  {
+    "title": "Documents Checklist for Moving to Spain — IberiGo",
+    "description": "A practical checklist of documents you may need to prepare before moving to Spain, including identity documents, residency paperwork, healthcare, income proof, housing documents and official copies.",
+    "headings": [
+      "Quick Answer",
+      "At a Glance",
+      "Who this guide is for",
+      "Common documents to prepare",
+      "Documents for EU citizens",
+      "Documents for non-EU citizens",
+      "Housing and padrón documents",
+      "Healthcare documents",
+      "Bank and financial documents",
+      "Translations, apostilles and copies",
+      "Common Mistakes",
+      "Real Questions People Ask",
+      "Your Next Step",
+      "Scope Notice",
+      "Official Sources",
+      "Legal Disclaimer"
+    ],
+    "keywords": [
+      "documents",
+      "checklist",
+      "passport",
+      "apostille",
+      "translation",
+      "moving documents"
+    ],
+    "category": "Moving to Spain",
+    "difficulty": "Easy",
+    "url": "/moving-to-spain/documents-checklist/"
+  }
+]

@@ -482,6 +482,17 @@ const officialSourcesByRoute = {
   ]
 };
 
+// Sprint 88 owner-approved technical launch set. Only these five routes get
+// status: "published" (see docs/GROUP1_PUBLICATION_DECISION.md). Every other
+// route stays "draft" and therefore noindex, nofollow.
+const publishedRoutes = new Set([
+  routes.startHere,
+  routes.checklist,
+  routes.accommodation,
+  routes.settling,
+  routes.banking
+]);
+
 function guideMetadataFor(route) {
   const journeyRoutesByRoute = {
     [routes.startHere]: { next: routes.euRoadmap },
@@ -502,7 +513,7 @@ function guideMetadataFor(route) {
 
   return {
     ...(searchMetadataByRoute[route] || {}),
-    status: "draft",
+    status: publishedRoutes.has(route) ? "published" : "draft",
     lastReviewed: "June 2026",
     reviewedBy: "",
     officialSources: officialSourcesByRoute[route] || [],
