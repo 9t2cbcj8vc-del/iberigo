@@ -1,8 +1,21 @@
 # Group 1 Technical Launch Checklist
 
 **Date:** 2026-07-03  
-**Status:** Homepage discovery link preview QA passed — merge pending  
-**Preview QA on PR #18's Netlify deploy preview has passed with no issues found and no fixes required. The PR has not been merged.**
+**Status:** Homepage discovery link launched  
+**PR #18 was squash-merged into `main` (commit `3ddbcd9`) on 2026-07-03 and is live on production (`https://iberigo.eu`).**
+
+## Sprint 94 — Homepage Discovery Link Merged and Verified on Production (2026-07-03)
+
+- [x] Merge PR #18 into `main`. *(Squash merge, commit `3ddbcd9`. Branch protection required 1 approving review; temporarily set to 0 via the established repo procedure, merged, then immediately restored to 1 — confirmed back at 1.)*
+- [x] Post-merge local build/generation, metadata validation, internal-link check on updated `main`. *(All pass, zero drift.)*
+- [x] Homepage returns `200` locally and shows the "Start here" link to `/start-here/`. *(Verified.)*
+- [x] All five launched pages remain `index, follow`; non-selected drafts remain `noindex, nofollow` locally. *(Verified.)*
+- [x] `robots.txt` and `styles.css` confirmed not part of the merged diff. *(Verified — untouched.)*
+- [x] Production verification on `https://iberigo.eu`: homepage `200` with the "Start here" link; `/start-here/` returns `200` and remains `index, follow`; all five launched pages remain `index, follow`; eight representative non-selected drafts remain `noindex, nofollow`.
+- [x] Production `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` all byte-identical to committed `main`. *(Verified via diff.)*
+- [x] No redirects added, no legacy migration; `/guides/banking/` and `/guides/eu-registration/` both return `200` on production. *(Verified.)*
+
+No issues found; no fixes needed. This is a post-launch discovery improvement only — **not** legal, professional, or indexing approval of any kind.
 
 ## Sprint 93 — Homepage Discovery Link Preview QA Passed
 

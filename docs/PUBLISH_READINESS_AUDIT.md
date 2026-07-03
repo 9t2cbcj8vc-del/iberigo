@@ -173,6 +173,10 @@ A small homepage link to `/start-here/` (with calm supporting copy, no legal/pro
 
 PR #18 (commit `7ed2612`) was checked on its Netlify deploy preview at 1280px and 390px: homepage returns `200`, the `/start-here/` link is visible and naturally placed under the hero cards with calm copy, no crowding, no legal/professional-advice implication, and no overflow or style regression. `/start-here/` returns `200` and remains `index, follow`. All five launched pages remain `index, follow`; eight representative non-selected drafts remain `noindex, nofollow`; the preview's `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` are byte-identical to `main`. No redirects or legacy migration; `/guides/banking/` and `/guides/eu-registration/` both return `200`. No issues found, no fixes needed. Status: **Homepage discovery link preview QA passed — merge pending.** PR #18 remains unmerged.
 
+#### Homepage discovery link launched (Sprint 94, 2026-07-03)
+
+PR #18 was squash-merged into `main` (commit `3ddbcd9`). Branch protection required 1 approving review; per the established repo procedure this was temporarily set to 0, the PR was merged, and it was immediately restored to 1. Production verification on `https://iberigo.eu` confirmed the homepage returns `200` and shows the "Start here" link to `/start-here/`, which returns `200` and remains `index, follow`; all five launched pages remain `index, follow`; eight representative non-selected drafts remain `noindex, nofollow`; production `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` are byte-identical to `main`; no redirects or legacy migration; `/guides/banking/` and `/guides/eu-registration/` both return `200`. Status: **Homepage discovery link launched.** This is a post-launch discovery improvement only — not legal, professional, or indexing approval.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 

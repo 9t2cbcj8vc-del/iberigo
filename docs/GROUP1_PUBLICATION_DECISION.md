@@ -2,8 +2,21 @@
 
 **Date:** 2026-07-03  
 **Branch:** `group1/post-launch-homepage-link`  
-**Status:** Homepage discovery link preview QA passed — merge pending  
-**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`). This sprint's preview QA covers a discovery link only; no page's publication or indexing status changed.
+**Status:** Homepage discovery link launched  
+**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`), and the homepage now links to `/start-here/`. No page's publication or indexing status changed.
+
+## Sprint 94 — Homepage Discovery Link Launched (2026-07-03)
+
+PR #18 ("Add homepage link to Start Here guide") was squash-merged into `main` (merge commit `3ddbcd9`). Branch protection required 1 approving review; per the established repo procedure, required approving reviews were temporarily set to 0, the PR was merged, and required reviews were immediately restored to 1 (confirmed back at 1).
+
+Production verification on `https://iberigo.eu` confirmed:
+
+- Homepage returns `200` and shows the "Start here" link pointing to `/start-here/`, which itself returns `200` and remains `index, follow`.
+- All five launched pages remain `index, follow`. Eight representative non-selected drafts remain `noindex, nofollow`.
+- Production `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` are all byte-identical to the committed `main` versions — no drift.
+- No redirects added, no legacy migration. `/guides/banking/` and `/guides/eu-registration/` both return `200`.
+
+This is a post-launch discovery improvement only. It does not constitute legal, professional, or indexing approval of any kind.
 
 ## Sprint 93 — Homepage Discovery Link Preview QA Passed
 
