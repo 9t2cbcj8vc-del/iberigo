@@ -2,8 +2,20 @@
 
 **Date:** 2026-07-03  
 **Branch:** `group1/post-launch-homepage-link`  
-**Status:** Homepage discovery link prepared — preview review pending  
-**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`). This sprint adds a discovery link only; no page's publication or indexing status changed.
+**Status:** Homepage discovery link preview QA passed — merge pending  
+**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`). This sprint's preview QA covers a discovery link only; no page's publication or indexing status changed.
+
+## Sprint 93 — Homepage Discovery Link Preview QA Passed
+
+PR #18 (commit `7ed2612`) was checked on its Netlify deploy preview (`https://deploy-preview-18--iberigo.netlify.app`, deploy status: ready).
+
+- Homepage returns `200`; the new `/start-here/` link is visible directly below the three hero situation cards, with calm supporting copy, no legal/professional-advice framing, and no crowding, at both 1280px and 390px — no overflow or style regression.
+- "Start here" link points to `/start-here/`, which returns `200` on the preview and remains `index, follow`; link styling (the existing `.secondary-action` pill) is visually consistent with the rest of the homepage.
+- All five launched pages remain `index, follow`. Eight representative non-selected draft pages confirmed still `noindex, nofollow`.
+- Preview's `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` are all byte-identical to `main` — no drift.
+- No redirects added, no legacy migration. `/guides/banking/` and `/guides/eu-registration/` both return `200`.
+
+No issues were found; no fixes were needed. This is preview QA only — **PR #18 remains unmerged.**
 
 ## Sprint 92 — Homepage Discovery Link Prepared
 

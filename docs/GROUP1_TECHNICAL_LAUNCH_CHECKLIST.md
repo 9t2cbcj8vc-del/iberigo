@@ -1,8 +1,20 @@
 # Group 1 Technical Launch Checklist
 
 **Date:** 2026-07-03  
-**Status:** Homepage discovery link prepared — preview review pending  
-**A homepage discovery link to `/start-here/` has been prepared on `group1/post-launch-homepage-link` and has not been merged.**
+**Status:** Homepage discovery link preview QA passed — merge pending  
+**Preview QA on PR #18's Netlify deploy preview has passed with no issues found and no fixes required. The PR has not been merged.**
+
+## Sprint 93 — Homepage Discovery Link Preview QA Passed
+
+- [x] Confirm Netlify deploy preview is successful. *(`https://deploy-preview-18--iberigo.netlify.app`, PR #18, commit `7ed2612`, deploy status: ready.)*
+- [x] Confirm homepage returns `200`, link is visible and naturally placed under the hero cards, calm copy, no crowding, no legal/professional-advice implication, no "covers everything" claim, no overflow/spacing/style regression at 1280px and 390px.
+- [x] Confirm "Start here" points to `/start-here/`, which returns `200` and remains `index, follow`, and link styling is consistent with the existing homepage style.
+- [x] Confirm all five launched pages remain `index, follow` and all non-selected drafts remain `noindex, nofollow`.
+- [x] Confirm `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` on the preview are unchanged (byte-identical to `main`).
+- [x] Confirm no redirects added, no legacy migration; `/guides/banking/` and `/guides/eu-registration/` return `200`.
+- [x] Run build/generation, metadata validation, broken internal-link check. *(All pass, zero drift.)*
+
+No issues were found; no fixes were needed. **PR #18 remains unmerged.**
 
 ## Sprint 92 — Homepage Discovery Link Prepared
 
