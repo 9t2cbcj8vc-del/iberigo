@@ -818,6 +818,7 @@ const pages = [
       title: "Start Here: Moving to Spain — IberiGo",
       description: "Find the right IberiGo guide for your move to Spain, whether you are an EU citizen, non-EU citizen, student, worker, retiree or joining family.",
       metadata: guideMetadataFor(routes.startHere),
+      showTrustBlocks: true,
       showContinueJourney: false,
       breadcrumbs: [{ label: "Start Here" }],
       hero: {
@@ -825,7 +826,7 @@ const pages = [
         title: "Moving to Spain starts here.",
         intro: "Choose the situation that sounds most like you, and we’ll point you to the guide that explains what to do next.",
         asideTitle: "Simple starting point",
-        asideText: "You do not need to know the immigration terminology before choosing a path."
+        asideText: "You do not need to know the immigration terminology before starting, but you should verify which route fits your situation."
       },
       sections: [
         GuideSection({
@@ -834,11 +835,11 @@ const pages = [
           children: StartHereCards([
             { title: "I’m an EU citizen", text: "Start with the roadmap for EU, EEA and Swiss citizens moving to Spain.", href: routes.euRoadmap, label: "View the EU Citizen Roadmap" },
             { title: "I’m a non-EU citizen", text: "Start with the roadmap for non-EU citizens moving to Spain.", href: routes.nonEuRoadmap, label: "View the Non-EU Citizen Roadmap" },
-            { title: "I’m joining family in Spain", text: "Start with the roadmap for family members of an EU citizen moving to Spain.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
-            { title: "I’m moving for work", text: "Start with the roadmap for moving to Spain for work.", href: routes.workInSpain, label: "View the Work in Spain Roadmap" },
-            { title: "I’m moving to study", text: "Start with the roadmap for students moving to Spain.", href: routes.students, label: "View the Student Roadmap" },
-            { title: "I’m retiring in Spain", text: "Start with the roadmap for retiring in Spain.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
-            { title: "I’m self-employed", text: "Start with the roadmap for self-employment and autónomo in Spain.", href: routes.selfEmployed, label: "View the Self-Employed Roadmap" }
+            { title: "I’m joining family in Spain", text: "Start with the family route that appears closest to your situation, then confirm the exact rules that apply to you.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
+            { title: "I’m moving for work", text: "Start with the roadmap for work-related routes, then check the specific route for your nationality and job situation.", href: routes.workInSpain, label: "View the Work in Spain Roadmap" },
+            { title: "I’m moving to study", text: "Start with the roadmap for study routes, then confirm the rules for your nationality, course and study length.", href: routes.students, label: "View the Student Roadmap" },
+            { title: "I’m retiring in Spain", text: "Start with the roadmap for retirement planning, then check the route that matches your nationality, income and healthcare position.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
+            { title: "I’m self-employed", text: "Start with the roadmap for self-employment and autónomo planning, then confirm whether it fits your residence route.", href: routes.selfEmployed, label: "View the Self-Employed Roadmap" }
           ])
         }),
         GuideSection({
@@ -866,7 +867,7 @@ const pages = [
         GuideSection({
           id: "notSure",
           title: "Not sure where to begin?",
-          children: `<p>If you are unsure which route applies to you, start with the EU or non-EU path. Every guide explains who it applies to and points you to the next step.</p>`
+          children: `<p>If you are unsure which route applies to you, use the EU or non-EU path as an orientation step, then confirm the route that matches your nationality, purpose and personal situation. Every guide explains who it applies to and points you to the next step.</p>`
         })
       ]
     })
@@ -1007,6 +1008,7 @@ const pages = [
       title: "Settling Into Spain: Your First Steps After Arrival — IberiGo",
       description: "A practical guide to the first steps after arriving in Spain, including accommodation, padrón, healthcare, registration, banking and digital access.",
       metadata: guideMetadataFor(routes.settling),
+      showTrustBlocks: true,
       breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Settling Into Spain" }],
       hero: {
         kicker: "Arrival guide",
@@ -1025,7 +1027,7 @@ const pages = [
         AtAGlance([
           ["Main purpose", "Understand the practical sequence after arrival."],
           ["Fixed timeline?", "No. Appointment availability can vary by province and municipality."],
-          ["Core dependency", "Address evidence often affects padrón, healthcare, banking and other steps."],
+        ["Address evidence", "Address evidence can affect padrón, healthcare, banking and other steps."],
           ["Who should use this?", "People who have arrived in Spain or are planning their arrival admin."]
         ]),
         GuideSection({
@@ -1547,6 +1549,7 @@ pages.push({
     title: "Opening a Bank Account in Spain — IberiGo",
     description: "A practical guide to opening a bank account in Spain, including resident and non-resident accounts, documents, fees, direct debits and common mistakes.",
     metadata: guideMetadataFor(routes.banking),
+    showTrustBlocks: true,
     showContinueJourney: false,
     breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Bank Account" }],
     hero: {
@@ -2208,6 +2211,7 @@ pages.push({
     title: "Finding Accommodation in Spain — IberiGo",
     description: "A practical guide to finding accommodation in Spain, including short-term rentals, long-term rentals, documents, contracts, deposits, scams and common mistakes.",
     metadata: guideMetadataFor(routes.accommodation),
+    showTrustBlocks: true,
     showContinueJourney: false,
     breadcrumbs: [{ label: "Moving to Spain", href: routes.euRoadmap }, { label: "Finding Accommodation" }],
     hero: {
@@ -2218,7 +2222,7 @@ pages.push({
       asideText: "A rental may affect padrón registration, healthcare, banking, official notifications and local services, so check address paperwork before you commit."
     },
     sections: [
-      QuickAnswer("Many newcomers start with temporary accommodation before signing a long-term rental. Long-term rentals may require documents and proof of income. The padrón may depend on having an address where registration is possible. Rental contracts should be reviewed carefully before signing. Scams and misleading listings are possible, especially online."),
+      QuickAnswer("Many newcomers start with temporary accommodation before signing a long-term rental. Long-term rentals may require documents and proof of income. The padrón may depend on having an address where registration is possible. Review rental contracts carefully before signing and consider professional advice if anything is unclear. Scams and misleading listings are possible, especially online."),
       AtAGlance([
         ["Common first step", "Temporary accommodation can give you time to visit areas and view properties in person."],
         ["Long-term rental", "Usually better for stability and may support later administration."],
@@ -2282,7 +2286,7 @@ pages.push({
         children: Cards([
           { title: "Read carefully", text: "Read the contract carefully and consider professional advice before signing if anything is unclear." },
           { title: "Core terms", text: "Check rent, deposit, duration, renewal, notice rules and move-in date." },
-          { title: "Utilities", text: "Check which utilities are included and which must be contracted or paid separately." },
+          { title: "Utilities", text: "Check which utilities are included and which may need to be contracted or paid separately." },
           { title: "Extra charges", text: "Ask who pays community fees, rubbish tax or other recurring charges where applicable." },
           { title: "Padrón documents", text: "Check whether the property can be used for padrón and what documents the landlord will provide." },
           { title: "Keep proof", text: "Keep signed copies, receipts, bank-transfer records and written confirmations." }
@@ -2353,7 +2357,7 @@ pages.push({
     path: routes.checklist,
     canonical: `https://iberigo.eu${routes.checklist}`,
     title: "Documents Checklist for Moving to Spain — IberiGo",
-    description: "A practical checklist of documents to prepare before moving to Spain, including identity documents, residency paperwork, healthcare, income proof, housing documents and official copies.",
+    description: "A practical checklist of documents you may need to prepare before moving to Spain, including identity documents, residency paperwork, healthcare, income proof, housing documents and official copies.",
     metadata: guideMetadataFor(routes.checklist),
     showContinueJourney: false,
     breadcrumbs: [{ label: "Moving to Spain", href: routes.euRoadmap }, { label: "Documents Checklist" }],
@@ -2365,9 +2369,9 @@ pages.push({
       asideText: "Your documents depend on nationality, route, municipality and appointment type. Check the requirements for your own procedure before relying on any checklist."
     },
     sections: [
-      QuickAnswer("The documents you need depend on your nationality, residency route and local procedure. Many newcomers should prepare identity documents, proof of income, healthcare documents, accommodation documents and copies. Some foreign documents may need translation or legalisation. It is usually better to prepare early than wait until the appointment."),
+      QuickAnswer("The documents you may need depend on your nationality, residency route and local procedure. Many newcomers prepare identity documents, proof of income, healthcare documents, accommodation documents and copies. Some foreign documents may need translation or legalisation. It is usually better to prepare early than wait until the appointment."),
       AtAGlance([
-        ["Core idea", "Prepare identity, income, healthcare, address and appointment documents early."],
+        ["Main idea", "Prepare identity, income, healthcare, address and appointment documents early when they apply to your route."],
         ["Not universal", "Not everyone needs every document on this checklist."],
         ["Local variation", "Requirements may vary by municipality, office and appointment type."],
         ["Foreign documents", "Some documents may need official translation, legalisation or apostille."],
@@ -2389,7 +2393,7 @@ pages.push({
       }),
       GuideSection({
         id: "coreDocuments",
-        title: "Core documents to prepare",
+        title: "Common documents to prepare",
         children: `${ChecklistBox({
           title: "Document checklist",
           items: [
@@ -2503,7 +2507,7 @@ pages.push({
         { question: "Can I use digital copies?", answer: "Digital scans are useful for your records, but many appointments may still ask for originals or paper copies." },
         { question: "Which documents should I bring from my home country?", answer: "Identity documents, civil-status certificates, education or work documents, pension evidence, criminal-record certificates and healthcare documents may be harder to obtain after moving." },
         { question: "Do EU citizens need the same documents as non-EU citizens?", answer: "No. EU and non-EU routes are different, and requirements also vary by situation." },
-        { question: "Should I prepare documents before arriving in Spain?", answer: "Usually yes. Some documents are easier to collect, translate or legalise before you move." }
+        { question: "Should I prepare documents before arriving in Spain?", answer: "Usually yes, if they are likely to apply to your route. Some documents are easier to collect, translate or legalise before you move." }
       ]),
       GuideSection({
         id: "whatHappensNext",
