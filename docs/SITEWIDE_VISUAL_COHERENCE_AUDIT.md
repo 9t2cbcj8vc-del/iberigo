@@ -4,6 +4,8 @@
 **Status:** Sitewide visual coherence audit completed — implementation pending
 **Scope:** audit and planning only. No implementation, no `styles.css` edits, no publication changes, no merges were made while producing this document.
 
+**Sprint 96 update (2026-07-03):** following this audit's recommendation, PR #19 was squash-merged into `main` (commit `105ede9`) and verified live on production. The homepage's "Move to Spain" card now links to `/start-here/`; the standalone block from Sprint 92/93 is gone. This was a homepage cleanup only — it does not implement any part of the staged unification plan below, which remains entirely unimplemented and pending future, separately-scoped decisions.
+
 ## Why this exists
 
 Group 1 (`/start-here/` and four guide pages) launched using a new visual language — the **IberiGo Guide System v1** (`docs/IBERIGO_GUIDE_SYSTEM_V1.md`) — while the rest of the public site (homepage, Vacation/Live sections, The Spain Files, Donate, and all legacy `/guides/*` pages) still uses the original, older design system. PR #19 proposes pointing the homepage's "Move to Spain" card at `/start-here/`, which raises a fair question before merging: does the site feel like one coherent brand once a visitor moves from the homepage into a Guide System v1 page? This audit answers that question and proposes a path forward. It does not implement anything.

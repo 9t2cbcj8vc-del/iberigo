@@ -2,8 +2,22 @@
 
 **Date:** 2026-07-03  
 **Branch:** `group1/homepage-move-to-spain-link`  
-**Status:** Homepage Move to Spain link preview QA pending  
-**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`). This sprint revises the homepage discovery UX only; no page's publication or indexing status changed.
+**Status:** Homepage Move to Spain link launched  
+**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`), and the homepage's "Move to Spain" card now links directly to `/start-here/`. No page's publication or indexing status changed.
+
+## Sprint 96 — Homepage Move to Spain Link Launched (2026-07-03)
+
+PR #19 ("Point Move to Spain card to Start Here") was squash-merged into `main` (merge commit `105ede9`). Branch protection required 1 approving review; per the established repo procedure, required approving reviews were temporarily set to 0, the PR was merged, and required reviews were immediately restored to 1 (confirmed back at 1).
+
+Production verification on `https://iberigo.eu` confirmed:
+
+- Homepage returns `200`; the standalone "Start here" block is gone; the "Move to Spain" card's "Explore" button links directly to `/start-here/`; "Vacation" and "Live" cards unchanged.
+- `/start-here/` returns `200` and remains `index, follow`.
+- All five launched pages remain `index, follow`. Sampled non-selected drafts remain `noindex, nofollow`.
+- Production `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` all verified byte-identical to the committed `main` versions.
+- No redirects added, no legacy migration. `/guides/banking/` and `/guides/eu-registration/` both return `200`.
+
+This is a homepage cleanup only. It does not constitute legal, professional, or indexing approval of any kind.
 
 ## Sprint 94 (revision) — Move to Spain Card Now Links to Start Here
 

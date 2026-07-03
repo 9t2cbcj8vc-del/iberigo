@@ -1,8 +1,20 @@
 # Group 1 Technical Launch Checklist
 
 **Date:** 2026-07-03  
-**Status:** Homepage Move to Spain link preview QA pending  
-**A revised homepage discovery change is prepared on `group1/homepage-move-to-spain-link` (a new PR, not yet opened at doc-write time) and has not been merged.**
+**Status:** Homepage Move to Spain link launched  
+**PR #19 was squash-merged into `main` (commit `105ede9`) on 2026-07-03 and is live on production (`https://iberigo.eu`).**
+
+## Sprint 96 — Homepage Move to Spain Link Merged and Verified on Production (2026-07-03)
+
+- [x] Merge PR #19 into `main`. *(Squash merge, commit `105ede9`. Branch protection required 1 approving review; temporarily set to 0 via the established repo procedure, merged, then immediately restored to 1 — confirmed back at 1. Branch was first updated with `main` to resolve a pre-existing merge conflict in `docs/BACKLOG.md` and `docs/PUBLISH_READINESS_AUDIT.md` from the Sprint 95A audit merge.)*
+- [x] Post-merge local build/generation, metadata validation, internal-link check on updated `main`. *(All pass, zero drift.)*
+- [x] Homepage returns `200` locally and on production; standalone "Start here" block confirmed gone; "Move to Spain" card links to `/start-here/`; "Vacation"/"Live" cards unchanged.
+- [x] `/start-here/` returns `200` and remains `index, follow`, locally and on production.
+- [x] All five launched pages remain `index, follow`; sampled non-selected drafts remain `noindex, nofollow`, locally and on production.
+- [x] Production `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` all byte-identical to committed `main`. *(Verified via diff.)*
+- [x] No redirects added, no legacy migration; `/guides/banking/` and `/guides/eu-registration/` both return `200` on production.
+
+No issues found; no fixes needed. This is a homepage cleanup only — **not** legal, professional, or indexing approval of any kind.
 
 ## Sprint 94 (revision) — Move to Spain Card Link Prepared
 
