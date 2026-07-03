@@ -205,6 +205,20 @@ Verified: all three homepage Explore buttons now render identically (136×44px a
 
 No additional pages published, no indexing changes, no redirects, no legacy migration. `sitemap.xml`, `search-index.json`, `robots.txt` unchanged; `/guides/banking/` and `/guides/eu-registration/` both return `200` locally. Status: **Guide and homepage CTA alignment preview QA pending.** PR #21 remains unmerged.
 
+#### CTA alignment final preview QA passed (Sprint 97E)
+
+PR #21 (commit `f1851d7`) was checked on its Netlify deploy preview at 1280px and 390px. Confirmed the `styles.css` diff against `main` is narrowly scoped to `.situation-card--illustrated` selectors only — no other rule touched.
+
+Homepage: all three Explore buttons (Move to Spain, Vacation, Live) render identically — 136×44px at 1280px, full-width 44px at 390px, same vertical position within their cards. Move to Spain still links to `/start-here/`; Vacation/Live `data-route-preset` behavior is unchanged; no standalone Start Here block returned; header, search icon, language switcher, footer, and Donate link all render normally; no horizontal overflow at either breakpoint.
+
+Guide System: `/start-here/`'s "Choose your path" (7× "View roadmap"), `/moving-to-spain/non-eu-citizens/`'s "Choose your route" (8-card grid: 7× "View roadmap" + 1× "Continue" for the Start-Here card, plus a 3-card "View guide" related-guides grid), `/moving-to-spain/family-member-eu-citizen/`, `/moving-to-spain/work-in-spain/`, and `/moving-to-spain/settling-into-spain/` all show uniform 44px-height buttons per grid with no wrapped 82px outliers and no overflow; `/living-in-spain/opening-a-bank-account/` has no CTA-card grids and is unaffected. TOC, reading-time, and disclaimer confirmed present throughout.
+
+Regression check (since `styles.css` changed): `/the-spain-files/`, `/support/` (Donate), `/guides/banking/`, and `/guides/eu-registration/` all render normally with no button-size or layout regression — none of these pages use `.situation-card--illustrated`, so the scoped fix does not touch them.
+
+Launch safety: all 5 launched pages remain `index, follow`; sampled drafts remain `noindex, nofollow`; preview's `sitemap.xml`, `search-index.json`, `robots.txt` byte-identical to `main`; `/guides/banking/` and `/guides/eu-registration/` both return `200`.
+
+**Note:** production `/start-here/` still shows the old, un-normalized "View the X Roadmap" buttons — this changes only once PR #21 is merged. No issues found, no fixes needed. Status: **CTA alignment final preview QA passed — merge pending.** PR #21 remains unmerged.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 
