@@ -38,7 +38,8 @@
       "WebSearch",
       "Bash(perl -pi -e 's|https://www\\\\.sepe\\\\.es/HomeSepe/es/encontrar-trabajo/eures\\\\.html|https://www.sepe.es/HomeSepe/es/encontrar-trabajo/empleo-europa.html|; s|https://www\\\\.riu\\\\.com/en/hotels/spain/|https://www.riu.com/en/hotels/europe/spain|' app.js)",
       "Bash(git add *)",
-      "Bash(awk '{print $1}')"
+      "Bash(awk '{print $1}')",
+      "Bash(git commit *)"
     ]
   }
 }
