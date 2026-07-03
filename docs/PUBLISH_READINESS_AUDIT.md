@@ -143,6 +143,12 @@ PR #14 preview QA was completed for the five Group 1 pages at desktop (~1280px) 
 
 This preview QA does not change publication readiness: Group 1 remains not published, no page is approved for indexing, and all pages remain `noindex, nofollow`.
 
+#### Group 1 publication decision preparation (Sprint 84)
+
+A final owner-publication decision package has been created at `docs/GROUP1_PUBLICATION_DECISION.md`, with a future-launch checklist at `docs/GROUP1_TECHNICAL_LAUNCH_CHECKLIST.md`. The decision package records current dependencies, known limitations, remaining risks, publication options, a cautious smaller-subset launch option, rollback planning, and post-publication monitoring.
+
+This is decision preparation only: Group 1 is eligible for an owner publication decision, but still not published. No page is approved for indexing, and all pages remain `noindex, nofollow`.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 
