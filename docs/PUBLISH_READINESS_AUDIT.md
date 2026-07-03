@@ -119,6 +119,18 @@ Ranked by how little damage a residual factual error could do, **not** by how "d
 
 Group 1 now has **zero pages sitting in Tier 3 (needs source verification first)** — Documents Checklist was the only one and it moved to Tier 1 this sprint. The group is ready for the same human/legal review step as a batch; nothing left in Group 1 is blocked on further source work.
 
+#### Group 1 legal review preparation (Sprint 77)
+
+A focused legal/professional review brief has been created at `docs/GROUP1_LEGAL_REVIEW_BRIEF.md` for:
+
+- `/start-here/`
+- `/moving-to-spain/documents-checklist/`
+- `/moving-to-spain/finding-accommodation/`
+- `/moving-to-spain/settling-into-spain/`
+- `/living-in-spain/opening-a-bank-account/`
+
+The brief provides page-by-page reviewer questions, current official-source summaries, source limitations, and blank reviewer outcome fields. This does not change publication readiness: Group 1 is still not published, no page is approved for indexing, and all pages remain `noindex, nofollow`.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 

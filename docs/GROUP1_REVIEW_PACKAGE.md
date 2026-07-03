@@ -29,6 +29,8 @@
 
 **Sprint 73 update — cross-page visual consistency QA completed. Visual status for Group 1: Visual review completed — still not published.** All 22 draft/noindex surfaces were checked at desktop and mobile widths, including every Group 1 page, EU core page, Living in Spain page, Non-EU batch page, and `/search/`. No new visual consistency issues were found: TOCs do not overlap, reading time remains consistently placed, cards and warning/source blocks stay aligned with Guide System v1, CTAs remain descriptive and at least 44px on mobile, comparison tables stack correctly, and no internal process wording appears in visible page text. Details are in `docs/GUIDE_SYSTEM_V1_CONSISTENCY_QA.md`. **No page is approved for publication; all pages remain `noindex, nofollow`.**
 
+**Sprint 77 update — Group 1 legal review brief created.** A focused reviewer brief now exists at `docs/GROUP1_LEGAL_REVIEW_BRIEF.md`, covering the five Group 1 pages, page-by-page reviewer questions, current source limitations, allowed review outcomes, and blank reviewer outcome fields. This is review preparation only: **Group 1 is still not published; no page is approved for indexing; all pages remain `noindex, nofollow`.**
+
 Allowed editorial/legal review status values as review progresses: *Awaiting human review* → *Human review in progress* → *Human review changes requested* or *Human review completed — still not published*. Visual QA may separately use *Visual review completed — still not published*. No other statuses (in particular: never "legally approved," "ready to publish," or "approved for indexing" — publication is a separate decision made outside this document).
 
 ---
