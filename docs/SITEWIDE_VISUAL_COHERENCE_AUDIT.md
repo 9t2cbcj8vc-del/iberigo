@@ -4,6 +4,8 @@
 **Status:** Sitewide visual coherence audit completed — implementation pending
 **Scope:** audit and planning only. No implementation, no `styles.css` edits, no publication changes, no merges were made while producing this document.
 
+**Sprint 97A update (2026-07-03):** a focused bug fix was prepared (not yet merged) for uneven Guide System v1 card CTA alignment — buttons inside `.guide-info-card` now consistently sit at the bottom of the card with a uniform width, via a scoped flex-layout change in `scripts/guide-components.js`'s `guideCss()`. This is a small correctness fix within Guide System v1 itself; it does not implement any part of the sitewide unification plan below (radius alignment, legacy-page structural fix, Vacation/Live landing pages, homepage card redesign), which remains entirely unimplemented and pending future, separately-scoped decisions. See `docs/PUBLISH_READINESS_AUDIT.md` and `docs/BACKLOG.md` for details.
+
 ## Why this exists
 
 Group 1 (`/start-here/` and four guide pages) launched using a new visual language — the **IberiGo Guide System v1** (`docs/IBERIGO_GUIDE_SYSTEM_V1.md`) — while the rest of the public site (homepage, Vacation/Live sections, The Spain Files, Donate, and all legacy `/guides/*` pages) still uses the original, older design system. PR #19 proposes pointing the homepage's "Move to Spain" card at `/start-here/`, which raises a fair question before merging: does the site feel like one coherent brand once a visitor moves from the homepage into a Guide System v1 page? This audit answers that question and proposes a path forward. It does not implement anything.
