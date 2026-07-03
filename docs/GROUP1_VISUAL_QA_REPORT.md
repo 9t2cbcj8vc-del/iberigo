@@ -1,7 +1,7 @@
 # Group 1 Visual QA Report — Guide System v1
 
-**Date:** 2026-07-02 (updated Sprint 72)
-**Overall visual status: Visual changes applied — awaiting human visual re-check.**
+**Date:** 2026-07-02 (updated Sprint 73 on 2026-07-03)
+**Overall visual status: Visual review completed — still not published.**
 
 Local QA was run against the Guide System v1 scoped pass (Sprint 68) using a real Chromium instance at two viewports — mobile 390px and desktop 1280px — with full-page screenshots saved to `visual-qa/group1/` (untracked, not committed). Overflow and tap-target results below were measured programmatically in the browser, not eyeballed.
 
@@ -66,12 +66,15 @@ Files live in `visual-qa/group1/` (local only). Naming: `<page>-mobile-390.png` 
 1. ~~(Content, not CSS) Internal verification commentary visible in official-source notes~~ — **Resolved in Sprint 70.** All 63 `note` fields in `officialSourcesByRoute` were rewritten to reader-facing wording, the "Source status" banner texts were similarly cleaned, and one positional error in the Last-reviewed transparency line ("linked below" → sources actually render above it) was corrected. A full-page sweep for internal wording (HTTP 200 / this sprint / guessed / 404 / bot-detection / editorial review / before publication / pending verification / marked TODO) now returns zero hits across all generated pages. Documents Checklist source cards were visually confirmed clean in a browser. Verification history remains preserved in `docs/SOURCE_VERIFICATION_MATRIX.md` and `docs/PR5_REVIEW_RISKS.md`.
 2. ~~(Visual, TOC) Human visual review found the desktop "On this page" table of contents could overlap and feel cramped, especially on the Bank Account guide~~ — **Resolved in Sprint 72.** The generated guide TOC now renders as a clean vertical text list with comfortable line-height and subtle active-state emphasis instead of narrow pill links. The sticky desktop sidebar is hidden at medium widths where it becomes cramped, and the mobile collapsible TOC behavior remains intact.
 3. ~~(Visual, reading time) Human visual review found the reading-time label appeared detached below the hero card~~ — **Resolved in Sprint 72.** Reading time now renders inside the generated hero/meta area so it reads as intentional page metadata rather than a misplaced caption.
+4. **Cross-page visual consistency QA completed in Sprint 73.** All 22 draft/noindex surfaces were checked at desktop and mobile widths. No new consistency issues were found; the Sprint 72 TOC and reading-time fixes hold across the full generated guide set. Full notes are in `docs/GUIDE_SYSTEM_V1_CONSISTENCY_QA.md`.
 
 **Sprint 72 verification:** Group 1 was rechecked in the browser at 1280px, 1000px, and 390px. Results: no horizontal overflow; no TOC text overlap; TOC pill styling removed on desktop; reading time appears inside the hero; CTAs remain at least 44px tall; the Bank Account tables still stack correctly on mobile.
 
-**Note on screenshots:** the original `visual-qa/group1/` screenshot pack predates the Sprint 70 note cleanup and Sprint 72 visual polish. Use it as historical QA context only; Group 1 needs a fresh human visual re-check of the current pages before any publication decision.
+**Sprint 73 verification:** all 22 draft/noindex surfaces were checked in the browser at 1280px and 390px. Results: no horizontal overflow; no TOC overlap; reading time placement consistent; no CTA below 44px; no CTA says "Read more"; no visible internal process wording detected; comparison-table pages stack correctly on mobile.
+
+**Note on screenshots:** the original `visual-qa/group1/` screenshot pack predates the Sprint 70 note cleanup and Sprint 72 visual polish. Use it as historical QA context only; the current browser QA status is recorded in `docs/GUIDE_SYSTEM_V1_CONSISTENCY_QA.md`.
 
 ## Status and next step
 
-- **Status: Visual changes applied — awaiting human visual re-check.** (Not "visual review completed" — that's the human's call, made by reviewing the current pages against `docs/IBERIGO_GUIDE_SYSTEM_V1.md` §8.)
+- **Status: Visual review completed — still not published.**
 - No page is published; all remain `noindex, nofollow`. Publish decision unchanged: do not publish yet.
