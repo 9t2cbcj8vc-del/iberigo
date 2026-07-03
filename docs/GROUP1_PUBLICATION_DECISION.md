@@ -1,9 +1,51 @@
 # Group 1 Publication Decision Package
 
 **Date:** 2026-07-03  
-**Branch:** `group1/publication-decision`  
-**Status:** Eligible for owner publication decision — still not published  
-**Publication status:** No page is published. All draft pages remain `noindex, nofollow`.
+**Branch:** `group1/owner-publication-choice`  
+**Status:** Launch preview QA passed — merge pending  
+**Publication status:** Selected pages are proposed for indexing in an open, unmerged PR. All non-selected draft pages remain `noindex, nofollow`. No page is live-published until the PR merges.
+
+## Sprint 89 — Launch Preview QA Passed
+
+PR #16 (commit `7ff11a4`) was checked on its Netlify deploy preview (`https://deploy-preview-16--iberigo.netlify.app`, deploy status: ready).
+
+- All five selected pages: return `200`, no `noindex`/`nofollow`, `robots` is `index, follow`, no DRAFT badge rendered, canonical URL points to the correct production `iberigo.eu` route, title/meta description/Open Graph tags present, the practical-information disclaimer block is visible, all CTA links resolve to `200`, and no horizontal overflow at 1280px or 390px.
+- `sitemap.xml` on the preview contains exactly the five selected routes and no other draft, legacy, test, or internal path.
+- `search-index.json` on the preview contains exactly the five selected pages — no non-selected drafts or internal docs.
+- Nine representative non-selected draft pages (`/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`, `/moving-to-spain/non-eu-citizens/`, `/moving-to-spain/family-member-eu-citizen/`, `/living-in-spain/taxes/`, `/living-in-spain/driving/`, `/search/`) all confirmed still `noindex, nofollow` and absent from the sitemap.
+- `robots.txt` unchanged, does not block the selected pages. `/guides/banking/` and `/guides/eu-registration/` both still return `200`. No redirects added, no legacy guide migrated.
+- All five pages remain internally reachable through existing guide cross-links; no homepage/navigation change was made. **Future recommendation: add a homepage or navigation link to `/start-here/`** for improved discovery — not actioned this sprint.
+
+No fixes were required. This is preview QA only — **PR #16 remains unmerged; no page is live-published.**
+
+## Sprint 88 — Technical Launch PR Prepared
+
+The technical launch changes for the five selected Group 1 pages have been prepared and opened as a PR into `main` (not merged):
+
+- `status: "draft"` → `status: "published"` for the five selected routes only, via a new `publishedRoutes` set in `guideMetadataFor()` in `scripts/generate-guide-system.js`. This is the single control point: it drives `robots` meta, the canonical/status badge, and search-index inclusion in `scripts/guide-components.js`.
+- `noindex, nofollow` removed only from the five selected pages; all 16 other draft pages confirmed unchanged.
+- The five selected pages added to `sitemap.xml`; no other draft, legacy, test, or internal path added.
+- `robots.txt` inspected and left unchanged — it already allows `/` generally and only blocks `/outputs/` and `/work/`, so it does not block the selected pages.
+- No redirects added. No legacy guide migrated. `/guides/banking/` and `/guides/eu-registration/` both confirmed still returning `200` locally.
+- No homepage or navigation change made — all five pages are already reachable through existing generated guide cross-links (confirmed by internal-link grep). A future sprint could consider adding a homepage link to `/start-here/` for better discovery, but this is a proposal only, not made this sprint.
+
+No external legal, tax, immigration, financial or rental professional review is available. This launch is owner-reviewed practical information, not legal, tax, immigration, financial or rental advice. **The PR must be preview-checked in the Netlify deploy preview before merge.**
+
+## Sprint 87 — Owner Decision Recorded
+
+The owner has selected **Option 2: Publish Group 1 as owner-reviewed practical information**, covering all five Group 1 pages:
+
+- `/start-here/`
+- `/moving-to-spain/documents-checklist/`
+- `/moving-to-spain/finding-accommodation/`
+- `/moving-to-spain/settling-into-spain/`
+- `/living-in-spain/opening-a-bank-account/`
+
+No external legal, tax, immigration, financial or rental professional review is available. Proceeding toward publication is based on owner review, source checks, conservative wording and the existing disclaimer/trust blocks — not on professional sign-off.
+
+**This does not mean legal approval.** Publication will still carry the known limitations already documented below. Technical launch has not yet happened: no `noindex, nofollow` has been removed, no sitemap entry has been added, no robots change has been made, no redirect has been added, and no homepage or navigation change has been made. All five selected pages, and all other draft/noindex surfaces, remain `noindex, nofollow` until a separate future launch sprint executes `docs/GROUP1_TECHNICAL_LAUNCH_CHECKLIST.md`.
+
+This is a decision record only. No PR has been opened and no merge to `main` has been performed as part of this sprint.
 
 ## Purpose
 
@@ -94,8 +136,8 @@ Publishing Group 1 does not technically require homepage or navigation changes. 
 1. **Do not publish yet**  
    Keep all Group 1 pages `noindex, nofollow` until external professional review is available.
 
-2. **Publish Group 1 as owner-reviewed practical information**  
-   Publish all five pages with the existing caution, scope and disclaimer blocks. This option accepts known limitations and requires post-publication monitoring.
+2. **Publish Group 1 as owner-reviewed practical information** — **Selected (Sprint 87)**  
+   Publish all five pages with the existing caution, scope and disclaimer blocks. This option accepts known limitations and requires post-publication monitoring. Technical launch is a separate, pending step — see `docs/GROUP1_TECHNICAL_LAUNCH_CHECKLIST.md`.
 
 3. **Publish only a smaller subset of Group 1**  
    Publish the lowest-risk pages first, such as `/start-here/` and selected practical guides, while keeping higher-friction pages `noindex, nofollow`.
