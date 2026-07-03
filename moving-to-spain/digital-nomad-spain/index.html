@@ -21,67 +21,80 @@
     <link rel="apple-touch-icon" href="/assets/favicon.svg" />
     <style>
       html { scroll-behavior: smooth; }
-      .guide-main { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 1.4rem 0 4rem; }
-      .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 1.2rem; align-items: start; }
+      .guide-main { width: min(1080px, calc(100% - 32px)); margin: 0 auto; padding: 1.5rem 0 4.5rem; }
+      .guide-main a { overflow-wrap: anywhere; }
+      .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 260px); gap: 1.75rem; align-items: start; }
       .guide-layout--single { grid-template-columns: minmax(0, 1fr); }
       .guide-content { min-width: 0; }
-      .guide-breadcrumbs { margin: 0 0 1rem; color: rgba(27, 32, 48, 0.62); font-size: 0.86rem; }
+      .guide-breadcrumbs { margin: 0 0 1.1rem; color: rgba(27, 32, 48, 0.62); font-size: 0.86rem; }
       .guide-breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
       .guide-breadcrumbs li:not(:last-child)::after { content: "/"; margin-left: 0.4rem; color: rgba(27, 32, 48, 0.36); }
       .guide-breadcrumbs a { color: #a64a36; text-decoration: none; font-weight: 800; }
+      .guide-breadcrumbs a:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 2px; border-radius: 6px; }
       .search-nav-link { display: inline-flex; align-items: center; justify-content: center; width: 2.55rem; height: 2.55rem; border: 1px solid rgba(166, 74, 54, 0.16); border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #a64a36; text-decoration: none; box-shadow: 0 10px 28px rgba(42, 32, 25, 0.06); }
       .search-nav-link svg { width: 1.05rem; height: 1.05rem; }
       .search-nav-link:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; }
-      .guide-status-badge { margin: 0 0 1rem; padding: 0.65rem 0.85rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.78rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; width: fit-content; }
+      .guide-status-badge { margin: 0 0 1rem; padding: 0.6rem 0.95rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.76rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; width: fit-content; }
       .guide-status-badge--review { border-color: rgba(38, 57, 94, 0.18); background: rgba(38, 57, 94, 0.08); color: #26395e; }
-      .guide-reading-time { margin: -0.35rem 0 1rem; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
-      .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
+      .guide-reading-time { display: inline-flex; width: fit-content; margin: 0.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; font-weight: 800; }
+      .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 14px 36px rgba(42, 32, 25, 0.06); }
       .guide-toc strong, .guide-toc-mobile summary { color: #1b2030; font-weight: 900; }
-      .guide-toc ol, .guide-toc-mobile ol { display: grid; gap: 0.45rem; margin: 0.75rem 0 0; padding-left: 1rem; }
-      .guide-toc a, .guide-toc-mobile a { color: rgba(27, 32, 48, 0.68); text-decoration: none; font-size: 0.86rem; font-weight: 800; }
-      .guide-toc a[aria-current="true"], .guide-toc-mobile a[aria-current="true"] { color: #a64a36; }
+      .guide-toc ol, .guide-toc-mobile ol { display: grid; gap: 0.58rem; margin: 0.85rem 0 0; padding: 0; list-style: none; }
+      .guide-toc li, .guide-toc-mobile li { min-width: 0; }
+      .guide-toc a, .guide-toc-mobile a { display: block; min-height: 0; color: rgba(27, 32, 48, 0.68); text-decoration: none; font-size: 0.84rem; font-weight: 800; line-height: 1.42; text-align: left; background: transparent; border: 0; border-radius: 0; box-shadow: none; overflow-wrap: break-word; }
+      .guide-toc a { padding: 0.12rem 0 0.12rem 0.7rem; border-left: 2px solid rgba(166, 74, 54, 0.12); }
+      .guide-toc-mobile a { min-height: 2.75rem; padding: 0.2rem 0; }
+      .guide-toc a[aria-current="true"] { border-left-color: #a64a36; color: #a64a36; }
+      .guide-toc-mobile a[aria-current="true"] { color: #a64a36; }
       .guide-toc a:focus-visible, .guide-toc-mobile a:focus-visible, .guide-toc-mobile summary:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; border-radius: 8px; }
-      .guide-toc-mobile { display: none; margin: 0 0 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); }
-      .guide-hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr); gap: clamp(1.2rem, 4vw, 2.4rem); align-items: center; padding: clamp(2rem, 5vw, 4rem); }
+      .guide-toc-mobile { display: none; margin: 0 0 1.1rem; padding: 1.1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); }
+      .guide-hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(240px, 0.7fr); gap: clamp(1.2rem, 4vw, 2.2rem); align-items: center; padding: clamp(1.6rem, 4.5vw, 3.2rem); }
       .guide-kicker { display: inline-flex; width: fit-content; color: #a64a36; font-size: 0.74rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
-      .guide-hero h1 { max-width: 760px; margin: 0.7rem 0 1rem; color: #1b2030; font-size: clamp(2.35rem, 5.8vw, 4.4rem); line-height: 0.98; }
-      .guide-hero p, .guide-section > p, .guide-hero-card p { color: rgba(27, 32, 48, 0.7); font-size: 1rem; line-height: 1.7; }
-      .guide-hero-card, .guide-section, .guide-info-card { border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 18px; background: rgba(255, 255, 255, 0.78); box-shadow: 0 18px 48px rgba(42, 32, 25, 0.08); }
+      .guide-hero h1 { max-width: 720px; margin: 0.65rem 0 0.9rem; color: #1b2030; font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.06; letter-spacing: -0.01em; }
+      .guide-hero p, .guide-section > p, .guide-hero-card p { max-width: 68ch; color: rgba(27, 32, 48, 0.72); font-size: 1rem; line-height: 1.7; }
+      .guide-hero-card, .guide-section, .guide-info-card { border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 14px 36px rgba(42, 32, 25, 0.06); }
       .guide-hero-card { padding: 1.35rem; }
       .guide-hero-card strong { display: block; margin-bottom: 0.55rem; color: #1b2030; font-size: 1.05rem; }
-      .guide-section { padding: clamp(1.1rem, 3vw, 1.6rem); margin-top: 1.15rem; scroll-margin-top: 96px; }
-      .guide-section h2 { margin: 0 0 0.85rem; color: #1b2030; font-size: clamp(1.45rem, 3vw, 2rem); }
-      .guide-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; }
+      .guide-section { padding: clamp(1.15rem, 3vw, 1.7rem); margin-top: 1.25rem; scroll-margin-top: 96px; }
+      .guide-section h2 { margin: 0 0 0.9rem; color: #1b2030; font-size: clamp(1.35rem, 2.6vw, 1.8rem); line-height: 1.2; }
+      .guide-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
       .guide-card-grid--single { grid-template-columns: minmax(0, 1fr); }
-      .guide-continue-journey { display: grid; gap: 1rem; }
-      .guide-journey-group { display: grid; gap: 0.75rem; }
+      .guide-continue-journey { display: grid; gap: 1.1rem; }
+      .guide-journey-group { display: grid; gap: 0.8rem; }
       .guide-journey-group > h3 { margin: 0; color: rgba(27, 32, 48, 0.58); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
       .guide-journey-group .guide-info-card { display: grid; gap: 0.65rem; align-content: start; }
       .guide-journey-group .guide-button { justify-self: start; margin-top: 0.1rem; }
-      .guide-info-card, .guide-box { padding: 1rem; }
-      .guide-info-card h3, .guide-box h3, .guide-timeline h3 { margin: 0 0 0.45rem; color: #1b2030; font-size: 1rem; }
-      .guide-info-card p, .guide-info-card li, .guide-box p, .guide-box li, .guide-timeline p { margin: 0; color: rgba(27, 32, 48, 0.68); font-size: 0.93rem; line-height: 1.58; }
-      .guide-box ul { margin: 0; padding-left: 1rem; }
-      .guide-table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; }
-      .guide-table th, .guide-table td { padding: 0.85rem; border-bottom: 1px solid rgba(166, 74, 54, 0.1); text-align: left; vertical-align: top; }
+      .guide-info-card, .guide-box { padding: 1.1rem; }
+      .guide-info-card h3, .guide-box h3, .guide-timeline h3 { margin: 0 0 0.5rem; color: #1b2030; font-size: 1rem; line-height: 1.35; }
+      .guide-info-card h3 a { color: inherit; }
+      .guide-info-card p, .guide-info-card li, .guide-box p, .guide-box li, .guide-timeline p { margin: 0; color: rgba(27, 32, 48, 0.7); font-size: 0.95rem; line-height: 1.62; overflow-wrap: break-word; }
+      .guide-box ul { margin: 0; padding-left: 1.05rem; display: grid; gap: 0.4rem; }
+      .guide-section a[target="_blank"]::after { content: " ↗"; font-size: 0.85em; color: rgba(166, 74, 54, 0.75); }
+      .guide-table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; font-size: 0.95rem; }
+      .guide-table th, .guide-table td { padding: 0.9rem; border-bottom: 1px solid rgba(166, 74, 54, 0.1); text-align: left; vertical-align: top; line-height: 1.55; }
       .guide-table th { width: 34%; background: rgba(253, 240, 220, 0.66); color: #1b2030; }
       .guide-table td { color: rgba(27, 32, 48, 0.72); }
       .guide-table tr:last-child th, .guide-table tr:last-child td { border-bottom: 0; }
-      .guide-box { border-radius: 16px; margin-top: 1rem; }
-      .guide-box strong { display: block; margin-bottom: 0.35rem; color: #1b2030; }
+      .guide-box { border-radius: 16px; margin-top: 1.1rem; }
+      .guide-box strong { display: block; margin-bottom: 0.4rem; color: #1b2030; font-size: 0.98rem; }
       .guide-box--warning { border: 1px solid rgba(166, 74, 54, 0.18); background: rgba(253, 240, 220, 0.72); }
       .guide-box--tip { border: 1px solid rgba(38, 57, 94, 0.12); background: rgba(38, 57, 94, 0.06); }
-      .guide-box--info, .guide-box--checklist { border: 1px solid rgba(166, 74, 54, 0.13); background: rgba(255, 255, 255, 0.78); }
-      .guide-timeline { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
-      .guide-timeline li { display: grid; grid-template-columns: auto 1fr; gap: 0.75rem; align-items: start; padding: 0.85rem; border-radius: 16px; background: rgba(253, 240, 220, 0.46); }
+      .guide-box--info, .guide-box--checklist { border: 1px solid rgba(166, 74, 54, 0.13); background: rgba(255, 255, 255, 0.82); }
+      .guide-timeline { display: grid; gap: 0.8rem; margin: 0; padding: 0; list-style: none; }
+      .guide-timeline li { display: grid; grid-template-columns: auto 1fr; gap: 0.8rem; align-items: start; padding: 0.9rem; border-radius: 16px; background: rgba(253, 240, 220, 0.46); }
       .guide-timeline span { display: inline-grid; width: 2rem; height: 2rem; place-items: center; border-radius: 10px; background: #a64a36; color: #fff; font-weight: 900; }
-      .guide-button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
-      .guide-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.6rem; border-radius: 999px; background: #a64a36; color: #fff; font-weight: 900; padding: 0.65rem 1rem; text-decoration: none; }
-      .guide-button--secondary { border: 1px solid rgba(166, 74, 54, 0.18); background: #fff; color: #a64a36; }
-      .last-reviewed { margin: 1.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
-      .guide-image-placeholder { min-height: 180px; border: 1px dashed rgba(166, 74, 54, 0.22); border-radius: 18px; background: linear-gradient(135deg, rgba(253, 240, 220, 0.7), rgba(255, 255, 255, 0.72)); }
-      @media (max-width: 900px) { .guide-layout, .guide-hero, .guide-card-grid { grid-template-columns: 1fr; } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
-      @media (max-width: 640px) { .guide-main { width: min(100% - 20px, 1080px); padding-top: 1rem; } .guide-hero, .guide-section { padding: 1.1rem; } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
+      .guide-button-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.1rem; }
+      .guide-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem; border-radius: 999px; background: #a64a36; color: #fff; font-weight: 900; font-size: 0.95rem; padding: 0.7rem 1.2rem; text-decoration: none; text-align: center; }
+      .guide-button:hover { background: #8f3e2c; }
+      .guide-button:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.32); outline-offset: 3px; }
+      .guide-button--secondary { border: 1px solid rgba(166, 74, 54, 0.22); background: #fff; color: #a64a36; }
+      .guide-button--secondary:hover { background: rgba(253, 240, 220, 0.55); }
+      .guide-button[aria-disabled="true"] { background: rgba(27, 32, 48, 0.08); border-color: transparent; color: rgba(27, 32, 48, 0.45); cursor: default; }
+      .last-reviewed { margin: 1.25rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; }
+      .guide-image-placeholder { min-height: 180px; border: 1px dashed rgba(166, 74, 54, 0.22); border-radius: 16px; background: linear-gradient(135deg, rgba(253, 240, 220, 0.7), rgba(255, 255, 255, 0.72)); }
+      @media (max-width: 1040px) { .guide-layout { grid-template-columns: minmax(0, 1fr); } .guide-toc { display: none; } .guide-toc-mobile { display: block; } }
+      @media (max-width: 900px) { .guide-hero { grid-template-columns: 1fr; } .guide-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
   </head>
@@ -123,13 +136,13 @@
             <span class="guide-kicker">Remote work route</span>
             <h1 id="pageTitle">Digital Nomad Visa and Remote Work in Spain</h1>
             <p>A practical starting point for understanding remote-work routes, what you may need to prepare, and which issues to check before moving to Spain.</p>
+            <p class="guide-reading-time">7 min read</p>
           </div>
           <aside class="guide-hero-card" aria-label="Guide summary">
             <strong>Not automatic for every remote worker</strong>
             <p>Digital nomad and remote-work rules can depend on your nationality, employer or client structure, income, tax residence, documents, healthcare cover, family situation and where you apply.</p>
           </aside>
         </section>
-        <p class="guide-reading-time">7 min read</p>
         <details class="guide-toc-mobile" data-guide-toc>
           <summary>On this page</summary>
           <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#importantNote" data-guide-toc-link>Important note</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#whoThisRoadmapIsFor" data-guide-toc-link>Who this roadmap is for</a></li><li><a href="#digitalNomadVsEmployeeVsSelfEmployed" data-guide-toc-link>Digital nomad vs employee vs self-employed route</a></li><li><a href="#beforeYouApplyOrMove" data-guide-toc-link>Before you apply or move</a></li><li><a href="#employerClientsWorkStructure" data-guide-toc-link>Employer, clients and work structure</a></li><li><a href="#taxesAndRemoteWork" data-guide-toc-link>Taxes and remote work</a></li><li><a href="#healthcareAndSocialSecurity" data-guide-toc-link>Healthcare and Social Security</a></li><li><a href="#tieBasicsForDigitalNomads" data-guide-toc-link>TIE basics for digital nomads</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
@@ -210,17 +223,17 @@
           <h2 id="scopeNotice">Scope Notice</h2>
           <p>This guide provides general information for Spain. Some procedures and supporting documents may vary by province or municipality.</p>
         </section>
-        <section class="guide-section" aria-labelledby="officialSources"><h2 id="officialSources">Official Sources</h2><div class="guide-card-grid"><article class="guide-info-card"><h3><a href="https://administracion.gob.es" target="_blank" rel="noopener noreferrer">Spanish Government</a></h3><p>Punto de Acceso General — the citizen entry point for Spanish public administration procedures.</p></article>
+        <section class="guide-section" aria-labelledby="officialSources"><h2 id="officialSources">Official Sources</h2><div class="guide-card-grid"><article class="guide-info-card"><h3><a href="https://administracion.gob.es" target="_blank" rel="noopener noreferrer">Spanish Government</a></h3><p>Punto de Acceso General — the central official entry point for Spanish public administration procedures.</p></article>
           <article class="guide-info-card"><h3><a href="https://www.inclusion.gob.es/web/migraciones/home" target="_blank" rel="noopener noreferrer">Ministry responsible for immigration</a></h3><p>Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including remote-work-related routes.</p></article>
           <article class="guide-info-card"><h3><a href="https://www.exteriores.gob.es" target="_blank" rel="noopener noreferrer">Ministry of Foreign Affairs (consular information)</a></h3><p>Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad.</p></article>
           <article class="guide-info-card"><h3><a href="https://sede.agenciatributaria.gob.es" target="_blank" rel="noopener noreferrer">Agencia Tributaria</a></h3><p>Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and foreign-income questions for remote workers.</p></article>
-          <article class="guide-info-card"><h3><a href="https://www.seg-social.es" target="_blank" rel="noopener noreferrer">Seguridad Social</a></h3><p>Instituto Nacional de la Seguridad Social — relevant for Social Security treatment of employees, freelancers and business owners. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides.</p></article>
-          <article class="guide-info-card"><h3><a href="https://sede.policia.gob.es" target="_blank" rel="noopener noreferrer">Police appointment portal</a></h3><p>Policía Nacional e-office. TIE-related appointment booking for digital nomads is linked from here — confirm the specific appointment path before publication.</p></article></div><div class="guide-box guide-box--info"><strong>Source status</strong><p>Official references below link to their official domain. Confirm the specific page still matches this guide's content before publication.</p></div></section>
+          <article class="guide-info-card"><h3><a href="https://www.seg-social.es" target="_blank" rel="noopener noreferrer">Seguridad Social</a></h3><p>Instituto Nacional de la Seguridad Social — the official Social Security portal, relevant for how employees, freelancers and business owners are treated.</p></article>
+          <article class="guide-info-card"><h3><a href="https://sede.policia.gob.es" target="_blank" rel="noopener noreferrer">Police appointment portal</a></h3><p>Policía Nacional e-office, where TIE-related appointment booking for digital nomads is available. Check the current appointment options for your specific route.</p></article></div><div class="guide-box guide-box--info"><strong>Source status</strong><p>These links go to official websites. Official details can change, so always confirm current requirements directly with the official source.</p></div></section>
         <section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
           <h2 id="legalDisclaimer">Legal Disclaimer</h2>
           <p>This guide is for informational purposes and is not legal advice.</p>
         </section>
-        <div class="last-reviewed"><p><strong>Last reviewed:</strong> June 2026</p><p>Official sources linked below for further checking; content has not been verified against them by a qualified professional.</p></div>
+        <div class="last-reviewed"><p><strong>Last reviewed:</strong> June 2026</p><p>Official sources are linked on this page for further checking; content has not been verified against them by a qualified professional.</p></div>
         <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney">
           <h2 id="continueJourney">Continue Your Journey</h2>
           <div class="guide-journey-group"><h3>Related Guides</h3><div class="guide-card-grid"><article class="guide-info-card">
@@ -280,7 +293,7 @@
     {
       "name": "Spanish Government",
       "url": "https://administracion.gob.es",
-      "note": "Punto de Acceso General — the citizen entry point for Spanish public administration procedures."
+      "note": "Punto de Acceso General — the central official entry point for Spanish public administration procedures."
     },
     {
       "name": "Ministry responsible for immigration",
@@ -300,12 +313,12 @@
     {
       "name": "Seguridad Social",
       "url": "https://www.seg-social.es",
-      "note": "Instituto Nacional de la Seguridad Social — relevant for Social Security treatment of employees, freelancers and business owners. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides."
+      "note": "Instituto Nacional de la Seguridad Social — the official Social Security portal, relevant for how employees, freelancers and business owners are treated."
     },
     {
       "name": "Police appointment portal",
       "url": "https://sede.policia.gob.es",
-      "note": "Policía Nacional e-office. TIE-related appointment booking for digital nomads is linked from here — confirm the specific appointment path before publication."
+      "note": "Policía Nacional e-office, where TIE-related appointment booking for digital nomads is available. Check the current appointment options for your specific route."
     }
   ],
   "relatedGuides": [

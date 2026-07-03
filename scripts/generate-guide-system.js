@@ -386,93 +386,99 @@ const relatedRoutesByRoute = {
 
 const officialSourcesByRoute = {
   [routes.euRoadmap]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Appointment booking for foreigners' procedures is linked from here — confirm the specific EU-registration appointment path before publication." },
-    { name: "Local Town Halls", varies: true, note: "No single official URL — padrón and local address requirements are set by each municipality. Link the reader's specific town hall page during editorial review." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where appointment booking for foreigners' procedures is available. Check the current appointment options for your specific procedure." },
+    { name: "Local Town Halls", varies: true, note: "There is no single official website — padrón and local address requirements are set by each municipality. Check your own town hall's website for local instructions." }
   ],
   [routes.euRegistration]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Appointment booking for EU registration certificate appointments is linked from here — confirm the specific appointment path before publication." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where appointment booking for EU Registration Certificate appointments is available. Check the current appointment options for your specific procedure." }
   ],
   [routes.padron]: [
     { name: "Spanish Government", url: "https://www.ine.es", note: "Instituto Nacional de Estadística (INE) — national padrón municipal statistics and the Padrón Online portal." },
-    { name: "Local Town Halls", varies: true, note: "No single official URL — padrón requirements and appointment systems are set by each municipality. Link the reader's specific town hall page during editorial review." }
+    { name: "Local Town Halls", varies: true, note: "There is no single official website — padrón requirements and appointment systems are set by each municipality. Check your own town hall's website for local instructions." }
   ],
   [routes.healthcare]: [
     { name: "Spanish Government", url: "https://www.sanidad.gob.es", note: "Ministerio de Sanidad — Spain's national health ministry." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
-    { name: "Regional health services", varies: true, note: "No single official URL — health-card processes and names vary by autonomous community. Link the reader's specific regional health service during editorial review." },
-    { name: "Social Security", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — official Social Security site. Note: could not be re-fetched for verification during this pass (site blocked automated requests), but this is the long-established canonical government domain." }
+    { name: "Regional health services", varies: true, note: "There is no single official website — health-card processes and names vary by autonomous community. Check your own regional health service for local instructions." },
+    { name: "Social Security", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal for checking current entitlement and contribution information." }
   ],
   [routes.taxes]: [
-    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration. Supports further checking of tax residency, filing and worldwide-income questions; it does not replace professional tax advice, and this guide is not tax advice." }
+    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration. Useful for checking tax residency, filing and worldwide-income questions; it does not replace professional tax advice, and this guide is not tax advice." }
   ],
   [routes.social]: [
-    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — official Social Security site. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on the Healthcare guide." }
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal for checking current registration, contribution and entitlement information." }
   ],
   [routes.driving]: [
     { name: "Dirección General de Tráfico (DGT)", url: "https://www.dgt.es", note: "DGT is Spain's traffic authority and the official place to check current driving-licence, exchange, renewal and medical-check rules referenced throughout this guide." }
   ],
   [routes.nonEuRoadmap]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking is linked from here — confirm the specific appointment path for your route before publication." },
-    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for visa applications handled through Spanish consulates abroad. Verified reachable this sprint (HTTP 200, page titled correctly)." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking is available. Check the current appointment options for your specific route." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for visa applications handled through Spanish consulates abroad." }
   ],
   [routes.euFamilyMemberRoadmap]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. Family-member residence card appointment booking is linked from here — confirm the specific appointment path before publication." },
-    { name: "EU official information for families", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, titled \"Help and advice for EU nationals and their family.\" Verified reachable this sprint (HTTP 200, page titled correctly)." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where family-member residence card appointment booking is available. Check the current appointment options for your specific case." },
+    { name: "EU official information for families", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, with help and advice for EU nationals and their family." }
   ],
   [routes.students]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for students is linked from here — confirm the specific appointment path before publication." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for students is available. Check the current appointment options for your specific route." },
     { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for student visa applications handled through Spanish consulates abroad." },
-    { name: "Ministry of Education", url: "https://www.educacionyfp.gob.es", note: "Ministerio de Educación, Formación Profesional y Deportes. Verified reachable this sprint (HTTP 200, redirects to educacionfpydeportes.gob.es, page titled correctly)." }
+    { name: "Ministry of Education", url: "https://www.educacionyfp.gob.es", note: "Ministerio de Educación, Formación Profesional y Deportes — Spain's national education ministry." }
   ],
   [routes.workInSpain]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for work-related residence procedures." },
-    { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social. Verified reachable this sprint (HTTP 200, page titled \"Página principal. Ministerio de Trabajo y Economía Social\")." },
-    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — official Social Security site. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on the Healthcare and Social Security guides." },
+    { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social — Spain's ministry for labour and employment matters." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal for checking current registration and contribution information." },
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax obligations arising from work in Spain." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for workers is linked from here — confirm the specific appointment path before publication." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for workers is available. Check the current appointment options for your specific route." }
   ],
   [routes.retireInSpain]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including sufficient-resources and non-lucrative-type routes." },
     { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for non-EU applications handled through Spanish consulates abroad." },
     { name: "Ministry of Health", url: "https://www.sanidad.gob.es", note: "Ministerio de Sanidad — Spain's national health ministry, relevant for retiree healthcare routes." },
-    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for pension-linked healthcare entitlement and S1-type routes. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal, relevant for pension-linked healthcare entitlement and S1-type routes." },
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and pension/investment income questions." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for non-EU retirees is linked from here — confirm the specific appointment path before publication." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for non-EU retirees is available. Check the current appointment options for your specific route." }
   ],
   [routes.familyReunification]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence and family-based procedures." },
     { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for family members is linked from here — confirm the specific appointment path before publication." },
-    { name: "EU official information for families (comparison only)", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, relevant only for comparing this route with the separate Family Member of an EU Citizen route. Previously verified in Sprint 49." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for family members is available. Check the current appointment options for your specific case." },
+    { name: "EU official information for families (comparison only)", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, relevant only for comparing this route with the separate Family Member of an EU Citizen route." }
   ],
   [routes.digitalNomad]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including remote-work-related routes." },
     { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and foreign-income questions for remote workers." },
-    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for Social Security treatment of employees, freelancers and business owners. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for digital nomads is linked from here — confirm the specific appointment path before publication." }
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal, relevant for how employees, freelancers and business owners are treated." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for digital nomads is available. Check the current appointment options for your specific route." }
   ],
   [routes.selfEmployed]: [
-    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the citizen entry point for Spanish public administration procedures." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including self-employment-related routes." },
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for autónomo tax registration and obligations." },
-    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — relevant for autónomo Social Security registration and contributions. Note: could not be re-fetched for verification during this pass (the site uses an automated bot-detection challenge), but this is the same long-established canonical government domain already used on other guides." },
-    { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social. Previously verified in Sprint 43 (HTTP 200, page titled \"Página principal. Ministerio de Trabajo y Economía Social\")." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office. TIE-related appointment booking for self-employed non-EU residents is linked from here — confirm the specific appointment path before publication." }
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal, relevant for autónomo registration and contributions." },
+    { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social — Spain's ministry for labour and employment matters." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for self-employed non-EU residents is available. Check the current appointment options for your specific route." }
+  ],
+  [routes.checklist]: [
+    { name: "Modelo 790-012 official fee form", url: "https://sede.policia.gob.es/Tasa790_012/index.jsp", note: "Policía Nacional e-office — the official fee-payment page for Tasa 790-012." },
+    { name: "EX-18 official form (Ministry responsible for immigration)", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — the official immigration portal for checking current EX-18 form and procedure information." },
+    { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office — general appointment and registration portal referenced throughout this checklist." },
+    { name: "Apostille and legalisation", url: "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Legalizacion-y-apostilla.aspx", note: "Ministerio de Asuntos Exteriores — official information on legalisation and apostille of foreign documents." }
   ]
 };
 

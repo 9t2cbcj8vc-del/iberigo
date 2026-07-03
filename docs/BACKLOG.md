@@ -4,8 +4,25 @@ This is the internal product backlog for IberiGo.
 
 ## In Progress
 
+- **Group 1 visual QA before publication** (from Sprint 65 human review — content acceptable for now, visual/design work required before any Group 1 page publishes):
+  - review page layout
+  - check mobile layout
+  - check desktop layout
+  - check spacing and card design
+  - check typography hierarchy
+  - check CTA presentation
+  - check consistency across Group 1
+  - only after visual QA, reconsider publication readiness
+  - ~~open question from the reviewer: which visual/design system should Group 1 use before publication?~~ **Answered (Sprint 66): IberiGo Guide System v1** — calm, practical, government-adjacent, card-based, mobile-first; see `docs/IBERIGO_GUIDE_SYSTEM_V1.md`
+  - Guide System v1 CSS scope audit completed (Sprint 67) — recommended approach: scoped inline `guideCss()` styles (Option D), zero exposure to live indexed pages; unsafe selectors documented; see `docs/GUIDE_SYSTEM_V1_CSS_SCOPE_PLAN.md`
+  - ~~Next step: apply scoped Guide System v1 styles to Group 1~~ **Applied (Sprint 68)** — scoped inline `guideCss()` pass, styles.css untouched, scope check passed; browser QA at 390px/1280px found no overflow, 44px tap targets, stacking tables, calm warning styling (details in `docs/GROUP1_REVIEW_PACKAGE.md`)
+  - Local visual QA pack prepared (Sprint 69) — screenshots in `visual-qa/group1/` (untracked), report in `docs/GROUP1_VISUAL_QA_REPORT.md`; zero visual issues, one content finding
+  - User-facing source-note cleanup completed (Sprint 70) — internal verification commentary removed from all official-source card notes and Source status banners across every generated page; verification history preserved in `docs/SOURCE_VERIFICATION_MATRIX.md`
+  - Human visual review found TOC overlap/cramped sidebar and reading-time placement issues (Sprint 72); scoped fixes applied in generated guide components only, with `styles.css` untouched
+  - Cross-page Guide System v1 consistency QA completed (Sprint 73) — all 22 draft/noindex surfaces checked at desktop/mobile widths; no new visual consistency issues found; details in `docs/GUIDE_SYSTEM_V1_CONSISTENCY_QA.md`
+  - **Status: Visual review completed — still not published** — no page approved for publication, all pages remain noindex, nofollow; legal/tax/immigration and final editorial approval remain separate publish blockers
 - Legal/tax/immigration professional review of the core guides — editorial pass completed on **all 14 pages** as of Sprint 39; official source coverage added for all 7 High-priority pages as of Sprint 43 (see `docs/SOURCE_VERIFICATION_MATRIX.md`); human/professional legal/tax verification is the only outstanding item on every page, and is the actual publish blocker (not a code or content-structure issue)
-- Official source needed for Documents Checklist (names EX-18 and Modelo 790-012 with no linked source)
+- Documents Checklist source gaps fully closed (Sprints 62–63): Modelo 790-012 and apostille/legalisation both directly verified; EX-18 links to the general Migraciones portal (exact form page couldn't be independently confirmed, documented rather than guessed). No source gaps remain open on this page.
 - **Non-EU Roadmap route-card batch complete in draft form (Sprint 57).** All 7 of the Non-EU Citizen Roadmap's route cards now have a drafted sub-guide: Family Member of an EU Citizen (Sprint 49), Student (Sprint 52), Work in Spain (Sprint 53), Retiring in Spain (Sprint 54), Family Reunification (Sprint 55), Digital Nomad (Sprint 56), and Self-Employed / Autónomo (Sprint 57). None are published — all remain `noindex,nofollow` pending legal/tax/immigration review.
 - Non-EU Citizen Roadmap drafted (Sprint 46, `/moving-to-spain/non-eu-citizens/`) — needs its own editorial + legal/immigration review pass before publication
 - Family Member of an EU Citizen Roadmap drafted (Sprint 49, `/moving-to-spain/family-member-eu-citizen/`) — needs its own editorial + legal/immigration review pass before publication
@@ -68,3 +85,7 @@ This is the internal product backlog for IberiGo.
 - Digital Nomad Roadmap draft created, `/moving-to-spain/digital-nomad-spain/`, `noindex,nofollow` — includes a comparison table distinguishing it from the Work in Spain and Self-Employed routes; the Non-EU Roadmap's "Digital nomad / remote work" card now links to it (Start Here has no dedicated remote-work card, so it was intentionally left unchanged) — Sprint 56
 - Self-Employed / Autónomo Roadmap draft created, `/moving-to-spain/self-employed-spain/`, `noindex,nofollow` — Start Here's "self-employed" card, the Non-EU Roadmap's "Self-employed / business activity" card, and the Digital Nomad Roadmap's comparison-table reference all now link to it. This completes drafts for all 7 of the Non-EU Roadmap's route cards — Sprint 57
 - Non-EU route batch consistency audit (routes/nav, terminology, risk language, duplication, source coverage) — clean, no content fixes needed; see `docs/NON_EU_BATCH_AUDIT.md` — Sprint 58
+- Non-EU route batch merged into `main` via PR #11 (commit `f365a7e`) — all 8 pages live-deployed, still `noindex,nofollow` — Sprint 60
+- Publish readiness audit across all 22 draft pages — no page cleared to publish; every page still needs human legal/tax/immigration sign-off; see `docs/PUBLISH_READINESS_AUDIT.md` for per-page status, launch grouping, and recommended review sequencing — Sprint 61
+- IberiGo Guide System v1 defined (calm, practical, government-adjacent, card-based, mobile-first) — answers the Sprint 65 reviewer question; see `docs/IBERIGO_GUIDE_SYSTEM_V1.md` — Sprint 66
+- Guide System v1 CSS scope audit completed — draft pages are styled by a per-page inline `guideCss()` block that live pages never load, so v1 styling is safe by construction; the only shared guide-prefixed class is `.guide-card-panel` (styles.css), which is on the do-not-touch list along with all site chrome; see `docs/GUIDE_SYSTEM_V1_CSS_SCOPE_PLAN.md` — Sprint 67
