@@ -1,9 +1,15 @@
 # Group 1 Publication Decision Package
 
 **Date:** 2026-07-03  
-**Branch:** `group1/post-launch-homepage-link`  
-**Status:** Homepage discovery link preview QA passed — merge pending  
-**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`). This sprint's preview QA covers a discovery link only; no page's publication or indexing status changed.
+**Branch:** `group1/homepage-move-to-spain-link`  
+**Status:** Homepage Move to Spain link preview QA pending  
+**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`). This sprint revises the homepage discovery UX only; no page's publication or indexing status changed.
+
+## Sprint 94 (revision) — Move to Spain Card Now Links to Start Here
+
+The standalone "Start here" block added in Sprint 92 (and merged/deployed via PR #18) is being replaced by a smaller change: the existing "Move to Spain" homepage card's "Explore" button now points directly to `/start-here/` (`<a class="primary-action" href="/start-here/">`) instead of the standalone block below the three cards, which has been removed from `index.html`. This avoids the standalone block making the "Move to Spain" card feel redundant. The "Vacation" and "Live" cards are unchanged. No global navigation change was made.
+
+No additional page was published. All five already-launched pages remain `index, follow`; all non-selected drafts remain `noindex, nofollow`; `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` are unchanged (verified byte-identical to `main`). No redirects were added, no legacy guide was migrated. This is a new PR (superseding the Sprint 92/93 standalone-block approach that was previously merged); **preview review is required before this PR merges.**
 
 ## Sprint 93 — Homepage Discovery Link Preview QA Passed
 

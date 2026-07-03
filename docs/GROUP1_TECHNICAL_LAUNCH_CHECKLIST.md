@@ -1,8 +1,21 @@
 # Group 1 Technical Launch Checklist
 
 **Date:** 2026-07-03  
-**Status:** Homepage discovery link preview QA passed — merge pending  
-**Preview QA on PR #18's Netlify deploy preview has passed with no issues found and no fixes required. The PR has not been merged.**
+**Status:** Homepage Move to Spain link preview QA pending  
+**A revised homepage discovery change is prepared on `group1/homepage-move-to-spain-link` (a new PR, not yet opened at doc-write time) and has not been merged.**
+
+## Sprint 94 (revision) — Move to Spain Card Link Prepared
+
+- [x] Remove the standalone "Start here" block added in Sprint 92 (currently live via merged PR #18). *(Removed from `index.html`.)*
+- [x] Update the existing "Move to Spain" card's "Explore" button to link directly to `/start-here/`, reusing the existing `.primary-action` style (no `styles.css` changes). *(Done — `<a class="primary-action" href="/start-here/">`.)*
+- [x] Confirm "Vacation" and "Live" cards unchanged. *(Verified — untouched.)*
+- [x] Confirm no additional pages were published; all five launched pages remain `index, follow`; all non-selected drafts remain `noindex, nofollow`. *(Verified.)*
+- [x] Confirm `sitemap.xml`, `search-index.json`, `robots.txt`, `styles.css` unchanged (byte-identical to `main`). *(Verified via diff.)*
+- [x] Confirm no redirects added, no legacy migration, no global navigation change. *(Verified.)*
+- [x] Homepage returns `200` locally; `/start-here/` returns `200` and remains `index, follow`; no overflow at 1280px or 390px; homepage does not feel more crowded than before Sprint 92. *(Verified visually.)*
+- [x] Run build/generation, metadata validation, broken internal-link check. *(All pass, zero drift beyond `index.html`.)*
+
+**Preview review is required before this PR merges — it is not merged yet.**
 
 ## Sprint 93 — Homepage Discovery Link Preview QA Passed
 
