@@ -1,8 +1,22 @@
 # Group 1 Technical Launch Checklist
 
 **Date:** 2026-07-03  
-**Status:** Group 1 launched as owner-reviewed practical information  
-**PR #16 was squash-merged into `main` (commit `1dc6b9b`) on 2026-07-03 and is live on production (`https://iberigo.eu`).**
+**Status:** Homepage discovery link prepared — preview review pending  
+**A homepage discovery link to `/start-here/` has been prepared on `group1/post-launch-homepage-link` and has not been merged.**
+
+## Sprint 92 — Homepage Discovery Link Prepared
+
+- [x] Add one small homepage link to `/start-here/`, near the hero, using existing `.secondary-action` styling (no `styles.css` changes). *(Placed in `index.html`'s `#guide-cards` section, below the three situation cards.)*
+- [x] Confirm no additional pages were published. *(Only `index.html` changed; no page's `status`/`robots` metadata changed.)*
+- [x] Confirm the five already-launched pages remain `index, follow`. *(Verified.)*
+- [x] Confirm all non-selected draft pages remain `noindex, nofollow`. *(Verified — 16/16.)*
+- [x] Confirm `sitemap.xml` still contains only the five launched Group 1 routes among the guide pages. *(Verified — unchanged by this sprint's build.)*
+- [x] Confirm `search-index.json` still contains only the five launched Group 1 pages. *(Verified — unchanged, 5 entries.)*
+- [x] Confirm `robots.txt` unchanged. *(Verified.)*
+- [x] Confirm no redirects added, no legacy migration, no route removed; `/guides/banking/` and `/guides/eu-registration/` still exist. *(Verified.)*
+- [x] Run build/generation, metadata validation, broken internal-link check. *(All pass, zero drift beyond `index.html`.)*
+
+**Preview review is required before this PR merges — it is not merged yet.**
 
 ## Sprint 90 — Merged and Verified on Production (2026-07-03)
 

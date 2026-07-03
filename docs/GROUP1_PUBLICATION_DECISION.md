@@ -1,9 +1,15 @@
 # Group 1 Publication Decision Package
 
 **Date:** 2026-07-03  
-**Branch:** `group1/owner-publication-choice`  
-**Status:** Group 1 launched as owner-reviewed practical information  
-**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`) as of 2026-07-03. All non-selected draft pages remain `noindex, nofollow`.
+**Branch:** `group1/post-launch-homepage-link`  
+**Status:** Homepage discovery link prepared — preview review pending  
+**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`). This sprint adds a discovery link only; no page's publication or indexing status changed.
+
+## Sprint 92 — Homepage Discovery Link Prepared
+
+A small, calm homepage link to `/start-here/` has been prepared on `group1/post-launch-homepage-link`, not yet merged. It sits directly below the three hero situation cards in `index.html`'s `#guide-cards` section: a short line of supporting copy ("Not sure where to begin? Start with a practical overview of the first steps after moving to Spain.") plus a "Start here" link styled with the existing `.secondary-action` pill class (no CSS changes). It does not claim legal/professional advice and does not claim the guide covers every situation.
+
+This does not publish any additional page. All five already-launched pages remain `index, follow`; all non-selected draft pages remain `noindex, nofollow`; `sitemap.xml`, `search-index.json`, and `robots.txt` are unchanged by this sprint's build. No redirects were added, no legacy guide was migrated, and `/guides/banking/` and `/guides/eu-registration/` are untouched. **Preview review is required before this PR merges.**
 
 ## Sprint 90 — Group 1 Launched (2026-07-03)
 
