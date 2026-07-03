@@ -165,6 +165,14 @@ PR #16 (commit `7ff11a4`) was checked on its Netlify deploy preview (`https://de
 
 PR #16 was squash-merged into `main` (commit `1dc6b9b`). Branch protection required 1 approving review; per the established repo procedure this was temporarily set to 0, the PR was merged, and it was immediately restored to 1. Production verification on `https://iberigo.eu` confirmed all five selected pages return `200`, `index, follow`, no DRAFT badge, correct canonical/title/description, and a visible disclaimer; production `sitemap.xml` and `search-index.json` contain exactly the five selected pages; eight representative non-selected drafts remain `noindex, nofollow` and out of the sitemap; `robots.txt` is unchanged; `/guides/banking/` and `/guides/eu-registration/` still return `200`; no redirects, legacy migration, or homepage/navigation changes were made. Status: **Group 1 launched as owner-reviewed practical information.** Future recommendation, not actioned: add a homepage or navigation link to `/start-here/`.
 
+#### Homepage discovery link prepared (Sprint 92)
+
+A small homepage link to `/start-here/` (with calm supporting copy, no legal/professional-advice framing) has been added to the homepage hero on `group1/post-launch-homepage-link` using the existing `.secondary-action` style — no `styles.css` changes, no additional page published. The five already-launched pages remain `index, follow`, all non-selected drafts remain `noindex, nofollow`, and `sitemap.xml`/`search-index.json`/`robots.txt` are unchanged. No redirects or legacy migration were made. Status: **Homepage discovery link prepared — preview review pending.** Not yet merged.
+
+#### Homepage discovery link preview QA passed (Sprint 93)
+
+PR #18 (commit `7ed2612`) was checked on its Netlify deploy preview at 1280px and 390px: homepage returns `200`, the `/start-here/` link is visible and naturally placed under the hero cards with calm copy, no crowding, no legal/professional-advice implication, and no overflow or style regression. `/start-here/` returns `200` and remains `index, follow`. All five launched pages remain `index, follow`; eight representative non-selected drafts remain `noindex, nofollow`; the preview's `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` are byte-identical to `main`. No redirects or legacy migration; `/guides/banking/` and `/guides/eu-registration/` both return `200`. No issues found, no fixes needed. Status: **Homepage discovery link preview QA passed — merge pending.** PR #18 remains unmerged.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 

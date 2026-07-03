@@ -1,9 +1,27 @@
 # Group 1 Publication Decision Package
 
 **Date:** 2026-07-03  
-**Branch:** `group1/owner-publication-choice`  
-**Status:** Group 1 launched as owner-reviewed practical information  
-**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`) as of 2026-07-03. All non-selected draft pages remain `noindex, nofollow`.
+**Branch:** `group1/post-launch-homepage-link`  
+**Status:** Homepage discovery link preview QA passed — merge pending  
+**Publication status:** The five selected pages are live and indexable on production (`https://iberigo.eu`). This sprint's preview QA covers a discovery link only; no page's publication or indexing status changed.
+
+## Sprint 93 — Homepage Discovery Link Preview QA Passed
+
+PR #18 (commit `7ed2612`) was checked on its Netlify deploy preview (`https://deploy-preview-18--iberigo.netlify.app`, deploy status: ready).
+
+- Homepage returns `200`; the new `/start-here/` link is visible directly below the three hero situation cards, with calm supporting copy, no legal/professional-advice framing, and no crowding, at both 1280px and 390px — no overflow or style regression.
+- "Start here" link points to `/start-here/`, which returns `200` on the preview and remains `index, follow`; link styling (the existing `.secondary-action` pill) is visually consistent with the rest of the homepage.
+- All five launched pages remain `index, follow`. Eight representative non-selected draft pages confirmed still `noindex, nofollow`.
+- Preview's `sitemap.xml`, `search-index.json`, `robots.txt`, and `styles.css` are all byte-identical to `main` — no drift.
+- No redirects added, no legacy migration. `/guides/banking/` and `/guides/eu-registration/` both return `200`.
+
+No issues were found; no fixes were needed. This is preview QA only — **PR #18 remains unmerged.**
+
+## Sprint 92 — Homepage Discovery Link Prepared
+
+A small, calm homepage link to `/start-here/` has been prepared on `group1/post-launch-homepage-link`, not yet merged. It sits directly below the three hero situation cards in `index.html`'s `#guide-cards` section: a short line of supporting copy ("Not sure where to begin? Start with a practical overview of the first steps after moving to Spain.") plus a "Start here" link styled with the existing `.secondary-action` pill class (no CSS changes). It does not claim legal/professional advice and does not claim the guide covers every situation.
+
+This does not publish any additional page. All five already-launched pages remain `index, follow`; all non-selected draft pages remain `noindex, nofollow`; `sitemap.xml`, `search-index.json`, and `robots.txt` are unchanged by this sprint's build. No redirects were added, no legacy guide was migrated, and `/guides/banking/` and `/guides/eu-registration/` are untouched. **Preview review is required before this PR merges.**
 
 ## Sprint 90 — Group 1 Launched (2026-07-03)
 
