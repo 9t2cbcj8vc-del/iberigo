@@ -8,6 +8,8 @@
 
 **Sprint 97B update (2026-07-03):** the CSS-only fix from Sprint 97A wasn't enough — cards still looked uneven because CTA labels varied too much in length, causing some buttons to wrap to a taller two-line shape next to single-line siblings. Normalized CTA labels to a small, consistent set ("View roadmap," "View guide," "Continue") across `/start-here/`, `/moving-to-spain/non-eu-citizens/`, and every page's shared "Related Guides"/journey-card labels (`scripts/generate-guide-system.js`'s `guideSummaries`). Still Guide-System-scoped only, no `styles.css` edit, no part of the sitewide unification plan implemented.
 
+**Sprint 97C update (2026-07-03):** preview QA on PR #21's Netlify deploy preview passed with no issues — normalized CTA labels are visually uniform across `/start-here/` and every secondary page checked, at 1280px and 390px, with launch safety fully intact. PR #21 remains unmerged pending a merge decision.
+
 ## Why this exists
 
 Group 1 (`/start-here/` and four guide pages) launched using a new visual language — the **IberiGo Guide System v1** (`docs/IBERIGO_GUIDE_SYSTEM_V1.md`) — while the rest of the public site (homepage, Vacation/Live sections, The Spain Files, Donate, and all legacy `/guides/*` pages) still uses the original, older design system. PR #19 proposes pointing the homepage's "Move to Spain" card at `/start-here/`, which raises a fair question before merging: does the site feel like one coherent brand once a visitor moves from the homepage into a Guide System v1 page? This audit answers that question and proposes a path forward. It does not implement anything.
