@@ -171,7 +171,7 @@ function GuideLinkCard(item, modifier = "") {
   return `<article class="guide-info-card${modifier ? ` ${modifier}` : ""}">
             <h3>${escapeHtml(item.title || item.label || "Guide")}</h3>
             ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ""}
-            <a class="guide-button guide-button--secondary" href="${item.href}">${escapeHtml(item.label || `View the ${item.title || "Guide"}`)}</a>
+            <a class="guide-button guide-button--secondary" href="${item.href}">${escapeHtml(item.label || "View guide")}</a>
           </article>`;
 }
 

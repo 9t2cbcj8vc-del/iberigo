@@ -107,94 +107,102 @@ function basicSkeleton({
 const guideSummaries = {
   [routes.euRoadmap]: {
     title: "EU Citizen Roadmap",
-    label: "View the EU Citizen Roadmap",
+    label: "View roadmap",
     description: "Follow the usual order of moving steps for EU, EEA and Swiss citizens."
   },
   [routes.settling]: {
     title: "Settling Into Spain",
-    label: "View the Settling Into Spain Guide",
+    label: "View guide",
     description: "Follow the main arrival steps after reaching Spain without relying on fixed timelines."
   },
   [routes.euRegistration]: {
     title: "EU Registration Certificate",
-    label: "View the EU Registration Guide",
+    label: "View guide",
     description: "Prepare the EU Registration Certificate step for longer-term stays in Spain."
   },
   [routes.padron]: {
     title: "Padrón Guide",
+    label: "View guide",
     description: "Understand town hall address registration and the documents commonly requested."
   },
   [routes.healthcare]: {
     title: "Healthcare Guide",
+    label: "View guide",
     description: "Compare public healthcare, S1, work-based entitlement and private-cover routes."
   },
   [routes.checklist]: {
     title: "Documents Checklist",
-    label: "View the Documents Checklist",
+    label: "View guide",
     description: "Organize the core paperwork folder before appointments and everyday setup."
   },
   [routes.banking]: {
     title: "Bank Account Guide",
+    label: "View guide",
     description: "Set up everyday banking, payments and account documents in Spain."
   },
   [routes.digital]: {
     title: "Digital Certificate Guide",
+    label: "View guide",
     description: "Set up FNMT digital certificate or Cl@ve access for online public services."
   },
   [routes.social]: {
     title: "Social Security Guide",
+    label: "View guide",
     description: "Understand Social Security numbers, work registration and related healthcare links."
   },
   [routes.taxes]: {
     title: "Taxes Guide",
+    label: "View guide",
     description: "Review tax residence, tax address and first tax-administration questions."
   },
   [routes.driving]: {
     title: "Driving Guide",
+    label: "View guide",
     description: "Check driving licence and resident-driver rules after moving to Spain."
   },
   [routes.accommodation]: {
     title: "Accommodation Guide",
+    label: "View guide",
     description: "Plan housing evidence, rentals and the address documents that later steps may need."
   },
   [routes.nonEuRoadmap]: {
     title: "Non-EU Citizen Roadmap",
-    label: "View the Non-EU Citizen Roadmap",
+    label: "View roadmap",
     description: "Understand the main non-EU residence routes and what to check before relying on any single process."
   },
   [routes.euFamilyMemberRoadmap]: {
     title: "Family Member of an EU Citizen Roadmap",
-    label: "View the Family Member of an EU Citizen Roadmap",
+    label: "View roadmap",
     description: "Understand the broad journey for non-EU family members of EU citizens moving to or living in Spain."
   },
   [routes.students]: {
     title: "Student Roadmap",
-    label: "View the Student Roadmap",
+    label: "View roadmap",
     description: "Understand the broad student route for studying in Spain, for EU and non-EU students alike."
   },
   [routes.workInSpain]: {
     title: "Work in Spain Roadmap",
-    label: "View the Work in Spain Roadmap",
+    label: "View roadmap",
     description: "Understand the broad work-related routes for moving to Spain, for EU and non-EU citizens alike."
   },
   [routes.retireInSpain]: {
     title: "Retiring in Spain Roadmap",
-    label: "View the Retiring in Spain Roadmap",
+    label: "View roadmap",
     description: "Understand the broad retirement and sufficient-resources route for moving to Spain, for EU and non-EU citizens alike."
   },
   [routes.familyReunification]: {
     title: "Family Reunification Roadmap",
-    label: "View the Family Reunification Roadmap",
+    label: "View roadmap",
     description: "Understand the broad family reunification route for joining a non-EU resident sponsor in Spain."
   },
   [routes.digitalNomad]: {
     title: "Digital Nomad Roadmap",
-    label: "View the Digital Nomad Roadmap",
+    label: "View roadmap",
     description: "Understand the broad remote-work and digital nomad route for moving to Spain."
   },
   [routes.selfEmployed]: {
     title: "Self-Employed / Autónomo Roadmap",
-    label: "View the Self-Employed Roadmap",
+    label: "View roadmap",
     description: "Understand the broad self-employment and autónomo route for moving to or living in Spain."
   }
 };
@@ -205,7 +213,7 @@ function guideLink(route) {
   return {
     title,
     description: summary.description || "",
-    label: summary.label || `View the ${title}`,
+    label: summary.label || "View guide",
     href: route
   };
 }
@@ -844,13 +852,13 @@ const pages = [
           id: "chooseYourPath",
           title: "Choose your path",
           children: StartHereCards([
-            { title: "I’m an EU citizen", text: "Start with the roadmap for EU, EEA and Swiss citizens moving to Spain.", href: routes.euRoadmap, label: "View the EU Citizen Roadmap" },
-            { title: "I’m a non-EU citizen", text: "Start with the roadmap for non-EU citizens moving to Spain.", href: routes.nonEuRoadmap, label: "View the Non-EU Citizen Roadmap" },
-            { title: "I’m joining family in Spain", text: "Start with the family route that appears closest to your situation, then confirm the exact rules that apply to you.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
-            { title: "I’m moving for work", text: "Start with the roadmap for work-related routes, then check the specific route for your nationality and job situation.", href: routes.workInSpain, label: "View the Work in Spain Roadmap" },
-            { title: "I’m moving to study", text: "Start with the roadmap for study routes, then confirm the rules for your nationality, course and study length.", href: routes.students, label: "View the Student Roadmap" },
-            { title: "I’m retiring in Spain", text: "Start with the roadmap for retirement planning, then check the route that matches your nationality, income and healthcare position.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
-            { title: "I’m self-employed", text: "Start with the roadmap for self-employment and autónomo planning, then confirm whether it fits your residence route.", href: routes.selfEmployed, label: "View the Self-Employed Roadmap" }
+            { title: "I’m an EU citizen", text: "Start with the roadmap for EU, EEA and Swiss citizens moving to Spain.", href: routes.euRoadmap, label: "View roadmap" },
+            { title: "I’m a non-EU citizen", text: "Start with the roadmap for non-EU citizens moving to Spain.", href: routes.nonEuRoadmap, label: "View roadmap" },
+            { title: "I’m joining family in Spain", text: "Start with the family route that appears closest to your situation, then confirm the exact rules that apply to you.", href: routes.euFamilyMemberRoadmap, label: "View roadmap" },
+            { title: "I’m moving for work", text: "Start with the roadmap for work-related routes, then check the specific route for your nationality and job situation.", href: routes.workInSpain, label: "View roadmap" },
+            { title: "I’m moving to study", text: "Start with the roadmap for study routes, then confirm the rules for your nationality, course and study length.", href: routes.students, label: "View roadmap" },
+            { title: "I’m retiring in Spain", text: "Start with the roadmap for retirement planning, then check the route that matches your nationality, income and healthcare position.", href: routes.retireInSpain, label: "View roadmap" },
+            { title: "I’m self-employed", text: "Start with the roadmap for self-employment and autónomo planning, then confirm whether it fits your residence route.", href: routes.selfEmployed, label: "View roadmap" }
           ])
         }),
         GuideSection({
@@ -2584,14 +2592,14 @@ pages.push({
         id: "chooseYourRoute",
         title: "Choose your route",
         children: StartHereCards([
-          { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: routes.workInSpain, label: "View the Work in Spain Roadmap" },
-          { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: routes.students, label: "View the Student Roadmap" },
-          { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: routes.familyReunification, label: "View the Family Reunification Roadmap" },
-          { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View the Family Member of an EU Citizen Roadmap" },
-          { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View the Retiring in Spain Roadmap" },
-          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: routes.digitalNomad, label: "View the Digital Nomad Roadmap" },
-          { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: routes.selfEmployed, label: "View the Self-Employed Roadmap" },
-          { title: "Already in Spain and unsure what applies", text: "Use the Start Here page and this roadmap together to narrow down what may apply.", href: routes.startHere, label: "View Start Here" }
+          { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: routes.workInSpain, label: "View roadmap" },
+          { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: routes.students, label: "View roadmap" },
+          { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: routes.familyReunification, label: "View roadmap" },
+          { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View roadmap" },
+          { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View roadmap" },
+          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: routes.digitalNomad, label: "View roadmap" },
+          { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: routes.selfEmployed, label: "View roadmap" },
+          { title: "Already in Spain and unsure what applies", text: "Use the Start Here page and this roadmap together to narrow down what may apply.", href: routes.startHere, label: "Continue" }
         ])
       }),
       GuideSection({
