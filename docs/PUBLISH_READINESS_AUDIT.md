@@ -241,6 +241,10 @@ Verified post-regeneration: zero visible `.guide-status-badge` elements anywhere
 
 No additional pages published, no indexing changes, no redirects, no legacy migration; `sitemap.xml`/`search-index.json`/`robots.txt` unchanged; `/guides/banking/` and `/guides/eu-registration/` both return `200`. This is visual source-categorization only, not an official endorsement or certification claim. Status: **Guide source-card styling restored — final preview QA pending.** PR #21 remains unmerged.
 
+#### Official source-link polish completed
+
+A final confirmation pass on the Sprint 97F source-card work found no remaining rough edges: cards in the same grid row are equal height (CSS Grid stretch, verified 284px across a 3-card row on `/moving-to-spain/healthcare/`), the longest category tag ("TRAFFIC AUTHORITY") doesn't wrap or overflow at 390px on `/living-in-spain/driving/`, and click areas/spacing are consistent with the rest of the Guide System — no further code changes were needed. Re-verified together as a set: `/start-here/`'s 7 "Choose your path" CTAs remain equal at 197×44px, homepage Move/Vacation/Live Explore buttons remain equal at 136×44px, no visible Draft badge anywhere, source cards remain calm, subtle, and source-categorized without imitating official websites. Launch safety confirmed unchanged: 5 launched pages `index, follow`, 16 drafts `noindex, nofollow`, `sitemap.xml`/`search-index.json`/`robots.txt` byte-identical to `main`, no redirects, no legacy migration. PR #21's scope remains exactly: CTA alignment, normalized CTA labels, homepage CTA consistency, Draft-label removal, and official source-link visual polish — nothing broader. Status: **Official source-link polish completed — final preview QA pending.** PR #21 remains unmerged.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 
