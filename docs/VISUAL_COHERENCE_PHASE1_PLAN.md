@@ -1,8 +1,20 @@
 # Visual Coherence Phase 1 Plan
 
 **Date:** 2026-07-04
-**Status:** Visual Coherence Phase 1 planned — implementation pending
+**Status:** Homepage card coherence pass prepared — preview QA pending
 **Scope:** planning only. No implementation, no `styles.css` edits, no publication or indexing changes, no redirects, no legacy migration were made while producing this document.
+
+## Sprint 103 — Homepage Card Coherence Pass Prepared
+
+The recommended first implementation PR from this plan has been prepared on `visual-coherence/homepage-card-pass` (not yet merged): a small, narrowly-scoped `styles.css` change to the homepage's three `.situation-card--illustrated` cards (Move to Spain, Vacation in Spain, Live in Spain) only.
+
+**Exact `styles.css` selectors touched:**
+- `.situation-card--illustrated` — added `border-radius: 16px` (was inheriting 8px from the shared `.situation-card` rule), changed `border-color` and `box-shadow` to reuse Guide System v1's exact accent/shadow tokens (`rgba(166, 74, 54, 0.13)` border, `0 14px 36px rgba(42, 32, 25, 0.08)` shadow).
+- `.situation-card--illustrated button, .situation-card--illustrated .primary-action` — `font-weight` bumped from `600` to `800` for CTA presence closer to Guide System v1's bolder buttons.
+
+No other selector was touched — `.situation-card`, `.popular-card`, `.source-groups article`, `.trust-grid div` (which share the 8px radius rule) remain at 8px, since changing that shared selector would have affected every page using those components, not just the homepage. `.panel`, `.section-heading`, `.guide-card-panel`, `.site-footer`, `.topbar`, `.brand-*` were not touched.
+
+Verified: homepage cards now render at 16px radius (confirmed matching `/start-here/`'s Guide System cards exactly), the three Explore buttons remain equal-sized (136×44px desktop, full-width mobile) and Move to Spain still links to `/start-here/`, Vacation/Live route-preset behavior unchanged, no standalone Start Here block, no overflow at 1280px/390px. Regression-checked `/start-here/` (CTA alignment and Draft-badge removal both still intact), `/the-spain-files/`, `/support/`, `/guides/banking/`, `/guides/eu-registration/` — all render normally. No additional pages published, no indexing changes, no redirects, no legacy migration. This is a homepage-only visual pass; it does not implement Phase 2 (legacy `/guides/*` structural fix), Phase 3 (Vacation/Live landing pages), or Phase 4 (further homepage redesign decisions).
 
 ## Goal
 
