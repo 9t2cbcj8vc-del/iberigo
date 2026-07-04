@@ -1,8 +1,20 @@
 # Visual Coherence Phase 1 Plan
 
 **Date:** 2026-07-04
-**Status:** Homepage card coherence pass prepared — preview QA pending
+**Status:** Homepage card coherence preview QA passed — merge pending
 **Scope:** planning only. No implementation, no `styles.css` edits, no publication or indexing changes, no redirects, no legacy migration were made while producing this document.
+
+## Sprint 104 — Homepage Card Coherence Preview QA Passed
+
+PR #24 (commit `6a4b4ec`) was checked on its Netlify deploy preview (`https://deploy-preview-24--iberigo.netlify.app`, deploy ready) at 1280px and 390px.
+
+- Homepage returns `200`; all three cards render at 16px radius, matching `/start-here/`'s Guide System cards exactly (confirmed on the preview: both compute `border-radius: 16px`); border/shadow read as calm, not heavy; CTA buttons remain equal-sized (136×44px desktop, full-width mobile) with a slightly bolder but not aggressive weight (800).
+- Move to Spain still links to `/start-here/`; Vacation/Live `data-route-preset` behavior unchanged; no standalone Start Here block; no horizontal overflow or crowding at either breakpoint; header, search icon, language switcher, footer, and Donate link all render normally.
+- Comparison with `/start-here/`: the homepage now visually reads as the same card family (identical 16px radius) while still feeling like a homepage (video-backed cards, wizard below) rather than a guide-page clone.
+- Regression QA: `/start-here/`'s Guide System CTA alignment and Draft-badge removal both still hold; `/the-spain-files/` and `/support/` render normally; `/guides/banking/` and `/guides/eu-registration/` both return `200` on the preview.
+- Launch safety verified directly against the live preview: all 5 launched pages `index, follow`; all 16 non-selected drafts `noindex, nofollow`; preview's `sitemap.xml` byte-identical to `main`; `search-index.json` exactly 5 entries; `robots.txt` byte-identical to `main`; no redirects; no legacy migration; no additional pages published.
+
+No issues found; no fixes were needed. This is preview QA only — **PR #24 remains unmerged.**
 
 ## Sprint 103 — Homepage Card Coherence Pass Prepared
 
