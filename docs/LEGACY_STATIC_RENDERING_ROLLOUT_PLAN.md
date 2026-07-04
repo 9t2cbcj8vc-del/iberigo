@@ -1,6 +1,8 @@
 # Legacy Static Rendering Rollout Plan
 
-**Status: Phone static rendering POC prepared - preview QA pending**
+**Status: Phone static rendering POC preview QA passed - merge pending**
+
+**Sprint 121 update (2026-07-04):** PR #33 preview QA passed on `https://deploy-preview-33--iberigo.netlify.app`. Netlify deploy preview is successful at commit `65ac21ca9b831535cef6fa472ea18016ab0873a1`. Raw HTML checks confirmed `/guides/phone/` and `/guides/es/phone/` contain meaningful static guide content inside `#wizardResult`, while `/guides/banking/` and `/guides/es/banking/` remain baseline placeholder routes. JS-enabled browser QA at 1280px and 390px found no duplicate result cards, titles, lists, links, disclaimers, buttons, console errors, or horizontal overflow for phone or job-search. Regression routes returned normally, the audit remains exactly **4/70** static-body-content routes, and no `app.js`, `styles.css`, sitemap, search-index, robots, redirect, migration, or publication changes were made. PR #33 remains unmerged.
 
 **Sprint 120 update (2026-07-04):** the recommended one-pair follow-up was prepared on `visual-coherence/phone-static-poc`. `/guides/phone/` and `/guides/es/phone/` now have static `#wizardResult` content generated from the existing `app.js` phone route data and provider link metadata. `scripts/render-legacy-static-poc.js` was evolved from a job-search-only script into a controlled selected-route renderer: `job-search` remains supported for the launched POC, while only `phone` is selected for this sprint. The audit moved from **2/70** to **4/70** static-body-content routes (`job-search` EN+ES and `phone` EN+ES); the remaining **66/70** legacy routes are unchanged. No `app.js`, `styles.css`, redirect, sitemap, search-index, robots, full migration, or additional publication change was made. Preview QA is still required before merge.
 

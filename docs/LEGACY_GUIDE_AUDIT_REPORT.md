@@ -1,6 +1,8 @@
 # Legacy Guide Audit Report
 
-**Status: Phone static rendering POC prepared — preview QA pending**
+**Status: Phone static rendering POC preview QA passed — merge pending**
+
+**Sprint 121 update (2026-07-04):** PR #33 preview QA reran `node scripts/audit-legacy-guides.js`; it exits `0` and keeps the expected result: **4/70** static guide body routes (`/guides/job-search/`, `/guides/es/job-search/`, `/guides/phone/`, `/guides/es/phone/`) and **66/70** remaining legacy routes unchanged with `missing-static-guide-body-content, missing-noscript-fallback`. Noscript fallback count remains **0/70**, so the audit finding is not hidden or weakened. The deploy preview also confirmed `/guides/banking/` and `/guides/es/banking/` still contain the original placeholder rather than accidental static content. PR #33 remains unmerged.
 
 **Sprint 120 update (2026-07-04):** rerunning `node scripts/audit-legacy-guides.js` after the phone POC implementation exits `0` and confirms exactly **4/70** pages with static guide body content: `/guides/job-search/`, `/guides/es/job-search/`, `/guides/phone/`, and `/guides/es/phone/`. The remaining **66/70** legacy routes retain the baseline `missing-static-guide-body-content, missing-noscript-fallback` state. The phone pair still has the known `missing-noscript-fallback` risk flag, matching the job-search POC limitation. No findings were weakened, no full legacy migration happened, no additional pages were published, and `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, and `robots.txt` were unchanged.
 
