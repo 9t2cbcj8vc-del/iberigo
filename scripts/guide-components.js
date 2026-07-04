@@ -11,6 +11,46 @@ const DEFAULT_EDITORIAL_CHECKLIST = [
   "Facts verified"
 ];
 
+// Source-category variants for official-source cards. Reuses the same
+// category logic and accent-color language already used safely elsewhere
+// in the project for government-style links (see app.js's govMeta/
+// govDomains/euDomains) — accent colors and short initials only, no logos
+// or flags, so cards feel recognizable without impersonating official sites.
+const SOURCE_CATEGORY_META = {
+  government: { tag: "Spanish Government", initials: "ES" },
+  police: { tag: "Policía Nacional", initials: "PN" },
+  eu: { tag: "European Union", initials: "EU" },
+  tax: { tag: "Tax Agency", initials: "AT" },
+  "social-security": { tag: "Social Security", initials: "SS" },
+  traffic: { tag: "Traffic Authority", initials: "DGT" },
+  healthcare: { tag: "Health Ministry", initials: "MS" },
+  municipal: { tag: "Local / Regional", initials: "LOC" },
+  generic: { tag: "Official Source", initials: "OS" }
+};
+
+function classifySource(item = {}) {
+  if (!item.url) {
+    const name = String(item.name || "").toLowerCase();
+    if (/town hall|municipal|regional/.test(name)) return "municipal";
+    return "generic";
+  }
+  let host = "";
+  try {
+    host = new URL(item.url).hostname;
+  } catch {
+    return "generic";
+  }
+  const endsWith = (domain) => host === domain || host.endsWith(`.${domain}`);
+  if (endsWith("policia.gob.es")) return "police";
+  if (endsWith("europa.eu")) return "eu";
+  if (endsWith("agenciatributaria.gob.es")) return "tax";
+  if (endsWith("seg-social.es") || endsWith("seg-social.gob.es")) return "social-security";
+  if (endsWith("dgt.es") || endsWith("dgt.gob.es")) return "traffic";
+  if (endsWith("sanidad.gob.es")) return "healthcare";
+  if (host.endsWith(".gob.es") || endsWith("boe.es") || endsWith("administracion.gob.es")) return "government";
+  return "generic";
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -218,10 +258,19 @@ function OfficialSources(items = []) {
     title: "Official Sources",
     children: `<div class="guide-card-grid">${items
       .map((item) => {
+        const category = classifySource(item);
+        const meta = SOURCE_CATEGORY_META[category];
         const heading = item.url
           ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.name || "Official source")}</a>`
           : escapeHtml(item.name || "Official source");
-        return `<article class="guide-info-card"><h3>${heading}</h3><p>${escapeHtml(item.note || "Official reference placeholder. URL to be verified before publication.")}</p></article>`;
+        return `<article class="guide-info-card guide-source-card guide-source-card--${category}">
+            <div class="guide-source-head">
+              <span class="guide-source-badge" aria-hidden="true">${escapeHtml(meta.initials)}</span>
+              <span class="guide-source-tag">${escapeHtml(meta.tag)}</span>
+            </div>
+            <h3>${heading}</h3>
+            <p>${escapeHtml(item.note || "Official reference placeholder. URL to be verified before publication.")}</p>
+          </article>`;
       })
       .join("\n          ")}</div>${InfoBox({ title: "Source status", text: statusText })}`
   });
@@ -350,6 +399,18 @@ function guideCss() {
       .guide-info-card h3, .guide-box h3, .guide-timeline h3 { margin: 0 0 0.5rem; color: #1b2030; font-size: 1rem; line-height: 1.35; }
       .guide-info-card h3 a { color: inherit; }
       .guide-info-card p, .guide-info-card li, .guide-box p, .guide-box li, .guide-timeline p { margin: 0; color: rgba(27, 32, 48, 0.7); font-size: 0.95rem; line-height: 1.62; overflow-wrap: break-word; }
+      .guide-source-card { --source-accent: #a64a36; --source-accent-soft: rgba(166, 74, 54, 0.1); border-left: 4px solid var(--source-accent); }
+      .guide-source-head { display: flex; align-items: center; gap: 0.55rem; }
+      .guide-source-badge { flex: 0 0 auto; display: inline-grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 7px; background: var(--source-accent-soft); color: var(--source-accent); font-size: 0.66rem; font-weight: 900; letter-spacing: 0.02em; }
+      .guide-source-tag { color: rgba(27, 32, 48, 0.55); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; }
+      .guide-source-card--police { --source-accent: #1d3a5f; --source-accent-soft: rgba(29, 58, 95, 0.1); }
+      .guide-source-card--eu { --source-accent: #1954a6; --source-accent-soft: rgba(25, 84, 166, 0.1); }
+      .guide-source-card--tax { --source-accent: #a25b00; --source-accent-soft: rgba(162, 91, 0, 0.1); }
+      .guide-source-card--social-security { --source-accent: #1d5fa4; --source-accent-soft: rgba(29, 95, 164, 0.1); }
+      .guide-source-card--traffic { --source-accent: #b5651d; --source-accent-soft: rgba(181, 101, 29, 0.1); }
+      .guide-source-card--healthcare { --source-accent: #2b8f6f; --source-accent-soft: rgba(43, 143, 111, 0.1); }
+      .guide-source-card--municipal { --source-accent: #8a6d3b; --source-accent-soft: rgba(138, 109, 59, 0.1); }
+      .guide-source-card--government { --source-accent: #aa151b; --source-accent-soft: rgba(170, 21, 27, 0.08); }
       .guide-box ul { margin: 0; padding-left: 1.05rem; display: grid; gap: 0.4rem; }
       .guide-section a[target="_blank"]::after { content: " ↗"; font-size: 0.85em; color: rgba(166, 74, 54, 0.75); }
       .guide-table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; font-size: 0.95rem; }
