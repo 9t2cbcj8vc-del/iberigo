@@ -219,6 +219,14 @@ Launch safety: all 5 launched pages remain `index, follow`; sampled drafts remai
 
 **Note:** production `/start-here/` still shows the old, un-normalized "View the X Roadmap" buttons — this changes only once PR #21 is merged. No issues found, no fixes needed. Status: **CTA alignment final preview QA passed — merge pending.** PR #21 remains unmerged.
 
+#### User-facing Draft labels removed (Sprint 97E)
+
+Audited all generated guide pages for visible "Draft"/"DRAFT" text. Found one live user-facing source: `StatusBadge()` in `scripts/guide-components.js` rendered a visible "DRAFT — Not reviewed for publication" badge (`.guide-status-badge`) on every non-selected draft page — 16 pages, one badge each. The 5 launched pages never showed this, since the badge's label map had no entry for `status: "published"`. Also found a dormant, currently-unused default fallback in `GuideHero()` (`asideTitle = "Draft guide"`, with workflow-review wording in the fallback body text) that would leak the same kind of internal status if a future page call ever omitted an explicit `asideTitle`.
+
+Fix: `StatusBadge()` now unconditionally returns an empty string — workflow status (`draft`/`review`/`published`) stays purely internal and continues to drive `robots` metadata and search-index inclusion in `GuideLayout`, completely untouched. Removed the now-dead `.guide-status-badge` CSS. Replaced `GuideHero`'s default fallback with calm, non-workflow copy. The internal `<script type="application/json" class="guide-frontmatter">` block (never rendered to visitors) still legitimately carries `"status": "draft"` per non-selected page — left as-is, since it's required for generation/validation and isn't visible.
+
+Verified post-regeneration: zero visible `.guide-status-badge` elements anywhere across all 21 generated pages; the only remaining `"draft"` occurrence per page is the non-rendered JSON frontmatter script. Visual QA on `/moving-to-spain/non-eu-citizens/`, `/living-in-spain/taxes/`, `/search/`, and `/start-here/` at 1280px/390px: no badge, no awkward empty space where it used to sit, hero/reading-time balance unaffected, and both the Guide System CTA-label fix and homepage Move/Vacation/Live CTA-size fix from earlier in PR #21 still hold. No additional pages published, no indexing changes, no redirects, no legacy migration; `sitemap.xml`/`search-index.json`/`robots.txt` unchanged; `/guides/banking/` and `/guides/eu-registration/` both return `200`. Status: **User-facing Draft labels removed — final preview QA pending.** PR #21 remains unmerged.
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 

@@ -74,7 +74,7 @@ function Breadcrumbs(items = []) {
         </nav>`;
 }
 
-function GuideHero({ kicker = "Guide", title, intro, asideTitle = "Draft guide", asideText = "This page uses the IberiGo guide system and will be reviewed before publication.", meta = "" }) {
+function GuideHero({ kicker = "Guide", title, intro, asideTitle = "About this guide", asideText = "This page is part of the IberiGo guide system.", meta = "" }) {
   return `<section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle">
           <div>
             <span class="guide-kicker">${escapeHtml(kicker)}</span>
@@ -241,13 +241,10 @@ function LastReviewed(date = REVIEWED, reviewedAgainstOfficialGuidance = false) 
     : `<p class="last-reviewed">Last reviewed: ${escapeHtml(date)}</p>`;
 }
 
-function StatusBadge(status) {
-  const labels = {
-    draft: "DRAFT — Not reviewed for publication",
-    review: "IN REVIEW — Needs final approval"
-  };
-  const label = labels[status];
-  return label ? `<div class="guide-status-badge guide-status-badge--${escapeHtml(status)}" role="note">${escapeHtml(label)}</div>` : "";
+function StatusBadge() {
+  // Internal workflow status (draft/review/published) is not shown to visitors.
+  // It still drives robots metadata and search-index inclusion elsewhere.
+  return "";
 }
 
 function ReadingTime(html) {
@@ -320,8 +317,6 @@ function guideCss() {
       .search-nav-link { display: inline-flex; align-items: center; justify-content: center; width: 2.55rem; height: 2.55rem; border: 1px solid rgba(166, 74, 54, 0.16); border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #a64a36; text-decoration: none; box-shadow: 0 10px 28px rgba(42, 32, 25, 0.06); }
       .search-nav-link svg { width: 1.05rem; height: 1.05rem; }
       .search-nav-link:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; }
-      .guide-status-badge { margin: 0 0 1rem; padding: 0.6rem 0.95rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.76rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; width: fit-content; }
-      .guide-status-badge--review { border-color: rgba(38, 57, 94, 0.18); background: rgba(38, 57, 94, 0.08); color: #26395e; }
       .guide-reading-time { display: inline-flex; width: fit-content; margin: 0.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; font-weight: 800; }
       .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 14px 36px rgba(42, 32, 25, 0.06); }
       .guide-toc strong, .guide-toc-mobile summary { color: #1b2030; font-weight: 900; }
@@ -401,7 +396,7 @@ function GuideLayout(config) {
   const showContinueJourney = config.showContinueJourney !== false;
   const mainContent = [
     Breadcrumbs(config.breadcrumbs || []),
-    StatusBadge(status),
+    StatusBadge(),
     GuideHero({ ...config.hero, meta: ReadingTime(sections.join("\n")) }),
     GuideTableOfContents(tocItems, { variant: "mobile" }),
     ...sections,
