@@ -1,0 +1,490 @@
+# Spanish Start Here Localization Plan
+
+**Status:** Spanish Start Here localization planned - implementation pending
+**Sprint:** 124
+**Date:** 2026-07-04
+**Scope:** planning only. No Spanish Guide System pages were created, no pages were translated, no publication/indexing changes were made, no redirects were added, and no `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, or `robots.txt` files were changed while producing this plan.
+
+## Goal
+
+Plan a safe Spanish localization path for the new Guide System entry point, starting with `/start-here/`, without accidentally creating a broader Spanish Guide System rollout, legacy guide migration, redirect strategy, or publication event.
+
+The first implementation should help Spanish-speaking visitors choose the right moving-to-Spain path while preserving the current launch discipline:
+
+- English `/start-here/` is already live and indexable.
+- The five launched Group 1 Guide System pages are live and indexable.
+- Non-selected generated Guide System draft pages remain `noindex, nofollow`.
+- Legacy Spanish routes exist under `/guides/es/`.
+- There is no Spanish equivalent of `/start-here/` yet.
+- Legacy static rendering POCs are complete for `job-search` and `phone` in English and Spanish.
+- The legacy audit baseline is 4/70 static-body-content routes.
+
+## Current Localization Structure
+
+### Legacy Spanish routes
+
+The existing Spanish guide convention is legacy-only:
+
+- Spanish legacy guide routes live under `/guides/es/{topic}/`.
+- Examples include `/guides/es/job-search/`, `/guides/es/phone/`, `/guides/es/banking/`, `/guides/es/eu-registration/`, `/guides/es/padron/`, and other mirrored legacy topics.
+- The two static-rendered Spanish POC routes are `/guides/es/job-search/` and `/guides/es/phone/`.
+- Legacy Spanish guide pages use `<html lang="es" data-guide-id="..." data-guide-lang="es">`.
+
+This structure is established for legacy guide URLs, but it is not yet a pattern for the newer Guide System pages.
+
+### Hreflang and canonical patterns
+
+Legacy English/Spanish guide pairs include complete alternate links:
+
+- English alternate.
+- Spanish alternate.
+- `x-default` alternate.
+- A canonical URL for the current language route.
+
+Example pattern from the static POC pages:
+
+- `/guides/job-search/`
+- `/guides/es/job-search/`
+
+The current Guide System pages do not yet include Spanish alternate URLs because Spanish counterparts do not exist.
+
+### Language switcher behavior
+
+The shared header renders EN/ES buttons across the homepage, legacy pages, and generated Guide System pages.
+
+Current behavior:
+
+- `app.js` toggles `currentLang` and applies client-side translations to elements with `data-i18n`.
+- Links with `data-language-url` can change hrefs per language.
+- Legacy static guide pages can set `data-guide-lang="es"` so `app.js` initializes the page in Spanish.
+- Generated Guide System pages currently render language buttons, but the static page content is English-only.
+
+Risk:
+
+- A visible ES button on generated English-only pages can imply a full Spanish equivalent exists when it does not.
+- Future Guide System localization should avoid sending users to missing or unfinished Spanish pages.
+
+### Guide System generation logic
+
+The Guide System is generated from `scripts/generate-guide-system.js` and `scripts/guide-components.js`.
+
+Relevant control points:
+
+- `routes` defines current English Guide System routes.
+- `guideMetadataFor(route)` controls status, review metadata, official sources, and journey links.
+- `publishedRoutes` controls which generated Guide System pages are treated as published.
+- `GuideLayout()` derives robots metadata from status:
+  - `published` -> `index, follow`
+  - anything else -> `noindex, nofollow`
+- `buildSearchIndex()` includes only generated pages whose metadata status is `published`.
+- `validateInternalLinks()` fails broken internal links on `review` or `published` pages and warns for draft pages.
+
+This is a good safety model. Future Spanish Guide System pages should reuse the same status-driven publication controls rather than introducing one-off robots or search-index logic.
+
+### Sitemap, search index, and robots
+
+Current state:
+
+- `sitemap.xml` includes the five launched Group 1 Guide System pages, including `/start-here/`.
+- `search-index.json` includes the five launched Group 1 Guide System pages.
+- `robots.txt` allows the site generally and only blocks `/outputs/` and `/work/`.
+- Generated search page `/search/` remains `noindex, nofollow`.
+- Non-selected generated draft pages remain protected by page-level robots metadata.
+
+Future Spanish pages should not enter `sitemap.xml` or `search-index.json` until they are explicitly reviewed and launched.
+
+## Spanish URL Structure Options
+
+### Option A - Spanish prefix for Guide System routes
+
+Example:
+
+- `/es/start-here/`
+- `/es/moving-to-spain/documents-checklist/`
+- `/es/moving-to-spain/finding-accommodation/`
+- `/es/moving-to-spain/settling-into-spain/`
+- `/es/living-in-spain/opening-a-bank-account/`
+
+Benefits:
+
+- Clean, scalable, and common for localized static sites.
+- Keeps Spanish Guide System pages out of the legacy `/guides/es/` namespace.
+- Makes future Spanish Guide System growth predictable.
+- Makes canonical and hreflang pairs easy to reason about.
+- Lets `/es/` become the Spanish content namespace beyond legacy guides.
+- Avoids implying that new Guide System pages are part of the older wizard-based legacy guide system.
+
+Risks:
+
+- Introduces a second Spanish URL convention alongside existing `/guides/es/`.
+- Requires careful language-switcher logic so English pages do not point to missing Spanish counterparts.
+- Requires sitemap and search-index logic to understand language and publication status if more localized pages are added.
+- May eventually require a Spanish landing strategy beyond `/es/start-here/`.
+
+Consistency with current site:
+
+- Slightly different from legacy `/guides/es/`, but better aligned with modern site localization patterns.
+- Cleaner for Guide System v1 than nesting localized pages inside `/guides/es/`.
+
+Hreflang implications:
+
+- Straightforward pairings such as:
+  - English: `https://iberigo.eu/start-here/`
+  - Spanish: `https://iberigo.eu/es/start-here/`
+  - `x-default`: likely the English route.
+- Hreflang should be added only when the Spanish counterpart is ready enough to be exposed.
+
+Sitemap implications:
+
+- Spanish pages stay out of `sitemap.xml` while draft/noindex.
+- Add only selected Spanish pages to `sitemap.xml` during a future launch sprint.
+
+Language switcher implications:
+
+- The switcher can map `/start-here/` to `/es/start-here/` only after the Spanish page is reviewed enough to expose.
+- Until then, the ES button should not create a broken route or public-final impression.
+
+Maintainability:
+
+- Best long-term option for localized Guide System content.
+
+### Option B - Language suffix under each English route
+
+Example:
+
+- `/start-here/es/`
+- `/moving-to-spain/documents-checklist/es/`
+- `/moving-to-spain/finding-accommodation/es/`
+- `/moving-to-spain/settling-into-spain/es/`
+- `/living-in-spain/opening-a-bank-account/es/`
+
+Benefits:
+
+- Keeps each translation next to its English source route.
+- Can feel simple for one-off localized pages.
+- Does not create a top-level `/es/` namespace decision.
+
+Risks:
+
+- Less conventional for sitewide localization.
+- Makes future Spanish navigation and section landing pages awkward.
+- Harder to scale to Spanish versions of whole topic areas.
+- Can complicate path matching and sitemap generation because language is a suffix, not a leading namespace.
+
+Consistency with current site:
+
+- Does not match legacy `/guides/es/`.
+- Does not match common language-prefix structure.
+
+Hreflang implications:
+
+- Hreflang still works, but pairings are less obvious at a glance.
+
+Sitemap implications:
+
+- Same publication controls needed: keep out while draft, add only when launched.
+
+Language switcher implications:
+
+- Requires route-specific mapping for every localized counterpart.
+- More fragile if the site later adds Spanish category pages.
+
+Maintainability:
+
+- Acceptable for a very small site, but weaker than Option A for a growing Guide System.
+
+### Option C - Keep Spanish only in legacy `/guides/es/`
+
+Example:
+
+- Do not create `/es/start-here/`.
+- Keep Spanish content limited to legacy routes such as `/guides/es/job-search/` and `/guides/es/phone/`.
+
+Benefits:
+
+- No new URL convention.
+- No immediate Guide System localization implementation.
+- Lowest near-term technical change.
+
+Risks:
+
+- Leaves no Spanish equivalent of the new Start Here entry point.
+- Keeps Spanish users in the older legacy guide namespace.
+- Does not support the launched Guide System pages or future localized Guide System growth.
+- Makes the language switcher on generated pages more confusing over time.
+
+Consistency with current site:
+
+- Preserves legacy convention only.
+- Does not address the new Guide System entry-point gap.
+
+Hreflang implications:
+
+- No Spanish hreflang counterpart for `/start-here/`.
+
+Sitemap implications:
+
+- No change.
+
+Language switcher implications:
+
+- EN/ES controls on generated pages remain limited or potentially misleading.
+
+Maintainability:
+
+- Weak for future Guide System localization.
+
+## Recommendation: Use `/es/start-here/`
+
+Recommended URL structure:
+
+- `/es/start-here/` for the first Spanish Guide System entry point.
+- Future Spanish Guide System routes should use the same leading language prefix, for example `/es/moving-to-spain/documents-checklist/`.
+
+Reasoning:
+
+- It is clean, scalable, and easy to understand.
+- It separates modern Guide System localization from the legacy `/guides/es/` structure.
+- It gives the site a future Spanish namespace without forcing a legacy migration.
+- It supports clear hreflang, sitemap, canonical, and language-switcher rules.
+
+Do not implement this route in Sprint 124. This document only records the recommendation.
+
+## Initial Spanish Scope Options
+
+### Option A - Spanish `/start-here/` only
+
+Scope:
+
+- Create `/es/start-here/` only.
+- Keep it draft/noindex first.
+- It may link to English pages initially, with clear Spanish wording that the linked guides are currently in English.
+
+Benefits:
+
+- Fastest and lowest-risk way to close the Spanish entry-point gap.
+- Smaller translation/review workload.
+- Easier visual, metadata, and indexing QA.
+- Avoids translating legal/admin-heavy guide content too soon.
+
+Risks:
+
+- Spanish entry point may lead users into English guide pages.
+- Needs careful language-switcher and CTA wording to avoid promising a full Spanish journey.
+
+### Option B - Spanish `/start-here/` plus the five launched Group 1 pages
+
+Scope:
+
+- `/es/start-here/`
+- `/es/moving-to-spain/documents-checklist/`
+- `/es/moving-to-spain/finding-accommodation/`
+- `/es/moving-to-spain/settling-into-spain/`
+- `/es/living-in-spain/opening-a-bank-account/`
+
+Benefits:
+
+- More complete Spanish user journey.
+- Better experience after a visitor starts in Spanish.
+- Clearer hreflang value once all five Spanish counterparts exist.
+
+Risks:
+
+- Larger translation and review workload.
+- Higher risk because the documents, accommodation, settling, and banking guides include administrative, rental, and financial caution wording.
+- Harder to QA in one sprint.
+- More likely to create pressure to launch pages before review is complete.
+
+### Option C - Spanish draft versions of all Guide System pages
+
+Scope:
+
+- Create Spanish versions of all generated Guide System pages.
+
+Benefits:
+
+- Complete bilingual skeleton.
+
+Risks:
+
+- Too broad.
+- Too much translation, metadata, source, link, and legal/tax/immigration review work.
+- High chance of stale or uneven Spanish content.
+- Makes publication controls more complex.
+
+## Recommendation: Start With Spanish `/es/start-here/` As Draft
+
+Recommended first scope:
+
+1. Create Spanish `/es/start-here/` as a draft/noindex page.
+2. Do not add it to `sitemap.xml`.
+3. Do not add it to `search-index.json`.
+4. Do not add public hreflang from English `/start-here/` until the Spanish page is reviewed enough to expose.
+5. Do not create all five Spanish Group 1 pages in the first implementation PR.
+6. Plan the five launched Group 1 Spanish translations as a controlled second step after the entry page is reviewed.
+
+This lets the team test the Spanish Guide System route, metadata, robots handling, visual layout, and language-switcher behavior with one low-blast-radius page.
+
+## Publication And Indexing Rules
+
+Future Spanish Guide System pages should follow these rules:
+
+- Create Spanish pages as `noindex, nofollow` first.
+- Keep Spanish draft pages out of `sitemap.xml`.
+- Keep Spanish draft pages out of `search-index.json`.
+- Add hreflang only when the Spanish counterpart is ready enough to be exposed.
+- Do not make the language switcher point to missing pages.
+- Do not make the language switcher point to unfinished pages unless the page is intentionally exposed as a draft/noindex route.
+- Do not link draft Spanish pages as public-final pages.
+- Do not add redirects unless a future sprint explicitly approves them.
+- Do not remove `noindex, nofollow` from non-selected generated draft pages.
+
+Recommended publication posture for `/es/start-here/`:
+
+- During first implementation: accessible draft route, `noindex, nofollow`, not in sitemap, not in search index.
+- During review: reachable by direct URL and preview QA only.
+- After review: expose from language switcher only if wording, links, metadata, and noindex status are intentionally accepted.
+- At launch: add to `sitemap.xml` and `search-index.json` only if explicitly selected for publication; then add hreflang to the English/Spanish pair.
+
+## Translation And Review Policy
+
+Spanish Guide System pages should not be raw machine translation only.
+
+Required approach:
+
+- Translate for meaning, not word-for-word literal matching.
+- Preserve IberiGo tone: calm, practical, concise, and not legal advice.
+- Use "we" voice where the English site uses it; avoid first-person "I".
+- Avoid fixed timelines where Spain varies by province, municipality, appointment availability, bank policy, or personal circumstances.
+- Avoid province-specific certainty unless the page is explicitly province-specific and sourced.
+- Keep legal, tax, immigration, financial, rental, and healthcare wording cautious.
+- Keep disclaimers visible and consistent with owner-reviewed practical-information framing.
+- Use official source links where possible.
+- Have a human Spanish-language review before launch.
+- Have subject-matter review for admin/legal/tax/immigration-sensitive content before treating a Spanish page as launchable.
+
+Terminology should be consistent:
+
+| English concept | Recommended Spanish term |
+|---|---|
+| Municipal registration | empadronamiento |
+| Municipal register | padrón |
+| NIE | NIE |
+| TIE | TIE |
+| Digital Certificate | certificado digital |
+| Cl@ve | Cl@ve |
+| Social Security | Seguridad Social |
+| Health card | tarjeta sanitaria |
+| Bank account | cuenta bancaria |
+| EU Registration Certificate | Certificado de Registro de Ciudadano de la Unión |
+
+Notes:
+
+- Keep official document names in Spanish where they are already Spanish administrative names.
+- Where English readers may know a term, Spanish pages can include the acronym and the full Spanish form on first use.
+- Do not imply that Spanish terminology is legal advice or a complete official glossary.
+
+## File-Risk Map For Future Implementation
+
+| Area | Likely file(s) | Risk | Notes |
+|---|---|---:|---|
+| Localization planning docs | `docs/*` | Low | Safe place to record scope, decisions, and QA results. |
+| Guide System route/content data | `scripts/generate-guide-system.js` or future data modules | Medium | Adds route/content surface; must keep status-driven robots/search behavior intact. |
+| Guide System page template | `scripts/guide-components.js` | Medium | May need `lang`, alternate links, and language-aware metadata. Keep changes scoped to generated Guide System pages. |
+| Metadata generation | `scripts/generate-guide-system.js`, `scripts/guide-components.js` | Medium | Must avoid accidentally marking Spanish drafts as published. |
+| Search-index generation | `scripts/generate-guide-system.js` | Medium-high | Only explicitly launched Spanish pages should be included. |
+| Sitemap | `sitemap.xml` or future sitemap generation logic | Medium-high | Do not add draft/noindex pages. Add Spanish pages only during launch. |
+| Language switcher logic | `app.js`, generated header markup, possible future data attributes | High | `app.js` is shared across homepage and legacy pages. Avoid unless a route-specific generated-page approach is enough. |
+| `styles.css` | `styles.css` | High | Shared by all public systems. Avoid for localization unless a separately approved visual change requires it. |
+| Legacy app runtime | `app.js` | High | Drives homepage, wizard, language toggle, and legacy guide rendering. Avoid broad changes. |
+| Legacy Spanish guide pages | `guides/es/*/index.html` | Medium-high | Do not mix Guide System localization with legacy static rendering or migration. |
+| Robots | `robots.txt` | Medium | No change needed for draft Spanish pages; indexing should be page-level first. |
+| Existing generated English pages | `/start-here/`, `/moving-to-spain/*`, `/living-in-spain/*` | Medium | Avoid rewriting English routes unless needed for safe hreflang/linking after Spanish counterpart exists. |
+
+Preferred future implementation should avoid `app.js` and broad `styles.css` changes. If language-switcher behavior is needed for `/es/start-here/`, first consider generated-page-specific attributes or markup that does not alter legacy behavior.
+
+## Recommended First Implementation PR
+
+Recommended PR title:
+
+**Create Spanish Start Here draft**
+
+Scope:
+
+- Create `/es/start-here/`.
+- Set `<html lang="es">`.
+- Keep `noindex, nofollow`.
+- Use Spanish metadata and canonical for `/es/start-here/`.
+- Keep it out of `sitemap.xml`.
+- Keep it out of `search-index.json`.
+- Do not add redirects.
+- Do not change existing English `/start-here/` indexing.
+- Do not create all Spanish Group 1 pages yet.
+- Do not migrate legacy guides.
+- Do not change `styles.css`.
+- Avoid `app.js` unless there is no safer generated-page route mapping option.
+- Include draft language-switcher behavior only if safe and clearly intentional.
+- Include QA checks for direct route, robots, metadata, links, mobile, desktop, homepage, legacy guides, and generated drafts.
+
+Content shape:
+
+- Spanish Start Here should route users calmly.
+- If it links to English guides, CTAs should make that clear, for example by noting that the detailed guide is currently in English.
+- It should not imply a complete Spanish journey exists until the linked Spanish counterparts are created.
+- It should keep practical-information and not-legal-advice framing.
+
+Do not implement this PR as part of Sprint 124.
+
+## Future QA Checklist
+
+For the first Spanish Start Here implementation:
+
+- `/es/start-here/` returns `200`.
+- `/es/start-here/` has `<html lang="es">`.
+- `/es/start-here/` has `noindex, nofollow`.
+- `/es/start-here/` has the expected canonical URL.
+- English `/start-here/` remains `index, follow`.
+- English `/start-here/` remains in `sitemap.xml` and `search-index.json`.
+- Spanish `/es/start-here/` stays out of `sitemap.xml` unless explicitly launching.
+- Spanish `/es/start-here/` stays out of `search-index.json` unless explicitly launching.
+- `robots.txt` remains unchanged.
+- The language switcher does not point users to missing pages.
+- The language switcher does not present unfinished Spanish pages as public-final pages.
+- No redirects are added.
+- Internal link validation passes.
+- Metadata validation passes.
+- No broken links are introduced.
+- Mobile visual QA passes around 390px.
+- Desktop visual QA passes around 1280px.
+- Homepage regression check passes.
+- Guide System regression check passes.
+- Legacy guide regression check passes.
+- The Spain Files regression check passes.
+- Support page regression check passes.
+- Non-selected generated draft pages remain `noindex, nofollow`.
+- No additional pages are published.
+
+## Decision Summary
+
+- Recommended URL pattern: `/es/start-here/` and future `/es/...` Guide System routes.
+- Recommended first scope: Spanish Start Here only, as draft/noindex.
+- Recommended second scope: Spanish versions of the five launched Group 1 pages, only after the Spanish entry point is reviewed.
+- Recommended launch rule: no Spanish Guide System page enters sitemap/search-index or public hreflang until reviewed and explicitly selected.
+- Recommended technical posture: keep localization scoped to the Guide System generator/templates; avoid `app.js`, `styles.css`, redirects, sitemap, search-index, and robots changes until a future implementation or launch sprint explicitly requires them.
+
+## Out Of Scope For Sprint 124
+
+- Creating `/es/start-here/`.
+- Translating `/start-here/`.
+- Creating Spanish Group 1 pages.
+- Publishing any additional page.
+- Removing `noindex, nofollow` from any draft page.
+- Adding Spanish pages to `sitemap.xml`.
+- Adding Spanish pages to `search-index.json`.
+- Changing `robots.txt`.
+- Adding redirects.
+- Migrating legacy guides.
+- Changing `app.js`.
+- Changing `styles.css`.
+- Opening a PR.
+- Merging to `main`.
