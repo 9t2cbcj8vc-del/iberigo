@@ -258,6 +258,21 @@ PR #21 (commit `0bfbc9c`) was checked on its Netlify deploy preview (`https://de
 
 No issues found, no fixes needed. Status: **PR #21 final preview QA passed — merge pending.** PR #21 remains unmerged.
 
+#### PR #21 visual fixes launched (Sprint 99, 2026-07-04)
+
+PR #21 was squash-merged into `main` (commit `1c5b61c`). Branch protection required 1 approving review; per the established repo procedure this was temporarily set to 0, the PR was merged, and it was immediately restored to 1.
+
+Production verification on `https://iberigo.eu` confirmed:
+
+- Homepage returns `200`; Move/Vacation/Live Explore buttons are visually consistent; Move to Spain links to `/start-here/`; no standalone Start Here block appears.
+- `/start-here/` returns `200`; its "Choose your path" cards all show "View roadmap" (7 occurrences); no visible Draft badge.
+- Official source-link cards on `/moving-to-spain/documents-checklist/` show correct category accents (police, government).
+- All 5 launched pages remain `index, follow`; all 16 non-selected drafts remain `noindex, nofollow`.
+- Production `sitemap.xml` byte-identical to `main`, contains only the 5 launched Group 1 routes; production `search-index.json` contains exactly 5 entries; production `robots.txt` byte-identical to `main`.
+- No redirects added, no legacy migration. `/guides/banking/`, `/guides/eu-registration/`, `/the-spain-files/`, and `/support/` all return `200`/render normally.
+
+Status: **PR #21 visual fixes launched.**
+
 ### Group 2 — EU citizen core journey
 `/moving-to-spain/eu-citizens/`, `/moving-to-spain/eu-registration/`, `/moving-to-spain/registering-on-the-padron/`, `/moving-to-spain/healthcare/`
 
