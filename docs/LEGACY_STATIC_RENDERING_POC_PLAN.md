@@ -1,6 +1,8 @@
 # Legacy Static Rendering POC Plan
 
-**Status: Phone static rendering POC preview QA passed — merge pending**
+**Status: Phone static rendering POC launched — production verified**
+
+**Sprint 122 update (2026-07-04):** PR #33 was squash-merged into `main` (merge commit `fac61c9660dd908d41bf4ae68dfb8d83237ac1f7`) and verified in production. The selected EN+ES phone route pair (`/guides/phone/`, `/guides/es/phone/`) is now launched with static guide body content in raw HTML while preserving existing URLs, titles, descriptions, canonicals, hreflang, sitemap presence, robots state, `data-guide-id`, and JavaScript behavior. JS-enabled production checks confirmed no duplicated result card, title, list, provider links, or disclaimer; mobile checks found no horizontal overflow. The job-search EN+ES POC pair remains stable. `node scripts/audit-legacy-guides.js` exits `0` and reports exactly **4/70** static-body-content routes. No `app.js`, `styles.css`, redirects, sitemap, search-index, robots, full migration, or additional publication changes were made.
 
 **Sprint 121 update (2026-07-04):** PR #33 preview QA passed on `https://deploy-preview-33--iberigo.netlify.app` at commit `65ac21ca9b831535cef6fa472ea18016ab0873a1`. Static HTML checks confirmed the phone EN+ES pair contains title/purpose, next-step guidance, provider links, and the legacy disclaimer directly in the body inside `#wizardResult`; the previous job-search POC pair remains static; unrelated banking EN+ES routes were not static-rendered. JS-enabled preview QA found one result card, one hero, one list, expected link counts, one disclaimer, no empty placeholder, no console errors, no horizontal overflow, and correct language-specific content at desktop and mobile widths. Audit output remains exactly **4/70** static-body-content routes. No protected files or publication surfaces changed, and PR #33 remains unmerged.
 

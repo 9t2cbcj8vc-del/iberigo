@@ -1,6 +1,8 @@
 # Legacy Guide Audit Report
 
-**Status: Phone static rendering POC preview QA passed — merge pending**
+**Status: Phone static rendering POC launched — production verified**
+
+**Sprint 122 update (2026-07-04):** PR #33 was merged and production verification confirms the audit result remains exactly **4/70** pages with static guide body content: `/guides/job-search/`, `/guides/es/job-search/`, `/guides/phone/`, and `/guides/es/phone/`. The remaining **66/70** legacy routes still report `missing-static-guide-body-content, missing-noscript-fallback`, so the underlying legacy structural gap remains visible. Noscript fallback remains **0/70**. Production checks confirmed the selected phone EN+ES pair and previous job-search EN+ES pair return `200`, while sampled unrelated routes (`/guides/banking/`, `/guides/es/banking/`, `/guides/eu-registration/`, `/guides/es/eu-registration/`) remain baseline client-side-only routes.
 
 **Sprint 121 update (2026-07-04):** PR #33 preview QA reran `node scripts/audit-legacy-guides.js`; it exits `0` and keeps the expected result: **4/70** static guide body routes (`/guides/job-search/`, `/guides/es/job-search/`, `/guides/phone/`, `/guides/es/phone/`) and **66/70** remaining legacy routes unchanged with `missing-static-guide-body-content, missing-noscript-fallback`. Noscript fallback count remains **0/70**, so the audit finding is not hidden or weakened. The deploy preview also confirmed `/guides/banking/` and `/guides/es/banking/` still contain the original placeholder rather than accidental static content. PR #33 remains unmerged.
 
