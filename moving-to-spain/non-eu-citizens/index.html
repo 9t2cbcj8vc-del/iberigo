@@ -34,8 +34,6 @@
       .search-nav-link { display: inline-flex; align-items: center; justify-content: center; width: 2.55rem; height: 2.55rem; border: 1px solid rgba(166, 74, 54, 0.16); border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #a64a36; text-decoration: none; box-shadow: 0 10px 28px rgba(42, 32, 25, 0.06); }
       .search-nav-link svg { width: 1.05rem; height: 1.05rem; }
       .search-nav-link:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; }
-      .guide-status-badge { margin: 0 0 1rem; padding: 0.6rem 0.95rem; border: 1px solid rgba(166, 74, 54, 0.18); border-radius: 999px; background: rgba(253, 240, 220, 0.72); color: #a64a36; font-size: 0.76rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; width: fit-content; }
-      .guide-status-badge--review { border-color: rgba(38, 57, 94, 0.18); background: rgba(38, 57, 94, 0.08); color: #26395e; }
       .guide-reading-time { display: inline-flex; width: fit-content; margin: 0.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; font-weight: 800; }
       .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 14px 36px rgba(42, 32, 25, 0.06); }
       .guide-toc strong, .guide-toc-mobile summary { color: #1b2030; font-weight: 900; }
@@ -62,12 +60,25 @@
       .guide-continue-journey { display: grid; gap: 1.1rem; }
       .guide-journey-group { display: grid; gap: 0.8rem; }
       .guide-journey-group > h3 { margin: 0; color: rgba(27, 32, 48, 0.58); font-size: 0.78rem; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; }
-      .guide-journey-group .guide-info-card { display: grid; gap: 0.65rem; align-content: start; }
-      .guide-journey-group .guide-button { justify-self: start; margin-top: 0.1rem; }
+      .guide-info-card { display: flex; flex-direction: column; align-items: stretch; gap: 0.5rem; }
+      .guide-info-card > .guide-button { margin-top: auto; width: 100%; white-space: normal; line-height: 1.3; }
+      .guide-journey-group .guide-info-card { gap: 0.65rem; }
       .guide-info-card, .guide-box { padding: 1.1rem; }
       .guide-info-card h3, .guide-box h3, .guide-timeline h3 { margin: 0 0 0.5rem; color: #1b2030; font-size: 1rem; line-height: 1.35; }
       .guide-info-card h3 a { color: inherit; }
       .guide-info-card p, .guide-info-card li, .guide-box p, .guide-box li, .guide-timeline p { margin: 0; color: rgba(27, 32, 48, 0.7); font-size: 0.95rem; line-height: 1.62; overflow-wrap: break-word; }
+      .guide-source-card { --source-accent: #a64a36; --source-accent-soft: rgba(166, 74, 54, 0.1); border-left: 4px solid var(--source-accent); }
+      .guide-source-head { display: flex; align-items: center; gap: 0.55rem; }
+      .guide-source-badge { flex: 0 0 auto; display: inline-grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 7px; background: var(--source-accent-soft); color: var(--source-accent); font-size: 0.66rem; font-weight: 900; letter-spacing: 0.02em; }
+      .guide-source-tag { color: rgba(27, 32, 48, 0.55); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.03em; text-transform: uppercase; }
+      .guide-source-card--police { --source-accent: #1d3a5f; --source-accent-soft: rgba(29, 58, 95, 0.1); }
+      .guide-source-card--eu { --source-accent: #1954a6; --source-accent-soft: rgba(25, 84, 166, 0.1); }
+      .guide-source-card--tax { --source-accent: #a25b00; --source-accent-soft: rgba(162, 91, 0, 0.1); }
+      .guide-source-card--social-security { --source-accent: #1d5fa4; --source-accent-soft: rgba(29, 95, 164, 0.1); }
+      .guide-source-card--traffic { --source-accent: #b5651d; --source-accent-soft: rgba(181, 101, 29, 0.1); }
+      .guide-source-card--healthcare { --source-accent: #2b8f6f; --source-accent-soft: rgba(43, 143, 111, 0.1); }
+      .guide-source-card--municipal { --source-accent: #8a6d3b; --source-accent-soft: rgba(138, 109, 59, 0.1); }
+      .guide-source-card--government { --source-accent: #aa151b; --source-accent-soft: rgba(170, 21, 27, 0.08); }
       .guide-box ul { margin: 0; padding-left: 1.05rem; display: grid; gap: 0.4rem; }
       .guide-section a[target="_blank"]::after { content: " ↗"; font-size: 0.85em; color: rgba(166, 74, 54, 0.75); }
       .guide-table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; font-size: 0.95rem; }
@@ -130,7 +141,6 @@
             <li><span aria-current="page">Non-EU Citizen Roadmap</span></li>
           </ol>
         </nav>
-        <div class="guide-status-badge guide-status-badge--draft" role="note">DRAFT — Not reviewed for publication</div>
         <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle">
           <div>
             <span class="guide-kicker">Residence routes</span>
@@ -163,42 +173,42 @@
         <section class="guide-section" aria-labelledby="chooseYourRoute"><h2 id="chooseYourRoute">Choose your route</h2><div class="guide-card-grid"><article class="guide-info-card">
             <h3>Work in Spain</h3>
             <p>Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.</p>
-            <a class="guide-button" href="/moving-to-spain/work-in-spain/">View the Work in Spain Roadmap</a>
+            <a class="guide-button" href="/moving-to-spain/work-in-spain/">View roadmap</a>
           </article>
           <article class="guide-info-card">
             <h3>Study in Spain</h3>
             <p>Study routes usually depend on enrolment, programme length and financial means.</p>
-            <a class="guide-button" href="/moving-to-spain/students/">View the Student Roadmap</a>
+            <a class="guide-button" href="/moving-to-spain/students/">View roadmap</a>
           </article>
           <article class="guide-info-card">
             <h3>Join family in Spain</h3>
             <p>Family reunification routes usually depend on the relationship and the sponsoring family member's status.</p>
-            <a class="guide-button" href="/moving-to-spain/family-reunification/">View the Family Reunification Roadmap</a>
+            <a class="guide-button" href="/moving-to-spain/family-reunification/">View roadmap</a>
           </article>
           <article class="guide-info-card">
             <h3>Family member of an EU citizen</h3>
             <p>This route can differ from standard non-EU family routes, depending on the relationship and situation.</p>
-            <a class="guide-button" href="/moving-to-spain/family-member-eu-citizen/">View the Family Member of an EU Citizen Roadmap</a>
+            <a class="guide-button" href="/moving-to-spain/family-member-eu-citizen/">View roadmap</a>
           </article>
           <article class="guide-info-card">
             <h3>Retire or live from sufficient resources</h3>
             <p>This route usually depends on proof of income, savings and healthcare cover rather than employment.</p>
-            <a class="guide-button" href="/moving-to-spain/retire-in-spain/">View the Retiring in Spain Roadmap</a>
+            <a class="guide-button" href="/moving-to-spain/retire-in-spain/">View roadmap</a>
           </article>
           <article class="guide-info-card">
             <h3>Digital nomad / remote work</h3>
             <p>This route usually depends on remote employment or client relationships based outside Spain.</p>
-            <a class="guide-button" href="/moving-to-spain/digital-nomad-spain/">View the Digital Nomad Roadmap</a>
+            <a class="guide-button" href="/moving-to-spain/digital-nomad-spain/">View roadmap</a>
           </article>
           <article class="guide-info-card">
             <h3>Self-employed / business activity</h3>
             <p>This route usually depends on the business plan, activity and financial evidence.</p>
-            <a class="guide-button" href="/moving-to-spain/self-employed-spain/">View the Self-Employed Roadmap</a>
+            <a class="guide-button" href="/moving-to-spain/self-employed-spain/">View roadmap</a>
           </article>
           <article class="guide-info-card">
             <h3>Already in Spain and unsure what applies</h3>
             <p>Use the Start Here page and this roadmap together to narrow down what may apply.</p>
-            <a class="guide-button" href="/start-here/">View Start Here</a>
+            <a class="guide-button" href="/start-here/">Continue</a>
           </article></div></section>
         <section class="guide-section" aria-labelledby="beforeYouMove"><h2 id="beforeYouMove">Before you move</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Identify the correct route</h3><p>The right process depends on why you are moving and your nationality.</p></article>
           <article class="guide-info-card"><h3>Check official requirements</h3><p>Requirements and accepted evidence can vary by route and by where you apply.</p></article>
@@ -253,10 +263,38 @@
           <h2 id="scopeNotice">Scope Notice</h2>
           <p>This guide provides general information for Spain. Some procedures and supporting documents may vary by province or municipality.</p>
         </section>
-        <section class="guide-section" aria-labelledby="officialSources"><h2 id="officialSources">Official Sources</h2><div class="guide-card-grid"><article class="guide-info-card"><h3><a href="https://administracion.gob.es" target="_blank" rel="noopener noreferrer">Spanish Government</a></h3><p>Punto de Acceso General — the central official entry point for Spanish public administration procedures.</p></article>
-          <article class="guide-info-card"><h3><a href="https://www.inclusion.gob.es/web/migraciones/home" target="_blank" rel="noopener noreferrer">Ministry responsible for immigration</a></h3><p>Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures.</p></article>
-          <article class="guide-info-card"><h3><a href="https://sede.policia.gob.es" target="_blank" rel="noopener noreferrer">Police appointment portal</a></h3><p>Policía Nacional e-office, where TIE-related appointment booking is available. Check the current appointment options for your specific route.</p></article>
-          <article class="guide-info-card"><h3><a href="https://www.exteriores.gob.es" target="_blank" rel="noopener noreferrer">Ministry of Foreign Affairs (consular information)</a></h3><p>Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for visa applications handled through Spanish consulates abroad.</p></article></div><div class="guide-box guide-box--info"><strong>Source status</strong><p>These links go to official websites. Official details can change, so always confirm current requirements directly with the official source.</p></div></section>
+        <section class="guide-section" aria-labelledby="officialSources"><h2 id="officialSources">Official Sources</h2><div class="guide-card-grid"><article class="guide-info-card guide-source-card guide-source-card--government">
+            <div class="guide-source-head">
+              <span class="guide-source-badge" aria-hidden="true">ES</span>
+              <span class="guide-source-tag">Spanish Government</span>
+            </div>
+            <h3><a href="https://administracion.gob.es" target="_blank" rel="noopener noreferrer">Spanish Government</a></h3>
+            <p>Punto de Acceso General — the central official entry point for Spanish public administration procedures.</p>
+          </article>
+          <article class="guide-info-card guide-source-card guide-source-card--government">
+            <div class="guide-source-head">
+              <span class="guide-source-badge" aria-hidden="true">ES</span>
+              <span class="guide-source-tag">Spanish Government</span>
+            </div>
+            <h3><a href="https://www.inclusion.gob.es/web/migraciones/home" target="_blank" rel="noopener noreferrer">Ministry responsible for immigration</a></h3>
+            <p>Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures.</p>
+          </article>
+          <article class="guide-info-card guide-source-card guide-source-card--police">
+            <div class="guide-source-head">
+              <span class="guide-source-badge" aria-hidden="true">PN</span>
+              <span class="guide-source-tag">Policía Nacional</span>
+            </div>
+            <h3><a href="https://sede.policia.gob.es" target="_blank" rel="noopener noreferrer">Police appointment portal</a></h3>
+            <p>Policía Nacional e-office, where TIE-related appointment booking is available. Check the current appointment options for your specific route.</p>
+          </article>
+          <article class="guide-info-card guide-source-card guide-source-card--government">
+            <div class="guide-source-head">
+              <span class="guide-source-badge" aria-hidden="true">ES</span>
+              <span class="guide-source-tag">Spanish Government</span>
+            </div>
+            <h3><a href="https://www.exteriores.gob.es" target="_blank" rel="noopener noreferrer">Ministry of Foreign Affairs (consular information)</a></h3>
+            <p>Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for visa applications handled through Spanish consulates abroad.</p>
+          </article></div><div class="guide-box guide-box--info"><strong>Source status</strong><p>These links go to official websites. Official details can change, so always confirm current requirements directly with the official source.</p></div></section>
         <section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
           <h2 id="legalDisclaimer">Legal Disclaimer</h2>
           <p>This guide is practical information, not legal, tax, immigration, financial or rental advice. Requirements can vary by municipality, office, bank and personal situation. Always check the current official source or ask the relevant office before making decisions.</p>
@@ -267,17 +305,17 @@
           <div class="guide-journey-group"><h3>Related Guides</h3><div class="guide-card-grid"><article class="guide-info-card">
             <h3>Documents Checklist</h3>
             <p>Organize the core paperwork folder before appointments and everyday setup.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/documents-checklist/">View the Documents Checklist</a>
+            <a class="guide-button guide-button--secondary" href="/moving-to-spain/documents-checklist/">View guide</a>
           </article>
           <article class="guide-info-card">
             <h3>Settling Into Spain</h3>
             <p>Follow the main arrival steps after reaching Spain without relying on fixed timelines.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/settling-into-spain/">View the Settling Into Spain Guide</a>
+            <a class="guide-button guide-button--secondary" href="/moving-to-spain/settling-into-spain/">View guide</a>
           </article>
           <article class="guide-info-card">
             <h3>Healthcare Guide</h3>
             <p>Compare public healthcare, S1, work-based entitlement and private-cover routes.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View the Healthcare Guide</a>
+            <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View guide</a>
           </article></div></div>
         </section>
           </div>
@@ -343,19 +381,19 @@
     {
       "title": "Documents Checklist",
       "description": "Organize the core paperwork folder before appointments and everyday setup.",
-      "label": "View the Documents Checklist",
+      "label": "View guide",
       "href": "/moving-to-spain/documents-checklist/"
     },
     {
       "title": "Settling Into Spain",
       "description": "Follow the main arrival steps after reaching Spain without relying on fixed timelines.",
-      "label": "View the Settling Into Spain Guide",
+      "label": "View guide",
       "href": "/moving-to-spain/settling-into-spain/"
     },
     {
       "title": "Healthcare Guide",
       "description": "Compare public healthcare, S1, work-based entitlement and private-cover routes.",
-      "label": "View the Healthcare Guide",
+      "label": "View guide",
       "href": "/moving-to-spain/healthcare/"
     }
   ],

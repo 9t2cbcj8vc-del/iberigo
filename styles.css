@@ -891,7 +891,11 @@ main > section {
   display: none;
 }
 
-.situation-card--illustrated button {
+.situation-card--illustrated button,
+.situation-card--illustrated .primary-action {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   min-width: 136px;
   min-height: 44px;
   margin-top: clamp(18px, 2vw, 24px);
@@ -907,7 +911,8 @@ main > section {
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
 }
 
-.situation-card--illustrated button:hover {
+.situation-card--illustrated button:hover,
+.situation-card--illustrated .primary-action:hover {
   background: rgba(255, 255, 255, 0.26);
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
@@ -1010,6 +1015,12 @@ main > section {
   width: fit-content;
   min-width: 144px;
   margin-top: 5px;
+}
+
+.situation-card--illustrated button,
+.situation-card--illustrated .primary-action {
+  min-width: 136px;
+  margin-top: clamp(18px, 2vw, 24px);
 }
 
 .choice-actions {
