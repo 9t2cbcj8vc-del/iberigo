@@ -800,9 +800,10 @@ main > section {
   align-content: stretch;
   min-height: clamp(360px, 43vw, 430px);
   padding: clamp(30px, 3.4vw, 40px);
-  border-color: rgba(196, 59, 47, 0.08);
+  border-radius: 16px;
+  border-color: rgba(166, 74, 54, 0.13);
   background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 18px 42px rgba(35, 31, 32, 0.055);
+  box-shadow: 0 14px 36px rgba(42, 32, 25, 0.08);
 }
 
 .situation-card--illustrated::before {
@@ -907,7 +908,7 @@ main > section {
   background: var(--button-bg);
   color: #fffdf9;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 800;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
 }
 
