@@ -1,8 +1,12 @@
 # Visual Coherence Phase 1 Plan
 
 **Date:** 2026-07-04
-**Status:** Homepage card coherence preview QA passed — merge pending
+**Status:** Homepage card coherence pass launched
 **Scope:** planning only. No implementation, no `styles.css` edits, no publication or indexing changes, no redirects, no legacy migration were made while producing this document.
+
+## Sprint 105 — Homepage Card Coherence Pass Launched (2026-07-04)
+
+PR #24 was squash-merged into `main` (commit `4f1b088`) and verified live on production (`https://iberigo.eu`). Production `styles.css` confirmed byte-identical to committed `main`, with the 16px radius and font-weight 800 changes both live. Homepage returns `200`, Move to Spain links to `/start-here/`, Vacation/Live behavior unchanged, no standalone Start Here block. Regression checks on `/start-here/` (no Draft badge, CTA alignment intact), `/the-spain-files/`, `/support/`, and both sampled legacy `/guides/*` pages all passed on production. Launch safety confirmed unchanged: 5 launched pages `index, follow`, 16 drafts `noindex, nofollow`, `sitemap.xml`/`search-index.json`/`robots.txt` byte-identical to `main`. Phase 1 is now complete and live; Phase 2 (legacy `/guides/*` structural fix), Phase 3 (Vacation/Live landing pages), and Phase 4 (further homepage redesign decisions) remain unimplemented and unplanned in detail, pending separate scoping.
 
 ## Sprint 104 — Homepage Card Coherence Preview QA Passed
 
