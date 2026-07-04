@@ -1,6 +1,8 @@
 # Legacy Static Rendering Rollout Plan
 
-**Status: Legacy static rendering rollout planned - implementation pending**
+**Status: Phone static rendering POC prepared - preview QA pending**
+
+**Sprint 120 update (2026-07-04):** the recommended one-pair follow-up was prepared on `visual-coherence/phone-static-poc`. `/guides/phone/` and `/guides/es/phone/` now have static `#wizardResult` content generated from the existing `app.js` phone route data and provider link metadata. `scripts/render-legacy-static-poc.js` was evolved from a job-search-only script into a controlled selected-route renderer: `job-search` remains supported for the launched POC, while only `phone` is selected for this sprint. The audit moved from **2/70** to **4/70** static-body-content routes (`job-search` EN+ES and `phone` EN+ES); the remaining **66/70** legacy routes are unchanged. No `app.js`, `styles.css`, redirect, sitemap, search-index, robots, full migration, or additional publication change was made. Preview QA is still required before merge.
 
 **Sprint 118 update (2026-07-04):** this document plans the rollout after the live job-search proof of concept. It does not implement additional static legacy pages. No legacy guide HTML, `app.js`, `styles.css`, redirects, sitemap, search index, robots, publication status, or draft `noindex, nofollow` settings were changed while producing this plan.
 

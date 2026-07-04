@@ -1,6 +1,8 @@
 # Legacy Static Rendering POC Plan
 
-**Status: Job-search static rendering POC launched — production verified**
+**Status: Phone static rendering POC prepared — preview QA pending**
+
+**Sprint 120 update (2026-07-04):** the second controlled static-rendering POC was prepared for `/guides/phone/` and `/guides/es/phone/`. The static content was transcribed from the existing `app.js` `goal === "phone"` branch and its provider metadata/link maps, and generated into the existing `#wizardResult` block only. The renderer now uses an explicit allowlist/selected-route structure: `job-search` remains the launched POC/regression route, and `phone` is the only selected target for this sprint. Audit output now reports exactly **4/70** static-body-content legacy routes: `/guides/job-search/`, `/guides/es/job-search/`, `/guides/phone/`, and `/guides/es/phone/`. The remaining **66/70** legacy routes are unchanged. No `app.js`, `styles.css`, redirects, sitemap, search-index, robots, full migration, or additional publication changes were made. Preview QA remains pending.
 
 **Sprint 118 update (2026-07-04):** follow-up rollout planning was completed in `docs/LEGACY_STATIC_RENDERING_ROLLOUT_PLAN.md`. The plan keeps the live baseline at **2/70** static-body-content legacy routes (`/guides/job-search/` and `/guides/es/job-search/`) and recommends one additional low-risk EN+ES pair (`/guides/phone/` and `/guides/es/phone/`) as the next implementation PR, with a controlled allowlist-based renderer. Planning only: no additional static pages were added, no legacy guide HTML was changed, and there were no `app.js`, `styles.css`, redirect, sitemap, search-index, robots, publication, or full-migration changes.
 

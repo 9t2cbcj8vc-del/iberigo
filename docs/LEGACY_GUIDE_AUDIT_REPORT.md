@@ -1,6 +1,8 @@
 # Legacy Guide Audit Report
 
-**Status: Job-search static rendering POC launched — production verified**
+**Status: Phone static rendering POC prepared — preview QA pending**
+
+**Sprint 120 update (2026-07-04):** rerunning `node scripts/audit-legacy-guides.js` after the phone POC implementation exits `0` and confirms exactly **4/70** pages with static guide body content: `/guides/job-search/`, `/guides/es/job-search/`, `/guides/phone/`, and `/guides/es/phone/`. The remaining **66/70** legacy routes retain the baseline `missing-static-guide-body-content, missing-noscript-fallback` state. The phone pair still has the known `missing-noscript-fallback` risk flag, matching the job-search POC limitation. No findings were weakened, no full legacy migration happened, no additional pages were published, and `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, and `robots.txt` were unchanged.
 
 **Sprint 118 update (2026-07-04):** rollout planning was completed in `docs/LEGACY_STATIC_RENDERING_ROLLOUT_PLAN.md`. The audit baseline remains **2/70** static-body-content routes, with only the job-search EN+ES pair rendered statically and the remaining **68/70** legacy routes still client-side-only in the body. The plan inventories the remaining route pairs, classifies overlap/content risk, and recommends a one-pair `phone` follow-up before any small-batch rollout. Planning only: no additional static pages were added, no legacy guide HTML was changed, and there were no `app.js`, `styles.css`, redirect, sitemap, search-index, robots, publication, or full-migration changes.
 
