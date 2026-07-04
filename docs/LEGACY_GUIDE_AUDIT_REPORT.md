@@ -1,12 +1,14 @@
 # Legacy Guide Audit Report
 
-**Status: Job-search static rendering POC prepared — preview QA pending**
+**Status: Job-search static rendering POC preview QA passed — merge pending**
 
 **Sprint 110 update (2026-07-04):** PR #27 was squash-merged into `main` (commit `c3b48b1`) and verified on production. Rerunning `node scripts/audit-legacy-guides.js` on updated `main` exits `0` and reproduces identical findings (70 URLs, 35 English, 35 Spanish, full metadata coverage, 0/70 static body content, 0/70 noscript fallback) — only the report's `generatedAt` timestamp differs between runs, as expected. No legacy guide page, `app.js`, or `styles.css` was changed; no redirects, migration, or indexing changes were made.
 
 **Sprint 112 update (2026-07-04):** the recommended next step from this report — a single-route static-rendering proof of concept — was planned in `docs/LEGACY_STATIC_RENDERING_POC_PLAN.md`. Recommended candidate: `/guides/job-search/` plus `/guides/es/job-search/`. This baseline report's findings (0/70 static body content, 0/70 noscript fallback) remain the "before" state that the future implementation PR will be measured against by rerunning this audit script. Planning only — no legacy guide page, `app.js`, or `styles.css` was changed.
 
 **Sprint 114 update (2026-07-04):** implemented the job-search static-rendering POC on branch `visual-coherence/job-search-static-poc`. `scripts/audit-legacy-guides.js`'s `hasStaticGuideContent` check was corrected: it previously required the page's meta description text to appear verbatim in the body, which the new static content (written independently, not as a copy of the meta description) would have missed. The check now instead detects whether the `#wizardResult` placeholder (`class="result-card is-empty"` / "Your roadmap will appear here") has been replaced — a more accurate and more generally reusable signal for any future static-rendering route. Rerunning the audit script after implementation shows: **2/70** pages with static guide body content (`/guides/job-search/`, `/guides/es/job-search/`), **68/70** unchanged from the baseline above. The `isHomepageShellClone` metric is unchanged by design — job-search's situation cards and wizard form are still present in the body (only `#wizardResult` was replaced), so it still correctly reports the shared shell markup; the static-content improvement is captured by `hasStaticGuideContent`, not by that metric. No other legacy page, `app.js`, or `styles.css` was changed.
+
+**Sprint 115 update (2026-07-04):** preview-QA'd PR #30 on `https://deploy-preview-30--iberigo.netlify.app`. Rerunning `node scripts/audit-legacy-guides.js` (locally, on the checkout confirmed to match the PR's exact commit SHA `970a330`) exits `0`, is deterministic apart from `generatedAt`, and confirms exactly 2/70 pages with static body content (only the job-search pair), 68/70 unchanged from baseline. No finding was weakened. No fixes were needed.
 
 ## Purpose
 
