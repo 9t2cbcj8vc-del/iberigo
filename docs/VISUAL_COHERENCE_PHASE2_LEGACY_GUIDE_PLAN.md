@@ -1,6 +1,6 @@
 # Visual Coherence Phase 2 — Legacy Guide Structure Plan
 
-**Status: Visual Coherence Phase 2 planned — implementation pending**
+**Status: Legacy guide audit script prepared — preview/review pending**
 
 This document plans (does not implement) a fix for the structural gap identified
 in `docs/SITEWIDE_VISUAL_COHERENCE_AUDIT.md`: the legacy `/guides/*` pages are
@@ -9,6 +9,16 @@ client-side JavaScript to render their actual text. This is planning only —
 no legacy guide changes, no redirects, no migration, no indexing changes, and
 no edits to `sitemap.xml`, `search-index.json`, `robots.txt`, `styles.css`, or
 `app.js` were made while producing this document.
+
+**Sprint 109 update (2026-07-04):** this plan's recommended first PR — a
+read-only validation/report script — was built and run. See
+`scripts/audit-legacy-guides.js` and `docs/LEGACY_GUIDE_AUDIT_REPORT.md` for
+the script and its findings (70 live legacy URLs: 35 English, 35 Spanish;
+full metadata coverage; zero static body content; zero noscript fallback on
+any page). No legacy guide page, `app.js`, or `styles.css` was changed; no
+redirects, migration, or indexing changes were made. The recommended next
+step remains the single-route static-rendering proof-of-concept described
+below, as its own separately-scoped sprint.
 
 ## Goal
 
