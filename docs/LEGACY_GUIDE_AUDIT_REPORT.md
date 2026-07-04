@@ -4,6 +4,8 @@
 
 **Sprint 110 update (2026-07-04):** PR #27 was squash-merged into `main` (commit `c3b48b1`) and verified on production. Rerunning `node scripts/audit-legacy-guides.js` on updated `main` exits `0` and reproduces identical findings (70 URLs, 35 English, 35 Spanish, full metadata coverage, 0/70 static body content, 0/70 noscript fallback) — only the report's `generatedAt` timestamp differs between runs, as expected. No legacy guide page, `app.js`, or `styles.css` was changed; no redirects, migration, or indexing changes were made.
 
+**Sprint 112 update (2026-07-04):** the recommended next step from this report — a single-route static-rendering proof of concept — was planned in `docs/LEGACY_STATIC_RENDERING_POC_PLAN.md`. Recommended candidate: `/guides/job-search/` plus `/guides/es/job-search/`. This baseline report's findings (0/70 static body content, 0/70 noscript fallback) remain the "before" state that the future implementation PR will be measured against by rerunning this audit script. Planning only — no legacy guide page, `app.js`, or `styles.css` was changed.
+
 ## Purpose
 
 This report documents the first output of `scripts/audit-legacy-guides.js`,

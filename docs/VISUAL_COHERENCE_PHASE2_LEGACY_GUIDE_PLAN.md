@@ -1,6 +1,6 @@
 # Visual Coherence Phase 2 — Legacy Guide Structure Plan
 
-**Status: Legacy guide audit script launched**
+**Status: Legacy static rendering POC planned — implementation pending**
 
 This document plans (does not implement) a fix for the structural gap identified
 in `docs/SITEWIDE_VISUAL_COHERENCE_AUDIT.md`: the legacy `/guides/*` pages are
@@ -21,6 +21,8 @@ step remains the single-route static-rendering proof-of-concept described
 below, as its own separately-scoped sprint.
 
 **Sprint 110 update (2026-07-04):** PR #27 was squash-merged into `main` (commit `c3b48b1`) and verified live: production homepage, `/guides/banking/`, `/guides/es/banking/`, `/guides/eu-registration/`, `/guides/es/eu-registration/`, `/start-here/`, `/the-spain-files/`, and `/support/` all return `200`; all 5 launched pages remain `index, follow`; sampled drafts remain `noindex, nofollow`; `sitemap.xml`, `search-index.json`, `robots.txt`, `styles.css`, and `app.js` are all byte-identical to `main` in production. Rerunning the audit script on updated `main` reproduces identical findings. No legacy guide migration has happened.
+
+**Sprint 112 update (2026-07-04):** the audit script's recommended next step — a single-route static-rendering proof of concept — was planned in `docs/LEGACY_STATIC_RENDERING_POC_PLAN.md`. Recommended candidate: `/guides/job-search/` plus its Spanish mirror `/guides/es/job-search/`; recommended implementation method: a hybrid (static content + existing JS enhancement kept in place) built via a small generator script. This sprint is planning only: no legacy guide page, `app.js`, or `styles.css` was changed; no redirects, migration, or indexing changes were made. No PR opened, no merge performed.
 
 ## Goal
 
