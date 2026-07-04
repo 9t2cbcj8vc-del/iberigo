@@ -1,6 +1,6 @@
 # Visual Coherence Phase 2 — Legacy Guide Structure Plan
 
-**Status: Legacy static rendering POC planned — implementation pending**
+**Status: Job-search static rendering POC preview QA passed — merge pending**
 
 This document plans (does not implement) a fix for the structural gap identified
 in `docs/SITEWIDE_VISUAL_COHERENCE_AUDIT.md`: the legacy `/guides/*` pages are
@@ -272,3 +272,7 @@ concrete, low-risk on-ramp.
 - **Phase 2 (this document):** legacy `/guides/*` structural fix — planned, implementation pending, to proceed via the small validation-script-then-single-route-PoC sequence above.
 - **Phase 3:** Vacation in Spain / Live in Spain dedicated Guide-System-style landing pages (currently these are wizard presets only, per the sitewide audit).
 - **Phase 4:** further homepage card redesign beyond the Phase 1 coherence pass already shipped.
+
+**Sprint 114 update (2026-07-04):** the recommended candidate (`/guides/job-search/` + `/guides/es/job-search/`) was implemented via `scripts/render-legacy-static-poc.js` on branch `visual-coherence/job-search-static-poc`. Only those two files changed; `<head>` metadata, canonical, hreflang, sitemap presence, `app.js`, and `styles.css` are all unchanged. `scripts/audit-legacy-guides.js` was corrected to detect this kind of static-content change and now reports 2/70 pages with static body content, 68/70 unchanged. Preview QA is required before merge; this remains a one-route-pair proof of concept, not a migration.
+
+**Sprint 115 update (2026-07-04):** PR #30 (commit `970a330`) passed preview QA with no issues found — static content, no double-rendering, unchanged metadata/sitemap/search-index/robots.txt/app.js/styles.css, and a clean audit script result (2/70 static body content, 68/70 unchanged) all confirmed on the Netlify deploy preview. PR remains unmerged, pending a merge decision.

@@ -72,13 +72,24 @@ function extractBody(html) {
   return match ? match[1] : "";
 }
 
-// Legacy pages inject their real guide content client-side. If the page's
-// own meta description text (the one static, guide-specific string we know
-// should exist) never appears as visible body text, the body is shipping no
-// guide-specific static content at all.
+// Legacy pages inject their real guide content client-side into the
+// #wizardResult placeholder, which ships as an empty "Your roadmap will
+// appear here" shell (class="result-card is-empty") until app.js runs. A
+// page has real static guide content only if that placeholder has been
+// replaced (see docs/LEGACY_STATIC_RENDERING_POC_PLAN.md /
+// scripts/render-legacy-static-poc.js for the first route this applies to).
+// Falls back to the meta-description heuristic for any page that doesn't
+// use the #wizardResult placeholder pattern at all.
+const WIZARD_RESULT_PLACEHOLDER_TEXT = "Your roadmap will appear here";
+
 function hasStaticGuideContent(html, metaDescription) {
-  if (!metaDescription) return false;
   const body = extractBody(html);
+  if (/id="wizardResult"/.test(body)) {
+    const isEmptyPlaceholder =
+      /class="result-card is-empty"/.test(body) || body.includes(WIZARD_RESULT_PLACEHOLDER_TEXT);
+    return !isEmptyPlaceholder;
+  }
+  if (!metaDescription) return false;
   return body.includes(metaDescription);
 }
 
