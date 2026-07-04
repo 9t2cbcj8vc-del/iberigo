@@ -1,6 +1,6 @@
 # Visual Coherence Phase 2 — Legacy Guide Structure Plan
 
-**Status: Phone static rendering POC preview QA passed — merge pending**
+**Status: Phone static rendering POC launched — production verified**
 
 This document plans (does not implement) a fix for the structural gap identified
 in `docs/SITEWIDE_VISUAL_COHERENCE_AUDIT.md`: the legacy `/guides/*` pages are
@@ -15,6 +15,8 @@ no edits to `sitemap.xml`, `search-index.json`, `robots.txt`, `styles.css`, or
 **Sprint 120 update (2026-07-04):** the one-pair `phone` follow-up has been prepared, still as a POC rather than a broader rollout. The selected EN+ES route pair (`/guides/phone/`, `/guides/es/phone/`) now serves static guide body content inside the existing `#wizardResult` area, generated from the current legacy app data. The audit now reports **4/70** static-body-content routes, with the remaining **66/70** unchanged. No `app.js`, `styles.css`, redirect, sitemap, search-index, robots, publication-status, or full-migration changes were made. Preview QA is pending before merge.
 
 **Sprint 121 update (2026-07-04):** preview QA for PR #33 passed. The phone EN+ES pair and the existing job-search EN+ES POC pair render normally with JavaScript enabled and no duplication; unrelated banking EN+ES legacy routes remain client-side-only in raw HTML. Regression checks covered the homepage, `/start-here/`, The Spain Files, support, banking, and EU registration routes at desktop and mobile widths with no console errors, no Draft-label leak, no horizontal overflow, and no unexpected layout changes. PR #33 remains unmerged.
+
+**Sprint 122 update (2026-07-04):** PR #33 was merged and the second controlled static-rendering POC is live. Production verification confirmed the phone EN+ES route pair returns `200`, includes static guide body content in raw HTML, and renders with JavaScript enabled without duplication or mobile overflow. The job-search EN+ES POC pair remains stable, and sampled broader routes (`/`, `/start-here/`, `/the-spain-files/`, `/support/`, banking EN+ES, EU registration EN+ES) return `200`. No `app.js`, `styles.css`, sitemap, search-index, robots, redirect, full migration, or additional publication changes were made.
 
 **Sprint 116 update (2026-07-04):** PR #30 was squash-merged into `main` (merge commit `63afe68`) and verified on production. The selected legacy route pair (`/guides/job-search/`, `/guides/es/job-search/`) now serves real static guide body content while preserving the existing URL, metadata, canonical, hreflang, sitemap presence, and client-side enhancement behavior. The audit remains scoped at exactly **2/70** static body content routes, with **68/70** legacy routes unchanged. Production checks confirmed the selected routes and regression routes return `200`; JS-enabled rendering has no duplicate title/list/disclaimer/links; five launched Group 1 pages remain `index, follow`; generated draft/noindex surfaces remain `noindex, nofollow`. No full legacy migration happened, no additional pages were published, no redirects were added, and `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, and `robots.txt` were unchanged.
 
