@@ -1,0 +1,2331 @@
+{
+  "scriptVersion": 1,
+  "generatedAt": "2026-07-04T10:30:28.422Z",
+  "summary": {
+    "totalLegacyGuideUrls": 70,
+    "englishLegacyGuideUrls": 35,
+    "spanishLegacyGuideUrls": 35,
+    "pagesWithIndexHtml": 70,
+    "pagesInSitemap": 70,
+    "pagesWithCanonical": 70,
+    "pagesWithMetaDescription": 70,
+    "pagesWithCompleteHreflang": 70,
+    "pagesWithDataGuideId": 70,
+    "pagesWithStaticGuideBodyContent": 0,
+    "pagesWithNoscriptFallback": 0,
+    "suspectedHomepageShellCloneCount": 70,
+    "pagesWithRiskFlags": 70
+  },
+  "routes": [
+    {
+      "route": "/guides/banking/",
+      "lang": "en",
+      "filePath": "guides/banking/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "banking",
+      "canonical": "https://iberigo.eu/guides/banking/",
+      "title": "Bank account and banking in Spain — IberiGo",
+      "metaDescription": "Opening a bank account in Spain usually requires identity documents, NIE or TIE if you have one, and proof of address.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/banking/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/banking/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/banking/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/digital-nomad/",
+      "lang": "en",
+      "filePath": "guides/digital-nomad/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "digital-nomad",
+      "canonical": "https://iberigo.eu/guides/digital-nomad/",
+      "title": "Digital nomad residence in Spain — IberiGo",
+      "metaDescription": "Non-EU remote workers and professionals working mainly for companies or clients outside Spain can apply for the international telework residence.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/digital-nomad/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/digital-nomad/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/digital-nomad/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/digital/",
+      "lang": "en",
+      "filePath": "guides/digital/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "digital",
+      "canonical": "https://iberigo.eu/guides/digital/",
+      "title": "Cl@ve or FNMT digital certificate in Spain — IberiGo",
+      "metaDescription": "Get electronic access to Spanish government portals. FNMT digital certificate is often the easier path if you have a NIE; Cl@ve usually needs a support number…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/digital/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/digital/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/digital/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/driving-licence-exchange/",
+      "lang": "en",
+      "filePath": "guides/driving-licence-exchange/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "driving-licence-exchange",
+      "canonical": "https://iberigo.eu/guides/driving-licence-exchange/",
+      "title": "Exchange your driving licence in Spain — IberiGo",
+      "metaDescription": "If you live in Spain, you'll need to exchange your foreign driving licence for a Spanish one.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/driving-licence-exchange/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/driving-licence-exchange/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/driving-licence-exchange/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/ehic-card/",
+      "lang": "en",
+      "filePath": "guides/ehic-card/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "ehic-card",
+      "canonical": "https://iberigo.eu/guides/ehic-card/",
+      "title": "European Health Insurance Card (EHIC) from Spain — IberiGo",
+      "metaDescription": "The EHIC covers medically necessary public healthcare during temporary stays in EU/EEA countries, Switzerland, and the UK.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/ehic-card/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/ehic-card/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/ehic-card/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/banking/",
+      "lang": "es",
+      "filePath": "guides/es/banking/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "banking",
+      "canonical": "https://iberigo.eu/guides/es/banking/",
+      "title": "Cuenta bancaria y banca en España — IberiGo",
+      "metaDescription": "Abrir una cuenta bancaria en España normalmente requiere documento de identidad, NIE o TIE si lo tienes y prueba de domicilio.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/banking/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/banking/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/banking/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/digital-nomad/",
+      "lang": "es",
+      "filePath": "guides/es/digital-nomad/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "digital-nomad",
+      "canonical": "https://iberigo.eu/guides/es/digital-nomad/",
+      "title": "Residencia de nómada digital en España — IberiGo",
+      "metaDescription": "Los trabajadores remotos no comunitarios con clientes o empresas fuera de España pueden solicitar la residencia de teletrabajo internacional.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/digital-nomad/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/digital-nomad/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/digital-nomad/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/digital/",
+      "lang": "es",
+      "filePath": "guides/es/digital/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "digital",
+      "canonical": "https://iberigo.eu/guides/es/digital/",
+      "title": "Cl@ve o certificado digital FNMT en España — IberiGo",
+      "metaDescription": "Accede electrónicamente a las sedes públicas españolas. El certificado digital FNMT suele ser más fácil si ya tienes NIE; Cl@ve normalmente necesita el número…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/digital/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/digital/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/digital/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/driving-licence-exchange/",
+      "lang": "es",
+      "filePath": "guides/es/driving-licence-exchange/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "driving-licence-exchange",
+      "canonical": "https://iberigo.eu/guides/es/driving-licence-exchange/",
+      "title": "Canjear tu permiso de conducir en España — IberiGo",
+      "metaDescription": "Si vives en España, tendrás que canjear tu permiso de conducir extranjero por uno español.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/driving-licence-exchange/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/driving-licence-exchange/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/driving-licence-exchange/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/ehic-card/",
+      "lang": "es",
+      "filePath": "guides/es/ehic-card/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "ehic-card",
+      "canonical": "https://iberigo.eu/guides/es/ehic-card/",
+      "title": "Tarjeta Sanitaria Europea (TSE) desde España — IberiGo",
+      "metaDescription": "La TSE cubre asistencia sanitaria pública necesaria durante estancias temporales en países de la UE/EEE, Suiza y Reino Unido.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/ehic-card/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/ehic-card/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/ehic-card/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/eu-family/",
+      "lang": "es",
+      "filePath": "guides/es/eu-family/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "eu-family",
+      "canonical": "https://iberigo.eu/guides/es/eu-family/",
+      "title": "Tarjeta de residencia de familiar de ciudadano de la UE en España — IberiGo",
+      "metaDescription": "Para familiares no comunitarios que se reúnen con un ciudadano de la UE, EEE, Suiza o español en España.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/eu-family/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/eu-family/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/eu-family/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/eu-registration/",
+      "lang": "es",
+      "filePath": "guides/es/eu-registration/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "eu-registration",
+      "canonical": "https://iberigo.eu/guides/es/eu-registration/",
+      "title": "Certificado de registro de ciudadano de la UE en España — IberiGo",
+      "metaDescription": "Los ciudadanos de la UE, el EEE y Suiza que viven en España más de 3 meses necesitan el Certificado de Registro.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/eu-registration/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/eu-registration/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/eu-registration/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/eu-vacation/",
+      "lang": "es",
+      "filePath": "guides/es/eu-vacation/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "eu-vacation",
+      "canonical": "https://iberigo.eu/guides/es/eu-vacation/",
+      "title": "Estancia corta en España para ciudadanos de la UE — IberiGo",
+      "metaDescription": "Los ciudadanos de la UE, el EEE y Suiza pueden visitar España hasta 3 meses con pasaporte o DNI válido.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/eu-vacation/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/eu-vacation/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/eu-vacation/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/eu-working/",
+      "lang": "es",
+      "filePath": "guides/es/eu-working/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "eu-working",
+      "canonical": "https://iberigo.eu/guides/es/eu-working/",
+      "title": "Registro UE como trabajador en España — IberiGo",
+      "metaDescription": "Los ciudadanos de la UE, el EEE y Suiza que trabajan en España más de 3 meses registran su residencia con el Certificado UE.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/eu-working/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/eu-working/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/eu-working/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/family/",
+      "lang": "es",
+      "filePath": "guides/es/family/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "family",
+      "canonical": "https://iberigo.eu/guides/es/family/",
+      "title": "Reagrupación familiar en España — IberiGo",
+      "metaDescription": "Para familiares que se reúnen con un residente legal no comunitario en España. Se necesita prueba del vínculo familiar, documentos de residencia del…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/family/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/family/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/family/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/job-search/",
+      "lang": "es",
+      "filePath": "guides/es/job-search/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "job-search",
+      "canonical": "https://iberigo.eu/guides/es/job-search/",
+      "title": "Buscar trabajo en España — cómo empezar — IberiGo",
+      "metaDescription": "Empieza la búsqueda de trabajo en España confirmando tu derecho legal a trabajar y luego explora portales públicos y grandes plataformas privadas.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/job-search/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/job-search/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/job-search/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/nie-only/",
+      "lang": "es",
+      "filePath": "guides/es/nie-only/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "nie-only",
+      "canonical": "https://iberigo.eu/guides/es/nie-only/",
+      "title": "Solo NIE — número de identidad de extranjero en España — IberiGo",
+      "metaDescription": "Obtén un NIE por razón económica, profesional o social sin registrarte como residente.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/nie-only/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/nie-only/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/nie-only/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/nie/",
+      "lang": "es",
+      "filePath": "guides/es/nie/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "nie",
+      "canonical": "https://iberigo.eu/guides/es/nie/",
+      "title": "Número NIE en España — lo que necesitas saber — IberiGo",
+      "metaDescription": "El NIE es el número de identificación de extranjeros necesario para banco, propiedad, impuestos y muchos trámites oficiales en España.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/nie/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/nie/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/nie/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/non-eu-vacation/",
+      "lang": "es",
+      "filePath": "guides/es/non-eu-vacation/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "non-eu-vacation",
+      "canonical": "https://iberigo.eu/guides/es/non-eu-vacation/",
+      "title": "Estancia corta Schengen en España — IberiGo",
+      "metaDescription": "Para vacaciones o visita corta en España, comprueba si tu pasaporte necesita visado Schengen de corta estancia o puede entrar sin visado.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/non-eu-vacation/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/non-eu-vacation/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/non-eu-vacation/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/non-lucrative/",
+      "lang": "es",
+      "filePath": "guides/es/non-lucrative/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "non-lucrative",
+      "canonical": "https://iberigo.eu/guides/es/non-lucrative/",
+      "title": "Residencia no lucrativa en España — IberiGo",
+      "metaDescription": "Para ciudadanos no comunitarios que quieren vivir en España sin trabajar. Requiere prueba de fondos suficientes, seguro médico privado y antecedentes penales.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/non-lucrative/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/non-lucrative/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/non-lucrative/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/padron/",
+      "lang": "es",
+      "filePath": "guides/es/padron/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "padron",
+      "canonical": "https://iberigo.eu/guides/es/padron/",
+      "title": "Padrón — registro en el ayuntamiento en España — IberiGo",
+      "metaDescription": "Registra tu domicilio en el ayuntamiento (padrón). Los requisitos varían por municipio; suele bastar documento de identidad y prueba de domicilio como el…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/padron/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/padron/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/padron/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/phone/",
+      "lang": "es",
+      "filePath": "guides/es/phone/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "phone",
+      "canonical": "https://iberigo.eu/guides/es/phone/",
+      "title": "Teléfono e internet en España — IberiGo",
+      "metaDescription": "Conseguir número de móvil e internet en casa en España es sencillo con documentación. Compara grandes operadores y opciones flexibles antes de contratar.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/phone/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/phone/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/phone/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/private-health/",
+      "lang": "es",
+      "filePath": "guides/es/private-health/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "private-health",
+      "canonical": "https://iberigo.eu/guides/es/private-health/",
+      "title": "Seguro médico privado en España — IberiGo",
+      "metaDescription": "El seguro médico privado suele ser necesario para permisos de residencia y visados en España, y también puede ser útil como cobertura adicional.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/private-health/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/private-health/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/private-health/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/renting-home/",
+      "lang": "es",
+      "filePath": "guides/es/renting-home/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "renting-home",
+      "canonical": "https://iberigo.eu/guides/es/renting-home/",
+      "title": "Alquilar una vivienda en España — IberiGo",
+      "metaDescription": "Una guía práctica para empezar a buscar alquiler de larga duración o temporal en España, preparar documentos, revisar el contrato y evitar señales de alerta…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/renting-home/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/renting-home/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/renting-home/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/sip-card/",
+      "lang": "es",
+      "filePath": "guides/es/sip-card/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "sip-card",
+      "canonical": "https://iberigo.eu/guides/es/sip-card/",
+      "title": "Tarjeta sanitaria pública en España — SIP, TSI, Tarjeta Sanitaria — IberiGo",
+      "metaDescription": "Cada comunidad autónoma tiene su propio nombre para la tarjeta sanitaria pública: SIP, TSI o Tarjeta Sanitaria.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/sip-card/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/sip-card/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/sip-card/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/social-security/",
+      "lang": "es",
+      "filePath": "guides/es/social-security/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "social-security",
+      "canonical": "https://iberigo.eu/guides/es/social-security/",
+      "title": "Número de la Seguridad Social en España — IberiGo",
+      "metaDescription": "El número de la Seguridad Social (NUSS) es necesario para el empleo, las cotizaciones de autónomos y algunos trámites oficiales.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/social-security/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/social-security/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/social-security/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/study/",
+      "lang": "es",
+      "filePath": "guides/es/study/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "study",
+      "canonical": "https://iberigo.eu/guides/es/study/",
+      "title": "Autorización de estancia por estudios en España — IberiGo",
+      "metaDescription": "Para estudios, formación, movilidad estudiantil o prácticas de más de 90 días en España.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/study/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/study/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/study/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/taxes/",
+      "lang": "es",
+      "filePath": "guides/es/taxes/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "taxes",
+      "canonical": "https://iberigo.eu/guides/es/taxes/",
+      "title": "Impuestos y domicilio fiscal en España — IberiGo",
+      "metaDescription": "Tus obligaciones fiscales en España dependen de tu residencia, tus fuentes de ingresos y de si estás registrado en la Agencia Tributaria.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/taxes/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/taxes/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/taxes/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/tie-after-approval/",
+      "lang": "es",
+      "filePath": "guides/es/tie-after-approval/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "tie-after-approval",
+      "canonical": "https://iberigo.eu/guides/es/tie-after-approval/",
+      "title": "Tarjeta TIE tras la aprobación de residencia en España — IberiGo",
+      "metaDescription": "La TIE es la tarjeta física de identidad de extranjero que se expide tras la concesión de una autorización de residencia o visado.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/tie-after-approval/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/tie-after-approval/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/tie-after-approval/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/tie/",
+      "lang": "es",
+      "filePath": "guides/es/tie/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "tie",
+      "canonical": "https://iberigo.eu/guides/es/tie/",
+      "title": "Tarjeta TIE en España — guía de la tarjeta de identidad de extranjero — IberiGo",
+      "metaDescription": "La TIE documenta tu residencia o estancia autorizada en España. Confirma que tienes visado, autorización o resolución favorable antes de reservar la cita de…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/tie/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/tie/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/tie/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/vacation-booking/",
+      "lang": "es",
+      "filePath": "guides/es/vacation-booking/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-booking",
+      "canonical": "https://iberigo.eu/guides/es/vacation-booking/",
+      "title": "Plataformas de reserva de alojamiento en España — IberiGo",
+      "metaDescription": "Compara plataformas de reserva antes de reservar alojamiento en España. Revisa política de cancelación, zona y precio total con tasas incluidas antes de…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-booking/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-booking/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-booking/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/vacation-citizenship/",
+      "lang": "es",
+      "filePath": "guides/es/vacation-citizenship/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-citizenship",
+      "canonical": "https://iberigo.eu/guides/es/vacation-citizenship/",
+      "title": "Entrada a España para ciudadanos UE y no UE — guía de vacaciones — IberiGo",
+      "metaDescription": "Los ciudadanos de la UE/EEE/Suiza viajan a España bajo libre circulación. Los viajeros no comunitarios siguen las normas de estancia corta Schengen, con visado…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-citizenship/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-citizenship/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-citizenship/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/vacation-entry/",
+      "lang": "es",
+      "filePath": "guides/es/vacation-entry/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-entry",
+      "canonical": "https://iberigo.eu/guides/es/vacation-entry/",
+      "title": "Reglas de entrada y estancia corta en España — IberiGo",
+      "metaDescription": "Comprueba si tu viaje a España cae en la libre circulación de la UE o las reglas de estancia corta Schengen.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-entry/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-entry/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-entry/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/vacation-flights/",
+      "lang": "es",
+      "filePath": "guides/es/vacation-flights/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-flights",
+      "canonical": "https://iberigo.eu/guides/es/vacation-flights/",
+      "title": "Vuelos y aeropuertos en España — IberiGo",
+      "metaDescription": "Encuentra los mejores vuelos a España comparando aerolíneas y comparadores. Los principales aeropuertos de España incluyen Madrid Barajas, Barcelona El Prat,…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-flights/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-flights/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-flights/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/vacation-ground/",
+      "lang": "es",
+      "filePath": "guides/es/vacation-ground/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-ground",
+      "canonical": "https://iberigo.eu/guides/es/vacation-ground/",
+      "title": "Trenes, autobuses y coche de alquiler en España — IberiGo",
+      "metaDescription": "Moverte por España en tren, autobús o coche de alquiler depende de tu ruta. Renfe cubre alta velocidad y regional; ALSA los autobuses de larga distancia;…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-ground/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-ground/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-ground/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/vacation-hotels/",
+      "lang": "es",
+      "filePath": "guides/es/vacation-hotels/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-hotels",
+      "canonical": "https://iberigo.eu/guides/es/vacation-hotels/",
+      "title": "Cadenas hoteleras en España — dónde alojarse — IberiGo",
+      "metaDescription": "España cuenta con una amplia variedad de cadenas hoteleras de económico a lujo. Las principales marcas incluyen Meliá, NH, Barceló, Riu, Iberostar, Marriott y…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-hotels/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-hotels/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-hotels/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/vacation-reviews/",
+      "lang": "es",
+      "filePath": "guides/es/vacation-reviews/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-reviews",
+      "canonical": "https://iberigo.eu/guides/es/vacation-reviews/",
+      "title": "Reseñas y comparadores para viajes a España — IberiGo",
+      "metaDescription": "Usa plataformas de reseñas para comparar hoteles, zonas y experiencias antes de reservar tu viaje a España.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-reviews/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-reviews/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-reviews/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/vacation-tourism/",
+      "lang": "es",
+      "filePath": "guides/es/vacation-tourism/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-tourism",
+      "canonical": "https://iberigo.eu/guides/es/vacation-tourism/",
+      "title": "Turismo oficial en España — destinos y planificación — IberiGo",
+      "metaDescription": "El portal oficial de turismo de España cubre destinos, regiones e ideas de viaje por todo el país.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-tourism/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-tourism/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-tourism/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/vida-laboral/",
+      "lang": "es",
+      "filePath": "guides/es/vida-laboral/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vida-laboral",
+      "canonical": "https://iberigo.eu/guides/es/vida-laboral/",
+      "title": "Vida laboral (Informe de Vida Laboral) en España — IberiGo",
+      "metaDescription": "El Informe de Vida Laboral es un documento oficial de la Seguridad Social que muestra tu historial completo de empleo en España: cada trabajo, periodo de…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vida-laboral/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vida-laboral/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vida-laboral/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/work-authorization/",
+      "lang": "es",
+      "filePath": "guides/es/work-authorization/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "work-authorization",
+      "canonical": "https://iberigo.eu/guides/es/work-authorization/",
+      "title": "Autorización de residencia y trabajo en España — IberiGo",
+      "metaDescription": "Los ciudadanos no comunitarios que quieren trabajar en España por cuenta ajena o propia necesitan una autorización de residencia y trabajo antes de empezar.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/work-authorization/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/work-authorization/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/work-authorization/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/eu-family/",
+      "lang": "en",
+      "filePath": "guides/eu-family/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "eu-family",
+      "canonical": "https://iberigo.eu/guides/eu-family/",
+      "title": "Residence card for family member of an EU citizen in Spain — IberiGo",
+      "metaDescription": "For non-EU family members joining an EU, EEA, Swiss, or qualifying Spanish citizen in Spain.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/eu-family/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/eu-family/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/eu-family/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/eu-registration/",
+      "lang": "en",
+      "filePath": "guides/eu-registration/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "eu-registration",
+      "canonical": "https://iberigo.eu/guides/eu-registration/",
+      "title": "EU/EEA/Swiss registration certificate in Spain — IberiGo",
+      "metaDescription": "EU, EEA, and Swiss citizens staying in Spain over 3 months usually need the Certificado de Registro de Ciudadano de la Unión.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/eu-registration/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/eu-registration/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/eu-registration/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/eu-vacation/",
+      "lang": "en",
+      "filePath": "guides/eu-vacation/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "eu-vacation",
+      "canonical": "https://iberigo.eu/guides/eu-vacation/",
+      "title": "EU/EEA/Swiss short visit to Spain — IberiGo",
+      "metaDescription": "EU, EEA, and Swiss citizens can visit Spain for up to 3 months with a valid passport or national ID. No residence filing needed for an ordinary short visit.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/eu-vacation/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/eu-vacation/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/eu-vacation/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/eu-working/",
+      "lang": "en",
+      "filePath": "guides/eu-working/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "eu-working",
+      "canonical": "https://iberigo.eu/guides/eu-working/",
+      "title": "EU/EEA/Swiss worker registration in Spain — IberiGo",
+      "metaDescription": "EU, EEA, and Swiss citizens working in Spain over 3 months register their residency through the EU Registration Certificate.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/eu-working/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/eu-working/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/eu-working/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/family/",
+      "lang": "en",
+      "filePath": "guides/family/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "family",
+      "canonical": "https://iberigo.eu/guides/family/",
+      "title": "Family reunification in Spain — IberiGo",
+      "metaDescription": "For eligible relatives joining a non-EU legal resident in Spain. Requires family relationship evidence, sponsor residence documents, housing proof, and…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/family/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/family/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/family/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/job-search/",
+      "lang": "en",
+      "filePath": "guides/job-search/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "job-search",
+      "canonical": "https://iberigo.eu/guides/job-search/",
+      "title": "Job search in Spain — how to get started — IberiGo",
+      "metaDescription": "Start a job search in Spain by confirming your legal right to work, then explore public portals and major private platforms.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/job-search/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/job-search/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/job-search/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/nie-only/",
+      "lang": "en",
+      "filePath": "guides/nie-only/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "nie-only",
+      "canonical": "https://iberigo.eu/guides/nie-only/",
+      "title": "NIE only — Spanish foreigner ID number — IberiGo",
+      "metaDescription": "Get a NIE for an economic, professional, or social reason without registering as a resident.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/nie-only/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/nie-only/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/nie-only/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/nie/",
+      "lang": "en",
+      "filePath": "guides/nie/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "nie",
+      "canonical": "https://iberigo.eu/guides/nie/",
+      "title": "NIE number in Spain — what you need to know — IberiGo",
+      "metaDescription": "Your NIE is the foreigner identification number required for banking, property, tax, and many official procedures in Spain.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/nie/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/nie/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/nie/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/non-eu-vacation/",
+      "lang": "en",
+      "filePath": "guides/non-eu-vacation/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "non-eu-vacation",
+      "canonical": "https://iberigo.eu/guides/non-eu-vacation/",
+      "title": "Schengen short stay in Spain — IberiGo",
+      "metaDescription": "For a vacation or short visit to Spain, check whether your passport needs a Schengen short-stay visa or can enter visa-free.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/non-eu-vacation/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/non-eu-vacation/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/non-eu-vacation/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/non-lucrative/",
+      "lang": "en",
+      "filePath": "guides/non-lucrative/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "non-lucrative",
+      "canonical": "https://iberigo.eu/guides/non-lucrative/",
+      "title": "Non-lucrative residence in Spain — IberiGo",
+      "metaDescription": "For non-EU applicants who want to live in Spain without working. Requires proof of sufficient funds, private health insurance, and criminal record certificate.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/non-lucrative/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/non-lucrative/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/non-lucrative/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/padron/",
+      "lang": "en",
+      "filePath": "guides/padron/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "padron",
+      "canonical": "https://iberigo.eu/guides/padron/",
+      "title": "Padrón — town hall registration in Spain — IberiGo",
+      "metaDescription": "Register your address with your local town hall (padrón). Requirements vary by municipality; you usually need an identity document and proof of address such as…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/padron/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/padron/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/padron/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/phone/",
+      "lang": "en",
+      "filePath": "guides/phone/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "phone",
+      "canonical": "https://iberigo.eu/guides/phone/",
+      "title": "Phone and internet in Spain — IberiGo",
+      "metaDescription": "Getting a mobile number and home internet in Spain is straightforward once you have ID. Compare major operators and flexible options before signing.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/phone/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/phone/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/phone/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/private-health/",
+      "lang": "en",
+      "filePath": "guides/private-health/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "private-health",
+      "canonical": "https://iberigo.eu/guides/private-health/",
+      "title": "Private health insurance in Spain — IberiGo",
+      "metaDescription": "Private health insurance is often required for Spanish residence permits and visas, and can also be useful as extra cover.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/private-health/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/private-health/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/private-health/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/renting-home/",
+      "lang": "en",
+      "filePath": "guides/renting-home/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "renting-home",
+      "canonical": "https://iberigo.eu/guides/renting-home/",
+      "title": "Renting a home in Spain — IberiGo",
+      "metaDescription": "A practical starting guide for finding a long-term or temporary rental in Spain, preparing documents, checking the contract, and avoiding common red flags…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/renting-home/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/renting-home/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/renting-home/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/sip-card/",
+      "lang": "en",
+      "filePath": "guides/sip-card/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "sip-card",
+      "canonical": "https://iberigo.eu/guides/sip-card/",
+      "title": "Public health card in Spain — SIP, TSI, Tarjeta Sanitaria — IberiGo",
+      "metaDescription": "Every Spanish autonomous community has its own name for the public health card: SIP, TSI, or Tarjeta Sanitaria.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/sip-card/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/sip-card/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/sip-card/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/social-security/",
+      "lang": "en",
+      "filePath": "guides/social-security/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "social-security",
+      "canonical": "https://iberigo.eu/guides/social-security/",
+      "title": "Social Security number in Spain — IberiGo",
+      "metaDescription": "A Spanish Social Security number (NUSS) is needed for employment, self-employment contributions, and some official procedures.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/social-security/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/social-security/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/social-security/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/study/",
+      "lang": "en",
+      "filePath": "guides/study/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "study",
+      "canonical": "https://iberigo.eu/guides/study/",
+      "title": "Study stay authorization in Spain — IberiGo",
+      "metaDescription": "For studies, training, student mobility, internships, or related activities lasting over 90 days in Spain.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/study/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/study/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/study/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/taxes/",
+      "lang": "en",
+      "filePath": "guides/taxes/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "taxes",
+      "canonical": "https://iberigo.eu/guides/taxes/",
+      "title": "Taxes and tax address in Spain — IberiGo",
+      "metaDescription": "Your tax obligations in Spain depend on your residency status, income sources, and whether you are registered with the Tax Agency (Agencia Tributaria).",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/taxes/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/taxes/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/taxes/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/tie-after-approval/",
+      "lang": "en",
+      "filePath": "guides/tie-after-approval/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "tie-after-approval",
+      "canonical": "https://iberigo.eu/guides/tie-after-approval/",
+      "title": "TIE card after residence approval in Spain — IberiGo",
+      "metaDescription": "The TIE (Tarjeta de Identidad de Extranjero) is the physical foreigner identity card issued after a residence authorization or visa is granted.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/tie-after-approval/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/tie-after-approval/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/tie-after-approval/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/tie/",
+      "lang": "en",
+      "filePath": "guides/tie/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "tie",
+      "canonical": "https://iberigo.eu/guides/tie/",
+      "title": "TIE card in Spain — foreigner identity card guide — IberiGo",
+      "metaDescription": "The TIE (Tarjeta de Identidad de Extranjero) documents your approved residence or stay in Spain.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/tie/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/tie/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/tie/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/vacation-booking/",
+      "lang": "en",
+      "filePath": "guides/vacation-booking/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-booking",
+      "canonical": "https://iberigo.eu/guides/vacation-booking/",
+      "title": "Accommodation booking platforms for Spain — IberiGo",
+      "metaDescription": "Compare accommodation booking platforms before reserving in Spain. Check cancellation policies, neighbourhood location, and total price including fees before…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-booking/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-booking/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-booking/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/vacation-citizenship/",
+      "lang": "en",
+      "filePath": "guides/vacation-citizenship/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-citizenship",
+      "canonical": "https://iberigo.eu/guides/vacation-citizenship/",
+      "title": "EU vs non-EU entry to Spain — vacation guide — IberiGo",
+      "metaDescription": "EU/EEA/Swiss citizens travel to Spain under free movement rules. Non-EU travellers follow Schengen short-stay rules including visa requirements and the 90-day…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-citizenship/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-citizenship/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-citizenship/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/vacation-entry/",
+      "lang": "en",
+      "filePath": "guides/vacation-entry/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-entry",
+      "canonical": "https://iberigo.eu/guides/vacation-entry/",
+      "title": "Entry rules and short stays in Spain — IberiGo",
+      "metaDescription": "Check whether your trip to Spain falls under EU free movement or Schengen short-stay rules.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-entry/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-entry/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-entry/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/vacation-flights/",
+      "lang": "en",
+      "filePath": "guides/vacation-flights/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-flights",
+      "canonical": "https://iberigo.eu/guides/vacation-flights/",
+      "title": "Flights and airports in Spain — IberiGo",
+      "metaDescription": "Find the best flights to Spain by comparing airlines and search platforms. Spain's major airports include Madrid Barajas, Barcelona El Prat, Malaga, Valencia,…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-flights/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-flights/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-flights/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/vacation-ground/",
+      "lang": "en",
+      "filePath": "guides/vacation-ground/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-ground",
+      "canonical": "https://iberigo.eu/guides/vacation-ground/",
+      "title": "Trains, buses, and car hire in Spain — IberiGo",
+      "metaDescription": "Getting around Spain by train, bus, or rental car depends on your route. Renfe covers high-speed and regional rail; ALSA covers long-distance buses; rental car…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-ground/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-ground/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-ground/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/vacation-hotels/",
+      "lang": "en",
+      "filePath": "guides/vacation-hotels/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-hotels",
+      "canonical": "https://iberigo.eu/guides/vacation-hotels/",
+      "title": "Hotel chains in Spain — where to stay — IberiGo",
+      "metaDescription": "Spain has a wide range of hotel chains from budget to luxury. Major brands include Meliá, NH, Barceló, Riu, Iberostar, Marriott, and Hilton, with properties in…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-hotels/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-hotels/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-hotels/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/vacation-reviews/",
+      "lang": "en",
+      "filePath": "guides/vacation-reviews/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-reviews",
+      "canonical": "https://iberigo.eu/guides/vacation-reviews/",
+      "title": "Travel reviews and comparison tools for Spain — IberiGo",
+      "metaDescription": "Use review platforms to compare hotels, neighborhoods, and experiences before booking a trip to Spain.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-reviews/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-reviews/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-reviews/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/vacation-tourism/",
+      "lang": "en",
+      "filePath": "guides/vacation-tourism/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vacation-tourism",
+      "canonical": "https://iberigo.eu/guides/vacation-tourism/",
+      "title": "Official tourism in Spain — destinations and planning — IberiGo",
+      "metaDescription": "Spain's official tourism portal covers destinations, regions, and trip ideas across the country.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vacation-tourism/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vacation-tourism/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vacation-tourism/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/vida-laboral/",
+      "lang": "en",
+      "filePath": "guides/vida-laboral/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "vida-laboral",
+      "canonical": "https://iberigo.eu/guides/vida-laboral/",
+      "title": "Vida laboral (Informe de Vida Laboral) in Spain — IberiGo",
+      "metaDescription": "The Informe de Vida Laboral is an official Social Security document showing your complete Spanish employment history — every job, self-employment period, or…",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/vida-laboral/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/vida-laboral/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/vida-laboral/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/work-authorization/",
+      "lang": "en",
+      "filePath": "guides/work-authorization/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "work-authorization",
+      "canonical": "https://iberigo.eu/guides/work-authorization/",
+      "title": "Work and residence authorization in Spain — IberiGo",
+      "metaDescription": "Non-EU citizens who want to work in Spain for a Spanish employer or as self-employed need a residence and work authorization before starting.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/work-authorization/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/work-authorization/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/work-authorization/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": false,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-static-guide-body-content",
+        "missing-noscript-fallback"
+      ]
+    }
+  ]
+}
