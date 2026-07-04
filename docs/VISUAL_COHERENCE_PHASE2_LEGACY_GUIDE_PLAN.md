@@ -1,6 +1,6 @@
 # Visual Coherence Phase 2 — Legacy Guide Structure Plan
 
-**Status: Job-search static rendering POC preview QA passed — merge pending**
+**Status: Job-search static rendering POC launched — production verified**
 
 This document plans (does not implement) a fix for the structural gap identified
 in `docs/SITEWIDE_VISUAL_COHERENCE_AUDIT.md`: the legacy `/guides/*` pages are
@@ -9,6 +9,8 @@ client-side JavaScript to render their actual text. This is planning only —
 no legacy guide changes, no redirects, no migration, no indexing changes, and
 no edits to `sitemap.xml`, `search-index.json`, `robots.txt`, `styles.css`, or
 `app.js` were made while producing this document.
+
+**Sprint 116 update (2026-07-04):** PR #30 was squash-merged into `main` (merge commit `63afe68`) and verified on production. The selected legacy route pair (`/guides/job-search/`, `/guides/es/job-search/`) now serves real static guide body content while preserving the existing URL, metadata, canonical, hreflang, sitemap presence, and client-side enhancement behavior. The audit remains scoped at exactly **2/70** static body content routes, with **68/70** legacy routes unchanged. Production checks confirmed the selected routes and regression routes return `200`; JS-enabled rendering has no duplicate title/list/disclaimer/links; five launched Group 1 pages remain `index, follow`; generated draft/noindex surfaces remain `noindex, nofollow`. No full legacy migration happened, no additional pages were published, no redirects were added, and `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, and `robots.txt` were unchanged.
 
 **Sprint 109 update (2026-07-04):** this plan's recommended first PR — a
 read-only validation/report script — was built and run. See

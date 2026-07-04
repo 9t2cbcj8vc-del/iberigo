@@ -1,6 +1,8 @@
 # Legacy Guide Audit Report
 
-**Status: Job-search static rendering POC preview QA passed — merge pending**
+**Status: Job-search static rendering POC launched — production verified**
+
+**Sprint 116 update (2026-07-04):** PR #30 was squash-merged into `main` (merge commit `63afe68`) and verified on production. Rerunning `node scripts/audit-legacy-guides.js` on updated `main` exits `0` and confirms exactly **2/70** pages with static guide body content: `/guides/job-search/` and `/guides/es/job-search/`. The remaining **68/70** legacy routes retain the baseline `missing-static-guide-body-content, missing-noscript-fallback` state. Production route checks confirmed the selected EN+ES job-search pair returns `200`, ships static guide body content in raw HTML, preserves canonical and hreflang metadata, and renders with JavaScript enabled without duplicated guide content. Regression routes (`/`, `/start-here/`, `/the-spain-files/`, `/support/`, `/guides/banking/`, `/guides/es/banking/`, `/guides/eu-registration/`, `/guides/es/eu-registration/`) all returned `200`. No full legacy migration happened, no additional pages were published, no redirects were added, and `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, and `robots.txt` were unchanged.
 
 **Sprint 110 update (2026-07-04):** PR #27 was squash-merged into `main` (commit `c3b48b1`) and verified on production. Rerunning `node scripts/audit-legacy-guides.js` on updated `main` exits `0` and reproduces identical findings (70 URLs, 35 English, 35 Spanish, full metadata coverage, 0/70 static body content, 0/70 noscript fallback) — only the report's `generatedAt` timestamp differs between runs, as expected. No legacy guide page, `app.js`, or `styles.css` was changed; no redirects, migration, or indexing changes were made.
 
