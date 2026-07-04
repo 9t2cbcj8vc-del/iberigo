@@ -1,6 +1,8 @@
 # Legacy Guide Audit Report
 
-**Status: Legacy guide audit script prepared — preview/review pending**
+**Status: Legacy guide audit script launched**
+
+**Sprint 110 update (2026-07-04):** PR #27 was squash-merged into `main` (commit `c3b48b1`) and verified on production. Rerunning `node scripts/audit-legacy-guides.js` on updated `main` exits `0` and reproduces identical findings (70 URLs, 35 English, 35 Spanish, full metadata coverage, 0/70 static body content, 0/70 noscript fallback) — only the report's `generatedAt` timestamp differs between runs, as expected. No legacy guide page, `app.js`, or `styles.css` was changed; no redirects, migration, or indexing changes were made.
 
 ## Purpose
 

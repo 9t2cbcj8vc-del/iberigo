@@ -1,6 +1,6 @@
 # Visual Coherence Phase 2 — Legacy Guide Structure Plan
 
-**Status: Legacy guide audit script prepared — preview/review pending**
+**Status: Legacy guide audit script launched**
 
 This document plans (does not implement) a fix for the structural gap identified
 in `docs/SITEWIDE_VISUAL_COHERENCE_AUDIT.md`: the legacy `/guides/*` pages are
@@ -19,6 +19,8 @@ any page). No legacy guide page, `app.js`, or `styles.css` was changed; no
 redirects, migration, or indexing changes were made. The recommended next
 step remains the single-route static-rendering proof-of-concept described
 below, as its own separately-scoped sprint.
+
+**Sprint 110 update (2026-07-04):** PR #27 was squash-merged into `main` (commit `c3b48b1`) and verified live: production homepage, `/guides/banking/`, `/guides/es/banking/`, `/guides/eu-registration/`, `/guides/es/eu-registration/`, `/start-here/`, `/the-spain-files/`, and `/support/` all return `200`; all 5 launched pages remain `index, follow`; sampled drafts remain `noindex, nofollow`; `sitemap.xml`, `search-index.json`, `robots.txt`, `styles.css`, and `app.js` are all byte-identical to `main` in production. Rerunning the audit script on updated `main` reproduces identical findings. No legacy guide migration has happened.
 
 ## Goal
 
