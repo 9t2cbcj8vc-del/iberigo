@@ -66,43 +66,65 @@ function attrs(attributes = {}) {
     .join("");
 }
 
-function Header() {
+function Header({ lang = "en" } = {}) {
+  const isSpanish = lang === "es";
+  const labels = isSpanish
+    ? {
+        nav: "Secciones principales",
+        start: "Empieza aquí",
+        home: "Portada",
+        spainFiles: "The Spain Files",
+        donate: "Donar",
+        search: "Buscar en IberiGo",
+        language: "Idioma"
+      }
+    : {
+        nav: "Main sections",
+        start: "Start Here",
+        home: "Home",
+        spainFiles: "The Spain Files",
+        donate: "Donate",
+        search: "Search IberiGo",
+        language: "Language"
+      };
+  const startHref = isSpanish ? "/es/start-here/" : "/start-here/";
   return `<header class="topbar">
         <div class="brand-lockup">
           <span class="brand-wordmark" aria-label="IberiGo">Iberi<span class="brand-wordmark-accent">Go</span></span>
         </div>
-        <nav aria-label="Main sections">
-          <a href="/start-here/">Start Here</a>
-          <a href="/index.html?nav=start#guide-cards">Home</a>
-          <a href="/the-spain-files/">The Spain Files</a>
-          <a href="/support/index.html">Donate</a>
-          <a class="search-nav-link" href="/search/" aria-label="Search IberiGo">
+        <nav aria-label="${escapeHtml(labels.nav)}">
+          <a href="${startHref}">${escapeHtml(labels.start)}</a>
+          <a href="/index.html?nav=start#guide-cards">${escapeHtml(labels.home)}</a>
+          <a href="/the-spain-files/">${escapeHtml(labels.spainFiles)}</a>
+          <a href="/support/index.html">${escapeHtml(labels.donate)}</a>
+          <a class="search-nav-link" href="/search/" aria-label="${escapeHtml(labels.search)}">
             <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
               <path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
             </svg>
           </a>
-          <div class="language-switcher" aria-label="Language">
-            <button type="button" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+          <div class="language-switcher" aria-label="${escapeHtml(labels.language)}">
+            <button type="button" data-lang="en" aria-pressed="${lang === "en"}">EN</button>
+            <button type="button" data-lang="es" aria-pressed="${lang === "es"}">ES</button>
           </div>
         </nav>
       </header>`;
 }
 
-function Footer() {
+function Footer({ lang = "en" } = {}) {
+  const isSpanish = lang === "es";
   return `<footer class="site-footer">
-        <p>IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.</p>
-        <a href="/support/index.html">Donate</a>
+        <p>${escapeHtml(isSpanish ? "IberiGo es gratis. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria." : "IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.")}</p>
+        <a href="/support/index.html">${escapeHtml(isSpanish ? "Donar" : "Donate")}</a>
         <div class="site-footer-legal">
-          <p>© 2026 IberiGo. Free to use. Not legal advice.</p>
-          <p>Last reviewed: ${REVIEWED}</p>
+          <p>${escapeHtml(isSpanish ? "© 2026 IberiGo. Gratis. No es asesoramiento legal." : "© 2026 IberiGo. Free to use. Not legal advice.")}</p>
+          <p>${escapeHtml(isSpanish ? "Última revisión" : "Last reviewed")}: ${REVIEWED}</p>
         </div>
       </footer>`;
 }
 
-function Breadcrumbs(items = []) {
-  const crumbs = [{ label: "Home", href: "/index.html?nav=start#guide-cards" }, ...items];
-  return `<nav class="guide-breadcrumbs" aria-label="Breadcrumb">
+function Breadcrumbs(items = [], { lang = "en" } = {}) {
+  const crumbs = [{ label: lang === "es" ? "Portada" : "Home", href: "/index.html?nav=start#guide-cards" }, ...items];
+  return `<nav class="guide-breadcrumbs" aria-label="${escapeHtml(lang === "es" ? "Miga de pan" : "Breadcrumb")}">
           <ol>
             ${crumbs
               .map((item, index) => {
@@ -237,7 +259,13 @@ function ContinueJourney({ previousGuide = null, nextGuide = null, relatedGuides
         </section>`;
 }
 
-function ScopeNotice() {
+function ScopeNotice({ lang = "en" } = {}) {
+  if (lang === "es") {
+    return `<section class="guide-section guide-scope-notice" aria-labelledby="scopeNotice">
+          <h2 id="scopeNotice">Aviso de alcance</h2>
+          <p>Esta guía ofrece información general para España. Algunos trámites y documentos pueden variar según la provincia o el municipio.</p>
+        </section>`;
+  }
   return `<section class="guide-section guide-scope-notice" aria-labelledby="scopeNotice">
           <h2 id="scopeNotice">Scope Notice</h2>
           <p>This guide provides general information for Spain. Some procedures and supporting documents may vary by province or municipality.</p>
@@ -276,7 +304,13 @@ function OfficialSources(items = []) {
   });
 }
 
-function LegalDisclaimer() {
+function LegalDisclaimer({ lang = "en" } = {}) {
+  if (lang === "es") {
+    return `<section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
+          <h2 id="legalDisclaimer">Aviso legal</h2>
+          <p>Esta guía ofrece información práctica, no asesoramiento legal, fiscal, migratorio, financiero ni sobre alquileres. Los requisitos pueden variar según el municipio, la oficina, el banco y la situación personal. Comprueba siempre la fuente oficial actual o consulta con la oficina correspondiente antes de tomar decisiones.</p>
+        </section>`;
+  }
   return `<section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
           <h2 id="legalDisclaimer">Legal Disclaimer</h2>
           <p>This guide is practical information, not legal, tax, immigration, financial or rental advice. Requirements can vary by municipality, office, bank and personal situation. Always check the current official source or ask the relevant office before making decisions.</p>
@@ -296,27 +330,29 @@ function StatusBadge() {
   return "";
 }
 
-function ReadingTime(html) {
+function ReadingTime(html, { lang = "en" } = {}) {
   const words = stripHtml(html).trim().split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.ceil(words / 200));
-  return `<p class="guide-reading-time">${minutes} min read</p>`;
+  return `<p class="guide-reading-time">${minutes} ${lang === "es" ? "min de lectura" : "min read"}</p>`;
 }
 
-function GuideTableOfContents(items = [], { variant = "desktop" } = {}) {
+function GuideTableOfContents(items = [], { variant = "desktop", lang = "en" } = {}) {
   if (items.length < 3) return "";
+  const label = lang === "es" ? "En esta página" : "On this page";
+  const ariaLabel = variant === "desktop" && lang !== "es" ? "Table of contents" : label;
   const links = items
     .map((item, index) => `<li><a href="#${escapeHtml(item.id)}" data-guide-toc-link${index === 0 ? ' aria-current="true"' : ""}>${escapeHtml(item.title)}</a></li>`)
     .join("");
 
   if (variant === "mobile") {
     return `<details class="guide-toc-mobile" data-guide-toc>
-          <summary>On this page</summary>
-          <nav aria-label="On this page"><ol>${links}</ol></nav>
+          <summary>${escapeHtml(label)}</summary>
+          <nav aria-label="${escapeHtml(label)}"><ol>${links}</ol></nav>
         </details>`;
   }
 
-  return `<aside class="guide-toc" data-guide-toc aria-label="Table of contents">
-          <strong>On this page</strong>
+  return `<aside class="guide-toc" data-guide-toc aria-label="${escapeHtml(ariaLabel)}">
+          <strong>${escapeHtml(label)}</strong>
           <nav><ol>${links}</ol></nav>
         </aside>`;
 }
@@ -445,6 +481,7 @@ function guideCss() {
 function GuideLayout(config) {
   const canonical = config.canonical || `${SITE_URL}${config.path}`;
   const metadata = config.metadata || {};
+  const lang = config.lang || "en";
   const status = config.status || metadata.status || "draft";
   const lastReviewed = config.lastReviewed !== undefined ? config.lastReviewed : metadata.lastReviewed || REVIEWED;
   const robots = config.robots || (status === "published" ? "index, follow" : "noindex, nofollow");
@@ -456,14 +493,14 @@ function GuideLayout(config) {
   const hasOfficialSources = officialSources.length > 0;
   const showContinueJourney = config.showContinueJourney !== false;
   const mainContent = [
-    Breadcrumbs(config.breadcrumbs || []),
+    Breadcrumbs(config.breadcrumbs || [], { lang }),
     StatusBadge(),
-    GuideHero({ ...config.hero, meta: ReadingTime(sections.join("\n")) }),
-    GuideTableOfContents(tocItems, { variant: "mobile" }),
+    GuideHero({ ...config.hero, meta: ReadingTime(sections.join("\n"), { lang }) }),
+    GuideTableOfContents(tocItems, { variant: "mobile", lang }),
     ...sections,
-    showTrustBlocks ? ScopeNotice() : "",
+    showTrustBlocks ? ScopeNotice({ lang }) : "",
     OfficialSources(officialSources),
-    showTrustBlocks ? LegalDisclaimer() : "",
+    showTrustBlocks ? LegalDisclaimer({ lang }) : "",
     LastReviewed(lastReviewed, hasOfficialSources),
     showContinueJourney ? ContinueJourney({
       previousGuide: metadata.previousGuide || config.previousGuide || null,
@@ -475,7 +512,7 @@ function GuideLayout(config) {
           <div class="guide-content">
             ${mainContent}
           </div>
-          ${showToc ? GuideTableOfContents(tocItems) : ""}
+          ${showToc ? GuideTableOfContents(tocItems, { lang }) : ""}
         </div>
         ${EditorialChecklist(config.editorialChecklist)}
         ${Frontmatter({
@@ -499,7 +536,7 @@ function GuideLayout(config) {
         })}`;
 
   return `<!doctype html>
-<html lang="en">
+<html lang="${escapeHtml(lang)}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -523,11 +560,11 @@ function GuideLayout(config) {
   </head>
   <body>
     <div class="app-shell">
-      ${Header()}
+      ${Header({ lang })}
       <main class="guide-main">
         ${content}
       </main>
-      ${Footer()}
+      ${Footer({ lang })}
     </div>
     <script>
       (function () {
