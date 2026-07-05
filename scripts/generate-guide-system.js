@@ -22,6 +22,7 @@ const reviewPlaceholder = "Content under editorial review.";
 
 const routes = {
   startHere: "/start-here/",
+  esStartHere: "/es/start-here/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/moving-to-spain/eu-registration/",
@@ -228,6 +229,13 @@ const searchMetadataByRoute = {
     appliesTo: ["People planning a move to Spain", "People choosing the right IberiGo guide"],
     keywords: ["start here", "moving to Spain", "EU citizen", "non-EU citizen", "student", "worker", "retiree", "family"]
   },
+  [routes.esStartHere]: {
+    category: "Mudarse a España",
+    difficulty: "Fácil",
+    estimatedTime: "3 min",
+    appliesTo: ["Personas que preparan una mudanza a España", "Personas que quieren elegir la guía adecuada de IberiGo"],
+    keywords: ["empieza aquí", "mudarse a España", "ciudadano de la UE", "ciudadano no UE", "estudiante", "trabajador", "jubilado", "familia"]
+  },
   [routes.euRoadmap]: {
     category: "Moving to Spain",
     difficulty: "Moderate",
@@ -372,6 +380,7 @@ const searchMetadataByRoute = {
 
 const relatedRoutesByRoute = {
   [routes.startHere]: [routes.euRoadmap, routes.euRegistration, routes.padron, routes.healthcare],
+  [routes.esStartHere]: [routes.euRoadmap, routes.checklist, routes.accommodation, routes.settling, routes.banking],
   [routes.settling]: [routes.healthcare, routes.euRegistration, routes.banking, routes.digital],
   [routes.padron]: [routes.accommodation, routes.healthcare, routes.euRegistration],
   [routes.healthcare]: [routes.social, routes.euRoadmap, routes.checklist],
@@ -504,6 +513,7 @@ const publishedRoutes = new Set([
 function guideMetadataFor(route) {
   const journeyRoutesByRoute = {
     [routes.startHere]: { next: routes.euRoadmap },
+    [routes.esStartHere]: { next: routes.euRoadmap },
     [routes.euRoadmap]: { next: routes.checklist },
     [routes.settling]: { previous: routes.euRoadmap, next: routes.padron },
     [routes.checklist]: { previous: routes.euRoadmap, next: routes.accommodation },
@@ -887,6 +897,78 @@ const pages = [
           id: "notSure",
           title: "Not sure where to begin?",
           children: `<p>If you are unsure which route applies to you, use the EU or non-EU path as an orientation step, then confirm the route that matches your nationality, purpose and personal situation. Every guide explains who it applies to and points you to the next step.</p>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esStartHere,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esStartHere,
+      canonical: `https://iberigo.eu${routes.esStartHere}`,
+      title: "Empieza aquí: mudarse a España — IberiGo",
+      description: "Encuentra la guía de IberiGo adecuada para tu mudanza a España, tanto si eres ciudadano de la UE, ciudadano no UE, estudiante, trabajador, jubilado o vienes con familia.",
+      metadata: guideMetadataFor(routes.esStartHere),
+      showTrustBlocks: true,
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí" }],
+      hero: {
+        kicker: "Empieza aquí",
+        title: "Mudarse a España empieza aquí.",
+        intro: "Elige la situación que más se parece a la tuya y te indicaremos la guía que explica qué revisar después.",
+        asideTitle: "Punto de partida sencillo",
+        asideText: "No necesitas conocer todos los términos administrativos antes de empezar, pero sí conviene confirmar qué ruta encaja con tu nacionalidad, tu motivo de mudanza y tu situación personal."
+      },
+      sections: [
+        GuideSection({
+          id: "chooseYourPath",
+          title: "Elige tu ruta",
+          children: `${InfoBox({
+            title: "Borrador en español",
+            text: "Esta página es el primer borrador en español del sistema de guías. Algunas guías enlazadas todavía están disponibles solo en inglés; las versiones en español se prepararán en pasos separados."
+          })}${StartHereCards([
+            { title: "Soy ciudadano de la UE", text: "Empieza con la hoja de ruta para ciudadanos de la UE, del EEE y de Suiza que se mudan a España.", href: routes.euRoadmap, label: "Ver hoja de ruta" },
+            { title: "Soy ciudadano no UE", text: "Empieza con la hoja de ruta para ciudadanos no UE y confirma después la vía concreta que encaja con tu caso.", href: routes.nonEuRoadmap, label: "Ver hoja de ruta" },
+            { title: "Voy a reunirme con familia en España", text: "Empieza con la ruta familiar que parezca más cercana a tu situación y confirma los requisitos aplicables antes de preparar documentos.", href: routes.euFamilyMemberRoadmap, label: "Ver hoja de ruta" },
+            { title: "Me mudo por trabajo", text: "Empieza con la hoja de ruta sobre trabajo y revisa después la vía que corresponde a tu nacionalidad y situación laboral.", href: routes.workInSpain, label: "Ver hoja de ruta" },
+            { title: "Me mudo para estudiar", text: "Empieza con la hoja de ruta para estudiantes y confirma las normas según tu nacionalidad, el curso y la duración de los estudios.", href: routes.students, label: "Ver hoja de ruta" },
+            { title: "Me jubilo en España", text: "Empieza con la hoja de ruta para jubilación y recursos suficientes, y revisa ingresos, asistencia sanitaria y residencia con cautela.", href: routes.retireInSpain, label: "Ver hoja de ruta" },
+            { title: "Trabajo por cuenta propia", text: "Empieza con la hoja de ruta para autónomos y confirma si esa vía encaja con tu permiso o residencia antes de actuar.", href: routes.selfEmployed, label: "Ver hoja de ruta" }
+          ])}`
+        }),
+        GuideSection({
+          id: "mostPeopleStartHere",
+          title: "La mayoría de las personas empieza aquí",
+          children: StartHereGuideCards([
+            { title: "Mudarse a España como ciudadano de la UE", text: "Entiende el orden general de planificación, llegada y primeros trámites.", href: routes.euRoadmap, label: "Ver la hoja de ruta UE" },
+            { title: "Lista de documentos", text: "Prepara un expediente básico antes de citas, alquileres o trámites administrativos.", href: routes.checklist, label: "Ver la lista" },
+            { title: "Encontrar alojamiento", text: "Revisa cómo el alojamiento puede afectar al empadronamiento, contratos y pruebas de dirección.", href: routes.accommodation, label: "Ver la guía" },
+            { title: "Primeros pasos al llegar", text: "Ordena los pasos principales después de llegar, sin asumir plazos fijos.", href: routes.settling, label: "Ver la guía" },
+            { title: "Abrir una cuenta bancaria", text: "Compara documentos, comisiones y uso diario de una cuenta bancaria en España.", href: routes.banking, label: "Ver la guía" }
+          ])
+        }),
+        GuideSection({
+          id: "howGuidesWork",
+          title: "Cómo funcionan las guías de IberiGo",
+          children: `${Cards([
+            { title: "Planificación", text: "Entender tu ruta y los documentos que pueden ser importantes." },
+            { title: "Llegada", text: "Organizar alojamiento, padrón, tarjeta sanitaria y otros pasos en un orden práctico." },
+            { title: "Instalación", text: "Pasar a cuenta bancaria, certificado digital, Seguridad Social, impuestos y administración diaria." }
+          ])}${ChecklistBox({
+            title: "Cada guía explica",
+            items: ["qué es el paso", "a quién puede afectar", "qué conviene preparar", "qué revisar después"]
+          })}`
+        }),
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre los enlaces en inglés",
+          children: `<p>Esta página en español es un borrador inicial. Algunas rutas enlazan a guías actuales en inglés porque las versiones españolas todavía no existen. No asumas que una guía enlazada cubre todas las situaciones: usa cada página como orientación práctica y confirma siempre los requisitos oficiales que correspondan a tu caso.</p>`
+        }),
+        GuideSection({
+          id: "notSure",
+          title: "¿No sabes por dónde empezar?",
+          children: `<p>Si no tienes claro qué ruta se aplica a ti, empieza por la vía UE o no UE como orientación. Después confirma la ruta que encaja con tu nacionalidad, tu motivo de mudanza y tus circunstancias personales. En España, algunos detalles pueden variar según la provincia, el municipio, la oficina o el momento de la cita.</p>`
         })
       ]
     })
