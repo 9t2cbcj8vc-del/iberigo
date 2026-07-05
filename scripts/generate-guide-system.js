@@ -23,6 +23,7 @@ const reviewPlaceholder = "Content under editorial review.";
 const routes = {
   startHere: "/start-here/",
   esStartHere: "/es/start-here/",
+  esChecklist: "/es/moving-to-spain/documents-checklist/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/moving-to-spain/eu-registration/",
@@ -235,6 +236,13 @@ const searchMetadataByRoute = {
     estimatedTime: "3 min",
     appliesTo: ["Personas que preparan una mudanza a España", "Personas que quieren elegir la guía adecuada de IberiGo"],
     keywords: ["empieza aquí", "mudarse a España", "ciudadano de la UE", "ciudadano no UE", "estudiante", "trabajador", "jubilado", "familia"]
+  },
+  [routes.esChecklist]: {
+    category: "Mudarse a España",
+    difficulty: "Fácil",
+    estimatedTime: "8 min",
+    appliesTo: ["Personas que preparan documentos antes de mudarse a España", "Personas que organizan las pruebas de su ruta"],
+    keywords: ["documentos", "lista de documentos", "pasaporte", "apostilla", "traducción", "documentos para mudanza"]
   },
   [routes.euRoadmap]: {
     category: "Moving to Spain",
@@ -492,6 +500,12 @@ const officialSourcesByRoute = {
     { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for self-employed non-EU residents is available. Check the current appointment options for your specific route." }
   ],
   [routes.checklist]: [
+    { name: "Modelo 790-012 official fee form", url: "https://sede.policia.gob.es/Tasa790_012/index.jsp", note: "Policía Nacional e-office — the official fee-payment page for Tasa 790-012." },
+    { name: "EX-18 official form (Ministry responsible for immigration)", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — the official immigration portal for checking current EX-18 form and procedure information." },
+    { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office — general appointment and registration portal referenced throughout this checklist." },
+    { name: "Apostille and legalisation", url: "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Legalizacion-y-apostilla.aspx", note: "Ministerio de Asuntos Exteriores — official information on legalisation and apostille of foreign documents." }
+  ],
+  [routes.esChecklist]: [
     { name: "Modelo 790-012 official fee form", url: "https://sede.policia.gob.es/Tasa790_012/index.jsp", note: "Policía Nacional e-office — the official fee-payment page for Tasa 790-012." },
     { name: "EX-18 official form (Ministry responsible for immigration)", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — the official immigration portal for checking current EX-18 form and procedure information." },
     { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office — general appointment and registration portal referenced throughout this checklist." },
@@ -969,6 +983,202 @@ const pages = [
           id: "notSure",
           title: "¿No sabes por dónde empezar?",
           children: `<p>Si no tienes claro qué ruta se aplica a ti, empieza por la vía UE o no UE como orientación. Después confirma la ruta que encaja con tu nacionalidad, tu motivo de mudanza y tus circunstancias personales. En España, algunos detalles pueden variar según la provincia, el municipio, la oficina o el momento de la cita.</p>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esChecklist,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esChecklist,
+      canonical: `https://iberigo.eu${routes.esChecklist}`,
+      title: "Lista de documentos para mudarte a España — IberiGo",
+      description: "Una lista práctica de documentos que puedes necesitar antes de mudarte a España: identidad, residencia, sanidad, ingresos, vivienda y copias oficiales.",
+      metadata: guideMetadataFor(routes.esChecklist),
+      showTrustBlocks: true,
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Lista de documentos" }],
+      hero: {
+        kicker: "Documentos y preparación",
+        title: "Lista de documentos para mudarte a España",
+        intro: "Una guía práctica sobre los documentos que puedes necesitar antes y después de llegar a España, para prepararte con tiempo y evitar retrasos innecesarios.",
+        asideTitle: "No todo aplica a tu caso",
+        asideText: "Tus documentos dependen de tu nacionalidad, tu ruta, el municipio y el tipo de cita. Comprueba siempre los requisitos de tu propio trámite antes de confiar en cualquier lista general."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta lista como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Los documentos que puedes necesitar dependen de tu nacionalidad, tu vía de residencia y el procedimiento local. Muchas personas recién llegadas preparan documentos de identidad, prueba de ingresos, documentos sanitarios, documentos de vivienda y copias. Algunos documentos extranjeros pueden necesitar traducción o legalización. Normalmente conviene prepararlos con antelación en lugar de esperar hasta la cita.</p>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>Idea principal</th><td>Prepara con tiempo los documentos de identidad, ingresos, sanidad, domicilio y cita cuando apliquen a tu ruta.</td></tr>
+            <tr><th>No es universal</th><td>No todas las personas necesitan todos los documentos de esta lista.</td></tr>
+            <tr><th>Variación local</th><td>Los requisitos pueden variar según el municipio, la oficina y el tipo de cita.</td></tr>
+            <tr><th>Documentos extranjeros</th><td>Algunos documentos pueden necesitar traducción oficial, legalización o apostilla.</td></tr>
+            <tr><th>Copias</th><td>Guarda originales, copias en papel y escaneos digitales seguros cuando sea posible.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: Cards([
+            { title: "Ciudadanos de la UE que se mudan a España", text: "Útil para preparar documentos comunes antes del padrón, la sanidad y el registro de la UE." },
+            { title: "Residentes no UE", text: "Úsala como lista general de preparación junto con los requisitos de tu vía de residencia concreta." },
+            { title: "Familiares", text: "Útil si tu situación familiar, certificados o documentos de apoyo pueden formar parte de tu ruta." },
+            { title: "Trabajadores", text: "Útil si los documentos de empleo, la prueba de ingresos o los trámites de Seguridad Social pueden ser relevantes." },
+            { title: "Jubilados", text: "Útil si la pensión, la sanidad o la prueba de ingresos pueden apoyar tu mudanza." },
+            { title: "Estudiantes", text: "Útil si necesitas documentos de matrícula, sanidad y alojamiento." },
+            { title: "Autónomos", text: "Útil si los documentos fiscales, de Seguridad Social, ingresos o actividad pueden formar parte de tu situación." },
+            { title: "Personas preparando trámites", text: "Útil si te preparas para citas de padrón, sanidad, cuenta bancaria o residencia." }
+          ])
+        }),
+        GuideSection({
+          id: "documentosComunes",
+          title: "Documentos comunes que preparar",
+          children: `${ChecklistBox({
+            title: "Lista de documentos",
+            items: [
+              "Pasaporte o documento de identidad nacional",
+              "Certificado de nacimiento, si corresponde",
+              "Certificado de matrimonio, si corresponde",
+              "Prueba de domicilio",
+              "Contrato de alquiler o documento de alojamiento",
+              "Contrato de trabajo, si aplica",
+              "Prueba de ingresos o ahorros",
+              "Seguro médico o documentos de derecho a sanidad",
+              "Matrícula escolar o universitaria, si aplica",
+              "Certificado de pensión, si aplica",
+              "Certificado de antecedentes penales, si tu ruta lo requiere",
+              "Fotos tipo carnet, si se requieren",
+              "Confirmaciones de cita",
+              "Justificantes de tasas pagadas",
+              "Copias de todos los documentos importantes"
+            ]
+          })}${InfoBox({ title: "No todo el mundo necesita cada elemento", text: "Usa esto como lista de preparación práctica, no como lista legal. Tus documentos exactos dependen de tu ruta, tu cita y tu oficina local." })}`
+        }),
+        GuideSection({
+          id: "documentosCiudadanosUe",
+          title: "Documentos para ciudadanos de la UE",
+          children: `${Cards([
+            { title: "Identidad", text: "El pasaporte o documento de identidad nacional suele ser el punto de partida." },
+            { title: "EX-18, si corresponde", text: "El registro de la UE puede implicar el formulario EX-18, según el procedimiento." },
+            { title: "Prueba de tu vía", text: "Puedes necesitar prueba de trabajo, actividad por cuenta propia, estudios, jubilación o medios económicos suficientes." },
+            { title: "Prueba sanitaria", text: "La prueba sanitaria puede depender de si trabajas, estudias, te jubilas, usas el formulario S1, tienes seguro médico privado o utilizas otra vía reconocida." },
+            { title: "Justificante de tasa", text: "El justificante del Modelo 790-012 puede ser necesario para citas del certificado de registro de ciudadano de la UE." },
+            { title: "Certificado de empadronamiento", text: "Puede pedirse localmente un certificado de empadronamiento, según la oficina y la situación." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los requisitos pueden variar según la oficina y la situación. Comprueba los requisitos actuales de la cita antes de acudir.</p></div>`
+        }),
+        GuideSection({
+          id: "documentosNoUe",
+          title: "Documentos para ciudadanos no UE",
+          children: `${Cards([
+            { title: "Visado o autorización", text: "Puedes necesitar documentos de visado o autorización de residencia según tu vía." },
+            { title: "Pasaporte", text: "Un pasaporte válido suele ser central en los trámites de inmigración y residencia no UE." },
+            { title: "Cita para la TIE", text: "Puede necesitarse confirmación de cita para la TIE en los pasos relacionados con la tarjeta." },
+            { title: "Formulario EX correspondiente", text: "El formulario EX aplicable depende del procedimiento concreto." },
+            { title: "Fotos y pago de tasa", text: "Pueden requerirse fotos tipo carnet y el pago de la tasa oficial." },
+            { title: "Domicilio y documentos de apoyo", text: "Se puede solicitar prueba de domicilio y documentos de apoyo específicos de tu ruta." }
+          ])}${InfoBox({ title: "Solo introductorio", text: "Las vías no UE varían de forma significativa. Usa siempre los requisitos oficiales de tu visado o procedimiento de residencia concreto." })}`
+        }),
+        GuideSection({
+          id: "documentosViviendaPadron",
+          title: "Documentos de vivienda y padrón",
+          children: `${ChecklistBox({
+            title: "Prueba de domicilio que puedes necesitar",
+            items: [
+              "Contrato de alquiler",
+              "Escritura de propiedad, si eres propietario",
+              "Autorización del propietario, si aplica",
+              "Copia del documento de identidad de quien autoriza el empadronamiento, si aplica",
+              "Factura de suministro, si se solicita localmente"
+            ]
+          })}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Las normas sobre documentos del padrón varían según el municipio. Comprueba los requisitos de tu ayuntamiento antes de la cita.</p></div>`
+        }),
+        GuideSection({
+          id: "documentosSanitarios",
+          title: "Documentos sanitarios",
+          children: `${Cards([
+            { title: "Seguro médico privado", text: "Un certificado de seguro médico privado puede ser necesario para algunas vías." },
+            { title: "Formulario S1", text: "El formulario S1 puede ser relevante para algunos pensionistas o vías de sanidad transfronteriza." },
+            { title: "Trabajo o Seguridad Social", text: "El empleo o el alta en la Seguridad Social puede apoyar algunas vías de sanidad pública." },
+            { title: "Documentos del servicio de salud regional", text: "Los servicios de salud regionales pueden pedir sus propios formularios o confirmaciones." },
+            { title: "Identidad y NIE", text: "Puede pedirse pasaporte, documento de identidad nacional o NIE según el trámite." },
+            { title: "Certificado de empadronamiento", text: "Puede requerirse un certificado de empadronamiento para el registro en el centro de salud local." }
+          ])}<p>Consulta la guía en inglés <a href="${routes.healthcare}">Healthcare in Spain</a> para comparar las vías sanitarias antes de preparar los documentos.</p>`
+        }),
+        GuideSection({
+          id: "documentosBancoFinanzas",
+          title: "Documentos de banco y finanzas",
+          children: `${Cards([
+            { title: "Identidad", text: "Se suele solicitar pasaporte o documento de identidad nacional." },
+            { title: "NIE, si lo tienes", text: "Algunos bancos pueden pedir el NIE si ya lo tienes." },
+            { title: "Domicilio", text: "Puede solicitarse prueba de domicilio según el banco y el tipo de cuenta." },
+            { title: "Ingresos", text: "Puede pedirse contrato de trabajo, nóminas, prueba de ingresos o ahorros." },
+            { title: "Información fiscal", text: "Los bancos pueden solicitar información sobre residencia fiscal." },
+            { title: "Documentos de residencia", text: "Puede pedirse un certificado o tarjeta de residencia si ya lo tienes." }
+          ])}<p>Consulta la guía <a href="${routes.banking}">Opening a Bank Account</a> para preparar los documentos específicos de la cuenta bancaria.</p>`
+        }),
+        GuideSection({
+          id: "traduccionesApostillasCopias",
+          title: "Traducciones, apostillas y copias",
+          children: Cards([
+            { title: "Traducción oficial", text: "Algunos documentos extranjeros pueden necesitar traducción oficial." },
+            { title: "Legalización o apostilla", text: "Algunos documentos pueden necesitar legalización o apostilla, según el trámite y el país de origen." },
+            { title: "Reglas según el trámite", text: "No des por hecho que la misma regla de traducción o apostilla se aplica a todas las citas." },
+            { title: "Originales y copias", text: "Lleva originales y copias cuando sea posible, salvo que las instrucciones de la cita indiquen otra cosa." },
+            { title: "Escaneos seguros", text: "Guarda escaneos digitales en un lugar seguro para encontrarlos rápidamente." },
+            { title: "Revisa fechas de caducidad", text: "Algunos documentos pueden necesitar ser recientes o estar en vigor en la fecha de la cita." }
+          ])
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Suponer que una sola lista sirve para todo el mundo.",
+            "Olvidar las copias.",
+            "Confiar solo en capturas de pantalla del móvil.",
+            "No comprobar las fechas de caducidad de los documentos.",
+            "No preparar las traducciones con tiempo.",
+            "Llevar documentos que no se aceptan localmente.",
+            "Perder las confirmaciones de cita.",
+            "No guardar el justificante de pago de la tasa.",
+            "Suponer que los requisitos del padrón son iguales en todas partes."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Necesito originales o copias?", text: "A menudo conviene llevar originales y copias cuando sea posible. Comprueba las instrucciones de la cita, porque algunos trámites pueden quedarse con las copias o pedir ver los originales." },
+            { title: "¿Los documentos extranjeros necesitan traducción?", text: "Algunos pueden necesitarla, según el documento, el trámite y el país de origen. Compruébalo antes de la cita." },
+            { title: "¿Necesito una apostilla?", text: "Algunos documentos extranjeros pueden necesitar legalización o apostilla. La respuesta depende del país de origen y del trámite." },
+            { title: "¿Puedo usar copias digitales?", text: "Los escaneos digitales son útiles para tus propios archivos, pero muchas citas pueden seguir pidiendo originales o copias en papel." },
+            { title: "¿Qué documentos debería traer de mi país de origen?", text: "Documentos de identidad, certificados de estado civil, documentos educativos o laborales, prueba de pensión, certificado de antecedentes penales y documentos sanitarios pueden ser más difíciles de obtener después de mudarte." },
+            { title: "¿Los ciudadanos de la UE necesitan los mismos documentos que los no UE?", text: "No. Las vías UE y no UE son distintas, y los requisitos también varían según la situación." },
+            { title: "¿Debería preparar los documentos antes de llegar a España?", text: "Normalmente sí, si es probable que apliquen a tu ruta. Algunos documentos son más fáciles de obtener, traducir o legalizar antes de mudarte." }
+          ].map((item) => ({ title: item.title, text: item.text })))
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver la hoja de ruta UE (en inglés)", href: routes.euRoadmap },
+            { label: "Ver la guía de primeros pasos (en inglés)", href: routes.settling },
+            { label: "Ver la guía de alojamiento (en inglés)", href: routes.accommodation },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de registro de la UE (en inglés)", href: routes.euRegistration }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Crea una carpeta para originales, otra para copias y una carpeta digital segura. Nombra los archivos con claridad por tipo de documento y fecha.</p></div>`
         })
       ]
     })
