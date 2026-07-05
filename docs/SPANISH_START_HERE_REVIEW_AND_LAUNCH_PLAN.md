@@ -1,6 +1,8 @@
 # Spanish Start Here Review and Launch Plan
 
-**Status: Spanish Start Here review planned — launch pending**
+**Status: Spanish documents checklist draft prepared — preview QA pending**
+
+**Sprint 132 update (2026-07-05):** implemented this plan's recommended next step — `/es/moving-to-spain/documents-checklist/` was created as a Spanish draft, mirroring the English `/moving-to-spain/documents-checklist/` page's structure and content. It is `noindex, nofollow`, absent from `sitemap.xml`/`search-index.json`, has no hreflang, and is not exposed via any language-switcher launch behavior — all per this plan's recommendations. `showContinueJourney: false` was used (matching `/es/start-here/`'s established convention) to avoid the generator's hardcoded-English "Continue Your Journey"/"Related Guides"/"Previous Step"/"Next Step" headings, which have no Spanish variant in `scripts/guide-components.js`. Sections instead use directly-parameterized components (`GuideSection`, `ChecklistBox`, `InfoBox`, `Cards`) with Spanish titles/text, avoiding components with non-parameterized English chrome (`QuickAnswer`, `AtAGlance`, `TipBox`, `WarningBox`, `CommonMistakes`, `RealQuestions`, `DocumentsChecklist`). Confirmed pre-existing, sitewide (not introduced by this page) English chrome remains in the "Official Sources" heading, "Source status" note, and "Last reviewed" line — these components (`OfficialSources()`, `LastReviewed()`) are not language-aware anywhere in the codebase yet, matching the same limitation already present on `/es/start-here/`. No `app.js` or `styles.css` change was made. Preview QA is required before merge.
 
 This document plans (does not implement) the review and launch decision for
 `/es/start-here/`, the first Spanish Guide System draft page created in
