@@ -1,6 +1,6 @@
 # Spanish Start Here Localization Plan
 
-**Status:** Spanish bank account draft prepared — preview QA pending
+**Status:** Spanish draft set launch-readiness review prepared — preview QA pending
 **Sprint:** 124
 **Date:** 2026-07-04
 **Original Sprint 124 scope:** planning only. No Spanish Guide System pages were created, no pages were translated, no publication/indexing changes were made, no redirects were added, and no `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, or `robots.txt` files were changed while producing the original plan.
@@ -32,6 +32,8 @@
 **Sprint 142 update (2026-07-06):** PR #43 was squash-merged into `main` (commit `669c35f`) and verified live on production. `/es/moving-to-spain/settling-into-spain/` is now a live draft (`noindex, nofollow`, absent from `sitemap.xml`/`search-index.json`). English pages, all 5 launched pages, and all 3 existing Spanish drafts all confirmed unaffected. Only the final Spanish Group 1 page (opening a bank account) remains to be created; no hreflang or public language-switcher launch behavior was added; `app.js`/`styles.css` unchanged.
 
 **Sprint 143 update (2026-07-06):** created `/es/living-in-spain/opening-a-bank-account/`, the fifth and final Spanish Group 1 draft. It is `noindex, nofollow`, absent from `sitemap.xml`/`search-index.json`, has no hreflang, and has no public language-switcher launch behavior. Only `scripts/generate-guide-system.js` was changed (new route, Spanish content and metadata); `app.js` and `styles.css` were not touched. All five Spanish Group 1 draft pages now exist. This sprint also folded the Sprint 142 post-launch docs record (previously on unmerged branch `post-launch/spanish-settling-into-spain-draft-record`) into this PR instead of opening a separate docs-only PR, to speed up the draft-completion phase. Preview QA is required before merge.
+
+**Sprint 145 update (2026-07-06):** performed a launch-readiness review across all 5 Spanish draft pages. Fixed stale cross-links that pointed to English versions of pages that now have Spanish counterparts (documents checklist, finding accommodation, settling into Spain, bank account); removed now-inapplicable "(en inglés)" labels from those links; fixed one leftover raw-English link text; translated the documents-checklist page's official-source card content to Spanish. Localized `scripts/guide-components.js`'s `OfficialSources()`/`LastReviewed()` generated-component labels for Spanish pages ("Fuentes oficiales", "Estado de la fuente", "Última revisión") while leaving English pages byte-identical. No new pages published, no indexing changes, `app.js` untouched, `styles.css` untouched. Deleted the superseded `post-launch/spanish-settling-into-spain-draft-record` branch (no open PR existed for it; its content was already folded into merged PR #44).
 
 ## Goal
 
