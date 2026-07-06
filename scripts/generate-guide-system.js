@@ -26,6 +26,7 @@ const routes = {
   esChecklist: "/es/moving-to-spain/documents-checklist/",
   esAccommodation: "/es/moving-to-spain/finding-accommodation/",
   esSettling: "/es/moving-to-spain/settling-into-spain/",
+  esBanking: "/es/living-in-spain/opening-a-bank-account/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/moving-to-spain/eu-registration/",
@@ -259,6 +260,13 @@ const searchMetadataByRoute = {
     estimatedTime: "12 min",
     appliesTo: ["Personas que han llegado a España", "Personas que planifican el orden de los trámites de llegada", "Ciudadanos de la UE que revisan los próximos pasos prácticos"],
     keywords: ["instalarse en España", "primeros pasos", "padrón", "sanidad", "registro de la UE", "cuenta bancaria", "certificado digital", "Cl@ve"]
+  },
+  [routes.esBanking]: {
+    category: "Vivir en España",
+    difficulty: "Fácil",
+    estimatedTime: "9 min",
+    appliesTo: ["Personas que abren una cuenta bancaria en España", "Personas que organizan sus pagos en España"],
+    keywords: ["banco", "cuenta bancaria", "IBAN", "comisiones", "pagos", "banco español"]
   },
   [routes.euRoadmap]: {
     category: "Moving to Spain",
@@ -1526,6 +1534,155 @@ const pages = [
             { label: "Ver la guía de registro de la UE (en inglés)", href: routes.euRegistration },
             { label: "Ver la guía de cuenta bancaria (en inglés)", href: routes.banking }
           ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Antes de empezar, apunta en un solo lugar tu situación (trabajo, estudios, jubilación u otra), tu provincia y municipio, y los documentos que ya tienes, para poder comparar cada paso con tu caso real.</p></div>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esBanking,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esBanking,
+      canonical: `https://iberigo.eu${routes.esBanking}`,
+      title: "Abrir una cuenta bancaria en España — IberiGo",
+      description: "Una guía práctica para abrir una cuenta bancaria en España: cuentas de residente y no residente, documentos, comisiones, domiciliaciones y errores comunes.",
+      metadata: guideMetadataFor(routes.esBanking),
+      showTrustBlocks: true,
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Cuenta bancaria" }],
+      hero: {
+        kicker: "Instalación diaria",
+        title: "Abrir una cuenta bancaria en España",
+        intro: "Una guía práctica para elegir y abrir una cuenta bancaria española, entender los documentos habituales, evitar comisiones innecesarias y prepararte para los pagos diarios en España.",
+        asideTitle: "Compara antes de abrir una cuenta",
+        asideText: "No elijas un banco solo por el nombre de la cuenta o una promoción. Las condiciones, comisiones y documentos solicitados pueden variar según el banco."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>A menudo puedes abrir una cuenta de residente o de no residente en España, según tu situación de residencia y tus documentos. Los requisitos varían según el banco. Un IBAN español puede ser útil para la nómina, el alquiler, los suministros y los pagos locales. Algunas personas usan bancos online, pero ciertos servicios españoles pueden funcionar mejor con un banco tradicional español.</p>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>Tipo de cuenta</th><td>Cuenta de residente o de no residente, según tu situación y tus documentos.</td></tr>
+            <tr><th>Suele ser útil para</th><td>Nómina, alquiler, suministros, impuestos, pagos a la Seguridad Social y domiciliaciones.</td></tr>
+            <tr><th>¿Varían los requisitos?</th><td>Sí. Los requisitos exactos varían según el banco.</td></tr>
+            <tr><th>¿Varían las comisiones?</th><td>Sí. Comprueba las condiciones actuales antes de abrir una cuenta.</td></tr>
+            <tr><th>IBAN español</th><td>A menudo útil para pagos locales y para algunos proveedores españoles.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: Cards([
+            { title: "Ciudadanos de la UE que se mudan a España", text: "Útil si estás preparando los pagos diarios tras la llegada o durante tus trámites de registro." },
+            { title: "Residentes no UE", text: "Útil si tienes o estás preparando documentos de residencia y necesitas una cuenta práctica para vivir en España." },
+            { title: "Trabajadores", text: "Útil si necesitas una cuenta para la nómina, gastos de trabajo o pagos relacionados con la Seguridad Social." },
+            { title: "Jubilados", text: "Útil si necesitas una cuenta para la pensión, el alquiler, los suministros o transferencias periódicas." },
+            { title: "Estudiantes", text: "Útil si necesitas una cuenta para el alquiler, las tasas, contratos de teléfono o gastos diarios." },
+            { title: "Personas que organizan sus pagos", text: "Útil si estás organizando el alquiler, los suministros, el teléfono móvil, internet o la nómina." }
+          ])
+        }),
+        GuideSection({
+          id: "residenteVsNoResidente",
+          title: "Cuenta de residente frente a cuenta de no residente",
+          children: `${Cards([
+            { title: "Cuenta de residente", text: "Una cuenta de residente suele ser para personas que pueden demostrar que viven en España y aportar los documentos que pide el banco para ese estatus." },
+            { title: "Cuenta de no residente", text: "Una cuenta de no residente puede estar disponible antes de que termines tu papeleo local, según el banco y tus documentos." },
+            { title: "Actualizar el estatus más adelante", text: "Después de recibir los documentos de residencia o si cambia tu situación fiscal, el banco puede pedirte que actualices los datos de tu cuenta." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No trates las etiquetas de las cuentas como asesoramiento legal. Las opciones de cuenta, los documentos solicitados y las actualizaciones de estatus pueden variar según el banco y tu situación de residencia.</p></div>`
+        }),
+        GuideSection({
+          id: "documentosComunes",
+          title: "Documentos comunes que puede pedir el banco",
+          children: `${ChecklistBox({
+            title: "Documentos habituales para abrir una cuenta",
+            items: [
+              "Pasaporte o documento de identidad nacional.",
+              "NIE, si lo tienes.",
+              "Justificante de domicilio.",
+              "Contrato de trabajo o justificante de ingresos, si aplica.",
+              "Certificado de registro de ciudadano de la UE o tarjeta de residencia, si lo tienes.",
+              "Información sobre tu residencia fiscal."
+            ]
+          })}${InfoBox({ title: "Los requisitos exactos varían según el banco", text: "Los bancos pueden pedir pruebas distintas según tu nacionalidad, tu situación de residencia, el origen de tus ingresos, tu residencia fiscal y el tipo de cuenta." })}`
+        }),
+        GuideSection({
+          id: "comisiones",
+          title: "Comisiones",
+          children: `${Cards([
+            { title: "Comisiones de mantenimiento", text: "Algunas cuentas pueden cobrar comisiones mensuales o trimestrales de mantenimiento. Comprueba las condiciones actuales antes de abrir una cuenta." },
+            { title: "Comisiones de tarjeta", text: "La tarjeta bancaria de débito o crédito puede tener comisiones aparte, comisiones de renovación o condiciones para evitar cargos." },
+            { title: "Comisiones de transferencia", text: "Las transferencias pueden ser gratuitas en algunos casos y tener coste en otros, según el banco, el destino y las condiciones de la cuenta." },
+            { title: "Condiciones para reducir comisiones", text: "Algunos bancos reducen o eliminan comisiones si cumples condiciones como domiciliar la nómina, la pensión u otros ingresos recurrentes." },
+            { title: "Requisitos de domiciliación", text: "Los requisitos de domiciliación de nómina o pensión pueden variar según el banco y el tipo de cuenta." },
+            { title: "Paquetes de productos", text: "Algunas ofertas pueden incluir seguros, tarjetas de crédito u otros productos. Entiende si son opcionales antes de aceptarlos." }
+          ])}${WarningBox("No te fíes de tablas de comisiones antiguas, promociones o las condiciones de otra persona. Las comisiones y condiciones de la cuenta pueden cambiar, así que comprueba las condiciones actuales antes de abrir una cuenta.")}`
+        }),
+        GuideSection({
+          id: "domiciliacionesUsoDiario",
+          title: "Domiciliaciones y uso diario",
+          children: `${Cards([
+            { title: "Suministros", text: "Las compañías de electricidad y de agua suelen usar domiciliaciones bancarias para las facturas periódicas." },
+            { title: "Servicios del hogar", text: "Las compañías de internet y de teléfono móvil pueden pedir los datos bancarios al contratar el servicio." },
+            { title: "Alquiler y nómina", text: "Un IBAN español puede facilitar el pago del alquiler y el ingreso de la nómina, según el arrendador o el empleador." },
+            { title: "Impuestos", text: "Una cuenta bancaria puede ser útil para pagos de impuestos o domiciliaciones cuando corresponda." },
+            { title: "Seguridad Social", text: "Si eres autónomo o tienes otras obligaciones de cotización, los pagos bancarios pueden formar parte de la gestión." },
+            { title: "Justificante de titularidad", text: "Guarda un certificado de IBAN o un justificante de titularidad de la cuenta, porque el arrendador, el empleador o alguna oficina pueden pedirlo." }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Pregunta cómo descargar el justificante de titularidad de la cuenta desde la app o la oficina antes de necesitarlo con urgencia.</p></div>`
+        }),
+        GuideSection({
+          id: "bancosOnlineFrenteATradicionales",
+          title: "Bancos online frente a bancos tradicionales",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>Opción</th><td><strong>Qué tener en cuenta</strong></td></tr>
+            <tr><th>Bancos online</th><td>Los bancos online pueden ofrecer una apertura más sencilla, comisiones más bajas y una buena experiencia de app. Pueden ser útiles para gastar, hacer transferencias y organizarte al principio, según tus documentos y necesidades.</td></tr>
+            <tr><th>Bancos tradicionales españoles</th><td>Los bancos tradicionales españoles ofrecen acceso a oficinas y pueden facilitar algunos trámites locales. También pueden resultar más familiares para arrendadores, empleadores o compañías de suministros.</td></tr>
+            <tr><th>Comparación neutral</th><td>Ninguna opción es automáticamente la mejor. Compara documentos, comisiones, disponibilidad de IBAN español, atención al cliente, domiciliaciones y el uso que le vas a dar.</td></tr>
+          </tbody></table>${InfoBox({ title: "Realidad práctica", text: "Algunos servicios españoles pueden funcionar mejor con un banco tradicional español, mientras que muchos pagos diarios pueden funcionar bien con bancos online. Compruébalo antes de depender de una sola cuenta para todo." })}`
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Abrir la primera cuenta que te ofrecen sin comprobar las comisiones.",
+            "Aceptar extras de pago sin entenderlos.",
+            "No actualizar los datos después de convertirte en residente.",
+            "Suponer que todos los proveedores aceptan cualquier IBAN sin problemas.",
+            "No guardar el justificante de titularidad de la cuenta.",
+            "Ignorar las preguntas sobre residencia fiscal al abrir la cuenta."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Puedo abrir una cuenta bancaria antes de conseguir el NIE?", text: "Algunos bancos pueden ofrecer vías para no residentes o basadas en el pasaporte, pero esto varía según el banco. Pregunta qué documentos exigen antes de pedir cita o empezar una solicitud online." },
+            { title: "¿Necesito una cuenta bancaria española para vivir en España?", text: "No siempre es obligatorio legalmente, pero puede facilitar la nómina, el alquiler, los suministros, los impuestos y las domiciliaciones locales. Algunos proveedores pueden funcionar mejor con un IBAN español." },
+            { title: "¿Puedo usar un banco online?", text: "Sí, muchas personas usan bancos online para los pagos diarios. Comprueba si la cuenta funciona para tu alquiler, tu nómina, tus domiciliaciones y cualquier trámite español que necesites." },
+            { title: "¿Debería elegir una cuenta de residente o de no residente?", text: "Depende de tu situación de residencia y tus documentos. Si abres primero una cuenta de no residente, pregunta cómo actualizarla después de recibir los documentos de residencia." },
+            { title: "¿Pueden los bancos cobrar comisiones?", text: "Sí. Las comisiones y condiciones pueden variar según el banco y el tipo de cuenta. Comprueba el cuadro de comisiones actual antes de abrir la cuenta." },
+            { title: "¿Tengo que cambiar mi cuenta después de conseguir la residencia?", text: "Puede que tengas que actualizar tus datos o el estatus de la cuenta después de convertirte en residente. Pregunta al banco qué necesita y guarda el justificante de la actualización." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling },
+            { label: "Ver la guía del certificado digital (en inglés)", href: routes.digital },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes },
+            { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda el contrato del banco, el certificado de IBAN y los documentos de apertura de la cuenta junto con el resto de tu papeleo de España.</p></div>`
         })
       ]
     })
