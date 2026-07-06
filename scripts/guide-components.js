@@ -272,35 +272,47 @@ function ScopeNotice({ lang = "en" } = {}) {
         </section>`;
 }
 
-function OfficialSources(items = []) {
+function OfficialSources(items = [], { lang = "en" } = {}) {
   if (!items.length) return "";
   const stillPending = items.some((item) => !item.url && !item.varies);
   const hasVarying = items.some((item) => item.varies);
-  const statusText = stillPending
-    ? "Some official references for this guide are still being confirmed. Always check current requirements directly with the official administration."
-    : hasVarying
-      ? "These links go to official websites where a single one exists. Some sources vary by municipality or region — check your own town hall or regional service for local instructions. Official details can change, so always confirm with the official source."
-      : "These links go to official websites. Official details can change, so always confirm current requirements directly with the official source.";
+  const statusText = lang === "es"
+    ? (stillPending
+      ? "Algunas referencias oficiales de esta guía todavía se están confirmando. Comprueba siempre los requisitos actuales directamente con la administración oficial."
+      : hasVarying
+        ? "Estos enlaces llevan a sitios web oficiales cuando existe uno único. Algunas fuentes varían según el municipio o la región — consulta tu ayuntamiento o servicio regional para instrucciones locales. Los detalles oficiales pueden cambiar, así que confirma siempre con la fuente oficial."
+        : "Estos enlaces llevan a sitios web oficiales. Los detalles oficiales pueden cambiar, así que confirma siempre los requisitos actuales directamente con la fuente oficial.")
+    : (stillPending
+      ? "Some official references for this guide are still being confirmed. Always check current requirements directly with the official administration."
+      : hasVarying
+        ? "These links go to official websites where a single one exists. Some sources vary by municipality or region — check your own town hall or regional service for local instructions. Official details can change, so always confirm with the official source."
+        : "These links go to official websites. Official details can change, so always confirm current requirements directly with the official source.");
+  const title = lang === "es" ? "Fuentes oficiales" : "Official Sources";
+  const defaultSourceName = lang === "es" ? "Fuente oficial" : "Official source";
+  const defaultNote = lang === "es"
+    ? "Referencia oficial provisional. URL pendiente de verificar antes de publicar."
+    : "Official reference placeholder. URL to be verified before publication.";
+  const sourceStatusLabel = lang === "es" ? "Estado de la fuente" : "Source status";
   return GuideSection({
     id: "officialSources",
-    title: "Official Sources",
+    title,
     children: `<div class="guide-card-grid">${items
       .map((item) => {
         const category = classifySource(item);
         const meta = SOURCE_CATEGORY_META[category];
         const heading = item.url
-          ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.name || "Official source")}</a>`
-          : escapeHtml(item.name || "Official source");
+          ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.name || defaultSourceName)}</a>`
+          : escapeHtml(item.name || defaultSourceName);
         return `<article class="guide-info-card guide-source-card guide-source-card--${category}">
             <div class="guide-source-head">
               <span class="guide-source-badge" aria-hidden="true">${escapeHtml(meta.initials)}</span>
               <span class="guide-source-tag">${escapeHtml(meta.tag)}</span>
             </div>
             <h3>${heading}</h3>
-            <p>${escapeHtml(item.note || "Official reference placeholder. URL to be verified before publication.")}</p>
+            <p>${escapeHtml(item.note || defaultNote)}</p>
           </article>`;
       })
-      .join("\n          ")}</div>${InfoBox({ title: "Source status", text: statusText })}`
+      .join("\n          ")}</div>${InfoBox({ title: sourceStatusLabel, text: statusText })}`
   });
 }
 
@@ -317,8 +329,13 @@ function LegalDisclaimer({ lang = "en" } = {}) {
         </section>`;
 }
 
-function LastReviewed(date = REVIEWED, reviewedAgainstOfficialGuidance = false) {
+function LastReviewed(date = REVIEWED, reviewedAgainstOfficialGuidance = false, { lang = "en" } = {}) {
   if (!date) return "";
+  if (lang === "es") {
+    return reviewedAgainstOfficialGuidance
+      ? `<div class="last-reviewed"><p><strong>Última revisión:</strong> ${escapeHtml(date)}</p><p>En esta página se enlazan fuentes oficiales para más comprobación; el contenido no ha sido verificado frente a ellas por un profesional cualificado.</p></div>`
+      : `<p class="last-reviewed">Última revisión: ${escapeHtml(date)}</p>`;
+  }
   return reviewedAgainstOfficialGuidance
     ? `<div class="last-reviewed"><p><strong>Last reviewed:</strong> ${escapeHtml(date)}</p><p>Official sources are linked on this page for further checking; content has not been verified against them by a qualified professional.</p></div>`
     : `<p class="last-reviewed">Last reviewed: ${escapeHtml(date)}</p>`;
@@ -499,9 +516,9 @@ function GuideLayout(config) {
     GuideTableOfContents(tocItems, { variant: "mobile", lang }),
     ...sections,
     showTrustBlocks ? ScopeNotice({ lang }) : "",
-    OfficialSources(officialSources),
+    OfficialSources(officialSources, { lang }),
     showTrustBlocks ? LegalDisclaimer({ lang }) : "",
-    LastReviewed(lastReviewed, hasOfficialSources),
+    LastReviewed(lastReviewed, hasOfficialSources, { lang }),
     showContinueJourney ? ContinueJourney({
       previousGuide: metadata.previousGuide || config.previousGuide || null,
       nextGuide: metadata.nextGuide || config.nextGuide || null,

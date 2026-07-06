@@ -530,10 +530,10 @@ const officialSourcesByRoute = {
     { name: "Apostille and legalisation", url: "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Legalizacion-y-apostilla.aspx", note: "Ministerio de Asuntos Exteriores — official information on legalisation and apostille of foreign documents." }
   ],
   [routes.esChecklist]: [
-    { name: "Modelo 790-012 official fee form", url: "https://sede.policia.gob.es/Tasa790_012/index.jsp", note: "Policía Nacional e-office — the official fee-payment page for Tasa 790-012." },
-    { name: "EX-18 official form (Ministry responsible for immigration)", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — the official immigration portal for checking current EX-18 form and procedure information." },
-    { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office — general appointment and registration portal referenced throughout this checklist." },
-    { name: "Apostille and legalisation", url: "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Legalizacion-y-apostilla.aspx", note: "Ministerio de Asuntos Exteriores — official information on legalisation and apostille of foreign documents." }
+    { name: "Formulario oficial de tasa Modelo 790-012", url: "https://sede.policia.gob.es/Tasa790_012/index.jsp", note: "Sede electrónica de la Policía Nacional — página oficial de pago de la tasa 790-012." },
+    { name: "Formulario EX-18 (Ministerio responsable de inmigración)", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — el portal oficial de inmigración para consultar el formulario EX-18 y la información del trámite." },
+    { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Sede electrónica de la Policía Nacional — portal general de citas y registro mencionado en esta lista." },
+    { name: "Apostilla y legalización", url: "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Legalizacion-y-apostilla.aspx", note: "Ministerio de Asuntos Exteriores — información oficial sobre legalización y apostilla de documentos extranjeros." }
   ]
 };
 
@@ -980,10 +980,10 @@ const pages = [
           title: "La mayoría de las personas empieza aquí",
           children: StartHereGuideCards([
             { title: "Mudarse a España como ciudadano de la UE", text: "Entiende el orden general de planificación, llegada y primeros trámites.", href: routes.euRoadmap, label: "Ver la hoja de ruta UE" },
-            { title: "Lista de documentos", text: "Prepara un expediente básico antes de citas, alquileres o trámites administrativos.", href: routes.checklist, label: "Ver la lista" },
-            { title: "Encontrar alojamiento", text: "Revisa cómo el alojamiento puede afectar al empadronamiento, contratos y pruebas de dirección.", href: routes.accommodation, label: "Ver la guía" },
-            { title: "Primeros pasos al llegar", text: "Ordena los pasos principales después de llegar, sin asumir plazos fijos.", href: routes.settling, label: "Ver la guía" },
-            { title: "Abrir una cuenta bancaria", text: "Compara documentos, comisiones y uso diario de una cuenta bancaria en España.", href: routes.banking, label: "Ver la guía" }
+            { title: "Lista de documentos", text: "Prepara un expediente básico antes de citas, alquileres o trámites administrativos.", href: routes.esChecklist, label: "Ver la lista" },
+            { title: "Encontrar alojamiento", text: "Revisa cómo el alojamiento puede afectar al empadronamiento, contratos y pruebas de dirección.", href: routes.esAccommodation, label: "Ver la guía" },
+            { title: "Primeros pasos al llegar", text: "Ordena los pasos principales después de llegar, sin asumir plazos fijos.", href: routes.esSettling, label: "Ver la guía" },
+            { title: "Abrir una cuenta bancaria", text: "Compara documentos, comisiones y uso diario de una cuenta bancaria en España.", href: routes.esBanking, label: "Ver la guía" }
           ])
         }),
         GuideSection({
@@ -1150,7 +1150,7 @@ const pages = [
             { title: "Ingresos", text: "Puede pedirse contrato de trabajo, nóminas, prueba de ingresos o ahorros." },
             { title: "Información fiscal", text: "Los bancos pueden solicitar información sobre residencia fiscal." },
             { title: "Documentos de residencia", text: "Puede pedirse un certificado o tarjeta de residencia si ya lo tienes." }
-          ])}<p>Consulta la guía <a href="${routes.banking}">Opening a Bank Account</a> para preparar los documentos específicos de la cuenta bancaria.</p>`
+          ])}<p>Consulta la <a href="${routes.esBanking}">guía de cuenta bancaria</a> para preparar los documentos específicos de la cuenta.</p>`
         }),
         GuideSection({
           id: "traduccionesApostillasCopias",
@@ -1197,8 +1197,8 @@ const pages = [
           title: "Tu próximo paso",
           children: `${SourceLinks([
             { label: "Ver la hoja de ruta UE (en inglés)", href: routes.euRoadmap },
-            { label: "Ver la guía de primeros pasos (en inglés)", href: routes.settling },
-            { label: "Ver la guía de alojamiento (en inglés)", href: routes.accommodation },
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling },
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
             { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
             { label: "Ver la guía de registro de la UE (en inglés)", href: routes.euRegistration }
@@ -1366,11 +1366,11 @@ const pages = [
           id: "tuProximoPaso",
           title: "Tu próximo paso",
           children: `${SourceLinks([
-            { label: "Ver la guía de primeros pasos (en inglés)", href: routes.settling },
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling },
             { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
             { label: "Ver la lista de documentos", href: routes.esChecklist },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
-            { label: "Ver la guía de cuenta bancaria (en inglés)", href: routes.banking }
+            { label: "Ver la guía de cuenta bancaria", href: routes.esBanking }
           ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Antes de comprometerte con un alquiler, mantén una lista escrita con los documentos para el padrón, el coste total de entrada, las condiciones del contrato, el transporte, el acceso a la sanidad y la distancia al trabajo o al colegio.</p></div>`
         })
       ]
@@ -1464,7 +1464,7 @@ const pages = [
             { title: "Instalación diaria", text: "Una cuenta bancaria española puede ayudarte con el alquiler, los suministros, la nómina, los impuestos y los pagos locales." },
             { title: "Requisitos oficiales", text: "Los bancos suelen necesitar identificar a sus clientes, pero los documentos aceptados y los tipos de cuenta pueden variar según el banco y tu situación." },
             { title: "Consejo práctico", text: "Compara comisiones, documentos solicitados y si la cuenta encaja con una situación de residente o no residente." }
-          ])}<p>Consulta la <a href="${routes.banking}">guía de cuenta bancaria (en inglés)</a> para saber qué comparar antes de elegir una cuenta.</p>`
+          ])}<p>Consulta la <a href="${routes.esBanking}">guía de cuenta bancaria</a> para saber qué comparar antes de elegir una cuenta.</p>`
         }),
         GuideSection({
           id: "certificadoDigitalOClave",
@@ -1532,7 +1532,7 @@ const pages = [
             { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
             { label: "Ver la guía de registro de la UE (en inglés)", href: routes.euRegistration },
-            { label: "Ver la guía de cuenta bancaria (en inglés)", href: routes.banking }
+            { label: "Ver la guía de cuenta bancaria", href: routes.esBanking }
           ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Antes de empezar, apunta en un solo lugar tu situación (trabajo, estudios, jubilación u otra), tu provincia y municipio, y los documentos que ya tienes, para poder comparar cada paso con tu caso real.</p></div>`
         })
       ]
