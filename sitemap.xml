@@ -14,10 +14,22 @@
     <lastmod>2026-07-03</lastmod>
   </url>
   <url>
+    <loc>https://iberigo.eu/es/start-here/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-06</lastmod>
+  </url>
+  <url>
     <loc>https://iberigo.eu/moving-to-spain/documents-checklist/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-07-03</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/es/moving-to-spain/documents-checklist/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
   <url>
     <loc>https://iberigo.eu/moving-to-spain/finding-accommodation/</loc>
@@ -26,16 +38,34 @@
     <lastmod>2026-07-03</lastmod>
   </url>
   <url>
+    <loc>https://iberigo.eu/es/moving-to-spain/finding-accommodation/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-06</lastmod>
+  </url>
+  <url>
     <loc>https://iberigo.eu/moving-to-spain/settling-into-spain/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-07-03</lastmod>
   </url>
   <url>
+    <loc>https://iberigo.eu/es/moving-to-spain/settling-into-spain/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-06</lastmod>
+  </url>
+  <url>
     <loc>https://iberigo.eu/living-in-spain/opening-a-bank-account/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-07-03</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/es/living-in-spain/opening-a-bank-account/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
   <url>
     <loc>https://iberigo.eu/the-spain-files/</loc>

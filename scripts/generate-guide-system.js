@@ -545,7 +545,15 @@ const publishedRoutes = new Set([
   routes.checklist,
   routes.accommodation,
   routes.settling,
-  routes.banking
+  routes.banking,
+  // Sprint 146: the Spanish counterparts of the 5 launched Group 1 pages,
+  // launched together as the complete Spanish Guide System set (see
+  // docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md).
+  routes.esStartHere,
+  routes.esChecklist,
+  routes.esAccommodation,
+  routes.esSettling,
+  routes.esBanking
 ]);
 
 function guideMetadataFor(route) {
@@ -876,12 +884,36 @@ function StartHereGuideCards(items = []) {
     .join("\n          ")}</div>`;
 }
 
+// Launched English/Spanish Guide System pairs: reciprocal hreflang and a
+// functional language switcher are added only for these 5 complete pairs.
+function launchedPair(enRoute, esRoute) {
+  const enUrl = `https://iberigo.eu${enRoute}`;
+  const esUrl = `https://iberigo.eu${esRoute}`;
+  const hreflangAlternates = [
+    { hreflang: "en", href: enUrl },
+    { hreflang: "es", href: esUrl },
+    { hreflang: "x-default", href: enUrl }
+  ];
+  return {
+    en: { altHref: esRoute, hreflangAlternates },
+    es: { altHref: enRoute, hreflangAlternates }
+  };
+}
+
+const startHerePair = launchedPair(routes.startHere, routes.esStartHere);
+const checklistPair = launchedPair(routes.checklist, routes.esChecklist);
+const accommodationPair = launchedPair(routes.accommodation, routes.esAccommodation);
+const settlingPair = launchedPair(routes.settling, routes.esSettling);
+const bankingPair = launchedPair(routes.banking, routes.esBanking);
+
 const pages = [
   {
     route: routes.startHere,
     html: GuideLayout({
       path: routes.startHere,
       canonical: `https://iberigo.eu${routes.startHere}`,
+      altHref: startHerePair.en.altHref,
+      hreflangAlternates: startHerePair.en.hreflangAlternates,
       title: "Start Here: Moving to Spain — IberiGo",
       description: "Find the right IberiGo guide for your move to Spain, whether you are an EU citizen, non-EU citizen, student, worker, retiree or joining family.",
       metadata: guideMetadataFor(routes.startHere),
@@ -945,6 +977,8 @@ const pages = [
       lang: "es",
       path: routes.esStartHere,
       canonical: `https://iberigo.eu${routes.esStartHere}`,
+      altHref: startHerePair.es.altHref,
+      hreflangAlternates: startHerePair.es.hreflangAlternates,
       title: "Empieza aquí: mudarse a España — IberiGo",
       description: "Encuentra la guía de IberiGo adecuada para tu mudanza a España, tanto si eres ciudadano de la UE, ciudadano no UE, estudiante, trabajador, jubilado o vienes con familia.",
       metadata: guideMetadataFor(routes.esStartHere),
@@ -963,8 +997,8 @@ const pages = [
           id: "chooseYourPath",
           title: "Elige tu ruta",
           children: `${InfoBox({
-            title: "Borrador en español",
-            text: "Esta página es el primer borrador en español del sistema de guías. Algunas guías enlazadas todavía están disponibles solo en inglés; las versiones en español se prepararán en pasos separados."
+            title: "Sobre esta página",
+            text: "Esta página forma parte del sistema de guías de IberiGo en español. Algunas guías enlazadas todavía están disponibles solo en inglés; las versiones en español se prepararán en pasos separados."
           })}${StartHereCards([
             { title: "Soy ciudadano de la UE", text: "Empieza con la hoja de ruta para ciudadanos de la UE, del EEE y de Suiza que se mudan a España.", href: routes.euRoadmap, label: "Ver hoja de ruta" },
             { title: "Soy ciudadano no UE", text: "Empieza con la hoja de ruta para ciudadanos no UE y confirma después la vía concreta que encaja con tu caso.", href: routes.nonEuRoadmap, label: "Ver hoja de ruta" },
@@ -1001,7 +1035,7 @@ const pages = [
         GuideSection({
           id: "languageNote",
           title: "Sobre los enlaces en inglés",
-          children: `<p>Esta página en español es un borrador inicial. Algunas rutas enlazan a guías actuales en inglés porque las versiones españolas todavía no existen. No asumas que una guía enlazada cubre todas las situaciones: usa cada página como orientación práctica y confirma siempre los requisitos oficiales que correspondan a tu caso.</p>`
+          children: `<p>Algunas rutas enlazan a guías actuales en inglés porque las versiones españolas todavía no existen. No asumas que una guía enlazada cubre todas las situaciones: usa cada página como orientación práctica y confirma siempre los requisitos oficiales que correspondan a tu caso.</p>`
         }),
         GuideSection({
           id: "notSure",
@@ -1017,6 +1051,8 @@ const pages = [
       lang: "es",
       path: routes.esChecklist,
       canonical: `https://iberigo.eu${routes.esChecklist}`,
+      altHref: checklistPair.es.altHref,
+      hreflangAlternates: checklistPair.es.hreflangAlternates,
       title: "Lista de documentos para mudarte a España — IberiGo",
       description: "Una lista práctica de documentos que puedes necesitar antes de mudarte a España: identidad, residencia, sanidad, ingresos, vivienda y copias oficiales.",
       metadata: guideMetadataFor(routes.esChecklist),
@@ -1034,7 +1070,7 @@ const pages = [
         GuideSection({
           id: "languageNote",
           title: "Sobre esta página en español",
-          children: `<p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta lista como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta lista como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
         }),
         GuideSection({
           id: "respuestaRapida",
@@ -1213,6 +1249,8 @@ const pages = [
       lang: "es",
       path: routes.esAccommodation,
       canonical: `https://iberigo.eu${routes.esAccommodation}`,
+      altHref: accommodationPair.es.altHref,
+      hreflangAlternates: accommodationPair.es.hreflangAlternates,
       title: "Encontrar alojamiento en España — IberiGo",
       description: "Una guía práctica para encontrar alojamiento en España: alquiler temporal, alquiler de larga duración, documentos, contratos, fianzas, estafas y errores comunes.",
       metadata: guideMetadataFor(routes.esAccommodation),
@@ -1230,7 +1268,7 @@ const pages = [
         GuideSection({
           id: "languageNote",
           title: "Sobre esta página en español",
-          children: `<p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
         }),
         GuideSection({
           id: "respuestaRapida",
@@ -1382,6 +1420,8 @@ const pages = [
       lang: "es",
       path: routes.esSettling,
       canonical: `https://iberigo.eu${routes.esSettling}`,
+      altHref: settlingPair.es.altHref,
+      hreflangAlternates: settlingPair.es.hreflangAlternates,
       title: "Instalarte en España: tus primeros pasos al llegar — IberiGo",
       description: "Una guía práctica sobre los primeros pasos al llegar a España: alojamiento, padrón, sanidad, registro, cuenta bancaria y acceso digital.",
       metadata: guideMetadataFor(routes.esSettling),
@@ -1399,7 +1439,7 @@ const pages = [
         GuideSection({
           id: "languageNote",
           title: "Sobre esta página en español",
-          children: `<p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
         }),
         GuideSection({
           id: "respuestaRapida",
@@ -1544,6 +1584,8 @@ const pages = [
       lang: "es",
       path: routes.esBanking,
       canonical: `https://iberigo.eu${routes.esBanking}`,
+      altHref: bankingPair.es.altHref,
+      hreflangAlternates: bankingPair.es.hreflangAlternates,
       title: "Abrir una cuenta bancaria en España — IberiGo",
       description: "Una guía práctica para abrir una cuenta bancaria en España: cuentas de residente y no residente, documentos, comisiones, domiciliaciones y errores comunes.",
       metadata: guideMetadataFor(routes.esBanking),
@@ -1561,7 +1603,7 @@ const pages = [
         GuideSection({
           id: "languageNote",
           title: "Sobre esta página en español",
-          children: `<p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
         }),
         GuideSection({
           id: "respuestaRapida",
@@ -1820,6 +1862,8 @@ const pages = [
     html: GuideLayout({
       path: routes.settling,
       canonical: `https://iberigo.eu${routes.settling}`,
+      altHref: settlingPair.en.altHref,
+      hreflangAlternates: settlingPair.en.hreflangAlternates,
       title: "Settling Into Spain: Your First Steps After Arrival — IberiGo",
       description: "A practical guide to the first steps after arriving in Spain, including accommodation, padrón, healthcare, registration, banking and digital access.",
       metadata: guideMetadataFor(routes.settling),
@@ -2361,6 +2405,8 @@ pages.push({
   html: GuideLayout({
     path: routes.banking,
     canonical: `https://iberigo.eu${routes.banking}`,
+    altHref: bankingPair.en.altHref,
+    hreflangAlternates: bankingPair.en.hreflangAlternates,
     title: "Opening a Bank Account in Spain — IberiGo",
     description: "A practical guide to opening a bank account in Spain, including resident and non-resident accounts, documents, fees, direct debits and common mistakes.",
     metadata: guideMetadataFor(routes.banking),
@@ -3023,6 +3069,8 @@ pages.push({
   html: GuideLayout({
     path: routes.accommodation,
     canonical: `https://iberigo.eu${routes.accommodation}`,
+    altHref: accommodationPair.en.altHref,
+    hreflangAlternates: accommodationPair.en.hreflangAlternates,
     title: "Finding Accommodation in Spain — IberiGo",
     description: "A practical guide to finding accommodation in Spain, including short-term rentals, long-term rentals, documents, contracts, deposits, scams and common mistakes.",
     metadata: guideMetadataFor(routes.accommodation),
@@ -3171,6 +3219,8 @@ pages.push({
   html: GuideLayout({
     path: routes.checklist,
     canonical: `https://iberigo.eu${routes.checklist}`,
+    altHref: checklistPair.en.altHref,
+    hreflangAlternates: checklistPair.en.hreflangAlternates,
     title: "Documents Checklist for Moving to Spain — IberiGo",
     description: "A practical checklist of documents you may need to prepare before moving to Spain, including identity documents, residency paperwork, healthcare, income proof, housing documents and official copies.",
     metadata: guideMetadataFor(routes.checklist),

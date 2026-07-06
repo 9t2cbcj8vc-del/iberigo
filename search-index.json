@@ -25,6 +25,167 @@
     "url": "/start-here/"
   },
   {
+    "title": "Empieza aquí: mudarse a España — IberiGo",
+    "description": "Encuentra la guía de IberiGo adecuada para tu mudanza a España, tanto si eres ciudadano de la UE, ciudadano no UE, estudiante, trabajador, jubilado o vienes con familia.",
+    "headings": [
+      "Elige tu ruta",
+      "La mayoría de las personas empieza aquí",
+      "Cómo funcionan las guías de IberiGo",
+      "Sobre los enlaces en inglés",
+      "¿No sabes por dónde empezar?",
+      "Aviso de alcance",
+      "Aviso legal"
+    ],
+    "keywords": [
+      "empieza aquí",
+      "mudarse a España",
+      "ciudadano de la UE",
+      "ciudadano no UE",
+      "estudiante",
+      "trabajador",
+      "jubilado",
+      "familia"
+    ],
+    "category": "Mudarse a España",
+    "difficulty": "Fácil",
+    "url": "/es/start-here/"
+  },
+  {
+    "title": "Lista de documentos para mudarte a España — IberiGo",
+    "description": "Una lista práctica de documentos que puedes necesitar antes de mudarte a España: identidad, residencia, sanidad, ingresos, vivienda y copias oficiales.",
+    "headings": [
+      "Sobre esta página en español",
+      "Respuesta rápida",
+      "En resumen",
+      "Para quién es esta guía",
+      "Documentos comunes que preparar",
+      "Documentos para ciudadanos de la UE",
+      "Documentos para ciudadanos no UE",
+      "Documentos de vivienda y padrón",
+      "Documentos sanitarios",
+      "Documentos de banco y finanzas",
+      "Traducciones, apostillas y copias",
+      "Errores comunes",
+      "Preguntas frecuentes",
+      "Tu próximo paso",
+      "Aviso de alcance",
+      "Fuentes oficiales",
+      "Aviso legal"
+    ],
+    "keywords": [
+      "documentos",
+      "lista de documentos",
+      "pasaporte",
+      "apostilla",
+      "traducción",
+      "documentos para mudanza"
+    ],
+    "category": "Mudarse a España",
+    "difficulty": "Fácil",
+    "url": "/es/moving-to-spain/documents-checklist/"
+  },
+  {
+    "title": "Encontrar alojamiento en España — IberiGo",
+    "description": "Una guía práctica para encontrar alojamiento en España: alquiler temporal, alquiler de larga duración, documentos, contratos, fianzas, estafas y errores comunes.",
+    "headings": [
+      "Sobre esta página en español",
+      "Respuesta rápida",
+      "En resumen",
+      "Para quién es esta guía",
+      "Alojamiento temporal frente a alquiler de larga duración",
+      "Por qué importa el domicilio",
+      "Documentos que puede pedir el arrendador",
+      "Contratos de alquiler",
+      "Fianza y pagos iniciales",
+      "Evitar estafas",
+      "Errores comunes",
+      "Preguntas frecuentes",
+      "Tu próximo paso",
+      "Aviso de alcance",
+      "Aviso legal"
+    ],
+    "keywords": [
+      "alojamiento",
+      "alquiler",
+      "contrato de alquiler",
+      "fianza",
+      "padrón",
+      "arrendador",
+      "agencia inmobiliaria"
+    ],
+    "category": "Mudarse a España",
+    "difficulty": "Moderado",
+    "url": "/es/moving-to-spain/finding-accommodation/"
+  },
+  {
+    "title": "Instalarte en España: tus primeros pasos al llegar — IberiGo",
+    "description": "Una guía práctica sobre los primeros pasos al llegar a España: alojamiento, padrón, sanidad, registro, cuenta bancaria y acceso digital.",
+    "headings": [
+      "Sobre esta página en español",
+      "Respuesta rápida",
+      "Los plazos varían",
+      "En resumen",
+      "Asegura tu alojamiento",
+      "Empadrónate",
+      "Organiza tu sanidad",
+      "Regístrate como residente de la UE, si corresponde",
+      "Abre una cuenta bancaria",
+      "Configura el certificado digital o Cl@ve",
+      "Revisa la Seguridad Social, si trabajas",
+      "Entiende tus obligaciones fiscales",
+      "Comprueba las normas del carné de conducir",
+      "Errores comunes",
+      "Preguntas frecuentes",
+      "Tu próximo paso",
+      "Aviso de alcance",
+      "Aviso legal"
+    ],
+    "keywords": [
+      "instalarse en España",
+      "primeros pasos",
+      "padrón",
+      "sanidad",
+      "registro de la UE",
+      "cuenta bancaria",
+      "certificado digital",
+      "Cl@ve"
+    ],
+    "category": "Mudarse a España",
+    "difficulty": "Moderado",
+    "url": "/es/moving-to-spain/settling-into-spain/"
+  },
+  {
+    "title": "Abrir una cuenta bancaria en España — IberiGo",
+    "description": "Una guía práctica para abrir una cuenta bancaria en España: cuentas de residente y no residente, documentos, comisiones, domiciliaciones y errores comunes.",
+    "headings": [
+      "Sobre esta página en español",
+      "Respuesta rápida",
+      "En resumen",
+      "Para quién es esta guía",
+      "Cuenta de residente frente a cuenta de no residente",
+      "Documentos comunes que puede pedir el banco",
+      "Comisiones",
+      "Domiciliaciones y uso diario",
+      "Bancos online frente a bancos tradicionales",
+      "Errores comunes",
+      "Preguntas frecuentes",
+      "Tu próximo paso",
+      "Aviso de alcance",
+      "Aviso legal"
+    ],
+    "keywords": [
+      "banco",
+      "cuenta bancaria",
+      "IBAN",
+      "comisiones",
+      "pagos",
+      "banco español"
+    ],
+    "category": "Vivir en España",
+    "difficulty": "Fácil",
+    "url": "/es/living-in-spain/opening-a-bank-account/"
+  },
+  {
     "title": "Settling Into Spain: Your First Steps After Arrival — IberiGo",
     "description": "A practical guide to the first steps after arriving in Spain, including accommodation, padrón, healthcare, registration, banking and digital access.",
     "headings": [

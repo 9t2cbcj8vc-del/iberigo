@@ -9,6 +9,9 @@
     <title>Start Here: Moving to Spain — IberiGo</title>
     <meta name="description" content="Find the right IberiGo guide for your move to Spain, whether you are an EU citizen, non-EU citizen, student, worker, retiree or joining family." />
     <link rel="canonical" href="https://iberigo.eu/start-here/" />
+    <link rel="alternate" hreflang="en" href="https://iberigo.eu/start-here/" />
+    <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/start-here/" />
+    <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/start-here/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="Start Here: Moving to Spain — IberiGo" />
@@ -127,7 +130,7 @@
           </a>
           <div class="language-switcher" aria-label="Language">
             <button type="button" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" data-lang="es" aria-pressed="false" data-lang-href="/es/start-here/">ES</button>
           </div>
         </nav>
       </header>
@@ -320,6 +323,14 @@
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
+      })();
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
       })();
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));

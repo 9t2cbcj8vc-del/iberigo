@@ -9,6 +9,9 @@
     <title>Opening a Bank Account in Spain — IberiGo</title>
     <meta name="description" content="A practical guide to opening a bank account in Spain, including resident and non-resident accounts, documents, fees, direct debits and common mistakes." />
     <link rel="canonical" href="https://iberigo.eu/living-in-spain/opening-a-bank-account/" />
+    <link rel="alternate" hreflang="en" href="https://iberigo.eu/living-in-spain/opening-a-bank-account/" />
+    <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/living-in-spain/opening-a-bank-account/" />
+    <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/living-in-spain/opening-a-bank-account/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="Opening a Bank Account in Spain — IberiGo" />
@@ -127,7 +130,7 @@
           </a>
           <div class="language-switcher" aria-label="Language">
             <button type="button" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" data-lang="es" aria-pressed="false" data-lang-href="/es/living-in-spain/opening-a-bank-account/">ES</button>
           </div>
         </nav>
       </header>
@@ -315,6 +318,14 @@
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
+      })();
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
       })();
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));
