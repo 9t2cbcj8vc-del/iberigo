@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
     <title>Abrir una cuenta bancaria en España — IberiGo</title>
     <meta name="description" content="Una guía práctica para abrir una cuenta bancaria en España: cuentas de residente y no residente, documentos, comisiones, domiciliaciones y errores comunes." />
     <link rel="canonical" href="https://iberigo.eu/es/living-in-spain/opening-a-bank-account/" />
+    <link rel="alternate" hreflang="en" href="https://iberigo.eu/living-in-spain/opening-a-bank-account/" />
+    <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/living-in-spain/opening-a-bank-account/" />
+    <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/living-in-spain/opening-a-bank-account/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="Abrir una cuenta bancaria en España — IberiGo" />
@@ -126,7 +129,7 @@
             </svg>
           </a>
           <div class="language-switcher" aria-label="Idioma">
-            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+            <button type="button" data-lang="en" aria-pressed="false" data-lang-href="/living-in-spain/opening-a-bank-account/">EN</button>
             <button type="button" data-lang="es" aria-pressed="true">ES</button>
           </div>
         </nav>
@@ -157,7 +160,7 @@
           <summary>En esta página</summary>
           <nav aria-label="En esta página"><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#enResumen" data-guide-toc-link>En resumen</a></li><li><a href="#paraQuienEsEstaGuia" data-guide-toc-link>Para quién es esta guía</a></li><li><a href="#residenteVsNoResidente" data-guide-toc-link>Cuenta de residente frente a cuenta de no residente</a></li><li><a href="#documentosComunes" data-guide-toc-link>Documentos comunes que puede pedir el banco</a></li><li><a href="#comisiones" data-guide-toc-link>Comisiones</a></li><li><a href="#domiciliacionesUsoDiario" data-guide-toc-link>Domiciliaciones y uso diario</a></li><li><a href="#bancosOnlineFrenteATradicionales" data-guide-toc-link>Bancos online frente a bancos tradicionales</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
         </details>
-        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
+        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
         <section class="guide-section" aria-labelledby="respuestaRapida"><h2 id="respuestaRapida">Respuesta rápida</h2><p>A menudo puedes abrir una cuenta de residente o de no residente en España, según tu situación de residencia y tus documentos. Los requisitos varían según el banco. Un IBAN español puede ser útil para la nómina, el alquiler, los suministros y los pagos locales. Algunas personas usan bancos online, pero ciertos servicios españoles pueden funcionar mejor con un banco tradicional español.</p></section>
         <section class="guide-section" aria-labelledby="enResumen"><h2 id="enResumen">En resumen</h2><table class="guide-table"><tbody>
             <tr><th>Tipo de cuenta</th><td>Cuenta de residente o de no residente, según tu situación y tus documentos.</td></tr>
@@ -252,7 +255,7 @@
   "nextGuide": null,
   "canonicalUrl": "https://iberigo.eu/es/living-in-spain/opening-a-bank-account/",
   "url": "/es/living-in-spain/opening-a-bank-account/",
-  "status": "draft",
+  "status": "published",
   "lastReviewed": "June 2026",
   "reviewedBy": "",
   "relatedGuides": [
@@ -303,6 +306,14 @@
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
+      })();
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
       })();
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));

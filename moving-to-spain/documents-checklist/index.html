@@ -9,6 +9,9 @@
     <title>Documents Checklist for Moving to Spain — IberiGo</title>
     <meta name="description" content="A practical checklist of documents you may need to prepare before moving to Spain, including identity documents, residency paperwork, healthcare, income proof, housing documents and official copies." />
     <link rel="canonical" href="https://iberigo.eu/moving-to-spain/documents-checklist/" />
+    <link rel="alternate" hreflang="en" href="https://iberigo.eu/moving-to-spain/documents-checklist/" />
+    <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/moving-to-spain/documents-checklist/" />
+    <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/moving-to-spain/documents-checklist/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="Documents Checklist for Moving to Spain — IberiGo" />
@@ -127,7 +130,7 @@
           </a>
           <div class="language-switcher" aria-label="Language">
             <button type="button" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" data-lang="es" aria-pressed="false" data-lang-href="/es/moving-to-spain/documents-checklist/">ES</button>
           </div>
         </nav>
       </header>
@@ -379,6 +382,14 @@
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
+      })();
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
       })();
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));

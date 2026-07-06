@@ -66,7 +66,7 @@ function attrs(attributes = {}) {
     .join("");
 }
 
-function Header({ lang = "en" } = {}) {
+function Header({ lang = "en", altHref = null } = {}) {
   const isSpanish = lang === "es";
   const labels = isSpanish
     ? {
@@ -103,8 +103,8 @@ function Header({ lang = "en" } = {}) {
             </svg>
           </a>
           <div class="language-switcher" aria-label="${escapeHtml(labels.language)}">
-            <button type="button" data-lang="en" aria-pressed="${lang === "en"}">EN</button>
-            <button type="button" data-lang="es" aria-pressed="${lang === "es"}">ES</button>
+            <button type="button" data-lang="en" aria-pressed="${lang === "en"}"${lang !== "en" && altHref ? ` data-lang-href="${escapeHtml(altHref)}"` : ""}>EN</button>
+            <button type="button" data-lang="es" aria-pressed="${lang === "es"}"${lang !== "es" && altHref ? ` data-lang-href="${escapeHtml(altHref)}"` : ""}>ES</button>
           </div>
         </nav>
       </header>`;
@@ -525,6 +525,9 @@ function GuideLayout(config) {
       relatedGuides: metadata.relatedGuides || config.relatedGuides || []
     }) : ""
   ].filter(Boolean).join("\n        ");
+  const hreflangLinksHtml = (config.hreflangAlternates || [])
+    .map((alt) => `<link rel="alternate" hreflang="${escapeHtml(alt.hreflang)}" href="${escapeHtml(alt.href)}" />`)
+    .join("\n    ");
   const content = `<div class="guide-layout${showToc ? "" : " guide-layout--single"}">
           <div class="guide-content">
             ${mainContent}
@@ -562,7 +565,7 @@ function GuideLayout(config) {
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
     <title>${escapeHtml(config.title)}</title>
     <meta name="description" content="${escapeHtml(config.description)}" />
-    <link rel="canonical" href="${canonical}" />
+    <link rel="canonical" href="${canonical}" />${hreflangLinksHtml ? `\n    ${hreflangLinksHtml}` : ""}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="${escapeHtml(config.title)}" />
@@ -577,7 +580,7 @@ function GuideLayout(config) {
   </head>
   <body>
     <div class="app-shell">
-      ${Header({ lang })}
+      ${Header({ lang, altHref: config.altHref || null })}
       <main class="guide-main">
         ${content}
       </main>
@@ -590,7 +593,15 @@ function GuideLayout(config) {
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
-      })();
+      })();${config.altHref ? `
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
+      })();` : ""}
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));
         if (!tocLinks.length) return;

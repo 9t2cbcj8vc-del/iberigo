@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
     <title>Instalarte en España: tus primeros pasos al llegar — IberiGo</title>
     <meta name="description" content="Una guía práctica sobre los primeros pasos al llegar a España: alojamiento, padrón, sanidad, registro, cuenta bancaria y acceso digital." />
     <link rel="canonical" href="https://iberigo.eu/es/moving-to-spain/settling-into-spain/" />
+    <link rel="alternate" hreflang="en" href="https://iberigo.eu/moving-to-spain/settling-into-spain/" />
+    <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/moving-to-spain/settling-into-spain/" />
+    <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/moving-to-spain/settling-into-spain/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="Instalarte en España: tus primeros pasos al llegar — IberiGo" />
@@ -126,7 +129,7 @@
             </svg>
           </a>
           <div class="language-switcher" aria-label="Idioma">
-            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+            <button type="button" data-lang="en" aria-pressed="false" data-lang-href="/moving-to-spain/settling-into-spain/">EN</button>
             <button type="button" data-lang="es" aria-pressed="true">ES</button>
           </div>
         </nav>
@@ -157,7 +160,7 @@
           <summary>En esta página</summary>
           <nav aria-label="En esta página"><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#losPlazosVarian" data-guide-toc-link>Los plazos varían</a></li><li><a href="#enResumen" data-guide-toc-link>En resumen</a></li><li><a href="#asegurarAlojamiento" data-guide-toc-link>Asegura tu alojamiento</a></li><li><a href="#empadronarte" data-guide-toc-link>Empadrónate</a></li><li><a href="#organizarSanidad" data-guide-toc-link>Organiza tu sanidad</a></li><li><a href="#registrarseComoResidenteUe" data-guide-toc-link>Regístrate como residente de la UE, si corresponde</a></li><li><a href="#abrirCuentaBancaria" data-guide-toc-link>Abre una cuenta bancaria</a></li><li><a href="#certificadoDigitalOClave" data-guide-toc-link>Configura el certificado digital o Cl@ve</a></li><li><a href="#revisarSeguridadSocial" data-guide-toc-link>Revisa la Seguridad Social, si trabajas</a></li><li><a href="#entenderImpuestos" data-guide-toc-link>Entiende tus obligaciones fiscales</a></li><li><a href="#comprobarCarnetDeConducir" data-guide-toc-link>Comprueba las normas del carné de conducir</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
         </details>
-        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
+        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
         <section class="guide-section" aria-labelledby="respuestaRapida"><h2 id="respuestaRapida">Respuesta rápida</h2><p>Después de llegar a España, la secuencia práctica suele empezar por el alojamiento y la prueba de domicilio local, seguida del padrón, la sanidad, el registro de residencia si corresponde, la cuenta bancaria, el acceso digital, la Seguridad Social si trabajas, la revisión de impuestos y la comprobación del carné de conducir. El orden exacto puede cambiar según tu situación y la disponibilidad de citas en tu zona.</p></section>
         <section class="guide-section" aria-labelledby="losPlazosVarian"><h2 id="losPlazosVarian">Los plazos varían</h2><p>El orden de estos pasos importa más que la rapidez. En algunas zonas, las citas pueden estar disponibles con rapidez. En otras, incluidas zonas muy demandadas, la espera puede ser mucho más larga. Esta guía explica qué hacer a continuación sin prometer un plazo fijo.</p></section>
         <section class="guide-section" aria-labelledby="enResumen"><h2 id="enResumen">En resumen</h2><table class="guide-table"><tbody>
@@ -252,7 +255,7 @@
   "nextGuide": null,
   "canonicalUrl": "https://iberigo.eu/es/moving-to-spain/settling-into-spain/",
   "url": "/es/moving-to-spain/settling-into-spain/",
-  "status": "draft",
+  "status": "published",
   "lastReviewed": "June 2026",
   "reviewedBy": "",
   "relatedGuides": [
@@ -303,6 +306,14 @@
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
+      })();
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
       })();
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));
