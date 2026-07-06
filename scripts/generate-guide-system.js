@@ -25,6 +25,7 @@ const routes = {
   esStartHere: "/es/start-here/",
   esChecklist: "/es/moving-to-spain/documents-checklist/",
   esAccommodation: "/es/moving-to-spain/finding-accommodation/",
+  esSettling: "/es/moving-to-spain/settling-into-spain/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/moving-to-spain/eu-registration/",
@@ -251,6 +252,13 @@ const searchMetadataByRoute = {
     estimatedTime: "10 min",
     appliesTo: ["Personas que buscan alojamiento en España", "Personas que preparan pruebas de domicilio"],
     keywords: ["alojamiento", "alquiler", "contrato de alquiler", "fianza", "padrón", "arrendador", "agencia inmobiliaria"]
+  },
+  [routes.esSettling]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "12 min",
+    appliesTo: ["Personas que han llegado a España", "Personas que planifican el orden de los trámites de llegada", "Ciudadanos de la UE que revisan los próximos pasos prácticos"],
+    keywords: ["instalarse en España", "primeros pasos", "padrón", "sanidad", "registro de la UE", "cuenta bancaria", "certificado digital", "Cl@ve"]
   },
   [routes.euRoadmap]: {
     category: "Moving to Spain",
@@ -1356,6 +1364,168 @@ const pages = [
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
             { label: "Ver la guía de cuenta bancaria (en inglés)", href: routes.banking }
           ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Antes de comprometerte con un alquiler, mantén una lista escrita con los documentos para el padrón, el coste total de entrada, las condiciones del contrato, el transporte, el acceso a la sanidad y la distancia al trabajo o al colegio.</p></div>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esSettling,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esSettling,
+      canonical: `https://iberigo.eu${routes.esSettling}`,
+      title: "Instalarte en España: tus primeros pasos al llegar — IberiGo",
+      description: "Una guía práctica sobre los primeros pasos al llegar a España: alojamiento, padrón, sanidad, registro, cuenta bancaria y acceso digital.",
+      metadata: guideMetadataFor(routes.esSettling),
+      showTrustBlocks: true,
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Instalarte en España" }],
+      hero: {
+        kicker: "Guía de llegada",
+        title: "Instalarte en España",
+        intro: "Una guía tranquila y práctica sobre los primeros pasos al llegar a España. Sigue los pasos en orden, pero ten en cuenta que la disponibilidad de citas puede variar según la provincia y el municipio.",
+        asideTitle: "Secuencia, no plazos",
+        asideText: "Usa esta guía para entender qué suele venir antes de qué, y después consulta la guía detallada de cada paso."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Después de llegar a España, la secuencia práctica suele empezar por el alojamiento y la prueba de domicilio local, seguida del padrón, la sanidad, el registro de residencia si corresponde, la cuenta bancaria, el acceso digital, la Seguridad Social si trabajas, la revisión de impuestos y la comprobación del carné de conducir. El orden exacto puede cambiar según tu situación y la disponibilidad de citas en tu zona.</p>`
+        }),
+        GuideSection({
+          id: "losPlazosVarian",
+          title: "Los plazos varían",
+          children: `<p>El orden de estos pasos importa más que la rapidez. En algunas zonas, las citas pueden estar disponibles con rapidez. En otras, incluidas zonas muy demandadas, la espera puede ser mucho más larga. Esta guía explica qué hacer a continuación sin prometer un plazo fijo.</p>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>Objetivo principal</th><td>Entender la secuencia práctica después de llegar.</td></tr>
+            <tr><th>¿Plazo fijo?</th><td>No. La disponibilidad de citas puede variar según la provincia y el municipio.</td></tr>
+            <tr><th>Prueba de domicilio</th><td>La prueba de domicilio puede afectar al padrón, la sanidad, la cuenta bancaria y otros pasos.</td></tr>
+            <tr><th>¿Para quién es esto?</th><td>Para personas que ya han llegado a España o que planifican los trámites de su llegada.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "asegurarAlojamiento",
+          title: "Asegura tu alojamiento",
+          children: `${Cards([
+            { title: "Llegada", text: "Tu domicilio suele ser la base de los pasos posteriores, incluso si tu primer alojamiento es temporal." },
+            { title: "Requisitos oficiales", text: "Los requisitos dependen del trámite que use la prueba de domicilio. Los ayuntamientos y otras oficinas pueden pedir pruebas distintas." },
+            { title: "Consejo práctico", text: "Antes de firmar o pagar, pregunta si el domicilio puede servir para el papeleo que esperas necesitar, especialmente el padrón." }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda juntos el contrato de alquiler, las autorizaciones, los recibos y los datos de contacto para poder compararlos con las instrucciones locales.</p></div>`
+        }),
+        GuideSection({
+          id: "empadronarte",
+          title: "Empadrónate",
+          children: `${Cards([
+            { title: "Registro", text: "El padrón es el registro municipal de domicilio en el ayuntamiento del lugar donde vives." },
+            { title: "Requisitos oficiales", text: "Los documentos varían según el municipio y la situación de la vivienda. El ayuntamiento decide qué pruebas acepta." },
+            { title: "Consejo práctico", text: "Consulta el trámite de tu ayuntamiento con tiempo, porque la disponibilidad de citas y los documentos aceptados pueden variar según el municipio." }
+          ])}<p>Consulta la <a href="${routes.padron}">guía del padrón (en inglés)</a> cuando estés listo para preparar los documentos de este paso.</p>`
+        }),
+        GuideSection({
+          id: "organizarSanidad",
+          title: "Organiza tu sanidad",
+          children: `${Cards([
+            { title: "Registro", text: "Conviene entender la sanidad antes de cualquier trámite que te pida demostrar cobertura o derecho a asistencia." },
+            { title: "Requisitos oficiales", text: "Tu vía puede depender del trabajo, la actividad por cuenta propia, un formulario S1, la condición de estudiante, el seguro privado u otro derecho." },
+            { title: "Consejo práctico", text: "No des por hecho que la misma vía se aplica a todas las personas recién llegadas. La prueba sanitaria depende de tu situación." }
+          ])}<p>La <a href="${routes.healthcare}">guía de sanidad (en inglés)</a> explica las principales vías y las dudas habituales sobre las pruebas necesarias.</p>`
+        }),
+        GuideSection({
+          id: "registrarseComoResidenteUe",
+          title: "Regístrate como residente de la UE, si corresponde",
+          children: `${Cards([
+            { title: "Registro", text: "Los ciudadanos de la UE, del EEE y de Suiza que viven en España a largo plazo suelen usar la vía del certificado de registro de ciudadano de la UE." },
+            { title: "Requisitos oficiales", text: "Las pruebas dependen de si trabajas, eres autónomo, estudias, te jubilas o vives de tus ahorros." },
+            { title: "Consejo práctico", text: "Prepara la sanidad, el domicilio y las pruebas de tu vía antes de la cita, y comprueba las instrucciones exactas de tu provincia." }
+          ])}<p>Consulta la <a href="${routes.euRegistration}">guía de registro de la UE (en inglés)</a> si esta vía se aplica a tu caso.</p><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los ciudadanos de la UE normalmente se preparan para el certificado de registro de ciudadano de la UE, no para una TIE. Los familiares no comunitarios u otras vías pueden seguir trámites distintos.</p></div>`
+        }),
+        GuideSection({
+          id: "abrirCuentaBancaria",
+          title: "Abre una cuenta bancaria",
+          children: `${Cards([
+            { title: "Instalación diaria", text: "Una cuenta bancaria española puede ayudarte con el alquiler, los suministros, la nómina, los impuestos y los pagos locales." },
+            { title: "Requisitos oficiales", text: "Los bancos suelen necesitar identificar a sus clientes, pero los documentos aceptados y los tipos de cuenta pueden variar según el banco y tu situación." },
+            { title: "Consejo práctico", text: "Compara comisiones, documentos solicitados y si la cuenta encaja con una situación de residente o no residente." }
+          ])}<p>Consulta la <a href="${routes.banking}">guía de cuenta bancaria (en inglés)</a> para saber qué comparar antes de elegir una cuenta.</p>`
+        }),
+        GuideSection({
+          id: "certificadoDigitalOClave",
+          title: "Configura el certificado digital o Cl@ve",
+          children: `${Cards([
+            { title: "Instalación diaria", text: "El acceso digital te ayuda a usar en línea los portales de impuestos, Seguridad Social, ayuntamiento y otros servicios públicos." },
+            { title: "Requisitos oficiales", text: "La vía que puedas usar puede depender de tus documentos de identidad, tu NIE y las opciones de verificación disponibles." },
+            { title: "Consejo práctico", text: "Configura esto cuando tus datos de identidad estén suficientemente listos para la vía de verificación que elijas." }
+          ])}<p>Consulta la <a href="${routes.digital}">guía del certificado digital (en inglés)</a> para comparar el certificado digital de la FNMT y las opciones de Cl@ve.</p>`
+        }),
+        GuideSection({
+          id: "revisarSeguridadSocial",
+          title: "Revisa la Seguridad Social, si trabajas",
+          children: `${Cards([
+            { title: "Instalación diaria", text: "Si trabajas o te haces autónomo en España, el alta en la Seguridad Social puede afectar al trabajo, las cotizaciones y el derecho a sanidad." },
+            { title: "Requisitos oficiales", text: "Los requisitos dependen de si eres trabajador por cuenta ajena, autónomo o estás en otra situación laboral." },
+            { title: "Consejo práctico", text: "Diferencia entre conseguir un número de la Seguridad Social y estar correctamente dado de alta para trabajar o cotizar." }
+          ])}<p>Si el trabajo se aplica a tu caso, consulta la <a href="${routes.social}">guía de Seguridad Social (en inglés)</a> antes de asumir que tu empresa, cliente o gestor ha completado todos los pasos.</p>`
+        }),
+        GuideSection({
+          id: "entenderImpuestos",
+          title: "Entiende tus obligaciones fiscales",
+          children: `${Cards([
+            { title: "Instalación diaria", text: "Las cuestiones fiscales pueden surgir por la residencia, los ingresos, los bienes, el trabajo, la actividad por cuenta propia o la propiedad." },
+            { title: "Requisitos oficiales", text: "Las obligaciones fiscales dependen de tu situación y pueden implicar ingresos o bienes españoles y no españoles." },
+            { title: "Consejo práctico", text: "Revisa tu situación fiscal antes de que los plazos o avisos se vuelvan urgentes, sobre todo si tu situación cruza países." }
+          ])}<p>La <a href="${routes.taxes}">guía de impuestos (en inglés)</a> ofrece un punto de partida claro sobre residencia fiscal, domicilio fiscal y primeras comprobaciones.</p>`
+        }),
+        GuideSection({
+          id: "comprobarCarnetDeConducir",
+          title: "Comprueba las normas del carné de conducir",
+          children: `${Cards([
+            { title: "Instalación diaria", text: "Las normas de conducción dependen de dónde se emitió tu carné y de si estás de visita o vives en España." },
+            { title: "Requisitos oficiales", text: "La validez, el canje o la renovación del carné pueden variar según el país de emisión y tu situación de residencia." },
+            { title: "Consejo práctico", text: "Comprueba las normas antes de confiar en suposiciones antiguas de visitas turísticas o de otro país." }
+          ])}<p>Consulta la <a href="${routes.driving}">guía de conducción (en inglés)</a> para saber qué dudas sobre el carné conviene revisar a continuación.</p>`
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Tratar los pasos de llegada como plazos fijos en lugar de una secuencia que depende de las citas y las normas locales.",
+            "Firmar un alojamiento sin comprobar si puede servir para el padrón o para pruebas de domicilio posteriores.",
+            "Suponer que la prueba sanitaria es igual para trabajadores, jubilados, estudiantes y residentes que viven de sus propios recursos.",
+            "Reservar la cita de residencia equivocada porque la terminología resulta confusa.",
+            "Dejar para más tarde las preguntas de cuenta bancaria, acceso digital, impuestos y carné de conducir hasta que otro trámite se bloquea."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Debo hacerlo todo exactamente en este orden?", text: "Usa esto como una secuencia general, pero adáptala a tu situación y a la disponibilidad de citas en tu zona. Parte de la preparación puede hacerse en paralelo." },
+            { title: "¿Puedo empadronarme con alojamiento temporal?", text: "Depende del municipio y de las pruebas que tengas. Comprueba las instrucciones del ayuntamiento antes de asumir que el domicilio será aceptado." },
+            { title: "¿Necesito la sanidad antes del registro de la UE?", text: "Depende de tu vía de registro de la UE. Si no trabajas, la prueba sanitaria puede ser una parte importante del expediente de registro." },
+            { title: "¿Esto es solo para ciudadanos de la UE?", text: "No. Muchos pasos de llegada se aplican de forma general, pero el registro de la UE solo es relevante si esa vía se aplica a tu caso." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía de cuenta bancaria (en inglés)", href: routes.banking }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Antes de empezar, apunta en un solo lugar tu situación (trabajo, estudios, jubilación u otra), tu provincia y municipio, y los documentos que ya tienes, para poder comparar cada paso con tu caso real.</p></div>`
         })
       ]
     })
