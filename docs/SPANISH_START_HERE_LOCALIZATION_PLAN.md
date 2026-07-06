@@ -1,6 +1,6 @@
 # Spanish Start Here Localization Plan
 
-**Status:** Spanish Guide System launch prepared — preview QA pending
+**Status:** Spanish Guide System launched
 **Sprint:** 124
 **Date:** 2026-07-04
 **Original Sprint 124 scope:** planning only. No Spanish Guide System pages were created, no pages were translated, no publication/indexing changes were made, no redirects were added, and no `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, or `robots.txt` files were changed while producing the original plan.
@@ -36,6 +36,8 @@
 **Sprint 145 update (2026-07-06):** performed a launch-readiness review across all 5 Spanish draft pages. Fixed stale cross-links that pointed to English versions of pages that now have Spanish counterparts (documents checklist, finding accommodation, settling into Spain, bank account); removed now-inapplicable "(en inglés)" labels from those links; fixed one leftover raw-English link text; translated the documents-checklist page's official-source card content to Spanish. Localized `scripts/guide-components.js`'s `OfficialSources()`/`LastReviewed()` generated-component labels for Spanish pages ("Fuentes oficiales", "Estado de la fuente", "Última revisión") while leaving English pages byte-identical. No new pages published, no indexing changes, `app.js` untouched, `styles.css` untouched. Deleted the superseded `post-launch/spanish-settling-into-spain-draft-record` branch (no open PR existed for it; its content was already folded into merged PR #44).
 
 **Sprint 146 update (2026-07-06):** launched all 5 Spanish pages — `robots` changed to `index, follow`, added to `sitemap.xml` and `search-index.json` (now 10 entries), reciprocal hreflang added for the 5 English/Spanish pairs, and a functional public language switcher added only for those 10 pages via a new `altHref`/`data-lang-href` mechanism in `scripts/guide-components.js` (inline per-page script, not `app.js`). Also removed now-inaccurate "borrador"/draft-framing language from all 5 Spanish pages' "about this page" notes, since they are launching. `app.js` and `styles.css` were not changed. Draft/noindex surface count decreased by exactly 5.
+
+**Sprint 147 update (2026-07-06):** PR #46 was squash-merged into `main` (commit `3d0e0cc`) and verified live on production. All 5 Spanish pages are live, `index, follow`, in `sitemap.xml`/`search-index.json`, with working reciprocal hreflang and language switcher. English pages, legacy routes, `app.js`, and `styles.css` all confirmed unaffected. This is the completion of the Spanish Guide System localization effort begun in Sprint 124 — the Spanish Guide System is now fully launched.
 
 ## Goal
 
