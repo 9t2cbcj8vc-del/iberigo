@@ -1,6 +1,6 @@
 # Spanish Start Here Localization Plan
 
-**Status:** Spanish documents checklist draft preview QA passed — merge pending
+**Status:** Spanish documents checklist draft created
 **Sprint:** 124
 **Date:** 2026-07-04
 **Original Sprint 124 scope:** planning only. No Spanish Guide System pages were created, no pages were translated, no publication/indexing changes were made, no redirects were added, and no `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, or `robots.txt` files were changed while producing the original plan.
@@ -16,6 +16,8 @@
 **Sprint 132 update (2026-07-05):** created `/es/moving-to-spain/documents-checklist/` as the recommended next Spanish draft, per this plan's Step 6. It is `noindex, nofollow`, absent from `sitemap.xml`/`search-index.json`, has no hreflang, and has no public language-switcher launch behavior. Only `scripts/generate-guide-system.js` was changed (new route, Spanish content and metadata); `app.js` and `styles.css` were not touched. No other Spanish Group 1 page was created. Preview QA is required before merge.
 
 **Sprint 133 update (2026-07-05):** PR #39 preview QA passed on `https://deploy-preview-39--iberigo.netlify.app`. No issues found: route returns `200` with correct Spanish metadata and `noindex, nofollow`; content review confirmed calm, consistent terminology and no overstated legal/timeline/province certainty; visual QA at 1280px/390px found no overflow; English pages and all 5 launched pages unaffected; legacy audit stable at 4/70. PR #39 remains unmerged.
+
+**Sprint 134 update (2026-07-05):** PR #39 was squash-merged into `main` (commit `ab79f31`) and verified live on production. `/es/moving-to-spain/documents-checklist/` is now a live draft (`noindex, nofollow`, absent from `sitemap.xml`/`search-index.json`). English pages, all 5 launched pages, and `/es/start-here/` all confirmed unaffected. No other Spanish Group 1 page was created; no hreflang or public language-switcher launch behavior was added; `app.js`/`styles.css` unchanged.
 
 ## Goal
 
