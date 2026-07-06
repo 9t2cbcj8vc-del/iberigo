@@ -24,6 +24,7 @@ const routes = {
   startHere: "/start-here/",
   esStartHere: "/es/start-here/",
   esChecklist: "/es/moving-to-spain/documents-checklist/",
+  esAccommodation: "/es/moving-to-spain/finding-accommodation/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/moving-to-spain/eu-registration/",
@@ -243,6 +244,13 @@ const searchMetadataByRoute = {
     estimatedTime: "8 min",
     appliesTo: ["Personas que preparan documentos antes de mudarse a España", "Personas que organizan las pruebas de su ruta"],
     keywords: ["documentos", "lista de documentos", "pasaporte", "apostilla", "traducción", "documentos para mudanza"]
+  },
+  [routes.esAccommodation]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "10 min",
+    appliesTo: ["Personas que buscan alojamiento en España", "Personas que preparan pruebas de domicilio"],
+    keywords: ["alojamiento", "alquiler", "contrato de alquiler", "fianza", "padrón", "arrendador", "agencia inmobiliaria"]
   },
   [routes.euRoadmap]: {
     category: "Moving to Spain",
@@ -1179,6 +1187,175 @@ const pages = [
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
             { label: "Ver la guía de registro de la UE (en inglés)", href: routes.euRegistration }
           ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Crea una carpeta para originales, otra para copias y una carpeta digital segura. Nombra los archivos con claridad por tipo de documento y fecha.</p></div>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esAccommodation,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esAccommodation,
+      canonical: `https://iberigo.eu${routes.esAccommodation}`,
+      title: "Encontrar alojamiento en España — IberiGo",
+      description: "Una guía práctica para encontrar alojamiento en España: alquiler temporal, alquiler de larga duración, documentos, contratos, fianzas, estafas y errores comunes.",
+      metadata: guideMetadataFor(routes.esAccommodation),
+      showTrustBlocks: true,
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Encontrar alojamiento" }],
+      hero: {
+        kicker: "Vivienda y domicilio",
+        title: "Encontrar alojamiento en España",
+        intro: "Una guía práctica para encontrar dónde vivir en España, entender lo básico del alquiler, preparar documentos y evitar problemas comunes antes de firmar.",
+        asideTitle: "Tu domicilio afecta a pasos posteriores",
+        asideText: "Un alquiler puede afectar al empadronamiento, la sanidad, la cuenta bancaria, las notificaciones oficiales y los servicios locales, así que revisa la documentación del domicilio antes de comprometerte."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Esta página es un borrador en español todavía no publicado. Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Muchas personas recién llegadas empiezan con alojamiento temporal antes de firmar un contrato de alquiler de larga duración. Los alquileres de larga duración pueden requerir documentos y justificante de ingresos. El empadronamiento puede depender de tener un domicilio donde el registro sea posible. Revisa los contratos de alquiler con cuidado antes de firmar y valora el asesoramiento profesional si algo no queda claro. Existen estafas y anuncios engañosos, sobre todo en internet.</p>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>Primer paso habitual</th><td>El alojamiento temporal puede darte tiempo para visitar zonas y ver propiedades en persona.</td></tr>
+            <tr><th>Alquiler de larga duración</th><td>Suele ser mejor para la estabilidad y puede apoyar trámites posteriores.</td></tr>
+            <tr><th>Documentos</th><td>El arrendador o la agencia inmobiliaria pueden pedir identidad, ingresos y justificantes de pago.</td></tr>
+            <tr><th>Padrón</th><td>Pregunta si el arrendador puede aportar los documentos necesarios para el empadronamiento.</td></tr>
+            <tr><th>Antes de pagar</th><td>Verifica con cuidado la propiedad, el contrato y quién recibe el pago.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: Cards([
+            { title: "Ciudadanos de la UE que se mudan a España", text: "Útil si necesitas un domicilio antes del padrón, la sanidad, la cuenta bancaria o el registro de la UE." },
+            { title: "Residentes no UE", text: "Útil si los trámites de alojamiento pueden estar relacionados con la residencia, notificaciones o el registro local." },
+            { title: "Trabajadores", text: "Útil si necesitas vivienda cerca del trabajo, el transporte o las oficinas que debes visitar." },
+            { title: "Jubilados", text: "Útil si estás comparando vivienda estable, servicios locales y acceso a la sanidad." },
+            { title: "Estudiantes", text: "Útil si comparas alojamiento para estudiantes, pisos compartidos u opciones de llegada a corto plazo." },
+            { title: "Familias", text: "Útil si los colegios, la sanidad, el transporte y los servicios locales influyen en dónde vivir." },
+            { title: "Personas sin domicilio permanente todavía", text: "Útil si necesitas una opción provisional mientras buscas en persona." },
+            { title: "Personas que se preparan para el padrón", text: "Útil si necesitas comprobar si un domicilio puede servir para el registro municipal." }
+          ])
+        }),
+        GuideSection({
+          id: "temporalVsLargaDuracion",
+          title: "Alojamiento temporal frente a alquiler de larga duración",
+          children: `${Cards([
+            { title: "Temporal: útil al llegar", text: "El alojamiento temporal puede ayudarte a llegar con calma mientras conoces la zona y ves viviendas en persona." },
+            { title: "Temporal: más fácil antes de tener documentos", text: "Puede ser más fácil reservarlo antes de tener documentos españoles o justificante de ingresos local." },
+            { title: "Temporal: el padrón puede no ser posible", text: "El alojamiento de corta duración puede no siempre ofrecer los documentos necesarios para el empadronamiento." },
+            { title: "Larga duración: más estabilidad", text: "Un alquiler de larga duración suele ser mejor para una vida estable, los servicios locales y los trámites diarios." },
+            { title: "Larga duración: más documentos", text: "Los alquileres de larga duración pueden requerir más documentos y un justificante de ingresos o garantías más sólidas." },
+            { title: "Larga duración: importan las condiciones del contrato", text: "Conviene revisar la duración, las normas de preaviso, la fianza, los suministros y la documentación del domicilio antes de firmar." }
+          ])}${InfoBox({ title: "Pregunta antes de firmar", text: "No des por hecho que todos los alquileres permiten el empadronamiento. Pregunta por escrito si el arrendador o la agencia inmobiliaria pueden aportar los documentos necesarios para el registro municipal." })}`
+        }),
+        GuideSection({
+          id: "porQueImportaElDomicilio",
+          title: "Por qué importa el domicilio",
+          children: `${Cards([
+            { title: "Empadronamiento", text: "Tu domicilio puede afectar a si puedes empadronarte y dónde." },
+            { title: "Registro sanitario", text: "El registro sanitario local puede depender de dónde vives y de tu servicio de salud regional." },
+            { title: "Matrícula escolar", text: "Para familias, el acceso al colegio o las zonas de escolarización pueden depender del domicilio." },
+            { title: "Trámites bancarios", text: "Los bancos pueden pedir información o justificante de domicilio según la cuenta y tu situación." },
+            { title: "Notificaciones oficiales", text: "Tu domicilio puede usarse para correspondencia oficial y registros administrativos." },
+            { title: "Servicios locales", text: "El transporte, los centros de salud, las oficinas del ayuntamiento y los servicios diarios varían según el barrio y el municipio." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Antes de firmar, pregunta si el arrendador aportará los documentos necesarios para el empadronamiento. Consigue las confirmaciones importantes por escrito.</p></div>`
+        }),
+        GuideSection({
+          id: "documentosQuePuedePedirElArrendador",
+          title: "Documentos que puede pedir el arrendador",
+          children: `${Cards([
+            { title: "Documento de identidad", text: "Se suele pedir pasaporte o documento de identidad nacional." },
+            { title: "NIE, si lo tienes", text: "Algunos arrendadores o agencias inmobiliarias pueden pedir el NIE si ya lo tienes." },
+            { title: "Trabajo e ingresos", text: "Puede pedirse contrato de trabajo, nóminas, justificante de ingresos o referencias bancarias." },
+            { title: "Historial de alquiler", text: "Referencias de alquileres anteriores pueden ayudar, sobre todo en zonas muy demandadas." },
+            { title: "Fianza", text: "Se suele pedir una fianza y un pago inicial antes de la entrada." },
+            { title: "Garantía", text: "En algunos casos puede pedirse un avalista o una garantía adicional." }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Los requisitos exactos varían según el arrendador y la agencia inmobiliaria. Pregunta por la lista de documentos necesarios antes de concertar una visita o enviar información sensible.</p></div>`
+        }),
+        GuideSection({
+          id: "contratosDeAlquiler",
+          title: "Contratos de alquiler",
+          children: Cards([
+            { title: "Léelo con atención", text: "Lee el contrato de alquiler con atención y valora el asesoramiento profesional antes de firmar si algo no queda claro." },
+            { title: "Condiciones principales", text: "Comprueba la renta, la fianza, la duración, la renovación, el preaviso y la fecha de entrada." },
+            { title: "Suministros", text: "Comprueba qué suministros están incluidos y cuáles puede que tengas que contratar o pagar aparte." },
+            { title: "Gastos adicionales", text: "Pregunta quién paga la comunidad, la tasa de basuras u otros gastos recurrentes cuando corresponda." },
+            { title: "Documentos para el padrón", text: "Comprueba si la vivienda puede usarse para el padrón y qué documentos aportará el arrendador." },
+            { title: "Guarda los justificantes", text: "Guarda copias firmadas, recibos, justificantes de transferencia bancaria y confirmaciones por escrito." }
+          ])
+        }),
+        GuideSection({
+          id: "fianzaYPagosIniciales",
+          title: "Fianza y pagos iniciales",
+          children: `${Cards([
+            { title: "Fianza y garantías", text: "El arrendador puede pedir una fianza y garantías adicionales, según el alquiler y tu situación." },
+            { title: "Comisión de agencia", text: "Puede haber comisión de la agencia inmobiliaria en algunos casos, así que pregunta para qué es cada pago antes de aceptar." },
+            { title: "Verifica antes de pagar", text: "Evita enviar pagos importantes sin verificar la propiedad, el contrato y quién recibe el dinero." },
+            { title: "Pagos rastreables", text: "Usa métodos de pago rastreables y evita vías de pago poco claras." },
+            { title: "Justificantes", text: "Guarda justificantes y confirmación por escrito de cada pago." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Si sientes presión para pagar antes de poder verificar el anuncio o el contrato, tómate tu tiempo y revisa los detalles con cuidado.</p></div>`
+        }),
+        GuideSection({
+          id: "evitarEstafas",
+          title: "Evitar estafas",
+          children: Cards([
+            { title: "Demasiado bueno para ser verdad", text: "Un precio muy bajo en una zona muy demandada puede ser una señal de alerta." },
+            { title: "Sin visita ni videollamada", text: "Ten cuidado si el arrendador se niega a una visita, una videollamada o una verificación razonable." },
+            { title: "Presión para pagar rápido", text: "Quienes estafan suelen crear urgencia para que no revises los detalles." },
+            { title: "Fotos de mala calidad o robadas", text: "Fotos que parecen inconsistentes, genéricas o reutilizadas pueden ser una señal de alerta." },
+            { title: "Sin contrato", text: "Evita pagar cantidades importantes sin un contrato claro o condiciones por escrito." },
+            { title: "Datos de pago sospechosos", text: "Comprueba si el destinatario del pago y los datos de la cuenta tienen sentido para la propiedad y el acuerdo." },
+            { title: "Documentos sensibles demasiado pronto", text: "Ten cuidado si se piden documentos de identidad de forma inusualmente temprana y sin contexto." },
+            { title: "Los datos no coinciden", text: "Verifica que la dirección, las fotos, los detalles de la visita, la información del arrendador o la agencia y los datos del contrato coincidan." }
+          ])
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Firmar antes de comprobar si es posible el empadronamiento.",
+            "Confiar solo en las fotos.",
+            "No comprobar los gastos adicionales.",
+            "No guardar justificantes de pago.",
+            "Suponer que los alquileres de corta duración sirven para trámites de residencia.",
+            "Ignorar el domicilio para notificaciones oficiales.",
+            "No comprobar el transporte y los servicios diarios.",
+            "Mudarte demasiado lejos de las oficinas necesarias o del trabajo."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Puedo usar Airbnb o alojamiento temporal para el padrón?", text: "A veces puede ser posible, pero no lo des por hecho. Pregunta si el alojamiento puede aportar los documentos que exige tu ayuntamiento." },
+            { title: "¿Necesito un contrato de alquiler para el padrón?", text: "Los ayuntamientos suelen pedir alguna prueba de domicilio. Los documentos exactos pueden variar según el municipio y la situación." },
+            { title: "¿Puedo alquilar antes de conseguir el NIE?", text: "Puede ser posible, según el arrendador o la agencia. Algunos pueden aceptar pasaporte o documento de identidad nacional, mientras que otros pueden pedir el NIE." },
+            { title: "¿Qué documentos piden los arrendadores?", text: "Pueden pedir documentos de identidad, NIE si lo tienes, justificante de ingresos, contrato de trabajo, nóminas, referencias, fianza y a veces garantías adicionales." },
+            { title: "¿Debería pagar antes de ver la vivienda?", text: "Sé muy prudente. Si no puedes verla en persona, intenta verificarla mediante videollamada, comprobaciones de la agencia, revisión del contrato y pagos rastreables antes de enviar dinero." },
+            { title: "¿Puede un arrendador negarse al empadronamiento?", text: "La cuestión práctica suele ser si el arrendador aportará los documentos que pide el ayuntamiento. Pregunta antes de firmar y guarda la confirmación por escrito." },
+            { title: "¿Es mejor alquilar primero a corto plazo?", text: "Muchas personas recién llegadas lo hacen porque les da tiempo para comparar zonas y no precipitarse. Puede que no resuelva las necesidades del padrón o del papeleo de larga duración, así que planifica el siguiente paso con antelación." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver la guía de primeros pasos (en inglés)", href: routes.settling },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de cuenta bancaria (en inglés)", href: routes.banking }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Antes de comprometerte con un alquiler, mantén una lista escrita con los documentos para el padrón, el coste total de entrada, las condiciones del contrato, el transporte, el acceso a la sanidad y la distancia al trabajo o al colegio.</p></div>`
         })
       ]
     })
