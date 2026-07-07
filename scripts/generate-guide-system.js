@@ -1815,6 +1815,11 @@ const pages = [
           children: `<p>Los ciudadanos de la UE, del EEE y de Suiza pueden mudarse a España sin visado. Si te quedas más de tres meses, normalmente necesitas registrarte como residente de la UE. El recorrido habitual suele incluir alojamiento, padrón, sanidad, registro de la UE y la instalación diaria. El orden y los requisitos exactos pueden variar según tu situación y tu localidad.</p>`
         }),
         GuideSection({
+          id: "notaImportante",
+          title: "Nota importante",
+          children: `<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía es información práctica, no asesoramiento legal, fiscal, de inmigración, financiero ni inmobiliario. Los requisitos pueden variar según el municipio, la oficina y tu situación personal. Comprueba siempre la fuente oficial vigente o pregunta en la oficina correspondiente antes de tomar decisiones.</p></div>`
+        }),
+        GuideSection({
           id: "enResumen",
           title: "En resumen",
           children: `<table class="guide-table"><tbody>
