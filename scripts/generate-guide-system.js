@@ -27,6 +27,13 @@ const routes = {
   esAccommodation: "/es/moving-to-spain/finding-accommodation/",
   esSettling: "/es/moving-to-spain/settling-into-spain/",
   esBanking: "/es/living-in-spain/opening-a-bank-account/",
+  esEuRoadmap: "/es/moving-to-spain/eu-citizens/",
+  esNonEuRoadmap: "/es/moving-to-spain/non-eu-citizens/",
+  esEuFamilyMemberRoadmap: "/es/moving-to-spain/family-member-eu-citizen/",
+  esWorkInSpain: "/es/moving-to-spain/work-in-spain/",
+  esStudents: "/es/moving-to-spain/students/",
+  esRetireInSpain: "/es/moving-to-spain/retire-in-spain/",
+  esSelfEmployed: "/es/moving-to-spain/self-employed-spain/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/moving-to-spain/eu-registration/",
@@ -407,6 +414,55 @@ const searchMetadataByRoute = {
     estimatedTime: "12 min",
     appliesTo: ["Freelancers, contractors and sole traders in Spain", "Small business owners", "EU and non-EU citizens planning self-employment"],
     keywords: ["autónomo", "self-employed Spain", "freelancer", "IAE", "Social Security", "TIE", "gestor"]
+  },
+  [routes.esEuRoadmap]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "12 min",
+    appliesTo: ["Ciudadanos de la UE que se mudan a España", "Ciudadanos del EEE que se mudan a España", "Ciudadanos suizos que se mudan a España"],
+    keywords: ["ciudadano de la UE", "registro de la UE", "mudarse a España", "hoja de ruta", "padrón", "sanidad", "banco", "impuestos"]
+  },
+  [routes.esNonEuRoadmap]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "12 min",
+    appliesTo: ["Ciudadanos no UE que planean mudarse a España", "Personas que se mudan por trabajo, estudios, familia o jubilación", "Nómadas digitales y autónomos que consideran España"],
+    keywords: ["ciudadano no UE", "visado", "autorización de residencia", "TIE", "NIE", "mudarse a España", "familiar de un ciudadano de la UE"]
+  },
+  [routes.esEuFamilyMemberRoadmap]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "11 min",
+    appliesTo: ["Cónyuges no comunitarios de ciudadanos de la UE", "Parejas registradas de ciudadanos de la UE, cuando se reconozcan", "Hijos y familiares dependientes de ciudadanos de la UE", "Ciudadanos de la UE que traen o reagrupan familia en España"],
+    keywords: ["familiar de un ciudadano de la UE", "tarjeta de residencia", "visado de cónyuge", "TIE", "NIE", "registro de la UE", "reagrupación familiar"]
+  },
+  [routes.esStudents]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "11 min",
+    appliesTo: ["Estudiantes no UE que planean estudiar en España", "Estudiantes de la UE que planean estudiar en España", "Estudiantes de intercambio, universidad, idiomas y formación"],
+    keywords: ["visado de estudiante", "estudiar en España", "TIE", "registro de la UE", "residencia de estudiante", "universidad", "escuela de idiomas"]
+  },
+  [routes.esWorkInSpain]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "11 min",
+    appliesTo: ["Ciudadanos de la UE que se mudan a España para trabajar", "Ciudadanos no UE con oferta de empleo en España", "Personas que comparan las vías de empleado, trabajo remoto o autónomo"],
+    keywords: ["trabajar en España", "visado de trabajo", "autorización de trabajo", "TIE", "registro de la UE", "Seguridad Social", "alta de empresa"]
+  },
+  [routes.esRetireInSpain]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "12 min",
+    appliesTo: ["Ciudadanos de la UE que se jubilan en España", "Ciudadanos no UE que se jubilan en España", "Personas que viven de pensiones, ahorros o inversiones"],
+    keywords: ["jubilarse en España", "recursos suficientes", "no lucrativo", "pensión", "S1", "TIE", "registro de la UE", "residencia fiscal"]
+  },
+  [routes.esSelfEmployed]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "12 min",
+    appliesTo: ["Freelancers, contratistas y autónomos en España", "Pequeños empresarios", "Ciudadanos de la UE y no UE que planean el autoempleo"],
+    keywords: ["autónomo", "trabajo por cuenta propia España", "freelancer", "IAE", "Seguridad Social", "TIE", "gestor"]
   }
 };
 
@@ -1725,6 +1781,1258 @@ const pages = [
             { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare }
           ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda el contrato del banco, el certificado de IBAN y los documentos de apertura de la cuenta junto con el resto de tu papeleo de España.</p></div>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esEuRoadmap,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esEuRoadmap,
+      canonical: `https://iberigo.eu${routes.esEuRoadmap}`,
+      title: "Mudarse a España como ciudadano de la UE — IberiGo",
+      description: "Una hoja de ruta práctica para ciudadanos de la UE, del EEE y de Suiza que se mudan a España: planificación, llegada, padrón, sanidad, registro de la UE, banco e impuestos.",
+      metadata: guideMetadataFor(routes.esEuRoadmap),
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Ciudadanos de la UE" }],
+      hero: {
+        kicker: "Empieza aquí",
+        title: "Mudarse a España como ciudadano de la UE",
+        intro: "Una hoja de ruta práctica para ciudadanos de la UE, del EEE y de Suiza que se mudan a España. Sigue este orden general y usa las guías detalladas cuando un paso necesite documentos o comprobaciones locales.",
+        asideTitle: "Orden, no plazos fijos",
+        asideText: "La disponibilidad de citas puede variar, y algunos pasos pueden tardar más en zonas con mucha demanda."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Los ciudadanos de la UE, del EEE y de Suiza pueden mudarse a España sin visado. Si te quedas más de tres meses, normalmente necesitas registrarte como residente de la UE. El recorrido habitual suele incluir alojamiento, padrón, sanidad, registro de la UE y la instalación diaria. El orden y los requisitos exactos pueden variar según tu situación y tu localidad.</p>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>¿Necesitas visado?</th><td>No.</td></tr>
+            <tr><th>¿Te quedas más de 3 meses?</th><td>Normalmente hace falta el registro de la UE.</td></tr>
+            <tr><th>¿Puedes trabajar?</th><td>Sí.</td></tr>
+            <tr><th>¿Tarjeta TIE?</th><td>Normalmente no. Los ciudadanos de la UE suelen recibir un certificado de registro.</td></tr>
+            <tr><th>Depende sobre todo de</th><td>Tu situación: trabajo, autoempleo, estudios, jubilación o recursos suficientes.</td></tr>
+            <tr><th>Plazos</th><td>La disponibilidad de citas y los requisitos pueden variar según la oficina y la localidad.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: `${Cards([
+            { title: "Ciudadanos de la UE", text: "Útil si eres ciudadano de la UE y planeas una estancia larga en España." },
+            { title: "Ciudadanos del EEE", text: "Los ciudadanos del EEE suelen seguir el mismo recorrido general." },
+            { title: "Ciudadanos suizos", text: "Los ciudadanos suizos normalmente se incluyen en la vía de registro de ciudadanos de la UE." },
+            { title: "Trabajadores por cuenta ajena", text: "Si vas a trabajar, ten en cuenta el empleo, la Seguridad Social, la sanidad y el registro de residencia." },
+            { title: "Trabajadores por cuenta propia", text: "Quienes se mudan como autónomos pueden necesitar justificantes fiscales, de actividad y de Seguridad Social." },
+            { title: "Estudiantes", text: "Los estudiantes pueden necesitar justificantes de estudios, sanidad y recursos." },
+            { title: "Jubilados", text: "Los jubilados pueden necesitar justificantes de pensión, sanidad y recursos." },
+            { title: "Personas que viven de ahorros o inversiones", text: "Quienes se mantienen con recursos propios pueden necesitar justificantes de recursos y sanidad." },
+            { title: "Personas que se mudan con familia", text: "Los documentos de familia pueden importar, sobre todo si el estado civil o los dependientes son relevantes." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los familiares no comunitarios siguen un proceso distinto. Esta hoja de ruta es para el recorrido de ciudadanos de la UE, del EEE o de Suiza.</p></div>`
+        }),
+        GuideSection({
+          id: "faseUnoPlanificacion",
+          title: "Fase 1: planificación antes de mudarte",
+          children: `${Cards([
+            { title: "Confirma tu situación", text: "Trabajo, autoempleo, estudios, jubilación o recursos propios pueden pedir justificantes distintos." },
+            { title: "Prepara tus documentos", text: "Empieza por identidad, ingresos, sanidad y estado civil, si procede." },
+            { title: "Investiga el alojamiento", text: "Comprueba si una dirección puede sustentar el empadronamiento antes de confiar en ella." },
+            { title: "Entiende tus necesidades de sanidad", text: "Algunas vías pueden pedir justificante de sanidad antes del registro de la UE." }
+          ])}${SourceLinks([
+            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare }
+          ])}`
+        }),
+        GuideSection({
+          id: "faseDosLlegada",
+          title: "Fase 2: después de llegar",
+          children: `${Cards([
+            { title: "Consigue alojamiento", text: "Tu dirección puede afectar al padrón, la sanidad, el banco y otros trámites locales." },
+            { title: "Empadrónate", text: "El padrón es el registro municipal de dirección. Los requisitos pueden variar según el ayuntamiento." },
+            { title: "Organiza la sanidad", text: "Puede que necesites organizar la sanidad antes del registro de la UE en algunas vías." },
+            { title: "Regístrate como residente de la UE", text: "Si te quedas más de tres meses, normalmente necesitas el registro de la UE." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No trates esto como plazos fijos. La disponibilidad de citas puede variar, y algunos pasos pueden tardar más en zonas con mucha demanda.</p></div>`
+        }),
+        GuideSection({
+          id: "faseTresInstalacion",
+          title: "Fase 3: instalación diaria",
+          children: `${Cards([
+            { title: "Abre una cuenta bancaria", text: "Una cuenta española puede ayudarte con el alquiler, los suministros, la nómina y los pagos locales." },
+            { title: "Configura el certificado digital o Cl@ve", text: "El acceso digital ayuda con Hacienda, la Seguridad Social y muchos servicios públicos." },
+            { title: "Revisa la Seguridad Social si trabajas", text: "Si trabajas en España, entiende el alta en la Seguridad Social y tu situación activa." },
+            { title: "Entiende tus obligaciones fiscales", text: "Revisa pronto la residencia fiscal y tus obligaciones, sobre todo si tienes ingresos o bienes fuera de España." },
+            { title: "Comprueba las normas del carné de conducir", text: "Las normas dependen de dónde se expidió tu carné y de si te haces residente." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de cuenta bancaria", href: routes.esBanking },
+            { label: "Ver la guía del certificado digital y Cl@ve (en inglés)", href: routes.digital },
+            { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes },
+            { label: "Ver la guía de conducción (en inglés)", href: routes.driving }
+          ])}`
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Pensar que los ciudadanos de la UE necesitan una TIE.",
+            "Confundir el NIE con el registro de la UE.",
+            "Dejar la sanidad para el final.",
+            "Firmar un alquiler sin comprobar si permite el empadronamiento.",
+            "Suponer que todas las provincias funcionan igual.",
+            "Esperar que todos los pasos se resuelvan rápido.",
+            "Ignorar la residencia fiscal.",
+            "Esperar a que un plazo se vuelva urgente."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Pueden los ciudadanos de la UE mudarse a España sin visado?", text: "Sí, los ciudadanos de la UE, del EEE y de Suiza normalmente pueden entrar en España sin visado. Las estancias más largas siguen implicando trámites locales y el registro de residencia de la UE." },
+            { title: "¿Necesitan los ciudadanos de la UE una TIE?", text: "Normalmente no. Los ciudadanos de la UE suelen recibir un certificado de registro verde. Las tarjetas TIE se usan generalmente para ciudadanos no comunitarios." },
+            { title: "¿Es el NIE lo mismo que el registro de la UE?", text: "No. El NIE es un número de identificación. El registro de la UE es el trámite de residencia para ciudadanos de la UE que se quedan más de tres meses." },
+            { title: "¿Necesito el padrón antes del registro de la UE?", text: "Puede pedirse localmente y puede ser útil para otros trámites. Comprueba los requisitos de tu cita y tu municipio." },
+            { title: "¿Necesito sanidad antes de registrarme?", text: "Depende de tu situación. Estudiantes, jubilados y personas con recursos propios pueden necesitar justificante de sanidad antes del registro de la UE." },
+            { title: "¿Puedo trabajar antes del registro de la UE?", text: "Los ciudadanos de la UE generalmente pueden trabajar en España, pero el empleo, la Seguridad Social y el registro de residencia siguen teniendo que gestionarse correctamente." },
+            { title: "¿Y si no hay citas disponibles?", text: "La disponibilidad de citas puede variar según la provincia. Sigue preparando documentos, revisa los canales oficiales y evita reservar el trámite equivocado por frustración." },
+            { title: "¿Qué debo hacer primero al llegar?", text: "Consigue alojamiento y comprueba si la dirección permite el empadronamiento. A partir de ahí, organiza el padrón, la sanidad y el registro de la UE según tu situación." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: SourceLinks([
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling },
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration }
+          ])
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esNonEuRoadmap,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esNonEuRoadmap,
+      canonical: `https://iberigo.eu${routes.esNonEuRoadmap}`,
+      title: "Mudarse a España como ciudadano no UE — IberiGo",
+      description: "Una hoja de ruta práctica para ciudadanos no comunitarios que planean mudarse a España: vías de residencia habituales, documentos, sanidad, TIE, citas y qué preparar.",
+      metadata: guideMetadataFor(routes.esNonEuRoadmap),
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Ciudadanos no UE" }],
+      hero: {
+        kicker: "Vías de residencia",
+        title: "Mudarse a España como ciudadano no UE",
+        intro: "Un punto de partida práctico para entender las principales vías de residencia, qué puedes necesitar preparar y qué pasos suelen ir antes y después de llegar.",
+        asideTitle: "No hay un único trámite para todos",
+        asideText: "Las normas de inmigración no comunitaria dependen mucho de la nacionalidad, la vía, los ingresos, la situación laboral y dónde se solicita. Comprueba los requisitos oficiales de tu trámite concreto."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Los ciudadanos no comunitarios normalmente necesitan un visado, una autorización de residencia u otra vía legal reconocida para vivir en España. El trámite correcto depende del motivo de tu mudanza. Las vías habituales incluyen trabajo, estudios, familia, jubilación o recursos suficientes, nómada digital, autoempleo, y la reagrupación con un familiar ciudadano de la UE. Muchas personas acaban necesitando una TIE tras la aprobación. Esta hoja de ruta te ayuda a identificar la siguiente guía adecuada; no sustituye el asesoramiento legal.</p>`
+        }),
+        GuideSection({
+          id: "notaImportante",
+          title: "Nota importante",
+          children: `<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía ofrece solo información general y no es asesoramiento legal. Las normas de inmigración no comunitaria dependen mucho de tu nacionalidad, tu vía de residencia, tu situación familiar, tus ingresos, tu situación laboral y dónde solicitas el trámite. Comprueba siempre los requisitos oficiales de tu caso concreto antes de tomar decisiones.</p></div>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>¿Visado o autorización?</th><td>Normalmente hace falta, según tu vía y tu nacionalidad.</td></tr>
+            <tr><th>¿Igual para todos?</th><td>No. Depende de tu vía, tu nacionalidad y dónde solicitas el trámite.</td></tr>
+            <tr><th>Vías habituales</th><td>Trabajo, estudios, familia, jubilación o recursos suficientes, nómada digital, autoempleo, familiar de ciudadano de la UE.</td></tr>
+            <tr><th>Tras la aprobación</th><td>Muchos residentes no comunitarios necesitan una TIE, no un NIE ni un certificado de registro de la UE.</td></tr>
+            <tr><th>Asesoramiento profesional</th><td>Puede ser útil, sobre todo en situaciones complejas o poco habituales.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: `${Cards([
+            { title: "Ciudadanos no UE que planean vivir en España", text: "Útil si estás explorando qué vía puede encajar con tu situación." },
+            { title: "Personas que se mudan por trabajo", text: "Útil si una oferta de empleo o un traslado puede sustentar una vía laboral." },
+            { title: "Estudiantes", text: "Útil si estás considerando estudiar en España." },
+            { title: "Jubilados o personas con recursos suficientes", text: "Útil si planeas vivir en España sin trabajar localmente." },
+            { title: "Familiares", text: "Útil si te reúnes con familia que ya vive en España." },
+            { title: "Nómadas digitales", text: "Útil si trabajas en remoto para empresas o clientes fuera de España." },
+            { title: "Autónomos", text: "Útil si planeas actividad empresarial o por cuenta propia en España." },
+            { title: "Personas que ya están en España", text: "Útil si intentas entender qué puede aplicarse a tu situación ahora mismo." }
+          ])}<div class="guide-box guide-box--info"><strong>Ciudadanos de la UE, del EEE y de Suiza</strong><p>Si eres ciudadano de la UE, del EEE o de Suiza, usa en su lugar la hoja de ruta para ciudadanos de la UE: el proceso descrito allí es distinto de este.</p></div>`
+        }),
+        GuideSection({
+          id: "elegirTuVia",
+          title: "Elige tu vía",
+          children: StartHereCards([
+            { title: "Trabajar en España", text: "Las vías laborales suelen depender de una oferta de empleo, el patrocinio de la empresa o una autorización de trabajo reconocida.", href: routes.esWorkInSpain, label: "Ver hoja de ruta" },
+            { title: "Estudiar en España", text: "Las vías de estudios suelen depender de la matrícula, la duración del programa y los medios económicos.", href: routes.esStudents, label: "Ver hoja de ruta" },
+            { title: "Reunirte con familia en España", text: "La reagrupación familiar suele depender del parentesco y de la situación del familiar que te reagrupa.", href: routes.familyReunification, label: "Ver hoja de ruta (en inglés)" },
+            { title: "Familiar de un ciudadano de la UE", text: "Esta vía puede diferir de las vías familiares no comunitarias habituales, según el parentesco y la situación.", href: routes.esEuFamilyMemberRoadmap, label: "Ver hoja de ruta" },
+            { title: "Jubilarte o vivir de recursos suficientes", text: "Esta vía suele depender de justificar ingresos, ahorros y cobertura sanitaria en vez de un empleo.", href: routes.esRetireInSpain, label: "Ver hoja de ruta" },
+            { title: "Nómada digital / trabajo remoto", text: "Esta vía suele depender del empleo remoto o de clientes con sede fuera de España.", href: routes.digitalNomad, label: "Ver hoja de ruta (en inglés)" },
+            { title: "Autónomo / actividad empresarial", text: "Esta vía suele depender del plan de negocio, la actividad y los justificantes económicos.", href: routes.esSelfEmployed, label: "Ver hoja de ruta" },
+            { title: "Ya estoy en España y no sé qué aplica", text: "Usa Empieza aquí y esta hoja de ruta juntas para acotar qué puede aplicarse.", href: routes.esStartHere, label: "Continuar" }
+          ])
+        }),
+        GuideSection({
+          id: "antesDeMudarte",
+          title: "Antes de mudarte",
+          children: `${Cards([
+            { title: "Identifica la vía correcta", text: "El trámite adecuado depende del motivo de tu mudanza y de tu nacionalidad." },
+            { title: "Comprueba los requisitos oficiales", text: "Los requisitos y los documentos aceptados pueden variar según la vía y dónde solicites el trámite." },
+            { title: "Prepara tus documentos de identidad", text: "Un pasaporte en vigor suele ser central en los trámites no comunitarios." },
+            { title: "Prepara documentos de estado civil, si procede", text: "Los documentos de matrimonio, nacimiento o familia pueden importar en algunas vías." },
+            { title: "Prepara justificantes de ingresos, trabajo o estudios", text: "Los justificantes dependen de si tu vía se basa en trabajo, estudios, recursos o familia." },
+            { title: "Comprueba los requisitos de sanidad", text: "Algunas vías pueden pedir justificante de cobertura sanitaria antes de la aprobación." },
+            { title: "Comprueba los requisitos de antecedentes penales o legalización, si aplica", text: "Algunas vías pueden pedir certificado de antecedentes penales o documentos civiles legalizados." },
+            { title: "Comprueba las necesidades de traducción y apostilla", text: "Algunos documentos extranjeros pueden necesitar traducción oficial, legalización o apostilla." }
+          ])}<p>Usa la <a href="${routes.esChecklist}">lista de documentos</a> como punto de partida general y confirma después la lista exacta para tu trámite concreto.</p><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Evita basarte solo en consejos informales, foros o redes sociales para los requisitos de documentos. Comprueba las fuentes oficiales de tu vía.</p></div>`
+        }),
+        GuideSection({
+          id: "visadoAutorizacionResidencia",
+          title: "Visado, autorización y residencia",
+          children: Cards([
+            { title: "Visado primero, en algunas vías", text: "Algunas vías empiezan con una solicitud de visado antes de viajar a España." },
+            { title: "Autorización de residencia", text: "Algunas vías pueden implicar un trámite de autorización de residencia aparte." },
+            { title: "Distintas autoridades según la vía", text: "Las solicitudes pueden tramitarse en consulados, oficinas de extranjería o plataformas online, según la vía." },
+            { title: "No se cubre aquí", text: "Esta hoja de ruta no da instrucciones legales específicas por vía. Comprueba los requisitos oficiales de tu trámite exacto." }
+          ])
+        }),
+        GuideSection({
+          id: "despuesDeLaAprobacionLlegada",
+          title: "Después de la aprobación o la llegada",
+          children: `${Cards([
+            { title: "Viaja a España, si procede", text: "Algunas vías requieren aprobación antes de viajar; otras no." },
+            { title: "Consigue alojamiento", text: "Tu dirección puede afectar al padrón, la sanidad y otros trámites posteriores." },
+            { title: "Empadrónate, si es posible", text: "Los requisitos del padrón pueden variar según el municipio." },
+            { title: "Organiza la sanidad", text: "Las vías de sanidad pueden depender de tu vía de residencia y tu situación personal." },
+            { title: "Solicita o recoge la TIE, si corresponde", text: "Muchos residentes no comunitarios necesitan completar un trámite de TIE tras la aprobación." },
+            { title: "Abre una cuenta bancaria", text: "Una cuenta española puede ayudarte con los pagos diarios." },
+            { title: "Configura el certificado digital o Cl@ve, si está disponible", text: "El acceso digital puede ayudar con Hacienda, la Seguridad Social y otros trámites online." },
+            { title: "Entiende tus obligaciones fiscales", text: "Pueden surgir dudas fiscales según tu residencia, ingresos y bienes." }
+          ])}<div class="guide-box guide-box--info"><strong>El orden puede variar</strong><p>No todo el mundo sigue el mismo orden. Algunos pasos pueden ir en paralelo, y la disponibilidad de citas puede variar según la provincia y la situación.</p></div>`
+        }),
+        GuideSection({
+          id: "conceptosBasicosTie",
+          title: "Conceptos básicos de la TIE",
+          children: `${Cards([
+            { title: "Qué es la TIE", text: "La TIE (Tarjeta de Identidad de Extranjero) es la tarjeta física de identidad que usan muchos residentes no comunitarios." },
+            { title: "No es lo mismo que el NIE", text: "El NIE es un número de identificación. La TIE es una tarjeta física. No son lo mismo." },
+            { title: "No es lo mismo que el registro de la UE", text: "El registro de la UE es la vía del certificado para ciudadanos de la UE, del EEE y de Suiza. Los residentes no comunitarios siguen normalmente la vía de la TIE." },
+            { title: "Huellas y recogida", text: "Muchos residentes no comunitarios pasan por una toma de huellas y una recogida de tarjeta tras la aprobación." },
+            { title: "Los detalles dependen de tu vía", text: "Los pasos, plazos y documentos exactos dependen de tu vía de residencia concreta." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No des por hecho que TIE, NIE y registro de la UE son términos intercambiables. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Elegir la vía equivocada para tu situación.",
+            "Confundir el NIE con la TIE.",
+            "Suponer que las normas de estancia turística permiten la residencia.",
+            "Ignorar la legalización o traducción de documentos.",
+            "Tardar demasiado en comprobar la disponibilidad de citas.",
+            "Suponer que las normas son iguales para toda nacionalidad.",
+            "Confiar solo en redes sociales o foros.",
+            "No comprobar los requisitos de sanidad.",
+            "Ignorar la residencia fiscal."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Puedo mudarme a España sin ser ciudadano de la UE?", text: "Sí, pero normalmente necesitas un visado, una autorización de residencia u otra vía legal reconocida. El trámite correcto depende de tu situación y tu nacionalidad." },
+            { title: "¿Necesitan visado los ciudadanos no comunitarios?", text: "A menudo sí, según la vía y la duración y el propósito de la estancia. Algunas vías pueden implicar un visado antes de viajar; otras pueden diferir. Comprueba los requisitos oficiales de tu caso." },
+            { title: "¿Es el NIE lo mismo que la TIE?", text: "No. El NIE es un número de identificación. La TIE es una tarjeta física de identidad de extranjero. Muchos residentes no comunitarios acaban teniendo ambos, pero no son el mismo documento." },
+            { title: "¿Necesito el padrón antes de la TIE?", text: "Depende de la oficina y de la vía. El padrón puede pedirse como parte de algunos trámites. Comprueba los requisitos de tu cita concreta." },
+            { title: "¿Puedo trabajar en España como ciudadano no UE?", text: "Depende de tu vía de residencia y de cualquier autorización de trabajo asociada. Algunas vías permiten trabajar; otras lo restringen o requieren un trámite aparte." },
+            { title: "¿Puedo estudiar en España?", text: "Existen vías de estudios para ciudadanos no comunitarios, pero los requisitos dependen del programa, la duración y tu nacionalidad." },
+            { title: "¿Puedo reunirme con mi cónyuge o pareja de la UE?", text: "Familiar de un ciudadano de la UE es una vía distinta que puede diferir de las vías familiares no comunitarias habituales. Comprueba los requisitos concretos de tu parentesco y situación." },
+            { title: "¿Y si ya estoy en España?", text: "Usa Empieza aquí y esta hoja de ruta juntas para entender qué vía puede aplicarse, y comprueba los requisitos oficiales antes de suponer que un trámite concreto encaja con tu situación." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver Empieza aquí", href: routes.esStartHere },
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling },
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de cuenta bancaria", href: routes.esBanking },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, estado civil, ingresos y traducciones para poder responder rápido en cuanto conozcas tu vía exacta.</p></div>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esEuFamilyMemberRoadmap,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esEuFamilyMemberRoadmap,
+      canonical: `https://iberigo.eu${routes.esEuFamilyMemberRoadmap}`,
+      title: "Mudarse a España como familiar de un ciudadano de la UE — IberiGo",
+      description: "Una hoja de ruta práctica para familiares de ciudadanos de la UE que se mudan a España: requisitos, documentos, padrón, sanidad, la tarjeta de residencia y errores comunes.",
+      metadata: guideMetadataFor(routes.esEuFamilyMemberRoadmap),
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Familiar de un ciudadano de la UE" }],
+      hero: {
+        kicker: "Vía de residencia familiar",
+        title: "Mudarse a España como familiar de un ciudadano de la UE",
+        intro: "Un punto de partida práctico para entender la vía familiar, qué puedes necesitar preparar y qué pasos suelen ir antes y después de solicitar el trámite en España.",
+        asideTitle: "No hay un único trámite para cada familia",
+        asideText: "Las normas de residencia como familiar dependen de la nacionalidad, el tipo de parentesco, los documentos, la dependencia económica, la situación del ciudadano de la UE y dónde se solicita el trámite."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Algunos familiares no comunitarios de ciudadanos de la UE pueden tener una vía de residencia específica en España, distinta de las vías de visado no comunitario habituales. El parentesco con el ciudadano de la UE y los documentos que lo respaldan son centrales en el trámite. Muchas personas acaban recibiendo una tarjeta de residencia como familiar de ciudadano de la UE. Esta hoja de ruta te ayuda a entender el recorrido general; no sustituye el asesoramiento legal.</p>`
+        }),
+        GuideSection({
+          id: "notaImportante",
+          title: "Nota importante",
+          children: `<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía ofrece solo información general y no es asesoramiento legal. Las normas de residencia como familiar dependen de la nacionalidad, el tipo de parentesco, los documentos, la dependencia económica, la situación del ciudadano de la UE y dónde se solicita el trámite. Comprueba siempre los requisitos oficiales de tu caso concreto antes de tomar decisiones.</p></div>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>¿A quién puede aplicar?</th><td>Cónyuges no comunitarios, parejas reconocidas, hijos y familiares dependientes de un ciudadano de la UE.</td></tr>
+            <tr><th>¿Es igual que las vías habituales?</th><td>No. Es una vía distinta de los visados no comunitarios estándar y del registro propio del ciudadano de la UE.</td></tr>
+            <tr><th>Factor central</th><td>El parentesco con el ciudadano de la UE y los justificantes que lo respaldan.</td></tr>
+            <tr><th>Resultado habitual</th><td>Muchas personas acaban recibiendo una tarjeta de residencia como familiar de ciudadano de la UE.</td></tr>
+            <tr><th>Asesoramiento profesional</th><td>Puede ser útil, sobre todo en parentescos poco habituales o situaciones familiares complejas.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: `${Cards([
+            { title: "Cónyuges no comunitarios de ciudadanos de la UE", text: "Útil si estás casado o casada con un ciudadano de la UE, del EEE o de Suiza y consideras España." },
+            { title: "Parejas registradas, cuando se reconozcan", text: "Útil si tu pareja de hecho puede reconocerse dentro de la vía familiar." },
+            { title: "Hijos, cuando proceda", text: "Útil si los hijos pueden incluirse en una solicitud familiar." },
+            { title: "Familiares dependientes, cuando proceda", text: "Útil si la situación de un familiar dependiente puede sustentar un caso familiar." },
+            { title: "Ciudadanos de la UE que traen o reagrupan familia en España", text: "Útil si eres el ciudadano de la UE que respalda la mudanza de un familiar." },
+            { title: "Personas que ya están en España", text: "Útil si intentas entender si la vía familiar aplica a tu situación ahora mismo." }
+          ])}<div class="guide-box guide-box--info"><strong>Si tú eres el ciudadano de la UE</strong><p>Los ciudadanos de la UE deben usar la hoja de ruta de ciudadanos de la UE para su propio registro. Los ciudadanos no comunitarios que no solicitan por una relación familiar con un ciudadano de la UE deben usar en su lugar la hoja de ruta de ciudadanos no UE.</p></div>`
+        }),
+        GuideSection({
+          id: "parentescoYRequisitos",
+          title: "Parentesco y requisitos básicos",
+          children: `${Cards([
+            { title: "Depende del parentesco", text: "La elegibilidad depende del parentesco con el ciudadano de la UE y de los justificantes disponibles." },
+            { title: "Cónyuges y parejas", text: "Cónyuges y parejas reconocidas pueden tener requisitos de documentos distintos entre sí." },
+            { title: "Hijos y dependientes", text: "Hijos y familiares dependientes pueden necesitar justificantes adicionales del parentesco y la dependencia." },
+            { title: "La situación del ciudadano de la UE importa", text: "La propia situación de residencia o registro del ciudadano de la UE en España puede afectar al caso." },
+            { title: "Varía según el caso y la oficina", text: "Los requisitos pueden variar según el caso concreto y la oficina que lo tramite." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esto no es una lista definitiva de elegibilidad. Comprueba los requisitos oficiales de tu parentesco y situación antes de dar por hecho que cumples los requisitos.</p></div>`
+        }),
+        GuideSection({
+          id: "antesDeEmpezar",
+          title: "Antes de empezar",
+          children: `${Cards([
+            { title: "Identidad", text: "Un pasaporte en vigor suele ser central en la solicitud." },
+            { title: "Justificante del parentesco", text: "Puede pedirse certificado de matrimonio, de pareja de hecho o de nacimiento, según el parentesco." },
+            { title: "Legalización o apostilla, si procede", text: "Algunos documentos civiles extranjeros pueden necesitar legalización o apostilla." },
+            { title: "Traducción jurada, si procede", text: "Algunos documentos pueden necesitar traducción jurada oficial." },
+            { title: "Los documentos del ciudadano de la UE", text: "Puede pedirse el documento de identidad del ciudadano de la UE y justificante de su situación en España." },
+            { title: "Justificante de dirección o padrón, si se pide", text: "El justificante de dirección puede formar parte del expediente, según la oficina." },
+            { title: "Justificante de sanidad o económico, según el caso", text: "Algunos casos pueden requerir cobertura sanitaria o justificante económico." }
+          ])}<p>Los documentos exactos dependen del parentesco, el país de expedición y el trámite. Usa la <a href="${routes.esChecklist}">lista de documentos</a> como punto de partida general y confirma después la lista exacta para tu caso concreto.</p>`
+        }),
+        GuideSection({
+          id: "mudarseJuntosOReunirseDespues",
+          title: "Mudarse juntos o reuniros más tarde",
+          children: Cards([
+            { title: "Mudarse juntos", text: "Algunas familias se mudan a España juntas y preparan los documentos en paralelo." },
+            { title: "Reuniros más tarde", text: "Otras se reúnen con un ciudadano de la UE que ya vive en España, lo que puede cambiar el orden práctico de los pasos." },
+            { title: "El orden puede diferir", text: "El orden práctico de los pasos puede diferir según cuál sea tu situación." },
+            { title: "El alojamiento y el padrón pueden afectar al calendario", text: "La preparación del alojamiento y el padrón puede afectar a cómo se desarrolla el resto del trámite." },
+            { title: "La disponibilidad de citas varía", text: "La disponibilidad de citas varía según la provincia y la oficina, y puede cambiar con el tiempo." }
+          ])
+        }),
+        GuideSection({
+          id: "despuesDeLaLlegada",
+          title: "Después de la llegada a España",
+          children: `${Cards([
+            { title: "Consigue alojamiento", text: "Tu dirección puede afectar al padrón, la sanidad y los pasos posteriores." },
+            { title: "Empadrónate, si es posible", text: "Los requisitos del padrón pueden variar según el municipio." },
+            { title: "Organiza la sanidad si hace falta", text: "Las vías de sanidad pueden depender de la situación del familiar y del ciudadano de la UE." },
+            { title: "Prepara los documentos de parentesco", text: "Ten listos los justificantes de parentesco, traducciones y legalizaciones antes de solicitar." },
+            { title: "Presenta la solicitud de residencia familiar correspondiente", text: "La vía de solicitud depende del tipo de caso y la oficina." },
+            { title: "Acude a la cita de huellas o de tarjeta cuando se requiera", text: "Muchos casos implican una cita de huellas o de recogida de tarjeta." },
+            { title: "Recoge la tarjeta de residencia si se aprueba", text: "Los trámites de recogida dependen de la oficina y el caso." }
+          ])}<div class="guide-box guide-box--info"><strong>Depende del tipo de caso</strong><p>Este trámite depende mucho del tipo de caso. No supongas que el mismo orden o los mismos plazos se aplican a todas las familias.</p></div>`
+        }),
+        GuideSection({
+          id: "conceptosBasicosTarjeta",
+          title: "Conceptos básicos de la tarjeta de residencia",
+          children: `${Cards([
+            { title: "Tarjeta de residencia como familiar", text: "Muchos familiares no comunitarios reciben una tarjeta de residencia vinculada a su condición de familiar de ciudadano de la UE." },
+            { title: "Distinta del certificado del ciudadano de la UE", text: "Esto es distinto del certificado de registro de la UE, verde, del propio ciudadano." },
+            { title: "Distinta de un NIE", text: "También es distinta de tener simplemente un NIE, que es un número de identificación, no una tarjeta de residencia." },
+            { title: "Citas y huellas", text: "Los trámites de tarjeta pueden implicar citas, huellas y un paso de recogida aparte." },
+            { title: "Depende de la aprobación y el trámite", text: "El proceso exacto depende de la aprobación y del procedimiento local de la oficina." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas la tarjeta de residencia como familiar, el certificado de registro del ciudadano de la UE y un NIE. Confirma qué documento aplica a tu caso antes de una cita.</p></div>`
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Suponer que el matrimonio por sí solo lo resuelve todo.",
+            "Confundir el registro de la UE con la tarjeta de residencia como familiar.",
+            "Confundir el NIE con el derecho de residencia.",
+            "No preparar los documentos legalizados o traducidos con tiempo.",
+            "Suponer que todos los municipios o provincias funcionan igual.",
+            "Firmar un alquiler sin comprobar si permite el empadronamiento.",
+            "Confiar solo en consejos informales.",
+            "Perder notificaciones oficiales.",
+            "Ignorar los requisitos de sanidad o de documentos económicos."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Puede mi cónyuge no comunitario vivir conmigo en España?", text: "A menudo sí, a través de la vía familiar, pero depende de tu situación, tus documentos y el parentesco que reconozca la oficina que tramite tu caso." },
+            { title: "¿Es lo mismo que un visado no comunitario normal?", text: "No. La vía familiar suele ser distinta de las vías de visado no comunitario habituales, aunque los detalles siguen dependiendo de tu caso." },
+            { title: "¿El matrimonio da la residencia automáticamente?", text: "No. El matrimonio puede respaldar la elegibilidad, pero la residencia sigue dependiendo de la solicitud, los justificantes y la aprobación." },
+            { title: "¿Es el NIE lo mismo que la residencia?", text: "No. El NIE es un número de identificación. La residencia como familiar de un ciudadano de la UE es un estatus aparte, que suele acreditarse con una tarjeta de residencia." },
+            { title: "¿Tiene que registrarse antes el ciudadano de la UE?", text: "Puede importar. La propia situación del ciudadano de la UE en España puede formar parte del caso del familiar; comprueba los requisitos que aplican a tu situación." },
+            { title: "¿Necesitamos el padrón?", text: "Puede pedirse como parte del trámite, según la oficina. Comprueba los requisitos de tu solicitud concreta." },
+            { title: "¿Qué documentos justifican el parentesco?", text: "Normalmente un certificado de matrimonio, de pareja de hecho o de nacimiento, según el parentesco, a veces con legalización o traducción. Las necesidades exactas varían según el caso." },
+            { title: "¿Y si ya estamos en España?", text: "Usa Empieza aquí y esta hoja de ruta juntas para entender qué vía puede aplicarse, y comprueba los requisitos oficiales antes de suponer que un trámite concreto encaja con tu situación." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver Empieza aquí", href: routes.esStartHere },
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, parentesco, traducciones y legalizaciones para poder responder rápido en cuanto conozcas los requisitos exactos de tu caso.</p></div>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esWorkInSpain,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esWorkInSpain,
+      canonical: `https://iberigo.eu${routes.esWorkInSpain}`,
+      title: "Mudarse a España para trabajar — IberiGo",
+      description: "Una hoja de ruta práctica para quienes planean trabajar en España: vías por cuenta ajena, documentos, Seguridad Social, sanidad, impuestos, la TIE y errores comunes.",
+      metadata: guideMetadataFor(routes.esWorkInSpain),
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Trabajar en España" }],
+      hero: {
+        kicker: "Vía laboral",
+        title: "Mudarse a España para trabajar",
+        intro: "Un punto de partida práctico para entender las vías relacionadas con el trabajo, qué puedes necesitar preparar y qué pasos suelen ir antes y después de empezar a trabajar en España.",
+        asideTitle: "No hay un único trámite para cada trabajador",
+        asideText: "Las normas de trabajo y residencia dependen de tu nacionalidad, la oferta de empleo, la empresa, el tipo de contrato, tu cualificación, tu vía de residencia y dónde se solicita el trámite."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Las personas que se mudan a España para trabajar pueden seguir vías distintas según su nacionalidad y su situación laboral. Ciudadanos de la UE y no comunitarios siguen procesos distintos. Los ciudadanos no comunitarios normalmente necesitan la autorización de trabajo y residencia correcta antes de trabajar. Empleados, trabajadores altamente cualificados, temporeros y trabajadores remotos pueden seguir vías distintas. Esta hoja de ruta te ayuda a entender el recorrido general; no sustituye los requisitos oficiales.</p>`
+        }),
+        GuideSection({
+          id: "notaImportante",
+          title: "Nota importante",
+          children: `<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía ofrece solo información general y no es asesoramiento legal. Las normas de trabajo y residencia dependen de tu nacionalidad, la oferta de empleo, la empresa, el tipo de contrato, tu cualificación, tu vía de residencia y dónde se solicita el trámite. Comprueba siempre los requisitos oficiales de tu caso concreto antes de tomar decisiones.</p></div>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>¿Visado o autorización?</th><td>Puede hacer falta, según la nacionalidad, el tipo de empleo y la vía.</td></tr>
+            <tr><th>¿Igual para todos?</th><td>No. Ciudadanos de la UE y no comunitarios siguen procesos distintos, y los requisitos varían según el caso.</td></tr>
+            <tr><th>¿Basta con la oferta de empleo?</th><td>Normalmente no por sí sola: la autorización correcta tiene que estar en regla antes de trabajar.</td></tr>
+            <tr><th>Trabajadores no comunitarios</th><td>Pueden acabar necesitando una TIE tras la aprobación o la llegada.</td></tr>
+            <tr><th>Asesoramiento profesional</th><td>Puede ser útil, sobre todo en contratos o cualificaciones poco habituales.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: `${Cards([
+            { title: "Ciudadanos de la UE que se mudan a España para trabajar", text: "Útil si eres ciudadano de la UE, del EEE o de Suiza y planeas trabajar en España." },
+            { title: "Ciudadanos no UE con oferta de empleo", text: "Útil si tienes una oferta de empleo y consideras la vía laboral no comunitaria." },
+            { title: "Personas que consideran trabajar en España", text: "Útil si estás comparando opciones antes de decidir mudarte." },
+            { title: "Personas que ya están en España", text: "Útil si intentas entender si una vía laboral aplica a tu situación ahora mismo." },
+            { title: "Trabajadores cuya empresa ayuda con el papeleo", text: "Útil si tu empresa apoya parte del trámite." },
+            { title: "Personas que comparan las vías de empleado, trabajo remoto o autónomo", text: "Útil si no estás seguro de qué vía encaja con tu situación." }
+          ])}<div class="guide-box guide-box--info"><strong>Hojas de ruta relacionadas</strong><p>Quienes trabajen por cuenta propia deben usar la hoja de ruta de autónomos. Los nómadas digitales deben usar la futura hoja de ruta de nómada digital cuando esté disponible.</p></div>`
+        }),
+        GuideSection({
+          id: "ciudadanosUeTrabajando",
+          title: "Ciudadanos de la UE trabajando en España",
+          children: `${Cards([
+            { title: "Normalmente no hace falta visado", text: "Los ciudadanos de la UE, del EEE y de Suiza normalmente no necesitan visado para trabajar en España." },
+            { title: "Registro de la UE si te quedas más tiempo", text: "Si te quedas más de tres meses, puede aplicar el registro de la UE." },
+            { title: "Conectado con la Seguridad Social, la sanidad y Hacienda", text: "El empleo puede afectar a la Seguridad Social, la sanidad y las obligaciones fiscales." },
+            { title: "Guarda tus documentos", text: "Los trabajadores deben guardar contratos, nóminas y justificantes de la Seguridad Social." }
+          ])}${SourceLinks([
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
+          ])}`
+        }),
+        GuideSection({
+          id: "ciudadanosNoUeTrabajando",
+          title: "Ciudadanos no UE trabajando en España",
+          children: `${Cards([
+            { title: "Hace falta la vía correcta primero", text: "Los ciudadanos no comunitarios normalmente necesitan la autorización de trabajo y residencia correcta antes de trabajar." },
+            { title: "Distintos canales según la vía", text: "El trámite puede implicar a la empresa, un consulado, una oficina de extranjería u otro canal oficial, según la vía." },
+            { title: "Una oferta de empleo no basta por sí sola", text: "Tener una oferta de empleo no significa automáticamente que la persona pueda trabajar legalmente." },
+            { title: "Puede seguir la TIE", text: "Puede requerirse la TIE tras la aprobación o la llegada." }
+          ])}${SourceLinks([
+            { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
+            { label: "Ver la lista de documentos", href: routes.esChecklist }
+          ])}`
+        }),
+        GuideSection({
+          id: "antesDeAceptarOEmpezar",
+          title: "Antes de aceptar o empezar a trabajar",
+          children: `${Cards([
+            { title: "Identidad", text: "Un pasaporte o documento nacional en vigor suele ser central en el trámite." },
+            { title: "Oferta o contrato de trabajo", text: "Normalmente hace falta una oferta o contrato de trabajo para sustentar la vía." },
+            { title: "Documentos de cualificación, si procede", text: "Algunos puestos pueden requerir documentos de cualificación reconocidos." },
+            { title: "Documentos de homologación profesional, si procede", text: "Algunas profesiones pueden requerir el reconocimiento de títulos extranjeros." },
+            { title: "Certificado de antecedentes penales, si se requiere", text: "Algunas vías pueden pedir certificado de antecedentes penales." },
+            { title: "Documentos de sanidad, si se requieren", text: "Algunas vías pueden pedir justificante de cobertura sanitaria." },
+            { title: "Traducciones, legalización o apostilla, si se requieren", text: "Algunos documentos extranjeros pueden necesitar traducción oficial, legalización o apostilla." },
+            { title: "Documentos de NIE/TIE/residencia, según la vía", text: "Los documentos de identificación y residencia dependen de tu vía y la fase del trámite." },
+            { title: "Alta en la Seguridad Social, si procede", text: "El alta en la Seguridad Social puede formar parte de empezar a trabajar." }
+          ])}<p>Los requisitos exactos dependen de la nacionalidad, el tipo de empleo, la empresa y la vía de residencia.</p>`
+        }),
+        GuideSection({
+          id: "elPapelDeLaEmpresa",
+          title: "El papel de la empresa",
+          children: Cards([
+            { title: "La empresa puede tener que iniciar o apoyar el trámite", text: "En algunas vías laborales, la empresa puede tener que iniciar o apoyar el trámite." },
+            { title: "Alta en la Seguridad Social", text: "Los empleados suelen darse de alta en la Seguridad Social a través de la empresa una vez que la relación laboral es válida." },
+            { title: "Pide confirmación", text: "Los trabajadores deben pedir confirmación del alta y guardar copias." },
+            { title: "Comprueba igualmente los requisitos oficiales", text: "Que la empresa participe no elimina la necesidad de comprobar tú mismo los requisitos oficiales." }
+          ])
+        }),
+        GuideSection({
+          id: "seguridadSocialSanidadImpuestos",
+          title: "Seguridad Social, sanidad e impuestos",
+          children: `${Cards([
+            { title: "A menudo conectado con la Seguridad Social", text: "Trabajar en España suele estar conectado con el alta en la Seguridad Social." },
+            { title: "Puede afectar al acceso a la sanidad", text: "La Seguridad Social puede conectar con el acceso a la sanidad pública, según tu situación." },
+            { title: "Pueden surgir obligaciones fiscales", text: "Trabajar en España puede generar obligaciones fiscales españolas." },
+            { title: "La residencia fiscal es aparte", text: "La residencia fiscal es distinta de la residencia de inmigración." },
+            { title: "Revisa los impuestos pronto", text: "Revisa tu situación fiscal pronto en vez de esperar a un plazo urgente." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
+          ])}`
+        }),
+        GuideSection({
+          id: "conceptosBasicosTieTrabajadores",
+          title: "Conceptos básicos de la TIE para trabajadores",
+          children: `${Cards([
+            { title: "Muchos trabajadores no comunitarios la necesitan", text: "Muchos trabajadores no comunitarios pueden necesitar una TIE tras la aprobación o la llegada." },
+            { title: "No es lo mismo que el NIE", text: "La TIE no es lo mismo que el NIE." },
+            { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
+            { title: "Citas y recogida", text: "Los trámites de TIE pueden implicar citas, huellas y recogida." },
+            { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el procedimiento local." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Suponer que una oferta de empleo da automáticamente derecho de residencia.",
+            "Empezar a trabajar antes de que el permiso esté claro.",
+            "Confundir el NIE con la TIE.",
+            "Confundir el registro de la UE con las tarjetas de residencia no comunitarias.",
+            "No comprobar las responsabilidades de la empresa.",
+            "No guardar el contrato y los justificantes de la Seguridad Social.",
+            "Ignorar la residencia fiscal.",
+            "Suponer que las vías de autónomo y de empleado son iguales.",
+            "Confiar solo en consejos informales."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Puedo mudarme a España para trabajar?", text: "A menudo sí, pero la vía correcta depende de tu nacionalidad, tu oferta de empleo y tu situación. Comprueba los requisitos oficiales que aplican a tu caso." },
+            { title: "¿Pueden los ciudadanos de la UE trabajar en España sin visado?", text: "Normalmente sí. Los ciudadanos de la UE, del EEE y de Suiza normalmente no necesitan visado para trabajar, aunque puede aplicar el registro de la UE si te quedas más de tres meses." },
+            { title: "¿Pueden trabajar los ciudadanos no UE solo con una oferta de empleo?", text: "No por sí sola. Una oferta de empleo normalmente tiene que estar respaldada por la autorización de trabajo y residencia correcta antes de trabajar legalmente." },
+            { title: "¿Es el NIE lo mismo que el permiso para trabajar?", text: "No. El NIE es un número de identificación. El permiso para trabajar depende de tu autorización de residencia y trabajo, que es algo aparte." },
+            { title: "¿Necesitan los trabajadores una TIE?", text: "Muchos trabajadores no comunitarios pueden necesitar una TIE tras la aprobación o la llegada. Los requisitos dependen de tu vía." },
+            { title: "¿Me da de alta mi empresa en la Seguridad Social?", text: "Las empresas suelen encargarse de esto una vez que la relación laboral es válida, pero debes pedir confirmación y guardar tus propios justificantes." },
+            { title: "¿Necesito sanidad antes de trabajar?", text: "Depende de tu vía y tu situación. Algunos justificantes de sanidad pueden pedirse como parte de ciertos trámites." },
+            { title: "¿Afectará trabajar en España a mis impuestos?", text: "Puede afectar. Trabajar en España puede generar obligaciones fiscales españolas, y la residencia fiscal es una cuestión aparte de la residencia de inmigración. Revisa tu situación fiscal pronto." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver Empieza aquí", href: routes.esStartHere },
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes },
+            { label: "Ver la guía de cuenta bancaria", href: routes.esBanking },
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, contrato, Seguridad Social e impuestos para poder responder rápido en cuanto conozcas los requisitos exactos de tu vía.</p></div>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esStudents,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esStudents,
+      canonical: `https://iberigo.eu${routes.esStudents}`,
+      title: "Mudarse a España como estudiante — IberiGo",
+      description: "Una hoja de ruta práctica para estudiantes que planean estudiar en España: vías de estudios, documentos, sanidad, alojamiento, la TIE y errores comunes.",
+      metadata: guideMetadataFor(routes.esStudents),
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Estudiantes" }],
+      hero: {
+        kicker: "Vía de estudios",
+        title: "Mudarse a España como estudiante",
+        intro: "Un punto de partida práctico para entender las vías de estudios, qué puedes necesitar preparar y qué pasos suelen ir antes y después de llegar a España.",
+        asideTitle: "No hay un único trámite para cada estudiante",
+        asideText: "Las normas de residencia como estudiante dependen de tu nacionalidad, el tipo de curso, la duración de los estudios, los documentos, tu situación económica, la cobertura sanitaria y dónde se solicita el trámite."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Los estudiantes que llegan de fuera de España pueden necesitar una vía de estudios, visado o autorización reconocida según su nacionalidad y la duración de la estancia. Los requisitos pueden depender del tipo de curso, la duración, la nacionalidad y dónde se presenta la solicitud. Los estudiantes no comunitarios pueden acabar necesitando una TIE si se quedan más tiempo. Los estudiantes de la UE siguen un proceso distinto y pueden necesitar el registro de la UE si se quedan más de tres meses. Esta hoja de ruta te ayuda a entender el recorrido general; no sustituye los requisitos oficiales.</p>`
+        }),
+        GuideSection({
+          id: "notaImportante",
+          title: "Nota importante",
+          children: `<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía ofrece solo información general y no es asesoramiento legal. Las normas de residencia como estudiante dependen de tu nacionalidad, el tipo de curso, la duración de los estudios, los documentos, tu situación económica, la cobertura sanitaria y dónde se solicita el trámite. Comprueba siempre los requisitos oficiales de tu caso concreto antes de tomar decisiones.</p></div>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>¿Visado o autorización?</th><td>Puede hacer falta, según la nacionalidad, el tipo de curso y la duración de los estudios.</td></tr>
+            <tr><th>¿Igual para todos?</th><td>No. Estudiantes de la UE y no comunitarios siguen procesos distintos, y los requisitos varían según el caso.</td></tr>
+            <tr><th>Estudiantes no comunitarios</th><td>Pueden acabar necesitando una TIE si se quedan más tiempo.</td></tr>
+            <tr><th>Estudiantes de la UE</th><td>Pueden necesitar el registro de la UE si se quedan más de tres meses.</td></tr>
+            <tr><th>Asesoramiento profesional</th><td>Puede ser útil, sobre todo en tipos de curso o nacionalidades poco habituales.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: `${Cards([
+            { title: "Estudiantes no UE", text: "Útil si planeas estudiar en España viniendo de fuera de la UE." },
+            { title: "Estudiantes de la UE", text: "Útil si eres ciudadano de la UE, del EEE o de Suiza y planeas estudiar en España." },
+            { title: "Estudiantes de intercambio", text: "Útil si estudias en España dentro de un programa de intercambio." },
+            { title: "Estudiantes universitarios", text: "Útil si te matriculas en un programa universitario español." },
+            { title: "Estudiantes de idiomas", text: "Útil si asistes a un curso o escuela de idiomas." },
+            { title: "Estudiantes de formación profesional o reconocida", text: "Útil si te matriculas en formación profesional u otra formación reconocida." },
+            { title: "Personas que ya están en España", text: "Útil si intentas entender si la vía de estudiante aplica a tu situación ahora mismo." }
+          ])}<div class="guide-box guide-box--info"><strong>Hojas de ruta relacionadas</strong><p>Los ciudadanos de la UE deben consultar también la hoja de ruta de ciudadanos de la UE. Los estudiantes no comunitarios deben consultar también la hoja de ruta de ciudadanos no UE para el recorrido no comunitario más amplio.</p></div>`
+        }),
+        GuideSection({
+          id: "antesDeSolicitarOMudarte",
+          title: "Antes de solicitar o mudarte",
+          children: `${Cards([
+            { title: "Identidad", text: "Un pasaporte o documento nacional en vigor suele ser central en la solicitud." },
+            { title: "Justificante de admisión o matrícula", text: "Normalmente hace falta justificante de admisión o matrícula antes de solicitar una vía de estudios." },
+            { title: "Cobertura sanitaria", text: "Puede requerirse cobertura sanitaria, según tu vía y nacionalidad." },
+            { title: "Justificante económico, según la vía", text: "Algunas vías pueden requerir justificante de fondos o ingresos suficientes." },
+            { title: "Planificación del alojamiento", text: "Dónde vayas a vivir puede afectar al padrón y a otros trámites posteriores." },
+            { title: "Certificado de antecedentes penales, si se requiere", text: "Algunas vías pueden pedir certificado de antecedentes penales." },
+            { title: "Certificado médico, si se requiere", text: "Algunas vías pueden pedir certificado médico." },
+            { title: "Traducciones, legalización o apostilla, si se requieren", text: "Algunos documentos extranjeros pueden necesitar traducción oficial, legalización o apostilla." }
+          ])}<p>Los requisitos exactos dependen de la nacionalidad, el tipo de curso, la duración de los estudios y la vía de solicitud. Usa la <a href="${routes.esChecklist}">lista de documentos</a> como punto de partida general y confirma después la lista exacta para tu caso concreto.</p>`
+        }),
+        GuideSection({
+          id: "estudiantesUe",
+          title: "Estudiantes de la UE",
+          children: `${Cards([
+            { title: "Normalmente no hace falta visado", text: "Los estudiantes de la UE, del EEE y de Suiza normalmente no necesitan visado para estudiar en España." },
+            { title: "Registro de la UE si te quedas más tiempo", text: "Si te quedas más de tres meses, puede aplicar el registro de la UE." },
+            { title: "La sanidad y los recursos pueden importar", text: "La cobertura sanitaria y los recursos suficientes pueden importar para el registro de la UE." },
+            { title: "Comprueba tu situación exacta", text: "Los estudiantes de la UE deben comprobar si su situación entra dentro de estudiante, trabajador u otra vía." }
+          ])}${SourceLinks([
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare }
+          ])}`
+        }),
+        GuideSection({
+          id: "estudiantesNoUe",
+          title: "Estudiantes no UE",
+          children: `${Cards([
+            { title: "Visado o autorización de estudios", text: "Los estudiantes no comunitarios pueden necesitar un visado de estudios o autorización según su situación." },
+            { title: "Puede empezar antes de viajar", text: "Algunos trámites pueden empezar antes de viajar, a través de un consulado español." },
+            { title: "Puede depender de tu situación actual", text: "Otros trámites pueden depender de tu situación legal actual y tu vía." },
+            { title: "Puede seguir la TIE", text: "Puede requerirse la TIE tras la aprobación o la llegada." },
+            { title: "Distinto de las estancias turísticas", text: "Los trámites de estudiante son distintos de las estancias turísticas normales." }
+          ])}${SourceLinks([
+            { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
+            { label: "Ver la lista de documentos", href: routes.esChecklist }
+          ])}`
+        }),
+        GuideSection({
+          id: "sanidadYAlojamiento",
+          title: "Sanidad y alojamiento",
+          children: `${Cards([
+            { title: "La sanidad varía según el caso", text: "Los requisitos de sanidad pueden depender de la nacionalidad, la vía y la duración de los estudios." },
+            { title: "Seguro privado", text: "Algunos estudiantes pueden necesitar un seguro privado." },
+            { title: "El alojamiento afecta a los pasos posteriores", text: "El alojamiento puede afectar al padrón y a otros trámites administrativos posteriores." },
+            { title: "El alojamiento temporal tiene límites", text: "El alojamiento temporal puede no servir siempre para todas las necesidades administrativas." },
+            { title: "Los requisitos varían", text: "Los requisitos varían según el caso y la localidad." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron }
+          ])}`
+        }),
+        GuideSection({
+          id: "conceptosBasicosTieEstudiantes",
+          title: "Conceptos básicos de la TIE para estudiantes",
+          children: `${Cards([
+            { title: "Muchos estudiantes no comunitarios la necesitan", text: "Muchos estudiantes no comunitarios que se quedan más tiempo pueden necesitar una TIE." },
+            { title: "No es lo mismo que el NIE", text: "La TIE no es lo mismo que el NIE." },
+            { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
+            { title: "Citas y recogida", text: "Los trámites de TIE pueden implicar citas, huellas y recogida." },
+            { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el procedimiento local." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
+        }),
+        GuideSection({
+          id: "trabajarMientrasEstudias",
+          title: "Trabajar mientras estudias",
+          children: Cards([
+            { title: "Puede permitirse trabajo limitado", text: "Algunas vías de estudiante pueden permitir trabajo limitado o exigir condiciones específicas." },
+            { title: "Depende del estatus y la vía", text: "El derecho a trabajar depende del estatus del estudiante, la vía y las normas vigentes." },
+            { title: "Verifica antes de aceptar trabajo", text: "Los estudiantes deben verificar las condiciones de trabajo antes de aceptar un empleo." }
+          ])
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Suponer que cualquier curso da derecho a una vía de estudiante.",
+            "Suponer que la estancia turística basta para estudios de larga duración.",
+            "Confundir el NIE y la TIE.",
+            "Ignorar los requisitos de sanidad.",
+            "Preparar los documentos demasiado tarde.",
+            "Ignorar las necesidades de traducción, legalización o apostilla.",
+            "Suponer que el estatus de estudiante da automáticamente derecho a trabajar.",
+            "Esperar a que las citas se vuelvan urgentes.",
+            "Confiar solo en consejos informales."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Necesito visado para estudiar en España?", text: "Depende de tu nacionalidad, el tipo de curso y la duración de los estudios. Algunos estudiantes necesitan visado o autorización de estudios; otros no. Comprueba los requisitos oficiales de tu caso." },
+            { title: "¿Pueden los ciudadanos de la UE estudiar en España sin visado?", text: "Normalmente sí. Los estudiantes de la UE, del EEE y de Suiza normalmente no necesitan visado, aunque puede aplicar el registro de la UE si te quedas más de tres meses." },
+            { title: "¿Necesitan los estudiantes una TIE?", text: "Muchos estudiantes no comunitarios que se quedan más tiempo pueden necesitar una TIE. Los requisitos dependen de tu vía y de la aprobación." },
+            { title: "¿Pueden trabajar los estudiantes en España?", text: "Depende del estatus del estudiante, la vía y las normas vigentes. No supongas que el derecho a trabajar es automático: verifícalo antes de aceptar un empleo." },
+            { title: "¿Es el NIE lo mismo que la TIE?", text: "No. El NIE es un número de identificación. La TIE es una tarjeta física de identidad de extranjero. No son el mismo documento." },
+            { title: "¿Necesito seguro médico privado?", text: "Depende de tu vía y tu nacionalidad. Algunos estudiantes pueden necesitar seguro privado; otros pueden usar otra vía de sanidad." },
+            { title: "¿Puedo usar alojamiento temporal?", text: "Puede servir para algunas necesidades iniciales, pero el alojamiento temporal puede no sustentar siempre todos los trámites administrativos, como el padrón. Compruébalo antes de confiar en él." },
+            { title: "¿Y si ya estoy en España?", text: "Usa Empieza aquí y esta hoja de ruta juntas para entender qué vía puede aplicarse, y comprueba los requisitos oficiales antes de suponer que un trámite concreto encaja con tu situación." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver Empieza aquí", href: routes.esStartHere },
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, admisión, economía y traducciones para poder responder rápido en cuanto conozcas los requisitos exactos de tu vía.</p></div>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esRetireInSpain,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esRetireInSpain,
+      canonical: `https://iberigo.eu${routes.esRetireInSpain}`,
+      title: "Jubilarte en España — IberiGo",
+      description: "Una hoja de ruta práctica para quienes planean jubilarse en España o vivir de recursos suficientes: documentos, sanidad, impuestos, registro de la UE, vías no comunitarias y errores comunes.",
+      metadata: guideMetadataFor(routes.esRetireInSpain),
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Jubilarte en España" }],
+      hero: {
+        kicker: "Jubilación y recursos",
+        title: "Jubilarte en España",
+        intro: "Un punto de partida práctico para entender cómo pueden encajar la jubilación, las pensiones, la sanidad, los recursos suficientes y las vías de residencia al mudarte a España.",
+        asideTitle: "No hay un único trámite para cada jubilado",
+        asideText: "Las vías de jubilación y de recursos suficientes dependen de tu nacionalidad, tus ingresos, tu situación de pensión, tu cobertura sanitaria, tu situación familiar, tus bienes, tu residencia fiscal y dónde solicitas el trámite."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Las personas que se jubilan en España pueden seguir vías distintas según su nacionalidad y su situación económica. Ciudadanos de la UE y no comunitarios siguen procesos distintos. La cobertura sanitaria y el justificante de recursos suelen ser importantes. Conviene revisar pronto los ingresos por pensión, los ahorros, las inversiones y la residencia fiscal. Esta hoja de ruta te ayuda a entender el recorrido general; no sustituye los requisitos oficiales.</p>`
+        }),
+        GuideSection({
+          id: "notaImportante",
+          title: "Nota importante",
+          children: `<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía ofrece solo información general y no es asesoramiento legal, fiscal ni financiero. Las vías de jubilación y de recursos suficientes dependen de tu nacionalidad, tus ingresos, tu situación de pensión, tu cobertura sanitaria, tu situación familiar, tus bienes, tu residencia fiscal y dónde solicitas el trámite. Comprueba siempre los requisitos oficiales de tu caso concreto antes de tomar decisiones.</p></div>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>¿Visado o autorización?</th><td>Puede hacer falta para ciudadanos no comunitarios, según la nacionalidad y la vía.</td></tr>
+            <tr><th>¿Igual para todos?</th><td>No. Ciudadanos de la UE y no comunitarios siguen procesos distintos, y los requisitos varían según el caso.</td></tr>
+            <tr><th>Factores centrales</th><td>La cobertura sanitaria y el justificante de recursos suficientes suelen ser centrales en el trámite.</td></tr>
+            <tr><th>Jubilados no comunitarios</th><td>Pueden acabar necesitando una TIE tras la aprobación o la llegada.</td></tr>
+            <tr><th>Asesoramiento profesional</th><td>Puede ser útil, sobre todo para cuestiones de pensión, impuestos o finanzas transfronterizas.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: `${Cards([
+            { title: "Ciudadanos de la UE que se jubilan en España", text: "Útil si eres ciudadano de la UE, del EEE o de Suiza y planeas jubilarte en España." },
+            { title: "Ciudadanos no UE que se jubilan en España", text: "Útil si eres ciudadano no comunitario y consideras jubilarte en España." },
+            { title: "Personas que viven de pensiones", text: "Útil si los ingresos por pensión sustentan tu mudanza." },
+            { title: "Personas que viven de ahorros o inversiones", text: "Útil si los ingresos por ahorros o inversiones sustentan tu mudanza." },
+            { title: "Personas que no planean trabajar en España", text: "Útil si no planeas incorporarte a un empleo en España." },
+            { title: "Parejas o familias que se mudan juntas", text: "Útil si te mudas con cónyuge, pareja o familia." },
+            { title: "Personas que comparan vías", text: "Útil si estás comparando jubilación, recursos suficientes u otras vías similares." }
+          ])}<div class="guide-box guide-box--info"><strong>Hojas de ruta relacionadas</strong><p>Quienes planeen trabajar deben usar la hoja de ruta de trabajo en España. Quienes trabajen por cuenta propia deben usar la hoja de ruta de autónomos.</p></div>`
+        }),
+        GuideSection({
+          id: "ciudadanosUeJubilandose",
+          title: "Ciudadanos de la UE que se jubilan o viven de recursos propios",
+          children: `${Cards([
+            { title: "Normalmente no hace falta visado", text: "Los ciudadanos de la UE, del EEE y de Suiza normalmente no necesitan visado para mudarse a España." },
+            { title: "Registro de la UE si te quedas más tiempo", text: "Si te quedas más de tres meses, puede aplicar el registro de la UE." },
+            { title: "Recursos y cobertura sanitaria", text: "Los jubilados o personas autosuficientes de la UE pueden necesitar justificar recursos suficientes y cobertura sanitaria." },
+            { title: "Depende de la oficina y la situación", text: "Los justificantes exactos pueden depender de la oficina y la situación personal." }
+          ])}${SourceLinks([
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
+          ])}`
+        }),
+        GuideSection({
+          id: "ciudadanosNoUeJubilandose",
+          title: "Ciudadanos no UE que se jubilan en España",
+          children: `${Cards([
+            { title: "Hace falta la vía correcta primero", text: "Los ciudadanos no comunitarios normalmente necesitan el visado o la vía de residencia correcta antes de vivir en España a largo plazo." },
+            { title: "Vías para solicitantes autosuficientes", text: "Algunas vías pueden estar pensadas para personas que pueden mantenerse sin trabajar en España." },
+            { title: "Distintos canales según la vía", text: "El trámite puede implicar a un consulado español, autoridades de extranjería u otros canales oficiales, según la vía." },
+            { title: "Puede seguir la TIE", text: "Puede requerirse una TIE tras la aprobación o la llegada." }
+          ])}${SourceLinks([
+            { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
+            { label: "Ver la lista de documentos", href: routes.esChecklist }
+          ])}`
+        }),
+        GuideSection({
+          id: "antesDeSolicitarOMudarte",
+          title: "Antes de solicitar o mudarte",
+          children: `${Cards([
+            { title: "Identidad", text: "Un pasaporte o documento nacional en vigor suele ser central en la solicitud." },
+            { title: "Documentos de pensión", text: "Puede necesitarse justificante de pensión según tu vía." },
+            { title: "Justificante de ahorros o ingresos regulares", text: "Algunas vías pueden requerir justificante de ahorros o ingresos regulares." },
+            { title: "Cobertura sanitaria o formulario S1, si procede", text: "La cobertura sanitaria o un formulario S1 pueden ser relevantes según tu situación." },
+            { title: "Documentos de estado civil, si te mudas con cónyuge o familia", text: "Los documentos de matrimonio o familia pueden importar si te mudas junto a otras personas." },
+            { title: "Planificación del alojamiento", text: "Dónde vayas a vivir puede afectar al padrón y a otros trámites posteriores." },
+            { title: "Certificado de antecedentes penales, si se requiere", text: "Algunas vías pueden pedir certificado de antecedentes penales." },
+            { title: "Certificado médico, si se requiere", text: "Algunas vías pueden pedir certificado médico." },
+            { title: "Traducciones, legalización o apostilla, si se requieren", text: "Algunos documentos extranjeros pueden necesitar traducción oficial, legalización o apostilla." },
+            { title: "Revisión de la residencia fiscal", text: "Revisar pronto tu situación de residencia fiscal puede ayudarte a planificar." }
+          ])}<p>Los requisitos exactos dependen de la nacionalidad, la vía de residencia, el origen de los ingresos y dónde se presenta la solicitud.</p>`
+        }),
+        GuideSection({
+          id: "sanidadParaJubilados",
+          title: "Sanidad para jubilados",
+          children: `${Cards([
+            { title: "A menudo un punto clave de planificación", text: "La sanidad suele ser uno de los puntos de planificación más importantes para los jubilados." },
+            { title: "Vías basadas en pensión o formulario S1", text: "Algunos jubilados pueden usar vías de sanidad pública, como el derecho basado en la pensión o el S1, cuando proceda." },
+            { title: "Puede hacer falta seguro privado", text: "Otros pueden necesitar seguro médico privado según la vía y la situación." },
+            { title: "Depende del trámite", text: "Los requisitos de seguro privado pueden depender del trámite concreto." },
+            { title: "Variación regional", text: "Los trámites de tarjeta sanitaria regional pueden variar." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No supongas que el seguro médico privado siempre satisface cualquier vía. Comprueba el requisito de tu trámite concreto.</p></div>${SourceLinks([
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social }
+          ])}`
+        }),
+        GuideSection({
+          id: "impuestosYPensiones",
+          title: "Impuestos y pensiones",
+          children: `${Cards([
+            { title: "Puede afectar a la residencia fiscal", text: "Mudarte a España puede afectar a tu residencia fiscal." },
+            { title: "Distinta de la residencia de inmigración", text: "La residencia fiscal es distinta de la residencia de inmigración." },
+            { title: "Puede aplicarse a los ingresos mundiales", text: "España puede gravar a los residentes por sus ingresos mundiales según las circunstancias." },
+            { title: "Varios tipos de ingresos a revisar", text: "Conviene revisar pensiones, ingresos de inversión, ingresos de alquiler y de ahorros." },
+            { title: "Los convenios pueden importar", text: "Los convenios de doble imposición pueden afectar al resultado." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esto no es asesoramiento fiscal sobre pensiones específico de ningún país. Busca asesoramiento profesional para tu situación de pensión e impuestos concreta.</p></div>${SourceLinks([
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes },
+            { label: "Ver la guía del certificado digital y Cl@ve (en inglés)", href: routes.digital }
+          ])}`
+        }),
+        GuideSection({
+          id: "alojamientoYPadron",
+          title: "Alojamiento y padrón",
+          children: `${Cards([
+            { title: "A menudo hace falta una dirección estable", text: "Los jubilados suelen necesitar una dirección estable para los trámites administrativos." },
+            { title: "El padrón sirve para varios trámites", text: "El padrón puede necesitarse para la sanidad, los trámites de residencia y los servicios locales." },
+            { title: "Varía según el municipio", text: "Los requisitos varían según el municipio." },
+            { title: "Comprueba antes de firmar", text: "Antes de firmar un contrato de alquiler, comprueba si la dirección permite el empadronamiento." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron }
+          ])}`
+        }),
+        GuideSection({
+          id: "conceptosBasicosTieJubilados",
+          title: "Conceptos básicos de la TIE para jubilados no UE",
+          children: `${Cards([
+            { title: "Muchos residentes no comunitarios la necesitan", text: "Muchos residentes no comunitarios pueden necesitar una TIE tras la aprobación o la llegada." },
+            { title: "No es lo mismo que el NIE", text: "La TIE no es lo mismo que el NIE." },
+            { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
+            { title: "Citas y recogida", text: "Los trámites de TIE pueden implicar citas, huellas y recogida." },
+            { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el procedimiento local." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Suponer que tener una propiedad da derecho de residencia.",
+            "Suponer que los ingresos por pensión bastan automáticamente.",
+            "Confundir la residencia de inmigración con la residencia fiscal.",
+            "Ignorar los requisitos de sanidad.",
+            "Comprar seguro privado sin comprobar los requisitos de la vía.",
+            "Suponer que jubilados de la UE y no comunitarios siguen el mismo trámite.",
+            "Preparar los documentos económicos demasiado tarde.",
+            "Ignorar traducciones, legalización o apostilla.",
+            "Confiar solo en consejos informales."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Puedo jubilarme en España?", text: "A menudo sí, pero la vía correcta depende de tu nacionalidad, tus ingresos y tu situación. Comprueba los requisitos oficiales que aplican a tu caso." },
+            { title: "¿Pueden los ciudadanos de la UE jubilarse en España sin visado?", text: "Normalmente sí. Los ciudadanos de la UE, del EEE y de Suiza normalmente no necesitan visado, aunque puede aplicar el registro de la UE si te quedas más de tres meses, junto con justificante de recursos y cobertura sanitaria." },
+            { title: "¿Pueden los ciudadanos no UE jubilarse en España?", text: "A menudo sí, a través de una vía pensada para personas que pueden mantenerse a sí mismas, pero los requisitos exactos dependen de la nacionalidad y la situación. Comprueba los requisitos oficiales antes de suponer que una vía concreta aplica." },
+            { title: "¿Comprar una propiedad me da derecho de residencia?", text: "No. Ser propietario de una vivienda en España no da por sí solo derecho de residencia. La residencia sigue dependiendo de la vía correcta y de la solicitud." },
+            { title: "¿Necesitan los jubilados seguro médico privado?", text: "Depende de la vía y la situación. Algunos jubilados pueden usar vías de sanidad basadas en pensión o el S1; otros pueden necesitar seguro privado. Comprueba el requisito de tu trámite concreto." },
+            { title: "¿Qué es un formulario S1?", text: "El S1 es un formulario que puede permitir a ciertas personas, a menudo pensionistas cubiertos por otro país de la UE o del EEE, registrar el derecho a sanidad en España. La elegibilidad depende de tu situación." },
+            { title: "¿Me gravará España la pensión?", text: "Puede que sí, según tu residencia fiscal, el tipo de pensión y cualquier convenio fiscal aplicable. Esto no es asesoramiento fiscal: busca asesoramiento profesional para tu situación concreta." },
+            { title: "¿Necesitan los jubilados no comunitarios una TIE?", text: "Muchos residentes no comunitarios pueden necesitar una TIE tras la aprobación o la llegada. Los requisitos dependen de tu vía." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver Empieza aquí", href: routes.esStartHere },
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes },
+            { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, pensión, economía y traducciones para poder responder rápido en cuanto conozcas los requisitos exactos de tu vía.</p></div>`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esSelfEmployed,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esSelfEmployed,
+      canonical: `https://iberigo.eu${routes.esSelfEmployed}`,
+      title: "Autónomo y trabajo por cuenta propia en España — IberiGo",
+      description: "Una hoja de ruta práctica para quienes consideran el trabajo por cuenta propia en España: conceptos básicos de autónomo, documentos, impuestos, Seguridad Social, sanidad, vías no comunitarias y errores comunes.",
+      metadata: guideMetadataFor(routes.esSelfEmployed),
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Trabajo por cuenta propia" }],
+      hero: {
+        kicker: "Vía de autoempleo",
+        title: "Autónomo y trabajo por cuenta propia en España",
+        intro: "Un punto de partida práctico para entender el trabajo por cuenta propia en España, qué puedes necesitar preparar y qué cuestiones de impuestos, Seguridad Social y residencia conviene revisar pronto.",
+        asideTitle: "No es automático para todo el mundo",
+        asideText: "Las normas de autoempleo dependen de tu nacionalidad, tu situación de residencia, tu actividad empresarial, tus ingresos, tus clientes, tu situación fiscal, tu alta en la Seguridad Social y dónde solicitas el trámite."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>El trabajo por cuenta propia en España suele estar conectado con el alta como autónomo, las obligaciones fiscales y la Seguridad Social. Ciudadanos de la UE y no comunitarios pueden enfrentarse a cuestiones de residencia distintas. Los ciudadanos no comunitarios normalmente necesitan la vía de residencia o trabajo correcta antes de realizar actividad por cuenta propia. El alta como autónomo no es lo mismo que el permiso de inmigración. Esta hoja de ruta te ayuda a entender el recorrido general; no sustituye los requisitos oficiales.</p>`
+        }),
+        GuideSection({
+          id: "notaImportante",
+          title: "Nota importante",
+          children: `<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía ofrece solo información general y no es asesoramiento legal, fiscal, de inmigración ni financiero. Las normas de autoempleo dependen de tu nacionalidad, tu situación de residencia, tu actividad empresarial, tus ingresos, tus clientes, tu situación fiscal, tu alta en la Seguridad Social y dónde solicitas el trámite. Comprueba siempre los requisitos oficiales de tu caso concreto antes de tomar decisiones.</p></div>`
+        }),
+        GuideSection({
+          id: "enResumen",
+          title: "En resumen",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>Qué suele significar autónomo</th><td>Estatus de trabajo por cuenta propia en España, conectado con el alta fiscal y de Seguridad Social.</td></tr>
+            <tr><th>¿Igual para todos?</th><td>No. Ciudadanos de la UE y no comunitarios se enfrentan a cuestiones de residencia distintas, y los requisitos varían según el caso.</td></tr>
+            <tr><th>¿Residencia automática?</th><td>No. El alta como autónomo no es lo mismo que el permiso de inmigración.</td></tr>
+            <tr><th>Autónomos no comunitarios</th><td>Pueden acabar necesitando una TIE tras la aprobación o la llegada.</td></tr>
+            <tr><th>Asesoramiento profesional</th><td>Puede ser útil: muchas personas usan un gestor o asesor profesional.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "paraQuienEsEstaGuia",
+          title: "Para quién es esta guía",
+          children: `${Cards([
+            { title: "Freelancers", text: "Útil si facturas a clientes como profesional independiente." },
+            { title: "Contratistas", text: "Útil si trabajas por contrato en vez de como empleado." },
+            { title: "Trabajadores individuales", text: "Útil si llevas una actividad empresarial individual." },
+            { title: "Pequeños empresarios", text: "Útil si estás montando o llevando un pequeño negocio en España." },
+            { title: "Ciudadanos de la UE que planean el autoempleo", text: "Útil si eres ciudadano de la UE, del EEE o de Suiza y consideras el autoempleo en España." },
+            { title: "Ciudadanos no UE que consideran el autoempleo", text: "Útil si eres ciudadano no comunitario y exploras la vía de autónomo." },
+            { title: "Trabajadores remotos que comparan vías", text: "Útil si comparas las vías de autónomo y nómada digital." },
+            { title: "Personas que ya están en España", text: "Útil si intentas entender los conceptos básicos de autónomo para tu situación actual." }
+          ])}<div class="guide-box guide-box--info"><strong>Hojas de ruta relacionadas</strong><p>Quienes trabajen para una empresa española deben usar la hoja de ruta de trabajo en España. Los trabajadores remotos con empresas o clientes extranjeros deben comparar también la hoja de ruta de nómada digital.</p></div>`
+        }),
+        GuideSection({
+          id: "conceptosBasicosAutonomo",
+          title: "Conceptos básicos de autónomo",
+          children: Cards([
+            { title: "Qué suele significar autónomo", text: "Autónomo suele referirse al estatus de trabajo por cuenta propia en España." },
+            { title: "Alta fiscal y de Seguridad Social", text: "Puede implicar el alta fiscal y el alta en la Seguridad Social." },
+            { title: "Obligaciones continuas", text: "Puede implicar facturas, declaraciones trimestrales, cuotas y llevanza de registros." },
+            { title: "Depende de la actividad y las circunstancias", text: "Las obligaciones exactas dependen de la actividad y las circunstancias." },
+            { title: "Muchas personas usan un gestor", text: "Muchas personas usan un gestor o asesor profesional para gestionar esto." }
+          ])
+        }),
+        GuideSection({
+          id: "ciudadanosUeAutoempleo",
+          title: "Ciudadanos de la UE y el autoempleo",
+          children: `${Cards([
+            { title: "Normalmente no hace falta visado", text: "Los ciudadanos de la UE, del EEE y de Suiza normalmente no necesitan visado para mudarse a España." },
+            { title: "Registro de la UE si te quedas más tiempo", text: "Si te quedas más de tres meses, puede aplicar el registro de la UE." },
+            { title: "El autoempleo como una vía", text: "El autoempleo puede ser una vía para el registro de la UE, pero pueden requerirse justificantes." },
+            { title: "Revisa pronto impuestos y Seguridad Social", text: "Conviene revisar pronto las obligaciones fiscales y de Seguridad Social." }
+          ])}${SourceLinks([
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
+          ])}`
+        }),
+        GuideSection({
+          id: "ciudadanosNoUeAutoempleo",
+          title: "Ciudadanos no UE y el autoempleo",
+          children: `${Cards([
+            { title: "Hace falta la vía correcta primero", text: "Los ciudadanos no comunitarios normalmente necesitan la vía de residencia o trabajo correcta antes de realizar actividad por cuenta propia en España." },
+            { title: "Puede implicar un plan de negocio", text: "El trámite puede implicar un plan de negocio, documentos profesionales, autorización o pasos consulares según la vía." },
+            { title: "No es un permiso por sí solo", text: "El alta como autónomo por sí sola no debe tratarse como permiso para vivir o trabajar." },
+            { title: "Puede seguir la TIE", text: "Puede requerirse una TIE tras la aprobación o la llegada." }
+          ])}${SourceLinks([
+            { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
+            { label: "Ver la guía de nómada digital (en inglés)", href: routes.digitalNomad },
+            { label: "Ver la lista de documentos", href: routes.esChecklist }
+          ])}`
+        }),
+        GuideSection({
+          id: "antesDeEmpezar",
+          title: "Antes de empezar",
+          children: `${Cards([
+            { title: "Identidad", text: "Un pasaporte o documento nacional en vigor suele ser central en el trámite." },
+            { title: "Autorización de residencia o trabajo, según la vía", text: "Puede necesitarse documentación de residencia o trabajo, según tu vía." },
+            { title: "NIE o TIE, según la situación", text: "Los requisitos de NIE o TIE dependen de tu situación." },
+            { title: "Plan de negocio, si se requiere", text: "Puede requerirse un plan de negocio en algunas vías." },
+            { title: "Cualificaciones profesionales, si procede", text: "Algunas actividades pueden requerir documentos de cualificación reconocidos." },
+            { title: "Contratos de clientes o justificante de ingresos previstos, si procede", text: "Algunas vías pueden pedir contratos de clientes o justificante de ingresos previstos." },
+            { title: "Información de alta fiscal", text: "La información de alta fiscal suele formar parte de empezar la actividad." },
+            { title: "Alta en la Seguridad Social", text: "El alta en la Seguridad Social suele formar parte de empezar la actividad." },
+            { title: "Planificación de la sanidad", text: "La planificación de la sanidad debe revisarse junto con tu vía." },
+            { title: "Traducciones, legalización o apostilla, si se requieren", text: "Algunos documentos extranjeros pueden necesitar traducción oficial, legalización o apostilla." }
+          ])}<p>Los requisitos exactos dependen de la nacionalidad, la situación de residencia, la actividad empresarial y la vía.</p>`
+        }),
+        GuideSection({
+          id: "impuestosFacturasRegistros",
+          title: "Impuestos, facturas y registros",
+          children: `${Cards([
+            { title: "Pueden aplicar obligaciones fiscales españolas", text: "Los trabajadores por cuenta propia pueden tener obligaciones fiscales españolas." },
+            { title: "Alta, facturación, declaraciones, registros", text: "Esto puede incluir alta, facturación, declaraciones y llevanza de registros." },
+            { title: "Depende de la actividad", text: "El IVA, el IRPF y otras obligaciones pueden depender de la actividad." },
+            { title: "La residencia fiscal es aparte", text: "La residencia fiscal es distinta de la residencia de inmigración." },
+            { title: "Un asesor fiscal puede ser útil", text: "Un asesor fiscal o gestor puede ser útil para tu situación concreta." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esto no es una guía exacta de declaraciones. Busca asesoramiento profesional para tus obligaciones fiscales y de facturación concretas.</p></div>${SourceLinks([
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes },
+            { label: "Ver la guía del certificado digital y Cl@ve (en inglés)", href: routes.digital }
+          ])}`
+        }),
+        GuideSection({
+          id: "seguridadSocialYSanidad",
+          title: "Seguridad Social y sanidad",
+          children: `${Cards([
+            { title: "A menudo conectado con la Seguridad Social", text: "El autoempleo suele estar conectado con el alta en la Seguridad Social." },
+            { title: "Puede afectar a la sanidad y las prestaciones", text: "Las cuotas de la Seguridad Social pueden afectar al acceso a la sanidad y a las prestaciones." },
+            { title: "Depende de la situación y la vía", text: "El acceso a la sanidad depende de la situación y la vía." },
+            { title: "Mantén los conceptos separados", text: "No confundas el número de la Seguridad Social con el NIE, la TIE o la tarjeta sanitaria." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare }
+          ])}`
+        }),
+        GuideSection({
+          id: "certificadoDigitalYAdministracion",
+          title: "Certificado digital y administración",
+          children: `${Cards([
+            { title: "La administración online es habitual", text: "Muchos autónomos necesitan gestionar trámites administrativos online." },
+            { title: "El certificado digital o Cl@ve puede ayudar", text: "El certificado digital o Cl@ve puede ayudar con los trámites fiscales y de Seguridad Social." },
+            { title: "No todo está online", text: "No todos los trámites son idénticos ni están completamente disponibles online." },
+            { title: "Guarda tus registros", text: "Guarda las notificaciones oficiales y tus registros." }
+          ])}<p>Usa la <a href="${routes.digital}">guía del certificado digital y Cl@ve (en inglés)</a> para comparar los dos sistemas.</p>`
+        }),
+        GuideSection({
+          id: "conceptosBasicosTieAutonomos",
+          title: "Conceptos básicos de la TIE para autónomos no UE",
+          children: `${Cards([
+            { title: "Muchos residentes no comunitarios la necesitan", text: "Muchos residentes no comunitarios pueden necesitar una TIE tras la aprobación o la llegada." },
+            { title: "No es lo mismo que el NIE", text: "La TIE no es lo mismo que el NIE." },
+            { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
+            { title: "Citas y recogida", text: "Los trámites de TIE pueden implicar citas, huellas y recogida." },
+            { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el procedimiento local." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Suponer que el alta como autónomo da automáticamente derecho de residencia.",
+            "Confundir las vías de autónomo, empleado y nómada digital.",
+            "Empezar la actividad antes de que el permiso esté claro.",
+            "Ignorar el alta fiscal.",
+            "Ignorar las obligaciones de Seguridad Social.",
+            "Confundir el NIE con la TIE.",
+            "Subestimar la llevanza de registros.",
+            "Confiar solo en consejos informales.",
+            "Esperar a que los plazos fiscales o de Seguridad Social sean urgentes."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasFrecuentes",
+          title: "Preguntas frecuentes",
+          children: Cards([
+            { title: "¿Qué significa autónomo?", text: "Autónomo suele referirse al estatus de trabajo por cuenta propia en España, generalmente conectado con el alta fiscal y de Seguridad Social. Las obligaciones exactas dependen de tu actividad." },
+            { title: "¿Pueden los extranjeros darse de alta como autónomos en España?", text: "A menudo sí, pero la vía correcta depende de tu nacionalidad y tu situación de residencia. Comprueba los requisitos oficiales de tu caso." },
+            { title: "¿Pueden los ciudadanos no UE darse de alta como autónomos?", text: "Depende de tener primero la vía de residencia o trabajo correcta. El alta como autónomo por sí sola no debe tratarse como permiso para vivir o trabajar." },
+            { title: "¿Es autónomo lo mismo que el permiso para vivir en España?", text: "No. Autónomo es un estatus de alta fiscal y de Seguridad Social. No es lo mismo que el permiso de inmigración." },
+            { title: "¿Pagan Seguridad Social los autónomos?", text: "El autoempleo suele estar conectado con el alta y las cuotas de la Seguridad Social, pero las obligaciones exactas dependen de tu situación." },
+            { title: "¿Necesito un gestor?", text: "No todo el mundo lo necesita, pero muchos autónomos usan un gestor o asesor fiscal para gestionar el alta, las declaraciones y las cuotas." },
+            { title: "¿Es el NIE lo mismo que la TIE?", text: "No. El NIE es un número de identificación. La TIE es una tarjeta física de identidad de extranjero. No son el mismo documento." },
+            { title: "¿Debería elegir la vía de nómada digital o de autónomo?", text: "Depende de tu estructura de trabajo, tus clientes y tu situación. Compara la hoja de ruta de nómada digital y esta hoja de ruta, y comprueba los requisitos oficiales antes de decidir." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver Empieza aquí", href: routes.esStartHere },
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
+            { label: "Ver la guía de nómada digital (en inglés)", href: routes.digitalNomad },
+            { label: "Ver la hoja de ruta de trabajo en España", href: routes.esWorkInSpain },
+            { label: "Ver la lista de documentos", href: routes.esChecklist },
+            { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
+            { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes },
+            { label: "Ver la guía del certificado digital y Cl@ve (en inglés)", href: routes.digital },
+            { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, negocio, impuestos y Seguridad Social para poder responder rápido en cuanto conozcas los requisitos exactos de tu vía.</p></div>`
         })
       ]
     })
