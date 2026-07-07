@@ -1056,20 +1056,20 @@ const pages = [
             title: "Sobre esta página",
             text: "Esta página forma parte del sistema de guías de IberiGo en español. Algunas guías enlazadas todavía están disponibles solo en inglés; las versiones en español se prepararán en pasos separados."
           })}${StartHereCards([
-            { title: "Soy ciudadano de la UE", text: "Empieza con la hoja de ruta para ciudadanos de la UE, del EEE y de Suiza que se mudan a España.", href: routes.euRoadmap, label: "Ver hoja de ruta" },
-            { title: "Soy ciudadano no UE", text: "Empieza con la hoja de ruta para ciudadanos no UE y confirma después la vía concreta que encaja con tu caso.", href: routes.nonEuRoadmap, label: "Ver hoja de ruta" },
-            { title: "Voy a reunirme con familia en España", text: "Empieza con la ruta familiar que parezca más cercana a tu situación y confirma los requisitos aplicables antes de preparar documentos.", href: routes.euFamilyMemberRoadmap, label: "Ver hoja de ruta" },
-            { title: "Me mudo por trabajo", text: "Empieza con la hoja de ruta sobre trabajo y revisa después la vía que corresponde a tu nacionalidad y situación laboral.", href: routes.workInSpain, label: "Ver hoja de ruta" },
-            { title: "Me mudo para estudiar", text: "Empieza con la hoja de ruta para estudiantes y confirma las normas según tu nacionalidad, el curso y la duración de los estudios.", href: routes.students, label: "Ver hoja de ruta" },
-            { title: "Me jubilo en España", text: "Empieza con la hoja de ruta para jubilación y recursos suficientes, y revisa ingresos, asistencia sanitaria y residencia con cautela.", href: routes.retireInSpain, label: "Ver hoja de ruta" },
-            { title: "Trabajo por cuenta propia", text: "Empieza con la hoja de ruta para autónomos y confirma si esa vía encaja con tu permiso o residencia antes de actuar.", href: routes.selfEmployed, label: "Ver hoja de ruta" }
+            { title: "Soy ciudadano de la UE", text: "Empieza con la hoja de ruta para ciudadanos de la UE, del EEE y de Suiza que se mudan a España.", href: routes.euRoadmap, label: "Ver hoja de ruta (en inglés)" },
+            { title: "Soy ciudadano no UE", text: "Empieza con la hoja de ruta para ciudadanos no UE y confirma después la vía concreta que encaja con tu caso.", href: routes.nonEuRoadmap, label: "Ver hoja de ruta (en inglés)" },
+            { title: "Voy a reunirme con familia en España", text: "Empieza con la ruta familiar que parezca más cercana a tu situación y confirma los requisitos aplicables antes de preparar documentos.", href: routes.euFamilyMemberRoadmap, label: "Ver hoja de ruta (en inglés)" },
+            { title: "Me mudo por trabajo", text: "Empieza con la hoja de ruta sobre trabajo y revisa después la vía que corresponde a tu nacionalidad y situación laboral.", href: routes.workInSpain, label: "Ver hoja de ruta (en inglés)" },
+            { title: "Me mudo para estudiar", text: "Empieza con la hoja de ruta para estudiantes y confirma las normas según tu nacionalidad, el curso y la duración de los estudios.", href: routes.students, label: "Ver hoja de ruta (en inglés)" },
+            { title: "Me jubilo en España", text: "Empieza con la hoja de ruta para jubilación y recursos suficientes, y revisa ingresos, asistencia sanitaria y residencia con cautela.", href: routes.retireInSpain, label: "Ver hoja de ruta (en inglés)" },
+            { title: "Trabajo por cuenta propia", text: "Empieza con la hoja de ruta para autónomos y confirma si esa vía encaja con tu permiso o residencia antes de actuar.", href: routes.selfEmployed, label: "Ver hoja de ruta (en inglés)" }
           ])}`
         }),
         GuideSection({
           id: "mostPeopleStartHere",
           title: "La mayoría de las personas empieza aquí",
           children: StartHereGuideCards([
-            { title: "Mudarse a España como ciudadano de la UE", text: "Entiende el orden general de planificación, llegada y primeros trámites.", href: routes.euRoadmap, label: "Ver la hoja de ruta UE" },
+            { title: "Mudarse a España como ciudadano de la UE", text: "Entiende el orden general de planificación, llegada y primeros trámites.", href: routes.euRoadmap, label: "Ver la hoja de ruta UE (en inglés)" },
             { title: "Lista de documentos", text: "Prepara un expediente básico antes de citas, alquileres o trámites administrativos.", href: routes.esChecklist, label: "Ver la lista" },
             { title: "Encontrar alojamiento", text: "Revisa cómo el alojamiento puede afectar al empadronamiento, contratos y pruebas de dirección.", href: routes.esAccommodation, label: "Ver la guía" },
             { title: "Primeros pasos al llegar", text: "Ordena los pasos principales después de llegar, sin asumir plazos fijos.", href: routes.esSettling, label: "Ver la guía" },
