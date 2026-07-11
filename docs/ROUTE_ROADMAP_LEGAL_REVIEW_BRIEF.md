@@ -1,8 +1,8 @@
 # Route Roadmap Legal/Immigration Review Brief
 
-**Status:** Professional review still requested but not yet obtained. As a substitute, an owner-controlled official-source verification pass has been completed — see `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`. That verification is not a replacement for the professional review requested in this brief, and it is not legal advice. All 14 pages remain unpublished drafts.
-**Date prepared:** 2026-07-11 (review brief); source verification matrix added 2026-07-11.
-**Related:** `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`, `docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md`, `docs/SPANISH_START_HERE_LOCALIZATION_PLAN.md`, `docs/GROUP1_PUBLICATION_DECISION.md`
+**Status:** Route roadmap owner publication decision prepared — launch PR next. Professional review still requested but not yet obtained. As a substitute, an owner-controlled official-source verification pass was completed (`docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`), and the owner has now made an explicit publication decision on that basis — see `docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`. Neither the verification nor the decision constitutes legal advice. All 14 pages remain unpublished drafts; no launch has happened.
+**Date prepared:** 2026-07-11 (review brief); source verification matrix added 2026-07-11; owner publication decision added 2026-07-11.
+**Related:** `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`, `docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`, `docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md`, `docs/SPANISH_START_HERE_LOCALIZATION_PLAN.md`, `docs/GROUP1_PUBLICATION_DECISION.md`
 
 ## 1. Purpose
 
@@ -85,6 +85,8 @@ If a qualified professional legal/immigration review is not obtained, publicatio
 If the same path is chosen for the route roadmap family, it should be documented the same way: a dated, explicit decision record stating that the owner has reviewed the content, accepts the risk framing, and chooses to publish as owner-reviewed practical information rather than professionally-reviewed advice. That decision does not currently exist for these 14 pages and would need to be created deliberately — it is not something this brief or any prior sprint has already provided.
 
 **Update (2026-07-11):** `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md` has since been completed — an official-source verification pass (BOE, `inclusion.gob.es`, consular pages, `seg-social.es`) checking every major claim on all 14 pages against primary government sources, performed because professional review remained unavailable. This strengthens the factual basis for an eventual owner decision, but it is explicitly **not** the professional review this brief requests, and it does not by itself authorize publication. An owner decision record, as described above, would still need to be created separately.
+
+**Update (2026-07-11, later):** that owner decision record has now been created — `docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`. The owner reviewed the verification matrix and approved preparing the route roadmap family for publication on that basis, while explicitly accepting the limits described in Section 3 of that document (not legal advice, not a professional review, requirements can change, individual cases may need professional advice). This satisfies the "explicit owner decision" alternative described in this brief's Section 7. It does not itself launch any page — a separate future launch PR must still perform the technical work described in Section 6 of the decision document.
 
 ## 7. Current launch criteria
 
