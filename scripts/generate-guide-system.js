@@ -2578,11 +2578,11 @@ const pages = [
         GuideSection({
           id: "trabajarMientrasEstudias",
           title: "Trabajar mientras estudias",
-          children: Cards([
-            { title: "Puede permitirse trabajo limitado", text: "Algunas vías de estudiante pueden permitir trabajo limitado o exigir condiciones específicas." },
-            { title: "Depende del estatus y la vía", text: "El derecho a trabajar depende del estatus del estudiante, la vía y las normas vigentes." },
-            { title: "Verifica antes de aceptar trabajo", text: "Los estudiantes deben verificar las condiciones de trabajo antes de aceptar un empleo." }
-          ])
+          children: `${Cards([
+            { title: "Puede permitirse trabajo limitado", text: "Los estudiantes no comunitarios de estudios superiores suelen tener algún derecho a trabajar, normalmente limitado a un número reducido de horas semanales y siempre que sea compatible con el curso. Otras vías de estudiante (secundaria, algunos cursos de idiomas o formación) pueden tener un derecho distinto o inexistente." },
+            { title: "Depende del estatus y la vía", text: "El derecho a trabajar depende del estatus del estudiante, la vía y las normas vigentes, que pueden cambiar." },
+            { title: "Verifica antes de aceptar trabajo", text: "Los estudiantes deben verificar las condiciones exactas de su situación antes de aceptar un empleo, en vez de suponer que una regla general se aplica a su vía concreta." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No supongas que el estatus de estudiante da automáticamente derecho a trabajar a jornada completa. Comprueba las condiciones que aplican a tu vía concreta antes de trabajar.</p></div>`
         }),
         GuideSection({
           id: "erroresComunes",
@@ -5103,10 +5103,10 @@ pages.push({
         id: "workWhileStudying",
         title: "Work while studying",
         children: `${Cards([
-          { title: "Limited work may be allowed", text: "Some student routes may allow limited work or require specific conditions." },
-          { title: "Depends on status and route", text: "Work rights depend on the student's status, route and current rules." },
-          { title: "Verify before accepting work", text: "Students should verify work conditions before accepting work." }
-        ])}${WarningBox("Do not assume student status automatically gives work rights. Check the conditions that apply to your specific route before working.")}`
+          { title: "Limited work may be allowed", text: "Non-EU students on a higher-education stay often have some work rights included, usually capped at a limited number of hours per week and conditional on being compatible with the course. Other student routes (secondary education, some language or training programmes) may have different or no work rights." },
+          { title: "Depends on status and route", text: "Work rights depend on the student's status, route and current rules, which can change." },
+          { title: "Verify before accepting work", text: "Students should verify the exact conditions that apply to their situation before accepting work, rather than assuming a general rule applies to their specific route." }
+        ])}${WarningBox("Do not assume student status automatically gives full-time work rights. Check the conditions that apply to your specific route before working.")}`
       }),
       CommonMistakes([
         "Assuming every course qualifies for a study route.",
