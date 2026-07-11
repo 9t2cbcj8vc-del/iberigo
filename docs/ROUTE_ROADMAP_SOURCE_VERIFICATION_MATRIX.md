@@ -1,6 +1,6 @@
 # Route Roadmap Source Verification Matrix
 
-**Status:** Official-source verification pass completed. **This is not a substitute for professional legal advice** — it is an owner-controlled verification process, performed because a qualified professional legal/immigration review was not available. Launch still requires an explicit owner publication decision (see `docs/ROUTE_ROADMAP_LEGAL_REVIEW_BRIEF.md`, Section 6).
+**Status:** Official-source verification pass completed and used as the basis for an explicit owner publication decision — see `docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`. **This verification is not a substitute for professional legal advice** — it is an owner-controlled verification process, performed because a qualified professional legal/immigration review was not available. The owner decision clears the publication-authorization gate; a separate future launch PR must still perform the technical launch steps before any page's status changes.
 **Date prepared:** 2026-07-11
 **Method:** Each page's main claims were checked against official Spanish government sources (BOE, Ministerio de Inclusión/Migraciones, consular pages, Seguridad Social), using the source hierarchy below. Secondary sources (law firms, blogs) were consulted only for orientation, never as the basis for any claim on the pages.
 
@@ -44,4 +44,4 @@ Per `docs/ROUTE_ROADMAP_LEGAL_REVIEW_BRIEF.md`, publication of these 14 pages st
 1. A qualified professional legal/immigration review (this verification pass does not satisfy that requirement — it is an owner-controlled substitute performed because professional review was not available), or
 2. An explicit, documented owner publication decision — analogous to `docs/GROUP1_PUBLICATION_DECISION.md` — consciously choosing to publish as owner-reviewed, source-verified practical information without professional review.
 
-Neither has happened yet. All 14 pages remain `noindex, nofollow` until one of these two conditions is met.
+**Update (2026-07-11):** condition 2 has since been met — see `docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`, in which the owner reviewed this matrix and made an explicit decision to prepare the route roadmap family for publication without professional review, while accepting the residual risk that entails. That decision authorizes a future launch PR to proceed; it does not itself change any page's status. All 14 pages remain `noindex, nofollow` until that separate launch PR is opened, reviewed, and merged.
