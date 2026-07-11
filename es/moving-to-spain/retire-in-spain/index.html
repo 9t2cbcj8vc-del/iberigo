@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
     <title>Jubilarte en España — IberiGo</title>
     <meta name="description" content="Una hoja de ruta práctica para quienes planean jubilarse en España o vivir de recursos suficientes: documentos, sanidad, impuestos, registro de la UE, vías no comunitarias y errores comunes." />
     <link rel="canonical" href="https://iberigo.eu/es/moving-to-spain/retire-in-spain/" />
+    <link rel="alternate" hreflang="en" href="https://iberigo.eu/moving-to-spain/retire-in-spain/" />
+    <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/moving-to-spain/retire-in-spain/" />
+    <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/moving-to-spain/retire-in-spain/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="Jubilarte en España — IberiGo" />
@@ -126,7 +129,7 @@
             </svg>
           </a>
           <div class="language-switcher" aria-label="Idioma">
-            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+            <button type="button" data-lang="en" aria-pressed="false" data-lang-href="/moving-to-spain/retire-in-spain/">EN</button>
             <button type="button" data-lang="es" aria-pressed="true">ES</button>
           </div>
         </nav>
@@ -280,7 +283,7 @@
   "nextGuide": null,
   "canonicalUrl": "https://iberigo.eu/es/moving-to-spain/retire-in-spain/",
   "url": "/es/moving-to-spain/retire-in-spain/",
-  "status": "draft",
+  "status": "published",
   "lastReviewed": "June 2026",
   "reviewedBy": "",
   "relatedGuides": [
@@ -331,6 +334,14 @@
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
+      })();
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
       })();
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));

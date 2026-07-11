@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
     <title>Moving to Spain as a Family Member of an EU Citizen — IberiGo</title>
     <meta name="description" content="A practical roadmap for family members of EU citizens moving to Spain, including eligibility, documents, padrón, healthcare, residence card basics and common mistakes." />
     <link rel="canonical" href="https://iberigo.eu/moving-to-spain/family-member-eu-citizen/" />
+    <link rel="alternate" hreflang="en" href="https://iberigo.eu/moving-to-spain/family-member-eu-citizen/" />
+    <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/moving-to-spain/family-member-eu-citizen/" />
+    <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/moving-to-spain/family-member-eu-citizen/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="Moving to Spain as a Family Member of an EU Citizen — IberiGo" />
@@ -127,7 +130,7 @@
           </a>
           <div class="language-switcher" aria-label="Language">
             <button type="button" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" data-lang="es" aria-pressed="false" data-lang-href="/es/moving-to-spain/family-member-eu-citizen/">ES</button>
           </div>
         </nav>
       </header>
@@ -316,7 +319,7 @@
   "nextGuide": null,
   "canonicalUrl": "https://iberigo.eu/moving-to-spain/family-member-eu-citizen/",
   "url": "/moving-to-spain/family-member-eu-citizen/",
-  "status": "draft",
+  "status": "published",
   "lastReviewed": "June 2026",
   "reviewedBy": "",
   "officialSources": [
@@ -389,6 +392,14 @@
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
+      })();
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
       })();
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));

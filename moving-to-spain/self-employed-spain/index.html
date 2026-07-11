@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
     <title>Self-Employed and Autónomo in Spain — IberiGo</title>
     <meta name="description" content="A practical roadmap for people considering self-employment in Spain, including autónomo basics, documents, tax, Social Security, healthcare, non-EU routes and common mistakes." />
     <link rel="canonical" href="https://iberigo.eu/moving-to-spain/self-employed-spain/" />
+    <link rel="alternate" hreflang="en" href="https://iberigo.eu/moving-to-spain/self-employed-spain/" />
+    <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/moving-to-spain/self-employed-spain/" />
+    <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/moving-to-spain/self-employed-spain/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="Self-Employed and Autónomo in Spain — IberiGo" />
@@ -127,7 +130,7 @@
           </a>
           <div class="language-switcher" aria-label="Language">
             <button type="button" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" data-lang="es" aria-pressed="false" data-lang-href="/es/moving-to-spain/self-employed-spain/">ES</button>
           </div>
         </nav>
       </header>
@@ -354,7 +357,7 @@
   "nextGuide": null,
   "canonicalUrl": "https://iberigo.eu/moving-to-spain/self-employed-spain/",
   "url": "/moving-to-spain/self-employed-spain/",
-  "status": "draft",
+  "status": "published",
   "lastReviewed": "June 2026",
   "reviewedBy": "",
   "officialSources": [
@@ -437,6 +440,14 @@
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
+      })();
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
       })();
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));

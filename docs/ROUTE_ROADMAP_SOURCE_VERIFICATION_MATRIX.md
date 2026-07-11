@@ -1,6 +1,6 @@
 # Route Roadmap Source Verification Matrix
 
-**Status:** Official-source verification pass completed and used as the basis for an explicit owner publication decision — see `docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`. **This verification is not a substitute for professional legal advice** — it is an owner-controlled verification process, performed because a qualified professional legal/immigration review was not available. The owner decision clears the publication-authorization gate; a separate future launch PR must still perform the technical launch steps before any page's status changes.
+**Status:** Official-source verification pass completed and used as the basis for an explicit owner publication decision (`docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`); the technical launch has now been prepared on branch/PR `guide-system/route-roadmap-launch`, not yet merged. **This verification is not a substitute for professional legal advice** — it is an owner-controlled verification process, performed because a qualified professional legal/immigration review was not available.
 **Date prepared:** 2026-07-11
 **Method:** Each page's main claims were checked against official Spanish government sources (BOE, Ministerio de Inclusión/Migraciones, consular pages, Seguridad Social), using the source hierarchy below. Secondary sources (law firms, blogs) were consulted only for orientation, never as the basis for any claim on the pages.
 
