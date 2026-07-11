@@ -1,7 +1,7 @@
 # Route Roadmap Publication Decision
 
 **Date:** 2026-07-11
-**Status:** Owner publication decision recorded. Route roadmap family approved for preparation toward publication. **Technical launch has not happened** — this is a decision record only.
+**Status:** Owner publication decision recorded and acted on. The technical launch conditions in Section 6 have been prepared on branch/PR `guide-system/route-roadmap-launch` (2026-07-11) — **not yet merged**; preview QA is pending before merge.
 **Related:** `docs/ROUTE_ROADMAP_LEGAL_REVIEW_BRIEF.md`, `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`, `docs/GROUP1_PUBLICATION_DECISION.md` (precedent)
 
 ## Purpose

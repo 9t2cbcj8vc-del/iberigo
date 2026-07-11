@@ -609,7 +609,22 @@ const publishedRoutes = new Set([
   routes.esChecklist,
   routes.esAccommodation,
   routes.esSettling,
-  routes.esBanking
+  routes.esBanking,
+  // Route roadmap family: launched together per docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md.
+  routes.euRoadmap,
+  routes.nonEuRoadmap,
+  routes.euFamilyMemberRoadmap,
+  routes.workInSpain,
+  routes.students,
+  routes.retireInSpain,
+  routes.selfEmployed,
+  routes.esEuRoadmap,
+  routes.esNonEuRoadmap,
+  routes.esEuFamilyMemberRoadmap,
+  routes.esWorkInSpain,
+  routes.esStudents,
+  routes.esRetireInSpain,
+  routes.esSelfEmployed
 ]);
 
 function guideMetadataFor(route) {
@@ -961,6 +976,14 @@ const checklistPair = launchedPair(routes.checklist, routes.esChecklist);
 const accommodationPair = launchedPair(routes.accommodation, routes.esAccommodation);
 const settlingPair = launchedPair(routes.settling, routes.esSettling);
 const bankingPair = launchedPair(routes.banking, routes.esBanking);
+// Route roadmap family: launched together per docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md.
+const euRoadmapPair = launchedPair(routes.euRoadmap, routes.esEuRoadmap);
+const nonEuRoadmapPair = launchedPair(routes.nonEuRoadmap, routes.esNonEuRoadmap);
+const euFamilyMemberRoadmapPair = launchedPair(routes.euFamilyMemberRoadmap, routes.esEuFamilyMemberRoadmap);
+const workInSpainPair = launchedPair(routes.workInSpain, routes.esWorkInSpain);
+const studentsPair = launchedPair(routes.students, routes.esStudents);
+const retireInSpainPair = launchedPair(routes.retireInSpain, routes.esRetireInSpain);
+const selfEmployedPair = launchedPair(routes.selfEmployed, routes.esSelfEmployed);
 
 const pages = [
   {
@@ -1056,20 +1079,20 @@ const pages = [
             title: "Sobre esta página",
             text: "Esta página forma parte del sistema de guías de IberiGo en español. Algunas guías enlazadas todavía están disponibles solo en inglés; las versiones en español se prepararán en pasos separados."
           })}${StartHereCards([
-            { title: "Soy ciudadano de la UE", text: "Empieza con la hoja de ruta para ciudadanos de la UE, del EEE y de Suiza que se mudan a España.", href: routes.euRoadmap, label: "Ver hoja de ruta (en inglés)" },
-            { title: "Soy ciudadano no UE", text: "Empieza con la hoja de ruta para ciudadanos no UE y confirma después la vía concreta que encaja con tu caso.", href: routes.nonEuRoadmap, label: "Ver hoja de ruta (en inglés)" },
-            { title: "Voy a reunirme con familia en España", text: "Empieza con la ruta familiar que parezca más cercana a tu situación y confirma los requisitos aplicables antes de preparar documentos.", href: routes.euFamilyMemberRoadmap, label: "Ver hoja de ruta (en inglés)" },
-            { title: "Me mudo por trabajo", text: "Empieza con la hoja de ruta sobre trabajo y revisa después la vía que corresponde a tu nacionalidad y situación laboral.", href: routes.workInSpain, label: "Ver hoja de ruta (en inglés)" },
-            { title: "Me mudo para estudiar", text: "Empieza con la hoja de ruta para estudiantes y confirma las normas según tu nacionalidad, el curso y la duración de los estudios.", href: routes.students, label: "Ver hoja de ruta (en inglés)" },
-            { title: "Me jubilo en España", text: "Empieza con la hoja de ruta para jubilación y recursos suficientes, y revisa ingresos, asistencia sanitaria y residencia con cautela.", href: routes.retireInSpain, label: "Ver hoja de ruta (en inglés)" },
-            { title: "Trabajo por cuenta propia", text: "Empieza con la hoja de ruta para autónomos y confirma si esa vía encaja con tu permiso o residencia antes de actuar.", href: routes.selfEmployed, label: "Ver hoja de ruta (en inglés)" }
+            { title: "Soy ciudadano de la UE", text: "Empieza con la hoja de ruta para ciudadanos de la UE, del EEE y de Suiza que se mudan a España.", href: routes.esEuRoadmap, label: "Ver hoja de ruta" },
+            { title: "Soy ciudadano no UE", text: "Empieza con la hoja de ruta para ciudadanos no UE y confirma después la vía concreta que encaja con tu caso.", href: routes.esNonEuRoadmap, label: "Ver hoja de ruta" },
+            { title: "Voy a reunirme con familia en España", text: "Empieza con la ruta familiar que parezca más cercana a tu situación y confirma los requisitos aplicables antes de preparar documentos.", href: routes.esEuFamilyMemberRoadmap, label: "Ver hoja de ruta" },
+            { title: "Me mudo por trabajo", text: "Empieza con la hoja de ruta sobre trabajo y revisa después la vía que corresponde a tu nacionalidad y situación laboral.", href: routes.esWorkInSpain, label: "Ver hoja de ruta" },
+            { title: "Me mudo para estudiar", text: "Empieza con la hoja de ruta para estudiantes y confirma las normas según tu nacionalidad, el curso y la duración de los estudios.", href: routes.esStudents, label: "Ver hoja de ruta" },
+            { title: "Me jubilo en España", text: "Empieza con la hoja de ruta para jubilación y recursos suficientes, y revisa ingresos, asistencia sanitaria y residencia con cautela.", href: routes.esRetireInSpain, label: "Ver hoja de ruta" },
+            { title: "Trabajo por cuenta propia", text: "Empieza con la hoja de ruta para autónomos y confirma si esa vía encaja con tu permiso o residencia antes de actuar.", href: routes.esSelfEmployed, label: "Ver hoja de ruta" }
           ])}`
         }),
         GuideSection({
           id: "mostPeopleStartHere",
           title: "La mayoría de las personas empieza aquí",
           children: StartHereGuideCards([
-            { title: "Mudarse a España como ciudadano de la UE", text: "Entiende el orden general de planificación, llegada y primeros trámites.", href: routes.euRoadmap, label: "Ver la hoja de ruta UE (en inglés)" },
+            { title: "Mudarse a España como ciudadano de la UE", text: "Entiende el orden general de planificación, llegada y primeros trámites.", href: routes.esEuRoadmap, label: "Ver la hoja de ruta UE" },
             { title: "Lista de documentos", text: "Prepara un expediente básico antes de citas, alquileres o trámites administrativos.", href: routes.esChecklist, label: "Ver la lista" },
             { title: "Encontrar alojamiento", text: "Revisa cómo el alojamiento puede afectar al empadronamiento, contratos y pruebas de dirección.", href: routes.esAccommodation, label: "Ver la guía" },
             { title: "Primeros pasos al llegar", text: "Ordena los pasos principales después de llegar, sin asumir plazos fijos.", href: routes.esSettling, label: "Ver la guía" },
@@ -1791,6 +1814,8 @@ const pages = [
       lang: "es",
       path: routes.esEuRoadmap,
       canonical: `https://iberigo.eu${routes.esEuRoadmap}`,
+      altHref: euRoadmapPair.es.altHref,
+      hreflangAlternates: euRoadmapPair.es.hreflangAlternates,
       title: "Mudarse a España como ciudadano de la UE — IberiGo",
       description: "Una hoja de ruta práctica para ciudadanos de la UE, del EEE y de Suiza que se mudan a España: planificación, llegada, padrón, sanidad, registro de la UE, banco e impuestos.",
       metadata: guideMetadataFor(routes.esEuRoadmap),
@@ -1942,6 +1967,8 @@ const pages = [
       lang: "es",
       path: routes.esNonEuRoadmap,
       canonical: `https://iberigo.eu${routes.esNonEuRoadmap}`,
+      altHref: nonEuRoadmapPair.es.altHref,
+      hreflangAlternates: nonEuRoadmapPair.es.hreflangAlternates,
       title: "Mudarse a España como ciudadano no UE — IberiGo",
       description: "Una hoja de ruta práctica para ciudadanos no comunitarios que planean mudarse a España: vías de residencia habituales, documentos, sanidad, TIE, citas y qué preparar.",
       metadata: guideMetadataFor(routes.esNonEuRoadmap),
@@ -2109,6 +2136,8 @@ const pages = [
       lang: "es",
       path: routes.esEuFamilyMemberRoadmap,
       canonical: `https://iberigo.eu${routes.esEuFamilyMemberRoadmap}`,
+      altHref: euFamilyMemberRoadmapPair.es.altHref,
+      hreflangAlternates: euFamilyMemberRoadmapPair.es.hreflangAlternates,
       title: "Mudarse a España como familiar de un ciudadano de la UE — IberiGo",
       description: "Una hoja de ruta práctica para familiares de ciudadanos de la UE que se mudan a España: requisitos, documentos, padrón, sanidad, la tarjeta de residencia y errores comunes.",
       metadata: guideMetadataFor(routes.esEuFamilyMemberRoadmap),
@@ -2271,6 +2300,8 @@ const pages = [
       lang: "es",
       path: routes.esWorkInSpain,
       canonical: `https://iberigo.eu${routes.esWorkInSpain}`,
+      altHref: workInSpainPair.es.altHref,
+      hreflangAlternates: workInSpainPair.es.hreflangAlternates,
       title: "Mudarse a España para trabajar — IberiGo",
       description: "Una hoja de ruta práctica para quienes planean trabajar en España: vías por cuenta ajena, documentos, Seguridad Social, sanidad, impuestos, la TIE y errores comunes.",
       metadata: guideMetadataFor(routes.esWorkInSpain),
@@ -2455,6 +2486,8 @@ const pages = [
       lang: "es",
       path: routes.esStudents,
       canonical: `https://iberigo.eu${routes.esStudents}`,
+      altHref: studentsPair.es.altHref,
+      hreflangAlternates: studentsPair.es.hreflangAlternates,
       title: "Mudarse a España como estudiante — IberiGo",
       description: "Una hoja de ruta práctica para estudiantes que planean estudiar en España: vías de estudios, documentos, sanidad, alojamiento, la TIE y errores comunes.",
       metadata: guideMetadataFor(routes.esStudents),
@@ -2636,6 +2669,8 @@ const pages = [
       lang: "es",
       path: routes.esRetireInSpain,
       canonical: `https://iberigo.eu${routes.esRetireInSpain}`,
+      altHref: retireInSpainPair.es.altHref,
+      hreflangAlternates: retireInSpainPair.es.hreflangAlternates,
       title: "Jubilarte en España — IberiGo",
       description: "Una hoja de ruta práctica para quienes planean jubilarse en España o vivir de recursos suficientes: documentos, sanidad, impuestos, registro de la UE, vías no comunitarias y errores comunes.",
       metadata: guideMetadataFor(routes.esRetireInSpain),
@@ -2837,6 +2872,8 @@ const pages = [
       lang: "es",
       path: routes.esSelfEmployed,
       canonical: `https://iberigo.eu${routes.esSelfEmployed}`,
+      altHref: selfEmployedPair.es.altHref,
+      hreflangAlternates: selfEmployedPair.es.hreflangAlternates,
       title: "Autónomo y trabajo por cuenta propia en España — IberiGo",
       description: "Una hoja de ruta práctica para quienes consideran el trabajo por cuenta propia en España: conceptos básicos de autónomo, documentos, impuestos, Seguridad Social, sanidad, vías no comunitarias y errores comunes.",
       metadata: guideMetadataFor(routes.esSelfEmployed),
@@ -3047,6 +3084,8 @@ const pages = [
     html: GuideLayout({
       path: routes.euRoadmap,
       canonical: `https://iberigo.eu${routes.euRoadmap}`,
+      altHref: euRoadmapPair.en.altHref,
+      hreflangAlternates: euRoadmapPair.en.hreflangAlternates,
       title: "Moving to Spain as an EU Citizen — IberiGo",
       description: "A practical roadmap for EU citizens moving to Spain, including planning, arrival, padrón, healthcare, EU registration, banking, taxes and everyday setup.",
       metadata: guideMetadataFor(routes.euRoadmap),
@@ -4708,6 +4747,8 @@ pages.push({
   html: GuideLayout({
     path: routes.nonEuRoadmap,
     canonical: `https://iberigo.eu${routes.nonEuRoadmap}`,
+    altHref: nonEuRoadmapPair.en.altHref,
+    hreflangAlternates: nonEuRoadmapPair.en.hreflangAlternates,
     title: "Moving to Spain as a Non-EU Citizen — IberiGo",
     description: "A practical roadmap for non-EU citizens planning to move to Spain, including common residence routes, documents, healthcare, TIE, appointments and what to prepare.",
     metadata: guideMetadataFor(routes.nonEuRoadmap),
@@ -4853,6 +4894,8 @@ pages.push({
   html: GuideLayout({
     path: routes.euFamilyMemberRoadmap,
     canonical: `https://iberigo.eu${routes.euFamilyMemberRoadmap}`,
+    altHref: euFamilyMemberRoadmapPair.en.altHref,
+    hreflangAlternates: euFamilyMemberRoadmapPair.en.hreflangAlternates,
     title: "Moving to Spain as a Family Member of an EU Citizen — IberiGo",
     description: "A practical roadmap for family members of EU citizens moving to Spain, including eligibility, documents, padrón, healthcare, residence card basics and common mistakes.",
     metadata: guideMetadataFor(routes.euFamilyMemberRoadmap),
@@ -4993,6 +5036,8 @@ pages.push({
   html: GuideLayout({
     path: routes.students,
     canonical: `https://iberigo.eu${routes.students}`,
+    altHref: studentsPair.en.altHref,
+    hreflangAlternates: studentsPair.en.hreflangAlternates,
     title: "Moving to Spain as a Student — IberiGo",
     description: "A practical roadmap for students planning to study in Spain, including study routes, documents, healthcare, accommodation, TIE basics and common mistakes.",
     metadata: guideMetadataFor(routes.students),
@@ -5152,6 +5197,8 @@ pages.push({
   html: GuideLayout({
     path: routes.workInSpain,
     canonical: `https://iberigo.eu${routes.workInSpain}`,
+    altHref: workInSpainPair.en.altHref,
+    hreflangAlternates: workInSpainPair.en.hreflangAlternates,
     title: "Moving to Spain for Work — IberiGo",
     description: "A practical roadmap for people planning to work in Spain, including employee routes, documents, Social Security, healthcare, taxes, TIE basics and common mistakes.",
     metadata: guideMetadataFor(routes.workInSpain),
@@ -5314,6 +5361,8 @@ pages.push({
   html: GuideLayout({
     path: routes.retireInSpain,
     canonical: `https://iberigo.eu${routes.retireInSpain}`,
+    altHref: retireInSpainPair.en.altHref,
+    hreflangAlternates: retireInSpainPair.en.hreflangAlternates,
     title: "Retiring in Spain — IberiGo",
     description: "A practical roadmap for people planning to retire in Spain or live from sufficient resources, including documents, healthcare, tax considerations, EU registration, non-EU routes and common mistakes.",
     metadata: guideMetadataFor(routes.retireInSpain),
@@ -5796,6 +5845,8 @@ pages.push({
   html: GuideLayout({
     path: routes.selfEmployed,
     canonical: `https://iberigo.eu${routes.selfEmployed}`,
+    altHref: selfEmployedPair.en.altHref,
+    hreflangAlternates: selfEmployedPair.en.hreflangAlternates,
     title: "Self-Employed and Autónomo in Spain — IberiGo",
     description: "A practical roadmap for people considering self-employment in Spain, including autónomo basics, documents, tax, Social Security, healthcare, non-EU routes and common mistakes.",
     metadata: guideMetadataFor(routes.selfEmployed),
