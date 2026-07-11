@@ -1,6 +1,6 @@
 # Spanish Start Here Localization Plan
 
-**Status:** Spanish Guide System launched. Route roadmap family (7 English/Spanish pairs) content-reviewed, but NOT recommended for launch yet — blocked on legal/editorial review or an explicit owner publication decision (see `docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md`).
+**Status:** Spanish Guide System launched. Route roadmap family (7 English/Spanish pairs) content-reviewed, but NOT recommended for launch yet — blocked on legal/editorial review or an explicit owner publication decision (see `docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md` and the review request itself, `docs/ROUTE_ROADMAP_LEGAL_REVIEW_BRIEF.md`).
 **Sprint:** 124
 **Date:** 2026-07-04
 **Original Sprint 124 scope:** planning only. No Spanish Guide System pages were created, no pages were translated, no publication/indexing changes were made, no redirects were added, and no `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, or `robots.txt` files were changed while producing the original plan.
