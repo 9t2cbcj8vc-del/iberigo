@@ -1,8 +1,8 @@
 # Route Roadmap Legal/Immigration Review Brief
 
-**Status:** Review requested — not yet reviewed. All 14 pages remain unpublished drafts.
-**Date prepared:** 2026-07-11
-**Related:** `docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md`, `docs/SPANISH_START_HERE_LOCALIZATION_PLAN.md`, `docs/GROUP1_PUBLICATION_DECISION.md`
+**Status:** Professional review still requested but not yet obtained. As a substitute, an owner-controlled official-source verification pass has been completed — see `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`. That verification is not a replacement for the professional review requested in this brief, and it is not legal advice. All 14 pages remain unpublished drafts.
+**Date prepared:** 2026-07-11 (review brief); source verification matrix added 2026-07-11.
+**Related:** `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`, `docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md`, `docs/SPANISH_START_HERE_LOCALIZATION_PLAN.md`, `docs/GROUP1_PUBLICATION_DECISION.md`
 
 ## 1. Purpose
 
@@ -83,6 +83,8 @@ For each specific issue found, please report:
 If a qualified professional legal/immigration review is not obtained, publication may still proceed via an **explicit owner decision**, following the precedent already established for the original Group 1 launch (see `docs/GROUP1_PUBLICATION_DECISION.md`). That decision explicitly chose to publish the five original Guide System pages as "owner-reviewed practical information" — clearly framed as not legal, tax, immigration, financial, or rental advice — without an external professional review, because no professional review was available at the time.
 
 If the same path is chosen for the route roadmap family, it should be documented the same way: a dated, explicit decision record stating that the owner has reviewed the content, accepts the risk framing, and chooses to publish as owner-reviewed practical information rather than professionally-reviewed advice. That decision does not currently exist for these 14 pages and would need to be created deliberately — it is not something this brief or any prior sprint has already provided.
+
+**Update (2026-07-11):** `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md` has since been completed — an official-source verification pass (BOE, `inclusion.gob.es`, consular pages, `seg-social.es`) checking every major claim on all 14 pages against primary government sources, performed because professional review remained unavailable. This strengthens the factual basis for an eventual owner decision, but it is explicitly **not** the professional review this brief requests, and it does not by itself authorize publication. An owner decision record, as described above, would still need to be created separately.
 
 ## 7. Current launch criteria
 
