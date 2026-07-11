@@ -1,6 +1,6 @@
 # Spanish Start Here Localization Plan
 
-**Status:** Spanish Guide System launched
+**Status:** Spanish Guide System launched. Route roadmap family (7 English/Spanish pairs) content-reviewed, but NOT recommended for launch yet — blocked on legal/editorial review or an explicit owner publication decision (see `docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md`).
 **Sprint:** 124
 **Date:** 2026-07-04
 **Original Sprint 124 scope:** planning only. No Spanish Guide System pages were created, no pages were translated, no publication/indexing changes were made, no redirects were added, and no `app.js`, `styles.css`, `sitemap.xml`, `search-index.json`, or `robots.txt` files were changed while producing the original plan.
@@ -38,6 +38,8 @@
 **Sprint 146 update (2026-07-06):** launched all 5 Spanish pages — `robots` changed to `index, follow`, added to `sitemap.xml` and `search-index.json` (now 10 entries), reciprocal hreflang added for the 5 English/Spanish pairs, and a functional public language switcher added only for those 10 pages via a new `altHref`/`data-lang-href` mechanism in `scripts/guide-components.js` (inline per-page script, not `app.js`). Also removed now-inaccurate "borrador"/draft-framing language from all 5 Spanish pages' "about this page" notes, since they are launching. `app.js` and `styles.css` were not changed. Draft/noindex surface count decreased by exactly 5.
 
 **Sprint 147 update (2026-07-06):** PR #46 was squash-merged into `main` (commit `3d0e0cc`) and verified live on production. All 5 Spanish pages are live, `index, follow`, in `sitemap.xml`/`search-index.json`, with working reciprocal hreflang and language switcher. English pages, legacy routes, `app.js`, and `styles.css` all confirmed unaffected. This is the completion of the Spanish Guide System localization effort begun in Sprint 124 — the Spanish Guide System is now fully launched.
+
+**Route roadmap launch-readiness review prepared (2026-07-07):** a separate, later effort (not part of the original 5-page Group 1 set) created and reviewed Spanish counterparts for the 7 English-only route roadmap pages linked from `/es/start-here/`'s "Elige tu ruta" cards (EU citizens, non-EU citizens, family member of an EU citizen, work in Spain, students, retire in Spain, self-employed). All 7 pairs reviewed for content clarity, EN/ES meaning alignment, natural Spanish, and correct `(en inglés)` labeling of remaining English-only deeper links; one small gap fixed (missing Spanish legal-disclaimer framing on the EU-citizens page). Content quality is not the blocker: `docs/BACKLOG.md` already carries a standing, explicit requirement that this exact roadmap family get "its own editorial + legal/immigration review pass before publication" (Sprints 46–57) and lists it again under "Planned" as review by a qualified professional still owed — no equivalent owner publication decision (like `docs/GROUP1_PUBLICATION_DECISION.md`) has been made for it. **Recommendation: NOT ready to launch** until either that professional review happens or an explicit owner decision is made to launch without it. Not launched in this review — all 14 pages remain `noindex, nofollow`, outside `sitemap.xml`/`search-index.json`, with no hreflang or language switcher; `/es/start-here/` unchanged. See `docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md` for the full review record.
 
 ## Goal
 
