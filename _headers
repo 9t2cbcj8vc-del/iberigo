@@ -4,3 +4,7 @@
   Cache-Control: public, max-age=604800
 /app.js
   Cache-Control: public, max-age=604800
+/scripts/site-search.js
+  Cache-Control: public, max-age=86400, must-revalidate
+/search-index.json
+  Cache-Control: public, max-age=300, must-revalidate

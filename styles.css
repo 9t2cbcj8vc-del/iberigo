@@ -4315,3 +4315,24 @@ select {
   color: #b0a898;
   margin: 0;
 }
+:root { --site-search-accent: #a64a36; }
+.search-nav-link { display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;border:1px solid rgba(166,74,54,.18);border-radius:999px;background:#fff;color:var(--site-search-accent);text-decoration:none; }
+.search-nav-link svg { display:block;width:20px;height:20px; }
+.search-nav-link:hover { background:#fdf0dc; }
+.search-nav-link:focus-visible,.site-search-dialog button:focus-visible,.site-search-dialog input:focus-visible,.site-search-result:focus-visible { outline:3px solid rgba(166,74,54,.35);outline-offset:3px; }
+.site-search-dialog { width:min(760px,calc(100% - 24px));max-height:min(84vh,760px);padding:0;border:0;border-radius:20px;background:#fff;color:#1b2030;box-shadow:0 24px 80px rgba(27,32,48,.25); }
+.site-search-dialog::backdrop { background:rgba(27,32,48,.55);backdrop-filter:blur(3px); }
+.site-search-panel { position:relative;padding:clamp(20px,4vw,36px); }
+.site-search-panel h2 { margin:0 48px 18px 0;font-size:clamp(1.6rem,4vw,2.3rem); }
+.site-search-close { position:absolute;right:18px;top:18px;width:44px;height:44px;border:1px solid rgba(166,74,54,.18);border-radius:50%;background:#fff;color:#1b2030;font-size:28px;line-height:1; }
+.site-search-input { box-sizing:border-box;width:100%;min-height:52px;padding:12px 18px;border:1px solid rgba(166,74,54,.3);border-radius:999px;background:#fff;color:#1b2030;font:inherit;font-size:16px; }
+.site-search-status { margin:12px 2px;color:rgba(27,32,48,.68); }
+.site-search-results { display:grid;gap:9px;overflow:auto;max-height:52vh;padding:3px; }
+.site-search-result { display:grid;gap:4px;padding:13px;border:1px solid rgba(166,74,54,.14);border-radius:14px;color:inherit;text-decoration:none; }
+.site-search-result:hover { border-color:rgba(166,74,54,.42);background:#fffaf3; }
+.site-search-result span { color:var(--site-search-accent);font-size:.72rem;font-weight:800;text-transform:uppercase; }
+.site-search-result strong { font-size:1rem; }
+.site-search-result small { color:rgba(27,32,48,.68);font-size:.9rem;line-height:1.45; }
+.site-search-more { min-height:44px;border:1px solid rgba(166,74,54,.2);border-radius:999px;background:#fff;color:var(--site-search-accent);font:inherit;font-weight:800; }
+body:has(.site-search-dialog[open]) { overflow:hidden; }
+@media(max-width:600px){.site-search-dialog{width:calc(100% - 16px);max-height:calc(100dvh - 16px);border-radius:16px}.site-search-panel{padding:18px}.site-search-results{max-height:60dvh}}
