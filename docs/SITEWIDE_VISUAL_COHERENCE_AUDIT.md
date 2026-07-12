@@ -182,3 +182,26 @@ Ranked by how likely a visitor is to notice, most to least:
 - No page's `status`, `robots` metadata, `sitemap.xml`, `search-index.json`, or `robots.txt` was touched.
 - No redirects were added, no legacy guide was migrated.
 - PR #19 remains open and unmerged.
+
+---
+
+## Official government link visual consistency prepared — preview QA pending (2026-07-12)
+
+A separate, narrowly-scoped pass at official-source/government link visual consistency, done after the Guide System reached 24 live/indexable pages (12 EN/ES pairs, sitemap 101 URLs, search-index 24 entries) with the route roadmap family launched.
+
+**Audit findings:** three distinct visual variants of official-source links existed sitewide:
+1. **Guide System's `OfficialSources()` component** (`scripts/guide-components.js`) — already a single, well-designed, consistent pattern used across all 24 launched pages and the still-noindex Guide System drafts: accent-colored `guide-source-card` cards with a category badge (initials), category tag, and localized "Fuentes oficiales"/"Official Sources", "Estado de la fuente"/"Source status" labels. Confirmed via direct inspection that every official-source link inside `scripts/generate-guide-system.js` flows exclusively through this one component — zero hardcoded government URLs found rendered outside it.
+2. **Legacy `/guides/*` wizard-result system** (`app.js` + `styles.css`'s `.gov-link*` classes) — a separate, mature, already-vetted government-link accent system (general/fee/social/health/eu variants with badges/bars/stars) used across the homepage routing wizard's results and legacy guide pages. Left untouched: touching it would mean editing `app.js` and risk the legacy guide rendering the project has repeatedly committed not to migrate or restructure.
+3. **Homepage `#sources` panel** (`index.html`) — a hand-authored "Official sources" section (shown after the routing wizard completes) using plain pill-button links (`.source-list a`) styled identically to ordinary navigation links, with **no official-source visual signal at all** — no accent color, no category distinction. This was the one genuine inconsistency worth fixing.
+
+**Canonical pattern applied:** rather than build a fourth system, the homepage panel now reuses the exact same accent-color language as the Guide System's `guide-source-card` categories (police `#1d3a5f`, tax `#a25b00`, social-security `#1d5fa4`, eu `#1954a6`, government/default `#aa151b`) via a small, scoped CSS addition (`.source-list a` + `.source--police`/`.source--tax`/`.source--social-security`/`.source--eu` modifier classes), applied as a colored left border on the existing pill shape — visually related to, though not identical to, the full Guide System cards (a compact homepage pill and a full guide-page card are different contexts and don't need byte-identical markup to read as "the same visual language"). Each of the 13 official links in the homepage panel was classified using the same domain logic as `classifySource()` in `scripts/guide-components.js` and given the matching class.
+
+**Files changed:** `styles.css` (narrow, scoped addition — 4 new class-modifier rules plus one base-rule addition, nothing else touched) and `index.html` (added a `class="source--{category}"` attribute to 5 of the 13 official `<a>` tags; the other 8 already default to the government accent, so no class was needed).
+
+**`app.js`:** unchanged. **Guide System components:** unchanged (`scripts/guide-components.js`, `scripts/generate-guide-system.js` untouched — the Guide System's official-source cards were already the consistent, canonical pattern).
+
+**Confirmed no indexing/sitemap/search-index/hreflang changes:** `sitemap.xml` and `search-index.json` regenerate byte-identical to `main` (`git diff --stat` empty for both); `robots.txt` unchanged; all 24 launched pages remain `index, follow`; hreflang and language-switcher behavior untouched (neither `guide-components.js` nor `generate-guide-system.js` were edited).
+
+**Confirmed no redirects or legacy migration:** `guides/` directory untouched; no URL changed except none were changed at all (no broken official URLs were found during the audit, so this task's "fix obvious broken URLs" allowance wasn't needed).
+
+Status: **Official government link visual consistency prepared — preview QA pending**. Not yet merged.
