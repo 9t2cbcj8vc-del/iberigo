@@ -283,3 +283,6 @@ Verified via diff that every changed generated page's diff is scoped entirely to
 `sitemap.xml` and `search-index.json` regenerate byte-identical to `main`; `robots.txt` unchanged; all 24 launched pages remain `index, follow`; hreflang tag count unchanged (3 per launched page); language-switcher `data-lang-href` behavior untouched (its logic lives in `GuideLayout`'s inline script, which was not edited — only the surrounding CSS was).
 
 Status: **Sitewide link visual consistency prepared — preview QA pending**. Not yet merged.
+# Sitewide search follow-up
+
+The previously separate headers now share the same 44px inline-SVG search launcher and responsive modal behavior without changing their broader visual systems. Coverage and implementation details are recorded in `docs/SITEWIDE_SEARCH_IMPLEMENTATION.md`. Status: **Sitewide search prepared — preview QA pending**.

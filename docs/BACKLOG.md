@@ -155,3 +155,6 @@ This is the internal product backlog for IberiGo.
 - Publish readiness audit across all 22 draft pages — no page cleared to publish; every page still needs human legal/tax/immigration sign-off; see `docs/PUBLISH_READINESS_AUDIT.md` for per-page status, launch grouping, and recommended review sequencing — Sprint 61
 - IberiGo Guide System v1 defined (calm, practical, government-adjacent, card-based, mobile-first) — answers the Sprint 65 reviewer question; see `docs/IBERIGO_GUIDE_SYSTEM_V1.md` — Sprint 66
 - Guide System v1 CSS scope audit completed — draft pages are styled by a per-page inline `guideCss()` block that live pages never load, so v1 styling is safe by construction; the only shared guide-prefixed class is `.guide-card-panel` (styles.css), which is on the do-not-touch list along with all site chrome; see `docs/GUIDE_SYSTEM_V1_CSS_SCOPE_PLAN.md` — Sprint 67
+# Sitewide search
+
+- **Sitewide search prepared — preview QA pending.** Replaced the 24-entry Guide-System-only index with a deterministic 102-entry EN/ES public-site index and added the shared accessible search launcher/modal to all public surfaces. See `docs/SITEWIDE_SEARCH_IMPLEMENTATION.md`.
