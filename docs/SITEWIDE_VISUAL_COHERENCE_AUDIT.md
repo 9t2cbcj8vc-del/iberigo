@@ -208,6 +208,24 @@ Status: **Official government link visual consistency prepared — preview QA pe
 
 ---
 
+## Live in Spain official-link styling aligned — preview QA pending (2026-07-12)
+
+This targeted follow-up revisits the legacy/client-rendered `/guides/*` result system now that the Living in Spain topics have been fully structured in `app.js`.
+
+**Reference style identified:** the canonical client-rendered Move to Spain official-link pattern is `app.js`'s `renderRouteLinks()` output using `.gov-link`, `.gov-link-badge`, `.gov-link-bars` / `.gov-link-stars`, `.gov-link-copy`, and variant classes such as `.gov-link--general`, `.gov-link--fee`, `.gov-link--social`, `.gov-link--health`, and `.gov-link--eu`, styled in `styles.css`. It uses a white card, colored left accent bar, small Spain/EU badge mark, localized label/subtitle text, and the existing `.route-links-note .province-links a:hover` / `:focus-visible` behavior.
+
+**Gap found:** the style existed, but some Live in Spain official links did not reach it. The renderer checked branded branches such as `jobs-*` before official-link classification, so SEPE/Empléate/EURES could render as generic job-board cards. Regional health-card URLs were also missing from the official-domain list, so they could fall back to ordinary pill links rather than health-accented official cards.
+
+**Fix applied:** `renderRouteLinks()` now computes official-link metadata before branded/private link branches. Added focused official metadata/domains for Live in Spain official sources: SEPE/Empléate/EURES, Agencia Tributaria tax links, and regional health-card pages for Valencia, Madrid, Andalusia, Catalonia, and Murcia. Non-official Live in Spain links (banks, telecom providers, rental portals, insurers, private job boards) keep their existing branded classes.
+
+**Files changed:** `app.js` only. `styles.css` was not changed because the existing `.gov-link` CSS already provides the desired visual pattern, hover, focus-visible, and mobile behavior.
+
+**Safety confirmations:** no link destination changed; no route, redirect, indexing, sitemap, search-index, robots, hreflang, language-switcher, Guide System launch-state, or legacy guide HTML change was made. `sitemap.xml` remains 101 `<loc>` entries, `search-index.json` remains 24 entries, all 24 launched Guide System pages remain `index, follow`, noindex surfaces remain `noindex, nofollow`, and the legacy audit remains exactly 4/70 static-body-content routes.
+
+Status: **Live in Spain official-link styling aligned — preview QA pending**. Not yet merged.
+
+---
+
 ## Sitewide link visual consistency prepared — preview QA pending (2026-07-12)
 
 A broader pass covering **all** link roles sitewide, not just official/government links (see the previous section for that narrower pass).
