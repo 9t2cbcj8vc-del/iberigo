@@ -158,3 +158,6 @@ This is the internal product backlog for IberiGo.
 # Sitewide search
 
 - **Sitewide search prepared — preview QA pending.** Replaced the 24-entry Guide-System-only index with a deterministic 102-entry EN/ES public-site index and added the shared accessible search launcher/modal to all public surfaces. See `docs/SITEWIDE_SEARCH_IMPLEMENTATION.md`.
+# Spain Files: Non-Lucrative Visa
+
+- **Unpublished draft prepared — editorial and official-source review pending.** The Spain Files article at `/the-spain-files/non-lucrative-visa-spain/` reuses the Padrón/NIE article family, remains `noindex, nofollow`, and is intentionally absent from the listing, sitemap and search index. See `docs/SPAIN_FILES_NON_LUCRATIVE_VISA_ARTICLE_PLAN.md`.
