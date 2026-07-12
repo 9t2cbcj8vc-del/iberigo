@@ -1440,6 +1440,22 @@ select {
   gap: var(--space-phi-xs);
 }
 
+.result-purpose-body {
+  display: grid;
+  gap: 0.6em;
+}
+
+.result-purpose-body p {
+  margin: 0;
+}
+
+.result-purpose-body ul {
+  margin: 0;
+  padding-left: 1.15em;
+  display: grid;
+  gap: 0.3em;
+}
+
 .result-purpose strong,
 .result-section > strong {
   color: #242426;
