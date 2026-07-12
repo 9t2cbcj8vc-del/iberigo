@@ -38,12 +38,15 @@ function routeFor(file, canonical) {
 
 function addSearchControl(file, html, lang) {
   const label = lang === "es" ? "Buscar en IberiGo" : "Search IberiGo";
+  const icon = `<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg>`;
   if (!html.includes('class="search-nav-link"')) {
-    const control = `<a class="search-nav-link" href="/search/" aria-label="${label}" title="${label}" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>`;
+    const control = `<a class="search-nav-link" href="/search/" aria-label="${label}" title="${label}" data-site-search-open>${icon}</a>`;
     html = html.replace(/(<div class="language-switcher")/, `${control}\n          $1`);
   } else {
     html = html.replace(/<a class="search-nav-link"([^>]*)>/, (match, attrs) => match.includes("data-site-search-open") ? match : `<a class="search-nav-link"${attrs} title="${label}" data-site-search-open>`);
+    html = html.replace(/(<a class="search-nav-link"[^>]*>)[\s\S]*?(<\/a>)/, `$1${icon}$2`);
   }
+  html = html.replace(/(styles\.css\?v=)[^"']+/g, "$120260712-search-icon");
   if (!html.includes('/scripts/site-search.js')) html = html.replace(/<\/body>/, '  <script src="/scripts/site-search.js?v=20260712-sitewide-4" defer></script>\n  </body>');
   else html = html.replace(/\/scripts\/site-search\.js\?v=[^"]+/, "/scripts/site-search.js?v=20260712-sitewide-4");
   fs.writeFileSync(file, html);

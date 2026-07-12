@@ -98,8 +98,9 @@ function Header({ lang = "en", altHref = null } = {}) {
           <a href="/the-spain-files/">${escapeHtml(labels.spainFiles)}</a>
           <a href="/support/index.html">${escapeHtml(labels.donate)}</a>
           <a class="search-nav-link" href="/search/" aria-label="${escapeHtml(labels.search)}">
-            <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
-              <path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
             </svg>
           </a>
           <div class="language-switcher" aria-label="${escapeHtml(labels.language)}">
@@ -416,8 +417,8 @@ function guideCss() {
       .guide-breadcrumbs li:not(:last-child)::after { content: "/"; margin-left: 0.4rem; color: rgba(27, 32, 48, 0.36); }
       .guide-breadcrumbs a { color: #a64a36; text-decoration: none; font-weight: 800; }
       .guide-breadcrumbs a:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 2px; border-radius: 6px; }
-      .search-nav-link { display: inline-flex; align-items: center; justify-content: center; width: 2.55rem; height: 2.55rem; border: 1px solid rgba(166, 74, 54, 0.16); border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #a64a36; text-decoration: none; box-shadow: 0 10px 28px rgba(42, 32, 25, 0.06); }
-      .search-nav-link svg { width: 1.05rem; height: 1.05rem; }
+      .search-nav-link { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; border: 1px solid rgba(166, 74, 54, 0.16); border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #1f2933; text-decoration: none; box-shadow: 0 10px 28px rgba(42, 32, 25, 0.06); }
+      .search-nav-link svg { display: block; width: 22px; height: 22px; flex: 0 0 auto; stroke: currentColor; }
       .search-nav-link:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; }
       .guide-reading-time { display: inline-flex; width: fit-content; margin: 0.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; font-weight: 800; }
       .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 14px 36px rgba(42, 32, 25, 0.06); }
