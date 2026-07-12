@@ -3836,6 +3836,18 @@ select {
   gap: 10px;
 }
 
+/* Official-source accent language, matching the Guide System's guide-source-card
+   category colors (scripts/guide-components.js) so official government links look
+   consistent whether they appear here or on a Guide System page. */
+.source-list a {
+  --source-accent: #aa151b;
+  border-left: 3px solid var(--source-accent);
+}
+.source-list a.source--police { --source-accent: #1d3a5f; }
+.source-list a.source--tax { --source-accent: #a25b00; }
+.source-list a.source--social-security { --source-accent: #1d5fa4; }
+.source-list a.source--eu { --source-accent: #1954a6; }
+
 .disclaimer {
   max-width: 900px;
   margin: calc(var(--space-phi-sm) * -1) 0 0;
