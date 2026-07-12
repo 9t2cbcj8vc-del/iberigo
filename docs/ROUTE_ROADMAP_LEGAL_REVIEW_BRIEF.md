@@ -1,7 +1,7 @@
 # Route Roadmap Legal/Immigration Review Brief
 
-**Status:** Route roadmap launch prepared — preview QA pending. Professional review was never obtained; as a substitute, an owner-controlled official-source verification pass was completed (`docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`), the owner made an explicit publication decision on that basis (`docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`), and all 14 pages have now been prepared for launch on a not-yet-merged branch/PR (`guide-system/route-roadmap-launch`). None of this constitutes legal advice.
-**Date prepared:** 2026-07-11 (review brief); source verification matrix added 2026-07-11; owner publication decision added 2026-07-11; launch prepared 2026-07-11.
+**Status:** Route roadmap pages launched. Professional review was never obtained; as a substitute, an owner-controlled official-source verification pass was completed (`docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`), the owner made an explicit publication decision on that basis (`docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`), and all 14 pages were launched in PR #55 (merge commit `b01d574`), verified live in production. None of this constitutes legal advice — this remains owner-reviewed, source-verified practical information, not professionally-reviewed advice.
+**Date prepared:** 2026-07-11 (review brief); source verification matrix added 2026-07-11; owner publication decision added 2026-07-11; launch prepared 2026-07-11; launched 2026-07-11.
 **Related:** `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`, `docs/ROUTE_ROADMAP_PUBLICATION_DECISION.md`, `docs/SPANISH_START_HERE_REVIEW_AND_LAUNCH_PLAN.md`, `docs/SPANISH_START_HERE_LOCALIZATION_PLAN.md`, `docs/GROUP1_PUBLICATION_DECISION.md`
 
 ## 1. Purpose
