@@ -2207,6 +2207,130 @@ select {
   color: #154590;
 }
 
+.route-links-note .province-links a.guide-source-card {
+  --source-accent: #a64a36;
+  --source-accent-soft: rgba(166, 74, 54, 0.1);
+  display: grid;
+  justify-content: stretch;
+  align-items: start;
+  gap: 0.55rem;
+  min-height: 0;
+  padding: 1.1rem;
+  border: 1px solid rgba(166, 74, 54, 0.13);
+  border-left: 4px solid var(--source-accent);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  box-shadow: 0 14px 36px rgba(42, 32, 25, 0.06);
+  text-align: left;
+}
+
+.route-links-note .province-links a.guide-source-card::before,
+.route-links-note .province-links a.guide-source-card::after {
+  content: none;
+}
+
+.route-links-note .province-links a.guide-source-card:hover,
+.route-links-note .province-links a.guide-source-card:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(42, 32, 25, 0.08);
+}
+
+.route-links-note .province-links a.guide-source-card:focus-visible {
+  outline: 3px solid rgba(166, 74, 54, 0.28);
+  outline-offset: 3px;
+}
+
+.route-links-note .province-links .guide-source-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.route-links-note .province-links .guide-source-badge {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 7px;
+  background: var(--source-accent-soft);
+  color: var(--source-accent);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.route-links-note .province-links .guide-source-tag {
+  color: rgba(27, 32, 48, 0.55);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.route-links-note .province-links .guide-source-title {
+  color: #1b2030;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.route-links-note .province-links .guide-source-title::after {
+  content: " ↗";
+  color: rgba(166, 74, 54, 0.75);
+  font-size: 0.85em;
+}
+
+.route-links-note .province-links .guide-source-description {
+  color: rgba(27, 32, 48, 0.7);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.62;
+  overflow-wrap: break-word;
+}
+
+.route-links-note .province-links a.guide-source-card--police {
+  --source-accent: #1d3a5f;
+  --source-accent-soft: rgba(29, 58, 95, 0.1);
+}
+
+.route-links-note .province-links a.guide-source-card--eu {
+  --source-accent: #1954a6;
+  --source-accent-soft: rgba(25, 84, 166, 0.1);
+}
+
+.route-links-note .province-links a.guide-source-card--tax {
+  --source-accent: #a25b00;
+  --source-accent-soft: rgba(162, 91, 0, 0.1);
+}
+
+.route-links-note .province-links a.guide-source-card--social-security {
+  --source-accent: #1d5fa4;
+  --source-accent-soft: rgba(29, 95, 164, 0.1);
+}
+
+.route-links-note .province-links a.guide-source-card--traffic {
+  --source-accent: #b5651d;
+  --source-accent-soft: rgba(181, 101, 29, 0.1);
+}
+
+.route-links-note .province-links a.guide-source-card--healthcare {
+  --source-accent: #2b8f6f;
+  --source-accent-soft: rgba(43, 143, 111, 0.1);
+}
+
+.route-links-note .province-links a.guide-source-card--municipal {
+  --source-accent: #8a6d3b;
+  --source-accent-soft: rgba(138, 109, 59, 0.1);
+}
+
+.route-links-note .province-links a.guide-source-card--government {
+  --source-accent: #aa151b;
+  --source-accent-soft: rgba(170, 21, 27, 0.08);
+}
+
 .province-links a.bank-link {
   position: relative;
   display: grid;

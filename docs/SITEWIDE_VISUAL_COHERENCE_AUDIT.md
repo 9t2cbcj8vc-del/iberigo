@@ -226,6 +226,22 @@ Status: **Live in Spain official-link styling aligned — preview QA pending**. 
 
 ---
 
+## Live in Spain official source-card parity prepared — preview QA pending (2026-07-12)
+
+This is a corrective follow-up to PR #60. PR #60 correctly moved more Live in Spain official links into official-link classification, but it still rendered them with the older `.gov-link` horizontal pill/card structure. Manual review found that this did not visually match the Guide System / Move to Spain official-source cards.
+
+**Reference pattern used:** the Guide System `OfficialSources()` component in `scripts/guide-components.js`: `.guide-card-grid` containing `.guide-info-card.guide-source-card.guide-source-card--{category}` with `.guide-source-head`, `.guide-source-badge`, `.guide-source-tag`, a linked title, description text, a colored vertical left border, 16px rounded corners, subtle border/shadow, category accent colors, and external-link arrow treatment.
+
+**Render path changed:** `app.js` `renderRouteLinks()` now renders official Live in Spain links as `a.gov-link.guide-source-card.guide-source-card--{category}` with the same internal source-card hierarchy (`guide-source-head`, `guide-source-badge`, `guide-source-tag`, `guide-source-title`, `guide-source-description`). The official-link category mapping remains in `app.js`; private/commercial branches (`bank-*`, `provider-*`, `rent-*`, private `jobs-*`, insurers, travel/booking links) still render through their existing branded classes.
+
+**CSS approach:** added a scoped compatibility block in `styles.css` under `.route-links-note .province-links` so the client-rendered cards match the Guide System source-card visual language without changing the Guide System component or homepage source pills. The block reuses the same accent colors as the Guide System source-card categories and preserves the existing route-link grid behavior.
+
+**Safety confirmations:** no URL destinations changed; no route, redirect, indexing, sitemap, search-index, robots, hreflang, language-switcher, Guide System launch-state, or legacy guide HTML change was made. `sitemap.xml` remains 101 `<loc>` entries, `search-index.json` remains 24 entries, all 24 launched Guide System pages remain `index, follow`, noindex surfaces remain `noindex, nofollow`, and the legacy audit remains exactly 4/70 static-body-content routes.
+
+Status: **Live in Spain official source-card parity prepared — preview QA pending**. Not yet merged.
+
+---
+
 ## Sitewide link visual consistency prepared — preview QA pending (2026-07-12)
 
 A broader pass covering **all** link roles sitewide, not just official/government links (see the previous section for that narrower pass).
