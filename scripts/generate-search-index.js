@@ -44,8 +44,8 @@ function addSearchControl(file, html, lang) {
   } else {
     html = html.replace(/<a class="search-nav-link"([^>]*)>/, (match, attrs) => match.includes("data-site-search-open") ? match : `<a class="search-nav-link"${attrs} title="${label}" data-site-search-open>`);
   }
-  if (!html.includes('/scripts/site-search.js')) html = html.replace(/<\/body>/, '  <script src="/scripts/site-search.js?v=20260712-sitewide-2" defer></script>\n  </body>');
-  else html = html.replace(/\/scripts\/site-search\.js\?v=[^"]+/, "/scripts/site-search.js?v=20260712-sitewide-2");
+  if (!html.includes('/scripts/site-search.js')) html = html.replace(/<\/body>/, '  <script src="/scripts/site-search.js?v=20260712-sitewide-3" defer></script>\n  </body>');
+  else html = html.replace(/\/scripts\/site-search\.js\?v=[^"]+/, "/scripts/site-search.js?v=20260712-sitewide-3");
   fs.writeFileSync(file, html);
 }
 

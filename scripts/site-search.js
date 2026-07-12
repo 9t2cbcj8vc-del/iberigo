@@ -27,8 +27,8 @@
   }
   function open(event){event?.preventDefault();lastFocus=document.activeElement;shown=10;dialog.showModal();requestAnimationFrame(()=>input.focus());}
   function close(){dialog.close();lastFocus?.focus();}
-  document.querySelectorAll("[data-site-search-open], .search-nav-link").forEach(el=>el.addEventListener("click",open));
+  document.querySelectorAll("[data-site-search-open], .search-nav-link").forEach(el=>{el.addEventListener("click",open);el.addEventListener("keydown",e=>{if(e.key===" "){e.preventDefault();open(e);}});});
   input.addEventListener("input",render); input.addEventListener("keydown",e=>{if(e.key==="Escape"){e.preventDefault();close();}}); dialog.querySelector(".site-search-close").addEventListener("click",close);
   dialog.addEventListener("click",e=>{if(e.target===dialog)close();}); dialog.addEventListener("cancel",e=>{e.preventDefault();close();});
-  fetch("/search-index.json?v=20260712-sitewide-2",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).then(data=>{index=data;render();}).catch(()=>{status.textContent=copy.none;});
+  fetch("/search-index.json?v=20260712-sitewide-3",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).then(data=>{index=data;render();}).catch(()=>{status.textContent=copy.none;});
 })();

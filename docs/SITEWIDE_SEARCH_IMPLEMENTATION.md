@@ -26,7 +26,7 @@ The modal uses a visible inline SVG launcher, 44px target, localized accessible 
 
 ## Cache and safety
 
-The shared script and index use matching `20260712-sitewide-2` request versions. `_headers` gives the script a one-day revalidating cache and the index a five-minute revalidating cache, limiting mismatched deployments without disabling asset caching broadly.
+The shared script and index use matching `20260712-sitewide-3` request versions. `_headers` gives the script a one-day revalidating cache and the index a five-minute revalidating cache, limiting mismatched deployments without disabling asset caching broadly.
 
 No URLs, redirects, canonical links, hreflang, robots metadata, sitemap entries, draft states, or page content were changed. `sitemap.xml` remains at 101 URLs; search has 102 entries because the useful homepage is searchable while the sitemap/search utility and duplicate shell policies differ.
 
