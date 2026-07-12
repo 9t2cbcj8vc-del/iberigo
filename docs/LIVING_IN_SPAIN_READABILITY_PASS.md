@@ -8,6 +8,8 @@ documents the real source of the dense content, what was changed, and the full c
 
 **Follow-up (2026-07-12):** the client-rendered Living in Spain official/source links were aligned with the existing Move to Spain `.gov-link` card style. The fix is in `app.js` only: official links are now classified before branded/private link branches, with focused official metadata/domains added for SEPE/Empléate/EURES, Agencia Tributaria, and regional health-card pages. This changes presentation only; it does not change any link destination, route, indexing state, sitemap, search-index, hreflang, redirect, Guide System launch state, or legacy guide HTML. Preview visual QA remains pending.
 
+**Corrective follow-up (2026-07-12):** PR #60 fixed official-link classification but not full visual parity. A follow-up branch now renders official Living in Spain links with the Guide System source-card hierarchy and scoped source-card CSS inside the client-rendered result link grid. Private/commercial links remain on their branded styles. No link destination, route, indexing state, sitemap, search-index, hreflang, redirect, Guide System launch state, or legacy guide HTML changed. Preview visual QA remains pending.
+
 ## What was missed the first time, and why
 
 The first pass scoped "Living in Spain" narrowly to the URL section `/living-in-spain/*` in

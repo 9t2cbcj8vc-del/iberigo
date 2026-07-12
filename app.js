@@ -3255,6 +3255,63 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     variant: "eu",
     system: "eu"
   };
+  const sourceCategoryMeta = {
+    government: {
+      tag: currentLang === "es" ? "Gobierno de España" : "Spanish Government",
+      initials: "ES"
+    },
+    police: {
+      tag: currentLang === "es" ? "Policía Nacional" : "Policía Nacional",
+      initials: "PN"
+    },
+    eu: {
+      tag: currentLang === "es" ? "Unión Europea" : "European Union",
+      initials: "EU"
+    },
+    tax: {
+      tag: currentLang === "es" ? "Agencia Tributaria" : "Tax Agency",
+      initials: "AT"
+    },
+    "social-security": {
+      tag: currentLang === "es" ? "Seguridad Social" : "Social Security",
+      initials: "SS"
+    },
+    traffic: {
+      tag: currentLang === "es" ? "Dirección General de Tráfico" : "Traffic Authority",
+      initials: "DGT"
+    },
+    healthcare: {
+      tag: currentLang === "es" ? "Servicio autonómico de salud" : "Regional health authority",
+      initials: "SAL"
+    },
+    municipal: {
+      tag: currentLang === "es" ? "Ayuntamiento / Gobierno local" : "Town Hall / Local Government",
+      initials: "LOC"
+    },
+    generic: {
+      tag: currentLang === "es" ? "Fuente oficial" : "Official Source",
+      initials: "OS"
+    }
+  };
+  const categoryForOfficialLink = (type, url) => {
+    const host = (() => {
+      try {
+        return new URL(url).hostname;
+      } catch {
+        return "";
+      }
+    })();
+    const endsWith = (domain) => host === domain || host.endsWith(`.${domain}`);
+    if (type === "cita" || type === "790-012" || endsWith("policia.gob.es")) return "police";
+    if (type === "tax-agency" || type === "tax-census" || endsWith("agenciatributaria.gob.es")) return "tax";
+    if (type === "social-security-number" || type === "vida-laboral-official" || type === "clave-setup" || endsWith("seg-social.es") || endsWith("seg-social.gob.es")) return "social-security";
+    if (type === "dgt-licence-exchange" || type === "dgt-bilateral-agreements" || endsWith("dgt.gob.es")) return "traffic";
+    if (type === "healthcare-right-spain" || type === "ehic-card" || /health-card$/.test(type) || endsWith("san.gva.es") || endsWith("comunidad.madrid") || endsWith("juntadeandalucia.es") || endsWith("catsalut.gencat.cat") || endsWith("carm.es")) return "healthcare";
+    if (type === "jobs-eures" || isOfficialEuUrl(url)) return "eu";
+    if (type === "padron-info") return "municipal";
+    if (isOfficialSpanishGovUrl(url)) return "government";
+    return "generic";
+  };
   const isOfficialSpanishGovUrl = (url) => {
     try {
       const host = new URL(url).hostname;
@@ -3293,17 +3350,16 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
         (isOfficialEuUrl(urls[type]) ? genericEuMeta : null);
       if (govStyleMeta) {
         const meta = govStyleMeta;
-        const system = meta.system || "spain";
-        const emblemClass = system === "eu" ? "gov-link-stars" : "gov-link-bars";
+        const category = categoryForOfficialLink(type, urls[type]);
+        const sourceMeta = sourceCategoryMeta[category] || sourceCategoryMeta.generic;
         return `
-          <a class="gov-link gov-link--${meta.variant} gov-link--${system}" href="${urls[type]}" target="_blank" rel="noreferrer">
-            <span class="gov-link-badge gov-link-badge--${system}" aria-hidden="true">
-              <span class="${emblemClass}"></span>
+          <a class="gov-link guide-source-card guide-source-card--${category}" href="${urls[type]}" target="_blank" rel="noreferrer">
+            <span class="guide-source-head">
+              <span class="guide-source-badge" aria-hidden="true">${sourceMeta.initials}</span>
+              <span class="guide-source-tag">${sourceMeta.tag}</span>
             </span>
-            <span class="gov-link-copy">
-              <strong>${label}</strong>
-              <span>${meta.subtitle}</span>
-            </span>
+            <span class="guide-source-title">${label}</span>
+            <span class="guide-source-description">${meta.subtitle}</span>
           </a>
         `;
       }
