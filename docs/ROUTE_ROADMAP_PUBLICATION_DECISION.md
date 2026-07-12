@@ -1,7 +1,7 @@
 # Route Roadmap Publication Decision
 
 **Date:** 2026-07-11
-**Status:** Owner publication decision recorded and acted on. The technical launch conditions in Section 6 have been prepared on branch/PR `guide-system/route-roadmap-launch` (2026-07-11) — **not yet merged**; preview QA is pending before merge.
+**Status:** Owner publication decision recorded and acted on. The technical launch conditions in Section 6 were satisfied and merged as PR #55 (merge commit `b01d574`, 2026-07-11); production verification confirmed all 14 pages live, indexable, with correct hreflang, working language switcher, and updated `/es/start-here/` cards. **This decision has been fully executed.**
 **Related:** `docs/ROUTE_ROADMAP_LEGAL_REVIEW_BRIEF.md`, `docs/ROUTE_ROADMAP_SOURCE_VERIFICATION_MATRIX.md`, `docs/GROUP1_PUBLICATION_DECISION.md` (precedent)
 
 ## Purpose
