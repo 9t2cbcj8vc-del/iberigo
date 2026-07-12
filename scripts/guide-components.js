@@ -466,6 +466,10 @@ function guideCss() {
       .guide-source-card--government { --source-accent: #aa151b; --source-accent-soft: rgba(170, 21, 27, 0.08); }
       .guide-box ul { margin: 0; padding-left: 1.05rem; display: grid; gap: 0.4rem; }
       .guide-section a[target="_blank"]::after { content: " ↗"; font-size: 0.85em; color: rgba(166, 74, 54, 0.75); }
+      .guide-hero p a, .guide-section p a, .guide-box p a, .guide-info-card p a { color: #a64a36; text-decoration: underline; text-underline-offset: 2px; }
+      .guide-hero p a:hover, .guide-section p a:hover, .guide-box p a:hover, .guide-info-card p a:hover { color: #8f3e2c; }
+      .guide-hero p a:focus-visible, .guide-section p a:focus-visible, .guide-box p a:focus-visible, .guide-info-card p a:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 2px; border-radius: 4px; }
+      .guide-info-card h3 a, .guide-source-card h3 a { color: inherit; text-decoration: none; }
       .guide-table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; font-size: 0.95rem; }
       .guide-table th, .guide-table td { padding: 0.9rem; border-bottom: 1px solid rgba(166, 74, 54, 0.1); text-align: left; vertical-align: top; line-height: 1.55; }
       .guide-table th { width: 34%; background: rgba(253, 240, 220, 0.66); color: #1b2030; }

@@ -205,3 +205,47 @@ A separate, narrowly-scoped pass at official-source/government link visual consi
 **Confirmed no redirects or legacy migration:** `guides/` directory untouched; no URL changed except none were changed at all (no broken official URLs were found during the audit, so this task's "fix obvious broken URLs" allowance wasn't needed).
 
 Status: **Official government link visual consistency prepared — preview QA pending**. Not yet merged.
+
+---
+
+## Sitewide link visual consistency prepared — preview QA pending (2026-07-12)
+
+A broader pass covering **all** link roles sitewide, not just official/government links (see the previous section for that narrower pass).
+
+### Link audit, grouped by role
+
+| Role | Where | Current state |
+|---|---|---|
+| 1. Navigation links | `nav a` (site-wide header) | Already well-designed: pill shape, distinct hover/focus-visible state, `aria-current="page"` active state. No change needed. |
+| 2. Inline content links | `<a>` inside `<p>`/list content in Guide System sections (`.guide-section p a`, `.guide-box p a`, etc.) | **Gap found.** The only global rule is `a { color: inherit; }` with no site-wide underline reset — meaning these links rendered in the *exact same muted ink color as surrounding paragraph text* (`rgba(27,32,48,0.72)`), with only the unstyled browser-default underline as a signal, no hover state, no focus-visible outline. This is the single biggest, most legitimate inconsistency found — every one of the 33+ generated Guide System pages has this pattern repeated throughout its prose. |
+| 3. CTA/button links | `.guide-button` (Guide System), `.helper-actions a` (legacy wizard) | Already well-designed pill buttons with hover/focus/disabled states. Intentionally different from role 2 (that's correct — they should look like buttons, not text links). No change needed. |
+| 4. Card links | `.guide-info-card h3 a`, `.guide-source-card h3 a` (card titles that are links) | Already correctly `color: inherit; text-decoration: none` — the card itself provides the visual frame, and the actual clickable CTA is the `.guide-button` inside. No change needed; explicitly reasserted (see below) so the new inline-link rule can't accidentally leak into card headings. |
+| 5. Official/source links | `.guide-source-card` (Guide System), `.source-list a` (homepage), `.province-links a.gov-link*` (legacy) | Already unified across two prior sprints (see above). **Gap found:** the homepage's `.source-list a` and the legacy `.province-links` had inconsistent hover/focus-visible coverage — `.source-list a` had none at all. Interesting finding: the legacy `.gov-link` system independently arrived at the same "colored left accent bar" visual idea as the Guide System's `guide-source-card` and the homepage's `.source-list` — all three official-link systems already converge on the same underlying concept, just implemented three times. Left the legacy system's markup/structure untouched (per the established "don't restructure legacy" constraint) — it already has its own `:focus-visible` rule and didn't need one added. |
+| 6. Language switcher | `.language-switcher button` | Functional, well laid out. **Gap found:** no `:focus-visible` state — relied on browser default only, inconsistent with every other interactive element's brand-colored focus ring. |
+| 7. Legacy guide generated links | `.province-links a`, `.gov-link`, `.bank-link`, `.rent-link`, `.provider-link`, `.jobs-link`, `.insurance-link`, `.travel-link`, `.flight-link`, `.hotel-link`, `.car-link`, `.stay-link` (all in `app.js`-driven wizard results) | Already a mature, well-designed, previously-vetted system (button-shaped links with category-specific accent bars, already has hover/focus-visible). Left untouched — restructuring it would require `app.js` changes and touch legacy-guide-adjacent rendering, which the project has repeatedly committed not to do. |
+| 8. Footer/support links | `.site-footer a` | **Gap found:** color was set (brand red `#8f2f28`) but no hover or focus-visible state — relied on browser default only. |
+
+### Canonical system chosen
+
+Rather than introduce new colors or a new visual language, every fix reuses colors and patterns **already established elsewhere on the site**:
+
+- **Inline content links** (the main fix): brand accent `#a64a36` (the same color used by the Guide System's kicker text, breadcrumbs, buttons, and TOC active state) with underline, a slightly darker `#8f3e2c` hover (same as `.guide-button:hover`), and the same `outline: 3px solid rgba(166, 74, 54, 0.28)` focus-visible ring used by `.guide-button`, `.guide-toc a`, and `.guide-breadcrumbs a`. This makes inline links visually "the same family" as every other brand-colored interactive element on a Guide System page, instead of invisible.
+- **Homepage source pills / footer / language switcher**: added the missing hover/focus-visible states using the same `rgba(166, 74, 54, 0.28)` focus-ring color already used throughout, so keyboard/focus behavior is consistent everywhere, not just on Guide System pages.
+
+### Files changed
+
+- `scripts/guide-components.js` (`guideCss()`) — 4 new lines: inline-link color/underline, hover, focus-visible, and an explicit re-assertion that card-title links stay `color: inherit`.
+- `styles.css` — 3 small additions: `.source-list a` hover/focus-visible, `.site-footer a` hover/focus-visible, `.language-switcher button:focus-visible`. Nothing else touched.
+- `scripts/generate-guide-system.js` — **not edited**; all 33 generated pages changed only because `guideCss()` is inlined per-page, so regenerating picked up the new CSS automatically. No manual HTML edits.
+
+**`app.js`: unchanged.** Legacy `.province-links`/`.gov-link*` styling: **not touched** — already coherent and already had its own focus-visible state.
+
+### Confirmation: no href/routing changes
+
+Verified via diff that every changed generated page's diff is scoped entirely to the inserted `<style>` block — zero `href` attributes changed anywhere (`git diff -- <any changed page> | grep href` returns nothing). No broken links were found during the audit, so no URL was changed for any reason.
+
+### Confirmation: no indexing/sitemap/search-index/hreflang changes
+
+`sitemap.xml` and `search-index.json` regenerate byte-identical to `main`; `robots.txt` unchanged; all 24 launched pages remain `index, follow`; hreflang tag count unchanged (3 per launched page); language-switcher `data-lang-href` behavior untouched (its logic lives in `GuideLayout`'s inline script, which was not edited — only the surrounding CSS was).
+
+Status: **Sitewide link visual consistency prepared — preview QA pending**. Not yet merged.
