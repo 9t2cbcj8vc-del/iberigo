@@ -3151,10 +3151,60 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       variant: "health",
       system: "spain"
     },
+    "valencia-health-card": {
+      subtitle: currentLang === "es" ? "Información oficial sanitaria autonómica" : "Official regional health-card information",
+      variant: "health",
+      system: "spain"
+    },
+    "madrid-health-card": {
+      subtitle: currentLang === "es" ? "Información oficial sanitaria autonómica" : "Official regional health-card information",
+      variant: "health",
+      system: "spain"
+    },
+    "andalucia-health-card": {
+      subtitle: currentLang === "es" ? "Información oficial sanitaria autonómica" : "Official regional health-card information",
+      variant: "health",
+      system: "spain"
+    },
+    "cataluna-health-card": {
+      subtitle: currentLang === "es" ? "Información oficial sanitaria autonómica" : "Official regional health-card information",
+      variant: "health",
+      system: "spain"
+    },
+    "murcia-health-card": {
+      subtitle: currentLang === "es" ? "Información oficial sanitaria autonómica" : "Official regional health-card information",
+      variant: "health",
+      system: "spain"
+    },
     "ehic-card": {
       subtitle: currentLang === "es" ? "Solicitud oficial de Tarjeta Sanitaria Europea" : "Official EHIC request",
       variant: "health",
       system: "spain"
+    },
+    "tax-agency": {
+      subtitle: currentLang === "es" ? "Sede oficial de la Agencia Tributaria" : "Official Tax Agency portal",
+      variant: "fee",
+      system: "spain"
+    },
+    "tax-census": {
+      subtitle: currentLang === "es" ? "Trámite oficial de censo y domicilio fiscal" : "Official tax census and address procedure",
+      variant: "fee",
+      system: "spain"
+    },
+    "jobs-empleate": {
+      subtitle: currentLang === "es" ? "Portal público oficial de empleo" : "Official public employment portal",
+      variant: "social",
+      system: "spain"
+    },
+    "jobs-sepe": {
+      subtitle: currentLang === "es" ? "Servicio Público de Empleo Estatal" : "Official State Employment Service",
+      variant: "social",
+      system: "spain"
+    },
+    "jobs-eures": {
+      subtitle: currentLang === "es" ? "Red oficial europea de empleo" : "Official European employment network",
+      variant: "eu",
+      system: "eu"
     }
   };
   const govDomains = [
@@ -3174,8 +3224,14 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "dgt.gob.es",
     "sede.dgt.gob.es",
     "boe.es",
+    "sepe.es",
     "agenciatributaria.gob.es",
-    "sede.agenciatributaria.gob.es"
+    "sede.agenciatributaria.gob.es",
+    "san.gva.es",
+    "comunidad.madrid",
+    "juntadeandalucia.es",
+    "catsalut.gencat.cat",
+    "carm.es"
   ];
   const genericGovMeta = {
     subtitle:
@@ -3231,6 +3287,26 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       if (!urls[type]) return "";
       if (excludedUrls.has(urls[type])) return "";
       const label = linkLabels[currentLang]?.[type] || linkLabels.en[type] || type;
+      const govStyleMeta =
+        govMeta[type] ||
+        (isOfficialSpanishGovUrl(urls[type]) ? genericGovMeta : null) ||
+        (isOfficialEuUrl(urls[type]) ? genericEuMeta : null);
+      if (govStyleMeta) {
+        const meta = govStyleMeta;
+        const system = meta.system || "spain";
+        const emblemClass = system === "eu" ? "gov-link-stars" : "gov-link-bars";
+        return `
+          <a class="gov-link gov-link--${meta.variant} gov-link--${system}" href="${urls[type]}" target="_blank" rel="noreferrer">
+            <span class="gov-link-badge gov-link-badge--${system}" aria-hidden="true">
+              <span class="${emblemClass}"></span>
+            </span>
+            <span class="gov-link-copy">
+              <strong>${label}</strong>
+              <span>${meta.subtitle}</span>
+            </span>
+          </a>
+        `;
+      }
       if (type.startsWith("bank-")) {
         const meta = bankMeta[currentLang]?.[type] || bankMeta.en[type];
         const brandClass = `bank-link bank-link--${type.replace("bank-", "")}`;
@@ -3343,26 +3419,6 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
             <span class="hotel-logo" aria-hidden="true">${meta?.logo || label}</span>
             <strong>${label}</strong>
             <span>${meta?.intro || ""}</span>
-          </a>
-        `;
-      }
-      const govStyleMeta =
-        govMeta[type] ||
-        (isOfficialSpanishGovUrl(urls[type]) ? genericGovMeta : null) ||
-        (isOfficialEuUrl(urls[type]) ? genericEuMeta : null);
-      if (govStyleMeta) {
-        const meta = govStyleMeta;
-        const system = meta.system || "spain";
-        const emblemClass = system === "eu" ? "gov-link-stars" : "gov-link-bars";
-        return `
-          <a class="gov-link gov-link--${meta.variant} gov-link--${system}" href="${urls[type]}" target="_blank" rel="noreferrer">
-            <span class="gov-link-badge gov-link-badge--${system}" aria-hidden="true">
-              <span class="${emblemClass}"></span>
-            </span>
-            <span class="gov-link-copy">
-              <strong>${label}</strong>
-              <span>${meta.subtitle}</span>
-            </span>
           </a>
         `;
       }
