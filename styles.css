@@ -4316,8 +4316,8 @@ select {
   margin: 0;
 }
 :root { --site-search-accent: #a64a36; }
-.search-nav-link { display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;border:1px solid rgba(166,74,54,.18);border-radius:999px;background:#fff;color:var(--site-search-accent);text-decoration:none; }
-.search-nav-link svg { display:block;width:20px;height:20px; }
+.search-nav-link { display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;border:1px solid rgba(166,74,54,.18);border-radius:999px;background:#fff;color:#1f2933;text-decoration:none; }
+.search-nav-link svg { display:block;width:22px;height:22px;flex:0 0 auto;stroke:currentColor; }
 .search-nav-link:hover { background:#fdf0dc; }
 .search-nav-link:focus-visible,.site-search-dialog button:focus-visible,.site-search-dialog input:focus-visible,.site-search-result:focus-visible { outline:3px solid rgba(166,74,54,.35);outline-offset:3px; }
 .site-search-dialog { width:min(760px,calc(100% - 24px));max-height:min(84vh,760px);padding:0;border:0;border-radius:20px;background:#fff;color:#1b2030;box-shadow:0 24px 80px rgba(27,32,48,.25); }
