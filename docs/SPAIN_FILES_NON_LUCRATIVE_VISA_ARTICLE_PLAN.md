@@ -1,8 +1,8 @@
 # Spain Files: Non-Lucrative Visa article plan
 
-Status: **Unpublished draft — translation and official-source parity reviewed; publication signoff pending**
-Draft URL: `/the-spain-files/non-lucrative-visa-spain/`  
-Spanish draft URL: `/es/the-spain-files/visado-no-lucrativo/`  
+Status: **Non-Lucrative Visa EN/ES pair prepared for publication — preview QA pending**
+English URL: `/the-spain-files/non-lucrative-visa-spain/`
+Spanish URL: `/es/the-spain-files/visado-no-lucrativo/`
 Checked: 13 July 2026
 
 ## Spanish translation status
@@ -11,7 +11,7 @@ The Spanish draft is complete and was translated directly from the merged Englis
 
 A Spain-Spanish review on 13 July 2026 refined phrasing around property, self-employment, the TIE, tax treaties, family documentation and planning, and restored the ministry's full official name. No facts, cautions, structure or source URLs changed.
 
-Both drafts remain unpublished with exact `noindex, nofollow`. The Spanish page is absent from the sitemap, public search index and site navigation. No hreflang or active language-switch link has been added; joint publication is still pending. The unresolved legal, editorial, consular, IPREM, family, renewal and tax review items below remain unchanged.
+The coordinated launch changes both pages to exact `index, follow`, adds reciprocal `en`/`es`/`x-default` hreflang and enables the existing language switch in both directions. The English and Spanish listing cards now link to their matching articles, both URLs are in `sitemap.xml` (103 total URLs) and both are in `search-index.json` (104 total entries). No redirects, substantive article rewrites or unrelated content changes are included. The unresolved legal, editorial, consular, IPREM, family, renewal and tax monitoring items below remain documented.
 
 ## Reference-template audit
 
@@ -58,12 +58,11 @@ The Padrón article is the newer source of truth. The draft reuses its `.article
 - Review eligible accompanying-family categories and document wording against the final intended audience/consular examples.
 - Re-check renewal residence/absence wording under article 64 and current ministry guidance.
 - Add tax content only after separate official tax-source review.
-- Decide when to publish the completed English and Spanish drafts together; no hreflang or active language-switch link exists yet.
+- Continue monitoring both published articles together and revisit the cautions above when official guidance changes.
 
-## Publication checklist for a future PR
+## Joint-publication checklist
 
-- Complete editorial/legal review and resolve the items above.
-- Change robots metadata only after approval.
-- Add the canonical URL to sitemap/search generation only at publication.
-- Change the existing listing card from `Coming soon` to a real link only at publication.
-- Add hreflang only in the future joint-publication PR, after both counterparts are approved.
+- Preview-QA both articles and both listing links at desktop and mobile widths.
+- Confirm both pages are `index, follow`, have reciprocal hreflang and switch languages both ways.
+- Confirm the sitemap has 103 URLs and the public search index has 104 entries.
+- Confirm no redirects, unrelated drafts or substantive article content changes are included.
