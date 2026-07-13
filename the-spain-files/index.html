@@ -26,11 +26,16 @@
       .sf-featured-content { display: flex; flex-direction: column; justify-content: center; gap: 0.75rem; }
       .sf-tag { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #C8783A; font-weight: 500; }
       .sf-meta { font-size: 13px; color: #888; margin: 0; }
-      .sf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+      .sf-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 2rem; }
       .sf-card { background: white; border: 0.5px solid rgba(0,0,0,0.08); border-radius: 14px; padding: 1.25rem; }
       .sf-card h4 { font-size: 15px; font-weight: 600; margin: 0.5rem 0; line-height: 1.4; color: #1a1a1a; }
       .sf-card p { font-size: 13px; color: #666; margin: 0 0 0.75rem; line-height: 1.5; }
       .sf-coming { font-size: 12px; color: #aaa; }
+      @media (max-width: 700px) {
+        .sf-featured { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem 0; }
+        .sf-featured-visual { min-height: 160px; }
+        .sf-grid { grid-template-columns: 1fr; }
+      }
     </style>
   </head>
   <body>
@@ -61,6 +66,42 @@
           <article class="sf-featured">
             <div class="sf-featured-visual">
               <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 46 L50 18 L86 46" fill="none" stroke="var(--red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="22" y="46" width="56" height="32" rx="4" fill="none" stroke="var(--red)" stroke-width="4"/>
+                <rect x="44" y="58" width="14" height="20" fill="none" stroke="var(--red)" stroke-width="3.5"/>
+              </svg>
+            </div>
+            <div class="sf-featured-content">
+              <span class="sf-tag">Moving to Spain</span>
+              <h3>Padrón in Torrevieja: how to register and what to expect</h3>
+              <p>Most guides say padrón takes a few days. In Torrevieja, the reality is closer to 3 months — here's what actually happens and how to avoid the delays.</p>
+              <p class="sf-meta">June 2026 · 6 min read</p>
+              <a href="/the-spain-files/padron-torrevieja/">Read the guide →</a>
+            </div>
+          </article>
+
+          <article class="sf-featured">
+            <div class="sf-featured-visual">
+              <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <rect x="24" y="12" width="52" height="76" rx="6" fill="none" stroke="var(--red)" stroke-width="4"/>
+                <circle cx="50" cy="40" r="11" fill="none" stroke="var(--red)" stroke-width="3"/>
+                <path d="M39 40 H61 M50 29 C46 34 46 46 50 51 M50 29 C54 34 54 46 50 51" fill="none" stroke="var(--red)" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="36" y1="66" x2="64" y2="66" stroke="var(--red)" stroke-width="3.5" stroke-linecap="round"/>
+                <line x1="36" y1="76" x2="57" y2="76" stroke="var(--red)" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="sf-featured-content">
+              <span class="sf-tag">Residency</span>
+              <h3>Non-Lucrative Visa in Spain</h3>
+              <p>A calm overview of the no-work residence route.</p>
+              <p class="sf-meta">July 2026 · 8 min read</p>
+              <a href="/the-spain-files/non-lucrative-visa-spain/">Read the guide →</a>
+            </div>
+          </article>
+
+          <article class="sf-featured">
+            <div class="sf-featured-visual">
+              <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <rect x="10" y="26" width="68" height="44" rx="6" fill="none" stroke="#1a2b4a" stroke-width="4"/>
                 <circle cx="27" cy="44" r="7" fill="none" stroke="#1a2b4a" stroke-width="3"/>
                 <path d="M18 58 Q18 51 27 51 Q36 51 36 58" fill="none" stroke="#1a2b4a" stroke-width="3" stroke-linecap="round"/>
@@ -78,35 +119,12 @@
             </div>
           </article>
 
-          <article class="sf-featured">
-            <div class="sf-featured-visual">
-              <svg width="120" height="120" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 46 L50 18 L86 46" fill="none" stroke="var(--red)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <rect x="22" y="46" width="56" height="32" rx="4" fill="none" stroke="var(--red)" stroke-width="4"/>
-                <rect x="44" y="58" width="14" height="20" fill="none" stroke="var(--red)" stroke-width="3.5"/>
-              </svg>
-            </div>
-            <div class="sf-featured-content">
-              <span class="sf-tag">Moving to Spain</span>
-              <h3>Padrón in Torrevieja: how to register and what to expect</h3>
-              <p>Most guides say padrón takes a few days. In Torrevieja, the reality is closer to 3 months — here's what actually happens and how to avoid the delays.</p>
-              <p class="sf-meta">June 2026 · 6 min read</p>
-              <a href="/the-spain-files/padron-torrevieja/">Read the guide →</a>
-            </div>
-          </article>
-
           <div class="sf-grid">
             <article class="sf-card">
               <span class="sf-tag">Visas</span>
               <h4>Digital Nomad Visa in Spain</h4>
               <p>What to know before looking at Spain's remote work route.</p>
               <span class="sf-coming">Coming soon</span>
-            </article>
-            <article class="sf-card">
-              <span class="sf-tag">Residency</span>
-              <h4>Non-Lucrative Visa in Spain</h4>
-              <p>A calm overview of the no-work residence route.</p>
-              <a href="/the-spain-files/non-lucrative-visa-spain/">Read the guide →</a>
             </article>
             <article class="sf-card">
               <span class="sf-tag">Living in Spain</span>
