@@ -19,7 +19,7 @@ const attr = (html, re) => decode((html.match(re) || [])[1] || "").trim();
 function typeFor(url) {
   if (url.startsWith("/guides/")) return "legacy guide";
   if (url === "/the-spain-files/" || url === "/the-spain-files/es/") return "landing page";
-  if (url.startsWith("/the-spain-files/")) return "Spain Files article";
+  if (url.startsWith("/the-spain-files/") || url.startsWith("/es/the-spain-files/")) return "Spain Files article";
   if (url === "/support/") return "support page";
   if (url === "/") return "landing page";
   if (/citizens|students|work-in-spain|retire|self-employed|family-member/.test(url)) return "roadmap";
