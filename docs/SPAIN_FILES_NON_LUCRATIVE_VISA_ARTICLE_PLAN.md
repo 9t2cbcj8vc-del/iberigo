@@ -2,7 +2,14 @@
 
 Status: **Unpublished draft — editorial and official-source review required**  
 Draft URL: `/the-spain-files/non-lucrative-visa-spain/`  
+Spanish draft URL: `/es/the-spain-files/visado-no-lucrativo/`  
 Checked: 12 July 2026
+
+## Spanish translation status
+
+The Spanish draft is complete and was translated directly from the merged English article. The English and Spanish pages have the same section order, hierarchy, callouts, table, warnings, official-source URLs, disclaimer, footer, 680px article column and responsive article styling. Translation review preserved the English draft's cautious treatment of work, remote work, financial means, insurance, consular variation, family eligibility, renewal, absences, long-term residence and tax residence without adding legal interpretations.
+
+Both drafts remain unpublished with exact `noindex, nofollow`. The Spanish page is absent from the sitemap, public search index and site navigation. No hreflang or active language-switch link has been added; joint publication is still pending. The unresolved legal, editorial, consular, IPREM, family, renewal and tax review items below remain unchanged.
 
 ## Reference-template audit
 
@@ -49,7 +56,7 @@ The Padrón article is the newer source of truth. The draft reuses its `.article
 - Review eligible accompanying-family categories and document wording against the final intended audience/consular examples.
 - Re-check renewal residence/absence wording under article 64 and current ministry guidance.
 - Add tax content only after separate official tax-source review.
-- Decide whether/when to create a genuine Spanish counterpart; no hreflang or Spanish article link exists in this draft.
+- Decide when to publish the completed English and Spanish drafts together; no hreflang or active language-switch link exists yet.
 
 ## Publication checklist for a future PR
 
