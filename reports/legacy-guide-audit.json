@@ -1,6 +1,6 @@
 {
   "scriptVersion": 1,
-  "generatedAt": "2026-07-17T18:09:59.949Z",
+  "generatedAt": "2026-07-17T18:23:58.392Z",
   "summary": {
     "totalLegacyGuideUrls": 70,
     "englishLegacyGuideUrls": 35,
@@ -11,7 +11,7 @@
     "pagesWithMetaDescription": 70,
     "pagesWithCompleteHreflang": 70,
     "pagesWithDataGuideId": 70,
-    "pagesWithStaticGuideBodyContent": 24,
+    "pagesWithStaticGuideBodyContent": 26,
     "pagesWithNoscriptFallback": 0,
     "suspectedHomepageShellCloneCount": 70,
     "pagesWithRiskFlags": 70
@@ -1120,10 +1120,9 @@
       ],
       "inSitemap": true,
       "isHomepageShellClone": true,
-      "hasStaticGuideContent": false,
+      "hasStaticGuideContent": true,
       "hasNoscriptFallback": false,
       "riskFlags": [
-        "missing-static-guide-body-content",
         "missing-noscript-fallback"
       ]
     },
@@ -2100,10 +2099,9 @@
       ],
       "inSitemap": true,
       "isHomepageShellClone": true,
-      "hasStaticGuideContent": false,
+      "hasStaticGuideContent": true,
       "hasNoscriptFallback": false,
       "riskFlags": [
-        "missing-static-guide-body-content",
         "missing-noscript-fallback"
       ]
     },
