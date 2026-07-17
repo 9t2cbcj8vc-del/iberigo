@@ -117,9 +117,56 @@
             <button class="submit-button" id="wizardSubmit" type="submit" data-i18n="continueButton">Continue</button>
           </form>
 
-          <article class="result-card is-empty" id="wizardResult" aria-live="polite">
-            <h3 data-i18n="emptyTitle">Your roadmap will appear here</h3>
-            <p data-i18n="emptyText">Choose a situation card or answer the questions above to see a Spain-wide route.</p>
+          <article class="result-card" id="wizardResult" aria-live="polite">
+            <div class="result-hero">
+              <div class="result-hero-copy">
+                <h3>Vuelos y aeropuertos</h3>
+                <section class="result-purpose" aria-label="Para qué sirve">
+                  <strong>Para qué sirve</strong>
+                  <div class="result-purpose-body">Para organizar cómo llegar a España, conviene empezar por la ciudad o región real a la que quieres ir. Madrid y Barcelona concentran muchas conexiones internacionales, pero Málaga, Alicante, Valencia, Palma, Sevilla, Bilbao y los aeropuertos canarios pueden ser mejores según el destino. Aena es la fuente oficial para aeropuertos, terminales y servicios. Iberia permite reservar directamente con una aerolínea española, mientras que Google Flights, Skyscanner, KAYAK o eDreams ayudan a comparar fechas, escalas y precios. Antes de pagar, revisa equipaje, aeropuerto exacto, cambios y si la reserva es directa o mediante intermediario.</div>
+                </section>
+              </div>
+            </div>
+            <div class="result-section">
+              <strong>Próximos 3 pasos</strong>
+              <ol class="roadmap-list"><li>Consulta primero aeropuertos y rutas posibles según la ciudad o región a la que quieres llegar.</li><li>Compara fechas y precios antes de decidir si reservas con una aerolínea directa o mediante un comparador.</li><li>Revisa siempre condiciones de equipaje, cambios y aeropuerto exacto antes de pagar.</li></ol>
+            </div>
+            <div class="result-section route-links-note">
+              <strong>Enlaces oficiales</strong>
+              <div class="province-links">
+              <a class="travel-link travel-link--aena" href="https://www.aena.es/en/passengers/passengers.html" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Aena</span>
+                <strong>Aeropuertos Aena</strong>
+                <span>Portal oficial de la red aeroportuaria para aeropuertos españoles, terminales e información al pasajero.</span>
+              </a>
+              <a class="flight-link flight-link--iberia" href="https://www.iberia.com/es/flight-search-engine/" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">Iberia</span>
+                <strong>Vuelos Iberia</strong>
+                <span>La aerolínea de bandera de España y una buena opción directa si quieres reservar sin intermediarios.</span>
+              </a>
+              <a class="flight-link flight-link--google" href="https://www.google.com/travel/flights?hl=en" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">Google</span>
+                <strong>Google Flights</strong>
+                <span>Muy útil para comparar fechas, rutas y patrones de precio antes de decidir dónde reservar.</span>
+              </a>
+              <a class="flight-link flight-link--skyscanner" href="https://www.skyscanner.com/flights" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">Sky</span>
+                <strong>Skyscanner</strong>
+                <span>Buscador popular para comparar muchas aerolíneas y agencias online a la vez.</span>
+              </a>
+              <a class="flight-link flight-link--kayak" href="https://www.kayak.es/flights" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">KAYAK</span>
+                <strong>Vuelos KAYAK</strong>
+                <span>Opción conocida de metabuscador para revisar rutas, rangos de precio y aeropuertos alternativos.</span>
+              </a>
+              <a class="flight-link flight-link--edreams" href="https://www.edreams.es/" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">eDreams</span>
+                <strong>Vuelos eDreams</strong>
+                <span>Gran agencia de viajes online con base en España, muy usada para comparar y reservar vuelos.</span>
+              </a>
+              </div>
+            </div>
+            <p class="disclaimer">Esta aplicación es una guía de planificación, no asesoría legal. Las normas de extranjería y administración españolas, listas de documentos, tasas y nombres de citas pueden cambiar. Verifica siempre tu trámite con fuentes oficiales antes de presentarlo.</p>
           </article>
         </section>
 
