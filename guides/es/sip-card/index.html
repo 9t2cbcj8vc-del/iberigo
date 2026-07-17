@@ -117,9 +117,74 @@
             <button class="submit-button" id="wizardSubmit" type="submit" data-i18n="continueButton">Continue</button>
           </form>
 
-          <article class="result-card is-empty" id="wizardResult" aria-live="polite">
-            <h3 data-i18n="emptyTitle">Your roadmap will appear here</h3>
-            <p data-i18n="emptyText">Choose a situation card or answer the questions above to see a Spain-wide route.</p>
+          <article class="result-card" id="wizardResult" aria-live="polite">
+            <div class="result-hero">
+              <div class="result-hero-copy">
+                <h3>Tarjeta sanitaria pública</h3>
+                <section class="result-purpose" aria-label="Para qué sirve">
+                  <strong>Para qué sirve</strong>
+                  <div class="result-purpose-body"><p><strong>Qué es:</strong> La tarjeta sanitaria pública te da acceso al sistema sanitario público español. Se llama SIP en la Comunidad Valenciana, TSI en Cataluña y tiene otros nombres según la comunidad autónoma, pero su función es la misma.</p><p><strong>Cuándo puedes necesitarla:</strong> Normalmente necesitas padrón y derecho reconocido a asistencia sanitaria, ya sea por Seguridad Social, residencia o situación que te dé cobertura.</p><p><strong>Para qué se usa:</strong> Se usa en tu centro de salud para médico de cabecera, derivaciones, recetas y atención dentro del sistema público.</p></div>
+                </section>
+              </div>
+            </div>
+            <div class="result-section">
+              <strong>Próximos 3 pasos</strong>
+              <ol class="roadmap-list"><li>Comprueba si tu derecho a asistencia sanitaria ya está reconocido automáticamente o si debes solicitar el alta en asistencia sanitaria en España.</li><li>Nombres que puedes ver según la región: Comunitat Valenciana (SIP), Madrid (Tarjeta Sanitaria Individual), Andalucía (Tarjeta sanitaria), Cataluña (TSI) y Murcia (Tarjeta Sanitaria Individual).</li><li>Lleva identidad, NIE/TIE si ya lo tienes, padrón o prueba de domicilio y cualquier documento de aseguramiento o Seguridad Social que te pidan.</li></ol>
+            </div>
+            <div class="result-section route-links-note">
+              <strong>Enlaces oficiales</strong>
+              <div class="province-links">
+              <a class="gov-link guide-source-card guide-source-card--social-security" href="https://prestaciones.seg-social.es/servicio/asistencia-sanitaria-gestion-beneficiarios.html" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">SS</span>
+                  <span class="guide-source-tag">Seguridad Social</span>
+                </span>
+                <span class="guide-source-title">Solicitar asistencia sanitaria en España</span>
+                <span class="guide-source-description">Acceso oficial a asistencia sanitaria</span>
+              </a>
+              <a class="gov-link guide-source-card guide-source-card--healthcare" href="https://www.san.gva.es/es/web/tarjeta-sanitaria/tarjeta-sanitaria-individual" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">SAL</span>
+                  <span class="guide-source-tag">Servicio autonómico de salud</span>
+                </span>
+                <span class="guide-source-title">Comunitat Valenciana: tarjeta SIP</span>
+                <span class="guide-source-description">Información oficial sanitaria autonómica</span>
+              </a>
+              <a class="gov-link guide-source-card guide-source-card--healthcare" href="https://www.comunidad.madrid/servicios/salud/tarjeta-sanitaria" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">SAL</span>
+                  <span class="guide-source-tag">Servicio autonómico de salud</span>
+                </span>
+                <span class="guide-source-title">Madrid: Tarjeta Sanitaria Individual</span>
+                <span class="guide-source-description">Información oficial sanitaria autonómica</span>
+              </a>
+              <a class="gov-link guide-source-card guide-source-card--healthcare" href="https://www.juntadeandalucia.es/organismos/sanidadpresidenciayemergencias/areas/sanidad/sistema-sanitario/derechos-garantias/paginas/tarjeta-sanitaria-sspa.html" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">SAL</span>
+                  <span class="guide-source-tag">Servicio autonómico de salud</span>
+                </span>
+                <span class="guide-source-title">Andalucía: Tarjeta sanitaria</span>
+                <span class="guide-source-description">Información oficial sanitaria autonómica</span>
+              </a>
+              <a class="gov-link guide-source-card guide-source-card--healthcare" href="https://catsalut.gencat.cat/ca/coneix-catsalut/acces-sistema-salut/la-tsi/" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">SAL</span>
+                  <span class="guide-source-tag">Servicio autonómico de salud</span>
+                </span>
+                <span class="guide-source-title">Cataluña: TSI</span>
+                <span class="guide-source-description">Información oficial sanitaria autonómica</span>
+              </a>
+              <a class="gov-link guide-source-card guide-source-card--healthcare" href="https://www.carm.es/web/servlet/pagina?IDCONTENIDO=67&amp;IDESTRUCTURAJERARQUICA=4762&amp;IDTIPO=200&amp;RASTRO=c%24m120%2C121&amp;__PLANT_PERSONALIZADA=%2FJSP%2FCARM%2Fcarm2018%2Forganigramas%2FplantillaDetalleOrganigrama.jsp" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">SAL</span>
+                  <span class="guide-source-tag">Servicio autonómico de salud</span>
+                </span>
+                <span class="guide-source-title">Murcia: Tarjeta Sanitaria Individual</span>
+                <span class="guide-source-description">Información oficial sanitaria autonómica</span>
+              </a>
+              </div>
+            </div>
+            <p class="disclaimer">Esta aplicación es una guía de planificación, no asesoría legal. Las normas de extranjería y administración españolas, listas de documentos, tasas y nombres de citas pueden cambiar. Verifica siempre tu trámite con fuentes oficiales antes de presentarlo.</p>
           </article>
         </section>
 
