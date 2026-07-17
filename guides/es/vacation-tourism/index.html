@@ -117,9 +117,36 @@
             <button class="submit-button" id="wizardSubmit" type="submit" data-i18n="continueButton">Continue</button>
           </form>
 
-          <article class="result-card is-empty" id="wizardResult" aria-live="polite">
-            <h3 data-i18n="emptyTitle">Your roadmap will appear here</h3>
-            <p data-i18n="emptyText">Choose a situation card or answer the questions above to see a Spain-wide route.</p>
+          <article class="result-card" id="wizardResult" aria-live="polite">
+            <div class="result-hero">
+              <div class="result-hero-copy">
+                <h3>Turismo oficial e ideas</h3>
+                <section class="result-purpose" aria-label="Para qué sirve">
+                  <strong>Para qué sirve</strong>
+                  <div class="result-purpose-body">España ofrece viajes muy distintos según la región. La costa mediterránea, como Costa Brava, Costa Blanca o Costa del Sol, funciona para playa y buen clima; Madrid, Barcelona, Sevilla y Valencia mezclan cultura, comida y arquitectura; Canarias y Baleares son destinos insulares muy populares; y zonas interiores de Andalucía, Castilla, Galicia, Asturias o País Vasco pueden dar una experiencia más local y tranquila. La temporada media, especialmente abril-mayo y septiembre-octubre, suele tener mejor equilibrio entre clima, precios y menos gente. El portal oficial Spain.info es buen punto de partida para ideas sin tanta presión comercial.</div>
+                </section>
+              </div>
+            </div>
+            <div class="result-section">
+              <strong>Próximos 3 pasos</strong>
+              <ol class="roadmap-list"><li>Empieza por el portal oficial de turismo para ver regiones, ciudades y estilos de viaje.</li><li>Usa la información oficial para hacer una primera selección antes de comparar precios.</li><li>Cuando ya tengas la idea clara, pasa a transporte y alojamiento con menos ruido.</li></ol>
+            </div>
+            <div class="result-section route-links-note">
+              <strong>Enlaces oficiales</strong>
+              <div class="province-links">
+              <a class="travel-link travel-link--spaininfo" href="https://www.spain.info/es/" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Spain</span>
+                <strong>Turismo de España</strong>
+                <span>Portal oficial de turismo de España para destinos, ideas y planificación práctica del viaje.</span>
+              </a>
+              <a class="travel-link travel-link--paradores" href="https://paradores.es/es/paradores" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Paradores</span>
+                <strong>Paradores</strong>
+                <span>Red emblemática de hoteles públicos de España para alojamientos con carácter por todo el país.</span>
+              </a>
+              </div>
+            </div>
+            <p class="disclaimer">Esta aplicación es una guía de planificación, no asesoría legal. Las normas de extranjería y administración españolas, listas de documentos, tasas y nombres de citas pueden cambiar. Verifica siempre tu trámite con fuentes oficiales antes de presentarlo.</p>
           </article>
         </section>
 
