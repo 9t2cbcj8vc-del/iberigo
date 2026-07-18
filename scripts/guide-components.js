@@ -1,5 +1,6 @@
 const SITE_URL = "https://iberigo.eu";
 const REVIEWED = "June 2026";
+const { stylesheetHref, searchControlMarkup, siteSearchScriptTag } = require("./site-assets");
 const DEFAULT_EDITORIAL_CHECKLIST = [
   "Grammar reviewed",
   "Internal links checked",
@@ -97,12 +98,7 @@ function Header({ lang = "en", altHref = null } = {}) {
           <a href="/index.html?nav=start#guide-cards">${escapeHtml(labels.home)}</a>
           <a href="/the-spain-files/">${escapeHtml(labels.spainFiles)}</a>
           <a href="/support/index.html">${escapeHtml(labels.donate)}</a>
-          <a class="search-nav-link" href="/search/" aria-label="${escapeHtml(labels.search)}">
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-              <circle cx="11" cy="11" r="7"></circle>
-              <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
-            </svg>
-          </a>
+          ${searchControlMarkup(lang)}
           <div class="language-switcher" aria-label="${escapeHtml(labels.language)}">
             <button type="button" data-lang="en" aria-pressed="${lang === "en"}"${lang !== "en" && altHref ? ` data-lang-href="${escapeHtml(altHref)}"` : ""}>EN</button>
             <button type="button" data-lang="es" aria-pressed="${lang === "es"}"${lang !== "es" && altHref ? ` data-lang-href="${escapeHtml(altHref)}"` : ""}>ES</button>
@@ -578,7 +574,7 @@ function GuideLayout(config) {
     <meta property="og:url" content="${canonical}" />
     <meta property="og:image" content="https://iberigo.eu/assets/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="/styles.css?v=20260625-wordmark" />
+    <link rel="stylesheet" href="${stylesheetHref}" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="apple-touch-icon" href="/assets/favicon.svg" />
     ${guideCss()}
@@ -647,6 +643,7 @@ function GuideLayout(config) {
         });
       })();
     </script>
+    ${siteSearchScriptTag()}
   </body>
 </html>
 `;

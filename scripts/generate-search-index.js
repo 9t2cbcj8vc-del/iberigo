@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { STYLESHEET_VERSION, siteSearchScriptSrc, searchControlMarkup } = require("./site-assets");
 
 const root = path.resolve(__dirname, "..");
 const ignored = new Set([".git", ".netlify", "node_modules", "visual-qa", "docs", "outputs"]);
@@ -36,34 +37,26 @@ function routeFor(file, canonical) {
   return rel === "index.html" ? "/" : `/${rel.replace(/index\.html$/, "")}`;
 }
 
-function addSearchControl(file, html, lang) {
-  const label = lang === "es" ? "Buscar en IberiGo" : "Search IberiGo";
-  const icon = `<svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg>`;
-  if (!html.includes('class="search-nav-link"')) {
-    const control = `<a class="search-nav-link" href="/search/" aria-label="${label}" title="${label}" data-site-search-open>${icon}</a>`;
-    html = html.replace(/(<div class="language-switcher")/, `${control}\n          $1`);
-  } else {
-    html = html.replace(/<a class="search-nav-link"([^>]*)>/, (match, attrs) => match.includes("data-site-search-open") ? match : `<a class="search-nav-link"${attrs} title="${label}" data-site-search-open>`);
-    html = html.replace(/(<a class="search-nav-link"[^>]*>)[\s\S]*?(<\/a>)/, `$1${icon}$2`);
-  }
-  html = html.replace(/(styles\.css\?v=)[^"']+/g, "$120260712-search-icon");
-  if (!html.includes('/scripts/site-search.js')) html = html.replace(/<\/body>/, '  <script src="/scripts/site-search.js?v=20260712-sitewide-4" defer></script>\n  </body>');
-  else html = html.replace(/\/scripts\/site-search\.js\?v=[^"]+/, "/scripts/site-search.js?v=20260712-sitewide-4");
-  fs.writeFileSync(file, html);
+function validatePageShell(file, html, lang) {
+  const rel = path.relative(root, file);
+  if (!new RegExp(`href="[^"]*styles\\.css\\?v=${STYLESHEET_VERSION}"`).test(html)) throw new Error(`Stale stylesheet reference: ${rel}`);
+  if (!html.includes(searchControlMarkup(lang))) throw new Error(`Stale search control markup: ${rel}`);
+  if (!html.includes(`src="${siteSearchScriptSrc}"`)) throw new Error(`Missing or stale site-search script: ${rel}`);
 }
 
 const entries = [];
 const urls = new Set();
 for (const file of walk(root).sort()) {
   let html = fs.readFileSync(file, "utf8");
-  const robots = attr(html, /<meta\s+name="robots"\s+content="([^"]*)"/i).toLowerCase();
-  if (robots.includes("noindex")) continue;
   const lang = (attr(html, /<html[^>]*\slang="([^"]+)"/i) || "en").split("-")[0];
+  const robots = attr(html, /<meta\s+name="robots"\s+content="([^"]*)"/i).toLowerCase();
   const canonical = attr(html, /<link\s+rel="canonical"\s+href="([^"]+)"/i);
   const url = routeFor(file, canonical);
   const physical = routeFor(file, "");
   const canonicalTarget = url === "/" ? path.join(root, "index.html") : path.join(root, url, "index.html");
   if (url !== physical && fs.existsSync(canonicalTarget)) continue; // obsolete duplicate shell
+  validatePageShell(file, html, lang);
+  if (robots.includes("noindex")) continue;
   if (!url.startsWith("/") || url.includes("index.html")) throw new Error(`Invalid public path: ${url}`);
   if (urls.has(url)) throw new Error(`Duplicate canonical URL: ${url}`);
   const title = attr(html, /<title>([\s\S]*?)<\/title>/i).replace(/\s+—\s+IberiGo.*$/i, "");
@@ -74,7 +67,6 @@ for (const file of walk(root).sort()) {
   if (!title || !description || !(body || guideId)) throw new Error(`Incomplete searchable page: ${path.relative(root, file)}`);
   entries.push({ title, description, url, language: lang, type: typeFor(url), headings: headings.slice(0, 18), keywords: guideId ? [guideId] : [], text: body });
   urls.add(url);
-  addSearchControl(file, html, lang);
 }
 
 entries.sort((a, b) => a.url.localeCompare(b.url));
