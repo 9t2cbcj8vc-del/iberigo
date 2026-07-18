@@ -1111,6 +1111,24 @@ const roadmapDetails = {
     documents: ["Passport", "EX-19", "DNI or EU registration certificate of the EU/Spanish citizen", "Marriage, partnership, birth, or dependency evidence", "790-012 receipt if required"],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
   },
+  "nie-only": {
+    process: "NIE only",
+    explanation: "<p><strong>What it is:</strong> The NIE (Número de Identificación de Extranjero) is a lifetime identification number Spain assigns to foreigners for official and financial transactions — buying property, signing before a notary, opening some bank accounts, or other administrative acts.</p><p><strong>What it is not:</strong> A NIE is just a number, not a card and not a residence permit. Having a NIE does not give you the right to live or work in Spain.</p><p><strong>What the office may expect:</strong> Police offices usually expect a concrete, documented reason to assign one — a property purchase, contract, notarial act, or specific administrative act — not simply wanting it in case it is useful later.</p><p><strong>Practical note:</strong> Appointment availability varies sharply by province — Madrid and Barcelona are often severely backlogged, smaller cities much easier. If you attend with everything in order, the number is typically assigned the same day.</p>",
+    difficulty: "Low to medium",
+    timeline: "Often same day once your documents are in order",
+    steps: ["Gather proof of your reason for needing a NIE, such as a property purchase, contract, notarial act, or other concrete procedure.", "Prepare passport or identity document, the EX-15 form, and a representative authorization if someone is filing on your behalf.", "Book a cita previa at a Policía Nacional foreigners office, or a Spanish consulate if outside Spain, and pay the matching 790-012 fee."],
+    documents: ["EX-15 form", "Passport or identity document", "Written reason for the NIE request", "Representative authorization if someone files for you", "Paid tasa receipt"],
+    links: ["cita", "790-012"]
+  },
+  "tie-after-approval": {
+    process: "TIE after approval",
+    explanation: "<p><strong>What it is:</strong> The TIE is the physical identity card you receive after your Spanish residence or stay authorization has already been approved. You book a fingerprint appointment (toma de huella) with Policía Nacional to have it issued.</p><p><strong>What it is not:</strong> Your legal right to be in Spain comes from the approval resolution or entry visa, not from the card itself — the TIE documents an authorization that was already granted.</p><p><strong>Timing:</strong> The card takes a few weeks to be ready after your fingerprint appointment; in Madrid, Barcelona, and Valencia, appointment slots can stretch out for weeks. Apply as soon as your approval resolution arrives, since missing the filing window is a real risk and the exact deadline varies by authorization type.</p>",
+    difficulty: "Medium",
+    timeline: "A few weeks after your fingerprint appointment",
+    steps: ["Confirm that your approval resolution or entry visa has already been granted before booking the fingerprint appointment.", "Complete EX-17 and prepare your passport, approval resolution or visa, and a recent passport-style photo.", "Book the fingerprint appointment with Policía Nacional and bring a paid 790-012 receipt for the card fee."],
+    documents: ["EX-17 form", "Passport", "Favorable resolution or visa", "Recent Spanish-format photo", "Paid Modelo 790 Codigo 012 receipt"],
+    links: ["cita", "790-012"]
+  },
   "already-spain": {
     process: "Spain admin basics",
     difficulty: "Low to medium",
@@ -1225,6 +1243,24 @@ const roadmapDetailsEs = {
     steps: ["Confirma que el familiar es ciudadano de la UE, EEE, Suiza o ciudadano español cualificado.", "Prepara prueba del vínculo y la base de residencia del ciudadano UE/español.", "Completa el formulario EX-19.", "Reserva la cita correspondiente para tarjeta de familiar de ciudadano de la UE.", "Después de la aprobación, revisa el paso de TIE con EX-17 si te lo piden.", "Paga el Modelo 790-012 si lo exige el proceso de tarjeta."],
     documents: ["Pasaporte", "EX-19", "DNI o certificado de registro UE del ciudadano UE/español", "Matrimonio, pareja, nacimiento o prueba de dependencia", "EX-17 tras la aprobación si corresponde", "Justificante 790-012 si lo piden"],
     links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
+  },
+  "nie-only": {
+    process: "Número NIE",
+    explanation: "<p><strong>Qué es:</strong> El NIE (Número de Identificación de Extranjero) es un número de identificación vitalicio que España asigna a los extranjeros para trámites oficiales y financieros — comprar una vivienda, firmar ante notario, abrir algunas cuentas bancarias u otros actos administrativos.</p><p><strong>Qué no es:</strong> El NIE es solo un número, no es una tarjeta ni un permiso de residencia. Tener un NIE no te da derecho a vivir ni a trabajar en España.</p><p><strong>Qué puede pedir la oficina:</strong> La policía suele exigir un motivo concreto y documentado para asignarlo — una compra inmobiliaria, un contrato, un acto notarial u otro trámite administrativo específico — no simplemente quererlo por si acaso.</p><p><strong>Nota práctica:</strong> La disponibilidad de citas varía mucho según la provincia — Madrid y Barcelona suelen tener mucha saturación, en ciudades pequeñas es más fácil. Si acudes con todo en regla, el número suele asignarse el mismo día.</p>",
+    difficulty: "Baja a media",
+    timeline: "A menudo el mismo día una vez que tu documentación está en regla",
+    steps: ["Reúne la prueba de tu motivo para necesitar el NIE, como una compra inmobiliaria, un contrato, un acto notarial u otro trámite concreto.", "Prepara pasaporte o documento de identidad, formulario EX-15 y autorización de representante si alguien presenta la solicitud en tu nombre.", "Pide cita previa en una oficina de extranjería de la Policía Nacional, o en un consulado español si estás fuera de España, y paga la tasa 790-012 correspondiente."],
+    documents: ["Formulario EX-15", "Pasaporte o documento de identidad", "Motivo por escrito de la solicitud de NIE", "Autorización de representante si alguien presenta la solicitud por ti", "Justificante de tasa pagada"],
+    links: ["cita", "790-012"]
+  },
+  "tie-after-approval": {
+    process: "Tarjeta TIE tras la aprobación",
+    explanation: "<p><strong>Qué es:</strong> La TIE es la tarjeta física de identidad que recibes después de que tu autorización de residencia o estancia en España ya ha sido aprobada. Reservas una cita de huellas (toma de huella) con la Policía Nacional para que se expida.</p><p><strong>Qué no es:</strong> Tu derecho legal a estar en España viene de la resolución de aprobación o del visado de entrada, no de la tarjeta en sí — la TIE documenta una autorización que ya fue concedida.</p><p><strong>Plazos:</strong> La tarjeta tarda unas semanas en estar lista tras la cita de huellas; en Madrid, Barcelona y Valencia las citas pueden tardar semanas en aparecer. Solicítala en cuanto llegue tu resolución favorable, porque no cumplir el plazo es un riesgo real y el plazo exacto varía según el tipo de autorización.</p>",
+    difficulty: "Media",
+    timeline: "Unas semanas después de tu cita de huellas",
+    steps: ["Confirma que tu resolución de aprobación o visado de entrada ya ha sido concedido antes de reservar la cita de huellas.", "Completa el EX-17 y prepara tu pasaporte, la resolución de aprobación o visado, y una foto reciente tipo carné.", "Reserva la cita de huellas con la Policía Nacional y lleva un justificante de pago de la tasa 790-012."],
+    documents: ["Formulario EX-17", "Pasaporte", "Resolución favorable o visado", "Foto reciente en formato español", "Justificante de pago del Modelo 790 Código 012"],
+    links: ["cita", "790-012"]
   },
   "already-spain": {
     process: "Trámites básicos si ya vives en España",
