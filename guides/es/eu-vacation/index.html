@@ -117,9 +117,159 @@
             <button class="submit-button" id="wizardSubmit" type="submit" data-i18n="continueButton">Continue</button>
           </form>
 
-          <article class="result-card is-empty" id="wizardResult" aria-live="polite">
-            <h3 data-i18n="emptyTitle">Your roadmap will appear here</h3>
-            <p data-i18n="emptyText">Choose a situation card or answer the questions above to see a Spain-wide route.</p>
+          <article class="result-card" id="wizardResult" aria-live="polite">
+            <div class="result-hero">
+              <div class="result-hero-copy">
+                <h3>Estancia corta para ciudadanos de la UE</h3>
+                <section class="result-purpose" aria-label="Para qué sirve">
+                  <strong>Para qué sirve</strong>
+                  <div class="result-purpose-body">Los ciudadanos de la UE, EEE y Suiza normalmente pueden visitar España hasta 3 meses con pasaporte o documento nacional de identidad válido. Para una visita corta ordinaria no necesitas NIE, TIE, visado ni certificado de registro UE. Si después decides vivir en España más de tres meses, entonces ya entran en juego las normas de registro de residencia.</div>
+                </section>
+              </div>
+            </div>
+            <div class="result-section">
+              <strong>Próximos 3 pasos</strong>
+              <ol class="roadmap-list"><li>Viaja con pasaporte o documento nacional de identidad válido.</li><li>Ten disponible cobertura sanitaria o Tarjeta Sanitaria Europea.</li><li>Usa los enlaces oficiales de turismo y transporte para planificar trenes, aeropuertos, autobuses y alojamiento.</li></ol>
+            </div>
+            <div class="result-section route-links-note">
+              <strong>Enlaces oficiales</strong>
+              <div class="province-links">
+              <a class="gov-link guide-source-card guide-source-card--government" href="https://administracion.gob.es/pag_Home/es/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/estancia.html" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">ES</span>
+                  <span class="guide-source-tag">Gobierno de España</span>
+                </span>
+                <span class="guide-source-title">España: estancias de hasta 3 meses</span>
+                <span class="guide-source-description">Web oficial del Gobierno de España</span>
+              </a>
+              <a class="travel-link travel-link--spaininfo" href="https://www.spain.info/es/" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Spain</span>
+                <strong>Turismo de España</strong>
+                <span>Portal oficial de turismo de España para destinos, ideas y planificación práctica del viaje.</span>
+              </a>
+              <a class="travel-link travel-link--renfe" href="https://www.renfe.com/es/en" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Renfe</span>
+                <strong>Trenes Renfe</strong>
+                <span>Principal opción oficial ferroviaria para larga distancia y muchos trayectos nacionales en España.</span>
+              </a>
+              <a class="travel-link travel-link--aena" href="https://www.aena.es/en/passengers/passengers.html" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Aena</span>
+                <strong>Aeropuertos Aena</strong>
+                <span>Portal oficial de la red aeroportuaria para aeropuertos españoles, terminales e información al pasajero.</span>
+              </a>
+              <a class="travel-link travel-link--alsa" href="https://www.alsa.es/en/web/bus/home" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">ALSA</span>
+                <strong>Autobuses ALSA</strong>
+                <span>Gran operador de autobús de larga distancia útil para rutas menos cubiertas por el tren.</span>
+              </a>
+              <a class="travel-link travel-link--paradores" href="https://paradores.es/es/paradores" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Paradores</span>
+                <strong>Paradores</strong>
+                <span>Red emblemática de hoteles públicos de España para alojamientos con carácter por todo el país.</span>
+              </a>
+              <a class="flight-link flight-link--iberia" href="https://www.iberia.com/es/flight-search-engine/" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">Iberia</span>
+                <strong>Vuelos Iberia</strong>
+                <span>La aerolínea de bandera de España y una buena opción directa si quieres reservar sin intermediarios.</span>
+              </a>
+              <a class="flight-link flight-link--google" href="https://www.google.com/travel/flights?hl=en" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">Google</span>
+                <strong>Google Flights</strong>
+                <span>Muy útil para comparar fechas, rutas y patrones de precio antes de decidir dónde reservar.</span>
+              </a>
+              <a class="flight-link flight-link--skyscanner" href="https://www.skyscanner.com/flights" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">Sky</span>
+                <strong>Skyscanner</strong>
+                <span>Buscador popular para comparar muchas aerolíneas y agencias online a la vez.</span>
+              </a>
+              <a class="flight-link flight-link--kayak" href="https://www.kayak.es/flights" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">KAYAK</span>
+                <strong>Vuelos KAYAK</strong>
+                <span>Opción conocida de metabuscador para revisar rutas, rangos de precio y aeropuertos alternativos.</span>
+              </a>
+              <a class="flight-link flight-link--edreams" href="https://www.edreams.es/" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">eDreams</span>
+                <strong>Vuelos eDreams</strong>
+                <span>Gran agencia de viajes online con base en España, muy usada para comparar y reservar vuelos.</span>
+              </a>
+              <a class="car-link car-link--europcar" href="https://www.europcar.com/en-us/places/car-rental-spain" target="_blank" rel="noreferrer">
+                <span class="car-logo" aria-hidden="true">Europcar</span>
+                <strong>Europcar</strong>
+                <span>Gran marca europea de alquiler con buena cobertura en aeropuertos y ciudades de España.</span>
+              </a>
+              <a class="car-link car-link--sixt" href="https://www.sixt.com/car-rental/spain/" target="_blank" rel="noreferrer">
+                <span class="car-logo" aria-hidden="true">SIXT</span>
+                <strong>SIXT</strong>
+                <span>Opción conocida de alquiler con perfil más prémium y muchos puntos de recogida en España.</span>
+              </a>
+              <a class="car-link car-link--avis" href="https://www.avis.com/en/locations/es" target="_blank" rel="noreferrer">
+                <span class="car-logo" aria-hidden="true">Avis</span>
+                <strong>Avis</strong>
+                <span>Marca internacional histórica de alquiler con presencia en aeropuertos y ciudades españolas.</span>
+              </a>
+              <a class="car-link car-link--hertz" href="https://www.hertz.com/us/en/location/spain" target="_blank" rel="noreferrer">
+                <span class="car-logo" aria-hidden="true">Hertz</span>
+                <strong>Hertz</strong>
+                <span>Gran compañía internacional de alquiler de coches con amplia disponibilidad en España.</span>
+              </a>
+              <a class="stay-link stay-link--booking" href="https://www.booking.com/" target="_blank" rel="noreferrer">
+                <span class="stay-logo" aria-hidden="true">Booking</span>
+                <strong>Booking.com</strong>
+                <span>Una de las mayores plataformas de reserva hotelera para comparar estancias en España.</span>
+              </a>
+              <a class="stay-link stay-link--airbnb" href="https://www.airbnb.com/s/Spain/homes" target="_blank" rel="noreferrer">
+                <span class="stay-logo" aria-hidden="true">airbnb</span>
+                <strong>Airbnb</strong>
+                <span>Muy usada para apartamentos, habitaciones y estancias más tipo hogar.</span>
+              </a>
+              <a class="stay-link stay-link--expedia" href="https://www.expedia.es/Hoteles" target="_blank" rel="noreferrer">
+                <span class="stay-logo" aria-hidden="true">Expedia</span>
+                <strong>Hoteles Expedia</strong>
+                <span>Gran plataforma de viajes online útil para hoteles y planificación más amplia.</span>
+              </a>
+              <a class="stay-link stay-link--tripadvisor" href="https://www.tripadvisor.com/Tourism-g187427-Spain-Vacations.html" target="_blank" rel="noreferrer">
+                <span class="stay-logo" aria-hidden="true">Tripadvisor</span>
+                <strong>Tripadvisor</strong>
+                <span>Muy útil para comparar reseñas, zonas, atracciones e ideas de alojamiento antes de reservar.</span>
+              </a>
+              <a class="hotel-link hotel-link--melia" href="https://www.melia.com/" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Meliá</span>
+                <strong>Hoteles Meliá</strong>
+                <span>Uno de los grupos hoteleros más importantes de España, con hoteles urbanos, vacacionales y resorts.</span>
+              </a>
+              <a class="hotel-link hotel-link--nh" href="https://www.nh-hotels.com/en/hotels/spain" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">NH</span>
+                <strong>NH Hotels</strong>
+                <span>Cadena fuerte en hoteles urbanos de España y Europa, útil para estancias prácticas en ciudad.</span>
+              </a>
+              <a class="hotel-link hotel-link--barcelo" href="https://www.barcelo.com/en-gb/hotels/spain/" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Barceló</span>
+                <strong>Hoteles Barceló</strong>
+                <span>Gran grupo hotelero español con mezcla amplia de hoteles urbanos, insulares y vacacionales.</span>
+              </a>
+              <a class="hotel-link hotel-link--riu" href="https://www.riu.com/en/hotels/europe/spain" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">RIU</span>
+                <strong>Hoteles RIU</strong>
+                <span>Cadena española especialmente conocida por estancias de resort en destinos de playa.</span>
+              </a>
+              <a class="hotel-link hotel-link--iberostar" href="https://www.iberostar.com/en/hotels/spain/" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Iberostar</span>
+                <strong>Hoteles Iberostar</strong>
+                <span>Gran marca española de resorts y playa con fuerte presencia en el país.</span>
+              </a>
+              <a class="hotel-link hotel-link--marriott" href="https://www.marriott.com/en-us/destinations/spain.mi" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Marriott</span>
+                <strong>Hoteles Marriott</strong>
+                <span>Grupo hotelero internacional con muchas marcas y amplia presencia en España.</span>
+              </a>
+              <a class="hotel-link hotel-link--hilton" href="https://www.hilton.com/en/locations/spain/" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Hilton</span>
+                <strong>Hoteles Hilton</strong>
+                <span>Cadena hotelera internacional con opciones de categoría alta y de negocio en España.</span>
+              </a>
+              </div>
+            </div>
+            <p class="disclaimer">Esta aplicación es una guía de planificación, no asesoría legal. Las normas de extranjería y administración españolas, listas de documentos, tasas y nombres de citas pueden cambiar. Verifica siempre tu trámite con fuentes oficiales antes de presentarlo.</p>
           </article>
         </section>
 
