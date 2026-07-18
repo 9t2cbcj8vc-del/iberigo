@@ -1,4 +1,5 @@
 const { Header, Footer } = require("./guide-components");
+const { stylesheetHref, siteSearchScriptTag } = require("./site-assets");
 
 function SearchBox() {
   return `<section class="search-hero" aria-labelledby="searchTitle">
@@ -91,7 +92,7 @@ function SearchPage() {
     <meta property="og:url" content="https://iberigo.eu/search/" />
     <meta property="og:image" content="https://iberigo.eu/assets/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="/styles.css?v=20260625-wordmark" />
+    <link rel="stylesheet" href="${stylesheetHref}" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="apple-touch-icon" href="/assets/favicon.svg" />
     ${searchCss()}
@@ -107,6 +108,7 @@ function SearchPage() {
       ${Footer()}
     </div>
     <script src="/search/search.js" defer></script>
+    ${siteSearchScriptTag()}
   </body>
 </html>
 `;
