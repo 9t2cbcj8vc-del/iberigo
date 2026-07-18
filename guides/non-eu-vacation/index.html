@@ -117,9 +117,167 @@
             <button class="submit-button" id="wizardSubmit" type="submit" data-i18n="continueButton">Continue</button>
           </form>
 
-          <article class="result-card is-empty" id="wizardResult" aria-live="polite">
-            <h3 data-i18n="emptyTitle">Your roadmap will appear here</h3>
-            <p data-i18n="emptyText">Choose a situation card or answer the questions above to see a Spain-wide route.</p>
+          <article class="result-card" id="wizardResult" aria-live="polite">
+            <div class="result-hero">
+              <div class="result-hero-copy">
+                <h3>Schengen short stay</h3>
+                <section class="result-purpose" aria-label="What this is for">
+                  <strong>What this is for</strong>
+                  <div class="result-purpose-body">Depends on whether your passport requires a Schengen visa</div>
+                </section>
+              </div>
+            </div>
+            <div class="result-section">
+              <strong>Next 3 steps</strong>
+              <ol class="roadmap-list"><li>Check whether your passport needs a Schengen short-stay visa.</li><li>Check the 90 days in any 180-day rule.</li><li>Prepare travel insurance, accommodation, return/onward travel, and funds if asked.</li></ol>
+            </div>
+            <div class="result-section route-links-note">
+              <strong>Official links</strong>
+              <div class="province-links">
+              <a class="gov-link guide-source-card guide-source-card--eu" href="https://travel-europe.europa.eu/en/etias/about-etias/who-should-apply" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">EU</span>
+                  <span class="guide-source-tag">European Union</span>
+                </span>
+                <span class="guide-source-title">Check visa or ETIAS requirement</span>
+                <span class="guide-source-description">Official European Union website</span>
+              </a>
+              <a class="gov-link guide-source-card guide-source-card--eu" href="https://ec.europa.eu/assets/home/visa-calculator-2/calculator.htm?lang=en" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">EU</span>
+                  <span class="guide-source-tag">European Union</span>
+                </span>
+                <span class="guide-source-title">Official EU 90/180 calculator</span>
+                <span class="guide-source-description">Official European Union website</span>
+              </a>
+              <a class="travel-link travel-link--spaininfo" href="https://www.spain.info/es/" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Spain</span>
+                <strong>Spain tourism</strong>
+                <span>Spain's official tourism portal for destinations, ideas, and practical trip planning.</span>
+              </a>
+              <a class="travel-link travel-link--renfe" href="https://www.renfe.com/es/en" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Renfe</span>
+                <strong>Renfe trains</strong>
+                <span>Main official rail option for long-distance and many domestic train journeys across Spain.</span>
+              </a>
+              <a class="travel-link travel-link--aena" href="https://www.aena.es/en/passengers/passengers.html" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Aena</span>
+                <strong>Aena airports</strong>
+                <span>Official airport network portal for Spanish airports, terminals, and passenger information.</span>
+              </a>
+              <a class="travel-link travel-link--alsa" href="https://www.alsa.es/en/web/bus/home" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">ALSA</span>
+                <strong>ALSA buses</strong>
+                <span>Major long-distance bus operator useful for routes not covered well by rail.</span>
+              </a>
+              <a class="travel-link travel-link--paradores" href="https://paradores.es/es/paradores" target="_blank" rel="noreferrer">
+                <span class="travel-logo" aria-hidden="true">Paradores</span>
+                <strong>Paradores</strong>
+                <span>Spain's iconic state-owned hotel network for distinctive stays across the country.</span>
+              </a>
+              <a class="flight-link flight-link--iberia" href="https://www.iberia.com/es/flight-search-engine/" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">Iberia</span>
+                <strong>Iberia flights</strong>
+                <span>Spain's flag carrier and a good direct-airline option when you want to book flights without a third-party layer.</span>
+              </a>
+              <a class="flight-link flight-link--google" href="https://www.google.com/travel/flights?hl=en" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">Google</span>
+                <strong>Google Flights</strong>
+                <span>Very useful for comparing dates, routes, and price patterns before you choose where to book.</span>
+              </a>
+              <a class="flight-link flight-link--skyscanner" href="https://www.skyscanner.com/flights" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">Sky</span>
+                <strong>Skyscanner</strong>
+                <span>Popular flight search tool for comparing many airlines and online travel agencies at once.</span>
+              </a>
+              <a class="flight-link flight-link--kayak" href="https://www.kayak.es/flights" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">KAYAK</span>
+                <strong>KAYAK flights</strong>
+                <span>Well-known metasearch option for scanning routes, price ranges, and alternative airports.</span>
+              </a>
+              <a class="flight-link flight-link--edreams" href="https://www.edreams.es/" target="_blank" rel="noreferrer">
+                <span class="flight-logo" aria-hidden="true">eDreams</span>
+                <strong>eDreams flights</strong>
+                <span>Large Spain-based online travel agency often used for comparing and booking flights.</span>
+              </a>
+              <a class="car-link car-link--europcar" href="https://www.europcar.com/en-us/places/car-rental-spain" target="_blank" rel="noreferrer">
+                <span class="car-logo" aria-hidden="true">Europcar</span>
+                <strong>Europcar</strong>
+                <span>Large European rental brand with strong airport and city coverage across Spain.</span>
+              </a>
+              <a class="car-link car-link--sixt" href="https://www.sixt.com/car-rental/spain/" target="_blank" rel="noreferrer">
+                <span class="car-logo" aria-hidden="true">SIXT</span>
+                <strong>SIXT</strong>
+                <span>Well-known premium-leaning car hire option with many major Spanish pickup points.</span>
+              </a>
+              <a class="car-link car-link--avis" href="https://www.avis.com/en/locations/es" target="_blank" rel="noreferrer">
+                <span class="car-logo" aria-hidden="true">Avis</span>
+                <strong>Avis</strong>
+                <span>Long-established global rental brand with airport and city presence in Spain.</span>
+              </a>
+              <a class="car-link car-link--hertz" href="https://www.hertz.com/us/en/location/spain" target="_blank" rel="noreferrer">
+                <span class="car-logo" aria-hidden="true">Hertz</span>
+                <strong>Hertz</strong>
+                <span>Major international car-rental company with broad availability across Spain.</span>
+              </a>
+              <a class="stay-link stay-link--booking" href="https://www.booking.com/" target="_blank" rel="noreferrer">
+                <span class="stay-logo" aria-hidden="true">Booking</span>
+                <strong>Booking.com</strong>
+                <span>One of the biggest hotel-booking platforms for comparing stays across Spain.</span>
+              </a>
+              <a class="stay-link stay-link--airbnb" href="https://www.airbnb.com/s/Spain/homes" target="_blank" rel="noreferrer">
+                <span class="stay-logo" aria-hidden="true">airbnb</span>
+                <strong>Airbnb</strong>
+                <span>Popular for apartments, rooms, and longer or more home-style stays.</span>
+              </a>
+              <a class="stay-link stay-link--expedia" href="https://www.expedia.es/Hoteles" target="_blank" rel="noreferrer">
+                <span class="stay-logo" aria-hidden="true">Expedia</span>
+                <strong>Expedia Hotels</strong>
+                <span>Large online travel platform useful for hotels and broader trip bundling.</span>
+              </a>
+              <a class="stay-link stay-link--tripadvisor" href="https://www.tripadvisor.com/Tourism-g187427-Spain-Vacations.html" target="_blank" rel="noreferrer">
+                <span class="stay-logo" aria-hidden="true">Tripadvisor</span>
+                <strong>Tripadvisor</strong>
+                <span>Useful for comparing reviews, neighborhoods, attractions, and stay ideas before booking.</span>
+              </a>
+              <a class="hotel-link hotel-link--melia" href="https://www.melia.com/" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Meliá</span>
+                <strong>Meliá Hotels</strong>
+                <span>One of Spain's most prominent hotel groups, with city, beach, and resort properties.</span>
+              </a>
+              <a class="hotel-link hotel-link--nh" href="https://www.nh-hotels.com/en/hotels/spain" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">NH</span>
+                <strong>NH Hotels</strong>
+                <span>Strong Spanish and European city-hotel chain often useful for practical urban stays.</span>
+              </a>
+              <a class="hotel-link hotel-link--barcelo" href="https://www.barcelo.com/en-gb/hotels/spain/" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Barceló</span>
+                <strong>Barceló Hotels</strong>
+                <span>Large Spanish hotel group with a broad mix of city, island, and holiday properties.</span>
+              </a>
+              <a class="hotel-link hotel-link--riu" href="https://www.riu.com/en/hotels/europe/spain" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">RIU</span>
+                <strong>RIU Hotels</strong>
+                <span>Spanish chain especially known for resort-style stays in beach destinations.</span>
+              </a>
+              <a class="hotel-link hotel-link--iberostar" href="https://www.iberostar.com/en/hotels/spain/" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Iberostar</span>
+                <strong>Iberostar Hotels</strong>
+                <span>Major Spanish resort and beach-hotel brand with a wide national footprint.</span>
+              </a>
+              <a class="hotel-link hotel-link--marriott" href="https://www.marriott.com/en-us/destinations/spain.mi" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Marriott</span>
+                <strong>Marriott Hotels</strong>
+                <span>Global hotel group with many brands and a broad presence in Spain.</span>
+              </a>
+              <a class="hotel-link hotel-link--hilton" href="https://www.hilton.com/en/locations/spain/" target="_blank" rel="noreferrer">
+                <span class="hotel-logo" aria-hidden="true">Hilton</span>
+                <strong>Hilton Hotels</strong>
+                <span>International hotel chain with upscale and business-oriented options in Spain.</span>
+              </a>
+              </div>
+            </div>
+            <p class="disclaimer">This app is a planning guide, not legal advice. Spanish immigration and administration rules, document lists, fees, and appointment labels can change. Always verify your procedure with official sources before filing. This is only a starting point; your nationality, consulate, family situation, and documents can change the exact process.</p>
           </article>
         </section>
 
