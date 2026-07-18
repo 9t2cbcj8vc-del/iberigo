@@ -1049,6 +1049,7 @@ const roadmapDetails = {
   },
   "eu-vacation": {
     process: "EU short stay",
+    explanation: "EU, EEA, and Swiss citizens can normally visit Spain for up to 3 months with a valid passport or national identity card. For an ordinary short visit you do not need a NIE, TIE, visa, or EU registration certificate. If you later decide to live in Spain for more than three months, residence registration rules come into play.",
     difficulty: "Low",
     timeline: "No residence filing for an ordinary short visit",
     steps: ["Travel with a valid passport or national ID.", "Keep health cover or EHIC available.", "Use the official tourism and transport links to plan trains, airports, buses, and where to stay.", "If you later decide to live in Spain, use the EU registration route."],
@@ -1057,6 +1058,7 @@ const roadmapDetails = {
   },
   "non-eu-vacation": {
     process: "Schengen short stay",
+    explanation: "For a vacation or short visit, check whether your passport needs a Schengen short-stay visa or can enter visa-free. The 90 days are normally counted across the whole Schengen area in any 180-day period, not just in Spain. This route is for ordinary visits — it is not a route to live or work in Spain.",
     difficulty: "Low to medium",
     timeline: "Depends on whether your passport requires a Schengen visa",
     steps: ["Check whether your passport needs a Schengen short-stay visa.", "Check the 90 days in any 180-day rule.", "Prepare travel insurance, accommodation, return/onward travel, and funds if asked.", "Use the tourism and transport links to plan trains, airports, buses, and places to stay.", "Do not treat a short stay as permission to live or work in Spain."],
