@@ -117,9 +117,102 @@
             <button class="submit-button" id="wizardSubmit" type="submit" data-i18n="continueButton">Continue</button>
           </form>
 
-          <article class="result-card is-empty" id="wizardResult" aria-live="polite">
-            <h3 data-i18n="emptyTitle">Your roadmap will appear here</h3>
-            <p data-i18n="emptyText">Choose a situation card or answer the questions above to see a Spain-wide route.</p>
+          <article class="result-card" id="wizardResult" aria-live="polite">
+            <div class="result-hero">
+              <div class="result-hero-copy">
+                <h3>EU Registration Certificate</h3>
+                <section class="result-purpose" aria-label="What this is for">
+                  <strong>What this is for</strong>
+                  <div class="result-purpose-body">Often a few weeks, depending on appointment availability</div>
+                </section>
+              </div>
+            </div>
+            <div class="result-section">
+              <strong>Next 3 steps</strong>
+              <ol class="roadmap-list"><li>Prepare your NIE and padrón certificate before the EU registration appointment.</li><li>Prepare proof of funds, work contract, self-employment proof, or study documents.</li><li>If you want to live in Spain without working, arrange valid health cover as part of the basis for registration.</li></ol>
+            </div>
+            <div class="result-section">
+              <strong>Forms and documents</strong>
+              <div class="compact-fees">
+              <a class="doc-row doc-row--official" href="https://www.inclusion.gob.es/documents/410169/2156469/18-Certificado_residencia_comunitaria.pdf" target="_blank" rel="noreferrer">
+                <span class="doc-row-badge" aria-hidden="true">Form</span>
+                <span>EU/EEA/Swiss citizen registration certificate</span>
+                <b>EX-18</b>
+                <em></em>
+              </a>
+              <button type="button" class="doc-row doc-row--guide" data-direct-route="nie">
+                <span class="doc-row-badge" aria-hidden="true">Guide</span>
+                <span>Foreigner identity number used for Spanish administration</span>
+                <b>NIE</b>
+                <em>Required detail</em>
+              </button>
+              <button type="button" class="doc-row doc-row--guide" data-direct-route="padron">
+                <span class="doc-row-badge" aria-hidden="true">Guide</span>
+                <span>Town hall registration certificate or volante</span>
+                <b>Padrón</b>
+                <em>Address evidence</em>
+              </button>
+              <div class="doc-row">
+                <span class="doc-row-badge" aria-hidden="true">Document</span>
+                <span>Identity document used at the appointment</span>
+                <b>Passport or EU national ID</b>
+                <em></em>
+              </div>
+              <a class="doc-row doc-row--fee doc-row--official" href="https://sede.policia.gob.es/Tasa790_012/" target="_blank" rel="noreferrer">
+                <span class="doc-row-badge" aria-hidden="true">Fee</span>
+                <span>Certificate of EU resident registration</span>
+                <b>790-012</b>
+                <em>12.00 EUR</em>
+              </a>
+              </div>
+            </div>
+            <div class="result-section route-links-note">
+              <strong>Official source links</strong>
+              <div class="province-links">
+              <a class="gov-link guide-source-card guide-source-card--police" href="https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">PN</span>
+                  <span class="guide-source-tag">Policía Nacional</span>
+                </span>
+                <span class="guide-source-title">EU registration certificate</span>
+                <span class="guide-source-description">Official Spain government website</span>
+              </a>
+              <a class="gov-link guide-source-card guide-source-card--police" href="https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">PN</span>
+                  <span class="guide-source-tag">Policía Nacional</span>
+                </span>
+                <span class="guide-source-title">Book an appointment</span>
+                <span class="guide-source-description">Official government appointment portal</span>
+              </a>
+              <a class="insurance-link insurance-link--sanitas" href="https://www.sanitas.es/seguros/seguros-medicos-privados" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">Sanitas</span>
+                <strong>Sanitas</strong>
+                <span>Major private health insurer in Spain with broad medical-network visibility.</span>
+              </a>
+              <a class="insurance-link insurance-link--adeslas" href="https://www.seguros.adeslas.es/salud/" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">Adeslas</span>
+                <strong>Adeslas</strong>
+                <span>Large health-insurance provider often considered by applicants comparing permit-friendly cover.</span>
+              </a>
+              <a class="insurance-link insurance-link--asisa" href="https://www.asisa.es/seguros-medicos" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">ASISA</span>
+                <strong>ASISA</strong>
+                <span>Long-established Spanish health insurer with strong national reach.</span>
+              </a>
+              <a class="insurance-link insurance-link--dkv" href="https://dkv.es/particulares/seguros-de-salud" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">DKV</span>
+                <strong>DKV</strong>
+                <span>Well-known health insurer with a strong private-health focus and digital services.</span>
+              </a>
+              <a class="insurance-link insurance-link--mapfre" href="https://www.mapfre.es/particulares/seguros-de-salud/" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">MAPFRE</span>
+                <strong>MAPFRE Salud</strong>
+                <span>Large Spanish insurer with health policies alongside broader insurance products.</span>
+              </a>
+              </div>
+            </div>
+            <p class="disclaimer">Requirements can vary by personal situation and may change. Always verify with official sources.</p>
           </article>
         </section>
 
