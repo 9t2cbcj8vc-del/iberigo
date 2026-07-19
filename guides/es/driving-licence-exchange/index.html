@@ -117,9 +117,56 @@
             <button class="submit-button" id="wizardSubmit" type="submit" data-i18n="continueButton">Continue</button>
           </form>
 
-          <article class="result-card is-empty" id="wizardResult" aria-live="polite">
-            <h3 data-i18n="emptyTitle">Your roadmap will appear here</h3>
-            <p data-i18n="emptyText">Choose a situation card or answer the questions above to see a Spain-wide route.</p>
+          <article class="result-card" id="wizardResult" aria-live="polite">
+            <div class="result-hero">
+              <div class="result-hero-copy">
+                <h3>Canjear tu permiso de conducir en España</h3>
+                <section class="result-purpose" aria-label="Para qué sirve">
+                  <strong>Para qué sirve</strong>
+                  <div class="result-purpose-body"><p><strong>Qué es:</strong> Si vives en España, en algún momento tendrás que canjear tu permiso de conducir extranjero por uno español.</p><p><strong>De qué depende:</strong> Cuándo y cómo depende de dónde se expidió tu permiso.</p><ul><li>Los ciudadanos de la UE pueden seguir conduciendo con su permiso de origen casi indefinidamente, pero deben canjearlo si caduca o tiene una validez muy larga.</li><li>La mayoría de las personas no comunitarias tienen un plazo estricto de 6 meses desde que son residentes legales antes de que su permiso extranjero deje de ser válido.</li></ul></div>
+                </section>
+              </div>
+            </div>
+            <div class="result-section warning-note">
+              <strong>⚠️ Plazo de 6 meses</strong>
+              <p>La mayoría de las personas no comunitarias tienen un plazo estricto de 6 meses desde que son residentes legales antes de que su permiso extranjero deje de ser válido para conducir. No cumplir el plazo implica multas que empiezan en 200 €.</p>
+            </div>
+            <div class="result-section">
+              <strong>Tu vía depende de tu nacionalidad</strong>
+              <div class="nationality-path-grid">
+                <article class="nationality-path-card"><h4>UE/EEE</h4><p>Sin examen. El canje es voluntario salvo que tu permiso caduque en España o tenga una validez indefinida o muy larga (15+ años para coche/moto, 5+ años para camión/autobús). En ese caso, debes canjearlo dentro de los 2 años desde que estableces residencia. Tasa: 28,87 €.</p></article>
+                <article class="nationality-path-card nationality-path-card--agreement"><h4>No UE con acuerdo bilateral</h4><p>Reino Unido, Suiza, Japón y la mayoría de Latinoamérica. Canje sin examen teórico ni práctico. Reconocimiento médico, documentación y cita en la DGT. Tasa: 28,87 €.</p></article>
+                <article class="nationality-path-card nationality-path-card--no-agreement"><h4>No UE sin acuerdo bilateral</h4><p>EE. UU., Canadá, Australia, Nueva Zelanda. No existe vía de canje. Debes aprobar el examen teórico y práctico español completo dentro de los 6 meses de residencia. El examen teórico está disponible en inglés.</p></article>
+              </div>
+            </div>
+            <div class="result-section">
+              <strong>Próximos 3 pasos</strong>
+              <ol class="roadmap-list"><li>Comprueba si tu país tiene un acuerdo bilateral con España en sede.dgt.gob.es — esto determina qué vía te corresponde.</li><li>Reserva tu cita previa en sede.dgt.gob.es → Trámites → Canje de permisos, eligiendo tu Jefatura Provincial de Tráfico más cercana. Reserva cuanto antes — las citas se agotan rápido. Muchos trámites también se pueden gestionar online con <a href="/guides/es/digital/">certificado digital o Cl@ve</a>.</li><li>Consigue tu informe de aptitud psicofísica en un Centro de Reconocimiento de Conductores autorizado — válido 90 días, cuesta aproximadamente 30-50 €.</li></ol>
+            </div>
+            <div class="result-section">
+              <strong>Formularios y documentos</strong>
+              <div class="compact-fees">
+                <div class="doc-row"><span class="doc-row-badge" aria-hidden="true">Documento</span><span>Más NIE/TIE o Certificado de Registro de la UE</span><b>Pasaporte válido</b><em></em></div>
+                <div class="doc-row"><span class="doc-row-badge" aria-hidden="true">Documento</span><span>Lo retendrá la DGT</span><b>Permiso de conducir original</b><em></em></div>
+                <div class="doc-row"><span class="doc-row-badge" aria-hidden="true">Documento</span><span>Padrón</span><b><a href="/the-spain-files/es/padron-torrevieja/">Certificado de empadronamiento</a></b><em></em></div>
+                <div class="doc-row"><span class="doc-row-badge" aria-hidden="true">Documento</span><span>De un CRC autorizado, válido 90 días, aprox. 30-50 €</span><b>Informe de aptitud psicofísica</b><em></em></div>
+                <div class="doc-row"><span class="doc-row-badge" aria-hidden="true">Documento</span><span>32x26mm, fondo liso, rostro descubierto</span><b>Foto de carné</b><em></em></div>
+                <div class="doc-row"><span class="doc-row-badge" aria-hidden="true">Documento</span><span>Necesaria para permisos en alfabeto no latino o si la DGT lo solicita</span><b>Traducción jurada</b><em></em></div>
+                <div class="doc-row doc-row--fee"><span class="doc-row-badge" aria-hidden="true">Tasa</span><span>Solo tarjeta o app miDGT, sin efectivo</span><b>Tasa 2.3</b><em>28.87 EUR</em></div>
+              </div>
+            </div>
+            <div class="result-section">
+              <strong>Qué pasa después</strong>
+              <p>En tu cita, la DGT se queda con tu permiso original y te entrega un permiso provisional de papel para conducir hasta que llegue tu permiso español. La tramitación suele tardar entre 1 y 3 meses. Tu permiso original se devuelve a la autoridad que lo expidió en tu país de origen — no lo recuperarás.</p>
+            </div>
+            <div class="result-section route-links-note">
+              <strong>Enlaces oficiales</strong>
+              <div class="province-links">
+                <a class="gov-link guide-source-card guide-source-card--traffic" href="https://sede.dgt.gob.es" target="_blank" rel="noreferrer"><span class="guide-source-head"><span class="guide-source-badge" aria-hidden="true">DGT</span><span class="guide-source-tag">Dirección General de Tráfico</span></span><span class="guide-source-title">Portal de canje de permisos de la DGT</span><span class="guide-source-description">Web oficial del Gobierno de España</span></a>
+                <a class="gov-link guide-source-card guide-source-card--traffic" href="https://sede.dgt.gob.es" target="_blank" rel="noreferrer"><span class="guide-source-head"><span class="guide-source-badge" aria-hidden="true">DGT</span><span class="guide-source-tag">Dirección General de Tráfico</span></span><span class="guide-source-title">Lista de acuerdos bilaterales de la DGT</span><span class="guide-source-description">Web oficial del Gobierno de España</span></a>
+              </div>
+            </div>
+            <p class="disclaimer">Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales.</p>
           </article>
         </section>
 
