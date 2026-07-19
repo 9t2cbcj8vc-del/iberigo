@@ -9,6 +9,9 @@
     <title>EU Registration in Spain — IberiGo</title>
     <meta name="description" content="A practical guide to registering as an EU citizen in Spain, including who needs it, documents, healthcare proof, common mistakes and what happens after registration." />
     <link rel="canonical" href="https://iberigo.eu/moving-to-spain/eu-registration/" />
+    <link rel="alternate" hreflang="en" href="https://iberigo.eu/moving-to-spain/eu-registration/" />
+    <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/moving-to-spain/eu-registration/" />
+    <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/moving-to-spain/eu-registration/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
     <meta property="og:title" content="EU Registration in Spain — IberiGo" />
@@ -127,7 +130,7 @@
           <a class="search-nav-link" href="/search/" aria-label="Search IberiGo" title="Search IberiGo" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg></a>
           <div class="language-switcher" aria-label="Language">
             <button type="button" data-lang="en" aria-pressed="true">EN</button>
-            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+            <button type="button" data-lang="es" aria-pressed="false" data-lang-href="/es/moving-to-spain/eu-registration/">ES</button>
           </div>
         </nav>
       </header>
@@ -383,6 +386,14 @@
         var update = function () { topbar.classList.toggle("is-scrolled", window.scrollY > 24); };
         update();
         window.addEventListener("scroll", update, { passive: true });
+      })();
+      (function () {
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".language-switcher [data-lang-href]"));
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            window.location.href = button.getAttribute("data-lang-href");
+          });
+        });
       })();
       (function () {
         var tocLinks = Array.prototype.slice.call(document.querySelectorAll("[data-guide-toc-link]"));
