@@ -1066,7 +1066,7 @@ const roadmapDetails = {
     links: ["schengen", "calculator", "travel-spaininfo", "travel-renfe", "travel-aena", "travel-alsa", "travel-paradores", "flight-iberia", "flight-google", "flight-skyscanner", "flight-kayak", "flight-edreams", "car-europcar", "car-sixt", "car-avis", "car-hertz", "stay-booking", "stay-airbnb", "stay-expedia", "stay-tripadvisor", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "hotel-marriott", "hotel-hilton"]
   },
   "work-authorization": {
-    process: "Residence and work authorization",
+    process: "Work authorization for non-EU citizens",
     difficulty: "High",
     timeline: "Often several months",
     steps: ["Confirm whether the route is employee work or self-employed work.", "Prepare employer contract or business plan and professional evidence.", "Apply for the residence and work authorization before starting work.", "After approval, complete visa and TIE card steps if required.", "Pay Modelo 790-012 for the card step when applicable."],
@@ -1193,7 +1193,7 @@ const roadmapDetailsEs = {
     links: ["schengen", "calculator", "travel-spaininfo", "travel-renfe", "travel-aena", "travel-alsa", "travel-paradores", "flight-iberia", "flight-google", "flight-skyscanner", "flight-kayak", "flight-edreams", "car-europcar", "car-sixt", "car-avis", "car-hertz", "stay-booking", "stay-airbnb", "stay-expedia", "stay-tripadvisor", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "hotel-marriott", "hotel-hilton"]
   },
   "work-authorization": {
-    process: "Autorización de residencia y trabajo",
+    process: "Autorización de trabajo para ciudadanos no comunitarios",
     explanation: "Los ciudadanos no comunitarios que quieren vivir en España y trabajar para una empresa española o montar su propio negocio suelen necesitar una autorización de residencia y trabajo antes de empezar. El trabajo por cuenta ajena normalmente usa el formulario EX-03 y el trabajo por cuenta propia usa EX-07. En muchos casos la solicitud la inicia el empleador español. La tramitación puede tardar varios meses y la aprobación no está garantizada. Tras la aprobación, normalmente se solicita el visado de entrada en el consulado español, se entra en España y después se hace la cita de huellas para la TIE dentro del plazo indicado en la resolución.",
     difficulty: "Alta",
     timeline: "A menudo varios meses",
@@ -1808,6 +1808,7 @@ function renderRoadmapCard(roadmap, guideId = roadmap?.route?.id || currentDirec
   result.innerHTML = `
     ${renderBackButton(roadmap.process)}
     ${renderResultIntro(roadmap, explanation, guideId)}
+    ${renderWorkAuthorizationScopeNotice(roadmap.route?.id || guideId)}
     ${renderDeadlineWarningBlock(roadmap.route?.id || guideId)}
     ${renderNationalityPathBlock(roadmap.route?.id || guideId)}
     <div class="result-section">
@@ -2537,6 +2538,26 @@ function renderDeadlineWarningBlock(routeId) {
         <p>Most non-EU citizens have a strict 6-month window from the date they become legally resident before their foreign licence stops being valid to drive on. Missing the deadline means fines starting at €200.</p>
       </div>
     `;
+}
+
+function renderWorkAuthorizationScopeNotice(routeId) {
+  if (routeId !== "work-authorization") return "";
+
+  if (currentLang === "es") {
+    return `
+      <div class="result-section route-scope-note">
+        <strong>¿Ciudadano de la UE?</strong>
+        <p>Esta guía trata de la autorización de trabajo para ciudadanos no comunitarios. Si eres ciudadano de la UE, del EEE o de Suiza, consulta la <a href="/es/moving-to-spain/work-in-spain/">hoja de ruta general para trabajar en España</a>.</p>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="result-section route-scope-note">
+      <strong>EU citizen?</strong>
+      <p>This guide covers work authorization for non-EU citizens. If you are an EU, EEA or Swiss citizen, use the <a href="/moving-to-spain/work-in-spain/">broader Work in Spain roadmap</a>.</p>
+    </div>
+  `;
 }
 
 function renderNationalityPathBlock(routeId) {
