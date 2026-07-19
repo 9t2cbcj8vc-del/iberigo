@@ -117,9 +117,102 @@
             <button class="submit-button" id="wizardSubmit" type="submit" data-i18n="continueButton">Continue</button>
           </form>
 
-          <article class="result-card is-empty" id="wizardResult" aria-live="polite">
-            <h3 data-i18n="emptyTitle">Your roadmap will appear here</h3>
-            <p data-i18n="emptyText">Choose a situation card or answer the questions above to see a Spain-wide route.</p>
+          <article class="result-card" id="wizardResult" aria-live="polite">
+            <div class="result-hero">
+              <div class="result-hero-copy">
+                <h3>Certificado de registro de ciudadano de la UE</h3>
+                <section class="result-purpose" aria-label="Para qué sirve">
+                  <strong>Para qué sirve</strong>
+                  <div class="result-purpose-body">Los ciudadanos de la UE, EEE y Suiza que planean vivir en España más de tres meses deben registrarse y obtener el Certificado de Registro de Ciudadano de la Unión, a menudo llamado NIE verde porque muestra tu número NIE en un documento verde pequeño. No es una tarjeta TIE. Debes demostrar que puedes mantenerte: por trabajo, fondos suficientes o estudios con cobertura sanitaria. Ten preparados el formulario EX-18, NIE, certificado de padrón y prueba de medios antes de la cita. La tasa es de 12.00 EUR mediante el Modelo 790-012. Si todavía no tienes NIE, confirma con la oficina local si lo asignan durante este registro o si exigen un paso separado primero, porque la práctica puede variar por provincia.</div>
+                </section>
+              </div>
+            </div>
+            <div class="result-section">
+              <strong>Próximos 3 pasos</strong>
+              <ol class="roadmap-list"><li>Prepara tu NIE y certificado o volante de padrón antes de la cita de registro de ciudadano de la UE.</li><li>Prepara prueba de fondos, contrato de trabajo, prueba de autónomo o documentos de estudios.</li><li>Si quieres vivir en España sin trabajar, prepara cobertura sanitaria válida como parte de la base del registro.</li></ol>
+            </div>
+            <div class="result-section">
+              <strong>Formularios y documentos</strong>
+              <div class="compact-fees">
+              <a class="doc-row doc-row--official" href="https://www.inclusion.gob.es/documents/410169/2156469/18-Certificado_residencia_comunitaria.pdf" target="_blank" rel="noreferrer">
+                <span class="doc-row-badge" aria-hidden="true">Modelo</span>
+                <span>Certificado de registro de ciudadano UE/EEE/Suiza</span>
+                <b>EX-18</b>
+                <em></em>
+              </a>
+              <button type="button" class="doc-row doc-row--guide" data-direct-route="nie">
+                <span class="doc-row-badge" aria-hidden="true">Guía</span>
+                <span>Número de identidad de extranjero usado por la administración española</span>
+                <b>NIE</b>
+                <em>Dato requerido</em>
+              </button>
+              <button type="button" class="doc-row doc-row--guide" data-direct-route="padron">
+                <span class="doc-row-badge" aria-hidden="true">Guía</span>
+                <span>Certificado o volante de empadronamiento del ayuntamiento</span>
+                <b>Padrón</b>
+                <em>Prueba de domicilio</em>
+              </button>
+              <div class="doc-row">
+                <span class="doc-row-badge" aria-hidden="true">Documento</span>
+                <span>Documento de identidad usado en la cita</span>
+                <b>Pasaporte o documento nacional de identidad UE</b>
+                <em></em>
+              </div>
+              <a class="doc-row doc-row--fee doc-row--official" href="https://sede.policia.gob.es/Tasa790_012/" target="_blank" rel="noreferrer">
+                <span class="doc-row-badge" aria-hidden="true">Tasa</span>
+                <span>Certificado de registro de ciudadano de la UE</span>
+                <b>790-012</b>
+                <em>12.00 EUR</em>
+              </a>
+              </div>
+            </div>
+            <div class="result-section route-links-note">
+              <strong>Enlaces oficiales</strong>
+              <div class="province-links">
+              <a class="gov-link guide-source-card guide-source-card--police" href="https://sede.policia.gob.es/portalCiudadano/_en/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">PN</span>
+                  <span class="guide-source-tag">Policía Nacional</span>
+                </span>
+                <span class="guide-source-title">Certificado de registro de ciudadano de la UE</span>
+                <span class="guide-source-description">Web oficial del Gobierno de España</span>
+              </a>
+              <a class="gov-link guide-source-card guide-source-card--police" href="https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES" target="_blank" rel="noreferrer">
+                <span class="guide-source-head">
+                  <span class="guide-source-badge" aria-hidden="true">PN</span>
+                  <span class="guide-source-tag">Policía Nacional</span>
+                </span>
+                <span class="guide-source-title">Reservar cita previa</span>
+                <span class="guide-source-description">Sede oficial de la Administración</span>
+              </a>
+              <a class="insurance-link insurance-link--sanitas" href="https://www.sanitas.es/seguros/seguros-medicos-privados" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">Sanitas</span>
+                <strong>Sanitas</strong>
+                <span>Aseguradora sanitaria privada muy grande en España con amplia visibilidad de cuadro médico.</span>
+              </a>
+              <a class="insurance-link insurance-link--adeslas" href="https://www.seguros.adeslas.es/salud/" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">Adeslas</span>
+                <strong>Adeslas</strong>
+                <span>Gran aseguradora de salud que muchas personas comparan para coberturas útiles en trámites de residencia.</span>
+              </a>
+              <a class="insurance-link insurance-link--asisa" href="https://www.asisa.es/seguros-medicos" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">ASISA</span>
+                <strong>ASISA</strong>
+                <span>Aseguradora sanitaria española consolidada con fuerte presencia nacional.</span>
+              </a>
+              <a class="insurance-link insurance-link--dkv" href="https://dkv.es/particulares/seguros-de-salud" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">DKV</span>
+                <strong>DKV</strong>
+                <span>Aseguradora de salud conocida con foco fuerte en sanidad privada y servicios digitales.</span>
+              </a>
+              <a class="insurance-link insurance-link--mapfre" href="https://www.mapfre.es/particulares/seguros-de-salud/" target="_blank" rel="noreferrer">
+                <span class="insurance-logo" aria-hidden="true">MAPFRE</span>
+                <strong>MAPFRE Salud</strong>
+                <span>Gran aseguradora española con pólizas de salud dentro de una oferta más amplia.</span>
+              </a>
+              </div>
+            </div>
+            <p class="disclaimer">Los requisitos pueden variar según tu situación personal y pueden cambiar. Comprueba siempre las fuentes oficiales.</p>
           </article>
         </section>
 
