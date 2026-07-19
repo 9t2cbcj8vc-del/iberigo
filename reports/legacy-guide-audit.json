@@ -1,6 +1,6 @@
 {
   "scriptVersion": 1,
-  "generatedAt": "2026-07-19T11:37:29.149Z",
+  "generatedAt": "2026-07-19T14:06:45.083Z",
   "summary": {
     "totalLegacyGuideUrls": 70,
     "englishLegacyGuideUrls": 35,
@@ -344,7 +344,7 @@
       "existsIndexHtml": true,
       "dataGuideId": "eu-family",
       "canonical": "https://iberigo.eu/guides/es/eu-family/",
-      "title": "Tarjeta de residencia de familiar de ciudadano de la UE en España — IberiGo",
+      "title": "Solicitud de tarjeta de residencia de familiar de ciudadano de la UE en España — IberiGo",
       "metaDescription": "Para familiares no comunitarios que se reúnen con un ciudadano de la UE, EEE, Suiza o español en España.",
       "robotsMeta": null,
       "hreflang": [
@@ -856,7 +856,7 @@
       "existsIndexHtml": true,
       "dataGuideId": "study",
       "canonical": "https://iberigo.eu/guides/es/study/",
-      "title": "Autorización de estancia por estudios en España — IberiGo",
+      "title": "Solicitud de autorización de estancia por estudios en España — IberiGo",
       "metaDescription": "Para estudios, formación, movilidad estudiantil o prácticas de más de 90 días en España.",
       "robotsMeta": null,
       "hreflang": [
@@ -1272,7 +1272,7 @@
       "existsIndexHtml": true,
       "dataGuideId": "work-authorization",
       "canonical": "https://iberigo.eu/guides/es/work-authorization/",
-      "title": "Autorización de residencia y trabajo en España — IberiGo",
+      "title": "Autorización de trabajo para ciudadanos no comunitarios en España — IberiGo",
       "metaDescription": "Los ciudadanos no comunitarios que quieren trabajar en España por cuenta ajena o propia necesitan una autorización de residencia y trabajo antes de empezar.",
       "robotsMeta": null,
       "hreflang": [
@@ -1304,7 +1304,7 @@
       "existsIndexHtml": true,
       "dataGuideId": "eu-family",
       "canonical": "https://iberigo.eu/guides/eu-family/",
-      "title": "Residence card for family member of an EU citizen in Spain — IberiGo",
+      "title": "Residence card application for family member of an EU citizen in Spain — IberiGo",
       "metaDescription": "For non-EU family members joining an EU, EEA, Swiss, or qualifying Spanish citizen in Spain.",
       "robotsMeta": null,
       "hreflang": [
@@ -1816,7 +1816,7 @@
       "existsIndexHtml": true,
       "dataGuideId": "study",
       "canonical": "https://iberigo.eu/guides/study/",
-      "title": "Study stay authorization in Spain — IberiGo",
+      "title": "Study stay authorization application in Spain — IberiGo",
       "metaDescription": "For studies, training, student mobility, internships, or related activities lasting over 90 days in Spain.",
       "robotsMeta": null,
       "hreflang": [
@@ -2232,7 +2232,7 @@
       "existsIndexHtml": true,
       "dataGuideId": "work-authorization",
       "canonical": "https://iberigo.eu/guides/work-authorization/",
-      "title": "Work and residence authorization in Spain — IberiGo",
+      "title": "Work authorization for non-EU citizens in Spain — IberiGo",
       "metaDescription": "Non-EU citizens who want to work in Spain for a Spanish employer or as self-employed need a residence and work authorization before starting.",
       "robotsMeta": null,
       "hreflang": [

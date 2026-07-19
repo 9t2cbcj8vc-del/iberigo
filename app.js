@@ -1090,7 +1090,7 @@ const roadmapDetails = {
     links: ["non-lucrative-official", "insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre", "cita", "790-012"]
   },
   study: {
-    process: "Study stay authorization",
+    process: "Study stay authorization application",
     difficulty: "Medium to high",
     timeline: "Often one to three months after a complete filing",
     steps: ["Prepare admission or enrollment proof.", "Prepare funds, health insurance, passport, and legalized/trans­lated public documents where required.", "Apply through the official study stay route.", "If your stay requires a card, complete the TIE step after approval.", "Keep renewal dates visible if the course continues."],
@@ -1106,7 +1106,7 @@ const roadmapDetails = {
     links: ["family-official", "cita", "790-012"]
   },
   "eu-family": {
-    process: "Residence card for family member of an EU citizen",
+    process: "Residence card application for family member of an EU citizen",
     difficulty: "Medium to high",
     timeline: "Often a few weeks to a few months",
     steps: ["Confirm the family member is an EU, EEA, Swiss, or qualifying Spanish citizen.", "Prepare relationship evidence and the EU/Spanish citizen's residence basis.", "Complete EX-19.", "Book the relevant EU-family residence card appointment.", "Pay Modelo 790-012 if required by the card process."],
@@ -1220,7 +1220,7 @@ const roadmapDetailsEs = {
     links: ["non-lucrative-official", "insurance-sanitas", "insurance-adeslas", "insurance-asisa", "insurance-dkv", "insurance-mapfre", "cita", "790-012"]
   },
   study: {
-    process: "Autorización de estancia por estudios",
+    process: "Solicitud de autorización de estancia por estudios",
     explanation: "Los estudiantes no comunitarios que van a estudiar, formarse, hacer prácticas o participar en movilidad estudiantil en España durante más de 90 días necesitan una autorización de estancia por estudios. Normalmente se prepara una carta de admisión, prueba de fondos, seguro médico, antecedentes penales y certificado médico cuando corresponda. Tras llegar a España, puede ser necesario obtener una TIE de estudiante. Algunos permisos de estudios permiten trabajar a tiempo parcial, pero siempre hay que revisar las condiciones concretas de la autorización.",
     difficulty: "Media a alta",
     timeline: "A menudo de uno a tres meses tras presentar un expediente completo",
@@ -1238,7 +1238,7 @@ const roadmapDetailsEs = {
     links: ["family-official", "cita", "790-012"]
   },
   "eu-family": {
-    process: "Tarjeta de residencia de familiar de ciudadano de la UE",
+    process: "Solicitud de tarjeta de residencia de familiar de ciudadano de la UE",
     explanation: "Los familiares no comunitarios que se reúnen o acompañan a un ciudadano de la UE, EEE o Suiza registrado como residente en España siguen una ruta separada y generalmente más favorable que la reagrupación familiar ordinaria: la Tarjeta de Residencia de Familiar de Ciudadano de la Unión. Entre los familiares elegibles suelen estar cónyuges, parejas registradas, hijos dependientes menores de 21 años y familiares directos ascendientes dependientes. El ciudadano de la UE debe tener ya su certificado de registro de la UE, conocido a veces como el NIE verde. El familiar no comunitario presenta la solicitud con el formulario EX-19, y la tasa es de 12.00 EUR mediante el Modelo 790-012, más baja que la tasa estándar de TIE. La tarjeta inicial suele tener una validez de cinco años. Conseguir cita de huellas en provincias con mucha demanda como Madrid, Barcelona o Alicante puede tardar; reserva en cuanto llegue la autorización y guarda prueba de intentos fallidos si el plazo de 30 días está en riesgo.",
     difficulty: "Media a alta",
     timeline: "A menudo de unas semanas a unos meses",
@@ -2540,22 +2540,48 @@ function renderDeadlineWarningBlock(routeId) {
     `;
 }
 
-function renderWorkAuthorizationScopeNotice(routeId) {
-  if (routeId !== "work-authorization") return "";
-
-  if (currentLang === "es") {
-    return `
-      <div class="result-section route-scope-note">
-        <strong>¿Ciudadano de la UE?</strong>
-        <p>Esta guía trata de la autorización de trabajo para ciudadanos no comunitarios. Si eres ciudadano de la UE, del EEE o de Suiza, consulta la <a href="/es/moving-to-spain/work-in-spain/">hoja de ruta general para trabajar en España</a>.</p>
-      </div>
-    `;
+const routeScopeNotices = {
+  "work-authorization": {
+    en: {
+      heading: "EU citizen?",
+      body: 'This guide covers work authorization for non-EU citizens. If you are an EU, EEA or Swiss citizen, use the <a href="/moving-to-spain/work-in-spain/">broader Work in Spain roadmap</a>.'
+    },
+    es: {
+      heading: "¿Ciudadano de la UE?",
+      body: 'Esta guía trata de la autorización de trabajo para ciudadanos no comunitarios. Si eres ciudadano de la UE, del EEE o de Suiza, consulta la <a href="/es/moving-to-spain/work-in-spain/">hoja de ruta general para trabajar en España</a>.'
+    }
+  },
+  "eu-family": {
+    en: {
+      heading: "Planning your move, not just the application?",
+      body: 'This guide covers the residence card application (EX-19) once you already know you qualify. For relationship categories, eligibility, moving together vs. joining later, and common mistakes, see the broader <a href="/moving-to-spain/family-member-eu-citizen/">Family Member of an EU Citizen roadmap</a>.'
+    },
+    es: {
+      heading: "¿Planeas tu mudanza, no solo el trámite?",
+      body: 'Esta guía trata sobre la solicitud de la tarjeta de residencia (EX-19) una vez que ya sabes que cumples los requisitos. Para categorías de parentesco, requisitos de elegibilidad, mudarse juntos o por separado, y errores comunes, consulta la <a href="/es/moving-to-spain/family-member-eu-citizen/">hoja de ruta de Familiar de un Ciudadano de la UE</a>.'
+    }
+  },
+  study: {
+    en: {
+      heading: "Planning your studies, not just the paperwork?",
+      body: 'This guide covers the study stay application (EX-00) once you are ready to file. For admission, financial means, healthcare, and accommodation planning for both EU and non-EU students, see the broader <a href="/moving-to-spain/students/">Moving to Spain as a Student roadmap</a>.'
+    },
+    es: {
+      heading: "¿Planeas tus estudios, no solo el trámite?",
+      body: 'Esta guía trata sobre la solicitud de la autorización de estancia por estudios (EX-00) una vez que estás listo para presentarla. Para admisión, medios económicos, sanidad y alojamiento, tanto para estudiantes de la UE como de fuera de la UE, consulta la <a href="/es/moving-to-spain/students/">hoja de ruta de Mudarse a España como Estudiante</a>.'
+    }
   }
+};
 
+function renderWorkAuthorizationScopeNotice(routeId) {
+  const notice = routeScopeNotices[routeId];
+  if (!notice) return "";
+
+  const { heading, body } = currentLang === "es" ? notice.es : notice.en;
   return `
     <div class="result-section route-scope-note">
-      <strong>EU citizen?</strong>
-      <p>This guide covers work authorization for non-EU citizens. If you are an EU, EEA or Swiss citizen, use the <a href="/moving-to-spain/work-in-spain/">broader Work in Spain roadmap</a>.</p>
+      <strong>${heading}</strong>
+      <p>${body}</p>
     </div>
   `;
 }
