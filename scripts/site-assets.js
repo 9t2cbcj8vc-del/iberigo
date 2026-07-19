@@ -1,4 +1,4 @@
-const STYLESHEET_VERSION = "20260712-search-icon";
+const STYLESHEET_VERSION = "20260719-language-toggle";
 const SITE_SEARCH_VERSION = "20260712-sitewide-4";
 
 const stylesheetHref = `/styles.css?v=${STYLESHEET_VERSION}`;

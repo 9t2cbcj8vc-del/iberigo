@@ -361,7 +361,9 @@ nav a[aria-current="page"] {
   font-weight: 760;
 }
 
-.language-switcher button[aria-pressed="true"] {
+.language-switcher button[aria-pressed="true"],
+html[lang^="en"] .language-switcher button[data-lang="en"],
+html[lang^="es"] .language-switcher button[data-lang="es"] {
   background: var(--button-bg);
   color: #fffdf9;
   box-shadow: var(--button-shadow);
