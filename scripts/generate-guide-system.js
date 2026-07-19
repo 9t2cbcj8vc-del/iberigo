@@ -34,6 +34,7 @@ const routes = {
   esStudents: "/es/moving-to-spain/students/",
   esRetireInSpain: "/es/moving-to-spain/retire-in-spain/",
   esSelfEmployed: "/es/moving-to-spain/self-employed-spain/",
+  esEuRegistration: "/es/moving-to-spain/eu-registration/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/moving-to-spain/eu-registration/",
@@ -463,6 +464,13 @@ const searchMetadataByRoute = {
     estimatedTime: "12 min",
     appliesTo: ["Freelancers, contratistas y autónomos en España", "Pequeños empresarios", "Ciudadanos de la UE y no UE que planean el autoempleo"],
     keywords: ["autónomo", "trabajo por cuenta propia España", "freelancer", "IAE", "Seguridad Social", "TIE", "gestor"]
+  },
+  [routes.esEuRegistration]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "10 min",
+    appliesTo: ["Ciudadanos de la UE que se quedan más de 3 meses", "Ciudadanos del EEE que se quedan más de 3 meses", "Ciudadanos suizos que se quedan más de 3 meses"],
+    keywords: ["registro de la UE", "certificado de registro", "EX-18", "Modelo 790-012", "NIE", "padrón"]
   }
 };
 
@@ -984,6 +992,7 @@ const workInSpainPair = launchedPair(routes.workInSpain, routes.esWorkInSpain);
 const studentsPair = launchedPair(routes.students, routes.esStudents);
 const retireInSpainPair = launchedPair(routes.retireInSpain, routes.esRetireInSpain);
 const selfEmployedPair = launchedPair(routes.selfEmployed, routes.esSelfEmployed);
+const euRegistrationPair = launchedPair(routes.euRegistration, routes.esEuRegistration);
 
 const pages = [
   {
@@ -3343,6 +3352,8 @@ const pages = [
     html: GuideLayout({
       path: routes.euRegistration,
       canonical: `https://iberigo.eu${routes.euRegistration}`,
+      altHref: euRegistrationPair.en.altHref,
+      hreflangAlternates: euRegistrationPair.en.hreflangAlternates,
       title: "EU Registration in Spain — IberiGo",
       description: "A practical guide to registering as an EU citizen in Spain, including who needs it, documents, healthcare proof, common mistakes and what happens after registration.",
       metadata: guideMetadataFor(routes.euRegistration),
@@ -3477,6 +3488,174 @@ const pages = [
             { label: "View the Taxes in Spain Guide", href: routes.taxes },
             { label: "View the Settling Into Spain Guide", href: routes.settling }
           ])}${TipBox("Keep your EU Registration Certificate with your identity, padrón, healthcare, work, banking and tax documents.")}`
+        })
+      ]
+    })
+  },
+  {
+    route: routes.esEuRegistration,
+    html: GuideLayout({
+      lang: "es",
+      path: routes.esEuRegistration,
+      canonical: `https://iberigo.eu${routes.esEuRegistration}`,
+      altHref: euRegistrationPair.es.altHref,
+      hreflangAlternates: euRegistrationPair.es.hreflangAlternates,
+      title: "Registro de la UE en España — IberiGo",
+      description: "Una guía práctica para registrarte como ciudadano de la UE en España, incluyendo quién lo necesita, los documentos, el justificante sanitario, errores comunes y qué ocurre después del registro.",
+      metadata: guideMetadataFor(routes.esEuRegistration),
+      showContinueJourney: false,
+      breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Certificado de Registro de la UE" }],
+      hero: {
+        kicker: "Registro de ciudadano de la UE",
+        title: "Registro de la UE en España",
+        intro: "Una guía práctica para registrarte como ciudadano de la UE, del EEE o de Suiza en España, preparar la documentación adecuada y evitar confusiones con el NIE, la TIE y el padrón.",
+        asideTitle: "No es una TIE",
+        asideText: "Los ciudadanos de la UE suelen recibir un Certificado de Registro verde. Las tarjetas TIE se usan generalmente para ciudadanos no comunitarios."
+      },
+      sections: [
+        GuideSection({
+          id: "languageNote",
+          title: "Sobre esta página en español",
+          children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+        }),
+        GuideSection({
+          id: "respuestaRapida",
+          title: "Respuesta rápida",
+          children: `<p>Los ciudadanos de la UE, del EEE y de Suiza pueden entrar en España sin visado. Si te quedas más de tres meses, normalmente debes registrarte como residente comunitario. El resultado suele ser el Certificado de Registro de Ciudadano de la Unión, que incluye un NIE. No es lo mismo que una TIE.</p>`
+        }),
+        GuideSection({
+          id: "deUnVistazo",
+          title: "De un vistazo",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>¿Para quién es?</th><td>Ciudadanos de la UE, del EEE y de Suiza que se quedan en España más de tres meses.</td></tr>
+            <tr><th>Resultado habitual</th><td>Un Certificado de Registro verde que incluye un NIE.</td></tr>
+            <tr><th>No es una TIE</th><td>Las tarjetas TIE se usan generalmente para ciudadanos no comunitarios.</td></tr>
+            <tr><th>Formulario habitual</th><td>EX-18.</td></tr>
+            <tr><th>Documentación</th><td>Depende de si trabajas, eres autónomo, estudias, te jubilas o vives de recursos suficientes.</td></tr>
+          </tbody></table>`
+        }),
+        GuideSection({
+          id: "quienNecesitaElRegistroDeLaUe",
+          title: "¿Quién necesita el registro de la UE?",
+          children: `${Cards([
+            { title: "Ciudadanos de la UE que se quedan más de tres meses", text: "Si vives en España más allá de una estancia corta, el registro de la UE es normalmente el trámite de residencia que debes entender." },
+            { title: "Ciudadanos del EEE", text: "Los ciudadanos del EEE suelen seguir la misma vía general de registro." },
+            { title: "Ciudadanos suizos", text: "Los ciudadanos suizos suelen incluirse en este mismo marco de registro." },
+            { title: "Trabajadores", text: "Los empleados pueden necesitar justificante laboral y documentos de registro relacionados." },
+            { title: "Autónomos", text: "Los autónomos pueden necesitar justificante de actividad, alta fiscal o de Seguridad Social." },
+            { title: "Estudiantes", text: "Los estudiantes pueden necesitar justificante de matrícula, sanitario y de recursos según la cita." },
+            { title: "Jubilados", text: "Los jubilados pueden necesitar justificante de pensión o de recursos suficientes, además de justificante sanitario." },
+            { title: "Personas que viven de ahorros o inversiones", text: "Los solicitantes autosuficientes pueden necesitar justificante de recursos y cobertura sanitaria adecuada." }
+          ])}${InfoBox({ title: "Estancias cortas", text: "Las estancias de menos de tres meses suelen seguir normas distintas. Esta guía se centra en el registro de residencia para estancias más largas." })}`
+        }),
+        GuideSection({
+          id: "nieRegistroDeLaUeYTie",
+          title: "NIE frente a registro de la UE frente a TIE",
+          children: `<table class="guide-table"><tbody>
+            <tr><th>NIE</th><td>Número de identificación usado para fines fiscales y administrativos. No es por sí solo una prueba automática de residencia.</td></tr>
+            <tr><th>Certificado de Registro de la UE</th><td>Registro de residencia para ciudadanos de la UE. Suele ser un certificado verde e incluye un NIE.</td></tr>
+            <tr><th>TIE</th><td>Tarjeta física de residencia usada generalmente por ciudadanos no comunitarios. No es normalmente el documento que solicitan los ciudadanos de la UE.</td></tr>
+          </tbody></table><div class="guide-box guide-box--warning"><strong>Importante</strong><p>No describas el registro de la UE simplemente como "conseguir el NIE". El NIE es un número de identificación; el registro de la UE es el trámite de residencia para ciudadanos de la UE que se quedan más de tres meses.</p></div>`
+        }),
+        GuideSection({
+          id: "principalesViasParaCalificar",
+          title: "Principales vías para calificar",
+          children: Cards([
+            { title: "Trabajar en España", text: "Puede que te pidan un contrato de trabajo, justificante del empleador o documentos de registro relacionados." },
+            { title: "Ser autónomo en España", text: "Puede que te pidan justificante de actividad, alta fiscal o de Seguridad Social." },
+            { title: "Estudiar", text: "Puede que te pidan justificante de matrícula, sanitario y de recursos." },
+            { title: "Jubilarte", text: "Puede que te pidan justificante de pensión, sanitario (como el S1 o un seguro adecuado) y de recursos." },
+            { title: "Recursos suficientes", text: "Puede que te pidan justificante de fondos o ingresos y cobertura sanitaria adecuada." }
+          ])
+        }),
+        GuideSection({
+          id: "documentosQuePuedesNecesitar",
+          title: "Documentos que puedes necesitar",
+          children: `${ChecklistBox({
+            title: "Documentos a preparar",
+            items: [
+              "Pasaporte o documento nacional de identidad",
+              "Formulario EX-18 cumplimentado",
+              "Justificante de la cita",
+              "Tasa Modelo 790-012 pagada",
+              "Justificante de trabajo, actividad por cuenta propia, estudios, pensión o recursos suficientes",
+              "Justificante sanitario, si tu vía lo requiere",
+              "Certificado de empadronamiento, si te lo piden localmente",
+              "Copias de los documentos"
+            ]
+          })}${InfoBox({ title: "Los requisitos varían", text: "Los requisitos exactos pueden variar según la oficina y tu situación personal. Comprueba los requisitos de tu cita antes de acudir." })}`
+        }),
+        GuideSection({
+          id: "sanidadAntesDelRegistro",
+          title: "Sanidad antes del registro de la UE",
+          children: `${Cards([
+            { title: "Por qué importa", text: "Algunos ciudadanos de la UE pueden necesitar acreditar cobertura sanitaria como parte del expediente de registro." },
+            { title: "Estudiantes", text: "Los estudiantes pueden necesitar justificante sanitario según su vía y los requisitos de la cita." },
+            { title: "Jubilados", text: "Los jubilados pueden necesitar el S1, un seguro privado u otra vía sanitaria aceptada." },
+            { title: "Recursos suficientes", text: "Quienes solicitan por recursos suficientes pueden necesitar una cobertura sanitaria adecuada antes de la cita." }
+          ])}<p>Usa la <a href="${routes.healthcare}">guía de sanidad en España (en inglés)</a> para comparar las vías sanitarias antes de acudir a la cita del registro de la UE.</p><div class="guide-box guide-box--warning"><strong>Importante</strong><p>La planificación sanitaria puede tener que hacerse antes de tu cita de registro de la UE si tu vía no se basa en el empleo en España.</p></div>`
+        }),
+        GuideSection({
+          id: "citaYTasa",
+          title: "Cita y tasa",
+          children: `${Cards([
+            { title: "Disponibilidad de citas", text: "La disponibilidad de citas varía según la provincia y puede cambiar con el tiempo." },
+            { title: "Tipo de cita correcto", text: "Asegúrate de reservar la cita de registro de ciudadano de la UE, no una cita de TIE para no comunitarios." },
+            { title: "Pago de la tasa", text: "La tasa oficial normalmente se paga antes de la cita mediante el formulario de tasa correspondiente." },
+            { title: "Importe de la tasa", text: "La tasa actual es de 12,00 EUR, mediante el Modelo 790-012. El importe puede cambiar, así que comprueba el formulario y las instrucciones vigentes antes de pagar." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No te bases en una captura de pantalla antigua ni en un mensaje de foro para la tasa o el nombre de la cita. Comprueba las instrucciones oficiales vigentes antes de pagar o reservar.</p></div>`
+        }),
+        GuideSection({
+          id: "resumenDelProceso",
+          title: "Resumen del proceso",
+          children: StepTimeline([
+            { title: "Confirma tu vía", text: "Trabajo, actividad por cuenta propia, estudios, jubilación o recursos suficientes pueden requerir justificantes distintos." },
+            { title: "Comprueba los requisitos de la cita", text: "Revisa las instrucciones de la provincia u oficina antes de reunir los documentos." },
+            { title: "Prepara formularios y justificantes", text: "Prepara identidad, EX-18, justificante de la tasa, justificante de tu vía, justificante sanitario si hace falta y copias." },
+            { title: "Acude a la cita", text: "Lleva los documentos que te pidan para tu cita y responde según tu situación real." },
+            { title: "Guarda el certificado en un lugar seguro", text: "El Certificado de Registro de la UE verde puede serte útil para trámites bancarios, sanitarios, laborales, fiscales y otros trámites administrativos." }
+          ])
+        }),
+        GuideSection({
+          id: "erroresComunes",
+          title: "Errores comunes",
+          children: Cards([
+            "Reservar el tipo de cita equivocado.",
+            "Confundir el registro de la UE con la TIE.",
+            "Pensar que el NIE por sí solo significa que el registro de residencia está completo.",
+            "Llegar sin el justificante sanitario cuando se requiere.",
+            "Llevar documentos incompletos.",
+            "Suponer que todas las provincias piden exactamente los mismos documentos.",
+            "Dejar la cita para el último momento.",
+            "No quedarte con copias."
+          ])
+        }),
+        GuideSection({
+          id: "preguntasReales",
+          title: "Preguntas reales de la gente",
+          children: Cards([
+            { title: "¿El registro de la UE es lo mismo que el NIE?", text: "No. El NIE es un número de identificación. El registro de la UE es el trámite de residencia para ciudadanos de la UE que se quedan más de tres meses, y el certificado suele incluir un NIE." },
+            { title: "¿Los ciudadanos de la UE reciben una TIE?", text: "Normalmente no. Los ciudadanos de la UE suelen recibir un Certificado de Registro verde. Las tarjetas TIE se usan generalmente para ciudadanos no comunitarios." },
+            { title: "¿Necesito el padrón primero?", text: "Puede que te lo pidan localmente, según la oficina y los requisitos de la cita. Comprúebalo antes de acudir." },
+            { title: "¿Necesito un seguro médico privado?", text: "Depende de tu vía. Los trabajadores pueden usar justificante laboral, mientras que estudiantes, jubilados o solicitantes autosuficientes pueden necesitar justificante sanitario como el S1 o un seguro adecuado." },
+            { title: "¿Puedo trabajar antes de registrarme?", text: "Los ciudadanos de la UE generalmente pueden entrar en España sin visado, pero los trámites de trabajo, Seguridad Social y registro deben gestionarse correctamente. Comprueba tus obligaciones laborales y de registro." },
+            { title: "¿Qué pasa si no hay citas disponibles?", text: "La disponibilidad de citas puede variar según la provincia. Sigue comprobando los canales oficiales y evita reservar el trámite equivocado por frustración." },
+            { title: "¿Qué ocurre después de recibir el certificado?", text: "Guárdalo en un lugar seguro. Puede que lo necesites para trámites bancarios, sanitarios, laborales, fiscales, de acceso digital y otros trámites administrativos." },
+            { title: "¿El certificado verde es una tarjeta?", text: "Suele ser un certificado verde en papel, no una tarjeta con foto. No es lo mismo que una TIE." }
+          ])
+        }),
+        GuideSection({
+          id: "tuProximoPaso",
+          title: "Tu próximo paso",
+          children: `${SourceLinks([
+            { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
+            { label: "Ver la guía de sanidad en España (en inglés)", href: routes.healthcare },
+            { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
+            { label: "Ver la guía de cuenta bancaria", href: routes.esBanking },
+            { label: "Ver la guía del certificado digital y Cl@ve (en inglés)", href: routes.digital },
+            { label: "Ver la guía de impuestos en España (en inglés)", href: routes.taxes },
+            { label: "Ver la guía de instalarte en España", href: routes.esSettling }
+          ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda tu Certificado de Registro de la UE junto con tus documentos de identidad, padrón, sanidad, trabajo, banca e impuestos.</p></div>`
         })
       ]
     })
