@@ -3431,7 +3431,7 @@ const pages = [
             { title: "Appointment availability", text: "Appointment availability varies by province and can change over time." },
             { title: "Correct appointment type", text: "Make sure you book the EU citizen registration appointment, not a non-EU TIE appointment." },
             { title: "Fee payment", text: "The official fee is usually paid before the appointment using the relevant fee form." },
-            { title: "Fee amount", text: "The fee amount can change, so check the current form and instructions before paying." }
+            { title: "Fee amount", text: "The current fee is 12.00 EUR, paid via Modelo 790-012. The fee amount can change, so check the current form and instructions before paying." }
           ])}${WarningBox("Do not rely on an old screenshot or forum post for the fee or appointment label. Check the current official instructions before paying or booking.")}`
         }),
         GuideSection({
