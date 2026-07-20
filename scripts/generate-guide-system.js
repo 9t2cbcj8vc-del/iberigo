@@ -1320,12 +1320,12 @@ const pages = [
           id: "tuProximoPaso",
           title: "Tu próximo paso",
           children: `${SourceLinks([
-            { label: "Ver la hoja de ruta UE (en inglés)", href: routes.euRoadmap },
+            { label: "Ver la hoja de ruta UE", href: routes.esEuRoadmap },
             { label: "Ver la guía de primeros pasos", href: routes.esSettling },
             { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
             { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
-            { label: "Ver la guía de registro de la UE (en inglés)", href: routes.euRegistration }
+            { label: "Ver la guía de registro de la UE", href: routes.esEuRegistration }
           ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Crea una carpeta para originales, otra para copias y una carpeta digital segura. Nombra los archivos con claridad por tipo de documento y fecha.</p></div>`
         })
       ]
@@ -1583,7 +1583,7 @@ const pages = [
             { title: "Registro", text: "Los ciudadanos de la UE, del EEE y de Suiza que viven en España a largo plazo suelen usar la vía del certificado de registro de ciudadano de la UE." },
             { title: "Requisitos oficiales", text: "Las pruebas dependen de si trabajas, eres autónomo, estudias, te jubilas o vives de tus ahorros." },
             { title: "Consejo práctico", text: "Prepara la sanidad, el domicilio y las pruebas de tu vía antes de la cita, y comprueba las instrucciones exactas de tu provincia." }
-          ])}<p>Consulta la <a href="${routes.euRegistration}">guía de registro de la UE (en inglés)</a> si esta vía se aplica a tu caso.</p><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los ciudadanos de la UE normalmente se preparan para el certificado de registro de ciudadano de la UE, no para una TIE. Los familiares no comunitarios u otras vías pueden seguir trámites distintos.</p></div>`
+          ])}<p>Consulta la <a href="${routes.esEuRegistration}">guía de registro de la UE</a> si esta vía se aplica a tu caso.</p><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los ciudadanos de la UE normalmente se preparan para el certificado de registro de ciudadano de la UE, no para una TIE. Los familiares no comunitarios u otras vías pueden seguir trámites distintos.</p></div>`
         }),
         GuideSection({
           id: "abrirCuentaBancaria",
@@ -1659,7 +1659,7 @@ const pages = [
             { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
             { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
-            { label: "Ver la guía de registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía de registro de la UE", href: routes.esEuRegistration },
             { label: "Ver la guía de cuenta bancaria", href: routes.esBanking }
           ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Antes de empezar, apunta en un solo lugar tu situación (trabajo, estudios, jubilación u otra), tu provincia y municipio, y los documentos que ya tienes, para poder comparar cada paso con tu caso real.</p></div>`
         })
@@ -1889,7 +1889,7 @@ const pages = [
             { title: "Investiga el alojamiento", text: "Comprueba si una dirección puede sustentar el empadronamiento antes de confiar en ella." },
             { title: "Entiende tus necesidades de sanidad", text: "Algunas vías pueden pedir justificante de sanidad antes del registro de la UE." }
           ])}${SourceLinks([
-            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía del registro de la UE", href: routes.esEuRegistration },
             { label: "Ver la lista de documentos", href: routes.esChecklist },
             { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare }
@@ -1907,7 +1907,8 @@ const pages = [
             { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
             { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
-            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration }
+            { label: "Ver la guía del registro de la UE", href: routes.esEuRegistration },
+            { label: "Ver la guía del NIE", href: "/guides/es/nie/" }
           ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No trates esto como plazos fijos. La disponibilidad de citas puede variar, y algunos pasos pueden tardar más en zonas con mucha demanda.</p></div>`
         }),
         GuideSection({
@@ -1964,7 +1965,7 @@ const pages = [
             { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
             { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
-            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration }
+            { label: "Ver la guía del registro de la UE", href: routes.esEuRegistration }
           ])
         })
       ]
@@ -2092,6 +2093,9 @@ const pages = [
             { title: "No es lo mismo que el registro de la UE", text: "El registro de la UE es la vía del certificado para ciudadanos de la UE, del EEE y de Suiza. Los residentes no comunitarios siguen normalmente la vía de la TIE." },
             { title: "Huellas y recogida", text: "Muchos residentes no comunitarios pasan por una toma de huellas y una recogida de tarjeta tras la aprobación." },
             { title: "Los detalles dependen de tu vía", text: "Los pasos, plazos y documentos exactos dependen de tu vía de residencia concreta." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de la TIE", href: "/guides/es/tie/" },
+            { label: "Ver la guía del NIE", href: "/guides/es/nie/" }
           ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No des por hecho que TIE, NIE y registro de la UE son términos intercambiables. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
         }),
         GuideSection({
@@ -2297,7 +2301,8 @@ const pages = [
             { label: "Ver la guía de alojamiento", href: routes.esAccommodation },
             { label: "Ver la guía del padrón (en inglés)", href: routes.padron },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
-            { label: "Ver la guía de primeros pasos", href: routes.esSettling }
+            { label: "Ver la guía de primeros pasos", href: routes.esSettling },
+            { label: "Ver la guía del NIE", href: "/guides/es/nie/" }
           ])}<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, parentesco, traducciones y legalizaciones para poder responder rápido en cuanto conozcas los requisitos exactos de tu caso.</p></div>`
         })
       ]
@@ -2372,7 +2377,7 @@ const pages = [
             { title: "Guarda tus documentos", text: "Los trabajadores deben guardar contratos, nóminas y justificantes de la Seguridad Social." }
           ])}${SourceLinks([
             { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
-            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía del registro de la UE", href: routes.esEuRegistration },
             { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
             { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
@@ -2440,6 +2445,9 @@ const pages = [
             { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
             { title: "Citas y recogida", text: "Los trámites de TIE pueden implicar citas, huellas y recogida." },
             { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el procedimiento local." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de la TIE", href: "/guides/es/tie/" },
+            { label: "Ver la guía del NIE", href: "/guides/es/nie/" }
           ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
         }),
         GuideSection({
@@ -2573,7 +2581,7 @@ const pages = [
             { title: "Comprueba tu situación exacta", text: "Los estudiantes de la UE deben comprobar si su situación entra dentro de estudiante, trabajador u otra vía." }
           ])}${SourceLinks([
             { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
-            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía del registro de la UE", href: routes.esEuRegistration },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare }
           ])}`
         }),
@@ -2615,6 +2623,9 @@ const pages = [
             { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
             { title: "Citas y recogida", text: "Los trámites de TIE pueden implicar citas, huellas y recogida." },
             { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el procedimiento local." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de la TIE", href: "/guides/es/tie/" },
+            { label: "Ver la guía del NIE", href: "/guides/es/nie/" }
           ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
         }),
         GuideSection({
@@ -2742,7 +2753,7 @@ const pages = [
             { title: "Depende de la oficina y la situación", text: "Los justificantes exactos pueden depender de la oficina y la situación personal." }
           ])}${SourceLinks([
             { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
-            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía del registro de la UE", href: routes.esEuRegistration },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
             { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
           ])}`
@@ -2826,6 +2837,9 @@ const pages = [
             { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
             { title: "Citas y recogida", text: "Los trámites de TIE pueden implicar citas, huellas y recogida." },
             { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el procedimiento local." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de la TIE", href: "/guides/es/tie/" },
+            { label: "Ver la guía del NIE", href: "/guides/es/nie/" }
           ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
         }),
         GuideSection({
@@ -2957,7 +2971,7 @@ const pages = [
             { title: "Revisa pronto impuestos y Seguridad Social", text: "Conviene revisar pronto las obligaciones fiscales y de Seguridad Social." }
           ])}${SourceLinks([
             { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
-            { label: "Ver la guía del registro de la UE (en inglés)", href: routes.euRegistration },
+            { label: "Ver la guía del registro de la UE", href: routes.esEuRegistration },
             { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
             { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
           ])}`
@@ -3038,6 +3052,9 @@ const pages = [
             { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
             { title: "Citas y recogida", text: "Los trámites de TIE pueden implicar citas, huellas y recogida." },
             { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el procedimiento local." }
+          ])}${SourceLinks([
+            { label: "Ver la guía de la TIE", href: "/guides/es/tie/" },
+            { label: "Ver la guía del NIE", href: "/guides/es/nie/" }
           ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento aplica a tu situación antes de una cita.</p></div>`
         }),
         GuideSection({
@@ -3163,7 +3180,8 @@ const pages = [
             { label: "View the Finding Accommodation Guide", href: routes.accommodation },
             { label: "View the Padrón Guide", href: routes.padron },
             { label: "View the Healthcare Guide", href: routes.healthcare },
-            { label: "View the EU Registration Guide", href: routes.euRegistration }
+            { label: "View the EU Registration Guide", href: routes.euRegistration },
+            { label: "View the NIE Guide", href: "/guides/nie/" }
           ])}${WarningBox("Do not treat these as fixed deadlines. Appointment availability can vary, and some steps may take longer in high-demand areas.")}`
         }),
         GuideSection({
@@ -5028,6 +5046,9 @@ pages.push({
           { title: "Not the same as EU Registration", text: "EU Registration is the certificate route used by EU, EEA and Swiss citizens. Non-EU residents normally follow the TIE route instead." },
           { title: "Fingerprinting and collection", text: "Many non-EU residents go through a fingerprinting and card-collection process after approval." },
           { title: "Details depend on your route", text: "Exact steps, timing and required documents depend on your specific residence route." }
+        ])}${SourceLinks([
+          { label: "View the TIE Guide", href: "/guides/tie/" },
+          { label: "View the NIE Guide", href: "/guides/nie/" }
         ])}${WarningBox("Do not assume TIE, NIE and EU Registration are interchangeable terms. Confirm which document applies to your situation before an appointment.")}`
       }),
       CommonMistakes([
@@ -5203,7 +5224,8 @@ pages.push({
           { label: "View the Finding Accommodation Guide", href: routes.accommodation },
           { label: "View the Padrón Guide", href: routes.padron },
           { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
-          { label: "View the Settling Into Spain Guide", href: routes.settling }
+          { label: "View the Settling Into Spain Guide", href: routes.settling },
+          { label: "View the NIE Guide", href: "/guides/nie/" }
         ])}${TipBox("Keep a folder for identity, relationship, translated and legalised documents so you can respond quickly once you know your exact case requirements.")}`
       })
     ]
@@ -5321,6 +5343,9 @@ pages.push({
           { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
           { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
           { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${SourceLinks([
+          { label: "View the TIE Guide", href: "/guides/tie/" },
+          { label: "View the NIE Guide", href: "/guides/nie/" }
         ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
       }),
       GuideSection({
@@ -5493,6 +5518,9 @@ pages.push({
           { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
           { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
           { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${SourceLinks([
+          { label: "View the TIE Guide", href: "/guides/tie/" },
+          { label: "View the NIE Guide", href: "/guides/nie/" }
         ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
       }),
       CommonMistakes([
@@ -5674,6 +5702,9 @@ pages.push({
           { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
           { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
           { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${SourceLinks([
+          { label: "View the TIE Guide", href: "/guides/tie/" },
+          { label: "View the NIE Guide", href: "/guides/nie/" }
         ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
       }),
       CommonMistakes([
@@ -6167,6 +6198,9 @@ pages.push({
           { title: "Not the same as EU Registration", text: "TIE is not the same as EU Registration." },
           { title: "Appointments and collection", text: "TIE procedures can involve appointments, fingerprints and collection." },
           { title: "Depends on your case", text: "Details depend on approval, route and local procedure." }
+        ])}${SourceLinks([
+          { label: "View the TIE Guide", href: "/guides/tie/" },
+          { label: "View the NIE Guide", href: "/guides/nie/" }
         ])}${WarningBox("Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.")}`
       }),
       CommonMistakes([
