@@ -1729,8 +1729,8 @@ select {
   font-size: var(--type-small);
 }
 
-.living-topic-card button,
-.living-topic-card a {
+.living-topic-card > button,
+.living-topic-card > a {
   position: relative;
   z-index: 2;
   display: inline-flex;
@@ -4174,8 +4174,8 @@ select {
 
   .province-links a,
   .choice-actions button,
-  .living-topic-card button,
-  .living-topic-card a {
+  .living-topic-card > button,
+  .living-topic-card > a {
     min-height: 44px;
   }
 
@@ -4183,8 +4183,8 @@ select {
     min-height: auto;
   }
 
-  .living-topic-card button,
-  .living-topic-card a {
+  .living-topic-card > button,
+  .living-topic-card > a {
     width: 100%;
   }
 
