@@ -54,7 +54,11 @@ const routes = {
   retireInSpain: "/moving-to-spain/retire-in-spain/",
   familyReunification: "/moving-to-spain/family-reunification/",
   digitalNomad: "/moving-to-spain/digital-nomad-spain/",
-  selfEmployed: "/moving-to-spain/self-employed-spain/"
+  selfEmployed: "/moving-to-spain/self-employed-spain/",
+  vacationHub: "/guides/vacation-in-spain/",
+  esVacationHub: "/guides/es/vacation-in-spain/",
+  livingHub: "/guides/living-in-spain/",
+  esLivingHub: "/guides/es/living-in-spain/"
 };
 
 function writePage(route, html) {
@@ -471,6 +475,34 @@ const searchMetadataByRoute = {
     estimatedTime: "10 min",
     appliesTo: ["Ciudadanos de la UE que se quedan más de 3 meses", "Ciudadanos del EEE que se quedan más de 3 meses", "Ciudadanos suizos que se quedan más de 3 meses"],
     keywords: ["registro de la UE", "certificado de registro", "EX-18", "Modelo 790-012", "NIE", "padrón"]
+  },
+  [routes.vacationHub]: {
+    category: "Vacation in Spain",
+    difficulty: "Easy",
+    estimatedTime: "3 min",
+    appliesTo: ["People planning a short trip to Spain", "People comparing transport, accommodation and trip-planning guides"],
+    keywords: ["vacation in Spain", "short stay", "entry rules", "flights", "trains", "hotels", "tourism", "reviews"]
+  },
+  [routes.esVacationHub]: {
+    category: "Vacaciones en España",
+    difficulty: "Fácil",
+    estimatedTime: "3 min",
+    appliesTo: ["Personas que planean un viaje corto a España", "Personas que comparan guías de transporte, alojamiento y planificación de viaje"],
+    keywords: ["vacaciones en España", "estancia corta", "reglas de entrada", "vuelos", "trenes", "hoteles", "turismo", "reseñas"]
+  },
+  [routes.livingHub]: {
+    category: "Living in Spain",
+    difficulty: "Easy",
+    estimatedTime: "3 min",
+    appliesTo: ["People newly living in Spain", "People organizing documents, health cover, money and everyday admin"],
+    keywords: ["living in Spain", "padrón", "NIE", "TIE", "healthcare", "banking", "taxes", "job search", "phone"]
+  },
+  [routes.esLivingHub]: {
+    category: "Vivir en España",
+    difficulty: "Fácil",
+    estimatedTime: "3 min",
+    appliesTo: ["Personas que viven recientemente en España", "Personas que organizan documentos, sanidad, dinero y trámites cotidianos"],
+    keywords: ["vivir en España", "padrón", "NIE", "TIE", "sanidad", "banco", "impuestos", "búsqueda de empleo", "teléfono"]
   }
 };
 
@@ -993,6 +1025,8 @@ const studentsPair = launchedPair(routes.students, routes.esStudents);
 const retireInSpainPair = launchedPair(routes.retireInSpain, routes.esRetireInSpain);
 const selfEmployedPair = launchedPair(routes.selfEmployed, routes.esSelfEmployed);
 const euRegistrationPair = launchedPair(routes.euRegistration, routes.esEuRegistration);
+const vacationHubPair = launchedPair(routes.vacationHub, routes.esVacationHub);
+const livingHubPair = launchedPair(routes.livingHub, routes.esLivingHub);
 
 const pages = [
   {
@@ -6239,6 +6273,236 @@ pages.push({
           { label: "View the Digital Certificate and Cl@ve Guide", href: routes.digital },
           { label: "View the Healthcare in Spain Guide", href: routes.healthcare }
         ])}${TipBox("Keep a folder for identity, business, tax and Social Security documents so you can respond quickly once you know your exact route requirements.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.vacationHub,
+  html: GuideLayout({
+    path: routes.vacationHub,
+    canonical: `https://iberigo.eu${routes.vacationHub}`,
+    altHref: vacationHubPair.en.altHref,
+    hreflangAlternates: vacationHubPair.en.hreflangAlternates,
+    title: "Vacation in Spain — IberiGo",
+    description: "Short visits, entry rules, transport, places to stay, and practical trip planning for a vacation in Spain.",
+    metadata: guideMetadataFor(routes.vacationHub),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Start Here", href: routes.startHere }, { label: "Vacation in Spain" }],
+    hero: {
+      kicker: "Vacation in Spain",
+      title: "Vacation in Spain",
+      intro: "Short visits, entry rules, transport, places to stay, and practical trip planning — organized by what you need to sort out next."
+    },
+    sections: [
+      GuideSection({
+        id: "entry",
+        title: "Entry",
+        children: StartHereGuideCards([
+          { title: "Entry rules and short stays", text: "Basic rules for short visits, Schengen stays, and trips up to 90 days.", href: "/guides/vacation-entry/", label: "View guide" }
+        ])
+      }),
+      GuideSection({
+        id: "gettingAroundSpain",
+        title: "Getting around Spain",
+        children: StartHereGuideCards([
+          { title: "Flights and airports", text: "Flights, airports, and search tools for arriving and moving around smoothly.", href: "/guides/vacation-flights/", label: "View guide" },
+          { title: "Trains, buses, and car hire", text: "Trains, buses, and car rental for getting around inside Spain.", href: "/guides/vacation-ground/", label: "View guide" }
+        ])
+      }),
+      GuideSection({
+        id: "whereToStay",
+        title: "Where to stay",
+        children: StartHereGuideCards([
+          { title: "Booking platforms", text: "Large booking platforms for comparing places to stay before you reserve.", href: "/guides/vacation-booking/", label: "View guide" },
+          { title: "Hotel chains", text: "Major hotel chains with a strong presence in Spain.", href: "/guides/vacation-hotels/", label: "View guide" }
+        ])
+      }),
+      GuideSection({
+        id: "ideasAndPlanning",
+        title: "Ideas and planning",
+        children: StartHereGuideCards([
+          { title: "Official tourism and ideas", text: "Official tourism portals and ideas for choosing destinations and planning better.", href: "/guides/vacation-tourism/", label: "View guide" },
+          { title: "Reviews and comparison", text: "Reviews and comparison tools for neighborhoods, stays, and experiences.", href: "/guides/vacation-reviews/", label: "View guide" }
+        ])
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.esVacationHub,
+  html: GuideLayout({
+    lang: "es",
+    path: routes.esVacationHub,
+    canonical: `https://iberigo.eu${routes.esVacationHub}`,
+    altHref: vacationHubPair.es.altHref,
+    hreflangAlternates: vacationHubPair.es.hreflangAlternates,
+    title: "Vacaciones en España — IberiGo",
+    description: "Visitas cortas, reglas de entrada, transporte, alojamiento y planificación práctica para unas vacaciones en España.",
+    metadata: guideMetadataFor(routes.esVacationHub),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Vacaciones en España" }],
+    hero: {
+      kicker: "Vacaciones en España",
+      title: "Vacaciones en España",
+      intro: "Visitas cortas, reglas de entrada, transporte, alojamiento y planificación práctica del viaje, organizado según lo que necesites resolver a continuación."
+    },
+    sections: [
+      GuideSection({
+        id: "entrada",
+        title: "Entrada",
+        children: StartHereGuideCards([
+          { title: "Reglas de entrada y estancia corta", text: "Reglas básicas para visitas cortas, Schengen y estancias de hasta 90 días.", href: "/guides/es/vacation-entry/", label: "Ver guía" }
+        ])
+      }),
+      GuideSection({
+        id: "moverseEnEspana",
+        title: "Moverte por España",
+        children: StartHereGuideCards([
+          { title: "Vuelos y aeropuertos", text: "Vuelos, aeropuertos y comparadores para llegar y moverte mejor.", href: "/guides/es/vacation-flights/", label: "Ver guía" },
+          { title: "Trenes, autobuses y coche", text: "Trenes, autobuses y alquiler de coche para desplazarte dentro de España.", href: "/guides/es/vacation-ground/", label: "Ver guía" }
+        ])
+      }),
+      GuideSection({
+        id: "dondeAlojarte",
+        title: "Dónde alojarte",
+        children: StartHereGuideCards([
+          { title: "Buscadores y reservas", text: "Plataformas grandes para comparar alojamiento antes de reservar.", href: "/guides/es/vacation-booking/", label: "Ver guía" },
+          { title: "Cadenas hoteleras", text: "Cadenas hoteleras importantes presentes en España.", href: "/guides/es/vacation-hotels/", label: "Ver guía" }
+        ])
+      }),
+      GuideSection({
+        id: "ideasYPlanificacion",
+        title: "Ideas y planificación",
+        children: StartHereGuideCards([
+          { title: "Turismo oficial e ideas", text: "Portales oficiales e ideas para elegir destinos y planificar mejor el viaje.", href: "/guides/es/vacation-tourism/", label: "Ver guía" },
+          { title: "Reseñas y comparación", text: "Reseñas y comparación de zonas, alojamientos y experiencias.", href: "/guides/es/vacation-reviews/", label: "Ver guía" }
+        ])
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.livingHub,
+  html: GuideLayout({
+    path: routes.livingHub,
+    canonical: `https://iberigo.eu${routes.livingHub}`,
+    altHref: livingHubPair.en.altHref,
+    hreflangAlternates: livingHubPair.en.hreflangAlternates,
+    title: "Living in Spain — IberiGo",
+    description: "Documents, healthcare, money, work, and everyday setup for living in Spain, organized by what you need to sort out next.",
+    metadata: guideMetadataFor(routes.livingHub),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Start Here", href: routes.startHere }, { label: "Living in Spain" }],
+    hero: {
+      kicker: "Living in Spain",
+      title: "Living in Spain",
+      intro: "Documents and admin, healthcare, money and work, and everyday setup — organized by what you need to sort out next."
+    },
+    sections: [
+      GuideSection({
+        id: "documentsAndAdmin",
+        title: "Documents and admin",
+        children: StartHereGuideCards([
+          { title: "Padrón / town hall registration", text: "Town hall address registration — the foundation for TIE, healthcare, and most admin steps.", href: "/guides/padron/", label: "View guide" },
+          { title: "NIE number", text: "Your foreigner ID number for property, banking, tax, work, and most official procedures in Spain.", href: "/guides/nie/", label: "View guide" },
+          { title: "TIE card after VISA approval", text: "Physical card for non-EU citizens after permission is approved.", href: "/guides/tie/", label: "View guide" },
+          { title: "Social Security number", text: "Número de afiliación — needed for employment, self-employment, and healthcare access.", href: "/guides/social-security/", label: "View guide" },
+          { title: "Cl@ve or FNMT digital certificate", text: "FNMT certificate or Cl@ve digital identity for online government portals and e-signatures.", href: "/guides/digital/", label: "View guide" },
+          { title: "Exchange your driving licence", text: "Exchange your foreign driving licence for a Spanish one before your deadline runs out.", href: "/guides/driving-licence-exchange/", label: "View guide" }
+        ])
+      }),
+      GuideSection({
+        id: "health",
+        title: "Health",
+        children: StartHereGuideCards([
+          { title: "Public health card", text: "Regional public health card (SIP, TSI, or equivalent) for GP, referrals, and prescriptions.", href: "/guides/sip-card/", label: "View guide" },
+          { title: "Private health insurance", text: "Private insurance required for some visas and popular for faster specialist access.", href: "/guides/private-health/", label: "View guide" },
+          { title: "European Health Insurance Card", text: "EU health card for medically necessary care during temporary stays in other European countries.", href: "/guides/ehic-card/", label: "View guide" }
+        ])
+      }),
+      GuideSection({
+        id: "moneyAndWork",
+        title: "Money and work",
+        children: StartHereGuideCards([
+          { title: "Bank account and banking basics", text: "Spanish bank account for salary, rent, utilities, and tax — needed within weeks of arriving.", href: "/guides/banking/", label: "View guide" },
+          { title: "Renting a home in Spain", text: "How to search, prepare documents, check contracts, and avoid risky payments.", href: "/guides/renting-home/", label: "View guide" },
+          { title: "Job search in Spain", text: "SEPE, InfoJobs, and LinkedIn are the main channels; EU citizens work freely, non-EU need authorization.", href: "/guides/job-search/", label: "View guide" },
+          { title: "Taxes and tax address", text: "Tax residency, annual IRPF return, and the Beckham Law option for recent arrivals.", href: "/guides/taxes/", label: "View guide" },
+          { title: "Vida laboral (Informe de Vida Laboral)", text: "Official report covering your complete Spanish employment and contribution history.", href: "/guides/vida-laboral/", label: "View guide" }
+        ])
+      }),
+      GuideSection({
+        id: "everydaySetup",
+        title: "Everyday setup",
+        children: StartHereGuideCards([
+          { title: "Phone number and internet", text: "Spanish SIM needed for bank verification, Cl@ve PIN, and government SMS codes.", href: "/guides/phone/", label: "View guide" }
+        ])
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.esLivingHub,
+  html: GuideLayout({
+    lang: "es",
+    path: routes.esLivingHub,
+    canonical: `https://iberigo.eu${routes.esLivingHub}`,
+    altHref: livingHubPair.es.altHref,
+    hreflangAlternates: livingHubPair.es.hreflangAlternates,
+    title: "Vivir en España — IberiGo",
+    description: "Documentos, sanidad, dinero, trabajo e instalación diaria para vivir en España, organizado según lo que necesites resolver a continuación.",
+    metadata: guideMetadataFor(routes.esLivingHub),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Vivir en España" }],
+    hero: {
+      kicker: "Vivir en España",
+      title: "Vivir en España",
+      intro: "Documentos y trámites, sanidad, dinero y trabajo, e instalación diaria — organizado según lo que necesites resolver a continuación."
+    },
+    sections: [
+      GuideSection({
+        id: "documentosYTramites",
+        title: "Documentos y trámites",
+        children: StartHereGuideCards([
+          { title: "Padrón / registro en el ayuntamiento", text: "Registro municipal de tu domicilio en España.", href: "/guides/es/padron/", label: "Ver guía" },
+          { title: "Número NIE", text: "Tu número de identificación de extranjero para inmuebles, banca, impuestos, trabajo y la mayoría de trámites oficiales en España.", href: "/guides/es/nie/", label: "Ver guía" },
+          { title: "Tarjeta TIE después de aprobar el visado", text: "Tarjeta física para ciudadanos no comunitarios con permiso aprobado.", href: "/guides/es/tie/", label: "Ver guía" },
+          { title: "Número de la Seguridad Social", text: "Número usado para empleo, autónomos y relación con la Seguridad Social.", href: "/guides/es/social-security/", label: "Ver guía" },
+          { title: "Cl@ve o certificado digital FNMT", text: "Acceso online para sedes públicas, notificaciones y firma electrónica.", href: "/guides/es/digital/", label: "Ver guía" },
+          { title: "Canjear tu permiso de conducir", text: "Canjea tu permiso de conducir extranjero por uno español antes de que caduque el plazo.", href: "/guides/es/driving-licence-exchange/", label: "Ver guía" }
+        ])
+      }),
+      GuideSection({
+        id: "sanidad",
+        title: "Sanidad",
+        children: StartHereGuideCards([
+          { title: "Tarjeta sanitaria pública", text: "Tarjeta sanitaria pública regional, como SIP en Valencia o TSI en Cataluña.", href: "/guides/es/sip-card/", label: "Ver guía" },
+          { title: "Seguro médico privado", text: "Seguro privado útil para ciertos permisos o como cobertura adicional.", href: "/guides/es/private-health/", label: "Ver guía" },
+          { title: "Tarjeta Sanitaria Europea", text: "Tarjeta para asistencia sanitaria necesaria durante estancias temporales en Europa.", href: "/guides/es/ehic-card/", label: "Ver guía" }
+        ])
+      }),
+      GuideSection({
+        id: "dineroYTrabajo",
+        title: "Dinero y trabajo",
+        children: StartHereGuideCards([
+          { title: "Cuenta bancaria y banca básica", text: "Cuenta para nómina, alquiler, recibos y operaciones bancarias diarias.", href: "/guides/es/banking/", label: "Ver guía" },
+          { title: "Alquilar una vivienda en España", text: "Cómo buscar vivienda, preparar documentos, revisar contratos y evitar pagos dudosos.", href: "/guides/es/renting-home/", label: "Ver guía" },
+          { title: "Buscar trabajo en España", text: "Portales públicos y pasos básicos para empezar a buscar trabajo.", href: "/guides/es/job-search/", label: "Ver guía" },
+          { title: "Impuestos y domicilio fiscal", text: "Domicilio fiscal y trámites básicos con Hacienda.", href: "/guides/es/taxes/", label: "Ver guía" },
+          { title: "Vida laboral (Informe de Vida Laboral)", text: "Informe oficial con tu historial completo de cotizaciones y empleo en España.", href: "/guides/es/vida-laboral/", label: "Ver guía" }
+        ])
+      }),
+      GuideSection({
+        id: "instalacionDiaria",
+        title: "Instalación diaria",
+        children: StartHereGuideCards([
+          { title: "Número de teléfono e internet", text: "Línea móvil e internet para instalarte y verificar servicios.", href: "/guides/es/phone/", label: "Ver guía" }
+        ])
       })
     ]
   })
