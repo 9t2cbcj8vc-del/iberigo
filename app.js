@@ -2328,7 +2328,7 @@ function renderTopicLibrary(title, intro, groups, ariaLabel) {
           <h4>${label}</h4>
           <p>${summaryFn(id)}</p>
           <small>${firstStep}</small>
-          <button type="button" data-direct-route="${id}">${t("openGuideButton")}</button>
+          <a href="${currentLang === "es" ? `/guides/es/${id}/` : `/guides/${id}/`}">${t("openGuideButton")}</a>
         </article>
       `;
     })
@@ -2678,11 +2678,11 @@ function renderFormsAndTaxesBlock(route) {
           : "Form";
       const kindLabel = isPlainKindRow || /^(Form|Formulario|Lomake|Modelo)$/i.test(normalizedKind) ? "" : normalizedKind;
       const rowTag = isGuideLink
-          ? `button type="button" class="${rowClass}" data-direct-route="${directRoute}"`
+          ? `a class="${rowClass}" href="${currentLang === "es" ? `/guides/es/${directRoute}/` : `/guides/${directRoute}/`}"`
           : officialUrl
             ? `a class="${rowClass}" href="${officialUrl}" target="_blank" rel="noreferrer"`
           : `div class="${rowClass}"`;
-      const closingTag = isGuideLink ? "button" : officialUrl ? "a" : "div";
+      const closingTag = isGuideLink ? "a" : officialUrl ? "a" : "div";
       return `
         <${rowTag}>
           <span class="doc-row-badge" aria-hidden="true">${isFormRow || isFeeRow ? badgeLabel : ""}</span>
