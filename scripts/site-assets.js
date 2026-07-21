@@ -1,4 +1,4 @@
-const STYLESHEET_VERSION = "20260720-css-fix";
+const STYLESHEET_VERSION = "20260721-hero-redesign";
 const SITE_SEARCH_VERSION = "20260712-sitewide-4";
 
 const stylesheetHref = `/styles.css?v=${STYLESHEET_VERSION}`;
