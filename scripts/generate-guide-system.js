@@ -689,7 +689,7 @@ function guideMetadataFor(route) {
   return {
     ...(searchMetadataByRoute[route] || {}),
     status: publishedRoutes.has(route) ? "published" : "draft",
-    lastReviewed: "June 2026",
+    lastReviewed: "July 2026",
     reviewedBy: "",
     officialSources: officialSourcesByRoute[route] || [],
     previousGuide: journeyRoutes.previous ? guideLink(journeyRoutes.previous) : null,

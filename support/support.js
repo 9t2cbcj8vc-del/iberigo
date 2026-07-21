@@ -23,7 +23,7 @@ const supportTranslations = {
     footerSupportText: "IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.",
     footerSupportLink: "Donate",
     footerLegal: "© 2026 IberiGo. Free to use. Not legal advice.",
-    footerReviewed: "Last reviewed: June 2026"
+    footerReviewed: "Last reviewed: July 2026"
   },
   es: {
     homeNav: "Inicio",
@@ -49,7 +49,7 @@ const supportTranslations = {
     footerSupportText: "IberiGo es gratuito. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.",
     footerSupportLink: "Donar",
     footerLegal: "© 2026 IberiGo. Gratuito. No es asesoramiento legal.",
-    footerReviewed: "Última revisión: junio de 2026"
+    footerReviewed: "Última revisión: julio de 2026"
   }
 };
 

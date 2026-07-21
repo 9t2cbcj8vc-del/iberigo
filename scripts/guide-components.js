@@ -1,5 +1,5 @@
 const SITE_URL = "https://iberigo.eu";
-const REVIEWED = "June 2026";
+const REVIEWED = "July 2026";
 const { stylesheetHref, searchControlMarkup, siteSearchScriptTag } = require("./site-assets");
 const DEFAULT_EDITORIAL_CHECKLIST = [
   "Grammar reviewed",
