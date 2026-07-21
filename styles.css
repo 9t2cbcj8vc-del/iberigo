@@ -4310,6 +4310,125 @@ select {
   margin-bottom: 14px;
 }
 
+.hero-subheading {
+  margin: 12px 0 0;
+  max-width: 640px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.55;
+}
+
+.hero-stats {
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #a67a4a;
+}
+
+.featured-guide {
+  display: grid;
+  gap: 8px;
+  margin: clamp(20px, 3vw, 32px) clamp(28px, 5vw, 56px) 0;
+  padding: clamp(20px, 2.6vw, 28px) clamp(22px, 3vw, 30px);
+  background: #fffdf9;
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+
+.featured-guide-eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #4a3200;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.featured-guide-title {
+  margin: 2px 0 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 800;
+  color: #1b2030;
+}
+
+.featured-guide-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.featured-guide-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 44px;
+  margin-top: 6px;
+  padding: var(--space-phi-sm) var(--space-phi);
+  border: 0;
+  border-radius: 999px;
+  background: var(--button-bg);
+  color: #fffdf9;
+  font-weight: 760;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.homepage-callout {
+  display: block;
+  margin: 16px clamp(28px, 5vw, 56px) 0;
+  padding: 1.25rem 1.5rem;
+  background: #fdf0dc;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.homepage-callout-eyebrow {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.3px;
+}
+
+.homepage-callout blockquote {
+  margin: 0;
+  font-style: italic;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.browse-label {
+  margin: clamp(24px, 3vw, 36px) clamp(28px, 5vw, 56px) 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .featured-guide,
+  .homepage-callout {
+    margin-left: clamp(16px, 4vw, 28px);
+    margin-right: clamp(16px, 4vw, 28px);
+  }
+
+  .browse-label {
+    margin-left: clamp(16px, 4vw, 28px);
+    margin-right: clamp(16px, 4vw, 28px);
+  }
+}
+
 .hero-disclaimer {
   background: #fdf8f2;
   padding: 10px clamp(28px, 5vw, 56px);
