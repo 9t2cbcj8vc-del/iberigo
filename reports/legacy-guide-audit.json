@@ -1,20 +1,20 @@
 {
   "scriptVersion": 1,
-  "generatedAt": "2026-07-19T14:06:45.083Z",
+  "generatedAt": "2026-07-22T07:48:31.298Z",
   "summary": {
-    "totalLegacyGuideUrls": 70,
-    "englishLegacyGuideUrls": 35,
-    "spanishLegacyGuideUrls": 35,
-    "pagesWithIndexHtml": 70,
-    "pagesInSitemap": 70,
-    "pagesWithCanonical": 70,
-    "pagesWithMetaDescription": 70,
-    "pagesWithCompleteHreflang": 70,
-    "pagesWithDataGuideId": 70,
-    "pagesWithStaticGuideBodyContent": 70,
+    "totalLegacyGuideUrls": 76,
+    "englishLegacyGuideUrls": 38,
+    "spanishLegacyGuideUrls": 38,
+    "pagesWithIndexHtml": 76,
+    "pagesInSitemap": 76,
+    "pagesWithCanonical": 76,
+    "pagesWithMetaDescription": 76,
+    "pagesWithCompleteHreflang": 76,
+    "pagesWithDataGuideId": 76,
+    "pagesWithStaticGuideBodyContent": 76,
     "pagesWithNoscriptFallback": 0,
-    "suspectedHomepageShellCloneCount": 70,
-    "pagesWithRiskFlags": 70
+    "suspectedHomepageShellCloneCount": 76,
+    "pagesWithRiskFlags": 76
   },
   "routes": [
     {
@@ -135,6 +135,38 @@
         {
           "hreflang": "x-default",
           "href": "https://iberigo.eu/guides/driving-licence-exchange/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": true,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/driving-spain-visitors/",
+      "lang": "en",
+      "filePath": "guides/driving-spain-visitors/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "driving-spain-visitors",
+      "canonical": "https://iberigo.eu/guides/driving-spain-visitors/",
+      "title": "Driving in Spain: licenses, tolls, and speed limits — IberiGo",
+      "metaDescription": "Driving in Spain as a visitor: license and International Driving Permit rules, toll and free motorways, and speed limits by road type.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/driving-spain-visitors/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/driving-spain-visitors/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/driving-spain-visitors/"
         }
       ],
       "inSitemap": true,
@@ -295,6 +327,38 @@
         {
           "hreflang": "x-default",
           "href": "https://iberigo.eu/guides/driving-licence-exchange/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": true,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/driving-spain-visitors/",
+      "lang": "es",
+      "filePath": "guides/es/driving-spain-visitors/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "driving-spain-visitors",
+      "canonical": "https://iberigo.eu/guides/es/driving-spain-visitors/",
+      "title": "Conducir en España: carné, peajes y límites de velocidad — IberiGo",
+      "metaDescription": "Conducir en España como visitante: normas de carné y Permiso de Conducir Internacional, autopistas de peaje y gratuitas, y límites de velocidad por tipo de vía.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/driving-spain-visitors/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/driving-spain-visitors/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/driving-spain-visitors/"
         }
       ],
       "inSitemap": true,
@@ -786,6 +850,38 @@
       ]
     },
     {
+      "route": "/guides/es/sim-esim-vpn/",
+      "lang": "es",
+      "filePath": "guides/es/sim-esim-vpn/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "sim-esim-vpn",
+      "canonical": "https://iberigo.eu/guides/es/sim-esim-vpn/",
+      "title": "Tarjetas SIM, eSIM y VPN para España — IberiGo",
+      "metaDescription": "Compara opciones de SIM física, eSIM y VPN para estar conectado en España, desde grandes operadores españoles hasta proveedores de eSIM y VPN pensados para viajeros.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/sim-esim-vpn/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/sim-esim-vpn/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/sim-esim-vpn/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": true,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-noscript-fallback"
+      ]
+    },
+    {
       "route": "/guides/es/sip-card/",
       "lang": "es",
       "filePath": "guides/es/sip-card/index.html",
@@ -967,6 +1063,38 @@
         {
           "hreflang": "x-default",
           "href": "https://iberigo.eu/guides/tie/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": true,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/es/travel-insurance/",
+      "lang": "es",
+      "filePath": "guides/es/travel-insurance/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "travel-insurance",
+      "canonical": "https://iberigo.eu/guides/es/travel-insurance/",
+      "title": "Seguro de viaje para España — IberiGo",
+      "metaDescription": "Seguro de viaje para visitantes de España que cubre emergencias médicas, cancelación de viaje, pérdida de equipaje y repatriación, independiente de la cobertura sanitaria de la UE.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/travel-insurance/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/travel-insurance/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/travel-insurance/"
         }
       ],
       "inSitemap": true,
@@ -1746,6 +1874,38 @@
       ]
     },
     {
+      "route": "/guides/sim-esim-vpn/",
+      "lang": "en",
+      "filePath": "guides/sim-esim-vpn/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "sim-esim-vpn",
+      "canonical": "https://iberigo.eu/guides/sim-esim-vpn/",
+      "title": "SIM cards, eSIM, and VPN for Spain — IberiGo",
+      "metaDescription": "Compare physical SIM, eSIM, and VPN options for staying connected in Spain, from major Spanish carriers to traveler-focused eSIM and VPN providers.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/sim-esim-vpn/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/sim-esim-vpn/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/sim-esim-vpn/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": true,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-noscript-fallback"
+      ]
+    },
+    {
       "route": "/guides/sip-card/",
       "lang": "en",
       "filePath": "guides/sip-card/index.html",
@@ -1927,6 +2087,38 @@
         {
           "hreflang": "x-default",
           "href": "https://iberigo.eu/guides/tie/"
+        }
+      ],
+      "inSitemap": true,
+      "isHomepageShellClone": true,
+      "hasStaticGuideContent": true,
+      "hasNoscriptFallback": false,
+      "riskFlags": [
+        "missing-noscript-fallback"
+      ]
+    },
+    {
+      "route": "/guides/travel-insurance/",
+      "lang": "en",
+      "filePath": "guides/travel-insurance/index.html",
+      "existsIndexHtml": true,
+      "dataGuideId": "travel-insurance",
+      "canonical": "https://iberigo.eu/guides/travel-insurance/",
+      "title": "Travel insurance for Spain — IberiGo",
+      "metaDescription": "Travel insurance for visitors to Spain covering medical emergencies, trip cancellation, lost luggage, and repatriation, separate from EU health coverage.",
+      "robotsMeta": null,
+      "hreflang": [
+        {
+          "hreflang": "en",
+          "href": "https://iberigo.eu/guides/travel-insurance/"
+        },
+        {
+          "hreflang": "es",
+          "href": "https://iberigo.eu/guides/es/travel-insurance/"
+        },
+        {
+          "hreflang": "x-default",
+          "href": "https://iberigo.eu/guides/travel-insurance/"
         }
       ],
       "inSitemap": true,

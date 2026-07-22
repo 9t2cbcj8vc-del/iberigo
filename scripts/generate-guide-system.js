@@ -6308,7 +6308,8 @@ pages.push({
         title: "Getting around Spain",
         children: StartHereGuideCards([
           { title: "Flights and airports", text: "Flights, airports, and search tools for arriving and moving around smoothly.", href: "/guides/vacation-flights/", label: "View guide" },
-          { title: "Trains, buses, and car hire", text: "Trains, buses, and car rental for getting around inside Spain.", href: "/guides/vacation-ground/", label: "View guide" }
+          { title: "Trains, buses, and car hire", text: "Trains, buses, and car rental for getting around inside Spain.", href: "/guides/vacation-ground/", label: "View guide" },
+          { title: "Driving in Spain: licenses, tolls, and speed limits", text: "Licenses, tolls, and speed limits for driving in Spain as a visitor.", href: "/guides/driving-spain-visitors/", label: "View guide" }
         ])
       }),
       GuideSection({
@@ -6325,6 +6326,14 @@ pages.push({
         children: StartHereGuideCards([
           { title: "Official tourism and ideas", text: "Official tourism portals and ideas for choosing destinations and planning better.", href: "/guides/vacation-tourism/", label: "View guide" },
           { title: "Reviews and comparison", text: "Reviews and comparison tools for neighborhoods, stays, and experiences.", href: "/guides/vacation-reviews/", label: "View guide" }
+        ])
+      }),
+      GuideSection({
+        id: "practicalPrep",
+        title: "Practical prep",
+        children: StartHereGuideCards([
+          { title: "Travel insurance for Spain", text: "Medical emergency, cancellation, and luggage cover, separate from EU health coverage.", href: "/guides/travel-insurance/", label: "View guide" },
+          { title: "SIM cards, eSIM, and VPN", text: "Physical SIM, eSIM, and VPN options for staying connected during your trip.", href: "/guides/sim-esim-vpn/", label: "View guide" }
         ])
       })
     ]
@@ -6362,7 +6371,8 @@ pages.push({
         title: "Moverte por España",
         children: StartHereGuideCards([
           { title: "Vuelos y aeropuertos", text: "Vuelos, aeropuertos y comparadores para llegar y moverte mejor.", href: "/guides/es/vacation-flights/", label: "Ver guía" },
-          { title: "Trenes, autobuses y coche", text: "Trenes, autobuses y alquiler de coche para desplazarte dentro de España.", href: "/guides/es/vacation-ground/", label: "Ver guía" }
+          { title: "Trenes, autobuses y coche", text: "Trenes, autobuses y alquiler de coche para desplazarte dentro de España.", href: "/guides/es/vacation-ground/", label: "Ver guía" },
+          { title: "Conducir en España: carné, peajes y límites de velocidad", text: "Carné, peajes y límites de velocidad para conducir en España de visita.", href: "/guides/es/driving-spain-visitors/", label: "Ver guía" }
         ])
       }),
       GuideSection({
@@ -6379,6 +6389,14 @@ pages.push({
         children: StartHereGuideCards([
           { title: "Turismo oficial e ideas", text: "Portales oficiales e ideas para elegir destinos y planificar mejor el viaje.", href: "/guides/es/vacation-tourism/", label: "Ver guía" },
           { title: "Reseñas y comparación", text: "Reseñas y comparación de zonas, alojamientos y experiencias.", href: "/guides/es/vacation-reviews/", label: "Ver guía" }
+        ])
+      }),
+      GuideSection({
+        id: "preparacionPractica",
+        title: "Preparación práctica",
+        children: StartHereGuideCards([
+          { title: "Seguro de viaje para España", text: "Cobertura de emergencias médicas, cancelación y equipaje, aparte de la sanidad de la UE.", href: "/guides/es/travel-insurance/", label: "Ver guía" },
+          { title: "Tarjetas SIM, eSIM y VPN", text: "SIM física, eSIM y VPN para estar conectado durante tu estancia.", href: "/guides/es/sim-esim-vpn/", label: "Ver guía" }
         ])
       })
     ]
