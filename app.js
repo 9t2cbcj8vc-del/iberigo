@@ -1574,7 +1574,10 @@ function routeVisualFor(routeId = "") {
     "vacation-booking": "./assets/topic-scenes/vacation-booking-platforms-20260606.webp",
     "vacation-hotels": "./assets/topic-scenes/vacation-hotel-chains-20260606.webp",
     "vacation-tourism": "./assets/topic-scenes/vacation-planning.webp",
-    "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.webp"
+    "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.webp",
+    "travel-insurance": "./assets/topic-scenes/travel-insurance-20260722.webp",
+    "driving-spain-visitors": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
+    "sim-esim-vpn": "./assets/topic-scenes/sim-esim-vpn-20260722.webp"
   };
   return visuals[routeId] || "./assets/home-cards/move-to-spain-matched-20260606.webp";
 }
@@ -2348,7 +2351,10 @@ function topicScene(goal) {
     "vacation-booking": "./assets/topic-scenes/vacation-booking-platforms-20260606.webp",
     "vacation-hotels": "./assets/topic-scenes/vacation-hotel-chains-20260606.webp",
     "vacation-tourism": "./assets/topic-scenes/vacation-planning.webp",
-    "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.webp"
+    "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.webp",
+    "travel-insurance": "./assets/topic-scenes/travel-insurance-20260722.webp",
+    "driving-spain-visitors": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
+    "sim-esim-vpn": "./assets/topic-scenes/sim-esim-vpn-20260722.webp"
   };
   if (photos[goal]) {
     return `<img src="${photos[goal]}" alt="" />`;
