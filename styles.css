@@ -3409,6 +3409,61 @@ select {
   font-weight: 900;
 }
 
+.provider-link--holafly {
+  --provider-accent: linear-gradient(180deg, #ff6a3d, #d6491f);
+  --provider-soft: radial-gradient(circle at top right, rgba(255, 106, 61, 0.14), transparent 68%);
+}
+
+.provider-link--holafly .provider-logo {
+  background: linear-gradient(135deg, #ff6a3d, #d6491f);
+  border-radius: 12px;
+  font-weight: 900;
+}
+
+.provider-link--airalo {
+  --provider-accent: linear-gradient(180deg, #6a4fd6, #4a30a8);
+  --provider-soft: radial-gradient(circle at top right, rgba(106, 79, 214, 0.14), transparent 68%);
+}
+
+.provider-link--airalo .provider-logo {
+  background: linear-gradient(135deg, #6a4fd6, #4a30a8);
+  border-radius: 20px 12px 20px 12px;
+  font-weight: 900;
+}
+
+.provider-link--nordvpn {
+  --provider-accent: linear-gradient(180deg, #3d5afe, #1a2fb8);
+  --provider-soft: radial-gradient(circle at top right, rgba(61, 90, 254, 0.14), transparent 68%);
+}
+
+.provider-link--nordvpn .provider-logo {
+  background: linear-gradient(135deg, #3d5afe, #1a2fb8);
+  border-radius: 10px;
+  font-weight: 900;
+}
+
+.provider-link--expressvpn {
+  --provider-accent: linear-gradient(180deg, #e2373f, #a8232a);
+  --provider-soft: radial-gradient(circle at top right, rgba(226, 55, 63, 0.14), transparent 68%);
+}
+
+.provider-link--expressvpn .provider-logo {
+  background: linear-gradient(135deg, #e2373f, #a8232a);
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.provider-link--protonvpn {
+  --provider-accent: linear-gradient(180deg, #6d4aff, #4527b8);
+  --provider-soft: radial-gradient(circle at top right, rgba(109, 74, 255, 0.14), transparent 68%);
+}
+
+.provider-link--protonvpn .provider-logo {
+  background: linear-gradient(135deg, #6d4aff, #4527b8);
+  border-radius: 8px;
+  font-weight: 900;
+}
+
 .jobs-link--empleate {
   --jobs-accent: linear-gradient(180deg, #0f7b6c, #0b5b4f);
   --jobs-soft: radial-gradient(circle at top right, rgba(15, 123, 108, 0.14), transparent 68%);

@@ -1680,7 +1680,8 @@ const guideSectionOverrides = {
   vacation: [
     "eu-vacation", "non-eu-vacation",
     "vacation-entry", "vacation-citizenship", "vacation-flights", "vacation-ground",
-    "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews"
+    "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
+    "travel-insurance", "driving-spain-visitors", "sim-esim-vpn"
   ]
 };
 
@@ -2217,6 +2218,45 @@ function directRoadmapFor(goal) {
       links: ["stay-tripadvisor", "stay-booking", "stay-expedia"]
     };
   }
+  if (goal === "travel-insurance") {
+    return currentLang === "es" ? {
+      process: "Seguro de viaje para España",
+      explanation: "El seguro de viaje cubre emergencias médicas, cancelación de viaje, pérdida de equipaje y repatriación para visitantes de España — independiente de cualquier cobertura sanitaria de la UE. Los visitantes no comunitarios lo necesitan especialmente, ya que no tienen acceso automático a la sanidad pública española.",
+      steps: ["Comprueba si tu país tiene un acuerdo sanitario recíproco con España (ciudadanos de la UE/EEE: lleva tu Tarjeta Sanitaria Europea).", "Compara aseguradoras de viaje por los límites de cobertura médica, las cláusulas de evacuación de emergencia y la cobertura de enfermedades preexistentes.", "Contrátalo antes de salir de tu país — la mayoría de las pólizas no cubren de forma retroactiva una vez que ya estás en España."],
+      links: ["ehic-eu-info"]
+    } : {
+      process: "Travel insurance for Spain",
+      explanation: "Travel insurance covers medical emergencies, trip cancellation, lost luggage, and repatriation for visitors to Spain — separate from any EU health coverage. Non-EU visitors especially need this, since they have no automatic access to Spanish public healthcare.",
+      steps: ["Check if your home country has a reciprocal healthcare agreement with Spain (EU/EEA citizens: bring your EHIC card).", "Compare travel insurance providers for medical coverage limits, emergency evacuation clauses, and pre-existing condition coverage.", "Buy before departure — most policies won’t cover you retroactively once you’re already in Spain."],
+      links: ["ehic-eu-info"]
+    };
+  }
+  if (goal === "driving-spain-visitors") {
+    return currentLang === "es" ? {
+      process: "Conducir en España: carné, peajes y límites de velocidad",
+      explanation: "Los conductores visitantes pueden usar un carné de conducir válido de su país de origen durante estancias cortas (hasta 6 meses) — los carnés de la UE no necesitan nada más; los visitantes no comunitarios pueden necesitar un Permiso de Conducir Internacional (IDP) junto con su carné nacional. España tiene autopistas de peaje (marcadas AP) y autovías gratuitas (marcadas A), y los límites de velocidad varían según el tipo de vía.",
+      steps: ["Comprueba si tu carné necesita un IDP — la mayoría de países no comunitarios sí (consíguelo antes de llegar, no se expide en España).", "Conoce los límites de velocidad: 120 km/h en autopistas y autovías, 90-100 km/h en carreteras convencionales, 50 km/h en zona urbana (más bajo en algunas calles — revisa la señalización).", "Presupuesta los peajes si usas autopistas AP — paga en efectivo o tarjeta en los peajes, o con teletag Via-T si alquilas a largo plazo."],
+      links: ["dgt-general", "dgt-online-procedures"]
+    } : {
+      process: "Driving in Spain: licenses, tolls, and speed limits",
+      explanation: "Visiting drivers can use a valid driving license from their home country for short stays (up to 6 months) — EU licenses need nothing extra; non-EU visitors may need an International Driving Permit (IDP) alongside their national license. Spain has both toll (autopista, marked AP) and free (autovía, marked A) motorways, and speed limits vary by road type.",
+      steps: ["Check whether your license needs an IDP — most non-EU countries do (get one before arriving, they’re not issued in Spain).", "Know the speed limits: 120 km/h motorways, 90-100 km/h conventional roads, 50 km/h urban (lower on some city roads — check signage).", "Budget for tolls if using AP-marked motorways — pay by cash or card at toll booths, or via Via-T electronic tag if renting long-term."],
+      links: ["dgt-general", "dgt-online-procedures"]
+    };
+  }
+  if (goal === "sim-esim-vpn") {
+    return currentLang === "es" ? {
+      process: "Tarjetas SIM, eSIM y VPN para España",
+      explanation: "Estar conectado en España suele significar elegir entre una SIM prepago física de un operador español o una eSIM pensada para viajeros, además, opcionalmente, de una VPN para navegar de forma segura o acceder a contenido de tu país de origen. Las SIM físicas de Movistar, Orange, Vodafone o Digi suelen ofrecer las mejores tarifas locales para estancias largas; las eSIM pensadas para viajeros como Holafly o Airalo se configuran más rápido pero pueden costar más por gigabyte.",
+      steps: ["Decide entre una SIM física (mejor relación calidad-precio para estancias largas, requiere un teléfono liberado) o una eSIM (configuración instantánea, sin cambio físico, ideal para viajes cortos).", "Compara cantidades de datos y precios entre varios proveedores antes de comprar — las necesidades varían mucho entre navegación ligera y streaming o trabajo intensivo.", "Si necesitas acceso seguro a apps bancarias o streaming de tu país de origen, configura una VPN antes de llegar para que esté lista al instante."],
+      links: ["provider-movistar", "provider-orange", "provider-vodafone", "provider-digi", "provider-holafly", "provider-airalo", "provider-nordvpn", "provider-expressvpn", "provider-protonvpn"]
+    } : {
+      process: "SIM cards, eSIM, and VPN for Spain",
+      explanation: "Staying connected in Spain usually means choosing between a physical prepaid SIM from a Spanish carrier or an eSIM designed for travelers, plus optionally a VPN for secure browsing or accessing home-country content. Physical SIMs from Movistar, Orange, Vodafone, or Digi typically offer the best local rates for longer stays; traveler-focused eSIMs like Holafly or Airalo are faster to set up but can cost more per gigabyte.",
+      steps: ["Decide between a physical SIM (better value for longer stays, requires an unlocked phone) or an eSIM (instant setup, no physical swap, ideal for short trips).", "Compare data allowances and prices across a couple of providers before buying — needs vary a lot between light browsing and heavy streaming or work use.", "If you need secure access to banking apps or home-country streaming, set up a VPN before you arrive so it is ready to use immediately."],
+      links: ["provider-movistar", "provider-orange", "provider-vodafone", "provider-digi", "provider-holafly", "provider-airalo", "provider-nordvpn", "provider-expressvpn", "provider-protonvpn"]
+    };
+  }
   return null;
 }
 
@@ -2266,7 +2306,10 @@ function vacationTopicSummary(goal) {
     "vacation-booking": "Plataformas grandes para comparar alojamiento antes de reservar.",
     "vacation-hotels": "Cadenas hoteleras importantes presentes en España.",
     "vacation-tourism": "Portales oficiales e ideas para elegir destinos y planificar mejor el viaje.",
-    "vacation-reviews": "Reseñas y comparación de zonas, alojamientos y experiencias."
+    "vacation-reviews": "Reseñas y comparación de zonas, alojamientos y experiencias.",
+    "travel-insurance": "Cobertura de emergencias médicas, cancelación y equipaje, aparte de la sanidad de la UE.",
+    "driving-spain-visitors": "Carné, peajes y límites de velocidad para conducir en España de visita.",
+    "sim-esim-vpn": "SIM física, eSIM y VPN para estar conectado durante tu estancia."
   } : {
     "vacation-entry": "Basic rules for short visits, Schengen stays, and trips up to 90 days.",
     "vacation-citizenship": "Quick orientation for EU visitors versus non-EU travellers.",
@@ -2275,7 +2318,10 @@ function vacationTopicSummary(goal) {
     "vacation-booking": "Large booking platforms for comparing places to stay before you reserve.",
     "vacation-hotels": "Major hotel chains with a strong presence in Spain.",
     "vacation-tourism": "Official tourism portals and ideas for choosing destinations and planning better.",
-    "vacation-reviews": "Reviews and comparison tools for neighborhoods, stays, and experiences."
+    "vacation-reviews": "Reviews and comparison tools for neighborhoods, stays, and experiences.",
+    "travel-insurance": "Medical emergency, cancellation, and luggage cover, separate from EU health coverage.",
+    "driving-spain-visitors": "Licenses, tolls, and speed limits for driving in Spain as a visitor.",
+    "sim-esim-vpn": "Physical SIM, eSIM, and VPN options for staying connected during your trip."
   };
   return summaries[goal] || "";
 }
@@ -2459,7 +2505,7 @@ function renderVacationSubtopics() {
         {
           title: "Moverte por España",
           description: "Vuelos, aeropuertos, trenes, autobuses y coche de alquiler según cómo viajes.",
-          topics: [["vacation-flights", "Vuelos y aeropuertos"], ["vacation-ground", "Trenes, autobuses y coche"]],
+          topics: [["vacation-flights", "Vuelos y aeropuertos"], ["vacation-ground", "Trenes, autobuses y coche"], ["driving-spain-visitors", "Conducir en España: carné, peajes y límites de velocidad"]],
           summaryFn: vacationTopicSummary
         },
         {
@@ -2473,6 +2519,12 @@ function renderVacationSubtopics() {
           description: "Inspiración oficial, reseñas y herramientas para decidir mejor.",
           topics: [["vacation-tourism", "Turismo oficial e ideas"], ["vacation-reviews", "Reseñas y comparación"]],
           summaryFn: vacationTopicSummary
+        },
+        {
+          title: "Preparación práctica",
+          description: "Seguro de viaje y cómo estar conectado durante tu estancia.",
+          topics: [["travel-insurance", "Seguro de viaje para España"], ["sim-esim-vpn", "Tarjetas SIM, eSIM y VPN"]],
+          summaryFn: vacationTopicSummary
         }
       ]
     : [
@@ -2485,7 +2537,7 @@ function renderVacationSubtopics() {
           {
             title: "Getting around Spain",
             description: "Flights, airports, trains, buses, and car hire depending on how you want to travel.",
-            topics: [["vacation-flights", "Flights and airports"], ["vacation-ground", "Trains, buses, and car hire"]],
+            topics: [["vacation-flights", "Flights and airports"], ["vacation-ground", "Trains, buses, and car hire"], ["driving-spain-visitors", "Driving in Spain: licenses, tolls, and speed limits"]],
             summaryFn: vacationTopicSummary
           },
           {
@@ -2498,6 +2550,12 @@ function renderVacationSubtopics() {
             title: "Ideas and planning",
             description: "Official inspiration, reviews, and tools for choosing places more confidently.",
             topics: [["vacation-tourism", "Official tourism and ideas"], ["vacation-reviews", "Reviews and comparison"]],
+            summaryFn: vacationTopicSummary
+          },
+          {
+            title: "Practical prep",
+            description: "Travel insurance and staying connected during your trip.",
+            topics: [["travel-insurance", "Travel insurance for Spain"], ["sim-esim-vpn", "SIM cards, eSIM, and VPN"]],
             summaryFn: vacationTopicSummary
           }
         ];
@@ -2801,7 +2859,12 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "provider-orange": { intro: "Large national provider for mobile, fibre, and combined home packages.", logo: "Orange" },
       "provider-digi": { intro: "Popular lower-cost option for mobile and fibre, often attractive for newcomers.", logo: "DIGI" },
       "provider-o2": { intro: "Cleaner no-frills option under Movistar's network, often with simpler plans.", logo: "O2" },
-      "provider-yoigo": { intro: "Common alternative for mobile and fibre bundles with a more flexible feel.", logo: "yoigo" }
+      "provider-yoigo": { intro: "Common alternative for mobile and fibre bundles with a more flexible feel.", logo: "yoigo" },
+      "provider-holafly": { intro: "Unlimited-data eSIM plans designed specifically for travelers visiting Spain.", logo: "H" },
+      "provider-airalo": { intro: "Marketplace-style eSIM app with flexible data packages for short and long trips to Spain.", logo: "A" },
+      "provider-nordvpn": { intro: "Widely used VPN service for secure browsing and accessing home-country content while in Spain.", logo: "N" },
+      "provider-expressvpn": { intro: "Fast, well-reviewed VPN option with strong privacy protections for travelers.", logo: "E" },
+      "provider-protonvpn": { intro: "Privacy-focused VPN from the makers of Proton Mail, with a free tier available.", logo: "P" }
     },
     es: {
       "provider-movistar": { intro: "Gran operador tradicional para móvil, fibra y paquetes completos para casa.", logo: "M" },
@@ -2809,7 +2872,12 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "provider-orange": { intro: "Proveedor nacional grande para móvil, fibra y paquetes de hogar combinados.", logo: "Orange" },
       "provider-digi": { intro: "Opción popular de menor coste para móvil y fibra, muchas veces atractiva para recién llegados.", logo: "DIGI" },
       "provider-o2": { intro: "Opción más sencilla y sin extras bajo la red de Movistar, a menudo con tarifas más limpias.", logo: "O2" },
-      "provider-yoigo": { intro: "Alternativa común para móvil y fibra con una sensación algo más flexible.", logo: "yoigo" }
+      "provider-yoigo": { intro: "Alternativa común para móvil y fibra con una sensación algo más flexible.", logo: "yoigo" },
+      "provider-holafly": { intro: "Planes de eSIM con datos ilimitados pensados específicamente para viajeros que visitan España.", logo: "H" },
+      "provider-airalo": { intro: "App tipo marketplace de eSIM con paquetes de datos flexibles para viajes cortos y largos a España.", logo: "A" },
+      "provider-nordvpn": { intro: "Servicio VPN muy usado para navegación segura y acceso a contenido de tu país de origen desde España.", logo: "N" },
+      "provider-expressvpn": { intro: "Opción de VPN rápida y bien valorada con fuerte protección de privacidad para viajeros.", logo: "E" },
+      "provider-protonvpn": { intro: "VPN centrada en privacidad de los creadores de Proton Mail, con nivel gratuito disponible.", logo: "P" }
     },
   };
   const jobsMeta = {
@@ -3037,7 +3105,15 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "vida-laboral-official": "Informe de Vida Laboral",
       "clave-setup": "Cl@ve setup",
       "dgt-licence-exchange": "DGT licence exchange portal",
-      "dgt-bilateral-agreements": "DGT bilateral agreements list"
+      "dgt-bilateral-agreements": "DGT bilateral agreements list",
+      "ehic-eu-info": "European Health Insurance Card information",
+      "dgt-general": "DGT — Dirección General de Tráfico",
+      "dgt-online-procedures": "DGT online procedures",
+      "provider-holafly": "Holafly",
+      "provider-airalo": "Airalo",
+      "provider-nordvpn": "NordVPN",
+      "provider-expressvpn": "ExpressVPN",
+      "provider-protonvpn": "ProtonVPN"
     },
     es: {
       cita: "Reservar cita previa",
@@ -3133,7 +3209,15 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "vida-laboral-official": "Informe de Vida Laboral",
       "clave-setup": "Configurar Cl@ve",
       "dgt-licence-exchange": "Portal de canje de permisos de la DGT",
-      "dgt-bilateral-agreements": "Lista de acuerdos bilaterales de la DGT"
+      "dgt-bilateral-agreements": "Lista de acuerdos bilaterales de la DGT",
+      "ehic-eu-info": "Información sobre la Tarjeta Sanitaria Europea",
+      "dgt-general": "DGT — Dirección General de Tráfico",
+      "dgt-online-procedures": "Sede electrónica de la DGT",
+      "provider-holafly": "Holafly",
+      "provider-airalo": "Airalo",
+      "provider-nordvpn": "NordVPN",
+      "provider-expressvpn": "ExpressVPN",
+      "provider-protonvpn": "ProtonVPN"
     },
   };
   const urls = {
@@ -3231,7 +3315,15 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "murcia-health-card": "https://www.carm.es/web/servlet/pagina?IDCONTENIDO=67&IDESTRUCTURAJERARQUICA=4762&IDTIPO=200&RASTRO=c%24m120%2C121&__PLANT_PERSONALIZADA=%2FJSP%2FCARM%2Fcarm2018%2Forganigramas%2FplantillaDetalleOrganigrama.jsp",
     "ehic-card": "https://www.seg-social.es/wps/portal/wss/internet/Trabajadores/PrestacionesPensionesTrabajadores/10938/11566/1761?changeLanguage=es",
     "citizenship-residence": "https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia",
-    "citizenship-application": "https://sede.mjusticia.gob.es/es/tramites/nacionalidad-espanola/"
+    "citizenship-application": "https://sede.mjusticia.gob.es/es/tramites/nacionalidad-espanola/",
+    "ehic-eu-info": "https://ec.europa.eu/social/main.jsp?catId=559",
+    "dgt-general": "https://www.dgt.es",
+    "dgt-online-procedures": "https://sede.dgt.gob.es",
+    "provider-holafly": "https://esim.holafly.com/",
+    "provider-airalo": "https://www.airalo.com/spain-esim",
+    "provider-nordvpn": "https://nordvpn.com/",
+    "provider-expressvpn": "https://www.expressvpn.com/",
+    "provider-protonvpn": "https://protonvpn.com/"
   };
   const govMeta = {
     cita: {
@@ -3326,6 +3418,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "sede.fnmt.gob.es",
     "dgt.gob.es",
     "sede.dgt.gob.es",
+    "dgt.es",
     "boe.es",
     "sepe.es",
     "agenciatributaria.gob.es",
@@ -3408,7 +3501,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     if (type === "cita" || type === "790-012" || endsWith("policia.gob.es")) return "police";
     if (type === "tax-agency" || type === "tax-census" || endsWith("agenciatributaria.gob.es")) return "tax";
     if (type === "social-security-number" || type === "vida-laboral-official" || type === "clave-setup" || endsWith("seg-social.es") || endsWith("seg-social.gob.es")) return "social-security";
-    if (type === "dgt-licence-exchange" || type === "dgt-bilateral-agreements" || endsWith("dgt.gob.es")) return "traffic";
+    if (type === "dgt-licence-exchange" || type === "dgt-bilateral-agreements" || type === "dgt-general" || type === "dgt-online-procedures" || endsWith("dgt.gob.es") || endsWith("dgt.es")) return "traffic";
     if (type === "healthcare-right-spain" || type === "ehic-card" || /health-card$/.test(type) || endsWith("san.gva.es") || endsWith("comunidad.madrid") || endsWith("juntadeandalucia.es") || endsWith("catsalut.gencat.cat") || endsWith("carm.es")) return "healthcare";
     if (type === "jobs-eures" || isOfficialEuUrl(url)) return "eu";
     if (type === "padron-info") return "municipal";

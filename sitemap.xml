@@ -619,4 +619,40 @@
     <priority>0.8</priority>
     <lastmod>2026-06-25</lastmod>
   </url>
+  <url>
+    <loc>https://iberigo.eu/guides/travel-insurance/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-22</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/guides/es/travel-insurance/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-22</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/guides/driving-spain-visitors/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-22</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/guides/es/driving-spain-visitors/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-22</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/guides/sim-esim-vpn/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-22</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/guides/es/sim-esim-vpn/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-07-22</lastmod>
+  </url>
 </urlset>
