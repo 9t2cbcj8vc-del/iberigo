@@ -17,8 +17,8 @@ const decode = (s = "") => s.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").repl
 const text = (s = "") => decode(s.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
 const attr = (html, re) => decode((html.match(re) || [])[1] || "").trim();
 
-function typeFor(url) {
-  if (url.startsWith("/guides/")) return "legacy guide";
+function typeFor(url, guideId) {
+  if (url.startsWith("/guides/")) return guideId ? "legacy guide" : "guide";
   if (url === "/the-spain-files/" || url === "/the-spain-files/es/") return "landing page";
   if (url.startsWith("/the-spain-files/") || url.startsWith("/es/the-spain-files/")) return "Spain Files article";
   if (url === "/support/") return "support page";
@@ -65,7 +65,7 @@ for (const file of walk(root).sort()) {
   const guideId = attr(html, /data-guide-id="([^"]+)"/i).replace(/-/g, " ");
   const body = text((html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) || [])[1] || "").slice(0, 1800);
   if (!title || !description || !(body || guideId)) throw new Error(`Incomplete searchable page: ${path.relative(root, file)}`);
-  entries.push({ title, description, url, language: lang, type: typeFor(url), headings: headings.slice(0, 18), keywords: guideId ? [guideId] : [], text: body });
+  entries.push({ title, description, url, language: lang, type: typeFor(url, guideId), headings: headings.slice(0, 18), keywords: guideId ? [guideId] : [], text: body });
   urls.add(url);
 }
 

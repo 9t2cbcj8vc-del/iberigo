@@ -664,7 +664,13 @@ const publishedRoutes = new Set([
   routes.esWorkInSpain,
   routes.esStudents,
   routes.esRetireInSpain,
-  routes.esSelfEmployed
+  routes.esSelfEmployed,
+  // Vacation/Living hub pages: published per this task's request, mirroring
+  // the pattern used for the launched Start Here / route roadmap pages.
+  routes.vacationHub,
+  routes.esVacationHub,
+  routes.livingHub,
+  routes.esLivingHub
 ]);
 
 function guideMetadataFor(route) {
