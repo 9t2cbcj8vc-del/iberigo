@@ -3,4 +3,4 @@ Allow: /
 Disallow: /outputs/
 Disallow: /work/
 
-Sitemap: https://iberigo.eu/sitemap.xml
+Sitemap: https://iberigo.eu/sitemap-pages.xml
