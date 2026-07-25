@@ -1,0 +1,29 @@
+name: Asset version check
+
+# Fails the build if app.js was edited without its cache-busting ?v= being updated.
+#
+# /app.js is served with `Cache-Control: public, max-age=604800` (see _headers) and is
+# never revalidated, so the ?v= query string is the only mechanism that forces browsers
+# and the CDN to fetch a new build. Shipping an app.js change without bumping it means
+# returning visitors execute the previous file for up to a week — which has twice caused
+# production regressions (PR #129/#130, PR #134/#135).
+#
+# scripts/sync-app-version.js derives the version from a hash of app.js, so this check
+# is purely mechanical: run the script and commit the result.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  app-version:
+    name: app.js cache-bust in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Verify app.js cache-busting version matches app.js contents
+        run: node scripts/sync-app-version.js --check
