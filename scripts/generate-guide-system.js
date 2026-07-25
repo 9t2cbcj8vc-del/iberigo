@@ -35,6 +35,8 @@ const routes = {
   esRetireInSpain: "/es/moving-to-spain/retire-in-spain/",
   esSelfEmployed: "/es/moving-to-spain/self-employed-spain/",
   esEuRegistration: "/es/moving-to-spain/eu-registration/",
+  esPadron: "/es/moving-to-spain/registering-on-the-padron/",
+  esHealthcare: "/es/moving-to-spain/healthcare/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/moving-to-spain/eu-registration/",
@@ -476,6 +478,20 @@ const searchMetadataByRoute = {
     appliesTo: ["Ciudadanos de la UE que se quedan más de 3 meses", "Ciudadanos del EEE que se quedan más de 3 meses", "Ciudadanos suizos que se quedan más de 3 meses"],
     keywords: ["registro de la UE", "certificado de registro", "EX-18", "Modelo 790-012", "NIE", "padrón"]
   },
+  [routes.esPadron]: {
+    category: "Mudarse a España",
+    difficulty: "Fácil",
+    estimatedTime: "9 min",
+    appliesTo: ["Personas que viven en un domicilio en España", "Personas que preparan el registro de domicilio local"],
+    keywords: ["padrón", "empadronamiento", "ayuntamiento", "registro de domicilio", "registro municipal"]
+  },
+  [routes.esHealthcare]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "14 min",
+    appliesTo: ["Ciudadanos de la UE que trabajan en España", "Ciudadanos de la UE que estudian en España", "Jubilados de la UE", "Ciudadanos de la UE que viven de sus ahorros"],
+    keywords: ["sanidad", "sanidad pública", "S1", "tarjeta SIP", "tarjeta sanitaria", "seguro privado", "registro de la UE"]
+  },
   [routes.vacationHub]: {
     category: "Vacation in Spain",
     difficulty: "Easy",
@@ -550,6 +566,16 @@ const officialSourcesByRoute = {
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
     { name: "Regional health services", varies: true, note: "There is no single official website — health-card processes and names vary by autonomous community. Check your own regional health service for local instructions." },
     { name: "Social Security", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal for checking current entitlement and contribution information." }
+  ],
+  [routes.esPadron]: [
+    { name: "Gobierno de España", url: "https://www.ine.es", note: "Instituto Nacional de Estadística (INE) — estadísticas del padrón municipal y portal Padrón Online." },
+    { name: "Ayuntamientos locales", varies: true, note: "No existe una única web oficial: cada municipio fija sus propios requisitos de padrón y su sistema de citas. Consulta la web de tu ayuntamiento para las instrucciones locales." }
+  ],
+  [routes.esHealthcare]: [
+    { name: "Gobierno de España", url: "https://www.sanidad.gob.es", note: "Ministerio de Sanidad — el ministerio de sanidad nacional de España." },
+    { name: "Ministerio responsable de migraciones", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — área de Migraciones, responsable del registro de la UE y de los trámites de residencia." },
+    { name: "Servicios regionales de salud", varies: true, note: "No existe una única web oficial: los trámites y los nombres de la tarjeta sanitaria varían según la comunidad autónoma. Consulta tu servicio de salud regional para las instrucciones locales." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — portal oficial de la Seguridad Social para consultar el derecho vigente y la información de cotización." }
   ],
   [routes.taxes]: [
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration. Useful for checking tax residency, filing and worldwide-income questions; it does not replace professional tax advice, and this guide is not tax advice." }
@@ -1031,6 +1057,10 @@ const studentsPair = launchedPair(routes.students, routes.esStudents);
 const retireInSpainPair = launchedPair(routes.retireInSpain, routes.esRetireInSpain);
 const selfEmployedPair = launchedPair(routes.selfEmployed, routes.esSelfEmployed);
 const euRegistrationPair = launchedPair(routes.euRegistration, routes.esEuRegistration);
+// Draft EN/ES pairs: reciprocal hreflang and a working language switcher, but both
+// sides stay noindex/draft (excluded from publishedRoutes) until sign-off.
+const padronPair = launchedPair(routes.padron, routes.esPadron);
+const healthcarePair = launchedPair(routes.healthcare, routes.esHealthcare);
 const vacationHubPair = launchedPair(routes.vacationHub, routes.esVacationHub);
 const livingHubPair = launchedPair(routes.livingHub, routes.esLivingHub);
 
@@ -3725,6 +3755,8 @@ pages.push({
   html: GuideLayout({
     path: routes.padron,
     canonical: `https://iberigo.eu${routes.padron}`,
+    altHref: padronPair.en.altHref,
+    hreflangAlternates: padronPair.en.hreflangAlternates,
     title: "Registering on the Padrón in Spain — IberiGo",
     description: "A practical guide to registering on the padrón in Spain, including what it is, why it matters, documents you may need, municipality differences and common mistakes.",
     metadata: guideMetadataFor(routes.padron),
@@ -3858,6 +3890,8 @@ pages.push({
   html: GuideLayout({
     path: routes.healthcare,
     canonical: `https://iberigo.eu${routes.healthcare}`,
+    altHref: healthcarePair.en.altHref,
+    hreflangAlternates: healthcarePair.en.hreflangAlternates,
     title: "Healthcare in Spain for New Residents — IberiGo",
     description: "A practical guide to healthcare in Spain for new residents, including public healthcare, private insurance, S1 forms, regional health cards and common mistakes.",
     metadata: guideMetadataFor(routes.healthcare),
@@ -3984,6 +4018,325 @@ pages.push({
           { label: "View the Settling Into Spain Guide", href: routes.settling },
           { label: "View the Documents Checklist", href: routes.checklist }
         ])}${TipBox("Keep healthcare documents in the same folder as your identity, padrón, Social Security and residence paperwork.")}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.esPadron,
+  html: GuideLayout({
+    lang: "es",
+    path: routes.esPadron,
+    canonical: `https://iberigo.eu${routes.esPadron}`,
+    altHref: padronPair.es.altHref,
+    hreflangAlternates: padronPair.es.hreflangAlternates,
+    title: "Empadronarse en España — IberiGo",
+    description: "Una guía práctica para empadronarte en España: qué es el padrón, por qué importa, qué documentos te pueden pedir, las diferencias entre municipios y los errores comunes.",
+    metadata: guideMetadataFor(routes.esPadron),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Padrón" }],
+    hero: {
+      kicker: "Registro municipal",
+      title: "Empadronarse en España",
+      intro: "Una guía práctica para registrar tu domicilio en el ayuntamiento, entender por qué importa el padrón y prepararte para los requisitos propios de cada municipio.",
+      asideTitle: "Las normas locales importan",
+      asideText: "El padrón lo gestiona cada municipio. Los documentos, las citas y la prueba de domicilio aceptada pueden variar según el ayuntamiento."
+    },
+    sections: [
+      GuideSection({
+        id: "languageNote",
+        title: "Sobre esta página en español",
+        children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+      }),
+      GuideSection({
+        id: "respuestaRapida",
+        title: "Respuesta rápida",
+        children: `<p>El padrón es el registro municipal que indica dónde vives en España. Lo gestiona el ayuntamiento de tu municipio. Puede hacer falta para sanidad, trámites de residencia, colegios, servicios locales y otras gestiones. Los requisitos varían según el municipio, así que consulta tu ayuntamiento antes de fiarte de la lista de documentos de otra persona.</p>`
+      }),
+      GuideSection({
+        id: "deUnVistazo",
+        title: "De un vistazo",
+        children: `<table class="guide-table"><tbody>
+            <tr><th>Qué es</th><td>El registro municipal de domicilio que indica dónde vives.</td></tr>
+            <tr><th>Quién lo gestiona</th><td>El ayuntamiento de tu municipio.</td></tr>
+            <tr><th>Por qué importa</th><td>Puede servir de apoyo para sanidad, trámites de residencia, colegios, servicios locales y prueba de domicilio.</td></tr>
+            <tr><th>Variación local</th><td>Los documentos y los sistemas de cita pueden variar según el ayuntamiento.</td></tr>
+            <tr><th>No es residencia</th><td>Registra tu domicilio local; no concede estatus migratorio.</td></tr>
+          </tbody></table>`
+      }),
+      GuideSection({
+        id: "quienLoNecesita",
+        title: "¿Quién lo necesita?",
+        children: `${Cards([
+          { title: "Ciudadanos de la UE", text: "Los ciudadanos de la UE suelen necesitar prueba de padrón para pasos locales o relacionados con la residencia, según el trámite." },
+          { title: "Residentes no comunitarios", text: "Los residentes no comunitarios pueden necesitarlo para la TIE, la residencia o trámites administrativos locales, según la vía." },
+          { title: "Familias", text: "Las familias pueden necesitar prueba de domicilio para el colegio, la sanidad o los servicios locales." },
+          { title: "Personas trabajadoras", text: "Quien trabaja puede necesitar prueba de domicilio local para sanidad, papeleo del empleador u otras gestiones." },
+          { title: "Personas jubiladas", text: "Las personas jubiladas pueden necesitarlo para el registro sanitario o los servicios locales." },
+          { title: "Estudiantes", text: "Los estudiantes pueden necesitarlo para el registro local, pasos relacionados con la residencia o servicios." },
+          { title: "Cualquier persona que viva en España", text: "A cualquier persona que viva en España y necesite acceso administrativo local pueden pedirle prueba de padrón." }
+        ])}${InfoBox({ title: "No es un permiso para vivir en España", text: "El padrón registra dónde vives localmente. Es independiente del permiso de residencia migratorio o del registro de residencia de la UE." })}`
+      }),
+      GuideSection({
+        id: "porQueImportaElPadron",
+        title: "Por qué importa el padrón",
+        children: Cards([
+          { title: "Sanidad", text: "Los servicios regionales de salud pueden pedir prueba de padrón cuando te registras localmente, según tu vía sanitaria." },
+          { title: "Registro de la UE", text: "En las citas del Certificado de Registro de la UE pueden pedir prueba de domicilio o certificado de padrón, según la oficina." },
+          { title: "TIE y trámites de residencia", text: "Algunos trámites de TIE o de residencia pueden pedir prueba de domicilio local." },
+          { title: "Colegios", text: "La matriculación escolar o los trámites educativos locales pueden depender de tu domicilio registrado." },
+          { title: "Servicios locales", text: "Los ayuntamientos y los servicios locales pueden usar el padrón para confirmar dónde vives." },
+          { title: "Domicilio oficial", text: "El padrón puede ayudar a acreditar tu domicilio local a efectos administrativos." },
+          { title: "Trámites bancarios o administrativos", text: "Algunos bancos o trámites administrativos pueden pedir prueba de domicilio, pero el padrón no garantiza la aprobación de todos los servicios." }
+        ])
+      }),
+      GuideSection({
+        id: "documentosQuePuedenPedir",
+        title: "Documentos que pueden pedirte en el ayuntamiento",
+        children: `${ChecklistBox({
+          title: "Documentos habituales que conviene preparar",
+          items: [
+            "Pasaporte o documento nacional de identidad",
+            "NIE, si lo tienes",
+            "Contrato de alquiler",
+            "Escritura de la vivienda, si eres propietario",
+            "Autorización del propietario, si corresponde",
+            "Copia del documento de identidad del propietario o de quien autoriza el registro, si corresponde",
+            "Factura de suministros, si te la piden",
+            "Confirmación de la cita, si es necesaria"
+          ]
+        })}${`<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los requisitos exactos varían según el municipio. Consulta tu ayuntamiento antes de la cita.</p></div>`}`
+      }),
+      GuideSection({
+        id: "antesDeFirmarUnAlquiler",
+        title: "Antes de firmar un contrato de alquiler",
+        children: `${`<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Antes de firmar o pagar una fianza, pregunta si el domicilio se puede usar para empadronarte y si el propietario te facilitará los documentos que tu ayuntamiento pueda pedir.</p></div>`}${Cards([
+          { title: "Pregunta antes de pagar", text: "Hazlo antes de pagar una fianza o comprometerte con un alquiler de larga duración." },
+          { title: "Pídelo por escrito", text: "Pide al propietario o a la agencia que confirme qué puede aportar para el empadronamiento." },
+          { title: "Consulta el ayuntamiento", text: "Si tienes dudas, pregunta en tu ayuntamiento qué prueba aceptan para esa situación de vivienda." }
+        ])}`
+      }),
+      GuideSection({
+        id: "disponibilidadDeCitas",
+        title: "Disponibilidad de citas",
+        children: `${Cards([
+          { title: "Algunos ayuntamientos son rápidos", text: "Algunos municipios pueden ofrecer citas rápidas o una tramitación local sencilla." },
+          { title: "Otros tienen esperas largas", text: "Otros ayuntamientos pueden tener esperas largas, sobre todo en zonas de mucha demanda." },
+          { title: "No es culpa tuya", text: "Las esperas largas o la escasez de citas no significan que estés haciendo algo mal." },
+          { title: "Consulta los canales locales", text: "Usa el sistema de cita o el canal de contacto vigente de tu ayuntamiento, porque la disponibilidad puede cambiar." }
+        ])}${InfoBox({ title: "Sin plazos fijos", text: "La disponibilidad de citas puede variar según el municipio. No te fíes de plazos exactos salvo que los hayas verificado localmente." })}`
+      }),
+      GuideSection({
+        id: "resumenDelProceso",
+        title: "Resumen del proceso",
+        children: StepTimeline([
+          { title: "Localiza el ayuntamiento correcto", text: "Usa el municipio en el que vives realmente." },
+          { title: "Comprueba los requisitos locales", text: "Confirma con el ayuntamiento las normas de cita, los formularios y la prueba de domicilio aceptada." },
+          { title: "Prepara identidad y prueba de domicilio", text: "Lleva originales, copias y autorizaciones si tu ayuntamiento te las pide." },
+          { title: "Acude o presenta localmente", text: "El ayuntamiento comprueba si tus documentos permiten el registro en ese domicilio." },
+          { title: "Pide el justificante", text: "Pregunta cómo obtener el certificado de empadronamiento, el volante u otra confirmación." },
+          { title: "Guárdalo bien", text: "Otras oficinas pueden pedirte una copia reciente, así que mantén tus documentos organizados." }
+        ])
+      }),
+      GuideSection({
+        id: "erroresComunes",
+        title: "Errores comunes",
+        children: Cards([
+        "Dar por hecho que todo alquiler permite empadronarse.",
+        "Firmar antes de preguntar por los documentos del padrón.",
+        "Llevar documentación incompleta.",
+        "Suponer que los requisitos son iguales en todas partes.",
+        "Fiarse solo de capturas de pantalla.",
+        "No guardar copias.",
+        "Confundir el padrón con la residencia.",
+        "Esperar a que otro trámite sea urgente."
+      ])
+      }),
+      GuideSection({
+        id: "preguntasReales",
+        title: "Preguntas reales de la gente",
+        children: Cards([
+        { question: "¿El padrón es lo mismo que la residencia?", answer: "No. El padrón registra tu domicilio local. La residencia o el registro de residencia es un trámite aparte." },
+        { question: "¿Puedo empadronarme en un alojamiento temporal?", answer: "Depende de tu municipio, de tu situación real de vivienda y de los documentos que pueda aportar el alojamiento. Pregunta en el ayuntamiento antes de contar con ello." },
+        { question: "¿Un propietario puede negarse a ayudar con el padrón?", answer: "La cuestión práctica es si el propietario facilitará los documentos que tu ayuntamiento pueda pedir. Pregúntalo antes de firmar y guarda la confirmación por escrito." },
+        { question: "¿Necesito el NIE primero?", answer: "No siempre. Algunos ayuntamientos pueden aceptar pasaporte o documento nacional de identidad, mientras que otros pueden pedir el NIE si ya lo tienes. Consúltalo localmente." },
+        { question: "¿Puedo usar el padrón para la sanidad?", answer: "Puede formar parte del registro sanitario local, pero por sí solo no garantiza el acceso a la sanidad. Tu vía sanitaria sigue siendo determinante." },
+        { question: "¿Por qué mi ayuntamiento pide documentos distintos?", answer: "El padrón se gestiona localmente, así que los requisitos de documentación pueden variar según el municipio y la situación de vivienda." },
+        { question: "¿Y si no hay citas?", answer: "Sigue consultando el sistema de citas o el canal de contacto de tu ayuntamiento. La disponibilidad puede variar, sobre todo en zonas de mucha demanda." }
+      ].map((item) => ({ title: item.question, text: item.answer })))
+      }),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Tu próximo paso",
+        children: `${SourceLinks([
+          { label: "Ver la guía de sanidad en España", href: routes.esHealthcare },
+          { label: "Ver la guía de registro de la UE", href: routes.esEuRegistration },
+          { label: "Ver la guía de instalarte en España", href: routes.esSettling },
+          { label: "Ver la lista de documentos", href: routes.esChecklist },
+          { label: "Ver la guía para encontrar alojamiento", href: routes.esAccommodation }
+        ])}${`<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda el justificante de padrón junto con tus documentos de identidad, vivienda, sanidad y residencia. Algunas oficinas pueden pedirte una copia reciente.</p></div>`}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.esHealthcare,
+  html: GuideLayout({
+    lang: "es",
+    path: routes.esHealthcare,
+    canonical: `https://iberigo.eu${routes.esHealthcare}`,
+    altHref: healthcarePair.es.altHref,
+    hreflangAlternates: healthcarePair.es.hreflangAlternates,
+    title: "Sanidad en España para nuevos residentes — IberiGo",
+    description: "Una guía práctica sobre la sanidad en España para nuevos residentes: sanidad pública, seguro privado, formulario S1, tarjeta sanitaria regional y errores comunes.",
+    metadata: guideMetadataFor(routes.esHealthcare),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Sanidad" }],
+    hero: {
+      kicker: "Vías sanitarias",
+      title: "Sanidad en España para nuevos residentes",
+      intro: "Una guía práctica para entender la sanidad pública, el seguro privado, el formulario S1 y la tarjeta sanitaria regional antes y después de mudarte a España.",
+      asideTitle: "No hay una única respuesta",
+      asideText: "El acceso a la sanidad puede depender de la situación laboral, la Seguridad Social, los derechos de pensión, el S1, el seguro privado, la región, la vía de residencia y la situación familiar."
+    },
+    sections: [
+      GuideSection({
+        id: "languageNote",
+        title: "Sobre esta página en español",
+        children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+      }),
+      GuideSection({
+        id: "respuestaRapida",
+        title: "Respuesta rápida",
+        children: `<p>España tiene un sistema sanitario público y también opciones privadas. El acceso a la sanidad pública depende de tu situación. Quienes trabajan suelen quedar vinculados a través de la Seguridad Social. Algunas personas jubiladas pueden usar un formulario S1. Algunos residentes necesitan seguro médico privado, especialmente para determinadas vías migratorias o de recursos propios. Las normas sanitarias y los trámites de la tarjeta sanitaria pueden variar según la comunidad autónoma.</p>`
+      }),
+      GuideSection({
+        id: "deUnVistazo",
+        title: "De un vistazo",
+        children: `<table class="guide-table"><tbody>
+            <tr><th>Sanidad pública</th><td>Puede estar disponible por trabajo, Seguridad Social, derechos de pensión, situación familiar u otra vía reconocida.</td></tr>
+            <tr><th>Seguro privado</th><td>Puede ser útil u obligatorio según tu vía de residencia.</td></tr>
+            <tr><th>Formulario S1</th><td>Puede aplicarse a algunas personas jubiladas o cubiertas por otro país de la UE/EEE.</td></tr>
+            <tr><th>Tarjeta sanitaria</th><td>La emite normalmente el servicio de salud regional, no las oficinas de extranjería.</td></tr>
+            <tr><th>Variación regional</th><td>Los documentos y los trámites de la tarjeta sanitaria pueden variar según la comunidad autónoma.</td></tr>
+          </tbody></table>`
+      }),
+      GuideSection({
+        id: "paraQuienEsEstaGuia",
+        title: "Para quién es esta guía",
+        children: Cards([
+          { title: "Ciudadanos de la UE", text: "Úsala si tu prueba sanitaria puede afectar al registro de la UE o a tu instalación local." },
+          { title: "Residentes no comunitarios", text: "Úsala si tu vía de residencia puede exigir cobertura sanitaria o prueba de ella." },
+          { title: "Personas trabajadoras", text: "Úsala si el empleo y la Seguridad Social pueden vincularte a la sanidad pública." },
+          { title: "Personas autónomas", text: "Úsala si las cotizaciones a la Seguridad Social y tu alta fiscal pueden afectar a tu vía sanitaria." },
+          { title: "Personas jubiladas", text: "Úsala si pueden aplicarse la situación de pensión, el S1 o la cobertura privada." },
+          { title: "Estudiantes", text: "Úsala si necesitas comparar la cobertura de estudiante, el derecho público y el seguro privado." },
+          { title: "Familiares", text: "Úsala si tu vía puede depender de la situación familiar o del derecho de otra persona." },
+          { title: "Solicitantes de residencia", text: "Úsala si necesitas prueba sanitaria para un trámite migratorio o de registro." },
+          { title: "Personas que comparan opciones", text: "Úsala si estás decidiendo entre la sanidad pública y el seguro privado." }
+        ])
+      }),
+      GuideSection({
+        id: "sanidadPublica",
+        title: "La sanidad pública en España",
+        children: `${Cards([
+          { title: "Gestión regional", text: "La sanidad pública se gestiona a través de los servicios de salud regionales de cada comunidad autónoma." },
+          { title: "Vías de acceso", text: "El derecho puede venir del empleo, la Seguridad Social, los derechos de pensión, la situación familiar u otras vías reconocidas." },
+          { title: "Documentos distintos", text: "La tarjeta sanitaria regional no es lo mismo que el NIE, el padrón o el número de la Seguridad Social." },
+          { title: "Trámites regionales", text: "Los trámites de la tarjeta sanitaria y los documentos solicitados pueden variar según la comunidad autónoma." }
+        ])}${`<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No des por hecho que la sanidad pública es automática solo por vivir en España o estar empadronado. Tu vía sanitaria reconocida sigue siendo determinante.</p></div>`}`
+      }),
+      GuideSection({
+        id: "seguroPrivado",
+        title: "Seguro médico privado",
+        children: `${Cards([
+          { title: "Puede ser útil u obligatorio", text: "El seguro privado puede ser útil u obligatorio según tu vía de residencia y según si tienes una vía sanitaria pública reconocida." },
+          { title: "Cobertura completa", text: "Algunos trámites migratorios o de residencia pueden exigir una cobertura sanitaria completa." },
+          { title: "Detalles de la póliza", text: "La cobertura, las exclusiones, los periodos de carencia y los copagos pueden variar según la póliza." },
+          { title: "Comprueba el requisito exacto", text: "Antes de contratar, comprueba si la póliza cumple el requisito de tu trámite concreto." }
+        ])}${`<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No elijas aseguradora solo por el precio. Revisa la cobertura, las exclusiones y si la póliza es adecuada para el trámite en el que la vas a usar.</p></div>`}`
+      }),
+      GuideSection({
+        id: "formularioS1",
+        title: "Formulario S1",
+        children: `${Cards([
+          { title: "A quién puede ayudar", text: "Algunas personas jubiladas o cubiertas por otro país de la UE/EEE pueden poder usar un formulario S1." },
+          { title: "Para qué sirve", text: "Puede ayudar a registrar el derecho a la asistencia sanitaria en España." },
+          { title: "Requisitos", text: "El derecho depende del país emisor y de tu situación personal." },
+          { title: "Dónde comprobarlo", text: "Consulta con la autoridad responsable de la cobertura sanitaria en tu país de origen o competente." }
+        ])}${InfoBox({ title: "El S1 no es lo mismo que la TSE", text: "El S1 se usa en determinadas situaciones de derecho sanitario vinculadas a la residencia. La Tarjeta Sanitaria Europea (TSE/EHIC) es generalmente para estancias temporales." })}`
+      }),
+      GuideSection({
+        id: "tarjetaSanitariaRegional",
+        title: "Tarjeta sanitaria regional",
+        children: `${Cards([
+          { title: "Emisión regional", text: "La tarjeta sanitaria la emite normalmente el servicio de salud regional de tu comunidad autónoma." },
+          { title: "Los requisitos varían", text: "Los documentos y los pasos pueden variar según la comunidad autónoma." },
+          { title: "Documentos habituales", text: "Puedes necesitar padrón, documentos de identidad, reconocimiento de la Seguridad Social, registro del S1 u otra prueba." },
+          { title: "Independiente de la residencia", text: "La tarjeta sanitaria es independiente de la residencia migratoria, el NIE, el padrón y el número de la Seguridad Social." }
+        ])}${ChecklistBox({
+          title: "Documentos que puedes necesitar",
+          items: [
+            "Pasaporte, documento nacional de identidad o documento de residencia",
+            "NIE, si lo tienes",
+            "Certificado de padrón, cuando se exija",
+            "Reconocimiento o alta en la Seguridad Social, si corresponde",
+            "Registro del S1, si corresponde",
+            "Formulario del servicio de salud regional, si es necesario"
+          ]
+        })}${`<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Consulta con tu servicio de salud regional antes de la cita para saber qué documentos esperan.</p></div>`}`
+      }),
+      GuideSection({
+        id: "sanidadAntesDelRegistroDeLaUe",
+        title: "Sanidad antes del registro de la UE",
+        children: `${Cards([
+          { title: "Por qué importa el momento", text: "Algunos ciudadanos de la UE pueden necesitar acreditar cobertura sanitaria antes o durante los pasos del Certificado de Registro de la UE." },
+          { title: "Recursos propios, jubilación o estudios", text: "Quien solicita por recursos suficientes, jubilación o estudios puede necesitar preparar la prueba sanitaria antes de la cita." },
+          { title: "Personas trabajadoras", text: "Quien trabaja puede usar la prueba de Seguridad Social vinculada al empleo, según los requisitos de la cita." },
+          { title: "Comprueba antes de reservar", text: "Revisa las instrucciones exactas de la cita antes de suponer qué prueba sanitaria se aceptará." }
+        ])}${`<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Puede que la planificación sanitaria deba hacerse antes de la cita de registro de la UE, especialmente si tu vía no se basa en el empleo en España.</p></div>`}`
+      }),
+      GuideSection({
+        id: "erroresComunes",
+        title: "Errores comunes",
+        children: Cards([
+        "Dar por hecho que el padrón por sí solo da acceso completo a la sanidad.",
+        "Suponer que el NIE equivale al derecho a la asistencia sanitaria.",
+        "Contratar un seguro privado sin comprobar los requisitos de residencia.",
+        "Ignorar los copagos o las exclusiones.",
+        "Esperar a que un problema médico sea urgente.",
+        "No comprobar los trámites regionales.",
+        "Confundir el S1 con la Tarjeta Sanitaria Europea.",
+        "Suponer que la cobertura sanitaria de turista basta para la residencia."
+      ])
+      }),
+      GuideSection({
+        id: "preguntasReales",
+        title: "Preguntas reales de la gente",
+        children: Cards([
+        { question: "¿Tengo sanidad pública automáticamente si me mudo a España?", answer: "No. El acceso a la sanidad pública depende de tu vía reconocida, como el trabajo, la Seguridad Social, los derechos de pensión, la situación familiar u otro derecho." },
+        { question: "¿Es obligatorio el seguro médico privado?", answer: "A veces. Depende de tu vía de residencia y de si tienes otra vía sanitaria aceptada." },
+        { question: "¿Basta con el padrón para tener sanidad?", answer: "Normalmente no por sí solo. El padrón puede formar parte del registro local, pero el derecho a la asistencia sanitaria depende de tu situación." },
+        { question: "¿Qué es el formulario S1?", answer: "El S1 es un formulario que puede permitir a determinadas personas, a menudo jubiladas o cubiertas por otro país de la UE/EEE, registrar su derecho a la asistencia sanitaria en España." },
+        { question: "¿Puedo usar mi Tarjeta Sanitaria Europea después de mudarme?", answer: "La Tarjeta Sanitaria Europea es generalmente para estancias temporales. Si te mudas a España, conviene planificar el acceso sanitario como residente en lugar de depender solo de la cobertura de turista." },
+        { question: "¿Necesito sanidad antes del registro de la UE?", answer: "Es posible, sobre todo si solicitas por recursos suficientes, jubilación o estudios. Consulta las instrucciones de tu cita." },
+        { question: "¿La tarjeta sanitaria es lo mismo que la Seguridad Social?", answer: "No. La tarjeta sanitaria regional, el número de la Seguridad Social, el NIE y el padrón son documentos o registros distintos, aunque se relacionen entre sí." },
+        { question: "¿La sanidad funciona igual en todas las regiones?", answer: "No. La sanidad pública se gestiona a través de los servicios de salud regionales, así que los trámites y los requisitos de la tarjeta sanitaria pueden variar." }
+      ].map((item) => ({ title: item.question, text: item.answer })))
+      }),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Tu próximo paso",
+        children: `${SourceLinks([
+          { label: "Ver la hoja de ruta para ciudadanos de la UE", href: routes.esEuRoadmap },
+          { label: "Ver la guía de registro de la UE", href: routes.esEuRegistration },
+          { label: "Ver la guía del padrón", href: routes.esPadron },
+          { label: "Ver la guía de la Seguridad Social (en inglés)", href: routes.social },
+          { label: "Ver la guía de instalarte en España", href: routes.esSettling },
+          { label: "Ver la lista de documentos", href: routes.esChecklist }
+        ])}${`<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda los documentos sanitarios en la misma carpeta que los de identidad, padrón, Seguridad Social y residencia.</p></div>`}`
       })
     ]
   })
