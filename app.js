@@ -1037,6 +1037,7 @@ function t(key) {
 const roadmapDetails = {
   "eu-registration": {
     process: "EU Registration Certificate",
+    explanation: "<p><strong>What it is:</strong> EU, EEA, and Swiss citizens who plan to live in Spain for more than three months must register and obtain the Certificado de Registro de Ciudadano de la Unión — commonly called the \"green NIE\" because it shows your NIE number on a small green document. It is not a TIE card.</p><p><strong>What you need to show:</strong> You need to show you can support yourself: through work, sufficient funds, or study with health cover.</p><p><strong>How the process runs:</strong> Have your EX-18 form, NIE, padrón certificate, and proof of means ready before the appointment. The fee is 12.00 EUR via Modelo 790-012.</p><p><strong>Practical note:</strong> If you do not yet have a NIE, confirm with your local office whether they assign it during this registration or require a separate step first — practice varies by province.</p>",
     difficulty: "Medium",
     timeline: "Often a few weeks, depending on appointment availability",
     steps: [
@@ -1052,6 +1053,7 @@ const roadmapDetails = {
   },
   "eu-working": {
     process: "EU Registration Certificate as a worker",
+    explanation: "<p><strong>What it is:</strong> EU, EEA, and Swiss citizens living in Spain for more than three months and working there follow the same Certificado de Registro de Ciudadano de la Unión route — but working status is the simplest basis to register on.</p><p><strong>What counts as proof:</strong> Your employment contract or Social Security alta (or autónomo registration if self-employed) is your proof of means, so you normally do not need to show separate funds or private health cover — working gives you access to the public health system.</p><p><strong>How the process runs:</strong> Bring your EX-18 form, NIE, padrón certificate, and work evidence to the appointment. The fee is 12.00 EUR via Modelo 790-012.</p><p><strong>Practical note:</strong> Keep the certificate and your NIE — you will need both for employment, tax, healthcare, and digital ID steps.</p>",
     difficulty: "Medium",
     timeline: "Often a few weeks, depending on appointment availability",
     steps: [
@@ -1085,6 +1087,7 @@ const roadmapDetails = {
   },
   "work-authorization": {
     process: "Work authorization for non-EU citizens",
+    explanation: "<p><strong>What it is:</strong> Non-EU citizens who want to live in Spain and work for a Spanish employer or run their own business typically need a residence and work authorization before starting work.</p><p><strong>How you apply:</strong> Employed workers usually apply via the EX-03 form; the self-employed route uses EX-07. The authorization is employer-led in most cases — your Spanish employer initiates the application on your behalf.</p><p><strong>After approval:</strong> You apply for your entry visa at a Spanish consulate, enter Spain, and then do the TIE fingerprint appointment within the deadline on your resolution.</p><p><strong>Practical note:</strong> Processing can take several months and approval is not guaranteed — the whole process from application to card in hand typically takes six months to over a year.</p>",
     difficulty: "High",
     timeline: "Often several months",
     steps: ["Confirm whether the route is employee work or self-employed work.", "Prepare employer contract or business plan and professional evidence.", "Apply for the residence and work authorization before starting work.", "After approval, complete visa and TIE card steps if required.", "Pay Modelo 790-012 for the card step when applicable."],
@@ -1093,6 +1096,7 @@ const roadmapDetails = {
   },
   "digital-nomad": {
     process: "International telework / digital nomad",
+    explanation: "<p><strong>What it is:</strong> Spain's digital nomad visa (officially the international telework authorization, introduced under the Ley de Startups) lets non-EU remote workers live legally in Spain while working mainly for employers or clients based outside the country — your Spanish-client work cannot exceed 20% of total professional activity.</p><p><strong>What you need:</strong> A work contract or client evidence, private health insurance covering Spain, a criminal record certificate, and proof of your professional background. A minimum monthly income threshold applies (linked to the Spanish minimum wage — check the official page for the current figure, as it can update).</p><p><strong>How you apply:</strong> Two paths exist: apply from abroad at a Spanish consulate, or — if already legally in Spain — apply in-country through the UGE-CE online portal.</p><p><strong>Practical note:</strong> Processing after a complete filing typically takes one to three months, though incomplete documents are a common reason for delays. If approved, you still need a separate TIE fingerprint appointment to get the physical card.</p>",
     difficulty: "High",
     timeline: "Often one to three months after a complete filing",
     steps: ["Confirm your work is mainly for companies or clients outside Spain.", "Prepare contracts, company evidence, qualifications or experience, health cover, and clean record documents.", "Apply through the official telework route or consulate path.", "After approval, complete TIE card steps if required.", "Set up digital ID once eligible."],
@@ -1101,6 +1105,7 @@ const roadmapDetails = {
   },
   "non-lucrative": {
     process: "Non-lucrative residence",
+    explanation: "<p><strong>What it is:</strong> The non-lucrative residence visa lets non-EU citizens live in Spain without working — it is popular with retirees, people with passive income, rental income, savings, or investments.</p><p><strong>What you need to show:</strong> Sufficient funds to support yourself and any dependants without working in Spain (the threshold is linked to the IPREM indicator and updates annually — check the current figure at your consulate), plus private health insurance covering Spain, a clean criminal record, and a medical certificate.</p><p><strong>How you apply:</strong> The application is made at a Spanish consulate in your country of residence, not in Spain. Once approved, you enter on a visa, register on the padrón, and collect your TIE.</p><p><strong>Practical note:</strong> The visa is initially valid for one year and can be renewed; after five years you can apply for long-term residence.</p>",
     difficulty: "High",
     timeline: "Often several months, commonly through a consulate",
     steps: ["Confirm you will not work or carry out professional activity in Spain.", "Prepare proof of funds, health insurance, criminal record, and medical certificate where required.", "Apply through the official non-lucrative route.", "After approval or visa issue, complete TIE card steps if required.", "Use padrón and digital ID steps after arrival."],
@@ -1109,6 +1114,7 @@ const roadmapDetails = {
   },
   study: {
     process: "Study stay authorization application",
+    explanation: "<p><strong>What it is:</strong> Non-EU students planning to study, train, do an internship, or participate in a student mobility programme in Spain for more than 90 days need a study stay authorization.</p><p><strong>How you apply:</strong> You apply through a Spanish consulate before arriving, with an acceptance letter from your institution, proof of funds, private health insurance, a clean criminal record, and a medical certificate. Once in Spain you collect a student TIE.</p><p><strong>What it allows:</strong> Work rights are limited but some study authorizations allow part-time work — check the specific terms of your authorization. Family members may be able to join under linked authorization in some cases.</p><p><strong>Practical note:</strong> Student status gives access to public healthcare in some regions through the health card, but check your autonomous community's rules.</p>",
     difficulty: "Medium to high",
     timeline: "Often one to three months after a complete filing",
     steps: ["Prepare admission or enrollment proof.", "Prepare funds, health insurance, passport, and legalized/trans­lated public documents where required.", "Apply through the official study stay route.", "If your stay requires a card, complete the TIE step after approval.", "Keep renewal dates visible if the course continues."],
