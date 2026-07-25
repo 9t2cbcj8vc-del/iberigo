@@ -2297,6 +2297,16 @@ const pages = [
           ])}<p>Los documentos exactos dependen del parentesco, el país de expedición y el trámite. Usa la <a href="${routes.esChecklist}">lista de documentos</a> como punto de partida general y confirma después la lista exacta para tu caso concreto.</p>`
         }),
         GuideSection({
+          id: "entradaYVisado",
+          title: "Entrada: ¿hace falta visado antes de viajar?",
+          children: `<p>Depende de la nacionalidad del familiar no comunitario. Como familiar de un ciudadano de la UE, la situación de entrada es más favorable que la de una solicitud ordinaria de un no comunitario.</p>${Cards([
+            { title: "Si la nacionalidad está exenta de visado Schengen", text: "Se puede viajar a España sin visado previo para estancias de hasta 90 días en cualquier periodo de 180 días. La solicitud de la tarjeta de residencia se presenta después desde España." },
+            { title: "Si la nacionalidad sí requiere visado", text: "El visado de entrada se solicita en el consulado español antes de viajar. Según el portal oficial de la UE, cuando se exige visado a un familiar directo de un ciudadano de la UE, este debe ser gratuito y tramitarse mediante un procedimiento acelerado." },
+            { title: "Si ya se tiene una tarjeta de familiar de ciudadano de la UE", text: "Una tarjeta de residencia de familiar de ciudadano de la Unión expedida por cualquier país de la UE elimina la exigencia de visado para entrar." },
+            { title: "Solicitar desde España", text: "Cuando la entrada está exenta de visado, la solicitud se presenta en persona en la Oficina de Extranjería de la provincia o, en su defecto, en la comisaría de policía correspondiente, dentro de los tres meses siguientes a la fecha de entrada." }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta ruta no exige el visado previo de reagrupación familiar que sí requiere la reagrupación familiar ordinaria, cuando quien reagrupa es un residente no comunitario. Es una confusión frecuente: por la vía de familiar de ciudadano de la UE puede ser posible, según la nacionalidad, entrar primero y solicitar la tarjeta desde España.</p></div><p>La lista de nacionalidades exentas de visado la fija el Anexo II del Reglamento (UE) 2018/1806 y puede cambiar. Consulta la información de la UE sobre <a href="https://europa.eu/youreurope/citizens/travel/entry-exit/non-eu-family/index_en.htm" target="_blank" rel="noreferrer">documentos de viaje para familiares no comunitarios (en inglés)</a> y la página de <a href="https://administracion.gob.es/pag_Home/en/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/obtencion-residencia/inscribir-familiares-no-ue.html" target="_blank" rel="noreferrer">inscripción de familiares no comunitarios (en inglés)</a>, y confirma tu caso concreto con el consulado español antes de viajar.</p>`
+        }),
+        GuideSection({
           id: "mudarseJuntosOReunirseDespues",
           title: "Mudarse juntos o reuniros más tarde",
           children: Cards([
@@ -5549,6 +5559,16 @@ pages.push({
           { title: "Address or padrón evidence, where requested", text: "Proof of address may be part of the file, depending on the office." },
           { title: "Healthcare or financial evidence, depending on situation", text: "Some cases may require healthcare cover or financial evidence." }
         ])}<p>Exact documents depend on the relationship, country of issue and procedure. Use the <a href="${routes.checklist}">Documents Checklist</a> as a general starting point, then confirm the exact list for your specific case.</p>`
+      }),
+      GuideSection({
+        id: "entryVisa",
+        title: "Entry: do you need a visa first?",
+        children: `<p>It depends on the non-EU family member's nationality. As the family member of an EU citizen, the entry situation is more favourable than an ordinary non-EU application.</p>${Cards([
+          { title: "If the nationality is Schengen visa-exempt", text: "Travel to Spain is possible without a prior entry visa for stays of up to 90 days in any 180-day period. The residence card application is then made from within Spain." },
+          { title: "If the nationality does require a visa", text: "The entry visa is applied for at the Spanish consulate before travelling. Per the EU's official portal, where a visa is required for a core family member of an EU citizen it should be free of charge and issued under an accelerated application procedure." },
+          { title: "If an EU-family residence card is already held", text: "A residence card as a family member of a Union citizen issued by any EU country removes the visa requirement for entry." },
+          { title: "Applying from within Spain", text: "Where entry is visa-exempt, the application is made in person at the Oficina de Extranjería in the province, or failing that the relevant local police station, within three months of the date of entry." }
+        ])}${WarningBox("This route does not require the pre-arrival family reunification visa that ordinary family reunification does, where the sponsor is a non-EU resident. This is a common point of confusion: on the EU-family route it may be possible, depending on nationality, to enter first and apply for the card from within Spain.")}<p>The visa-exempt nationality list is set by Annex II of Regulation (EU) 2018/1806 and can change. See the EU's <a href="https://europa.eu/youreurope/citizens/travel/entry-exit/non-eu-family/index_en.htm" target="_blank" rel="noreferrer">travel documents for non-EU family members</a> and Spain's <a href="https://administracion.gob.es/pag_Home/en/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/obtencion-residencia/inscribir-familiares-no-ue.html" target="_blank" rel="noreferrer">registering non-EU family members</a>, and confirm the specific case with the Spanish consulate before travelling.</p>`
       }),
       GuideSection({
         id: "movingTogetherVsJoiningLater",

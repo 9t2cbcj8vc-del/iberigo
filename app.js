@@ -338,7 +338,7 @@ const routeFormsAndTaxes = {
       ["EX-17", "TIE card after your application has been approved", "Form", "EX-17"]
     ],
     taxes: [["790-012", "EU-family residence card fee", "12.00 EUR", "790-012"]],
-    links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
+    links: ["eu-family-official", "eu-family-spain", "eu-family-entry", "cita", "790-012"]
   },
   "driving-licence-exchange": {
     forms: [
@@ -453,7 +453,7 @@ const routeFormsAndTaxesEs = {
       ["EX-17", "TIE después de que la solicitud haya sido aprobada", "Formulario", "EX-17"]
     ],
     taxes: [["790-012", "Tasa de tarjeta de residencia de familiar de ciudadano de la UE", "12.00 EUR", "790-012"]],
-    links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
+    links: ["eu-family-official", "eu-family-spain", "eu-family-entry", "cita", "790-012"]
   },
   "driving-licence-exchange": {
     forms: [
@@ -1137,7 +1137,7 @@ const roadmapDetails = {
     timeline: "Often a few weeks to a few months",
     steps: ["Confirm the family member is an EU, EEA, Swiss, or qualifying Spanish citizen.", "Prepare relationship evidence and the EU/Spanish citizen's residence basis.", "Complete EX-19.", "Book the relevant EU-family residence card appointment.", "Pay Modelo 790-012 if required by the card process."],
     documents: ["Passport", "EX-19", "DNI or EU registration certificate of the EU/Spanish citizen", "Marriage, partnership, birth, or dependency evidence", "790-012 receipt if required"],
-    links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
+    links: ["eu-family-official", "eu-family-spain", "eu-family-entry", "cita", "790-012"]
   },
   "nie-only": {
     process: "NIE only",
@@ -1270,7 +1270,7 @@ const roadmapDetailsEs = {
     timeline: "A menudo de unas semanas a unos meses",
     steps: ["Confirma que el familiar es ciudadano de la UE, EEE, Suiza o ciudadano español cualificado.", "Prepara prueba del vínculo y la base de residencia del ciudadano UE/español.", "Completa el formulario EX-19.", "Reserva la cita correspondiente para tarjeta de familiar de ciudadano de la UE.", "Después de la aprobación, revisa el paso de TIE con EX-17 si te lo piden.", "Paga el Modelo 790-012 si lo exige el proceso de tarjeta."],
     documents: ["Pasaporte", "EX-19", "DNI o certificado de registro UE del ciudadano UE/español", "Matrimonio, pareja, nacimiento o prueba de dependencia", "EX-17 tras la aprobación si corresponde", "Justificante 790-012 si lo piden"],
-    links: ["eu-family-official", "eu-family-spain", "cita", "790-012"]
+    links: ["eu-family-official", "eu-family-spain", "eu-family-entry", "cita", "790-012"]
   },
   "nie-only": {
     process: "Número NIE",
@@ -2676,7 +2676,62 @@ function renderWorkAuthorizationScopeNotice(routeId) {
   `;
 }
 
+// Entry-visa guidance for the EU-family route. Sources: EU "travel documents for
+// non-EU family members" (europa.eu/youreurope), administracion.gob.es "Registering
+// non-EU family members", and Regulation (EU) 2018/1806 Annex II for the visa-exempt
+// list. Deliberately nationality-agnostic: the exempt list is set by EU regulation and
+// changes over time, so the page points at the official list rather than embedding one.
+function renderEuFamilyEntryBlock() {
+  if (currentLang === "es") {
+    return `
+      <div class="result-section">
+        <strong>Entrada: ¿necesitas visado antes de viajar?</strong>
+        <p>Depende de tu nacionalidad. Como familiar de un ciudadano de la UE, tu situación de entrada es más favorable que la de una solicitud ordinaria.</p>
+        <div class="nationality-path-grid">
+          <article class="nationality-path-card nationality-path-card--agreement">
+            <h4>Si tu nacionalidad está exenta de visado Schengen</h4>
+            <p>Puedes viajar a España sin visado previo para estancias de hasta 90 días en cualquier periodo de 180 días. Una vez en España, presentas la solicitud de tarjeta de residencia (EX-19) <strong>en persona</strong> en la Oficina de Extranjería de tu provincia o, en su defecto, en la comisaría de policía correspondiente, <strong>dentro de los tres meses siguientes a tu fecha de entrada</strong>. Te entregan un resguardo de solicitud que acredita la legalidad de tu estancia hasta que se emita la tarjeta.</p>
+          </article>
+          <article class="nationality-path-card nationality-path-card--no-agreement">
+            <h4>Si tu nacionalidad sí requiere visado</h4>
+            <p>Solicitas el visado de entrada en el consulado español antes de viajar. Según el portal oficial de la UE, cuando se exige visado a un familiar directo de un ciudadano de la UE, este <strong>debe ser gratuito y tramitarse mediante un procedimiento acelerado</strong>. No es el mismo trámite que un visado Schengen ordinario.</p>
+          </article>
+          <article class="nationality-path-card">
+            <h4>Si ya tienes una tarjeta de familiar de ciudadano de la UE</h4>
+            <p>Si ya posees una tarjeta de residencia de familiar de ciudadano de la Unión expedida por cualquier país de la UE, no necesitas visado para entrar.</p>
+          </article>
+        </div>
+        <div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta ruta <strong>no</strong> exige el visado previo de reagrupación familiar que sí requiere la reagrupación familiar ordinaria (cuando quien reagrupa es un residente no comunitario). Es una confusión frecuente: por la vía de familiar de ciudadano de la UE puedes, según tu nacionalidad, entrar primero y solicitar la tarjeta en España.</p></div>
+        <p class="helper-note">La lista de nacionalidades exentas de visado la fija el Anexo II del Reglamento (UE) 2018/1806 y puede cambiar. Comprueba tu caso concreto con el consulado español antes de viajar.</p>
+      </div>
+    `;
+  }
+  return `
+    <div class="result-section">
+      <strong>Entry: do you need a visa first?</strong>
+      <p>It depends on your nationality. As the family member of an EU citizen, your entry situation is more favourable than an ordinary application.</p>
+      <div class="nationality-path-grid">
+        <article class="nationality-path-card nationality-path-card--agreement">
+          <h4>If your nationality is Schengen visa-exempt</h4>
+          <p>You can travel to Spain without a prior entry visa for stays of up to 90 days in any 180-day period. Once in Spain, you apply for the residence card (EX-19) <strong>in person</strong> at the Oficina de Extranjería in your province or, failing that, the relevant local police station, <strong>within three months of your date of entry</strong>. You are given a certificate of application, which proves the legality of your stay until the card is issued.</p>
+        </article>
+        <article class="nationality-path-card nationality-path-card--no-agreement">
+          <h4>If your nationality does require a visa</h4>
+          <p>You apply for the entry visa at the Spanish consulate before travelling. Per the EU's official portal, where a visa is required for a core family member of an EU citizen it <strong>should be free of charge and issued under an accelerated application procedure</strong>. This is not the same process as an ordinary Schengen visa.</p>
+        </article>
+        <article class="nationality-path-card">
+          <h4>If you already hold an EU-family residence card</h4>
+          <p>If you already hold a residence card as a family member of a Union citizen issued by any EU country, you do not need a visa to enter.</p>
+        </article>
+      </div>
+      <div class="guide-box guide-box--warning"><strong>Important</strong><p>This route does <strong>not</strong> require the pre-arrival family reunification visa that ordinary family reunification does (where the sponsor is a non-EU resident). This is a common point of confusion: on the EU-family route you may, depending on your nationality, enter first and apply for the card from within Spain.</p></div>
+      <p class="helper-note">The visa-exempt nationality list is set by Annex II of Regulation (EU) 2018/1806 and can change. Confirm your own case with the Spanish consulate before travelling.</p>
+    </div>
+  `;
+}
+
 function renderNationalityPathBlock(routeId) {
+  if (routeId === "eu-family") return renderEuFamilyEntryBlock();
   if (routeId !== "driving-licence-exchange") return "";
   if (currentLang === "es") {
     return `
@@ -3043,6 +3098,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "family-official": "Family reunification",
       "eu-family-official": "EU-family residence card",
       "eu-family-spain": "Registering non-EU family members",
+      "eu-family-entry": "Travel documents for non-EU family members",
       "tie-form": "EX-17 TIE card form",
       "790-012": "Generate 790-012",
       "padron-info": "Find your town hall",
@@ -3147,6 +3203,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "family-official": "Reagrupación familiar",
       "eu-family-official": "Tarjeta de familiar de ciudadano de la UE",
       "eu-family-spain": "Inscripción de familiares no comunitarios",
+      "eu-family-entry": "Documentos de viaje para familiares no comunitarios",
       "tie-form": "Formulario EX-17 para TIE",
       "790-012": "Generar 790-012",
       "padron-info": "Encontrar tu ayuntamiento",
@@ -3254,6 +3311,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "family-official": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-de-residencia-temporal-por-reagrupacion-familiar",
     "eu-family-official": "https://www.inclusion.gob.es/web/migraciones/w/62.-tarjeta-de-residencia-de-familiar-de-ciudadano-de-la-union-europea",
     "eu-family-spain": "https://administracion.gob.es/pag_Home/en/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/obtencion-residencia/inscribir-familiares-no-ue.html",
+    "eu-family-entry": "https://europa.eu/youreurope/citizens/travel/entry-exit/non-eu-family/index_en.htm",
     "tie-form": "https://www.inclusion.gob.es/documents/410169/2156469/17-Formulario_TIE.pdf",
     "790-012": "https://sede.policia.gob.es/Tasa790_012/",
     "padron-info": "https://administracion.gob.es/pagFront/espanaAdmon/directorioOrganigrama/entidadesLocales/entidadesLocales.htm",
