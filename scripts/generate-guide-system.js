@@ -586,6 +586,15 @@ const officialSourcesByRoute = {
   [routes.driving]: [
     { name: "Dirección General de Tráfico (DGT)", url: "https://www.dgt.es", note: "DGT is Spain's traffic authority and the official place to check current driving-licence, exchange, renewal and medical-check rules referenced throughout this guide." }
   ],
+  // Without an entry here the generator's `showTrustBlocks` gate (which keys off
+  // officialSources.length) silently drops the Scope Notice, Official Sources AND
+  // Legal Disclaimer blocks from the page. This route previously had none, so a guide
+  // about government digital identity shipped with no cited sources and no disclaimer.
+  [routes.digital]: [
+    { name: "FNMT — Real Casa de la Moneda", url: "https://www.sede.fnmt.gob.es/certificados/persona-fisica", note: "Fábrica Nacional de Moneda y Timbre — the official issuer of the personal digital certificate (certificado digital de persona física), including the request, in-person identity verification and installation steps." },
+    { name: "Cl@ve", url: "https://clave.gob.es", note: "The Spanish government's shared identification system for public-administration services, and the official place to check which Cl@ve options and registration routes are currently available." },
+    { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures, useful for checking which services accept a digital certificate or Cl@ve." }
+  ],
   [routes.nonEuRoadmap]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
@@ -4809,8 +4818,9 @@ pages.push({
         children: `${Cards([
           { title: "Calendar year", text: "Spain commonly considers time spent in Spain during a calendar year when assessing tax residency." },
           { title: "Days of presence", text: "Spending more than 183 days in Spain during a calendar year is one important factor." },
+          { title: "Short trips abroad may still count", text: "Sporadic absences (ausencias esporádicas) are generally counted towards the 183 days unless you can prove tax residency in another country. Leaving Spain periodically does not necessarily reset the count." },
           { title: "Not the only factor", text: "Personal and economic interests may also matter, and family situation may matter in some cases." }
-        ])}${InfoBox({ title: "Careful wording", text: "The 183-day rule is important, but it is not the only rule. Tax treaties may affect the outcome, and rules may change." })}`
+        ])}${InfoBox({ title: "Careful wording", text: "The 183-day rule is important, but it is not the only rule. Tax treaties may affect the outcome, and rules may change." })}<p>The treatment of sporadic absences comes from the Agencia Tributaria's own guidance on <a href="https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2024/c02-irpf-cuestiones-generales/sujecion-irpf-aspectos-personales/residencia-habitual-territorio-espanol.html" target="_blank" rel="noreferrer">residencia habitual en territorio español</a>. This page does not assess your tax residency — if the day count is close, or you may be resident in more than one country, that is a question for a qualified tax professional.</p>`
       }),
       GuideSection({
         id: "worldwideIncome",
@@ -6248,6 +6258,16 @@ pages.push({
         ])}`
       }),
       GuideSection({
+        id: "entryVisa",
+        title: "Entry: do you need a visa first?",
+        children: `<p>For ordinary family reunification — where the sponsor is a non-EU legal resident in Spain — the answer is generally yes. This is one of the clearest differences from the EU family member route.</p>${Cards([
+          { title: "The sponsor applies first, in Spain", text: "The residence authorization is applied for in Spain by the sponsor. The family member does not travel on the strength of the relationship alone." },
+          { title: "Then a residence visa at the consulate", text: "Once the authorization is granted, the family member applies in person for the residence visa at the Spanish consular office covering their place of residence." },
+          { title: "Two months to request the visa", text: "The family member has two months from notification of the approval to request the visa in person." },
+          { title: "One month to enter after it is issued", text: "Once the visa is issued, entry into Spain must take place within a maximum of one month." }
+        ])}${WarningBox("This is the opposite of the EU family member route. There, a visa-exempt nationality can travel to Spain first and apply for the residence card from within Spain. On ordinary family reunification the consular visa comes before travel, so plan the sponsor's application and the family member's travel around that sequence.")}<p>The two-month and one-month periods above are the deadlines set out in the official procedure, not estimates. Check the current requirements on the Ministry's <a href="https://www.inclusion.gob.es/web/migraciones/w/autorizacion-de-residencia-temporal-por-reagrupacion-familiar" target="_blank" rel="noreferrer">temporary residence by family reunification</a> page and with the Spanish consulate that covers the family member's place of residence, since consular document lists vary. If the sponsor is an EU, EEA or Swiss citizen, this section does not apply — use the <a href="${routes.euFamilyMemberRoadmap}">Family Member of an EU Citizen Roadmap</a> instead.</p>`
+      }),
+      GuideSection({
         id: "afterApprovalOrArrival",
         title: "After approval or arrival",
         children: `${Cards([
@@ -6387,6 +6407,16 @@ pages.push({
           { title: "Not automatically eligible", text: "A foreign employer or foreign clients do not automatically guarantee eligibility." },
           { title: "Verify your structure matches the route", text: "Users should verify whether their work structure matches the official route before applying." }
         ])}`
+      }),
+      GuideSection({
+        id: "whereYouApply",
+        title: "Where do you apply — consulate or from inside Spain?",
+        children: `<p>There are two official channels, and which one applies depends on where you are when you file. This is worth settling early, because it decides whether you travel first or apply first.</p>${Cards([
+          { title: "From abroad: the consulate", text: "The telework visa is requested at the Spanish consulate covering your country of residence. The visa itself is enough to reside and work remotely in Spain while it is valid." },
+          { title: "From inside Spain: the UGE-CE", text: "If you are already legally in Spain, the residence authorization can be applied for directly with the Unidad de Grandes Empresas y Colectivos Estratégicos (UGE-CE), without a prior visa." },
+          { title: "Either directly or through a representative", text: "The UGE-CE route can be handled directly or through an accredited representative." },
+          { title: "Check the current income and insurance conditions", text: "Both channels apply an income threshold linked to the minimum wage, and require health insurance valid in Spain. The figures can change, so confirm the current ones on the official page before applying." }
+        ])}${WarningBox("Being physically in Spain as a tourist is not the same as being legally in Spain for the purpose of this route. Confirm that your current status allows an in-country application before assuming the UGE-CE channel is open to you.")}<p>See the Ministry's <a href="https://www.inclusion.gob.es/en/web/unidadgrandesempresas/teletrabajadores" target="_blank" rel="noreferrer">UGE-CE teleworkers page</a> for the in-country route, and your nearest Spanish consulate for the visa route. This page does not assess eligibility — the correct channel depends on your legal situation at the time you file.</p>`
       }),
       GuideSection({
         id: "taxesAndRemoteWork",

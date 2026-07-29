@@ -2644,11 +2644,21 @@ const routeScopeNotices = {
   "eu-family": {
     en: {
       heading: "Planning your move, not just the application?",
-      body: 'This guide covers the residence card application (EX-19) once you already know you qualify. For relationship categories, eligibility, moving together vs. joining later, and common mistakes, see the broader <a href="/moving-to-spain/family-member-eu-citizen/">Family Member of an EU Citizen roadmap</a>.'
+      body: 'This guide covers the residence card application (EX-19) once you already know you qualify. It applies when the person you are joining is an <strong>EU, EEA or Swiss citizen</strong>. If your sponsor is a <strong>non-EU legal resident</strong> in Spain, that is ordinary family reunification instead — see the <a href="/guides/family/">Family reunification guide</a>, which has a different form, fee and entry sequence. For relationship categories, eligibility, moving together vs. joining later, and common mistakes, see the broader <a href="/moving-to-spain/family-member-eu-citizen/">Family Member of an EU Citizen roadmap</a>.'
     },
     es: {
       heading: "¿Planeas tu mudanza, no solo el trámite?",
-      body: 'Esta guía trata sobre la solicitud de la tarjeta de residencia (EX-19) una vez que ya sabes que cumples los requisitos. Para categorías de parentesco, requisitos de elegibilidad, mudarse juntos o por separado, y errores comunes, consulta la <a href="/es/moving-to-spain/family-member-eu-citizen/">hoja de ruta de Familiar de un Ciudadano de la UE</a>.'
+      body: 'Esta guía trata sobre la solicitud de la tarjeta de residencia (EX-19) una vez que ya sabes que cumples los requisitos. Se aplica cuando la persona con la que te reúnes es <strong>ciudadana de la UE, del EEE o de Suiza</strong>. Si quien te reagrupa es un <strong>residente legal no comunitario</strong> en España, se trata de reagrupación familiar ordinaria — consulta la <a href="/guides/es/family/">guía de reagrupación familiar</a>, que tiene formulario, tasa y secuencia de entrada distintos. Para categorías de parentesco, requisitos de elegibilidad, mudarse juntos o por separado, y errores comunes, consulta la <a href="/es/moving-to-spain/family-member-eu-citizen/">hoja de ruta de Familiar de un Ciudadano de la UE</a>.'
+    }
+  },
+  family: {
+    en: {
+      heading: "Is your sponsor an EU citizen?",
+      body: 'This guide covers ordinary family reunification (EX-02), where the person you are joining is a <strong>non-EU legal resident</strong> in Spain. If they are an <strong>EU, EEA or Swiss citizen</strong>, you follow the separate and generally more favourable EU-family route instead — see the <a href="/guides/eu-family/">EU-family residence card guide</a>. The two routes differ in form, fee and whether you need a visa before travelling.'
+    },
+    es: {
+      heading: "¿Quien te reagrupa es ciudadano de la UE?",
+      body: 'Esta guía trata la reagrupación familiar ordinaria (EX-02), cuando la persona con la que te reúnes es <strong>residente legal no comunitario</strong> en España. Si es <strong>ciudadana de la UE, del EEE o de Suiza</strong>, te corresponde la ruta separada y generalmente más favorable de familiar de ciudadano de la UE — consulta la <a href="/guides/es/eu-family/">guía de la tarjeta de familiar de ciudadano de la UE</a>. Las dos rutas difieren en formulario, tasa y en si necesitas visado antes de viajar.'
     }
   },
   study: {
