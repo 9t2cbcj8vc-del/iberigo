@@ -705,7 +705,12 @@ const publishedRoutes = new Set([
   routes.vacationHub,
   routes.esVacationHub,
   routes.livingHub,
-  routes.esLivingHub
+  routes.esLivingHub,
+  // EU registration guide: published as an EN/ES pair. The 12,00 EUR fee was
+  // re-checked against the Policía Nacional extranjería fee schedule before
+  // publishing, and /moving-to-spain/eu-citizens/ already links here three times.
+  routes.euRegistration,
+  routes.esEuRegistration
 ]);
 
 function guideMetadataFor(route) {
