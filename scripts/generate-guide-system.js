@@ -2697,9 +2697,10 @@ const pages = [
             { title: "Puede seguir la TIE", text: "Puede requerirse la TIE tras la aprobación o la llegada." },
             { title: "Distinto de las estancias turísticas", text: "Los trámites de estudiante son distintos de las estancias turísticas normales." }
           ])}${SourceLinks([
+            { label: "Ver la guía de estancia por estudios", href: "/guides/es/study/" },
             { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
             { label: "Ver la lista de documentos", href: routes.esChecklist }
-          ])}`
+          ])}<p>La guía de estancia por estudios cubre la parte procedimental que esta hoja de ruta no detalla: el formulario, los documentos que suelen pedirse y en qué momento entra el paso consular respecto a la llegada.</p>`
         }),
         GuideSection({
           id: "sanidadYAlojamiento",
@@ -2869,9 +2870,10 @@ const pages = [
             { title: "Distintos canales según la vía", text: "El trámite puede implicar a un consulado español, autoridades de extranjería u otros canales oficiales, según la vía." },
             { title: "Puede seguir la TIE", text: "Puede requerirse una TIE tras la aprobación o la llegada." }
           ])}${SourceLinks([
+            { label: "Ver la guía de residencia no lucrativa", href: "/guides/es/non-lucrative/" },
             { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
             { label: "Ver la lista de documentos", href: routes.esChecklist }
-          ])}`
+          ])}<p>Para la mayoría de las personas jubiladas o con recursos propios la vía en cuestión es la residencia no lucrativa. La guía correspondiente cubre lo que esta hoja de ruta no detalla: el formulario, la documentación que suelen pedir los consulados y cómo se expresa el requisito de medios económicos.</p>`
         }),
         GuideSection({
           id: "antesDeSolicitarOMudarte",
@@ -3087,10 +3089,11 @@ const pages = [
             { title: "No es un permiso por sí solo", text: "El alta como autónomo por sí sola no debe tratarse como permiso para vivir o trabajar." },
             { title: "Puede seguir la TIE", text: "Puede requerirse una TIE tras la aprobación o la llegada." }
           ])}${SourceLinks([
+            { label: "Ver la guía de autorización de trabajo", href: "/guides/es/work-authorization/" },
             { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
             { label: "Ver la guía de nómada digital (en inglés)", href: routes.digitalNomad },
             { label: "Ver la lista de documentos", href: routes.esChecklist }
-          ])}`
+          ])}<p>La guía de autorización de trabajo cubre las dos vías laborales en paralelo, incluida la autorización de trabajo por cuenta propia (EX-07) que se aplica aquí, y en qué se diferencia de la vía por cuenta ajena (EX-03).</p>`
         }),
         GuideSection({
           id: "antesDeEmpezar",
@@ -5754,9 +5757,10 @@ pages.push({
           { title: "TIE may follow", text: "TIE may be required after approval or arrival." },
           { title: "Different from tourist stays", text: "Student procedures are different from ordinary tourist stays." }
         ])}${SourceLinks([
+          { label: "View the Study Stay Guide", href: "/guides/study/" },
           { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
           { label: "View the Documents Checklist", href: routes.checklist }
-        ])}`
+        ])}<p>The Study Stay Guide covers the procedural detail this roadmap leaves out: the application form, the documents usually requested, and where the consulate step sits relative to arrival.</p>`
       }),
       GuideSection({
         id: "healthcareAndAccommodation",
@@ -6072,9 +6076,10 @@ pages.push({
           { title: "Different channels depending on route", text: "The process may involve a Spanish consulate, immigration authorities or other official channels, depending on the route." },
           { title: "TIE may follow", text: "A TIE may be required after approval or arrival." }
         ])}${SourceLinks([
+          { label: "View the Non-Lucrative Residence Guide", href: "/guides/non-lucrative/" },
           { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
           { label: "View the Documents Checklist", href: routes.checklist }
-        ])}`
+        ])}<p>For most retirees and self-sufficient applicants the route in question is non-lucrative residence. The Non-Lucrative Residence Guide covers what this roadmap does not: the form, the evidence consulates typically ask for, and how the funds requirement is expressed.</p>`
       }),
       GuideSection({
         id: "beforeYouApplyOrMove",
@@ -6272,7 +6277,9 @@ pages.push({
           { title: "Some steps may involve a consulate", text: "Some steps may involve a Spanish consulate." },
           { title: "Depends on current situation", text: "Some situations may depend on whether the family member is already in Spain." },
           { title: "Not covered here", text: "This roadmap does not give route-specific instructions. The correct path depends on the residence route and legal situation — check the official requirements that apply to your case." }
-        ])}`
+        ])}${SourceLinks([
+          { label: "View the Family Reunification Guide", href: "/guides/family/" }
+        ])}<p>For the procedural side — the EX-02 authorization the sponsor files, the documents usually requested, and the card step that follows approval — see the Family Reunification Guide.</p>`
       }),
       GuideSection({
         id: "entryVisa",
@@ -6397,7 +6404,9 @@ pages.push({
           <tr><th>Digital nomad / remote-work route</th><td>May apply to some people working remotely for foreign employers or clients. Requirements depend on work structure and official rules. Tax and immigration review is important.</td></tr>
           <tr><th>Employee route</th><td>Usually connected to employment in Spain. May involve employer-side processes. Use the <a href="${routes.workInSpain}">Work in Spain Roadmap</a>.</td></tr>
           <tr><th>Self-employed / autónomo route</th><td>Usually connected to independent economic activity in Spain. Tax and Social Security setup can be complex. Use the <a href="${routes.selfEmployed}">Self-Employed Roadmap</a>.</td></tr>
-        </tbody></table>${WarningBox("Do not assume these routes are interchangeable. Confirm which one matches your actual work structure before applying.")}`
+        </tbody></table>${WarningBox("Do not assume these routes are interchangeable. Confirm which one matches your actual work structure before applying.")}${SourceLinks([
+          { label: "View the Digital Nomad Guide", href: "/guides/digital-nomad/" }
+        ])}<p>Once you have settled which route applies, the Digital Nomad Guide covers the procedural detail this roadmap does not: the documents typically required, and the card step that follows approval.</p>`
       }),
       GuideSection({
         id: "beforeYouApplyOrMove",
@@ -6591,10 +6600,11 @@ pages.push({
           { title: "Not permission by itself", text: "Autónomo registration alone should not be treated as permission to live or work." },
           { title: "TIE may follow", text: "A TIE may be required after approval or arrival." }
         ])}${SourceLinks([
+          { label: "View the Work Authorization Guide", href: "/guides/work-authorization/" },
           { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
           { label: "View the Digital Nomad Roadmap", href: routes.digitalNomad },
           { label: "View the Documents Checklist", href: routes.checklist }
-        ])}`
+        ])}<p>The Work Authorization Guide covers both work routes side by side, including the EX-07 self-employed authorization that applies here, and how it differs from the EX-03 employed route.</p>`
       }),
       GuideSection({
         id: "beforeYouStart",
