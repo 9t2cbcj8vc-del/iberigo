@@ -1016,12 +1016,16 @@ function SourceLinks(items = []) {
     .join("\n          ")}</div>`;
 }
 
+// Optional `secondaryHref`/`secondaryLabel` render a second link below the primary
+// one, for cards where the roadmap link alone leaves the reader short of the actual
+// procedural guide. Cards without those fields are unchanged.
 function StartHereCards(items = []) {
   return `<div class="guide-card-grid">${items
     .map((item) => `<article class="guide-info-card">
             <h3>${item.title}</h3>
             <p>${item.text}</p>
-            <a class="guide-button${item.comingSoon ? " guide-button--secondary" : ""}" href="${item.href}"${item.comingSoon ? ' aria-disabled="true"' : ""}>${item.label}</a>
+            <a class="guide-button${item.comingSoon ? " guide-button--secondary" : ""}" href="${item.href}"${item.comingSoon ? ' aria-disabled="true"' : ""}>${item.label}</a>${item.secondaryHref ? `
+            <a class="guide-button guide-button--secondary" href="${item.secondaryHref}">${item.secondaryLabel}</a>` : ""}
           </article>`)
     .join("\n          ")}</div>`;
 }
@@ -2115,7 +2119,7 @@ const pages = [
           id: "elegirTuVia",
           title: "Elige tu vía",
           children: StartHereCards([
-            { title: "Trabajar en España", text: "Las vías laborales suelen depender de una oferta de empleo, el patrocinio de la empresa o una autorización de trabajo reconocida.", href: routes.esWorkInSpain, label: "Ver hoja de ruta" },
+            { title: "Trabajar en España", text: "Las vías laborales suelen depender de una oferta de empleo, el patrocinio de la empresa o una autorización de trabajo reconocida.", href: routes.esWorkInSpain, label: "Ver hoja de ruta", secondaryHref: "/guides/es/work-authorization/", secondaryLabel: "Ver la guía de autorización de trabajo" },
             { title: "Estudiar en España", text: "Las vías de estudios suelen depender de la matrícula, la duración del programa y los medios económicos.", href: routes.esStudents, label: "Ver hoja de ruta" },
             { title: "Reunirte con familia en España", text: "La reagrupación familiar suele depender del parentesco y de la situación del familiar que te reagrupa.", href: routes.familyReunification, label: "Ver hoja de ruta (en inglés)" },
             { title: "Familiar de un ciudadano de la UE", text: "Esta vía puede diferir de las vías familiares no comunitarias habituales, según el parentesco y la situación.", href: routes.esEuFamilyMemberRoadmap, label: "Ver hoja de ruta" },
@@ -2484,9 +2488,10 @@ const pages = [
             { title: "Una oferta de empleo no basta por sí sola", text: "Tener una oferta de empleo no significa automáticamente que la persona pueda trabajar legalmente." },
             { title: "Puede seguir la TIE", text: "Puede requerirse la TIE tras la aprobación o la llegada." }
           ])}${SourceLinks([
+            { label: "Ver la guía de autorización de trabajo", href: "/guides/es/work-authorization/" },
             { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
             { label: "Ver la lista de documentos", href: routes.esChecklist }
-          ])}`
+          ])}<p>La guía de autorización de trabajo cubre la parte procedimental que esta hoja de ruta no detalla: qué formulario corresponde según sea trabajo por cuenta ajena o por cuenta propia, la tasa del paso de la tarjeta y en qué momento de la secuencia entra el visado.</p>`
         }),
         GuideSection({
           id: "antesDeAceptarOEmpezar",
@@ -5405,7 +5410,7 @@ pages.push({
         id: "chooseYourRoute",
         title: "Choose your route",
         children: StartHereCards([
-          { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: routes.workInSpain, label: "View roadmap" },
+          { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: routes.workInSpain, label: "View roadmap", secondaryHref: "/guides/work-authorization/", secondaryLabel: "View the Work Authorization Guide" },
           { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: routes.students, label: "View roadmap" },
           { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: routes.familyReunification, label: "View roadmap" },
           { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View roadmap" },
@@ -5894,9 +5899,10 @@ pages.push({
           { title: "A job offer is not enough by itself", text: "A job offer alone does not automatically mean the person can work legally." },
           { title: "TIE may follow", text: "TIE may be required after approval or arrival." }
         ])}${SourceLinks([
+          { label: "View the Work Authorization Guide", href: "/guides/work-authorization/" },
           { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
           { label: "View the Documents Checklist", href: routes.checklist }
-        ])}`
+        ])}<p>The Work Authorization Guide covers the procedural side this roadmap does not: which form applies to employed versus self-employed work, the fee for the card step, and where the entry visa fits in the sequence.</p>`
       }),
       GuideSection({
         id: "beforeAcceptingOrStartingWork",
