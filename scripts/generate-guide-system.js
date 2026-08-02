@@ -2125,12 +2125,12 @@ const pages = [
           title: "Elige tu vía",
           children: StartHereCards([
             { title: "Trabajar en España", text: "Las vías laborales suelen depender de una oferta de empleo, el patrocinio de la empresa o una autorización de trabajo reconocida.", href: routes.esWorkInSpain, label: "Ver hoja de ruta", secondaryHref: "/guides/es/work-authorization/", secondaryLabel: "Ver la guía de autorización de trabajo" },
-            { title: "Estudiar en España", text: "Las vías de estudios suelen depender de la matrícula, la duración del programa y los medios económicos.", href: routes.esStudents, label: "Ver hoja de ruta" },
-            { title: "Reunirte con familia en España", text: "La reagrupación familiar suele depender del parentesco y de la situación del familiar que te reagrupa.", href: routes.familyReunification, label: "Ver hoja de ruta (en inglés)" },
-            { title: "Familiar de un ciudadano de la UE", text: "Esta vía puede diferir de las vías familiares no comunitarias habituales, según el parentesco y la situación.", href: routes.esEuFamilyMemberRoadmap, label: "Ver hoja de ruta" },
-            { title: "Jubilarte o vivir de recursos suficientes", text: "Esta vía suele depender de justificar ingresos, ahorros y cobertura sanitaria en vez de un empleo.", href: routes.esRetireInSpain, label: "Ver hoja de ruta" },
-            { title: "Nómada digital / trabajo remoto", text: "Esta vía suele depender del empleo remoto o de clientes con sede fuera de España.", href: routes.digitalNomad, label: "Ver hoja de ruta (en inglés)" },
-            { title: "Autónomo / actividad empresarial", text: "Esta vía suele depender del plan de negocio, la actividad y los justificantes económicos.", href: routes.esSelfEmployed, label: "Ver hoja de ruta" },
+            { title: "Estudiar en España", text: "Las vías de estudios suelen depender de la matrícula, la duración del programa y los medios económicos.", href: routes.esStudents, label: "Ver hoja de ruta", secondaryHref: "/guides/es/study/", secondaryLabel: "Ver la guía de estancia por estudios" },
+            { title: "Reunirte con familia en España", text: "La reagrupación familiar suele depender del parentesco y de la situación del familiar que te reagrupa.", href: routes.familyReunification, label: "Ver hoja de ruta (en inglés)", secondaryHref: "/guides/es/family/", secondaryLabel: "Ver la guía de reagrupación familiar" },
+            { title: "Familiar de un ciudadano de la UE", text: "Esta vía puede diferir de las vías familiares no comunitarias habituales, según el parentesco y la situación.", href: routes.esEuFamilyMemberRoadmap, label: "Ver hoja de ruta", secondaryHref: "/guides/es/eu-family/", secondaryLabel: "Ver la guía de tarjeta de familiar de la UE" },
+            { title: "Jubilarte o vivir de recursos suficientes", text: "Esta vía suele depender de justificar ingresos, ahorros y cobertura sanitaria en vez de un empleo.", href: routes.esRetireInSpain, label: "Ver hoja de ruta", secondaryHref: "/guides/es/non-lucrative/", secondaryLabel: "Ver la guía de residencia no lucrativa" },
+            { title: "Nómada digital / trabajo remoto", text: "Esta vía suele depender del empleo remoto o de clientes con sede fuera de España.", href: routes.digitalNomad, label: "Ver hoja de ruta (en inglés)", secondaryHref: "/guides/es/digital-nomad/", secondaryLabel: "Ver la guía de nómada digital" },
+            { title: "Autónomo / actividad empresarial", text: "Esta vía suele depender del plan de negocio, la actividad y los justificantes económicos.", href: routes.esSelfEmployed, label: "Ver hoja de ruta", secondaryHref: "/guides/es/work-authorization/", secondaryLabel: "Ver la guía de autorización de trabajo (EX-07)" },
             { title: "Ya estoy en España y no sé qué aplica", text: "Usa Empieza aquí y esta hoja de ruta juntas para acotar qué puede aplicarse.", href: routes.esStartHere, label: "Continuar" }
           ])
         }),
@@ -2170,7 +2170,12 @@ const pages = [
             { title: "Abre una cuenta bancaria", text: "Una cuenta española puede ayudarte con los pagos diarios." },
             { title: "Configura el certificado digital o Cl@ve, si está disponible", text: "El acceso digital puede ayudar con Hacienda, la Seguridad Social y otros trámites online." },
             { title: "Entiende tus obligaciones fiscales", text: "Pueden surgir dudas fiscales según tu residencia, ingresos y bienes." }
-          ])}<div class="guide-box guide-box--info"><strong>El orden puede variar</strong><p>No todo el mundo sigue el mismo orden. Algunos pasos pueden ir en paralelo, y la disponibilidad de citas puede variar según la provincia y la situación.</p></div>`
+          ])}<div class="guide-box guide-box--info"><strong>El orden puede variar</strong><p>No todo el mundo sigue el mismo orden. Algunos pasos pueden ir en paralelo, y la disponibilidad de citas puede variar según la provincia y la situación.</p></div>${SourceLinks([
+          { label: "Ver la guía del padrón", href: "/guides/es/padron/" },
+          { label: "Ver la guía de banca en España", href: "/guides/es/banking/" },
+          { label: "Ver la guía de certificado digital y Cl@ve", href: "/guides/es/digital/" },
+          { label: "Ver la guía de impuestos en España", href: "/guides/es/taxes/" }
+        ])}<p>Cada uno de estos pasos posteriores a la llegada tiene su propia guía breve.</p>`
         }),
         GuideSection({
           id: "conceptosBasicosTie",
@@ -3136,7 +3141,10 @@ const pages = [
           ])}${SourceLinks([
             { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare }
-          ])}`
+          ])}${SourceLinks([
+          { label: "Ver la guía del número de la Seguridad Social", href: "/guides/es/social-security/" },
+          { label: "Ver la guía de vida laboral", href: "/guides/es/vida-laboral/" }
+        ])}<p>La guía del número de la Seguridad Social cubre cómo obtenerlo, y la guía de vida laboral cómo solicitar tu informe de cotizaciones.</p>`
         }),
         GuideSection({
           id: "certificadoDigitalYAdministracion",
@@ -3146,7 +3154,9 @@ const pages = [
             { title: "El certificado digital o Cl@ve puede ayudar", text: "El certificado digital o Cl@ve puede ayudar con los trámites fiscales y de Seguridad Social." },
             { title: "No todo está online", text: "No todos los trámites son idénticos ni están completamente disponibles online." },
             { title: "Guarda tus registros", text: "Guarda las notificaciones oficiales y tus registros." }
-          ])}<p>Usa la <a href="${routes.digital}">guía del certificado digital y Cl@ve (en inglés)</a> para comparar los dos sistemas.</p>`
+          ])}<p>Usa la <a href="${routes.digital}">guía del certificado digital y Cl@ve (en inglés)</a> para comparar los dos sistemas.</p>${SourceLinks([
+          { label: "Ver la guía de certificado digital y Cl@ve", href: "/guides/es/digital/" }
+        ])}<p>La guía de certificado digital y Cl@ve cubre cómo obtener cada uno, algo que suele ser requisito para presentar trámites online como autónomo.</p>`
         }),
         GuideSection({
           id: "conceptosBasicosTieAutonomos",
@@ -5419,12 +5429,12 @@ pages.push({
         title: "Choose your route",
         children: StartHereCards([
           { title: "Work in Spain", text: "Work-based routes usually depend on a job offer, employer sponsorship or recognised work authorisation.", href: routes.workInSpain, label: "View roadmap", secondaryHref: "/guides/work-authorization/", secondaryLabel: "View the Work Authorization Guide" },
-          { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: routes.students, label: "View roadmap" },
-          { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: routes.familyReunification, label: "View roadmap" },
-          { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View roadmap" },
-          { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View roadmap" },
-          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: routes.digitalNomad, label: "View roadmap" },
-          { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: routes.selfEmployed, label: "View roadmap" },
+          { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: routes.students, label: "View roadmap", secondaryHref: "/guides/study/", secondaryLabel: "View the Study Stay Guide" },
+          { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: routes.familyReunification, label: "View roadmap", secondaryHref: "/guides/family/", secondaryLabel: "View the Family Reunification Guide" },
+          { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View roadmap", secondaryHref: "/guides/eu-family/", secondaryLabel: "View the EU-Family Residence Card Guide" },
+          { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View roadmap", secondaryHref: "/guides/non-lucrative/", secondaryLabel: "View the Non-Lucrative Residence Guide" },
+          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: routes.digitalNomad, label: "View roadmap", secondaryHref: "/guides/digital-nomad/", secondaryLabel: "View the Digital Nomad Guide" },
+          { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: routes.selfEmployed, label: "View roadmap", secondaryHref: "/guides/work-authorization/", secondaryLabel: "View the Work Authorization Guide (EX-07)" },
           { title: "Already in Spain and unsure what applies", text: "Use the Start Here page and this roadmap together to narrow down what may apply.", href: routes.startHere, label: "Continue" }
         ])
       }),
@@ -5464,7 +5474,12 @@ pages.push({
           { title: "Open a bank account", text: "A Spanish account can help with everyday payments." },
           { title: "Set up Digital Certificate or Cl@ve, if available", text: "Digital access may help with tax, Social Security and other online procedures." },
           { title: "Understand tax obligations", text: "Tax questions may arise depending on residence, income and assets." }
-        ])}${InfoBox({ title: "Order can vary", text: "Not everyone follows the same order. Some steps may happen in parallel, and appointment availability can vary by province and situation." })}`
+        ])}${InfoBox({ title: "Order can vary", text: "Not everyone follows the same order. Some steps may happen in parallel, and appointment availability can vary by province and situation." })}${SourceLinks([
+          { label: "View the Padrón Guide", href: "/guides/padron/" },
+          { label: "View the Banking in Spain Guide", href: "/guides/banking/" },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: "/guides/digital/" },
+          { label: "View the Taxes in Spain Guide", href: "/guides/taxes/" }
+        ])}<p>Each of these post-arrival steps has its own short procedural guide.</p>`
       }),
       GuideSection({
         id: "tieBasics",
@@ -6647,7 +6662,10 @@ pages.push({
         ])}${SourceLinks([
           { label: "View the Social Security in Spain Guide", href: routes.social },
           { label: "View the Healthcare in Spain Guide", href: routes.healthcare }
-        ])}`
+        ])}${SourceLinks([
+          { label: "View the Social Security Number Guide", href: "/guides/social-security/" },
+          { label: "View the Vida Laboral Guide", href: "/guides/vida-laboral/" }
+        ])}<p>The Social Security Number Guide covers obtaining the number, and the Vida Laboral Guide covers requesting your contribution record.</p>`
       }),
       GuideSection({
         id: "digitalCertificateAndAdministration",
@@ -6657,7 +6675,9 @@ pages.push({
           { title: "Digital Certificate or Cl@ve can help", text: "Digital Certificate or Cl@ve can help with tax and Social Security procedures." },
           { title: "Not everything is online", text: "Not every process is identical or fully online." },
           { title: "Keep records", text: "Keep official notifications and records." }
-        ])}<p>Use the <a href="${routes.digital}">Digital Certificate and Cl@ve Guide</a> to compare the two systems.</p>`
+        ])}<p>Use the <a href="${routes.digital}">Digital Certificate and Cl@ve Guide</a> to compare the two systems.</p>${SourceLinks([
+          { label: "View the Digital Certificate and Cl@ve Guide", href: "/guides/digital/" }
+        ])}<p>The Digital Certificate and Cl@ve Guide covers obtaining each one, which is usually a prerequisite for filing online as an autónomo.</p>`
       }),
       GuideSection({
         id: "tieBasicsForSelfEmployed",
