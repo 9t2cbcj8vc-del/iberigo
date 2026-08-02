@@ -1968,7 +1968,11 @@ const pages = [
             { title: "Jubilados", text: "Los jubilados pueden necesitar justificantes de pensión, sanidad y recursos." },
             { title: "Personas que viven de ahorros o inversiones", text: "Quienes se mantienen con recursos propios pueden necesitar justificantes de recursos y sanidad." },
             { title: "Personas que se mudan con familia", text: "Los documentos de familia pueden importar, sobre todo si el estado civil o los dependientes son relevantes." }
-          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los familiares no comunitarios siguen un proceso distinto. Esta hoja de ruta es para el recorrido de ciudadanos de la UE, del EEE o de Suiza.</p></div>`
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los familiares no comunitarios siguen un proceso distinto. Esta hoja de ruta es para el recorrido de ciudadanos de la UE, del EEE o de Suiza.</p></div>${SourceLinks([
+          { label: "Ver la guía de registro de trabajador de la UE", href: "/guides/es/eu-working/" },
+          { label: "Ver la guía del registro de la UE", href: "/guides/es/eu-registration/" },
+          { label: "Ver la guía de la tarjeta de familiar de ciudadano de la UE", href: "/guides/es/eu-family/" }
+        ])}<p>Si trabajas, la guía de registro de trabajador de la UE cubre esa base en concreto. El resto de bases de esta lista — autoempleo, estudios, jubilación o vivir de ahorros — pasan por el mismo Certificado de Registro, así que usa la guía del registro de la UE. Si te acompaña un familiar no comunitario, esa persona sigue la ruta separada de familiar de ciudadano de la UE.</p>`
         }),
         GuideSection({
           id: "faseUnoPlanificacion",
@@ -1999,7 +2003,13 @@ const pages = [
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
             { label: "Ver la guía del registro de la UE", href: routes.esEuRegistration },
             { label: "Ver la guía del NIE", href: "/guides/es/nie/" }
-          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No trates esto como plazos fijos. La disponibilidad de citas puede variar, y algunos pasos pueden tardar más en zonas con mucha demanda.</p></div>`
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No trates esto como plazos fijos. La disponibilidad de citas puede variar, y algunos pasos pueden tardar más en zonas con mucha demanda.</p></div>${SourceLinks([
+          { label: "Ver la guía del padrón", href: "/guides/es/padron/" },
+          { label: "Ver la guía del registro de la UE", href: "/guides/es/eu-registration/" },
+          { label: "Ver la guía de la tarjeta sanitaria pública", href: "/guides/es/sip-card/" },
+          { label: "Ver la guía de la Tarjeta Sanitaria Europea", href: "/guides/es/ehic-card/" },
+          { label: "Ver la guía de seguro médico privado", href: "/guides/es/private-health/" }
+        ])}<p>Cada uno de estos pasos de llegada tiene su propia guía breve: el empadronamiento, la cita del Certificado de Registro y — según cómo tengas cubierta la sanidad — la tarjeta sanitaria regional, la Tarjeta Sanitaria Europea o el seguro privado.</p>`
         }),
         GuideSection({
           id: "faseTresInstalacion",
@@ -2016,7 +2026,13 @@ const pages = [
             { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
             { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes },
             { label: "Ver la guía de conducción (en inglés)", href: routes.driving }
-          ])}`
+          ])}${SourceLinks([
+          { label: "Ver la guía de banca en España", href: "/guides/es/banking/" },
+          { label: "Ver la guía de certificado digital y Cl@ve", href: "/guides/es/digital/" },
+          { label: "Ver la guía del número de la Seguridad Social", href: "/guides/es/social-security/" },
+          { label: "Ver la guía de impuestos en España", href: "/guides/es/taxes/" },
+          { label: "Ver la guía de canje del permiso de conducir", href: "/guides/es/driving-licence-exchange/" }
+        ])}<p>Cada paso de instalación tiene una guía breve con lo que debes llevar y dónde acudir.</p>`
         }),
         GuideSection({
           id: "erroresComunes",
@@ -2351,7 +2367,10 @@ const pages = [
             { title: "Presenta la solicitud de residencia familiar correspondiente", text: "La vía de solicitud depende del tipo de caso y la oficina." },
             { title: "Acude a la cita de huellas o de tarjeta cuando se requiera", text: "Muchos casos implican una cita de huellas o de recogida de tarjeta." },
             { title: "Recoge la tarjeta de residencia si se aprueba", text: "Los trámites de recogida dependen de la oficina y el caso." }
-          ])}<div class="guide-box guide-box--info"><strong>Depende del tipo de caso</strong><p>Este trámite depende mucho del tipo de caso. No supongas que el mismo orden o los mismos plazos se aplican a todas las familias.</p></div>`
+          ])}<div class="guide-box guide-box--info"><strong>Depende del tipo de caso</strong><p>Este trámite depende mucho del tipo de caso. No supongas que el mismo orden o los mismos plazos se aplican a todas las familias.</p></div>${SourceLinks([
+          { label: "Ver la guía del padrón", href: "/guides/es/padron/" },
+          { label: "Ver la guía de la tarjeta sanitaria pública", href: "/guides/es/sip-card/" }
+        ])}<p>El empadronamiento y la tarjeta sanitaria regional tienen cada uno su propia guía breve.</p>`
         }),
         GuideSection({
           id: "conceptosBasicosTarjeta",
@@ -2362,7 +2381,9 @@ const pages = [
             { title: "Distinta de un NIE", text: "También es distinta de tener simplemente un NIE, que es un número de identificación, no una tarjeta de residencia." },
             { title: "Citas y huellas", text: "Los trámites de tarjeta pueden implicar citas, huellas y un paso de recogida aparte." },
             { title: "Depende de la aprobación y el trámite", text: "El proceso exacto depende de la aprobación y del procedimiento local de la oficina." }
-          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas la tarjeta de residencia como familiar, el certificado de registro del ciudadano de la UE y un NIE. Confirma qué documento aplica a tu caso antes de una cita.</p></div>`
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas la tarjeta de residencia como familiar, el certificado de registro del ciudadano de la UE y un NIE. Confirma qué documento aplica a tu caso antes de una cita.</p></div>${SourceLinks([
+          { label: "Ver la guía de la TIE tras la aprobación", href: "/guides/es/tie-after-approval/" }
+        ])}<p>Cuando tras la aprobación hay cita de tarjeta, la guía de la TIE tras la aprobación cubre el paso de huellas y recogida.</p>`
         }),
         GuideSection({
           id: "erroresComunes",
@@ -2484,7 +2505,9 @@ const pages = [
             { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
             { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
-          ])}`
+          ])}${SourceLinks([
+          { label: "Ver la guía de registro de trabajador de la UE", href: "/guides/es/eu-working/" }
+        ])}<p>La guía de registro de trabajador de la UE cubre el Certificado de Registro sobre la base del empleo, incluidos el formulario y la tasa.</p>`
         }),
         GuideSection({
           id: "ciudadanosNoUeTrabajando",
@@ -3258,7 +3281,11 @@ const pages = [
             { title: "Retirees", text: "Retirees may need pension, healthcare and resources evidence." },
             { title: "People living from savings or investments", text: "Self-sufficient movers may need resources and healthcare evidence." },
             { title: "People moving with family", text: "Family documents may matter, especially when civil status or dependants are relevant." }
-          ])}${WarningBox("Non-EU family members follow a different process. This roadmap is for the EU, EEA or Swiss citizen journey.")}`
+          ])}${WarningBox("Non-EU family members follow a different process. This roadmap is for the EU, EEA or Swiss citizen journey.")}${SourceLinks([
+          { label: "View the EU Worker Registration Guide", href: "/guides/eu-working/" },
+          { label: "View the EU Registration Guide", href: "/guides/eu-registration/" },
+          { label: "View the EU-Family Residence Card Guide", href: "/guides/eu-family/" }
+        ])}<p>If you are working, the EU Worker Registration Guide covers that basis specifically. Every other basis on this list — self-employment, study, retirement or living from savings — goes through the same EU Registration Certificate, so use the EU Registration Guide for those. If a non-EU family member is coming with you, they follow the separate EU-family route.</p>`
         }),
         GuideSection({
           id: "phaseOne",
@@ -3289,7 +3316,13 @@ const pages = [
             { label: "View the Healthcare Guide", href: routes.healthcare },
             { label: "View the EU Registration Guide", href: routes.euRegistration },
             { label: "View the NIE Guide", href: "/guides/nie/" }
-          ])}${WarningBox("Do not treat these as fixed deadlines. Appointment availability can vary, and some steps may take longer in high-demand areas.")}`
+          ])}${WarningBox("Do not treat these as fixed deadlines. Appointment availability can vary, and some steps may take longer in high-demand areas.")}${SourceLinks([
+          { label: "View the Padrón Guide", href: "/guides/padron/" },
+          { label: "View the EU Registration Guide", href: "/guides/eu-registration/" },
+          { label: "View the Public Health Card Guide", href: "/guides/sip-card/" },
+          { label: "View the EHIC Guide", href: "/guides/ehic-card/" },
+          { label: "View the Private Health Insurance Guide", href: "/guides/private-health/" }
+        ])}<p>Each of these arrival steps has its own short guide: the padrón registration, the EU Registration Certificate appointment, and — depending on how your healthcare is covered — the regional health card, the EHIC, or private cover.</p>`
         }),
         GuideSection({
           id: "phaseThree",
@@ -3306,7 +3339,13 @@ const pages = [
             { label: "View the Social Security Guide", href: routes.social },
             { label: "View the Taxes in Spain Guide", href: routes.taxes },
             { label: "View the Driving Licence Guide", href: routes.driving }
-          ])}`
+          ])}${SourceLinks([
+          { label: "View the Banking in Spain Guide", href: "/guides/banking/" },
+          { label: "View the Digital Certificate and Cl@ve Guide", href: "/guides/digital/" },
+          { label: "View the Social Security Number Guide", href: "/guides/social-security/" },
+          { label: "View the Taxes in Spain Guide", href: "/guides/taxes/" },
+          { label: "View the Driving Licence Exchange Guide", href: "/guides/driving-licence-exchange/" }
+        ])}<p>The everyday setup steps each have a short procedural guide covering what to bring and where to go.</p>`
         }),
         CommonMistakes([
           "Assuming EU citizens need a TIE.",
@@ -5665,7 +5704,10 @@ pages.push({
           { title: "Submit the relevant family-member residence application", text: "The application route depends on the case type and office." },
           { title: "Attend fingerprinting or card appointment where required", text: "Many cases involve a fingerprinting or card-collection appointment." },
           { title: "Collect the residence card if approved", text: "Collection procedures depend on the office and case." }
-        ])}${InfoBox({ title: "Depends on case type", text: "This process depends heavily on the case type. Do not assume the same order or timing applies to every family." })}`
+        ])}${InfoBox({ title: "Depends on case type", text: "This process depends heavily on the case type. Do not assume the same order or timing applies to every family." })}${SourceLinks([
+          { label: "View the Padrón Guide", href: "/guides/padron/" },
+          { label: "View the Public Health Card Guide", href: "/guides/sip-card/" }
+        ])}<p>The padrón registration and the regional health card each have their own short guide.</p>`
       }),
       GuideSection({
         id: "residenceCardBasics",
@@ -5676,7 +5718,9 @@ pages.push({
           { title: "Different from a NIE", text: "It is also different from simply having a NIE, which is an identification number, not a residence card." },
           { title: "Appointments and fingerprints", text: "Card procedures may involve appointments, fingerprints and a separate collection step." },
           { title: "Depends on approval and procedure", text: "The exact process depends on approval and the local procedure used by the office." }
-        ])}${WarningBox("Do not confuse the family-member residence card, the EU citizen's registration certificate, and a NIE. Confirm which document applies to your case before an appointment.")}`
+        ])}${WarningBox("Do not confuse the family-member residence card, the EU citizen's registration certificate, and a NIE. Confirm which document applies to your case before an appointment.")}${SourceLinks([
+          { label: "View the TIE After Approval Guide", href: "/guides/tie-after-approval/" }
+        ])}<p>Where a card appointment follows an approval, the TIE After Approval Guide covers the fingerprinting and collection step.</p>`
       }),
       CommonMistakes([
         "Assuming marriage alone automatically solves everything.",
@@ -5941,7 +5985,9 @@ pages.push({
           { label: "View the Social Security in Spain Guide", href: routes.social },
           { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
           { label: "View the Taxes in Spain Guide", href: routes.taxes }
-        ])}`
+        ])}${SourceLinks([
+          { label: "View the EU Worker Registration Guide", href: "/guides/eu-working/" }
+        ])}<p>The EU Worker Registration Guide covers the EU Registration Certificate on the basis of employment, including the form and the fee.</p>`
       }),
       GuideSection({
         id: "nonEuCitizensWorking",
