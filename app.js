@@ -2933,30 +2933,30 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
   };
   const providerMeta = {
     en: {
-      "provider-movistar": { intro: "Major traditional operator for mobile, fibre, and full home-service bundles.", logo: "M" },
-      "provider-vodafone": { intro: "Well-known mobile and broadband operator with mainstream bundled options.", logo: "V" },
-      "provider-orange": { intro: "Large national provider for mobile, fibre, and combined home packages.", logo: "Orange" },
-      "provider-digi": { intro: "Popular lower-cost option for mobile and fibre, often attractive for newcomers.", logo: "DIGI" },
+      "provider-movistar": { intro: "Best overall coverage, especially in rural areas — but usually the priciest of the big carriers.", logo: "M" },
+      "provider-vodafone": { intro: "Strong urban coverage and often English-speaking staff; pricier if you only need a short stay.", logo: "V" },
+      "provider-orange": { intro: "Good coverage and competitive prepaid deals; activation usually needs a visit to a store.", logo: "Orange" },
+      "provider-digi": { intro: "Cheapest of the main options, running on Orange's network at secondary priority; fewer stores.", logo: "DIGI" },
       "provider-o2": { intro: "Cleaner no-frills option under Movistar's network, often with simpler plans.", logo: "O2" },
       "provider-yoigo": { intro: "Common alternative for mobile and fibre bundles with a more flexible feel.", logo: "yoigo" },
-      "provider-holafly": { intro: "Unlimited-data eSIM plans designed specifically for travelers visiting Spain.", logo: "H" },
-      "provider-airalo": { intro: "Marketplace-style eSIM app with flexible data packages for short and long trips to Spain.", logo: "A" },
-      "provider-nordvpn": { intro: "Widely used VPN service for secure browsing and accessing home-country content while in Spain.", logo: "N" },
-      "provider-expressvpn": { intro: "Fast, well-reviewed VPN option with strong privacy protections for travelers.", logo: "E" },
-      "provider-protonvpn": { intro: "Privacy-focused VPN from the makers of Proton Mail, with a free tier available.", logo: "P" }
+      "provider-holafly": { intro: "Unlimited-data eSIM with instant setup and no Spanish ID needed; works out pricier for long stays.", logo: "H" },
+      "provider-airalo": { intro: "Cheaper pay-as-you-go data and easier across several countries; setup is fiddlier than Holafly.", logo: "A" },
+      "provider-nordvpn": { intro: "Fast, with a large server network; costs more per month than most alternatives.", logo: "N" },
+      "provider-expressvpn": { intro: "Easiest to use and the most reliable for streaming; also the most expensive of the three.", logo: "E" },
+      "provider-protonvpn": { intro: "The only one with a genuine free tier, though the free plan is slower with fewer locations.", logo: "P" }
     },
     es: {
-      "provider-movistar": { intro: "Gran operador tradicional para móvil, fibra y paquetes completos para casa.", logo: "M" },
-      "provider-vodafone": { intro: "Operador conocido de móvil y banda ancha con opciones combinadas bastante comunes.", logo: "V" },
-      "provider-orange": { intro: "Proveedor nacional grande para móvil, fibra y paquetes de hogar combinados.", logo: "Orange" },
-      "provider-digi": { intro: "Opción popular de menor coste para móvil y fibra, muchas veces atractiva para recién llegados.", logo: "DIGI" },
+      "provider-movistar": { intro: "La mejor cobertura general, sobre todo en zonas rurales, pero suele ser la más cara de las grandes.", logo: "M" },
+      "provider-vodafone": { intro: "Cobertura urbana fuerte y personal que a menudo habla inglés; más cara si tu estancia es corta.", logo: "V" },
+      "provider-orange": { intro: "Buena cobertura y tarifas prepago competitivas; la activación suele requerir ir a una tienda.", logo: "Orange" },
+      "provider-digi": { intro: "La más barata de las principales, sobre la red de Orange con prioridad secundaria; menos tiendas.", logo: "DIGI" },
       "provider-o2": { intro: "Opción más sencilla y sin extras bajo la red de Movistar, a menudo con tarifas más limpias.", logo: "O2" },
       "provider-yoigo": { intro: "Alternativa común para móvil y fibra con una sensación algo más flexible.", logo: "yoigo" },
-      "provider-holafly": { intro: "Planes de eSIM con datos ilimitados pensados específicamente para viajeros que visitan España.", logo: "H" },
-      "provider-airalo": { intro: "App tipo marketplace de eSIM con paquetes de datos flexibles para viajes cortos y largos a España.", logo: "A" },
-      "provider-nordvpn": { intro: "Servicio VPN muy usado para navegación segura y acceso a contenido de tu país de origen desde España.", logo: "N" },
-      "provider-expressvpn": { intro: "Opción de VPN rápida y bien valorada con fuerte protección de privacidad para viajeros.", logo: "E" },
-      "provider-protonvpn": { intro: "VPN centrada en privacidad de los creadores de Proton Mail, con nivel gratuito disponible.", logo: "P" }
+      "provider-holafly": { intro: "eSIM de datos ilimitados, configuración instantánea y sin DNI español; sale más cara en estancias largas.", logo: "H" },
+      "provider-airalo": { intro: "Datos de pago por uso más baratos y más cómoda para varios países; la configuración es más engorrosa.", logo: "A" },
+      "provider-nordvpn": { intro: "Rápida y con una red de servidores amplia; cuesta más al mes que la mayoría de alternativas.", logo: "N" },
+      "provider-expressvpn": { intro: "La más fácil de usar y la más fiable para streaming; también la más cara de las tres.", logo: "E" },
+      "provider-protonvpn": { intro: "La única con un nivel gratuito real, aunque el plan gratis es más lento y con menos ubicaciones.", logo: "P" }
     },
   };
   const jobsMeta = {
