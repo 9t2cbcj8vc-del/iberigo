@@ -2027,14 +2027,14 @@ function directRoadmapFor(goal) {
   if (goal === "job-search") {
     return currentLang === "es" ? {
       process: "Buscar trabajo en España",
-      explanation: "<p><strong>Para qué sirve:</strong> Buscar trabajo en España combina portales oficiales, plataformas privadas y redes locales.</p><p><strong>Dónde buscar:</strong> SEPE y Empléate ayudan a ver recursos públicos, orientación y ofertas registradas; InfoJobs, LinkedIn, Indeed, Job Today y portales especializados amplían mucho la búsqueda.</p><p><strong>Qué puede pedir la oficina:</strong> Los ciudadanos de la UE pueden trabajar sin autorización adicional, pero los no comunitarios normalmente necesitan una autorización de trabajo antes de empezar.</p><p><strong>Nota práctica:</strong> El español abre muchas más opciones fuera de empresas internacionales o zonas muy turísticas.</p>",
-      steps: ["Define si buscas empleo local, remoto desde España, trabajo estacional o un sector concreto.", "Prepara CV, datos de contacto y documentación básica para candidaturas, y revisa si tu situación te permite trabajar legalmente en España.", "Empieza por portales públicos y oficiales para ver vacantes, orientación y recursos del mercado laboral.", "Después amplía la búsqueda con portales privados grandes y especializados para comparar volumen, sectores y forma de aplicar."],
-      links: ["jobs-empleate", "jobs-sepe", "jobs-eures", "jobs-infojobs", "jobs-linkedin", "jobs-indeed", "jobs-jobtoday", "jobs-tecnoempleo"]
+      explanation: "<p><strong>Para qué sirve:</strong> Buscar trabajo en España suele combinar servicios públicos, portales generalistas, plataformas especializadas y contactos profesionales.</p><p><strong>Derecho a trabajar:</strong> Comprueba primero qué reglas se aplican a tu situación. Si eres ciudadano de la UE, el EEE o Suiza, consulta la <a href=\"/guides/es/eu-working/\">guía para trabajar como ciudadano de la UE</a>. Si no lo eres, empieza por la <a href=\"/guides/es/work-authorization/\">guía de autorización de trabajo para ciudadanos no comunitarios</a>. Encontrar una oferta no concede por sí solo permiso para trabajar.</p><p><strong>Cómo buscar:</strong> Usa Empléate, los servicios públicos autonómicos y EURES junto con portales privados. Las ofertas pueden repetirse, pero cada plataforma tiene filtros, sectores y formas de candidatura distintos.</p><p><strong>Nota práctica:</strong> El español amplía las opciones fuera de empresas internacionales y puestos que buscan expresamente otros idiomas.</p>",
+      steps: ["Define si buscas empleo local, trabajo estacional, un puesto remoto que puedas desempeñar legalmente desde España o un sector concreto.", "Prepara un CV adaptado al puesto, datos de contacto actualizados y la documentación básica que pueda pedir el empleador.", "Empieza por Empléate, los servicios públicos de empleo y EURES; después amplía con portales generalistas y especializados, crea alertas útiles y usa el canal de candidatura que indique cada oferta."],
+      links: ["jobs-empleate", "jobs-sepe", "jobs-eures", "jobs-infojobs", "jobs-linkedin", "jobs-indeed", "jobs-jobtoday", "jobs-tecnoempleo", "jobs-englishjobs", "jobs-language-assistants"]
     } : {
       process: "Job search in Spain",
-      explanation: "<p><strong>What it is for:</strong> Finding work in Spain as a foreigner usually involves a mix of official portals and local networks.</p><p><strong>Where to look:</strong> The main public job portal is SEPE (Servicio Público de Empleo Estatal) at sepe.es, which lists registered vacancies and manages unemployment benefits. InfoJobs, LinkedIn, and Tecnoempleo are among the most-used private job boards.</p><p><strong>What the office may expect:</strong> EU citizens can generally work without restriction; non-EU citizens usually need a work authorization tied to a specific employer before starting.</p><p><strong>Timing:</strong> Registering with SEPE is also required to access unemployment benefits (prestación por desempleo) if you lose a job — you generally need to register within 15 working days of becoming unemployed.</p><p><strong>Practical note:</strong> Learning Spanish significantly expands options outside major cities and international companies.</p>",
-      steps: ["Decide whether you are looking for local work, remote work from Spain, seasonal work, or a specific sector.", "Prepare a CV, contact details, and basic application documents, and check whether your current status lets you work legally in Spain.", "Start with public and official portals so you can see vacancies, guidance, and labour-market resources.", "Then widen the search through large private and specialist portals so you can compare volume, sectors, and application style."],
-      links: ["jobs-empleate", "jobs-sepe", "jobs-eures", "jobs-infojobs", "jobs-linkedin", "jobs-indeed", "jobs-jobtoday", "jobs-tecnoempleo"]
+      explanation: "<p><strong>What it is for:</strong> Finding work in Spain usually means combining public employment services, general job boards, specialist platforms, and professional contacts.</p><p><strong>Right to work:</strong> First check which rules apply to you. EU, EEA, and Swiss citizens can use the <a href=\"/guides/eu-working/\">EU working guide</a>; non-EU citizens should start with the <a href=\"/guides/work-authorization/\">non-EU work authorization guide</a>. Finding a vacancy does not itself grant permission to work.</p><p><strong>How to search:</strong> Use Empléate, regional public employment services, and EURES alongside private platforms. Listings may overlap, but each service has different filters, sectors, and application routes.</p><p><strong>Practical note:</strong> Spanish expands your options outside international employers and roles that specifically need another language.</p>",
+      steps: ["Decide whether you want local work, seasonal work, a remote role you can legally perform from Spain, or a specific sector.", "Prepare a role-focused CV, current contact details, and the basic documents an employer may request.", "Start with Empléate, public employment services, and EURES; then widen the search through general and specialist platforms, set useful alerts, and use the application channel named in each listing."],
+      links: ["jobs-empleate", "jobs-sepe", "jobs-eures", "jobs-infojobs", "jobs-linkedin", "jobs-indeed", "jobs-jobtoday", "jobs-tecnoempleo", "jobs-englishjobs", "jobs-language-assistants"]
     };
   }
   if (goal === "taxes") {
@@ -2961,24 +2961,28 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
   };
   const jobsMeta = {
     en: {
-      "jobs-empleate": { intro: "Public employment portal that brings together vacancies and labour-market information.", logo: "Empléate" },
-      "jobs-sepe": { intro: "Official SEPE area for finding work, guidance, and employment resources in Spain.", logo: "SEPE" },
-      "jobs-eures": { intro: "Useful if you want cross-border or Europe-linked job opportunities involving Spain.", logo: "EURES" },
-      "jobs-infojobs": { intro: "One of the biggest mainstream job portals in Spain across many sectors.", logo: "InfoJobs" },
-      "jobs-linkedin": { intro: "Strong for professional roles, networking, and company-driven hiring.", logo: "in" },
-      "jobs-indeed": { intro: "Large aggregator-style portal useful for broad searches across many job types.", logo: "Indeed" },
-      "jobs-jobtoday": { intro: "Popular for fast-moving retail, hospitality, and service-sector roles.", logo: "JOB TODAY" },
-      "jobs-tecnoempleo": { intro: "Specialist portal for tech, IT, and telecom roles in Spain.", logo: "Tecno" }
+      "jobs-empleate": { intro: "Free public portal combining vacancies from Spain's public employment system and collaborating job sites.", logo: "Empléate" },
+      "jobs-sepe": { intro: "Official starting point for job-search guidance and links to the employment service in each autonomous community.", logo: "SEPE" },
+      "jobs-eures": { intro: "EU mobility network with vacancies, EURES advisers, country guidance, and European Job Days.", logo: "EURES" },
+      "jobs-infojobs": { intro: "Spain-focused general job board with a reusable candidate profile, detailed filters, and vacancy alerts.", logo: "InfoJobs" },
+      "jobs-linkedin": { intro: "Combines job listings with recruiter and company networks; applications may use Easy Apply or the employer's site.", logo: "in" },
+      "jobs-indeed": { intro: "Broad search across employers and job sites, with keyword, location, and remote-work filters.", logo: "Indeed" },
+      "jobs-jobtoday": { intro: "Mobile-first option especially visible in hospitality, retail, and local services, with direct chat on many listings.", logo: "JOB TODAY" },
+      "jobs-tecnoempleo": { intro: "Spain specialist for IT and telecom roles, with searches by technology, role, and location.", logo: "Tecno" },
+      "jobs-englishjobs": { intro: "Narrower specialist board for roles in Spain advertised for English speakers, including jobs marked as not requiring Spanish.", logo: "English Jobs" },
+      "jobs-language-assistants": { intro: "Official annual language-assistant programme for eligible university students and graduates from participating countries; rules vary by intake and country.", logo: "Education" }
     },
     es: {
-      "jobs-empleate": { intro: "Portal público de empleo que reúne ofertas e información del mercado laboral.", logo: "Empléate" },
-      "jobs-sepe": { intro: "Área oficial del SEPE para encontrar trabajo, orientación y recursos de empleo en España.", logo: "SEPE" },
-      "jobs-eures": { intro: "Útil si buscas oportunidades laborales vinculadas a España y a la movilidad europea.", logo: "EURES" },
-      "jobs-infojobs": { intro: "Uno de los portales generalistas de empleo más grandes de España en muchos sectores.", logo: "InfoJobs" },
-      "jobs-linkedin": { intro: "Muy útil para perfiles profesionales, networking y procesos impulsados por empresas.", logo: "in" },
-      "jobs-indeed": { intro: "Gran portal tipo agregador útil para búsquedas amplias de muchos tipos de empleo.", logo: "Indeed" },
-      "jobs-jobtoday": { intro: "Popular para hostelería, comercio y trabajos de servicios con movimiento rápido.", logo: "JOB TODAY" },
-      "jobs-tecnoempleo": { intro: "Portal especializado en tecnología, informática y telecomunicaciones en España.", logo: "Tecno" }
+      "jobs-empleate": { intro: "Portal público gratuito que reúne ofertas del Sistema Nacional de Empleo y de portales colaboradores.", logo: "Empléate" },
+      "jobs-sepe": { intro: "Punto de partida oficial para orientación laboral y acceso al servicio de empleo de cada comunidad autónoma.", logo: "SEPE" },
+      "jobs-eures": { intro: "Red europea de movilidad con ofertas, consejeros EURES, información por país y European Job Days.", logo: "EURES" },
+      "jobs-infojobs": { intro: "Portal generalista centrado en España con perfil reutilizable, filtros detallados y alertas de ofertas.", logo: "InfoJobs" },
+      "jobs-linkedin": { intro: "Combina ofertas con redes de empresas y selección; la candidatura puede hacerse con Easy Apply o en la web del empleador.", logo: "in" },
+      "jobs-indeed": { intro: "Buscador amplio entre empresas y portales, con filtros por palabra clave, ubicación y trabajo remoto.", logo: "Indeed" },
+      "jobs-jobtoday": { intro: "Opción móvil especialmente visible en hostelería, comercio y servicios locales, con chat directo en muchas ofertas.", logo: "JOB TODAY" },
+      "jobs-tecnoempleo": { intro: "Portal español especializado en informática y telecomunicaciones, con búsqueda por tecnología, puesto y ubicación.", logo: "Tecno" },
+      "jobs-englishjobs": { intro: "Portal especializado y más reducido para puestos en España dirigidos a angloparlantes, incluidos empleos que indican que no exigen español.", logo: "English Jobs" },
+      "jobs-language-assistants": { intro: "Programa oficial anual para estudiantes universitarios y titulados de países participantes; las condiciones cambian según convocatoria y país.", logo: "Educación" }
     },
   };
   const insuranceMeta = {
@@ -3139,6 +3143,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "jobs-indeed": "Indeed",
       "jobs-jobtoday": "JOB TODAY",
       "jobs-tecnoempleo": "Tecnoempleo",
+      "jobs-englishjobs": "EnglishJobs.es",
+      "jobs-language-assistants": "Language assistants in Spain",
       "insurance-sanitas": "Sanitas",
       "insurance-adeslas": "Adeslas",
       "insurance-asisa": "ASISA",
@@ -3244,6 +3250,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       "jobs-indeed": "Indeed",
       "jobs-jobtoday": "JOB TODAY",
       "jobs-tecnoempleo": "Tecnoempleo",
+      "jobs-englishjobs": "EnglishJobs.es",
+      "jobs-language-assistants": "Auxiliares de conversación en España",
       "insurance-sanitas": "Sanitas",
       "insurance-adeslas": "Adeslas",
       "insurance-asisa": "ASISA",
@@ -3345,13 +3353,15 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "provider-o2": "https://o2online.es/",
     "provider-yoigo": "https://www.yoigo.com/",
     "jobs-empleate": "https://coeestatal.sepe.es/coe-estatal/servicios/servicio-red/empleate.html",
-    "jobs-sepe": "https://www.sepe.es/HomeSepe/es/encontrar-trabajo.html",
-    "jobs-eures": "https://www.sepe.es/HomeSepe/es/encontrar-trabajo/empleo-europa.html",
+    "jobs-sepe": "https://sepe.es/HomeSepe/encontrar-trabajo/ofertas-empleo.html",
+    "jobs-eures": "https://eures.europa.eu/index_es",
     "jobs-infojobs": "https://candidatos.infojobs.net/",
     "jobs-linkedin": "https://es.linkedin.com/jobs",
     "jobs-indeed": "https://es.indeed.com/",
     "jobs-jobtoday": "https://jobtoday.com/es",
     "jobs-tecnoempleo": "https://www.tecnoempleo.com/",
+    "jobs-englishjobs": "https://englishjobs.es/",
+    "jobs-language-assistants": "https://aee.educacionfpydeportes.gob.es/oportunidades/todas/auxiliares-conversacion/extranjeros.html",
     "insurance-sanitas": "https://www.sanitas.es/seguros/seguros-medicos-privados",
     "insurance-adeslas": "https://www.seguros.adeslas.es/salud/",
     "insurance-asisa": "https://www.asisa.es/seguros-medicos",
@@ -3469,19 +3479,24 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       system: "spain"
     },
     "jobs-empleate": {
-      subtitle: currentLang === "es" ? "Portal público oficial de empleo" : "Official public employment portal",
+      subtitle: currentLang === "es" ? "Portal público gratuito con ofertas del Sistema Nacional de Empleo y portales colaboradores" : "Free public portal with vacancies from Spain's public employment system and collaborating job sites",
       variant: "social",
       system: "spain"
     },
     "jobs-sepe": {
-      subtitle: currentLang === "es" ? "Servicio Público de Empleo Estatal" : "Official State Employment Service",
+      subtitle: currentLang === "es" ? "Orientación laboral oficial y acceso al servicio de empleo de cada comunidad autónoma" : "Official job-search guidance and access to each autonomous community's employment service",
       variant: "social",
       system: "spain"
     },
     "jobs-eures": {
-      subtitle: currentLang === "es" ? "Red oficial europea de empleo" : "Official European employment network",
+      subtitle: currentLang === "es" ? "Ofertas, consejeros EURES, información por país y European Job Days" : "Vacancies, EURES advisers, country guidance, and European Job Days",
       variant: "eu",
       system: "eu"
+    },
+    "jobs-language-assistants": {
+      subtitle: currentLang === "es" ? "Programa anual para estudiantes universitarios y titulados de países participantes; consulta cada convocatoria" : "Annual programme for eligible university students and graduates from participating countries; check each intake",
+      variant: "social",
+      system: "spain"
     }
   };
   const govDomains = [
@@ -3498,6 +3513,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "clave.gob.es",
     "fnmt.gob.es",
     "sede.fnmt.gob.es",
+    "educacionfpydeportes.gob.es",
     "dgt.gob.es",
     "sede.dgt.gob.es",
     "dgt.es",
@@ -3681,7 +3697,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
       }
       if (type.startsWith("jobs-")) {
         const meta = jobsMeta[currentLang]?.[type] || jobsMeta.en[type];
-        const brandClass = `jobs-link jobs-link--${type.replace("jobs-", "")}`;
+        const jobsStyle = type === "jobs-englishjobs" ? "linkedin" : type.replace("jobs-", "");
+        const brandClass = `jobs-link jobs-link--${jobsStyle}`;
         return `
           <a class="${brandClass}" href="${urls[type]}" target="_blank" rel="noreferrer">
             <span class="jobs-logo" aria-hidden="true">${meta?.logo || label}</span>
