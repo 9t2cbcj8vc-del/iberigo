@@ -170,10 +170,22 @@
     <lastmod>2026-07-31</lastmod>
   </url>
   <url>
+    <loc>https://iberigo.eu/es/moving-to-spain/family-reunification/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-07</lastmod>
+  </url>
+  <url>
     <loc>https://iberigo.eu/moving-to-spain/digital-nomad-spain/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/es/moving-to-spain/digital-nomad-spain/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-07</lastmod>
   </url>
   <url>
     <loc>https://iberigo.eu/the-spain-files/</loc>

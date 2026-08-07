@@ -37,6 +37,8 @@ const routes = {
   esEuRegistration: "/es/moving-to-spain/eu-registration/",
   esPadron: "/es/moving-to-spain/registering-on-the-padron/",
   esHealthcare: "/es/moving-to-spain/healthcare/",
+  esFamilyReunification: "/es/moving-to-spain/family-reunification/",
+  esDigitalNomad: "/es/moving-to-spain/digital-nomad-spain/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
   euRegistration: "/moving-to-spain/eu-registration/",
@@ -492,6 +494,20 @@ const searchMetadataByRoute = {
     appliesTo: ["Ciudadanos de la UE que trabajan en España", "Ciudadanos de la UE que estudian en España", "Jubilados de la UE", "Ciudadanos de la UE que viven de sus ahorros"],
     keywords: ["sanidad", "sanidad pública", "S1", "tarjeta SIP", "tarjeta sanitaria", "seguro privado", "registro de la UE"]
   },
+  [routes.esFamilyReunification]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "11 min",
+    appliesTo: ["Familiares no comunitarios que se reúnen con un residente no comunitario en España", "Personas reagrupantes en España que quieren entender el trámite"],
+    keywords: ["reagrupación familiar", "reagrupante", "visado de residencia", "TIE", "NIE", "residencia por familia"]
+  },
+  [routes.esDigitalNomad]: {
+    category: "Mudarse a España",
+    difficulty: "Moderado",
+    estimatedTime: "11 min",
+    appliesTo: ["Personas no comunitarias que trabajan en remoto y consideran España", "Nómadas digitales", "Freelancers con clientes en el extranjero", "Personas empleadas en remoto por una empresa extranjera"],
+    keywords: ["visado de nómada digital", "teletrabajo España", "UGE-CE", "TIE", "residencia fiscal", "Seguridad Social", "freelancer"]
+  },
   [routes.vacationHub]: {
     category: "Vacation in Spain",
     difficulty: "Easy",
@@ -576,6 +592,21 @@ const officialSourcesByRoute = {
     { name: "Ministerio responsable de migraciones", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — área de Migraciones, responsable del registro de la UE y de los trámites de residencia." },
     { name: "Servicios regionales de salud", varies: true, note: "No existe una única web oficial: los trámites y los nombres de la tarjeta sanitaria varían según la comunidad autónoma. Consulta tu servicio de salud regional para las instrucciones locales." },
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — portal oficial de la Seguridad Social para consultar el derecho vigente y la información de cotización." }
+  ],
+  [routes.esFamilyReunification]: [
+    { name: "Gobierno de España", url: "https://administracion.gob.es", note: "Punto de Acceso General — el punto de entrada oficial central a los trámites de la administración pública española." },
+    { name: "Ministerio responsable de migraciones", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — área de Migraciones, responsable de los trámites de residencia y de las vías por familia." },
+    { name: "Ministerio de Asuntos Exteriores (información consular)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevante para las solicitudes que se tramitan en consulados españoles en el extranjero." },
+    { name: "Portal de citas de la Policía", url: "https://sede.policia.gob.es", note: "Sede electrónica de la Policía Nacional, donde se gestiona la cita previa relacionada con la TIE para familiares. Consulta las opciones de cita vigentes para tu trámite concreto." },
+    { name: "Información oficial de la UE para familias (solo para comparar)", url: "https://europa.eu/youreurope/citizens/index_es.htm", note: "«Tu Europa» — el portal oficial de la UE para la ciudadanía, útil solo para comparar esta vía con la vía separada de familiar de ciudadano de la UE." }
+  ],
+  [routes.esDigitalNomad]: [
+    { name: "Gobierno de España", url: "https://administracion.gob.es", note: "Punto de Acceso General — el punto de entrada oficial central a los trámites de la administración pública española." },
+    { name: "Ministerio responsable de migraciones", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — área de Migraciones, responsable de los trámites de residencia, incluidas las vías relacionadas con el teletrabajo." },
+    { name: "Ministerio de Asuntos Exteriores (información consular)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevante para las solicitudes que se tramitan en consulados españoles en el extranjero." },
+    { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — la administración tributaria española, relevante para las cuestiones de residencia fiscal y de rentas obtenidas en el extranjero." },
+    { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — portal oficial de la Seguridad Social, relevante para el tratamiento de personas empleadas, freelancers y titulares de empresa." },
+    { name: "Portal de citas de la Policía", url: "https://sede.policia.gob.es", note: "Sede electrónica de la Policía Nacional, donde se gestiona la cita previa relacionada con la TIE. Consulta las opciones de cita vigentes para tu trámite concreto." }
   ],
   [routes.taxes]: [
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration. Useful for checking tax residency, filing and worldwide-income questions; it does not replace professional tax advice, and this guide is not tax advice." }
@@ -711,12 +742,14 @@ const publishedRoutes = new Set([
   // publishing, and /moving-to-spain/eu-citizens/ already links here three times.
   routes.euRegistration,
   routes.esEuRegistration,
-  // Family reunification and digital nomad: published EN-only, no Spanish
-  // counterpart exists for either. Content review and fixes landed in PR #137
-  // (entry/visa guidance and the consulate-vs-UGE-CE section respectively);
-  // this is a status flip only.
+  // Family reunification and digital nomad. Content review and fixes landed in
+  // PR #137 (entry/visa guidance and the consulate-vs-UGE-CE section
+  // respectively). The Spanish counterparts are translations of that reviewed
+  // content, so they publish alongside the English pages rather than as drafts.
   routes.familyReunification,
-  routes.digitalNomad
+  routes.digitalNomad,
+  routes.esFamilyReunification,
+  routes.esDigitalNomad
 ]);
 
 function guideMetadataFor(route) {
@@ -1081,6 +1114,8 @@ const studentsPair = launchedPair(routes.students, routes.esStudents);
 const retireInSpainPair = launchedPair(routes.retireInSpain, routes.esRetireInSpain);
 const selfEmployedPair = launchedPair(routes.selfEmployed, routes.esSelfEmployed);
 const euRegistrationPair = launchedPair(routes.euRegistration, routes.esEuRegistration);
+const familyReunificationPair = launchedPair(routes.familyReunification, routes.esFamilyReunification);
+const digitalNomadPair = launchedPair(routes.digitalNomad, routes.esDigitalNomad);
 // Draft EN/ES pairs: reciprocal hreflang and a working language switcher, but both
 // sides stay noindex/draft (excluded from publishedRoutes) until sign-off.
 const padronPair = launchedPair(routes.padron, routes.esPadron);
@@ -2146,10 +2181,10 @@ const pages = [
           children: StartHereCards([
             { title: "Trabajar en España", text: "Las vías laborales suelen depender de una oferta de empleo, el patrocinio de la empresa o una autorización de trabajo reconocida.", href: routes.esWorkInSpain, label: "Ver hoja de ruta", secondaryHref: "/guides/es/work-authorization/", secondaryLabel: "Ver la guía de autorización de trabajo" },
             { title: "Estudiar en España", text: "Las vías de estudios suelen depender de la matrícula, la duración del programa y los medios económicos.", href: routes.esStudents, label: "Ver hoja de ruta", secondaryHref: "/guides/es/study/", secondaryLabel: "Ver la guía de estancia por estudios" },
-            { title: "Reunirte con familia en España", text: "La reagrupación familiar suele depender del parentesco y de la situación del familiar que te reagrupa.", href: routes.familyReunification, label: "Ver hoja de ruta (en inglés)", secondaryHref: "/guides/es/family/", secondaryLabel: "Ver la guía de reagrupación familiar" },
+            { title: "Reunirte con familia en España", text: "La reagrupación familiar suele depender del parentesco y de la situación del familiar que te reagrupa.", href: routes.esFamilyReunification, label: "Ver hoja de ruta", secondaryHref: "/guides/es/family/", secondaryLabel: "Ver la guía de reagrupación familiar" },
             { title: "Familiar de un ciudadano de la UE", text: "Esta vía puede diferir de las vías familiares no comunitarias habituales, según el parentesco y la situación.", href: routes.esEuFamilyMemberRoadmap, label: "Ver hoja de ruta", secondaryHref: "/guides/es/eu-family/", secondaryLabel: "Ver la guía de tarjeta de familiar de la UE" },
             { title: "Jubilarte o vivir de recursos suficientes", text: "Esta vía suele depender de justificar ingresos, ahorros y cobertura sanitaria en vez de un empleo.", href: routes.esRetireInSpain, label: "Ver hoja de ruta", secondaryHref: "/guides/es/non-lucrative/", secondaryLabel: "Ver la guía de residencia no lucrativa" },
-            { title: "Nómada digital / trabajo remoto", text: "Esta vía suele depender del empleo remoto o de clientes con sede fuera de España.", href: routes.digitalNomad, label: "Ver hoja de ruta (en inglés)", secondaryHref: "/guides/es/digital-nomad/", secondaryLabel: "Ver la guía de nómada digital" },
+            { title: "Nómada digital / trabajo remoto", text: "Esta vía suele depender del empleo remoto o de clientes con sede fuera de España.", href: routes.esDigitalNomad, label: "Ver hoja de ruta", secondaryHref: "/guides/es/digital-nomad/", secondaryLabel: "Ver la guía de nómada digital" },
             { title: "Autónomo / actividad empresarial", text: "Esta vía suele depender del plan de negocio, la actividad y los justificantes económicos.", href: routes.esSelfEmployed, label: "Ver hoja de ruta", secondaryHref: "/guides/es/work-authorization/", secondaryLabel: "Ver la guía de autorización de trabajo (EX-07)" },
             { title: "Ya estoy en España y no sé qué aplica", text: "Usa Empieza aquí y esta hoja de ruta juntas para acotar qué puede aplicarse.", href: routes.esStartHere, label: "Continuar" }
           ])
@@ -3123,7 +3158,7 @@ const pages = [
           ])}${SourceLinks([
             { label: "Ver la guía de autorización de trabajo", href: "/guides/es/work-authorization/" },
             { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
-            { label: "Ver la guía de nómada digital (en inglés)", href: routes.digitalNomad },
+            { label: "Ver la hoja de ruta de nómada digital", href: routes.esDigitalNomad },
             { label: "Ver la lista de documentos", href: routes.esChecklist }
           ])}<p>La guía de autorización de trabajo cubre las dos vías laborales en paralelo, incluida la autorización de trabajo por cuenta propia (EX-07) que se aplica aquí, y en qué se diferencia de la vía por cuenta ajena (EX-03).</p>`
         }),
@@ -3235,7 +3270,7 @@ const pages = [
             { label: "Ver Empieza aquí", href: routes.esStartHere },
             { label: "Ver la hoja de ruta de ciudadanos de la UE", href: routes.esEuRoadmap },
             { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
-            { label: "Ver la guía de nómada digital (en inglés)", href: routes.digitalNomad },
+            { label: "Ver la hoja de ruta de nómada digital", href: routes.esDigitalNomad },
             { label: "Ver la hoja de ruta de trabajo en España", href: routes.esWorkInSpain },
             { label: "Ver la lista de documentos", href: routes.esChecklist },
             { label: "Ver la guía de Seguridad Social (en inglés)", href: routes.social },
@@ -4449,6 +4484,383 @@ pages.push({
           { label: "Ver la guía de instalarte en España", href: routes.esSettling },
           { label: "Ver la lista de documentos", href: routes.esChecklist }
         ])}${`<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda los documentos sanitarios en la misma carpeta que los de identidad, padrón, Seguridad Social y residencia.</p></div>`}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.esFamilyReunification,
+  html: GuideLayout({
+    lang: "es",
+    path: routes.esFamilyReunification,
+    canonical: `https://iberigo.eu${routes.esFamilyReunification}`,
+    altHref: familyReunificationPair.es.altHref,
+    hreflangAlternates: familyReunificationPair.es.hreflangAlternates,
+    title: "Reagrupación familiar en España — IberiGo",
+    description: "Una hoja de ruta práctica para quienes se reúnen con su familia en España: documentos de parentesco, conceptos básicos de elegibilidad, vías de residencia, la TIE y errores comunes.",
+    metadata: guideMetadataFor(routes.esFamilyReunification),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Reagrupación familiar" }],
+    hero: {
+      kicker: "Vía de residencia por familia",
+      title: "Reagrupación familiar en España",
+      intro: "Un punto de partida práctico para entender las vías de residencia por familia, qué puedes necesitar preparar y en qué se diferencian de la vía de familiar de ciudadano de la UE.",
+      asideTitle: "No es la vía de familiar de ciudadano de la UE",
+      asideText: "Las normas de reagrupación familiar y de residencia por familia dependen de la nacionalidad, el tipo de parentesco, la situación de residencia de la persona reagrupante, los ingresos, la vivienda, los documentos, la dependencia y el lugar donde se presenta la solicitud."
+    },
+    sections: [
+      GuideSection({
+        id: "languageNote",
+        title: "Sobre esta página en español",
+        children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+      }),
+      GuideSection({
+        id: "respuestaRapida",
+        title: "Respuesta rápida",
+        children: `<p>Algunas personas pueden reunirse con su familia en España a través de una vía de reagrupación familiar o de residencia por familia. La vía correcta depende del parentesco y de la situación de residencia de quien ya vive en España. No es lo mismo que la vía de familiar de ciudadano de la UE. Los documentos de parentesco, la legalización, la traducción y la prueba de las circunstancias pueden ser centrales. Esta hoja de ruta te ayuda a entender el recorrido general; no sustituye los requisitos oficiales.</p>`
+      }),
+      GuideSection({
+        id: "notaImportante",
+        title: "Nota importante",
+        children: `<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía ofrece solo información general y no es asesoramiento legal. Las normas de reagrupación familiar y de residencia por familia dependen de la nacionalidad, el tipo de parentesco, la situación de residencia de la persona reagrupante, los ingresos, la vivienda, los documentos, la dependencia y el lugar donde se presenta la solicitud. Comprueba siempre los requisitos oficiales de tu caso concreto antes de tomar decisiones.</p></div>`
+      }),
+      GuideSection({
+        id: "enResumen",
+        title: "En resumen",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>A quién puede aplicarse</th><td>Familiares no comunitarios que se reúnen con una persona reagrupante no comunitaria residente en España.</td></tr>
+          <tr><th>¿Igual que la vía de familiar de la UE?</th><td>No. Es una vía separada de la de familiar de ciudadano de la UE.</td></tr>
+          <tr><th>Factores centrales</th><td>El parentesco con la persona reagrupante y su situación de residencia en España.</td></tr>
+          <tr><th>Resultado habitual</th><td>Muchas personas solicitantes acaban recibiendo un documento o tarjeta de residencia, según la vía.</td></tr>
+          <tr><th>Asesoramiento profesional</th><td>Puede ser útil, sobre todo en parentescos menos habituales o situaciones complejas.</td></tr>
+        </tbody></table>`
+      }),
+      GuideSection({
+        id: "paraQuienEsEstaGuia",
+        title: "Para quién es esta guía",
+        children: `${Cards([
+          { title: "Familiares no comunitarios que se reúnen con un residente no comunitario en España", text: "Útil si te reúnes con un familiar que ya reside en España como persona no comunitaria." },
+          { title: "Cónyuges o parejas, cuando estén reconocidas", text: "Útil si tu relación puede estar reconocida en una vía por familia." },
+          { title: "Hijos e hijas, cuando proceda", text: "Útil si los hijos pueden incluirse en una solicitud familiar." },
+          { title: "Familiares dependientes, cuando proceda", text: "Útil si la situación de un familiar dependiente puede sustentar un caso por familia." },
+          { title: "Personas que ya están en España", text: "Útil si intentas entender si alguna opción por familia se aplica ahora a tu situación." },
+          { title: "Personas reagrupantes en España", text: "Útil si eres la persona residente que reagrupa y quieres entender qué puede implicar." }
+        ])}${InfoBox({ title: "Familiares de ciudadanos de la UE", text: "Los familiares de ciudadanos de la UE deben usar la hoja de ruta de familiar de ciudadano de la UE: es una vía separada y distinta." })}`
+      }),
+      GuideSection({
+        id: "reagrupacionFrenteAFamiliarUe",
+        title: "Reagrupación familiar frente a la vía de familiar de la UE",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Vía</th><td><strong>Qué conviene saber</strong></td></tr>
+          <tr><th>Reagrupación familiar</th><td>Normalmente conectada con reunirse con una persona reagrupante residente en España. Puede implicar requisitos para esa persona y comprobaciones de ingresos, vivienda o situación de residencia. El trámite depende del parentesco y de la situación de quien reagrupa.</td></tr>
+          <tr><th>Familiar de ciudadano de la UE</th><td>Conectada con la libre circulación y la vía de familiar de un ciudadano de la UE. Pueden aplicarse normas y documentos distintos. Usa la <a href="${routes.esEuFamilyMemberRoadmap}">hoja de ruta de familiar de ciudadano de la UE</a> para esa vía.</td></tr>
+        </tbody></table><div class="guide-box guide-box--warning"><strong>Importante</strong><p>No des por hecho que estas dos vías sean intercambiables. Confirma cuál se aplica a tu situación antes de preparar documentos.</p></div>`
+      }),
+      GuideSection({
+        id: "parentescoYReagrupante",
+        title: "Parentesco y persona reagrupante: conceptos básicos",
+        children: `${Cards([
+          { title: "El parentesco importa", text: "El parentesco con la persona reagrupante importa para saber qué vía puede aplicarse." },
+          { title: "La situación de residencia de quien reagrupa importa", text: "La situación de residencia en España de la persona reagrupante puede influir en el caso." },
+          { title: "Justificantes distintos según el parentesco", text: "Cónyuges, parejas, hijos y familiares dependientes pueden tener requisitos de prueba distintos." },
+          { title: "Justificantes de vivienda, ingresos o dependencia", text: "La vivienda, los ingresos o la dependencia pueden ser relevantes según la vía." }
+        ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta página no ofrece una lista definitiva de elegibilidad. Comprueba los requisitos oficiales de tu parentesco y tu situación concretos antes de dar por hecho que cumples.</p></div>`
+      }),
+      GuideSection({
+        id: "antesDeSolicitarOMudarte",
+        title: "Antes de solicitar o mudarte",
+        children: `${Cards([
+          { title: "Identidad", text: "Un pasaporte en vigor suele ser central en la solicitud." },
+          { title: "Prueba del parentesco", text: "Puede hacer falta certificado de matrimonio, de pareja o de nacimiento, según el parentesco." },
+          { title: "Documentos de residencia de quien reagrupa", text: "Pueden solicitarse los documentos de residencia de la persona reagrupante." },
+          { title: "Documentos de identidad de quien reagrupa", text: "Pueden solicitarse los documentos de identidad de la persona reagrupante." },
+          { title: "Prueba de domicilio o vivienda, cuando se exija", text: "La prueba de vivienda puede formar parte del expediente, según la oficina." },
+          { title: "Justificantes de ingresos o empleo, cuando se exijan", text: "Algunos casos pueden requerir justificantes de ingresos o empleo." },
+          { title: "Documentos sanitarios, cuando se exijan", text: "Algunos casos pueden requerir prueba de cobertura sanitaria." },
+          { title: "Certificado de antecedentes penales, cuando se exija", text: "Algunas vías pueden pedir un certificado de antecedentes penales." },
+          { title: "Certificado médico, cuando se exija", text: "Algunas vías pueden pedir un certificado médico." },
+          { title: "Traducciones, legalización o apostilla, cuando se exijan", text: "Algunos documentos extranjeros pueden necesitar traducción oficial, legalización o apostilla." }
+        ])}<p>Los requisitos exactos dependen del parentesco, la situación de quien reagrupa, la nacionalidad, el país de expedición de los documentos y el trámite. Usa la <a href="${routes.esChecklist}">lista de documentos</a> como punto de partida general y confirma después la lista exacta de tu caso concreto.</p>`
+      }),
+      GuideSection({
+        id: "dondePuedeEmpezarElTramite",
+        title: "Dónde puede empezar el trámite",
+        children: `${Cards([
+          { title: "Algunos pasos pueden ocurrir primero en España", text: "Algunas vías por familia pueden implicar pasos en España antes de que el familiar viaje." },
+          { title: "Algunos pasos pueden implicar un consulado", text: "Algunos pasos pueden tramitarse en un consulado español." },
+          { title: "Depende de la situación actual", text: "Algunas situaciones pueden depender de si el familiar ya está en España." },
+          { title: "No se cubre aquí", text: "Esta hoja de ruta no da instrucciones específicas de cada vía. El camino correcto depende de la vía de residencia y de la situación legal: comprueba los requisitos oficiales de tu caso." }
+        ])}${SourceLinks([
+          { label: "Ver la guía de reagrupación familiar", href: "/guides/es/family/" }
+        ])}<p>Para la parte procedimental — la autorización EX-02 que presenta la persona reagrupante, los documentos que suelen pedirse y el paso de la tarjeta tras la aprobación — consulta la guía de reagrupación familiar.</p>`
+      }),
+      GuideSection({
+        id: "entradaVisado",
+        title: "Entrada: ¿necesitas visado antes de viajar?",
+        children: `<p>En la reagrupación familiar ordinaria — cuando la persona reagrupante es residente legal no comunitaria en España — la respuesta suele ser sí. Esta es una de las diferencias más claras con la vía de familiar de ciudadano de la UE.</p>${Cards([
+          { title: "La persona reagrupante solicita primero, en España", text: "La autorización de residencia se solicita en España por parte de quien reagrupa. El familiar no viaja solo por el hecho del parentesco." },
+          { title: "Después, el visado de residencia en el consulado", text: "Una vez concedida la autorización, el familiar solicita personalmente el visado de residencia en la oficina consular española de su demarcación de residencia." },
+          { title: "Dos meses para solicitar el visado", text: "El familiar dispone de dos meses desde la notificación de la concesión para solicitar personalmente el visado." },
+          { title: "Un mes para entrar una vez expedido", text: "Una vez recogido el visado, la entrada en territorio español debe producirse en el plazo máximo de un mes." }
+        ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esto es lo contrario de la vía de familiar de ciudadano de la UE. Allí, una nacionalidad exenta de visado puede viajar primero a España y solicitar la tarjeta de residencia desde dentro del país. En la reagrupación familiar ordinaria el visado consular va antes del viaje, así que planifica la solicitud de quien reagrupa y el viaje del familiar según esa secuencia.</p></div><p>Los plazos de dos meses y un mes indicados arriba son los que fija el trámite oficial, no estimaciones. Consulta los requisitos vigentes en la página del Ministerio sobre la <a href="https://www.inclusion.gob.es/web/migraciones/w/autorizacion-de-residencia-temporal-por-reagrupacion-familiar" target="_blank" rel="noreferrer">autorización de residencia temporal por reagrupación familiar</a> y con el consulado español que corresponda al lugar de residencia del familiar, ya que las listas de documentos consulares varían. Si quien reagrupa es ciudadano de la UE, del EEE o de Suiza, esta sección no se aplica: usa la <a href="${routes.esEuFamilyMemberRoadmap}">hoja de ruta de familiar de ciudadano de la UE</a>.</p>`
+      }),
+      GuideSection({
+        id: "trasLaAprobacionOLlegada",
+        title: "Tras la aprobación o la llegada",
+        children: `${Cards([
+          { title: "Viajar a España, si procede", text: "Algunas vías exigen la aprobación antes de viajar; otras no." },
+          { title: "Conseguir alojamiento", text: "Tu domicilio puede afectar al padrón, la sanidad y otros pasos posteriores." },
+          { title: "Empadronarte, cuando sea posible", text: "Los requisitos del padrón pueden variar según el municipio." },
+          { title: "Organizar la sanidad si hace falta", text: "Las vías sanitarias pueden depender de la situación del familiar y de quien reagrupa." },
+          { title: "Solicitar o recoger la TIE cuando se exija", text: "Muchos casos implican una cita de huellas o de recogida de la tarjeta." },
+          { title: "Guardar copias de aprobaciones y notificaciones", text: "Conserva copias de todas las aprobaciones y notificaciones oficiales." },
+          { title: "Revisar impuestos, colegio o trámites locales si procede", text: "Pueden surgir otras necesidades administrativas según tu situación." }
+        ])}${InfoBox({ title: "El orden puede variar", text: "No todo el mundo sigue el mismo orden. No des por hecho que la misma secuencia o los mismos tiempos se aplican a todas las familias." })}`
+      }),
+      GuideSection({
+        id: "tieConceptosBasicos",
+        title: "La TIE: conceptos básicos",
+        children: `${Cards([
+          { title: "Muchos familiares no comunitarios la necesitan", text: "Muchos familiares no comunitarios pueden necesitar una TIE tras la aprobación o la llegada." },
+          { title: "No es lo mismo que el NIE", text: "La TIE no es lo mismo que el NIE." },
+          { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
+          { title: "Citas y recogida", text: "Los trámites de la TIE pueden implicar cita previa, huellas y recogida." },
+          { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el trámite local." }
+        ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento se aplica a tu situación antes de una cita.</p></div>`
+      }),
+      GuideSection({
+        id: "erroresComunes",
+        title: "Errores comunes",
+        children: Cards([
+          "Dar por hecho que el matrimonio otorga automáticamente derechos de residencia.",
+          "Confundir la reagrupación familiar con la vía de familiar de ciudadano de la UE.",
+          "Confundir el NIE y la TIE.",
+          "No preparar con tiempo los documentos legalizados o traducidos.",
+          "Ignorar los requisitos de la persona reagrupante.",
+          "Suponer que todo parentesco cumple los requisitos.",
+          "Basarse solo en consejos informales.",
+          "Pasar por alto notificaciones oficiales.",
+          "Suponer que las normas son iguales en todos los casos."
+        ])
+      }),
+      GuideSection({
+        id: "preguntasReales",
+        title: "Preguntas reales de la gente",
+        children: Cards([
+          { question: "¿Puedo traer a mi cónyuge a España?", answer: "A menudo sí, mediante una vía por familia, pero depende de vuestro parentesco, de la situación de residencia de quien reagrupa y de los documentos disponibles. Comprueba los requisitos oficiales de tu caso." },
+          { question: "¿La reagrupación familiar es lo mismo que la vía de familiar de la UE?", answer: "No. La reagrupación familiar suele estar conectada con reunirse con una persona reagrupante no comunitaria. La vía de familiar de ciudadano de la UE es un trámite separado y distinto: comprueba cuál se aplica a tu situación." },
+          { question: "¿El matrimonio da residencia automáticamente?", answer: "No. El matrimonio puede sustentar la elegibilidad, pero la residencia sigue dependiendo de la solicitud, las pruebas y la aprobación." },
+          { question: "¿Pueden venir los hijos a España?", answer: "A menudo sí, según el parentesco y la vía, pero los requisitos varían según el caso. Comprueba los requisitos oficiales que se apliquen." },
+          { question: "¿Los familiares necesitan TIE?", answer: "Muchos familiares no comunitarios pueden necesitar una TIE tras la aprobación o la llegada. Los requisitos dependen de tu vía." },
+          { question: "¿El NIE es lo mismo que la residencia?", answer: "No. El NIE es un número de identificación. La residencia es un estatus aparte, acreditado normalmente con una tarjeta o documento de residencia." },
+          { question: "¿Los documentos necesitan traducción o apostilla?", answer: "Algunos documentos extranjeros pueden necesitar traducción oficial, legalización o apostilla, según el documento y el país de expedición. Compruébalo antes de solicitar." },
+          { question: "¿Y si el familiar ya está en España?", answer: "Usa Empieza aquí y esta hoja de ruta juntas para entender qué vía puede aplicarse, y comprueba los requisitos oficiales antes de dar por hecho que un trámite concreto encaja con tu situación." }
+        ].map((item) => ({ title: item.question, text: item.answer })))
+      }),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Tu próximo paso",
+        children: `${SourceLinks([
+          { label: "Ver Empieza aquí", href: routes.esStartHere },
+          { label: "Ver la hoja de ruta para ciudadanos no comunitarios", href: routes.esNonEuRoadmap },
+          { label: "Ver la hoja de ruta de familiar de ciudadano de la UE", href: routes.esEuFamilyMemberRoadmap },
+          { label: "Ver la lista de documentos", href: routes.esChecklist },
+          { label: "Ver la guía para encontrar alojamiento", href: routes.esAccommodation },
+          { label: "Ver la guía del padrón", href: routes.esPadron },
+          { label: "Ver la guía de sanidad en España", href: routes.esHealthcare },
+          { label: "Ver la guía de instalarte en España", href: routes.esSettling }
+        ])}${`<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda en una misma carpeta los documentos de identidad, de parentesco, de la persona reagrupante y las traducciones, para poder responder rápido cuando sepas los requisitos exactos de tu caso.</p></div>`}`
+      })
+    ]
+  })
+});
+
+pages.push({
+  route: routes.esDigitalNomad,
+  html: GuideLayout({
+    lang: "es",
+    path: routes.esDigitalNomad,
+    canonical: `https://iberigo.eu${routes.esDigitalNomad}`,
+    altHref: digitalNomadPair.es.altHref,
+    hreflangAlternates: digitalNomadPair.es.hreflangAlternates,
+    title: "Visado de nómada digital y teletrabajo en España — IberiGo",
+    description: "Una hoja de ruta práctica para quienes teletrabajan y consideran España: conceptos básicos de elegibilidad, documentos, impuestos, sanidad, la TIE y errores comunes.",
+    metadata: guideMetadataFor(routes.esDigitalNomad),
+    showContinueJourney: false,
+    breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Nómada digital" }],
+    hero: {
+      kicker: "Vía de teletrabajo",
+      title: "Visado de nómada digital y teletrabajo en España",
+      intro: "Un punto de partida práctico para entender las vías de teletrabajo, qué puedes necesitar preparar y qué cuestiones conviene revisar antes de mudarte a España.",
+      asideTitle: "No es automático para todo el que teletrabaja",
+      asideText: "Las normas de nómada digital y teletrabajo dependen de tu nacionalidad, la estructura de tu empresa o tus clientes, tus ingresos, tu residencia fiscal, tus documentos, tu cobertura sanitaria, tu situación familiar y dónde solicitas el trámite."
+    },
+    sections: [
+      GuideSection({
+        id: "languageNote",
+        title: "Sobre esta página en español",
+        children: `<p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p>`
+      }),
+      GuideSection({
+        id: "respuestaRapida",
+        title: "Respuesta rápida",
+        children: `<p>España tiene vías que pueden aplicarse a algunas personas que teletrabajan o son nómadas digitales. El camino correcto depende de la nacionalidad, la estructura del trabajo, la ubicación de la empresa o los clientes, los ingresos y los documentos. Teletrabajar no es lo mismo que tener un empleo ordinario en España. La residencia fiscal y las obligaciones tributarias españolas conviene revisarlas pronto. Esta hoja de ruta te ayuda a entender el recorrido general; no sustituye los requisitos oficiales.</p>`
+      }),
+      GuideSection({
+        id: "notaImportante",
+        title: "Nota importante",
+        children: `<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía ofrece solo información general y no es asesoramiento legal, fiscal ni financiero. Las normas de nómada digital y teletrabajo dependen de tu nacionalidad, la estructura de tu empresa o tus clientes, tus ingresos, tu residencia fiscal, tus documentos, tu cobertura sanitaria, tu situación familiar y dónde solicitas el trámite. Comprueba siempre los requisitos oficiales de tu caso concreto antes de tomar decisiones.</p></div>`
+      }),
+      GuideSection({
+        id: "enResumen",
+        title: "En resumen",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>A quién puede aplicarse</th><td>A algunas personas no comunitarias que teletrabajan, nómadas digitales, freelancers y personas empleadas por una empresa o clientes extranjeros.</td></tr>
+          <tr><th>¿Automático?</th><td>No. Teletrabajar no permite por sí solo residir en España.</td></tr>
+          <tr><th>Factores centrales</th><td>La estructura del trabajo, el origen de los ingresos, la nacionalidad y la situación fiscal.</td></tr>
+          <tr><th>Nómadas digitales no comunitarios</th><td>Pueden acabar necesitando una TIE tras la aprobación o la llegada.</td></tr>
+          <tr><th>Asesoramiento profesional</th><td>Puede ser útil, sobre todo en cuestiones fiscales y de Seguridad Social.</td></tr>
+        </tbody></table>`
+      }),
+      GuideSection({
+        id: "paraQuienEsEstaGuia",
+        title: "Para quién es esta guía",
+        children: `${Cards([
+          { title: "Personas no comunitarias que teletrabajan", text: "Útil si trabajas en remoto y consideras España como persona no comunitaria." },
+          { title: "Nómadas digitales", text: "Útil si trabajas sin depender de una ubicación, para empresas o clientes extranjeros." },
+          { title: "Freelancers con clientes extranjeros", text: "Útil si facturas a clientes fuera de España." },
+          { title: "Personas empleadas en remoto por una empresa extranjera", text: "Útil si tu empresa tiene su sede fuera de España." },
+          { title: "Personas que comparan vías", text: "Útil si estás comparando las vías de nómada digital, empleo y trabajo por cuenta propia." },
+          { title: "Personas que ya están en España", text: "Útil si intentas entender si una vía de teletrabajo se aplica ahora a tu situación." }
+        ])}${InfoBox({ title: "Hojas de ruta relacionadas", text: "Quien esté empleado por una empresa española debe usar la hoja de ruta de trabajar en España. Quien planee una actividad por cuenta propia en España debe usar la hoja de ruta de autónomo." })}`
+      }),
+      GuideSection({
+        id: "nomadaFrenteAEmpleoYAutonomo",
+        title: "Nómada digital frente a empleo y trabajo por cuenta propia",
+        children: `<table class="guide-table"><tbody>
+          <tr><th>Vía</th><td><strong>Qué conviene saber</strong></td></tr>
+          <tr><th>Vía de nómada digital / teletrabajo</th><td>Puede aplicarse a algunas personas que trabajan en remoto para empresas o clientes extranjeros. Los requisitos dependen de la estructura del trabajo y de las normas oficiales. Es importante revisar la parte fiscal y la migratoria.</td></tr>
+          <tr><th>Vía de empleo</th><td>Normalmente conectada con un empleo en España. Puede implicar trámites por parte de la empresa. Usa la <a href="${routes.esWorkInSpain}">hoja de ruta de trabajar en España</a>.</td></tr>
+          <tr><th>Vía de autónomo</th><td>Normalmente conectada con una actividad económica independiente en España. El alta fiscal y de Seguridad Social puede ser compleja. Usa la <a href="${routes.esSelfEmployed}">hoja de ruta de autónomo</a>.</td></tr>
+        </tbody></table><div class="guide-box guide-box--warning"><strong>Importante</strong><p>No des por hecho que estas vías sean intercambiables. Confirma cuál encaja con tu estructura de trabajo real antes de solicitar.</p></div>${SourceLinks([
+          { label: "Ver la guía de nómada digital", href: "/guides/es/digital-nomad/" }
+        ])}<p>Una vez decidido qué vía se aplica, la guía de nómada digital cubre el detalle procedimental que esta hoja de ruta no entra a explicar: los documentos que suelen exigirse y el paso de la tarjeta tras la aprobación.</p>`
+      }),
+      GuideSection({
+        id: "antesDeSolicitarOMudarte",
+        title: "Antes de solicitar o mudarte",
+        children: `${Cards([
+          { title: "Identidad", text: "Un pasaporte en vigor suele ser central en la solicitud." },
+          { title: "Contratos de trabajo o de clientes, cuando proceda", text: "Los contratos laborales o de clientes pueden sustentar la solicitud." },
+          { title: "Prueba de que el trabajo es en remoto", text: "Puede pedirse prueba de que tu trabajo es realmente a distancia." },
+          { title: "Prueba de ingresos, cuando se exija", text: "Algunas vías pueden requerir justificantes de ingresos." },
+          { title: "Documentos de empresa o de actividad, cuando proceda", text: "Pueden solicitarse documentos de la empresa a freelancers o titulares de negocio." },
+          { title: "Titulación profesional, cuando proceda", text: "Algunos perfiles pueden requerir documentos de titulación reconocida." },
+          { title: "Cobertura sanitaria", text: "Puede exigirse cobertura sanitaria según tu vía." },
+          { title: "Certificado de antecedentes penales, cuando se exija", text: "Algunas vías pueden pedir un certificado de antecedentes penales." },
+          { title: "Traducciones, legalización o apostilla, cuando se exijan", text: "Algunos documentos extranjeros pueden necesitar traducción oficial, legalización o apostilla." },
+          { title: "Revisión fiscal antes de mudarte", text: "Revisar tu situación fiscal antes de mudarte puede ayudarte a planificar." }
+        ])}<p>Los requisitos exactos dependen de la nacionalidad, la estructura del trabajo, el origen de los ingresos y el lugar donde se presenta la solicitud. Usa la <a href="${routes.esChecklist}">lista de documentos</a> como punto de partida general y confirma después la lista exacta de tu caso concreto.</p>`
+      }),
+      GuideSection({
+        id: "empresaClientesYEstructura",
+        title: "Empresa, clientes y estructura del trabajo",
+        children: `${Cards([
+          { title: "Situaciones posibles distintas", text: "Quien teletrabaja puede estar en situaciones distintas: persona empleada, contratista, freelancer o titular de una empresa." },
+          { title: "Afecta a lo migratorio, lo fiscal y la Seguridad Social", text: "La estructura del trabajo puede afectar a las cuestiones migratorias, fiscales y de Seguridad Social." },
+          { title: "No da elegibilidad automática", text: "Tener una empresa o clientes extranjeros no garantiza automáticamente la elegibilidad." },
+          { title: "Verifica que tu estructura encaja con la vía", text: "Conviene verificar si tu estructura de trabajo encaja con la vía oficial antes de solicitar." }
+        ])}`
+      }),
+      GuideSection({
+        id: "dondeSolicitas",
+        title: "Dónde solicitas: ¿consulado o desde dentro de España?",
+        children: `<p>Hay dos canales oficiales, y cuál se aplica depende de dónde estés al presentar la solicitud. Conviene resolverlo pronto, porque decide si viajas primero o solicitas primero.</p>${Cards([
+          { title: "Desde el extranjero: el consulado", text: "El visado de teletrabajo se solicita en el consulado español que cubre tu país de residencia. El propio visado basta para residir y teletrabajar en España mientras esté en vigor." },
+          { title: "Desde dentro de España: la UGE-CE", text: "Si ya estás legalmente en España, la autorización de residencia puede solicitarse directamente ante la Unidad de Grandes Empresas y Colectivos Estratégicos (UGE-CE), sin visado previo." },
+          { title: "Directamente o mediante representante", text: "La vía de la UGE-CE puede gestionarse directamente o a través de un representante acreditado." },
+          { title: "Comprueba las condiciones vigentes de ingresos y seguro", text: "Ambos canales aplican un umbral de ingresos vinculado al salario mínimo y exigen un seguro de salud válido en España. Las cifras pueden cambiar, así que confirma las vigentes en la página oficial antes de solicitar." }
+        ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Estar físicamente en España como turista no es lo mismo que estar legalmente en España a efectos de esta vía. Confirma que tu situación actual permite solicitar desde dentro del país antes de dar por hecho que el canal de la UGE-CE está abierto para ti.</p></div><p>Consulta la <a href="https://www.inclusion.gob.es/web/unidadgrandesempresas/teletrabajadores" target="_blank" rel="noreferrer">página de teletrabajadores de la UGE-CE</a> del Ministerio para la vía desde dentro de España, y el consulado español más cercano para la vía del visado. Esta página no valora la elegibilidad: el canal correcto depende de tu situación legal en el momento de presentar la solicitud.</p>`
+      }),
+      GuideSection({
+        id: "impuestosYTeletrabajo",
+        title: "Impuestos y teletrabajo",
+        children: `${Cards([
+          { title: "Puede afectar a la residencia fiscal", text: "Mudarte a España puede afectar a tu residencia fiscal." },
+          { title: "Distinta de la residencia migratoria", text: "La residencia fiscal es distinta de la residencia migratoria." },
+          { title: "Puede aplicarse la renta mundial", text: "España puede gravar a sus residentes por la renta mundial según las circunstancias." },
+          { title: "Varias cuestiones que revisar", text: "Quien teletrabaja debería revisar el IRPF, las cotizaciones, la facturación y las cuestiones de rentas extranjeras." },
+          { title: "Consulta con un profesional cualquier régimen especial", text: "Cualquier régimen fiscal especial conviene comprobarlo con una persona asesora cualificada." }
+        ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No des por garantizado ningún beneficio fiscal. El resultado fiscal depende de tus circunstancias concretas y conviene comprobarlo con una persona asesora cualificada.</p></div><p>Usa la <a href="${routes.taxes}">guía de impuestos en España (en inglés)</a> como punto de partida en lenguaje claro.</p>`
+      }),
+      GuideSection({
+        id: "sanidadYSeguridadSocial",
+        title: "Sanidad y Seguridad Social",
+        children: `${Cards([
+          { title: "Depende de la vía y la estructura", text: "Los requisitos sanitarios pueden depender de la vía, la estructura del trabajo y la nacionalidad." },
+          { title: "Puede hacer falta seguro privado", text: "Algunas personas que teletrabajan pueden necesitar un seguro privado." },
+          { title: "La Seguridad Social varía", text: "El tratamiento en la Seguridad Social puede depender de la estructura del trabajo y de las normas aplicables." },
+          { title: "No se tratan igual", text: "Las personas empleadas, freelancers y titulares de empresa pueden no recibir el mismo tratamiento." }
+        ])}${SourceLinks([
+          { label: "Ver la guía de sanidad en España", href: routes.esHealthcare },
+          { label: "Ver la guía de la Seguridad Social (en inglés)", href: routes.social }
+        ])}`
+      }),
+      GuideSection({
+        id: "tieParaNomadasDigitales",
+        title: "La TIE para nómadas digitales",
+        children: `${Cards([
+          { title: "Muchos residentes no comunitarios la necesitan", text: "Muchas personas residentes no comunitarias pueden necesitar una TIE tras la aprobación o la llegada." },
+          { title: "No es lo mismo que el NIE", text: "La TIE no es lo mismo que el NIE." },
+          { title: "No es lo mismo que el registro de la UE", text: "La TIE no es lo mismo que el registro de la UE." },
+          { title: "Citas y recogida", text: "Los trámites de la TIE pueden implicar cita previa, huellas y recogida." },
+          { title: "Depende de tu caso", text: "Los detalles dependen de la aprobación, la vía y el trámite local." }
+        ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas TIE, NIE y registro de la UE. Confirma qué documento se aplica a tu situación antes de una cita.</p></div>`
+      }),
+      GuideSection({
+        id: "erroresComunes",
+        title: "Errores comunes",
+        children: Cards([
+          "Dar por hecho que teletrabajar otorga automáticamente derechos de residencia.",
+          "Suponer que la situación de turista basta para teletrabajar a largo plazo.",
+          "Confundir las vías de nómada digital, empleo y trabajo por cuenta propia.",
+          "Ignorar la residencia fiscal.",
+          "Suponer que los beneficios fiscales son automáticos.",
+          "No comprobar las implicaciones de Seguridad Social.",
+          "Confundir el NIE y la TIE.",
+          "Preparar demasiado tarde los contratos o los justificantes de ingresos.",
+          "Basarse solo en consejos informales."
+        ])
+      }),
+      GuideSection({
+        id: "preguntasReales",
+        title: "Preguntas reales de la gente",
+        children: Cards([
+          { question: "¿Puedo mudarme a España como nómada digital?", answer: "Puede ser posible, según tu nacionalidad, la estructura de tu trabajo y tus ingresos. Comprueba los requisitos oficiales antes de dar por hecho que una vía concreta se aplica." },
+          { question: "¿Teletrabajar es lo mismo que trabajar para una empresa española?", answer: "No. Teletrabajar para una empresa o clientes extranjeros se trata de forma distinta al empleo ordinario con una empresa española. Usa la hoja de ruta de trabajar en España si tu empresa es española." },
+          { question: "¿Puedo teletrabajar desde España como turista?", answer: "La situación de turista normalmente no basta para residir teletrabajando a largo plazo. Comprueba los requisitos oficiales de la vía que encaje con tu situación." },
+          { question: "¿Los nómadas digitales necesitan TIE?", answer: "Muchas personas residentes no comunitarias pueden necesitar una TIE tras la aprobación o la llegada. Los requisitos dependen de tu vía." },
+          { question: "¿El NIE es lo mismo que el permiso para vivir o trabajar?", answer: "No. El NIE es un número de identificación. El permiso para vivir o trabajar depende de tu residencia y autorización de trabajo, que son cosas aparte." },
+          { question: "¿España gravará mis rentas extranjeras?", answer: "Puede hacerlo, según tu residencia fiscal y tus circunstancias. Esto no es asesoramiento fiscal: busca asesoramiento profesional para tu situación concreta." },
+          { question: "¿Necesito seguro médico privado?", answer: "Depende de tu vía y de la estructura de tu trabajo. Algunas personas que teletrabajan pueden necesitar seguro privado; otras pueden usar otra vía sanitaria." },
+          { question: "¿Debería hablar con una persona asesora fiscal?", answer: "A menudo sí, sobre todo si tienes rentas extranjeras, varios clientes o una estructura de trabajo poco clara. El asesoramiento profesional puede ser útil antes de comprometerte con una vía." }
+        ].map((item) => ({ title: item.question, text: item.answer })))
+      }),
+      GuideSection({
+        id: "whatHappensNext",
+        title: "Tu próximo paso",
+        children: `${SourceLinks([
+          { label: "Ver Empieza aquí", href: routes.esStartHere },
+          { label: "Ver la hoja de ruta para ciudadanos no comunitarios", href: routes.esNonEuRoadmap },
+          { label: "Ver la hoja de ruta de trabajar en España", href: routes.esWorkInSpain },
+          { label: "Ver la lista de documentos", href: routes.esChecklist },
+          { label: "Ver la guía de impuestos en España (en inglés)", href: routes.taxes },
+          { label: "Ver la guía de sanidad en España", href: routes.esHealthcare },
+          { label: "Ver la guía de la Seguridad Social (en inglés)", href: routes.social },
+          { label: "Ver la guía para abrir una cuenta bancaria", href: routes.esBanking },
+          { label: "Ver la guía de instalarte en España", href: routes.esSettling }
+        ])}${`<div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda en una misma carpeta los documentos de identidad, los contratos, los justificantes de ingresos y los fiscales, para poder responder rápido cuando sepas los requisitos exactos de tu vía.</p></div>`}`
       })
     ]
   })
@@ -6300,6 +6712,8 @@ pages.push({
   html: GuideLayout({
     path: routes.familyReunification,
     canonical: `https://iberigo.eu${routes.familyReunification}`,
+    altHref: familyReunificationPair.en.altHref,
+    hreflangAlternates: familyReunificationPair.en.hreflangAlternates,
     title: "Family Reunification in Spain — IberiGo",
     description: "A practical roadmap for people joining family in Spain, including relationship documents, eligibility basics, residence routes, TIE basics and common mistakes.",
     metadata: guideMetadataFor(routes.familyReunification),
@@ -6462,6 +6876,8 @@ pages.push({
   html: GuideLayout({
     path: routes.digitalNomad,
     canonical: `https://iberigo.eu${routes.digitalNomad}`,
+    altHref: digitalNomadPair.en.altHref,
+    hreflangAlternates: digitalNomadPair.en.hreflangAlternates,
     title: "Digital Nomad Visa and Remote Work in Spain — IberiGo",
     description: "A practical roadmap for remote workers and digital nomads considering Spain, including eligibility basics, documents, taxes, healthcare, TIE basics and common mistakes.",
     metadata: guideMetadataFor(routes.digitalNomad),
