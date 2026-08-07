@@ -1,4 +1,6 @@
 const SITE_URL = "https://iberigo.eu";
+// Editorial-review date, deliberately manual — see docs/FRESHNESS_CLAIMS.md.
+// Do NOT wire this to git: it claims a review happened, not that a file changed.
 const REVIEWED = "July 2026";
 const { stylesheetHref, searchControlMarkup, siteSearchScriptTag } = require("./site-assets");
 const DEFAULT_EDITORIAL_CHECKLIST = [
