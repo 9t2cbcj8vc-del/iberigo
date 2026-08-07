@@ -1964,21 +1964,17 @@ const pages = [
         GuideSection({
           id: "paraQuienEsEstaGuia",
           title: "Para quién es esta guía",
-          children: `${Cards([
-            { title: "Ciudadanos de la UE", text: "Útil si eres ciudadano de la UE y planeas una estancia larga en España." },
-            { title: "Ciudadanos del EEE", text: "Los ciudadanos del EEE suelen seguir el mismo recorrido general." },
-            { title: "Ciudadanos suizos", text: "Los ciudadanos suizos normalmente se incluyen en la vía de registro de ciudadanos de la UE." },
-            { title: "Trabajadores por cuenta ajena", text: "Si vas a trabajar, ten en cuenta el empleo, la Seguridad Social, la sanidad y el registro de residencia." },
-            { title: "Trabajadores por cuenta propia", text: "Quienes se mudan como autónomos pueden necesitar justificantes fiscales, de actividad y de Seguridad Social." },
-            { title: "Estudiantes", text: "Los estudiantes pueden necesitar justificantes de estudios, sanidad y recursos." },
-            { title: "Jubilados", text: "Los jubilados pueden necesitar justificantes de pensión, sanidad y recursos." },
-            { title: "Personas que viven de ahorros o inversiones", text: "Quienes se mantienen con recursos propios pueden necesitar justificantes de recursos y sanidad." },
-            { title: "Personas que se mudan con familia", text: "Los documentos de familia pueden importar, sobre todo si el estado civil o los dependientes son relevantes." }
-          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los familiares no comunitarios siguen un proceso distinto. Esta hoja de ruta es para el recorrido de ciudadanos de la UE, del EEE o de Suiza.</p></div>${SourceLinks([
-          { label: "Ver la guía de registro de trabajador de la UE", href: "/guides/es/eu-working/" },
-          { label: "Ver la guía rápida del registro de la UE (EX-18)", href: "/guides/es/eu-registration/" },
-          { label: "Ver la guía de la tarjeta de familiar de ciudadano de la UE", href: "/guides/es/eu-family/" }
-        ])}<p>Si trabajas, la guía de registro de trabajador de la UE cubre esa base en concreto. El resto de bases de esta lista — autoempleo, estudios, jubilación o vivir de ahorros — pasan por el mismo Certificado de Registro, así que usa la guía del registro de la UE. Si te acompaña un familiar no comunitario, esa persona sigue la ruta separada de familiar de ciudadano de la UE.</p>`
+          children: `${StartHereCards([
+            { title: "Ciudadanos de la UE", text: "Útil si eres ciudadano de la UE y planeas una estancia larga en España.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
+            { title: "Ciudadanos del EEE", text: "Los ciudadanos del EEE suelen seguir el mismo recorrido general.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
+            { title: "Ciudadanos suizos", text: "Los ciudadanos suizos normalmente se incluyen en la vía de registro de ciudadanos de la UE.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
+            { title: "Trabajadores por cuenta ajena", text: "Si vas a trabajar, ten en cuenta el empleo, la Seguridad Social, la sanidad y el registro de residencia.", href: "/guides/es/eu-working/", label: "Ver la guía de registro de trabajador de la UE" },
+            { title: "Trabajadores por cuenta propia", text: "Quienes se mudan como autónomos pueden necesitar justificantes fiscales, de actividad y de Seguridad Social.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
+            { title: "Estudiantes", text: "Los estudiantes pueden necesitar justificantes de estudios, sanidad y recursos.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
+            { title: "Jubilados", text: "Los jubilados pueden necesitar justificantes de pensión, sanidad y recursos.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
+            { title: "Personas que viven de ahorros o inversiones", text: "Quienes se mantienen con recursos propios pueden necesitar justificantes de recursos y sanidad.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
+            { title: "Personas que se mudan con familia", text: "Los documentos de familia pueden importar, sobre todo si el estado civil o los dependientes son relevantes.", href: "/guides/es/eu-family/", label: "Ver la guía de la tarjeta de familiar de ciudadano de la UE" }
+          ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los familiares no comunitarios siguen un proceso distinto. Esta hoja de ruta es para el recorrido de ciudadanos de la UE, del EEE o de Suiza.</p></div><p>Varias de estas tarjetas llevan a la misma guía a propósito. Trabajar por cuenta ajena es la única base con guía propia; el autoempleo, los estudios, la jubilación y vivir de ahorros pasan todos por el mismo Certificado de Registro. Si te acompaña un familiar no comunitario, esa persona sigue la ruta separada de familiar de ciudadano de la UE.</p>`
         }),
         GuideSection({
           id: "faseUnoPlanificacion",
@@ -3287,21 +3283,17 @@ const pages = [
         GuideSection({
           id: "whoNeeds",
           title: "Who this roadmap is for",
-          children: `${Cards([
-            { title: "EU citizens", text: "Use this if you are an EU citizen planning a longer stay in Spain." },
-            { title: "EEA citizens", text: "EEA citizens usually follow the same broad route." },
-            { title: "Swiss citizens", text: "Swiss citizens are commonly included in the EU citizen registration route." },
-            { title: "Workers", text: "Employees should plan for work, Social Security, healthcare and residence registration steps." },
-            { title: "Self-employed people", text: "Self-employed movers may need tax, activity and Social Security evidence." },
-            { title: "Students", text: "Students may need study, healthcare and resources evidence." },
-            { title: "Retirees", text: "Retirees may need pension, healthcare and resources evidence." },
-            { title: "People living from savings or investments", text: "Self-sufficient movers may need resources and healthcare evidence." },
-            { title: "People moving with family", text: "Family documents may matter, especially when civil status or dependants are relevant." }
-          ])}${WarningBox("Non-EU family members follow a different process. This roadmap is for the EU, EEA or Swiss citizen journey.")}${SourceLinks([
-          { label: "View the EU Worker Registration Guide", href: "/guides/eu-working/" },
-          { label: "View the Quick EU Registration Guide (EX-18)", href: "/guides/eu-registration/" },
-          { label: "View the EU-Family Residence Card Guide", href: "/guides/eu-family/" }
-        ])}<p>If you are working, the EU Worker Registration Guide covers that basis specifically. Every other basis on this list — self-employment, study, retirement or living from savings — goes through the same EU Registration Certificate, so use the EU Registration Guide for those. If a non-EU family member is coming with you, they follow the separate EU-family route.</p>`
+          children: `${StartHereCards([
+            { title: "EU citizens", text: "Use this if you are an EU citizen planning a longer stay in Spain.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
+            { title: "EEA citizens", text: "EEA citizens usually follow the same broad route.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
+            { title: "Swiss citizens", text: "Swiss citizens are commonly included in the EU citizen registration route.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
+            { title: "Workers", text: "Employees should plan for work, Social Security, healthcare and residence registration steps.", href: "/guides/eu-working/", label: "View the EU Worker Registration Guide" },
+            { title: "Self-employed people", text: "Self-employed movers may need tax, activity and Social Security evidence.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
+            { title: "Students", text: "Students may need study, healthcare and resources evidence.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
+            { title: "Retirees", text: "Retirees may need pension, healthcare and resources evidence.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
+            { title: "People living from savings or investments", text: "Self-sufficient movers may need resources and healthcare evidence.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
+            { title: "People moving with family", text: "Family documents may matter, especially when civil status or dependants are relevant.", href: "/guides/eu-family/", label: "View the EU-Family Residence Card Guide" }
+          ])}${WarningBox("Non-EU family members follow a different process. This roadmap is for the EU, EEA or Swiss citizen journey.")}<p>Several of these cards point to the same guide on purpose. Working is the one basis with its own dedicated guide; self-employment, study, retirement and living from savings all go through the same EU Registration Certificate. If a non-EU family member is coming with you, they follow the separate EU-family route.</p>`
         }),
         GuideSection({
           id: "phaseOne",
