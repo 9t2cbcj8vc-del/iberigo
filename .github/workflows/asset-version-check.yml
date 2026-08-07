@@ -27,3 +27,5 @@ jobs:
           node-version: "20"
       - name: Verify app.js cache-busting version matches app.js contents
         run: node scripts/sync-app-version.js --check
+      - name: Verify the homepage freshness claim matches the last commit
+        run: node scripts/stamp-freshness.js --check
