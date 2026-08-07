@@ -710,7 +710,13 @@ const publishedRoutes = new Set([
   // re-checked against the Policía Nacional extranjería fee schedule before
   // publishing, and /moving-to-spain/eu-citizens/ already links here three times.
   routes.euRegistration,
-  routes.esEuRegistration
+  routes.esEuRegistration,
+  // Family reunification and digital nomad: published EN-only, no Spanish
+  // counterpart exists for either. Content review and fixes landed in PR #137
+  // (entry/visa guidance and the consulate-vs-UGE-CE section respectively);
+  // this is a status flip only.
+  routes.familyReunification,
+  routes.digitalNomad
 ]);
 
 function guideMetadataFor(route) {
