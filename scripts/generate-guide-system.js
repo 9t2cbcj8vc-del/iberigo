@@ -710,7 +710,13 @@ const publishedRoutes = new Set([
   // re-checked against the Policía Nacional extranjería fee schedule before
   // publishing, and /moving-to-spain/eu-citizens/ already links here three times.
   routes.euRegistration,
-  routes.esEuRegistration
+  routes.esEuRegistration,
+  // Family reunification and digital nomad: published EN-only, no Spanish
+  // counterpart exists for either. Content review and fixes landed in PR #137
+  // (entry/visa guidance and the consulate-vs-UGE-CE section respectively);
+  // this is a status flip only.
+  routes.familyReunification,
+  routes.digitalNomad
 ]);
 
 function guideMetadataFor(route) {
@@ -1970,7 +1976,7 @@ const pages = [
             { title: "Personas que se mudan con familia", text: "Los documentos de familia pueden importar, sobre todo si el estado civil o los dependientes son relevantes." }
           ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los familiares no comunitarios siguen un proceso distinto. Esta hoja de ruta es para el recorrido de ciudadanos de la UE, del EEE o de Suiza.</p></div>${SourceLinks([
           { label: "Ver la guía de registro de trabajador de la UE", href: "/guides/es/eu-working/" },
-          { label: "Ver la guía del registro de la UE", href: "/guides/es/eu-registration/" },
+          { label: "Ver la guía rápida del registro de la UE (EX-18)", href: "/guides/es/eu-registration/" },
           { label: "Ver la guía de la tarjeta de familiar de ciudadano de la UE", href: "/guides/es/eu-family/" }
         ])}<p>Si trabajas, la guía de registro de trabajador de la UE cubre esa base en concreto. El resto de bases de esta lista — autoempleo, estudios, jubilación o vivir de ahorros — pasan por el mismo Certificado de Registro, así que usa la guía del registro de la UE. Si te acompaña un familiar no comunitario, esa persona sigue la ruta separada de familiar de ciudadano de la UE.</p>`
         }),
@@ -2005,7 +2011,7 @@ const pages = [
             { label: "Ver la guía del NIE", href: "/guides/es/nie/" }
           ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No trates esto como plazos fijos. La disponibilidad de citas puede variar, y algunos pasos pueden tardar más en zonas con mucha demanda.</p></div>${SourceLinks([
           { label: "Ver la guía del padrón", href: "/guides/es/padron/" },
-          { label: "Ver la guía del registro de la UE", href: "/guides/es/eu-registration/" },
+          { label: "Ver la guía rápida del registro de la UE (EX-18)", href: "/guides/es/eu-registration/" },
           { label: "Ver la guía de la tarjeta sanitaria pública", href: "/guides/es/sip-card/" },
           { label: "Ver la guía de la Tarjeta Sanitaria Europea", href: "/guides/es/ehic-card/" },
           { label: "Ver la guía de seguro médico privado", href: "/guides/es/private-health/" }
@@ -3293,7 +3299,7 @@ const pages = [
             { title: "People moving with family", text: "Family documents may matter, especially when civil status or dependants are relevant." }
           ])}${WarningBox("Non-EU family members follow a different process. This roadmap is for the EU, EEA or Swiss citizen journey.")}${SourceLinks([
           { label: "View the EU Worker Registration Guide", href: "/guides/eu-working/" },
-          { label: "View the EU Registration Guide", href: "/guides/eu-registration/" },
+          { label: "View the Quick EU Registration Guide (EX-18)", href: "/guides/eu-registration/" },
           { label: "View the EU-Family Residence Card Guide", href: "/guides/eu-family/" }
         ])}<p>If you are working, the EU Worker Registration Guide covers that basis specifically. Every other basis on this list — self-employment, study, retirement or living from savings — goes through the same EU Registration Certificate, so use the EU Registration Guide for those. If a non-EU family member is coming with you, they follow the separate EU-family route.</p>`
         }),
@@ -3328,7 +3334,7 @@ const pages = [
             { label: "View the NIE Guide", href: "/guides/nie/" }
           ])}${WarningBox("Do not treat these as fixed deadlines. Appointment availability can vary, and some steps may take longer in high-demand areas.")}${SourceLinks([
           { label: "View the Padrón Guide", href: "/guides/padron/" },
-          { label: "View the EU Registration Guide", href: "/guides/eu-registration/" },
+          { label: "View the Quick EU Registration Guide (EX-18)", href: "/guides/eu-registration/" },
           { label: "View the Public Health Card Guide", href: "/guides/sip-card/" },
           { label: "View the EHIC Guide", href: "/guides/ehic-card/" },
           { label: "View the Private Health Insurance Guide", href: "/guides/private-health/" }
@@ -3631,7 +3637,7 @@ const pages = [
             { title: "Attend the appointment", text: "Bring the documents requested for your appointment and answer based on your actual situation." },
             { title: "Keep the certificate safe", text: "The green EU Registration Certificate can be useful for banking, healthcare, work, tax and other administration." }
           ])}${SourceLinks([
-          { label: "View the EU Registration Guide", href: "/guides/eu-registration/" }
+          { label: "View the Quick EU Registration Guide (EX-18)", href: "/guides/eu-registration/" }
         ])}<p>The EU Registration Guide is the short reference version of this process, with the form, fee and document list in one place.</p>`
         }),
         CommonMistakes([
@@ -3795,7 +3801,7 @@ const pages = [
             { title: "Acude a la cita", text: "Lleva los documentos que te pidan para tu cita y responde según tu situación real." },
             { title: "Guarda el certificado en un lugar seguro", text: "El Certificado de Registro de la UE verde puede serte útil para trámites bancarios, sanitarios, laborales, fiscales y otros trámites administrativos." }
           ])}${SourceLinks([
-          { label: "Ver la guía del registro de la UE", href: "/guides/es/eu-registration/" }
+          { label: "Ver la guía rápida del registro de la UE (EX-18)", href: "/guides/es/eu-registration/" }
         ])}<p>La guía del registro de la UE es la versión breve de referencia de este proceso, con el formulario, la tasa y la lista de documentos en un solo sitio.</p>`
         }),
         GuideSection({
@@ -4088,7 +4094,7 @@ pages.push({
           { title: "Workers", text: "Workers may use work-related Social Security evidence, depending on the appointment requirements." },
           { title: "Check before booking", text: "Review the exact appointment instructions before assuming which healthcare proof will be accepted." }
         ])}${WarningBox("Healthcare planning may need to happen before the EU registration appointment, especially if your route is not based on employment in Spain.")}${SourceLinks([
-          { label: "View the EU Registration Guide", href: "/guides/eu-registration/" }
+          { label: "View the Quick EU Registration Guide (EX-18)", href: "/guides/eu-registration/" }
         ])}<p>The EU Registration Guide covers the registration appointment itself, including the form and the fee.</p>`
       }),
       CommonMistakes([
@@ -4409,7 +4415,7 @@ pages.push({
           { title: "Personas trabajadoras", text: "Quien trabaja puede usar la prueba de Seguridad Social vinculada al empleo, según los requisitos de la cita." },
           { title: "Comprueba antes de reservar", text: "Revisa las instrucciones exactas de la cita antes de suponer qué prueba sanitaria se aceptará." }
         ])}${`<div class="guide-box guide-box--warning"><strong>Importante</strong><p>Puede que la planificación sanitaria deba hacerse antes de la cita de registro de la UE, especialmente si tu vía no se basa en el empleo en España.</p></div>`}${SourceLinks([
-          { label: "Ver la guía del registro de la UE", href: "/guides/es/eu-registration/" }
+          { label: "Ver la guía rápida del registro de la UE (EX-18)", href: "/guides/es/eu-registration/" }
         ])}<p>La guía del registro de la UE cubre la cita de registro en sí, incluidos el formulario y la tasa.</p>`
       }),
       GuideSection({
