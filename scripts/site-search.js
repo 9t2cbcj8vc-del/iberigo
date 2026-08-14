@@ -1,4 +1,21 @@
 (function () {
+  if (!document.querySelector('link[data-iberigo-overhaul]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/styles-overhaul.css?v=20260814-overhaul-1';
+    link.dataset.iberigoOverhaul = 'true';
+    document.head.appendChild(link);
+  }
+  if (!document.querySelector('script[data-iberigo-overhaul]')) {
+    const script = document.createElement('script');
+    script.src = '/scripts/visual-overhaul.js?v=20260814-overhaul-1';
+    script.dataset.iberigoOverhaul = 'true';
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+})();
+
+(function () {
   const opener = document.querySelector("[data-site-search-open], .search-nav-link");
   if (!opener) return;
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
