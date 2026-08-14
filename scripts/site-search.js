@@ -1,4 +1,13 @@
 (function () {
+  if (document.querySelector('script[data-roadmap-static-2026]')) return;
+  const script = document.createElement("script");
+  script.src = "/scripts/roadmap-static-2026.js?v=20260814-roadmap-95";
+  script.async = false;
+  script.dataset.roadmapStatic2026 = "true";
+  document.head.appendChild(script);
+})();
+
+(function () {
   if (typeof routes === "undefined") return;
   if (document.querySelector('script[data-roadmap-2026-corrections]')) return;
 
