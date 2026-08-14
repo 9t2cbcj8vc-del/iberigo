@@ -2,9 +2,9 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const scriptTag = '<script src="/scripts/readability.js?v=20260814-readability-1" defer></script>';
+const scriptTag = '<script src="/scripts/readability.js?v=20260814-readability-2" defer></script>';
 const reportPath = path.join(root, "readability-audit.json");
-const LONG_PARAGRAPH = 420;
+const LONG_PARAGRAPH = 360;
 const ignoredDirs = new Set([".git", "node_modules"]);
 
 function walk(dir, output = []) {
