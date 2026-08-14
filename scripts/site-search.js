@@ -1,14 +1,4 @@
 (function () {
-  if (!/^\/(es\/)?moving-to-spain\//.test(location.pathname)) return;
-  if (document.querySelector('script[data-roadmap-guide-enhancements]')) return;
-  const script = document.createElement("script");
-  script.src = "/scripts/roadmap-guide-enhancements.js?v=20260814-roadmap-source";
-  script.async = false;
-  script.dataset.roadmapGuideEnhancements = "true";
-  document.head.appendChild(script);
-})();
-
-(function () {
   const opener = document.querySelector("[data-site-search-open], .search-nav-link");
   if (!opener) return;
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
