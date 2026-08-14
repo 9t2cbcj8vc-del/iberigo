@@ -103,17 +103,23 @@
 
             <fieldset class="goal-visual-grid">
               <legend data-i18n="goalLegend">What are you trying to do?</legend>
-              <label class="goal-card" data-goal-card="work"><input type="radio" name="goal" value="work" /> <span data-i18n="goalWork">Live and work in Spain</span><small data-i18n="goalWorkDesc">Employment, self-employment, or work authorization paths.</small></label>
+              <label class="goal-card" data-goal-card="work-employee"><input type="radio" name="goal" value="workEmployee" /> <span data-i18n="goalWorkEmployee">Work for a Spanish employer</span><small data-i18n="goalWorkEmployeeDesc">Employee residence and work authorization, normally started by the employer.</small></label>
+              <label class="goal-card" data-goal-card="work-self"><input type="radio" name="goal" value="workSelf" /> <span data-i18n="goalWorkSelf">Work as self-employed in Spain</span><small data-i18n="goalWorkSelfDesc">Self-employed residence and work authorization using the consular route.</small></label>
+              <label class="goal-card" data-goal-card="work-specialist"><input type="radio" name="goal" value="workSpecialist" /> <span data-i18n="goalWorkSpecialist">Specialist work / mobility route</span><small data-i18n="goalWorkSpecialistDesc">Highly qualified, EU Blue Card, company transfer, seasonal, research, entrepreneur or internship routes.</small></label>
               <label class="goal-card" data-goal-card="no-work"><input type="radio" name="goal" value="noWork" /> <span data-i18n="goalNoWork">Live in Spain without working</span><small data-i18n="goalNoWorkDesc">For funds, retirement income, or no Spanish work activity.</small></label>
-              <label class="goal-card" data-goal-card="study"><input type="radio" name="goal" value="study" /> <span data-i18n="goalStudy">Study in Spain</span><small data-i18n="goalStudyDesc">Courses, university, training, internships, or student stay paperwork.</small></label>
+              <label class="goal-card" data-goal-card="study-abroad"><input type="radio" name="goal" value="studyAbroad" /> <span data-i18n="goalStudyAbroad">Study in Spain — applying from abroad</span><small data-i18n="goalStudyAbroadDesc">Student visa / long-stay study route through the Spanish consulate.</small></label>
+              <label class="goal-card" data-goal-card="study-spain"><input type="radio" name="goal" value="studySpain" /> <span data-i18n="goalStudySpain">Study in Spain — already legally in Spain</span><small data-i18n="goalStudySpainDesc">Check whether you can apply in Spain through Extranjería or Mercurio.</small></label>
               <label class="goal-card" data-goal-card="remote"><input type="radio" name="goal" value="remote" /> <span data-i18n="goalRemote">Work remotely from Spain</span><small data-i18n="goalRemoteDesc">Remote work mainly for clients or companies outside Spain.</small></label>
-              <label class="goal-card" data-goal-card="family"><input type="radio" name="goal" value="family" /> <span data-i18n="goalFamily">Join family in Spain</span><small data-i18n="goalFamilyDesc">Family reunification or EU-family residence card routes.</small></label>
+              <label class="goal-card" data-goal-card="family"><input type="radio" name="goal" value="family" /> <span data-i18n="goalFamily">Join family in Spain</span><small data-i18n="goalFamilyDesc">Family reunification, Spanish-family, or EU-family residence routes.</small></label>
+              <label class="goal-card" data-goal-card="special-case"><input type="radio" name="goal" value="specialCase" /> <span data-i18n="goalSpecialCase">Other or special situation</span><small data-i18n="goalSpecialCaseDesc">For previous residence, long-term EU status, exceptional circumstances or another uncommon route.</small></label>
             </fieldset>
 
             <fieldset>
               <legend data-i18n="familyLegend">Who are you joining in Spain?</legend>
-              <label><input type="radio" name="familySponsor" value="euSpanish" /> <span data-i18n="familyEu">EU/EEA/Swiss or Spanish citizen</span><small data-i18n="familyEuDesc">Usually points to the EU-family residence card route.</small></label>
-              <label><input type="radio" name="familySponsor" value="nonEuResident" /> <span data-i18n="familyNonEu">Non-EU citizen resident in Spain</span><small data-i18n="familyNonEuDesc">Usually points to family reunification.</small></label>
+              <label><input type="radio" name="familySponsor" value="euCitizen" /> <span data-i18n="familyEu">EU/EEA/Swiss citizen</span><small data-i18n="familyEuDesc">Points to the EU-family residence-card route (EX-19).</small></label>
+              <label><input type="radio" name="familySponsor" value="spanishCitizen" /> <span data-i18n="familySpanishStandard">Spanish citizen — standard Spanish-family route</span><small data-i18n="familySpanishStandardDesc">Normally the EX-24 family member of a Spanish national route.</small></label>
+              <label><input type="radio" name="familySponsor" value="spanishCitizenEuReturn" /> <span data-i18n="familySpanishEuReturn">Spanish citizen — EU free-movement return case</span><small data-i18n="familySpanishEuReturnDesc">Only if the Spanish citizen genuinely exercised EU free-movement rights in another EU/EEA country before returning to Spain.</small></label>
+              <label><input type="radio" name="familySponsor" value="nonEuResident" /> <span data-i18n="familyNonEu">Non-EU citizen resident in Spain</span><small data-i18n="familyNonEuDesc">Points to ordinary family reunification (EX-02).</small></label>
             </fieldset>
 
             <fieldset>
@@ -211,7 +217,7 @@
             This app is a planning guide, not legal advice. Spanish immigration and administration rules,
             document lists, fees, and appointment labels can change. Always verify your procedure with official sources before filing.
           </p>
-          <p class="helper-note">Last reviewed: July 2026</p>
+          <p class="helper-note">Last reviewed: August 2026</p>
         </section>
       </main>
       <footer class="site-footer">
@@ -219,11 +225,13 @@
         <a href="support/index.html" data-i18n="footerSupportLink">Donate</a>
         <div class="site-footer-legal">
           <p data-i18n="footerLegal">© 2026 IberiGo. Free to use. Not legal advice.</p>
-          <p data-i18n="footerReviewed">Last reviewed: July 2026</p>
+          <p data-i18n="footerReviewed">Last reviewed: August 2026</p>
         </div>
       </footer>
     </div>
     <script src="app.js?v=h64ea95f3db"></script>
-    <script src="/scripts/site-search.js?v=20260712-sitewide-4" defer></script>
+    <script src="/scripts/roadmap-core.js?v=20260814-roadmap-source"></script>
+    <script src="/scripts/roadmap-specialist.js?v=20260814-roadmap-source"></script>
+    <script src="/scripts/site-search.js?v=20260814-search-only" defer></script>
   </body>
 </html>
