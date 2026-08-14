@@ -84,5 +84,9 @@ const report = {
   longParagraphsFound: longParagraphs,
   pages
 };
-fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
+
+if (process.env.READABILITY_REPORT === "1") {
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
+}
+
 console.log(`[readability] scanned ${files.length} HTML pages; found ${longParagraphs} long paragraphs on ${pages.length} pages; injected formatter into ${changed} pages.`);
