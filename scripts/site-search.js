@@ -1,88 +1,10 @@
 (function () {
-  if (document.querySelector('script[data-roadmap-static-2026]')) return;
+  if (!/^\/(es\/)?moving-to-spain\//.test(location.pathname)) return;
+  if (document.querySelector('script[data-roadmap-guide-enhancements]')) return;
   const script = document.createElement("script");
-  script.src = "/scripts/roadmap-static-2026.js?v=20260814-roadmap-95";
+  script.src = "/scripts/roadmap-guide-enhancements.js?v=20260814-roadmap-source";
   script.async = false;
-  script.dataset.roadmapStatic2026 = "true";
-  document.head.appendChild(script);
-})();
-
-(function () {
-  if (typeof routes === "undefined") return;
-  if (document.querySelector('script[data-roadmap-2026-corrections]')) return;
-
-  window.linkLabels = window.linkLabels || { en: {}, es: {} };
-  window.urls = window.urls || {};
-  window.govMeta = window.govMeta || {};
-
-  const originalRenderRouteLinks = typeof renderRouteLinks === "function" ? renderRouteLinks : null;
-
-  function installRouteLinkRenderer() {
-    if (!originalRenderRouteLinks || typeof renderRouteLinks !== "function") return;
-    renderRouteLinks = function (linkTypes, excludedUrls) {
-      const excluded = excludedUrls instanceof Set ? excludedUrls : new Set();
-      const types = Array.isArray(linkTypes) ? linkTypes : [];
-      const customTypes = types.filter(function (type) { return Boolean(window.urls[type]); });
-      const originalTypes = types.filter(function (type) { return !window.urls[type]; });
-      const originalHtml = originalRenderRouteLinks(originalTypes, excluded);
-      const lang = typeof currentLang !== "undefined" && currentLang === "es" ? "es" : "en";
-      const customHtml = customTypes.map(function (type) {
-        const url = window.urls[type];
-        if (!url || excluded.has(url)) return "";
-        const label = (window.linkLabels[lang] && window.linkLabels[lang][type]) || (window.linkLabels.en && window.linkLabels.en[type]) || type;
-        const meta = window.govMeta[type] || {};
-        const subtitle = meta.subtitle || (lang === "es" ? "Fuente oficial" : "Official source");
-        const isEu = /europa\.eu|ec\.europa\.eu/.test(url);
-        const category = isEu ? "eu" : /policia\.gob\.es/.test(url) ? "police" : /tasasPDF|790-0/.test(url) ? "tax" : "government";
-        const initials = isEu ? "EU" : category === "police" ? "PN" : category === "tax" ? "€" : "ES";
-        const tag = isEu ? (lang === "es" ? "Unión Europea" : "European Union") : category === "police" ? "Policía Nacional" : category === "tax" ? (lang === "es" ? "Tasa oficial" : "Official fee") : (lang === "es" ? "Gobierno de España" : "Spanish Government");
-        return '<a class="gov-link guide-source-card guide-source-card--' + category + '" href="' + url + '" target="_blank" rel="noreferrer">' +
-          '<span class="guide-source-head"><span class="guide-source-badge" aria-hidden="true">' + initials + '</span><span class="guide-source-tag">' + tag + '</span></span>' +
-          '<span class="guide-source-title">' + label + '</span>' +
-          '<span class="guide-source-description">' + subtitle + '</span></a>';
-      }).join("");
-      return originalHtml + customHtml;
-    };
-  }
-
-  function rerenderCurrentRoute() {
-    const guideId = document.documentElement.dataset.guideId;
-    if (guideId) {
-      const route = routes.find(function (item) { return item.id === guideId; });
-      if (route && typeof showDirectGuide === "function" && typeof renderRoadmapCard === "function" && typeof roadmapFor === "function") {
-        showDirectGuide();
-        renderRoadmapCard(roadmapFor(route), guideId);
-      }
-    } else if (typeof result !== "undefined" && !result.hidden && typeof wizard !== "undefined" && wizard.dataset.step === "result" && typeof renderRoadmap === "function") {
-      renderRoadmap();
-    }
-  }
-
-  function loadCompletenessLayer(done) {
-    if (document.querySelector('script[data-roadmap-2026-completeness]')) { done(); return; }
-    const script = document.createElement("script");
-    script.src = "/scripts/roadmap-2026-completeness.js?v=20260814-roadmap-95";
-    script.async = false;
-    script.dataset.roadmap2026Completeness = "true";
-    script.addEventListener("load", done);
-    script.addEventListener("error", done);
-    document.head.appendChild(script);
-  }
-
-  const script = document.createElement("script");
-  script.src = "/scripts/roadmap-2026-corrections.js?v=20260814-roadmap-fixes";
-  script.async = false;
-  script.dataset.roadmap2026Corrections = "true";
-  script.addEventListener("load", function () {
-    loadCompletenessLayer(function () {
-      installRouteLinkRenderer();
-      rerenderCurrentRoute();
-    });
-  });
-  script.addEventListener("error", function () {
-    installRouteLinkRenderer();
-    rerenderCurrentRoute();
-  });
+  script.dataset.roadmapGuideEnhancements = "true";
   document.head.appendChild(script);
 })();
 
