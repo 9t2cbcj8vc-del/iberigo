@@ -1,4 +1,65 @@
 (function () {
+  if (typeof routes === "undefined") return;
+  if (document.querySelector('script[data-roadmap-2026-corrections]')) return;
+
+  // app.js keeps its link dictionaries inside renderRouteLinks(). The roadmap
+  // correction layer needs its own small global dictionary for newly corrected
+  // action links without changing the large generated app bundle.
+  window.linkLabels = window.linkLabels || { en: {}, es: {} };
+  window.urls = window.urls || {};
+  window.govMeta = window.govMeta || {};
+
+  const originalRenderRouteLinks = typeof renderRouteLinks === "function" ? renderRouteLinks : null;
+  const script = document.createElement("script");
+  script.src = "/scripts/roadmap-2026-corrections.js?v=20260814-roadmap-fixes";
+  script.async = false;
+  script.dataset.roadmap2026Corrections = "true";
+  script.addEventListener("load", function () {
+    if (!originalRenderRouteLinks || typeof renderRouteLinks !== "function") return;
+
+    renderRouteLinks = function (linkTypes, excludedUrls) {
+      const excluded = excludedUrls instanceof Set ? excludedUrls : new Set();
+      const types = Array.isArray(linkTypes) ? linkTypes : [];
+      const customTypes = types.filter(function (type) { return Boolean(window.urls[type]); });
+      const originalTypes = types.filter(function (type) { return !window.urls[type]; });
+      const originalHtml = originalRenderRouteLinks(originalTypes, excluded);
+      const lang = typeof currentLang !== "undefined" && currentLang === "es" ? "es" : "en";
+      const customHtml = customTypes.map(function (type) {
+        const url = window.urls[type];
+        if (!url || excluded.has(url)) return "";
+        const label = (window.linkLabels[lang] && window.linkLabels[lang][type]) || (window.linkLabels.en && window.linkLabels.en[type]) || type;
+        const meta = window.govMeta[type] || {};
+        const subtitle = meta.subtitle || (lang === "es" ? "Fuente oficial" : "Official source");
+        const isEu = /europa\.eu|ec\.europa\.eu/.test(url);
+        const category = isEu ? "eu" : /policia\.gob\.es/.test(url) ? "police" : /tasasPDF|790-0/.test(url) ? "tax" : "government";
+        const initials = isEu ? "EU" : category === "police" ? "PN" : category === "tax" ? "€" : "ES";
+        const tag = isEu ? (lang === "es" ? "Unión Europea" : "European Union") : category === "police" ? "Policía Nacional" : category === "tax" ? (lang === "es" ? "Tasa oficial" : "Official fee") : (lang === "es" ? "Gobierno de España" : "Spanish Government");
+        return '<a class="gov-link guide-source-card guide-source-card--' + category + '" href="' + url + '" target="_blank" rel="noreferrer">' +
+          '<span class="guide-source-head"><span class="guide-source-badge" aria-hidden="true">' + initials + '</span><span class="guide-source-tag">' + tag + '</span></span>' +
+          '<span class="guide-source-title">' + label + '</span>' +
+          '<span class="guide-source-description">' + subtitle + '</span></a>';
+      }).join("");
+      return originalHtml + customHtml;
+    };
+
+    // The correction script may already have rendered a generated route page
+    // before this wrapper was installed. Render once more so corrected action
+    // links are visible immediately on static /guides/... URLs as well.
+    const guideId = document.documentElement.dataset.guideId;
+    if (guideId) {
+      const route = routes.find(function (item) { return item.id === guideId; });
+      if (route && typeof showDirectGuide === "function" && typeof renderRoadmapCard === "function" && typeof roadmapFor === "function") {
+        showDirectGuide();
+        renderRoadmapCard(roadmapFor(route), guideId);
+      }
+    } else if (typeof result !== "undefined" && !result.hidden && typeof wizard !== "undefined" && wizard.dataset.step === "result" && typeof renderRoadmap === "function") {
+      renderRoadmap();
+    }
+  });
+  document.head.appendChild(script);
+})();
+
+(function () {
   const opener = document.querySelector("[data-site-search-open], .search-nav-link");
   if (!opener) return;
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
