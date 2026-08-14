@@ -1,0 +1,201 @@
+/* Homepage gateway cards — review branch only */
+.iberigo-home .iberigo-gateway-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: stretch;
+}
+
+.iberigo-home .iberigo-gateway-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(15, 42, 68, 0.09);
+  border-radius: 22px;
+  background: #fffaf4;
+  box-shadow: 0 16px 42px rgba(15, 42, 68, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.iberigo-home .iberigo-gateway-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.2);
+  box-shadow: 0 24px 54px rgba(15, 42, 68, 0.13);
+}
+
+.iberigo-home .iberigo-gateway-card--primary {
+  border-color: rgba(249, 115, 22, 0.2);
+  box-shadow: 0 18px 48px rgba(15, 42, 68, 0.1);
+}
+
+.iberigo-home .gateway-card-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f6e8d6;
+}
+
+.iberigo-home .gateway-card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 42, 68, 0.13), transparent 46%);
+  pointer-events: none;
+}
+
+.iberigo-home .gateway-card-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.001);
+  transition: transform 320ms ease;
+}
+
+.iberigo-home .iberigo-gateway-card:hover .gateway-card-media img {
+  transform: scale(1.035);
+}
+
+.iberigo-home .gateway-card-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.iberigo-home .gateway-card-eyebrow {
+  display: block;
+  margin: 0 0 0.55rem;
+  color: #d65f0d;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.iberigo-home .iberigo-gateway-card h3 {
+  margin: 0;
+  color: #0f2a44;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.65rem, 2.2vw, 2.05rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.iberigo-home .iberigo-gateway-card p {
+  margin: 0.85rem 0 1.3rem;
+  color: rgba(15, 42, 68, 0.72);
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+.iberigo-home .gateway-card-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  margin-top: auto;
+  padding: 0.72rem 1rem;
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  border-radius: 10px;
+  background: transparent;
+  color: #c8530b;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.iberigo-home .gateway-card-action:hover {
+  border-color: #f97316;
+  background: rgba(249, 115, 22, 0.08);
+  color: #a64008;
+}
+
+.iberigo-home .gateway-card-action:focus-visible,
+.iberigo-home .gateway-card-media:focus-visible {
+  outline: 3px solid rgba(249, 115, 22, 0.32);
+  outline-offset: 3px;
+}
+
+.iberigo-home .iberigo-gateway-card--primary .gateway-card-action {
+  border-color: #f97316;
+  background: #f97316;
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(249, 115, 22, 0.18);
+}
+
+.iberigo-home .iberigo-gateway-card--primary .gateway-card-action:hover {
+  background: #dc5d0f;
+  border-color: #dc5d0f;
+  color: #fff;
+}
+
+.iberigo-home .gateway-card-action span {
+  transition: transform 160ms ease;
+}
+
+.iberigo-home .gateway-card-action:hover span {
+  transform: translateX(2px);
+}
+
+@media (max-width: 900px) {
+  .iberigo-home .iberigo-gateway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .iberigo-home .iberigo-gateway-card--living {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .iberigo-home .iberigo-gateway-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .iberigo-home .iberigo-gateway-card--living {
+    grid-column: auto;
+  }
+
+  .iberigo-home .iberigo-gateway-card {
+    border-radius: 18px;
+  }
+
+  .iberigo-home .gateway-card-media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .iberigo-home .gateway-card-body {
+    padding: 1.2rem;
+  }
+
+  .iberigo-home .iberigo-gateway-card h3 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iberigo-home .iberigo-gateway-card,
+  .iberigo-home .gateway-card-media img,
+  .iberigo-home .gateway-card-action,
+  .iberigo-home .gateway-card-action span {
+    transition: none;
+  }
+
+  .iberigo-home .iberigo-gateway-card:hover,
+  .iberigo-home .iberigo-gateway-card:hover .gateway-card-media img,
+  .iberigo-home .gateway-card-action:hover span {
+    transform: none;
+  }
+}
