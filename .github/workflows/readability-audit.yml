@@ -19,7 +19,7 @@ jobs:
       - name: Build roadmap and readability layers
         run: |
           node scripts/bake-roadmap-static.js
-          node scripts/bake-readability.js
+          READABILITY_REPORT=1 node scripts/bake-readability.js
       - name: Summarize long paragraphs
         run: |
           node - <<'NODE'
