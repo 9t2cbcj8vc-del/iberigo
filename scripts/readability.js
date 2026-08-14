@@ -1,18 +1,21 @@
 (() => {
   const STYLE_ID = "iberigo-readability-style";
   const PROCESSED = "readabilityProcessed";
-  const MIN_PARAGRAPH = 420;
-  const TARGET_CHUNK = 230;
+  const CONTAINER_PROCESSED = "readabilityContainerProcessed";
+  const MIN_PARAGRAPH = 360;
   const MAX_CHUNK = 360;
 
   if (!document.getElementById(STYLE_ID)) {
     const style = document.createElement("style");
     style.id = STYLE_ID;
     style.textContent = `
-      main .readability-split + .readability-split { margin-top: 0.95rem !important; }
-      main .readability-split { max-width: 68ch; }
+      main .readability-split + .readability-split,
+      main .result-purpose-body > p + p { margin-top: 0.95rem !important; }
+      main .readability-split,
+      main .result-purpose-body > p { max-width: 68ch; }
       @media (max-width: 520px) {
-        main .readability-split + .readability-split { margin-top: 1rem !important; }
+        main .readability-split + .readability-split,
+        main .result-purpose-body > p + p { margin-top: 1rem !important; }
       }
     `;
     document.head.appendChild(style);
@@ -52,6 +55,10 @@
     return segments;
   }
 
+  function startsNewTopic(text) {
+    return /^(?:Since\b|From\b|Once\b|After\b|However\b|In practice\b|ETIAS\b|EES\b|Travel insurance\b|Desde\b|A partir\b|Una vez\b|Después\b|Sin embargo\b|En la práctica\b|El seguro de viaje\b)/i.test(text.trim());
+  }
+
   function chunkRanges(text) {
     const sentences = sentenceSegments(text).filter((item) => item.text.trim());
     if (sentences.length < 3) return [];
@@ -59,31 +66,25 @@
     const ranges = [];
     let chunkStart = sentences[0].start;
     let chunkLength = 0;
-    let chunkSentences = 0;
 
     sentences.forEach((sentence, index) => {
       const sentenceLength = sentence.end - sentence.start;
+      const thematicBreak = index > 0 && startsNewTopic(sentence.text) && chunkLength > 0;
       const wouldOverflow = chunkLength > 0 && chunkLength + sentenceLength > MAX_CHUNK;
 
-      if (wouldOverflow && chunkLength >= TARGET_CHUNK * 0.7) {
+      if (thematicBreak || wouldOverflow) {
         ranges.push([chunkStart, sentence.start]);
         chunkStart = sentence.start;
         chunkLength = 0;
-        chunkSentences = 0;
       }
 
       chunkLength += sentenceLength;
-      chunkSentences += 1;
 
       const isLast = index === sentences.length - 1;
-      const healthyBreak = chunkLength >= TARGET_CHUNK && chunkSentences >= 2;
-      const hardBreak = chunkLength >= MAX_CHUNK;
-
-      if (!isLast && (healthyBreak || hardBreak)) {
+      if (!isLast && chunkLength >= MAX_CHUNK) {
         ranges.push([chunkStart, sentence.end]);
         chunkStart = sentence.end;
         chunkLength = 0;
-        chunkSentences = 0;
       }
     });
 
@@ -113,6 +114,41 @@
     }
     const last = nodes[nodes.length - 1];
     return { node: last.node, offset: last.node.nodeValue.length };
+  }
+
+  function splitBareProseContainer(container) {
+    if (!(container instanceof HTMLElement)) return;
+    if (container.dataset[CONTAINER_PROCESSED] === "true") return;
+
+    // Structured explanations already contain their own paragraphs/lists and
+    // are handled below. Only convert the old raw-text roadmap introductions.
+    if (container.children.length) {
+      container.dataset[CONTAINER_PROCESSED] = "true";
+      return;
+    }
+
+    const text = (container.textContent || "").trim();
+    if (!text) {
+      container.dataset[CONTAINER_PROCESSED] = "true";
+      return;
+    }
+
+    const ranges = text.length >= MIN_PARAGRAPH ? chunkRanges(text) : [];
+    const chunks = ranges.length > 1
+      ? ranges.map(([start, end]) => text.slice(start, end).trim()).filter(Boolean)
+      : [text];
+
+    const fragment = document.createDocumentFragment();
+    chunks.forEach((chunk) => {
+      const paragraph = document.createElement("p");
+      paragraph.classList.add("readability-split");
+      paragraph.dataset[PROCESSED] = "true";
+      paragraph.textContent = chunk;
+      fragment.appendChild(paragraph);
+    });
+
+    container.replaceChildren(fragment);
+    container.dataset[CONTAINER_PROCESSED] = "true";
   }
 
   function splitParagraph(paragraph) {
@@ -152,6 +188,9 @@
   }
 
   function process(root = document) {
+    if (root instanceof HTMLElement && root.matches(".result-purpose-body")) splitBareProseContainer(root);
+    if (root.querySelectorAll) root.querySelectorAll(".result-purpose-body").forEach(splitBareProseContainer);
+
     if (root instanceof HTMLParagraphElement) splitParagraph(root);
     if (root.querySelectorAll) root.querySelectorAll("main p").forEach(splitParagraph);
   }
