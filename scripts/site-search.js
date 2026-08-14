@@ -1,22 +1,24 @@
 (function () {
+  if (document.querySelector('script[data-roadmap-static-2026]')) return;
+  const script = document.createElement("script");
+  script.src = "/scripts/roadmap-static-2026.js?v=20260814-roadmap-95";
+  script.async = false;
+  script.dataset.roadmapStatic2026 = "true";
+  document.head.appendChild(script);
+})();
+
+(function () {
   if (typeof routes === "undefined") return;
   if (document.querySelector('script[data-roadmap-2026-corrections]')) return;
 
-  // app.js keeps its link dictionaries inside renderRouteLinks(). The roadmap
-  // correction layer needs its own small global dictionary for newly corrected
-  // action links without changing the large generated app bundle.
   window.linkLabels = window.linkLabels || { en: {}, es: {} };
   window.urls = window.urls || {};
   window.govMeta = window.govMeta || {};
 
   const originalRenderRouteLinks = typeof renderRouteLinks === "function" ? renderRouteLinks : null;
-  const script = document.createElement("script");
-  script.src = "/scripts/roadmap-2026-corrections.js?v=20260814-roadmap-fixes";
-  script.async = false;
-  script.dataset.roadmap2026Corrections = "true";
-  script.addEventListener("load", function () {
-    if (!originalRenderRouteLinks || typeof renderRouteLinks !== "function") return;
 
+  function installRouteLinkRenderer() {
+    if (!originalRenderRouteLinks || typeof renderRouteLinks !== "function") return;
     renderRouteLinks = function (linkTypes, excludedUrls) {
       const excluded = excludedUrls instanceof Set ? excludedUrls : new Set();
       const types = Array.isArray(linkTypes) ? linkTypes : [];
@@ -41,10 +43,9 @@
       }).join("");
       return originalHtml + customHtml;
     };
+  }
 
-    // The correction script may already have rendered a generated route page
-    // before this wrapper was installed. Render once more so corrected action
-    // links are visible immediately on static /guides/... URLs as well.
+  function rerenderCurrentRoute() {
     const guideId = document.documentElement.dataset.guideId;
     if (guideId) {
       const route = routes.find(function (item) { return item.id === guideId; });
@@ -55,6 +56,32 @@
     } else if (typeof result !== "undefined" && !result.hidden && typeof wizard !== "undefined" && wizard.dataset.step === "result" && typeof renderRoadmap === "function") {
       renderRoadmap();
     }
+  }
+
+  function loadCompletenessLayer(done) {
+    if (document.querySelector('script[data-roadmap-2026-completeness]')) { done(); return; }
+    const script = document.createElement("script");
+    script.src = "/scripts/roadmap-2026-completeness.js?v=20260814-roadmap-95";
+    script.async = false;
+    script.dataset.roadmap2026Completeness = "true";
+    script.addEventListener("load", done);
+    script.addEventListener("error", done);
+    document.head.appendChild(script);
+  }
+
+  const script = document.createElement("script");
+  script.src = "/scripts/roadmap-2026-corrections.js?v=20260814-roadmap-fixes";
+  script.async = false;
+  script.dataset.roadmap2026Corrections = "true";
+  script.addEventListener("load", function () {
+    loadCompletenessLayer(function () {
+      installRouteLinkRenderer();
+      rerenderCurrentRoute();
+    });
+  });
+  script.addEventListener("error", function () {
+    installRouteLinkRenderer();
+    rerenderCurrentRoute();
   });
   document.head.appendChild(script);
 })();
