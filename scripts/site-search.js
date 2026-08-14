@@ -1,4 +1,14 @@
 (function () {
+  if (typeof routes === "undefined") return;
+  if (document.querySelector('script[data-roadmap-2026-corrections]')) return;
+  const script = document.createElement("script");
+  script.src = "/scripts/roadmap-2026-corrections.js?v=20260814-roadmap-fixes";
+  script.async = false;
+  script.dataset.roadmap2026Corrections = "true";
+  document.head.appendChild(script);
+})();
+
+(function () {
   const opener = document.querySelector("[data-site-search-open], .search-nav-link");
   if (!opener) return;
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
