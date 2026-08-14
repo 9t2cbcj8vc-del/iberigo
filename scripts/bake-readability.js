@@ -68,7 +68,10 @@ for (const file of files) {
     longParagraphs += findings.length;
   }
 
-  if (!html.includes("/scripts/readability.js")) {
+  if (html.includes("/scripts/readability.js")) {
+    html = html.replace(/<script src="\/scripts\/readability\.js\?v=[^"]+" defer><\/script>/g, scriptTag);
+    fs.writeFileSync(file, html);
+  } else {
     if (html.includes("</body>")) html = html.replace("</body>", `  ${scriptTag}\n  </body>`);
     else html += `\n${scriptTag}\n`;
     fs.writeFileSync(file, html);
