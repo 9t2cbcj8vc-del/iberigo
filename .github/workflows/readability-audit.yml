@@ -1,0 +1,37 @@
+name: Readability audit
+
+on:
+  pull_request:
+    paths:
+      - "**/*.html"
+      - "scripts/**/*.js"
+      - "netlify.toml"
+      - ".github/workflows/readability-audit.yml"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build roadmap and readability layers
+        run: |
+          node scripts/bake-roadmap-static.js
+          READABILITY_REPORT=1 node scripts/bake-readability.js
+      - name: Summarize long paragraphs
+        run: |
+          node - <<'NODE'
+          const r = require('./readability-audit.json');
+          const top = [...r.pages]
+            .sort((a, b) => b.maxCharacters - a.maxCharacters)
+            .slice(0, 40)
+            .map((p) => ({ path: p.path, longParagraphs: p.longParagraphs, maxCharacters: p.maxCharacters }));
+          console.log(JSON.stringify({
+            htmlPagesScanned: r.htmlPagesScanned,
+            pagesWithLongParagraphs: r.pagesWithLongParagraphs,
+            longParagraphsFound: r.longParagraphsFound,
+            topPages: top
+          }, null, 2));
+          NODE
