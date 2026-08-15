@@ -29,14 +29,14 @@
   }
   if (!document.querySelector('script[data-iberigo-semantic-visuals]')) {
     const script = document.createElement('script');
-    script.src = '/scripts/semantic-visual-overrides.js?v=20260815-semantic-visuals-1';
+    script.src = '/scripts/semantic-visual-overrides.js?v=20260815-semantic-visuals-2';
     script.dataset.iberigoSemanticVisuals = 'true';
     script.defer = true;
     document.head.appendChild(script);
   }
   if (!document.querySelector('script[data-iberigo-section-image-fix]')) {
     const script = document.createElement('script');
-    script.src = '/scripts/section-image-semantic-fix.js?v=20260815-semantic-2';
+    script.src = '/scripts/section-image-semantic-fix.js?v=20260815-semantic-3';
     script.dataset.iberigoSectionImageFix = 'true';
     script.defer = true;
     document.head.appendChild(script);
