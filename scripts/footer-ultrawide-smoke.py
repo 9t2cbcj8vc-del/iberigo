@@ -73,15 +73,15 @@ def assert_layout(driver, width, height):
     if not metrics or metrics.get("missingSupport"):
         fail(f"Footer/support text missing at requested width {width}: {metrics}")
 
-    viewport = metrics["viewport"]
-    if metrics["footerWidth"] < viewport - 2:
-        fail(f"Footer is not full width at {width}px: {metrics}")
+    usable_width = metrics["clientWidth"]
+    if metrics["footerWidth"] < usable_width - 2:
+        fail(f"Footer is not full document width at {width}px: {metrics}")
 
-    min_support_width = 240 if viewport <= 500 else 420
+    min_support_width = 240 if usable_width <= 500 else 420
     if metrics["supportWidth"] < min_support_width:
         fail(f"Support sentence collapsed at {width}px: {metrics}")
 
-    max_support_height = 180 if viewport <= 500 else 100
+    max_support_height = 180 if usable_width <= 500 else 100
     if metrics["supportHeight"] > max_support_height:
         fail(f"Support sentence wraps excessively at {width}px: {metrics}")
 
