@@ -7,9 +7,9 @@
     work: "/assets/visual-library/work-employment.webp",
     healthcare: "/assets/visual-library/healthcare.webp",
     digital: "/assets/visual-library/digital-connectivity.webp",
-    files: "/assets/visual-library/spain-files-editorial.webp"
+    transport: "/assets/visual-library/transport-spain.webp"
   };
-  const transport = "/assets/visual-library/transport-spain.webp";
+  const transport = visuals.transport || "/assets/visual-library/transport-spain.webp";
   const livingHubPaths = new Set(["/guides/living-in-spain/", "/guides/es/living-in-spain/"]);
   const visitHubPaths = new Set(["/guides/vacation-in-spain/", "/guides/es/vacation-in-spain/"]);
   const transportGuide = /\/(driving-licence-exchange|driving-spain-visitors|vacation-ground|vacation-flights)\//.test(path);
@@ -33,10 +33,9 @@
   ];
 
   function renderLivingGroups() {
-    if (!livingHubPaths.has(path)) return false;
+    if (!livingHubPaths.has(path)) return;
     const wrapper = document.querySelector(".overhaul-directory-groups");
-    if (!wrapper) return false;
-    if (wrapper.dataset.livingRefined === "true") return true;
+    if (!wrapper || wrapper.dataset.livingRefined === "true") return;
     const heading = wrapper.querySelector(".overhaul-directory-heading")?.outerHTML || "";
     wrapper.classList.add("overhaul-directory-groups--living-refined");
     wrapper.dataset.livingRefined = "true";
@@ -48,18 +47,17 @@
         </div>
         <div class="overhaul-link-grid">${links.map(([label, href]) => `<a class="overhaul-link-card" href="${href}"><strong>${label}</strong><span aria-hidden="true">→</span></a>`).join("")}</div>
       </section>`).join("");
-    return true;
   }
 
   function polishVisitTransportGroup() {
-    if (!visitHubPaths.has(path)) return false;
+    if (!visitHubPaths.has(path)) return;
     const wanted = lang === "es" ? "llegar y moverse" : "getting there & around";
     const group = Array.from(document.querySelectorAll(".overhaul-directory-group")).find((item) => item.querySelector("h3")?.textContent?.trim().toLowerCase() === wanted);
-    if (!group) return false;
+    if (!group) return;
     group.classList.add("overhaul-directory-group--transport");
     const heading = group.querySelector(".overhaul-directory-group-heading");
     const img = heading?.querySelector("img");
-    if (!img) return false;
+    if (!img) return;
     if (img.getAttribute("src") !== transport) img.src = transport;
     img.alt = "";
     img.classList.add("overhaul-transport-image");
@@ -69,56 +67,23 @@
       img.before(frame);
       frame.appendChild(img);
     }
-    return true;
   }
 
   function polishTransportGuide() {
-    if (!transportGuide) return false;
+    if (!transportGuide) return;
     const img = document.querySelector(".overhaul-guide-image, .guide-hero-card img, .result-hero-media img");
-    if (!img) return false;
+    if (!img) return;
     if (img.getAttribute("src") !== transport) img.src = transport;
     img.alt = "";
     img.classList.add("overhaul-transport-image");
-    return true;
-  }
-
-  function polishSupport() {
-    if (path !== "/support/") return true;
-    document.body.classList.add("iberigo-support-polished");
-    const hero = document.querySelector(".support-hero");
-    if (!hero) return false;
-    if (hero.querySelector(".support-polish-visual")) return true;
-    const figure = document.createElement("figure");
-    figure.className = "support-polish-visual";
-    figure.innerHTML = `<img src="${visuals.files}" alt="" loading="eager" decoding="async" />`;
-    const copy = hero.querySelector(".support-hero-copy");
-    copy ? copy.insertAdjacentElement("afterend", figure) : hero.prepend(figure);
-    return true;
-  }
-
-  function polishSearch() {
-    if (path !== "/search/") return true;
-    document.body.classList.add("iberigo-search-polished");
-    return true;
   }
 
   function apply() {
-    return [
-      renderLivingGroups(),
-      polishVisitTransportGroup(),
-      polishTransportGuide(),
-      polishSupport(),
-      polishSearch()
-    ];
+    renderLivingGroups();
+    polishVisitTransportGroup();
+    polishTransportGuide();
   }
 
-  apply();
-  document.addEventListener("DOMContentLoaded", apply, { once: true });
-
-  let attempts = 0;
-  const timer = window.setInterval(() => {
-    attempts += 1;
-    const states = apply();
-    if (states.every((state) => state !== false) || attempts > 30) window.clearInterval(timer);
-  }, 100);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", apply, { once: true });
+  else apply();
 })();
