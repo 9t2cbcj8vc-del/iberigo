@@ -7,6 +7,7 @@ on:
       - 'scripts/final-visual-polish.js'
       - 'scripts/site-search.js'
       - 'scripts/preview-smoke-check.py'
+      - 'scripts/preview-smoke-run.py'
       - 'scripts/fix-roadmap-bundle-scope.js'
       - 'styles-overhaul.css'
       - 'styles-final-visual-polish.css'
@@ -69,4 +70,4 @@ jobs:
       - name: Run deployed preview console and function checks
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
-        run: python scripts/preview-smoke-check.py
+        run: python scripts/preview-smoke-run.py
