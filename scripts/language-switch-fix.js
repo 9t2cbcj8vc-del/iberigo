@@ -14,29 +14,23 @@
     }
   }
 
-  function bindLanguageButtons() {
-    document.querySelectorAll(".language-switcher [data-lang]").forEach((button) => {
-      if (button.dataset.iberigoLanguageSwitchBound === "1") return;
-      button.dataset.iberigoLanguageSwitchBound = "1";
+  document.addEventListener(
+    "click",
+    (event) => {
+      const button = event.target.closest?.(".language-switcher [data-lang]");
+      if (!button) return;
 
-      button.addEventListener("click", () => {
-        const nextLang = button.dataset.lang;
-        if (!supported.has(nextLang)) return;
+      const nextLang = button.dataset.lang;
+      if (!supported.has(nextLang)) return;
+      persistLanguage(nextLang);
 
-        persistLanguage(nextLang);
-
-        // The homepage is translated in place by app.js, while the visual-overhaul
-        // hero/navigation/cards are created once from the language present at boot.
-        // A normal reload rebuilds both layers from the same stored language.
-        if (isHomepage && !button.hasAttribute("data-lang-href") && nextLang !== bootLang) {
-          window.setTimeout(() => window.location.reload(), 0);
-        }
-      });
-    });
-  }
-
-  bindLanguageButtons();
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", bindLanguageButtons, { once: true });
-  }
+      // app.js translates the legacy homepage in place, but the visual-overhaul
+      // hero/navigation/cards are created once from the language present at boot.
+      // A normal automatic reload rebuilds both layers from the same stored language.
+      if (isHomepage && !button.hasAttribute("data-lang-href") && nextLang !== bootLang) {
+        window.setTimeout(() => window.location.reload(), 0);
+      }
+    },
+    true
+  );
 })();
