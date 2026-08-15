@@ -60,17 +60,6 @@ The library is intentionally reused across English and Spanish pages. Language v
 
 ## Final deployed-preview validation
 
-The Draft PR includes a Selenium/Chrome smoke test against the actual Netlify Deploy Preview. The final run passed:
+A Selenium/Chrome smoke test now runs against the actual Netlify Deploy Preview. The final run passed homepage navigation and roadmap presence, search modal/autofocus, EN↔ES switching, Living/Visit visual mappings, representative driving/public-transport guides, Search, Support, Spain Files, desktop/mobile overflow checks, and browser-console checks.
 
-- homepage navigation and roadmap presence
-- search modal open/autofocus
-- EN ↔ ES language switching
-- Living and Visit hub visual mappings in both languages
-- driving-licence, visitor-driving, ground-transport and flights hero mappings in EN/ES
-- Search results
-- Support page and donation link
-- Spain Files EN/ES
-- 1280px desktop and 390px mobile overflow checks on critical surfaces
-- browser-console checks for uncaught `ReferenceError`, `TypeError`, `SyntaxError`, and specifically `linkLabels`
-
-The earlier built-bundle `linkLabels is not defined` error was confirmed by the smoke test, fixed by initializing the roadmap extension registries before the baked roadmap bundle executes, and then re-tested successfully on the deployed preview.
+The test first confirmed the built-bundle `linkLabels is not defined` error, then verified the fix successfully on the deployed preview.
