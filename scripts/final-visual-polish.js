@@ -9,7 +9,7 @@
     digital: "/assets/visual-library/digital-connectivity.webp",
     files: "/assets/visual-library/spain-files-editorial.webp"
   };
-  const transport = "/assets/topic-scenes/vacation-ground-transport-20260606.webp";
+  const transport = "/assets/visual-library/transport-spain.webp";
   const livingHubPaths = new Set(["/guides/living-in-spain/", "/guides/es/living-in-spain/"]);
   const visitHubPaths = new Set(["/guides/vacation-in-spain/", "/guides/es/vacation-in-spain/"]);
   const transportGuide = /\/(driving-licence-exchange|driving-spain-visitors|vacation-ground|vacation-flights)\//.test(path);
