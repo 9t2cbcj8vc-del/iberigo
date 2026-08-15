@@ -7,8 +7,10 @@ on:
       - 'scripts/final-visual-polish.js'
       - 'scripts/site-search.js'
       - 'scripts/preview-smoke-check.py'
+      - 'scripts/fix-roadmap-bundle-scope.js'
       - 'styles-overhaul.css'
       - 'styles-final-visual-polish.css'
+      - 'netlify.toml'
       - '.github/workflows/overhaul-check.yml'
 
 jobs:
@@ -24,6 +26,7 @@ jobs:
           node --check scripts/visual-overhaul.js
           node --check scripts/final-visual-polish.js
           node --check scripts/site-search.js
+          node --check scripts/fix-roadmap-bundle-scope.js
       - name: Check referenced internal paths
         run: |
           node <<'NODE'
