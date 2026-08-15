@@ -2,7 +2,7 @@
   if (!document.querySelector('link[data-iberigo-overhaul]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/styles-overhaul.css?v=20260815-visual-library-1';
+    link.href = '/styles-overhaul.css?v=20260815-transport-focal-1';
     link.dataset.iberigoOverhaul = 'true';
     document.head.appendChild(link);
   }
@@ -36,7 +36,7 @@
   }
   if (!document.querySelector('script[data-iberigo-section-image-fix]')) {
     const script = document.createElement('script');
-    script.src = '/scripts/section-image-semantic-fix.js?v=20260815-semantic-3';
+    script.src = '/scripts/section-image-semantic-fix.js?v=20260815-transport-focal-1';
     script.dataset.iberigoSectionImageFix = 'true';
     script.defer = true;
     document.head.appendChild(script);

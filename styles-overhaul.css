@@ -592,6 +592,33 @@ body.iberigo-directory .guide-content > .last-reviewed {
   filter: saturate(0.88) contrast(0.98) sepia(0.05);
 }
 
+.overhaul-directory-group-visual {
+  display: block;
+  width: 112px;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--iberigo-sand);
+}
+
+.overhaul-directory-group-visual img {
+  width: 100%;
+  height: 100%;
+}
+
+.overhaul-directory-group-heading .overhaul-transport-image {
+  object-position: 88% 35%;
+  transform: scale(2.7);
+  transform-origin: 88% 35%;
+}
+
+.guide-hero-card .overhaul-transport-image,
+.result-hero-media .overhaul-transport-image {
+  object-position: 88% 34%;
+  transform: scale(2.4);
+  transform-origin: 88% 34%;
+}
+
 .overhaul-directory-group h3 {
   margin: 0;
   color: var(--iberigo-navy);
@@ -921,8 +948,26 @@ body.iberigo-overhaul .site-footer a {
     grid-template-columns: 88px minmax(0, 1fr);
   }
 
-  .overhaul-directory-group-heading img {
+  .overhaul-directory-group-heading img,
+  .overhaul-directory-group-visual {
     width: 88px;
+  }
+
+  .overhaul-directory-group-visual img {
+    width: 100%;
+  }
+
+  .overhaul-directory-group-heading .overhaul-transport-image {
+    object-position: 88% 35%;
+    transform: scale(2.5);
+    transform-origin: 88% 35%;
+  }
+
+  .guide-hero-card .overhaul-transport-image,
+  .result-hero-media .overhaul-transport-image {
+    object-position: 88% 34%;
+    transform: scale(2.1);
+    transform-origin: 88% 34%;
   }
 
   body.iberigo-section-files .overhaul-files-hero {

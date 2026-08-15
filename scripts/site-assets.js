@@ -1,5 +1,5 @@
 const STYLESHEET_VERSION = "20260722-vacation-new-guides";
-const SITE_SEARCH_VERSION = "20260815-visual-library-1";
+const SITE_SEARCH_VERSION = "20260815-transport-focal-1";
 
 const stylesheetHref = `/styles.css?v=${STYLESHEET_VERSION}`;
 const siteSearchScriptSrc = `/scripts/site-search.js?v=${SITE_SEARCH_VERSION}`;

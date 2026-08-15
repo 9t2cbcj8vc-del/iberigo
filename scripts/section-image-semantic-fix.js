@@ -14,17 +14,29 @@
 
   const transportGuide = /\/(driving-licence-exchange|driving-spain-visitors|vacation-ground|vacation-flights)\//.test(path);
 
+  function frameTransportImage(img, isDirectoryGroup = false) {
+    if (!img) return;
+    img.classList.add("overhaul-transport-image");
+    if (!isDirectoryGroup || img.parentElement?.classList.contains("overhaul-directory-group-visual")) return;
+    const frame = document.createElement("span");
+    frame.className = "overhaul-directory-group-visual";
+    img.before(frame);
+    frame.appendChild(img);
+  }
+
   function applySemanticImages() {
     document.querySelectorAll(".overhaul-directory-group").forEach((group) => {
       const heading = group.querySelector("h3")?.textContent?.trim().toLowerCase();
       const image = groupImageMap.get(heading);
       const img = group.querySelector(".overhaul-directory-group-heading img");
       if (image && img && img.getAttribute("src") !== image) img.src = image;
+      if (image === TRANSPORT) frameTransportImage(img, true);
     });
 
     if (transportGuide) {
       const img = document.querySelector(".overhaul-guide-image, .guide-hero-card img, .result-hero-media img");
       if (img && img.getAttribute("src") !== TRANSPORT) img.src = TRANSPORT;
+      frameTransportImage(img);
     }
   }
 
