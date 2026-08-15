@@ -34,6 +34,13 @@
     script.defer = true;
     document.head.appendChild(script);
   }
+  if (!document.querySelector('script[data-iberigo-section-image-fix]')) {
+    const script = document.createElement('script');
+    script.src = '/scripts/section-image-semantic-fix.js?v=20260815-semantic-2';
+    script.dataset.iberigoSectionImageFix = 'true';
+    script.defer = true;
+    document.head.appendChild(script);
+  }
 })();
 
 (function () {
