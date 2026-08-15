@@ -6,6 +6,7 @@ on:
       - 'scripts/visual-overhaul.js'
       - 'scripts/final-visual-polish.js'
       - 'scripts/site-search.js'
+      - 'scripts/preview-smoke-check.py'
       - 'styles-overhaul.css'
       - 'styles-final-visual-polish.css'
       - '.github/workflows/overhaul-check.yml'
@@ -52,3 +53,17 @@ jobs:
           }
           console.log(`Validated ${unique.length} internal references.`);
           NODE
+
+  preview-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser test dependency
+        run: python -m pip install --disable-pip-version-check selenium==4.35.0
+      - name: Run deployed preview console and function checks
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/preview-smoke-check.py
