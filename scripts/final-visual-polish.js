@@ -36,7 +36,7 @@
     const heading = wrapper.querySelector(".overhaul-directory-heading")?.outerHTML || "";
     wrapper.classList.add("overhaul-directory-groups--living-refined");
     wrapper.innerHTML = heading + livingGroups.map(([title, image, links]) => `
-      <section class="overhaul-directory-group overhaul-directory-group--refined">
+      <section class="overhaul-directory-group overhaul-directory-group--refined${image === transport ? " overhaul-directory-group--transport" : ""}">
         <div class="overhaul-directory-group-heading">
           <span class="overhaul-directory-group-visual"><img src="${image}" alt="" loading="lazy" decoding="async" /></span>
           <h3>${title}</h3>
