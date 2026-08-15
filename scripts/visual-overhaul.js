@@ -14,7 +14,10 @@
     digital: "/assets/visual-library/digital-connectivity.webp",
     family: "/assets/visual-library/family-settling.webp",
     study: "/assets/visual-library/study-spain.webp",
-    files: "/assets/visual-library/spain-files-editorial.webp"
+    files: "/assets/visual-library/spain-files-editorial.webp",
+    driving: "/assets/topic-scenes/driving-spain-visitors-20260722.webp",
+    drivingLicence: "/assets/topic-scenes/driving-licence-exchange-20260719.webp",
+    publicTransport: "/assets/topic-scenes/vacation-ground-transport-20260606.webp"
   });
   window.IberiGoVisualLibrary = VISUALS;
 
@@ -275,13 +278,13 @@
         ["Dinero y trabajo", [["Banca", "/guides/es/banking/"], ["Buscar trabajo", "/guides/es/job-search/"], ["Seguridad Social", "/guides/es/social-security/"], ["Vida laboral", "/guides/es/vida-laboral/"], ["Impuestos", "/guides/es/taxes/"]]],
         ["Sanidad", [["Sanidad pública", "/guides/es/sip-card/"], ["Seguro privado", "/guides/es/private-health/"], ["TSE / EHIC", "/guides/es/ehic-card/"]]],
         ["Digital y administración", [["Certificado digital / Cl@ve", "/guides/es/digital/"], ["NIE", "/guides/es/nie/"], ["TIE", "/guides/es/tie/"]]],
-        ["Transporte y conexión", [["Canje de permiso", "/guides/es/driving-licence-exchange/"], ["Teléfono", "/guides/es/phone/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]]
+        ["Transporte y conducción", [["Canje de permiso", "/guides/es/driving-licence-exchange/"], ["Teléfono", "/guides/es/phone/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]]
       ] : [
         ["Home", [["Renting a home", "/guides/renting-home/"], ["Padrón", "/guides/padron/"]]],
         ["Money & work", [["Banking", "/guides/banking/"], ["Job search", "/guides/job-search/"], ["Social Security", "/guides/social-security/"], ["Vida laboral", "/guides/vida-laboral/"], ["Taxes", "/guides/taxes/"]]],
         ["Healthcare", [["Public healthcare / health card", "/guides/sip-card/"], ["Private health insurance", "/guides/private-health/"], ["EHIC", "/guides/ehic-card/"]]],
         ["Digital & administration", [["Digital certificate / Cl@ve", "/guides/digital/"], ["NIE", "/guides/nie/"], ["TIE", "/guides/tie/"]]],
-        ["Transport & connection", [["Driving licence exchange", "/guides/driving-licence-exchange/"], ["Phone", "/guides/phone/"], ["SIM, eSIM & VPN", "/guides/sim-esim-vpn/"]]]
+        ["Transport & driving", [["Driving licence exchange", "/guides/driving-licence-exchange/"], ["Phone", "/guides/phone/"], ["SIM, eSIM & VPN", "/guides/sim-esim-vpn/"]]]
       ]
     },
     visit: {
@@ -331,6 +334,8 @@
 
   function visualForGroup(title, directoryKey) {
     const value = title.toLowerCase();
+    if (directoryKey === "live" && /transport|conducci|driving|conex|connection/.test(value)) return VISUALS.driving;
+    if (directoryKey === "visit" && /around|mover|transport/.test(value)) return VISUALS.publicTransport;
     if (/health|sanidad/.test(value)) return VISUALS.healthcare;
     if (/home|hogar/.test(value)) return VISUALS.housing;
     if (/money|work|dinero|trabajo/.test(value)) return VISUALS.work;
@@ -343,6 +348,9 @@
   }
 
   const guideImages = [
+    [/driving-licence-exchange/, VISUALS.drivingLicence],
+    [/driving-spain-visitors|living-in-spain\/driving/, VISUALS.driving],
+    [/vacation-ground|vacation-flights/, VISUALS.publicTransport],
     [/family|familia|eu-family/, VISUALS.family],
     [/student|study|estudi/, VISUALS.study],
     [/bank|tax/, VISUALS.banking],
@@ -350,7 +358,7 @@
     [/renting|accommodation|padron/, VISUALS.housing],
     [/job-search|work-in-spain|eu-working|self-employed|digital-nomad|vida-laboral|social-security/, VISUALS.work],
     [/digital|phone|sim-esim/, VISUALS.digital],
-    [/driving|travel-insurance|vacation|tourism|flight|hotel|booking/, VISUALS.visit],
+    [/travel-insurance|vacation|tourism|hotel|booking/, VISUALS.visit],
     [/nie|tie|registration|authorization|documents|non-lucrative/, VISUALS.documents]
   ];
 

@@ -1,5 +1,7 @@
 (function () {
-  const transportVisual = "/assets/topic-scenes/vacation-ground-transport-20260606.webp";
+  const publicTransportVisual = "/assets/topic-scenes/vacation-ground-transport-20260606.webp";
+  const drivingVisual = "/assets/topic-scenes/driving-spain-visitors-20260722.webp";
+  const drivingLicenceVisual = "/assets/topic-scenes/driving-licence-exchange-20260719.webp";
   const bankVisual = "/assets/visual-library/banking-money.webp";
   const normalise = (value) => String(value || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
@@ -16,15 +18,17 @@
       const img = group.querySelector(".overhaul-directory-group-heading img");
       const title = normalise(heading?.textContent);
       if (/money & work|dinero y trabajo/.test(title)) setImage(img, bankVisual, "money-work");
-      if (/transport & connection|transporte y conexion|getting there & around|llegar y moverse/.test(title)) setImage(img, transportVisual, "transport");
+      if (/transport & driving|transporte y conduccion|transport & connection|transporte y conexion/.test(title)) setImage(img, drivingVisual, "driving");
+      if (/getting there & around|llegar y moverse/.test(title)) setImage(img, publicTransportVisual, "public-transport");
     });
   }
 
   function applyGuideImages() {
     const path = window.location.pathname.toLowerCase();
-    if (!/(driving-licence-exchange|driving-spain-visitors|vacation-ground|vacation-flights)/.test(path)) return;
     const img = document.querySelector(".overhaul-guide-image, .guide-hero-card img, .result-hero-media img");
-    setImage(img, transportVisual, "transport-guide");
+    if (/driving-licence-exchange/.test(path)) setImage(img, drivingLicenceVisual, "driving-licence-guide");
+    else if (/driving-spain-visitors|living-in-spain\/driving/.test(path)) setImage(img, drivingVisual, "driving-guide");
+    else if (/vacation-ground|vacation-flights/.test(path)) setImage(img, publicTransportVisual, "public-transport-guide");
   }
 
   function apply() {
