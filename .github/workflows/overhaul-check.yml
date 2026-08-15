@@ -1,0 +1,73 @@
+name: Overhaul sanity check
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/visual-overhaul.js'
+      - 'scripts/final-visual-polish.js'
+      - 'scripts/site-search.js'
+      - 'scripts/preview-smoke-check.py'
+      - 'scripts/preview-smoke-run.py'
+      - 'scripts/fix-roadmap-bundle-scope.js'
+      - 'styles-overhaul.css'
+      - 'styles-final-visual-polish.css'
+      - 'netlify.toml'
+      - '.github/workflows/overhaul-check.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check scripts/visual-overhaul.js
+          node --check scripts/final-visual-polish.js
+          node --check scripts/site-search.js
+          node --check scripts/fix-roadmap-bundle-scope.js
+      - name: Check referenced internal paths
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const sources = [
+            fs.readFileSync('scripts/visual-overhaul.js', 'utf8'),
+            fs.readFileSync('scripts/final-visual-polish.js', 'utf8')
+          ].join('\n');
+          const paths = [...sources.matchAll(/["'`]\/(?:assets|guides|moving-to-spain|living-in-spain|es|start-here|the-spain-files)[^"'`?#)]*/g)]
+            .map(m => m[0].slice(1))
+            .filter(p => !p.includes('${'));
+          const unique = [...new Set(paths)];
+          const missing = [];
+          for (const webPath of unique) {
+            let p = webPath.replace(/^\//, '');
+            if (p.startsWith('assets/')) {
+              if (!fs.existsSync(p)) missing.push(webPath);
+              continue;
+            }
+            if (p.endsWith('/')) p += 'index.html';
+            if (!fs.existsSync(p)) missing.push(webPath);
+          }
+          if (missing.length) {
+            console.error('Missing internal references:');
+            missing.forEach(p => console.error(`- ${p}`));
+            process.exit(1);
+          }
+          console.log(`Validated ${unique.length} internal references.`);
+          NODE
+
+  preview-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser test dependency
+        run: python -m pip install --disable-pip-version-check selenium==4.35.0
+      - name: Run deployed preview console and function checks
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/preview-smoke-run.py

@@ -1,4 +1,38 @@
 (function () {
+  function addStyle(selector, href, datasetKey) {
+    if (document.querySelector(selector)) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    link.dataset[datasetKey] = 'true';
+    document.head.appendChild(link);
+  }
+
+  function loadScript(selector, src, datasetKey) {
+    const existing = document.querySelector(selector);
+    if (existing) return Promise.resolve();
+    return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.dataset[datasetKey] = 'true';
+      script.onload = resolve;
+      script.onerror = resolve;
+      document.head.appendChild(script);
+    });
+  }
+
+  addStyle('link[data-iberigo-overhaul]', '/styles-overhaul.css?v=20260815-transport-focal-1', 'iberigoOverhaul');
+  addStyle('link[data-iberigo-gateway-cards]', '/styles-homepage-gateway-cards.css?v=20260815-visual-library-1', 'iberigoGatewayCards');
+  addStyle('link[data-iberigo-final-polish]', '/styles-final-visual-polish.css?v=20260815-driving-semantics-2', 'iberigoFinalPolish');
+
+  (async () => {
+    await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20260815-visual-library-1', 'iberigoOverhaul');
+    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20260815-visual-library-1', 'iberigoGatewayCards');
+    await loadScript('script[data-iberigo-final-polish]', '/scripts/final-visual-polish.js?v=20260815-driving-semantics-2', 'iberigoFinalPolish');
+  })();
+})();
+
+(function () {
   const opener = document.querySelector("[data-site-search-open], .search-nav-link");
   if (!opener) return;
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
