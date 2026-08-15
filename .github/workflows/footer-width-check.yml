@@ -1,0 +1,25 @@
+name: Footer width check
+
+on:
+  pull_request:
+    paths:
+      - 'styles-final-visual-polish.css'
+      - 'scripts/site-search.js'
+      - 'scripts/site-assets.js'
+      - 'scripts/footer-ultrawide-smoke.py'
+      - '.github/workflows/footer-width-check.yml'
+
+jobs:
+  footer-width:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser test dependency
+        run: python -m pip install --disable-pip-version-check selenium==4.35.0
+      - name: Test footer at desktop, ultrawide and mobile widths
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/footer-ultrawide-smoke.py
