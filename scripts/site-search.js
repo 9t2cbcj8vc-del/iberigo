@@ -13,6 +13,13 @@
     link.dataset.iberigoGatewayCards = 'true';
     document.head.appendChild(link);
   }
+  if (!document.querySelector('link[data-iberigo-final-polish]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/styles-final-visual-polish.css?v=20260815-final-polish-1';
+    link.dataset.iberigoFinalPolish = 'true';
+    document.head.appendChild(link);
+  }
   if (!document.querySelector('script[data-iberigo-overhaul]')) {
     const script = document.createElement('script');
     script.src = '/scripts/visual-overhaul.js?v=20260815-visual-library-1';
@@ -38,6 +45,13 @@
     const script = document.createElement('script');
     script.src = '/scripts/section-image-semantic-fix.js?v=20260815-transport-focal-1';
     script.dataset.iberigoSectionImageFix = 'true';
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+  if (!document.querySelector('script[data-iberigo-final-polish]')) {
+    const script = document.createElement('script');
+    script.src = '/scripts/final-visual-polish.js?v=20260815-final-polish-1';
+    script.dataset.iberigoFinalPolish = 'true';
     script.defer = true;
     document.head.appendChild(script);
   }
