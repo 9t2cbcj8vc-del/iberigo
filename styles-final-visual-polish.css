@@ -28,7 +28,7 @@
   transform: none;
 }
 
-.overhaul-directory-groups--living-refined .overhaul-directory-group--refined:nth-of-type(7) .overhaul-directory-group-visual img {
+.overhaul-directory-groups--living-refined .overhaul-directory-group--transport .overhaul-directory-group-visual img {
   object-position: 88% 35%;
   transform: scale(2.7);
   transform-origin: 88% 35%;
@@ -210,7 +210,7 @@ body.iberigo-support-polished .support-list li {
     aspect-ratio: 4 / 3;
   }
 
-  .overhaul-directory-groups--living-refined .overhaul-directory-group--refined:nth-of-type(7) .overhaul-directory-group-visual img {
+  .overhaul-directory-groups--living-refined .overhaul-directory-group--transport .overhaul-directory-group-visual img {
     object-position: 88% 35%;
     transform: scale(2.5);
     transform-origin: 88% 35%;
