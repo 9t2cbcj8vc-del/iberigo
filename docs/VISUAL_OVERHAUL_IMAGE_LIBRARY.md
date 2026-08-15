@@ -4,7 +4,7 @@ PR #162 uses one small, reusable photography system rather than a different visu
 
 ## Direction
 
-**Real Spain, stylized consistently:** warm natural Mediterranean light, cream/ochre/terracotta/sage/deep-navy tones, soft contrast, subtle grain, practical everyday objects and authentic Spanish settings. Images avoid identity-document imitation and are composed to survive both wide hero and 4:3 card crops.
+**Real Spain, stylized consistently:** warm natural Mediterranean light, cream/ochre/terracotta/sage/deep-navy tones, soft contrast, subtle grain, practical everyday objects and authentic Spanish settings. Images contain no readable text, logos, brands, flags or identity-document imitation. Every core source is composed to survive both wide hero and 4:3 card crops.
 
 ## Categories and files
 
@@ -21,8 +21,13 @@ PR #162 uses one small, reusable photography system rather than a different visu
 | `digital` | `digital-connectivity.webp` | Digital administration, phone, SIM/eSIM and connectivity guides |
 | `family` | `family-settling.webp` | Family routes and reunification guides |
 | `study` | `study-spain.webp` | Student and study routes |
-| `transport` | `transport-spain.webp` | Transport & driving, Getting there & around, driving/ground-transport guide heroes |
+| `transport` | `transport-spain.webp` | Visit Spain public transport, ground transport and flights |
 | `files` | `spain-files-editorial.webp` | Spain Files landing hero, editorial experience block and Support visual |
+
+Driving-specific content intentionally uses the existing car/driving topic scenes rather than the public-transport image:
+
+- `driving-spain-visitors-20260722.webp` for Living **Transport & driving**, visitor driving and resident-driving content.
+- `driving-licence-exchange-20260719.webp` for driving-licence exchange guides.
 
 ## Living hub refinement
 
@@ -36,24 +41,36 @@ The Living in Spain hub is refined into single-purpose visual groups so the imag
 - Transport & driving
 - Phone & internet
 
-Each group uses the visual that communicates that subject directly. Phone & internet intentionally reuses the digital/connectivity scene.
+Each group now uses the visual that communicates that subject directly. Phone & internet intentionally reuses the digital/connectivity scene.
 
 ## Transport treatment
 
-`transport-spain.webp` is the dedicated transport visual for the new system. It replaces the earlier fallback to the legacy `vacation-ground-transport-20260606.webp` scene. The final crop uses the source composition directly rather than the earlier extreme focal zoom.
+Public-transport and driving imagery are deliberately separated:
 
-## Search and Support
+- **Living / driving-specific content** uses car, road or driving-licence imagery.
+- **Visit / getting-around content** uses `transport-spain.webp`, with the train/public-transport scene.
 
-Search and Support load the final visual-polish stylesheet directly from their HTML. Support includes its editorial image directly in the page markup. Neither page needs a post-load visual mutation.
+This avoids using a train image for a section whose primary action is exchanging or using a driving licence.
 
-## Social sharing
+## Production notes
 
-`assets/og-image.jpg` is the final 1200×630 IberiGo social-sharing image. Existing Open Graph metadata keeps the same stable URL while using the new navy/orange/cream identity.
-
-## Runtime consolidation
-
-The two earlier semantic override scripts and their MutationObservers have been removed. The remaining `final-visual-polish.js` is limited to the Living hub category refinement and transport mapping, runs once after the main visual-overhaul script, and contains no polling loop or MutationObserver. `site-search.js` loads the visual scripts sequentially so this order is deterministic.
+The visual library was created specifically for IberiGo with OpenAI image generation in new-image mode and converted to web-friendly assets. The core prompts share the same visual-direction paragraph and differ only in subject/category. The runtime category mapping lives in `scripts/visual-overhaul.js`, with the refined Living/transport pass in `scripts/final-visual-polish.js`.
 
 The library is intentionally reused across English and Spanish pages. Language variants do not have separate artwork, which keeps subject, crop and visual hierarchy in sync.
 
-Before merge, repeat the final EN/ES desktop/mobile/function regression pass on the latest Netlify preview.
+## Final deployed-preview validation
+
+The Draft PR includes a Selenium/Chrome smoke test against the actual Netlify Deploy Preview. The final run passed:
+
+- homepage navigation and roadmap presence
+- search modal open/autofocus
+- EN ↔ ES language switching
+- Living and Visit hub visual mappings in both languages
+- driving-licence, visitor-driving, ground-transport and flights hero mappings in EN/ES
+- Search results
+- Support page and donation link
+- Spain Files EN/ES
+- 1280px desktop and 390px mobile overflow checks on critical surfaces
+- browser-console checks for uncaught `ReferenceError`, `TypeError`, `SyntaxError`, and specifically `linkLabels`
+
+The earlier built-bundle `linkLabels is not defined` error was confirmed by the smoke test, fixed by initializing the roadmap extension registries before the baked roadmap bundle executes, and then re-tested successfully on the deployed preview.
