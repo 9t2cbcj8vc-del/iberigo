@@ -1,0 +1,21 @@
+name: Production Spanish smoke check
+
+on:
+  push:
+    branches:
+      - hotfix/spanish-production
+
+jobs:
+  production-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser test dependency
+        run: python -m pip install --disable-pip-version-check selenium==4.35.0
+      - name: Test live IberiGo production EN/ES
+        env:
+          PREVIEW_BASE: https://iberigo.eu
+        run: python scripts/preview-smoke-run.py
