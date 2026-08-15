@@ -23,7 +23,7 @@
 
   addStyle('link[data-iberigo-overhaul]', '/styles-overhaul.css?v=20260815-transport-focal-1', 'iberigoOverhaul');
   addStyle('link[data-iberigo-gateway-cards]', '/styles-homepage-gateway-cards.css?v=20260815-visual-library-1', 'iberigoGatewayCards');
-  addStyle('link[data-iberigo-final-polish]', '/styles-final-visual-polish.css?v=20260815-driving-semantics-2', 'iberigoFinalPolish');
+  addStyle('link[data-iberigo-final-polish]', '/styles-final-visual-polish.css?v=20260815-ultrawide-footer-1', 'iberigoFinalPolish');
 
   (async () => {
     await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20260815-visual-library-1', 'iberigoOverhaul');

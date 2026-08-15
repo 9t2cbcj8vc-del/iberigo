@@ -213,6 +213,17 @@
   background: #fff;
 }
 
+/* The base footer is capped at the old 1180px page width. The overhaul adds
+   viewport-derived side padding, which can consume that entire fixed-width
+   box on wide/ultrawide monitors. Make the redesigned footer genuinely
+   full-width so the padding defines a centered 1180px content measure. */
+body.iberigo-overhaul .site-footer {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 @media (max-width: 760px) {
   .overhaul-directory-group--transport .overhaul-directory-group-visual,
   .overhaul-directory-group--driving .overhaul-directory-group-visual,
