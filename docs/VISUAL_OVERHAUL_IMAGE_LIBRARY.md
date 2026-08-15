@@ -60,6 +60,6 @@ The library is intentionally reused across English and Spanish pages. Language v
 
 ## Final deployed-preview validation
 
-A Selenium/Chrome smoke test now runs against the actual Netlify Deploy Preview. The final run passed homepage navigation and roadmap presence, search modal/autofocus, EN↔ES switching, Living/Visit visual mappings, representative driving/public-transport guides, Search, Support, Spain Files, desktop/mobile overflow checks, and browser-console checks.
+A Selenium/Chrome smoke test runs against the actual Netlify Deploy Preview. The final run passed homepage navigation and roadmap presence, search modal/autofocus, EN↔ES switching, Living/Visit visual mappings, representative driving/public-transport guides, Search, Support, Spain Files, desktop/mobile overflow checks, and browser-console checks.
 
-The test first confirmed the built-bundle `linkLabels is not defined` error, then verified the fix successfully on the deployed preview.
+The test first confirmed the built-bundle `linkLabels is not defined` error, then verified the build-scope fix successfully on the deployed preview.
