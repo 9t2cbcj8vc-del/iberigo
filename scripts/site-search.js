@@ -1,46 +1,35 @@
 (function () {
-  if (!document.querySelector('link[data-iberigo-overhaul]')) {
+  function addStyle(selector, href, datasetKey) {
+    if (document.querySelector(selector)) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/styles-overhaul.css?v=20260815-driving-semantics-1';
-    link.dataset.iberigoOverhaul = 'true';
+    link.href = href;
+    link.dataset[datasetKey] = 'true';
     document.head.appendChild(link);
   }
-  if (!document.querySelector('link[data-iberigo-gateway-cards]')) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/styles-homepage-gateway-cards.css?v=20260815-visual-library-1';
-    link.dataset.iberigoGatewayCards = 'true';
-    document.head.appendChild(link);
+
+  function loadScript(selector, src, datasetKey) {
+    const existing = document.querySelector(selector);
+    if (existing) return Promise.resolve();
+    return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.dataset[datasetKey] = 'true';
+      script.onload = resolve;
+      script.onerror = resolve;
+      document.head.appendChild(script);
+    });
   }
-  if (!document.querySelector('script[data-iberigo-overhaul]')) {
-    const script = document.createElement('script');
-    script.src = '/scripts/visual-overhaul.js?v=20260815-visual-library-1';
-    script.dataset.iberigoOverhaul = 'true';
-    script.defer = true;
-    document.head.appendChild(script);
-  }
-  if (!document.querySelector('script[data-iberigo-gateway-cards]')) {
-    const script = document.createElement('script');
-    script.src = '/scripts/homepage-gateway-cards.js?v=20260815-visual-library-1';
-    script.dataset.iberigoGatewayCards = 'true';
-    script.defer = true;
-    document.head.appendChild(script);
-  }
-  if (!document.querySelector('script[data-iberigo-semantic-visuals]')) {
-    const script = document.createElement('script');
-    script.src = '/scripts/semantic-visual-overrides.js?v=20260815-driving-semantics-1';
-    script.dataset.iberigoSemanticVisuals = 'true';
-    script.defer = true;
-    document.head.appendChild(script);
-  }
-  if (!document.querySelector('script[data-iberigo-section-image-fix]')) {
-    const script = document.createElement('script');
-    script.src = '/scripts/section-image-semantic-fix.js?v=20260815-driving-semantics-1';
-    script.dataset.iberigoSectionImageFix = 'true';
-    script.defer = true;
-    document.head.appendChild(script);
-  }
+
+  addStyle('link[data-iberigo-overhaul]', '/styles-overhaul.css?v=20260815-transport-focal-1', 'iberigoOverhaul');
+  addStyle('link[data-iberigo-gateway-cards]', '/styles-homepage-gateway-cards.css?v=20260815-visual-library-1', 'iberigoGatewayCards');
+  addStyle('link[data-iberigo-final-polish]', '/styles-final-visual-polish.css?v=20260815-driving-semantics-2', 'iberigoFinalPolish');
+
+  (async () => {
+    await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20260815-visual-library-1', 'iberigoOverhaul');
+    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20260815-visual-library-1', 'iberigoGatewayCards');
+    await loadScript('script[data-iberigo-final-polish]', '/scripts/final-visual-polish.js?v=20260815-driving-semantics-2', 'iberigoFinalPolish');
+  })();
 })();
 
 (function () {

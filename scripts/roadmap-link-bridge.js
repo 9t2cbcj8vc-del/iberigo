@@ -1,8 +1,8 @@
-(() => {
-  window.linkLabels = window.linkLabels || { en: {}, es: {} };
-  window.urls = window.urls || {};
-  window.govMeta = window.govMeta || {};
+var linkLabels = window.linkLabels || (window.linkLabels = { en: {}, es: {} });
+var urls = window.urls || (window.urls = {});
+var govMeta = window.govMeta || (window.govMeta = {});
 
+(() => {
   if (typeof renderRouteLinks !== "function" || renderRouteLinks.__iberigoRoadmapBridge) return;
 
   const baseRenderRouteLinks = renderRouteLinks;
@@ -28,12 +28,12 @@
   };
 
   const renderExtensionLink = (type, excludedUrls) => {
-    const url = window.urls[type];
+    const url = urls[type];
     if (!url || excludedUrls.has(url)) return "";
 
     const lang = typeof currentLang === "string" && currentLang === "es" ? "es" : "en";
-    const label = window.linkLabels[lang]?.[type] || window.linkLabels.en?.[type] || type;
-    const meta = window.govMeta[type] || {};
+    const label = linkLabels[lang]?.[type] || linkLabels.en?.[type] || type;
+    const meta = govMeta[type] || {};
     const category = categoryFor(type, meta);
     const source = sourceMeta[category];
     const subtitle = meta.subtitle || (lang === "es" ? "Fuente oficial" : "Official source");
@@ -52,8 +52,8 @@
 
   renderRouteLinks = function bridgedRenderRouteLinks(linkTypes, excludedUrls = new Set()) {
     const types = Array.from(linkTypes || []);
-    const extensionTypes = types.filter((type) => Boolean(window.urls[type]));
-    const baseTypes = types.filter((type) => !window.urls[type]);
+    const extensionTypes = types.filter((type) => Boolean(urls[type]));
+    const baseTypes = types.filter((type) => !urls[type]);
     const baseMarkup = baseRenderRouteLinks(baseTypes, excludedUrls) || "";
     const extensionMarkup = extensionTypes
       .map((type) => renderExtensionLink(type, excludedUrls))

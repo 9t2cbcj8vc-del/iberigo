@@ -17,7 +17,7 @@
     files: "/assets/visual-library/spain-files-editorial.webp",
     driving: "/assets/topic-scenes/driving-spain-visitors-20260722.webp",
     drivingLicence: "/assets/topic-scenes/driving-licence-exchange-20260719.webp",
-    publicTransport: "/assets/topic-scenes/vacation-ground-transport-20260606.webp"
+    publicTransport: "/assets/visual-library/transport-spain.webp"
   });
   window.IberiGoVisualLibrary = VISUALS;
 
