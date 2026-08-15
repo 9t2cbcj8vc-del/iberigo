@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'scripts/visual-overhaul.js'
+      - 'scripts/semantic-visual-overrides.js'
       - 'scripts/site-search.js'
       - 'styles-overhaul.css'
       - '.github/workflows/overhaul-check.yml'
@@ -19,13 +20,17 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check scripts/visual-overhaul.js
+          node --check scripts/semantic-visual-overrides.js
           node --check scripts/site-search.js
       - name: Check referenced internal paths
         run: |
           node <<'NODE'
           const fs = require('fs');
-          const source = fs.readFileSync('scripts/visual-overhaul.js', 'utf8');
-          const paths = [...source.matchAll(/["'`]\/(?:assets|guides|moving-to-spain|living-in-spain|es|start-here|the-spain-files)[^"'`?#)]*/g)]
+          const sources = [
+            fs.readFileSync('scripts/visual-overhaul.js', 'utf8'),
+            fs.readFileSync('scripts/semantic-visual-overrides.js', 'utf8')
+          ].join('\n');
+          const paths = [...sources.matchAll(/["'`]\/(?:assets|guides|moving-to-spain|living-in-spain|es|start-here|the-spain-files)[^"'`?#)]*/g)]
             .map(m => m[0].slice(1))
             .filter(p => !p.includes('${'));
           const unique = [...new Set(paths)];
