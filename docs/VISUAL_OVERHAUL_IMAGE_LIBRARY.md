@@ -4,7 +4,7 @@ PR #162 uses one small, reusable photography system rather than a different visu
 
 ## Direction
 
-**Real Spain, stylized consistently:** warm natural Mediterranean light, cream/ochre/terracotta/sage/deep-navy tones, soft contrast, subtle grain, practical everyday objects and authentic Spanish settings. Images contain no readable text, logos, brands, flags or identity-document imitation. Every core source is composed to survive both wide hero and 4:3 card crops.
+**Real Spain, stylized consistently:** warm natural Mediterranean light, cream/ochre/terracotta/sage/deep-navy tones, soft contrast, subtle grain, practical everyday objects and authentic Spanish settings. Images avoid identity-document imitation and are composed to survive both wide hero and 4:3 card crops.
 
 ## Categories and files
 
@@ -36,16 +36,20 @@ The Living in Spain hub is refined into single-purpose visual groups so the imag
 - Transport & driving
 - Phone & internet
 
-Each group now uses the visual that communicates that subject directly. Phone & internet intentionally reuses the digital/connectivity scene.
+Each group uses the visual that communicates that subject directly. Phone & internet intentionally reuses the digital/connectivity scene.
 
 ## Transport treatment
 
-`transport-spain.webp` is the dedicated transport visual for the new system. The focal treatment keeps the train/station dominant in both section thumbnails and guide heroes. It replaces the earlier fallback to the legacy `vacation-ground-transport-20260606.webp` scene.
+`transport-spain.webp` is the dedicated transport visual for the new system. It replaces the earlier fallback to the legacy `vacation-ground-transport-20260606.webp` scene. The final crop uses the source composition directly rather than the earlier extreme focal zoom.
 
-## Production notes
+## Search and Support
 
-The visual library was created specifically for IberiGo with OpenAI image generation in new-image mode and converted to web-friendly assets. The core prompts share the same visual-direction paragraph and differ only in subject/category. The runtime category mapping lives in `scripts/visual-overhaul.js`, with the refined Living/transport/search/support pass in `scripts/final-visual-polish.js` while the redesign remains in Draft review.
+Search and Support now load the final visual-polish stylesheet directly from their HTML. Support includes its editorial image directly in the page markup. Neither page needs a post-load visual mutation.
+
+## Runtime consolidation
+
+The two earlier semantic override scripts and their MutationObservers have been removed. The remaining `final-visual-polish.js` is limited to the Living hub category refinement and transport mapping, runs once after the main visual-overhaul script, and contains no polling loop or MutationObserver. `site-search.js` now loads the visual scripts sequentially so this order is deterministic.
 
 The library is intentionally reused across English and Spanish pages. Language variants do not have separate artwork, which keeps subject, crop and visual hierarchy in sync.
 
-Before production merge, the remaining review-layer transformations should be folded into the stable site/generator sources where practical, then the final EN/ES desktop/mobile/function regression pass should be repeated.
+Before merge, repeat the final EN/ES desktop/mobile/function regression pass on the latest Netlify preview.
