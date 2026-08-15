@@ -27,6 +27,13 @@
     script.defer = true;
     document.head.appendChild(script);
   }
+  if (!document.querySelector('script[data-iberigo-semantic-visuals]')) {
+    const script = document.createElement('script');
+    script.src = '/scripts/semantic-visual-overrides.js?v=20260815-semantic-visuals-1';
+    script.dataset.iberigoSemanticVisuals = 'true';
+    script.defer = true;
+    document.head.appendChild(script);
+  }
 })();
 
 (function () {
