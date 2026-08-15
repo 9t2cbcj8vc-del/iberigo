@@ -44,15 +44,15 @@ Each group uses the visual that communicates that subject directly. Phone & inte
 
 ## Search and Support
 
-Search and Support now load the final visual-polish stylesheet directly from their HTML. Support includes its editorial image directly in the page markup. Neither page needs a post-load visual mutation.
+Search and Support load the final visual-polish stylesheet directly from their HTML. Support includes its editorial image directly in the page markup. Neither page needs a post-load visual mutation.
 
 ## Social sharing
 
-`assets/og-image.jpg` is the new 1200×630 IberiGo social-sharing image. Existing Open Graph metadata can keep the same stable URL while showing the new navy/orange/cream brand treatment.
+`assets/og-image.jpg` is the final 1200×630 IberiGo social-sharing image. Existing Open Graph metadata keeps the same stable URL while using the new navy/orange/cream identity.
 
 ## Runtime consolidation
 
-The two earlier semantic override scripts and their MutationObservers have been removed. The remaining `final-visual-polish.js` is limited to the Living hub category refinement and transport mapping, runs once after the main visual-overhaul script, and contains no polling loop or MutationObserver. `site-search.js` now loads the visual scripts sequentially so this order is deterministic.
+The two earlier semantic override scripts and their MutationObservers have been removed. The remaining `final-visual-polish.js` is limited to the Living hub category refinement and transport mapping, runs once after the main visual-overhaul script, and contains no polling loop or MutationObserver. `site-search.js` loads the visual scripts sequentially so this order is deterministic.
 
 The library is intentionally reused across English and Spanish pages. Language variants do not have separate artwork, which keeps subject, crop and visual hierarchy in sync.
 
