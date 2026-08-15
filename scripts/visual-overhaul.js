@@ -2,6 +2,22 @@
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
   const path = window.location.pathname.replace(/\/index\.html$/, "/");
 
+  const VISUALS = Object.freeze({
+    arrival: "/assets/visual-library/arrival-relocation.webp",
+    everyday: "/assets/visual-library/everyday-life.webp",
+    visit: "/assets/visual-library/visit-travel.webp",
+    documents: "/assets/visual-library/documents-admin.webp",
+    banking: "/assets/visual-library/banking-money.webp",
+    healthcare: "/assets/visual-library/healthcare.webp",
+    housing: "/assets/visual-library/housing-home.webp",
+    work: "/assets/visual-library/work-employment.webp",
+    digital: "/assets/visual-library/digital-connectivity.webp",
+    family: "/assets/visual-library/family-settling.webp",
+    study: "/assets/visual-library/study-spain.webp",
+    files: "/assets/visual-library/spain-files-editorial.webp"
+  });
+  window.IberiGoVisualLibrary = VISUALS;
+
   const COPY = {
     en: {
       move: "Move to Spain",
@@ -150,9 +166,8 @@
           </div>
           <small>${COPY.heroTrust}</small>
         </div>
-        <div class="overhaul-hero-visual" aria-label="Spain planning illustration">
-          <img src="/assets/home-cards/move-to-spain-matched-20260606.webp" alt="Spanish Mediterranean street and relocation planning" />
-          <div class="overhaul-passport" aria-hidden="true"><span>UNIÓN EUROPEA</span><strong>ESPAÑA</strong><small>PASAPORTE</small></div>
+        <div class="overhaul-hero-visual">
+          <img src="${VISUALS.arrival}" alt="${lang === "es" ? "Llegada a un nuevo hogar en una calle mediterránea española" : "Arriving at a new home on a Spanish Mediterranean street"}" fetchpriority="high" />
           <div class="overhaul-plan-card"><strong>${COPY.planTitle}</strong>${COPY.planItems.map((item) => `<span>✓ ${item}</span>`).join("")}</div>
         </div>`;
       main.insertBefore(hero, guide);
@@ -207,7 +222,7 @@
     if (docs && !document.querySelector(".overhaul-experience")) {
       const block = document.createElement("section");
       block.className = "overhaul-experience";
-      block.innerHTML = `<div><span class="overhaul-kicker">Why IberiGo</span><h2>${COPY.experienceTitle}</h2><p>${COPY.experienceText}</p></div><img src="/assets/topic-scenes/live-padron-20260606.webp" alt="Spanish local administration and everyday life" />`;
+      block.innerHTML = `<div><span class="overhaul-kicker">Why IberiGo</span><h2>${COPY.experienceTitle}</h2><p>${COPY.experienceText}</p></div><img src="${VISUALS.files}" alt="${lang === "es" ? "Mesa editorial con documentos y notas sobre España" : "Editorial desk with documents and notes about Spain"}" loading="lazy" decoding="async" />`;
       docs.insertAdjacentElement("beforebegin", block);
     }
   }
@@ -238,7 +253,7 @@
     move: {
       title: COPY.moveHubTitle,
       text: COPY.moveHubText,
-      image: "/assets/home-cards/move-to-spain-matched-20260606.webp",
+      image: VISUALS.arrival,
       groups: lang === "es" ? [
         ["Encuentra tu ruta", [
           ["Ciudadanos UE/EEE/Suiza", "/es/moving-to-spain/eu-citizens/"], ["Ciudadanos no UE", "/es/moving-to-spain/non-eu-citizens/"], ["Trabajar en España", "/es/moving-to-spain/work-in-spain/"], ["Autónomo", "/es/moving-to-spain/self-employed-spain/"], ["Nómada digital", "/es/moving-to-spain/digital-nomad-spain/"], ["Estudiar", "/es/moving-to-spain/students/"], ["Jubilarse / vivir sin trabajar", "/es/moving-to-spain/retire-in-spain/"], ["Familia de ciudadano UE", "/es/moving-to-spain/family-member-eu-citizen/"], ["Reagrupación familiar", "/es/moving-to-spain/family-reunification/"]
@@ -254,7 +269,7 @@
     live: {
       title: COPY.liveHubTitle,
       text: COPY.liveHubText,
-      image: "/assets/home-cards/live-in-spain-matched-20260606.webp",
+      image: VISUALS.everyday,
       groups: lang === "es" ? [
         ["Hogar", [["Alquilar vivienda", "/guides/es/renting-home/"], ["Padrón", "/guides/es/padron/"]]],
         ["Dinero y trabajo", [["Banca", "/guides/es/banking/"], ["Buscar trabajo", "/guides/es/job-search/"], ["Seguridad Social", "/guides/es/social-security/"], ["Vida laboral", "/guides/es/vida-laboral/"], ["Impuestos", "/guides/es/taxes/"]]],
@@ -272,7 +287,7 @@
     visit: {
       title: COPY.visitHubTitle,
       text: COPY.visitHubText,
-      image: "/assets/home-cards/vacation-in-spain-coast-20260606.webp",
+      image: VISUALS.visit,
       groups: lang === "es" ? [
         ["Antes de viajar", [["Entrada y estancias cortas", "/guides/es/vacation-entry/"], ["Ciudadanía y reglas de entrada", "/guides/es/vacation-citizenship/"], ["Seguro de viaje", "/guides/es/travel-insurance/"]]],
         ["Llegar y moverse", [["Vuelos y aeropuertos", "/guides/es/vacation-flights/"], ["Transporte terrestre", "/guides/es/vacation-ground/"], ["Conducir como visitante", "/guides/es/driving-spain-visitors/"]]],
@@ -309,64 +324,86 @@
     if (!document.querySelector(".overhaul-directory-groups")) {
       const wrapper = document.createElement("section");
       wrapper.className = "overhaul-directory-groups";
-      wrapper.innerHTML = `<div class="overhaul-directory-heading"><span class="overhaul-kicker">${COPY.browseTitle}</span><h2>${data.title}</h2></div>${data.groups.map(([title, links]) => `<section class="overhaul-directory-group"><h3>${title}</h3><div class="overhaul-link-grid">${links.map(([label, href]) => `<a class="overhaul-link-card" href="${href}"><strong>${label}</strong><span aria-hidden="true">→</span></a>`).join("")}</div></section>`).join("")}`;
+      wrapper.innerHTML = `<div class="overhaul-directory-heading"><span class="overhaul-kicker">${COPY.browseTitle}</span><h2>${data.title}</h2></div>${data.groups.map(([title, links]) => `<section class="overhaul-directory-group"><div class="overhaul-directory-group-heading"><img src="${visualForGroup(title, key)}" alt="" loading="lazy" decoding="async" /><h3>${title}</h3></div><div class="overhaul-link-grid">${links.map(([label, href]) => `<a class="overhaul-link-card" href="${href}"><strong>${label}</strong><span aria-hidden="true">→</span></a>`).join("")}</div></section>`).join("")}`;
       hero ? hero.insertAdjacentElement("afterend", wrapper) : content.prepend(wrapper);
     }
   }
 
+  function visualForGroup(title, directoryKey) {
+    const value = title.toLowerCase();
+    if (/health|sanidad/.test(value)) return VISUALS.healthcare;
+    if (/home|hogar/.test(value)) return VISUALS.housing;
+    if (/money|work|dinero|trabajo/.test(value)) return VISUALS.work;
+    if (/digital|administr/.test(value)) return VISUALS.digital;
+    if (/document|cita|appointment/.test(value)) return VISUALS.documents;
+    if (/week|semana/.test(value)) return VISUALS.everyday;
+    if (/stay|aloj|hotel/.test(value)) return VISUALS.housing;
+    if (/plan|viaj|travel|around|mover|transport|conex|connection/.test(value)) return VISUALS.visit;
+    return directoryKey === "move" ? VISUALS.arrival : directoryKey === "live" ? VISUALS.everyday : VISUALS.visit;
+  }
+
   const guideImages = [
-    [/bank/, "/assets/topic-scenes/live-banking-20260606.webp"],
-    [/tax/, "/assets/topic-scenes/live-taxes-20260606.webp"],
-    [/job-search|work-in-spain|vida-laboral/, "/assets/topic-scenes/live-job-search-20260606.webp"],
-    [/driving-licence|\/driving\//, "/assets/topic-scenes/live-driving-licence-20260625.webp"],
-    [/driving-spain-visitors/, "/assets/topic-scenes/driving-spain-visitors-20260722.webp"],
-    [/private-health/, "/assets/topic-scenes/live-private-health-20260606.webp"],
-    [/healthcare|sip-card/, "/assets/topic-scenes/live-public-health-20260606.webp"],
-    [/ehic/, "/assets/topic-scenes/live-ehic-20260606.webp"],
-    [/padron/, "/assets/topic-scenes/live-padron-20260606.webp"],
-    [/nie/, "/assets/topic-scenes/live-nie-20260606.webp"],
-    [/tie/, "/assets/topic-scenes/live-tie-20260606.webp"],
-    [/digital/, "/assets/topic-scenes/live-digital-access-20260606.webp"],
-    [/renting|accommodation/, "/assets/topic-scenes/live-renting-home-20260625.webp"],
-    [/phone/, "/assets/topic-scenes/phone-direct-20260606.webp"],
-    [/sim-esim/, "/assets/topic-scenes/sim-esim-vpn-20260722.webp"],
-    [/travel-insurance/, "/assets/topic-scenes/travel-insurance-20260722.webp"],
-    [/vacation-entry|eu-vacation|non-eu-vacation/, "/assets/topic-scenes/vacation-entry.webp"],
-    [/vacation-flights/, "/assets/topic-scenes/vacation-flights-airports-20260606.webp"],
-    [/vacation-ground/, "/assets/topic-scenes/vacation-ground-transport-20260606.webp"],
-    [/vacation-hotels/, "/assets/topic-scenes/vacation-hotel-chains-20260606.webp"],
-    [/vacation-booking/, "/assets/topic-scenes/vacation-booking-platforms-20260606.webp"],
-    [/vacation-tourism/, "/assets/topic-scenes/vacation-planning.webp"],
-    [/vacation-reviews/, "/assets/topic-scenes/vacation-reviews-comparison-20260606.webp"]
+    [/family|familia|eu-family/, VISUALS.family],
+    [/student|study|estudi/, VISUALS.study],
+    [/bank|tax/, VISUALS.banking],
+    [/private-health|healthcare|sip-card|ehic/, VISUALS.healthcare],
+    [/renting|accommodation|padron/, VISUALS.housing],
+    [/job-search|work-in-spain|eu-working|self-employed|digital-nomad|vida-laboral|social-security/, VISUALS.work],
+    [/digital|phone|sim-esim/, VISUALS.digital],
+    [/driving|travel-insurance|vacation|tourism|flight|hotel|booking/, VISUALS.visit],
+    [/nie|tie|registration|authorization|documents|non-lucrative/, VISUALS.documents]
   ];
 
   function enrichGuideHero() {
     if (document.body.classList.contains("iberigo-directory")) return;
-    const hero = document.querySelector(".guide-hero");
-    const aside = hero?.querySelector(".guide-hero-card");
-    if (!hero || !aside || aside.querySelector(".overhaul-guide-image")) return;
-    const image = guideImages.find(([pattern]) => pattern.test(path))?.[1] || (sectionForPath() === "visit" ? "/assets/home-cards/vacation-in-spain-coast-20260606.webp" : sectionForPath() === "live" ? "/assets/home-cards/live-in-spain-matched-20260606.webp" : "/assets/home-cards/move-to-spain-matched-20260606.webp");
-    const img = document.createElement("img");
+    const hero = document.querySelector(".guide-hero") || document.querySelector(".result-hero");
+    const aside = hero?.querySelector(".guide-hero-card, .result-hero-media");
+    if (!hero || !aside) return;
+    const image = guideImages.find(([pattern]) => pattern.test(path))?.[1] || (sectionForPath() === "visit" ? VISUALS.visit : sectionForPath() === "live" ? VISUALS.everyday : VISUALS.arrival);
+    const img = aside.querySelector("img") || document.createElement("img");
+    if (img.classList.contains("overhaul-guide-image") && img.src.endsWith(image)) return;
     img.className = "overhaul-guide-image";
     img.src = image;
     img.alt = "";
-    aside.prepend(img);
+    img.loading = "lazy";
+    img.decoding = "async";
+    if (!img.parentElement) aside.prepend(img);
   }
 
   function enrichSpainFiles() {
     if (!path.includes("the-spain-files")) return;
     const mapping = [
-      ["padron", "/assets/topic-scenes/live-padron-20260606.webp"],
-      ["non-lucrative", "/assets/home-cards/move-to-spain-matched-20260606.webp"],
-      ["nie", "/assets/topic-scenes/live-nie-20260606.webp"],
-      ["bank", "/assets/topic-scenes/live-banking-20260606.webp"]
+      [/padron/, VISUALS.housing],
+      [/non-lucrative|visado-no-lucrativo/, VISUALS.documents],
+      [/nie/, VISUALS.documents],
+      [/bank|cuenta-bancaria/, VISUALS.banking]
     ];
+
+    const isLanding = ["/the-spain-files/", "/the-spain-files/es/"].includes(path);
+    if (isLanding) {
+      const heading = document.querySelector(".guide-card-panel > .section-heading");
+      if (heading && !heading.querySelector(".overhaul-files-hero-image")) {
+        heading.classList.add("overhaul-files-hero");
+        heading.insertAdjacentHTML("beforeend", `<img class="overhaul-files-hero-image" src="${VISUALS.files}" alt="${lang === "es" ? "Mesa editorial con documentos, notas y una fotografía de una calle española" : "Editorial desk with documents, notes and a photograph of a Spanish street"}" fetchpriority="high" />`);
+      }
+    }
+
     document.querySelectorAll(".sf-featured").forEach((article) => {
       const href = article.querySelector("a[href]")?.getAttribute("href") || "";
-      const image = mapping.find(([key]) => href.includes(key))?.[1];
+      const image = mapping.find(([pattern]) => pattern.test(href))?.[1];
       const visual = article.querySelector(".sf-featured-visual");
-      if (image && visual) visual.innerHTML = `<img src="${image}" alt="" />`;
+      if (image && visual) visual.innerHTML = `<img src="${image}" alt="" loading="lazy" decoding="async" />`;
     });
+
+    const article = document.querySelector(".article-wrap");
+    if (article && !article.querySelector(".overhaul-article-hero")) {
+      const image = mapping.find(([pattern]) => pattern.test(path))?.[1] || VISUALS.files;
+      const meta = article.querySelector(".article-meta");
+      const figure = document.createElement("figure");
+      figure.className = "overhaul-article-hero";
+      figure.innerHTML = `<img src="${image}" alt="" fetchpriority="high" />`;
+      meta?.insertAdjacentElement("afterend", figure);
+    }
   }
 
   function boot() {

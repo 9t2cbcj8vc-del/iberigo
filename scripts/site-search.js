@@ -2,27 +2,27 @@
   if (!document.querySelector('link[data-iberigo-overhaul]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/styles-overhaul.css?v=20260814-overhaul-1';
+    link.href = '/styles-overhaul.css?v=20260815-visual-library-1';
     link.dataset.iberigoOverhaul = 'true';
     document.head.appendChild(link);
   }
   if (!document.querySelector('link[data-iberigo-gateway-cards]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/styles-homepage-gateway-cards.css?v=20260814-gateway-1';
+    link.href = '/styles-homepage-gateway-cards.css?v=20260815-visual-library-1';
     link.dataset.iberigoGatewayCards = 'true';
     document.head.appendChild(link);
   }
   if (!document.querySelector('script[data-iberigo-overhaul]')) {
     const script = document.createElement('script');
-    script.src = '/scripts/visual-overhaul.js?v=20260814-overhaul-1';
+    script.src = '/scripts/visual-overhaul.js?v=20260815-visual-library-1';
     script.dataset.iberigoOverhaul = 'true';
     script.defer = true;
     document.head.appendChild(script);
   }
   if (!document.querySelector('script[data-iberigo-gateway-cards]')) {
     const script = document.createElement('script');
-    script.src = '/scripts/homepage-gateway-cards.js?v=20260814-gateway-1';
+    script.src = '/scripts/homepage-gateway-cards.js?v=20260815-visual-library-1';
     script.dataset.iberigoGatewayCards = 'true';
     script.defer = true;
     document.head.appendChild(script);

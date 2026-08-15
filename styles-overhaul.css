@@ -228,7 +228,9 @@ body.iberigo-overhaul main {
   height: 100%;
   min-height: 510px;
   object-fit: cover;
+  object-position: center;
   display: block;
+  filter: saturate(0.9) contrast(0.98) sepia(0.04);
 }
 
 .overhaul-hero-visual::after {
@@ -500,6 +502,7 @@ body.iberigo-overhaul .guide-hero-card > p {
   width: 100%;
   height: 230px;
   object-fit: cover;
+  filter: saturate(0.9) contrast(0.98) sepia(0.04);
 }
 
 body.iberigo-overhaul .guide-section {
@@ -572,8 +575,25 @@ body.iberigo-directory .guide-content > .last-reviewed {
   background: rgba(255,255,255,0.72);
 }
 
+.overhaul-directory-group-heading {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.overhaul-directory-group-heading img {
+  display: block;
+  width: 112px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: saturate(0.88) contrast(0.98) sepia(0.05);
+}
+
 .overhaul-directory-group h3 {
-  margin: 0 0 1rem;
+  margin: 0;
   color: var(--iberigo-navy);
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.55rem;
@@ -621,6 +641,48 @@ body.iberigo-section-files main > .panel {
   box-shadow: none;
 }
 
+body.iberigo-section-files .overhaul-files-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1.2fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  max-width: none;
+  margin: 0 0 clamp(2.4rem, 5vw, 4rem);
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--iberigo-border);
+  border-radius: 28px;
+  background: rgba(255,255,255,0.64);
+  text-align: left;
+}
+
+body.iberigo-section-files .overhaul-files-hero h2 {
+  grid-column: 1;
+  align-self: end;
+  margin: 0;
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
+  line-height: 1;
+}
+
+body.iberigo-section-files .overhaul-files-hero p {
+  grid-column: 1;
+  align-self: start;
+  margin: 0.85rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+body.iberigo-section-files .overhaul-files-hero-image {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: block;
+  width: 100%;
+  min-height: 330px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: saturate(0.9) contrast(0.98) sepia(0.04);
+}
+
 body.iberigo-section-files .sf-featured {
   grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
   gap: clamp(1.5rem, 4vw, 3rem);
@@ -642,6 +704,38 @@ body.iberigo-section-files .sf-featured-visual img {
   height: 100%;
   min-height: 250px;
   object-fit: cover;
+  filter: saturate(0.9) contrast(0.98) sepia(0.04);
+}
+
+body.iberigo-section-files .article-wrap {
+  width: min(680px, calc(100% - 40px));
+}
+
+body.iberigo-section-files .article-body {
+  min-width: 0;
+}
+
+body.iberigo-section-files .article-body table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.overhaul-article-hero {
+  overflow: hidden;
+  margin: 1.8rem 0 2.2rem;
+  border-radius: 20px;
+  background: var(--iberigo-sand);
+}
+
+.overhaul-article-hero img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  filter: saturate(0.9) contrast(0.98) sepia(0.04);
 }
 
 body.iberigo-section-files .sf-featured h3 {
@@ -702,6 +796,21 @@ body.iberigo-overhaul .site-footer a {
 
   body.iberigo-overhaul .guide-hero {
     grid-template-columns: 1fr;
+  }
+
+  body.iberigo-section-files .overhaul-files-hero {
+    grid-template-columns: 1fr;
+  }
+
+  body.iberigo-section-files .overhaul-files-hero h2,
+  body.iberigo-section-files .overhaul-files-hero p,
+  body.iberigo-section-files .overhaul-files-hero-image {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  body.iberigo-section-files .overhaul-files-hero-image {
+    min-height: 0;
   }
 }
 
@@ -806,5 +915,27 @@ body.iberigo-overhaul .site-footer a {
   .overhaul-guide-image,
   .overhaul-hub-image {
     height: 200px;
+  }
+
+  .overhaul-directory-group-heading {
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+
+  .overhaul-directory-group-heading img {
+    width: 88px;
+  }
+
+  body.iberigo-section-files .overhaul-files-hero {
+    padding: 1rem;
+    border-radius: 22px;
+  }
+
+  body.iberigo-section-files .overhaul-files-hero h2 {
+    font-size: clamp(2.35rem, 12vw, 3.3rem);
+  }
+
+  .overhaul-article-hero {
+    margin: 1.4rem 0 1.8rem;
+    border-radius: 16px;
   }
 }

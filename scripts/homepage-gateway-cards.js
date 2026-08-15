@@ -3,6 +3,11 @@
   if (!isHome) return;
 
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
+  const visuals = window.IberiGoVisualLibrary || {
+    arrival: "/assets/visual-library/arrival-relocation.webp",
+    visit: "/assets/visual-library/visit-travel.webp",
+    everyday: "/assets/visual-library/everyday-life.webp"
+  };
   const cards = lang === "es" ? {
     move: {
       eyebrow: "Mudanza",
@@ -10,7 +15,7 @@
       description: "Residencia, NIE, TIE, padrón, registro UE y los pasos clave para empezar tu nueva vida en España.",
       cta: "Empieza aquí",
       href: "/es/start-here/",
-      image: "/assets/home-cards/move-to-spain-matched-20260606.webp",
+      image: visuals.arrival,
       alt: "Llegada y mudanza a una calle mediterránea española"
     },
     vacation: {
@@ -19,7 +24,7 @@
       description: "Entrada, estancias cortas, transporte, alojamiento y ayuda práctica para planificar tu viaje.",
       cta: "Explorar",
       href: "/guides/es/vacation-in-spain/",
-      image: "/assets/home-cards/vacation-in-spain-coast-20260606.webp",
+      image: visuals.visit,
       alt: "Costa española y ambiente de viaje mediterráneo"
     },
     living: {
@@ -28,7 +33,7 @@
       description: "Sanidad, banca, impuestos, acceso digital y los trámites que forman parte de la vida diaria en España.",
       cta: "Explorar",
       href: "/guides/es/living-in-spain/",
-      image: "/assets/home-cards/live-in-spain-matched-20260606.webp",
+      image: visuals.everyday,
       alt: "Vida cotidiana en un barrio residencial español"
     }
   } : {
@@ -38,7 +43,7 @@
       description: "Residency, NIE, TIE, padrón, EU registration and the key steps to start your new life in Spain.",
       cta: "Start here",
       href: "/start-here/",
-      image: "/assets/home-cards/move-to-spain-matched-20260606.webp",
+      image: visuals.arrival,
       alt: "Arrival and relocation in a Spanish Mediterranean street"
     },
     vacation: {
@@ -47,7 +52,7 @@
       description: "Entry rules, short stays, transport, places to stay and practical travel help for your trip.",
       cta: "Explore",
       href: "/guides/vacation-in-spain/",
-      image: "/assets/home-cards/vacation-in-spain-coast-20260606.webp",
+      image: visuals.visit,
       alt: "Spanish coast and Mediterranean travel scene"
     },
     living: {
@@ -56,7 +61,7 @@
       description: "Healthcare, banking, taxes, digital access and the admin steps that shape daily life in Spain.",
       cta: "Explore",
       href: "/guides/living-in-spain/",
-      image: "/assets/home-cards/live-in-spain-matched-20260606.webp",
+      image: visuals.everyday,
       alt: "Everyday life in a Spanish residential neighbourhood"
     }
   };
