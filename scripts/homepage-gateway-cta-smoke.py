@@ -62,10 +62,11 @@ def rendered_ctas(driver):
     return driver.execute_script(
         """
         return Object.fromEntries(
-          [...document.querySelectorAll('[data-home-card]')].map(card => [
-            card.dataset.homeCard,
-            card.querySelector('.gateway-card-action')?.textContent.trim() || ''
-          ])
+          [...document.querySelectorAll('[data-home-card]')].map(card => {
+            const action = card.querySelector('.gateway-card-action');
+            const label = action?.childNodes?.[0]?.textContent?.trim() || '';
+            return [card.dataset.homeCard, label];
+          })
         );
         """
     )
