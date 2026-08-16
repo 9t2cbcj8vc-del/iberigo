@@ -161,20 +161,25 @@ def run_direct_case(driver, lang, preset, direct_route):
     driver.get(BASE + "/")
     wait_loaded(driver)
     driver.execute_script("setWizardFromPreset(arguments[0]);", preset)
-    selector = f'[data-direct-route="{direct_route}"]'
+    selector = f'[data-topic="{direct_route}"] a'
     WebDriverWait(driver, 10).until(
         lambda d: d.execute_script("return !!document.querySelector(arguments[0]);", selector)
     )
-    clicked = driver.execute_script(
-        "const b=document.querySelector(arguments[0]); if(!b) return false; b.click(); return true;",
+    href = driver.execute_script(
+        "const a=document.querySelector(arguments[0]); return a ? a.href : '';",
         selector,
     )
-    if not clicked:
-        fail(f"Could not open direct route {preset}/{direct_route}")
-    WebDriverWait(driver, 10).until(
+    if not href:
+        fail(f"Could not resolve guide link {preset}/{direct_route}")
+
+    driver.get(href)
+    wait_loaded(driver)
+    WebDriverWait(driver, 15).until(
         lambda d: d.execute_script(
-            "return !!document.querySelector('#wizardResult .roadmap-list--full') && "
-            "!!document.querySelector('#wizardResult .roadmap-now')"
+            "return document.documentElement.dataset.guideId === arguments[0] && "
+            "!!document.querySelector('#wizardResult .roadmap-list--full') && "
+            "!!document.querySelector('#wizardResult .roadmap-now')",
+            direct_route,
         )
     )
     assert_roadmap_dom(
@@ -218,14 +223,14 @@ def run_language(driver, lang):
         run_move_case(driver, lang, person, goal, expected, duration, sponsor)
 
     living_routes = [
-        "padron", "digital", "nie", "tie", "social-security", "sip-card",
-        "private-health", "ehic-card", "banking", "renting-home", "job-search",
-        "taxes", "phone", "vida-laboral", "driving-licence-exchange"
+        "padron", "nie", "tie", "social-security", "digital", "driving-licence-exchange",
+        "sip-card", "private-health", "ehic-card", "banking", "renting-home",
+        "job-search", "taxes", "vida-laboral", "phone"
     ]
     vacation_routes = [
-        "vacation-entry", "vacation-citizenship", "vacation-flights", "vacation-ground",
+        "vacation-entry", "vacation-flights", "vacation-ground", "driving-spain-visitors",
         "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
-        "travel-insurance", "driving-spain-visitors", "sim-esim-vpn"
+        "travel-insurance", "sim-esim-vpn"
     ]
     for route in living_routes:
         run_direct_case(driver, lang, "living", route)
