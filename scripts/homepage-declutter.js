@@ -4,6 +4,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const indexPath = path.join(ROOT, 'index.html');
 const appPath = path.join(ROOT, 'app.js');
+const siteSearchVersion = '20260816-homepage-cta-runtime-1';
 
 function replaceActionLabel(html, key, label) {
   const pattern = new RegExp(`(<(?:a|button)\\b[^>]*data-i18n="${key}"[^>]*>)[\\s\\S]*?(<\\/(?:a|button)>)`, 'g');
@@ -18,11 +19,20 @@ html = html.replace(
 html = replaceActionLabel(html, 'movingButton', 'Plan your move');
 html = replaceActionLabel(html, 'vacationButton', 'Plan your visit');
 html = replaceActionLabel(html, 'livingButton', 'Browse living guides');
+html = html.replace(
+  /(src=["']\/scripts\/site-search\.js\?v=)[^"']+/g,
+  `$1${siteSearchVersion}`
+);
 fs.writeFileSync(indexPath, html, 'utf8');
 
 let app = fs.readFileSync(appPath, 'utf8');
 const actionLabels = {
-  movingButton: { Explore: 'Plan your move', Explorar: 'Planifica tu mudanza' },
+  movingButton: {
+    Explore: 'Plan your move',
+    'Start here': 'Plan your move',
+    Explorar: 'Planifica tu mudanza',
+    'Empieza aquí': 'Planifica tu mudanza'
+  },
   vacationButton: { Explore: 'Plan your visit', Explorar: 'Planifica tu visita' },
   livingButton: { Explore: 'Browse living guides', Explorar: 'Guías para vivir' }
 };
@@ -36,4 +46,4 @@ for (const [key, labels] of Object.entries(actionLabels)) {
 }
 
 fs.writeFileSync(appPath, app, 'utf8');
-console.log('homepage-declutter: removed duplicate legal note and clarified gateway actions');
+console.log(`homepage-declutter: clarified gateway actions and set site-search cache key ${siteSearchVersion}`);
