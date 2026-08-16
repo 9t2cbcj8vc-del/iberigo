@@ -5,13 +5,14 @@ const root = path.resolve(__dirname, "..");
 const appPath = path.join(root, "app.js");
 const sourcePath = path.join(root, "scripts", "roadmap-next-actions.js");
 const legalCurrentPath = path.join(root, "scripts", "roadmap-legal-current.js");
+const whereToApplyPath = path.join(root, "scripts", "roadmap-where-to-apply.js");
 const marker = "/* IberiGo roadmap full next-actions upgrade · August 2026 */";
-const assetVersion = "20260816-roadmap-next-actions-3";
+const assetVersion = "20260816-roadmap-next-actions-4";
 const ignoredDirs = new Set([".git", "node_modules"]);
 
 let app = fs.readFileSync(appPath, "utf8");
 if (!app.includes(marker)) {
-  app += `\n\n${marker}\n${fs.readFileSync(sourcePath, "utf8")}\n\n${fs.readFileSync(legalCurrentPath, "utf8")}\n`;
+  app += `\n\n${marker}\n${fs.readFileSync(sourcePath, "utf8")}\n\n${fs.readFileSync(legalCurrentPath, "utf8")}\n\n${fs.readFileSync(whereToApplyPath, "utf8")}\n`;
   fs.writeFileSync(appPath, app);
 }
 
@@ -70,4 +71,4 @@ function updateHtml(file) {
 }
 
 walk(root);
-console.log(`[roadmap-next-actions] bundled upgrade + current legal route corrections and set app.js cache key ${assetVersion}.`);
+console.log(`[roadmap-next-actions] bundled upgrade + current legal route corrections + filing locations and set app.js cache key ${assetVersion}.`);

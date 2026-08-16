@@ -8,11 +8,13 @@ on:
       - 'scripts/roadmap-specialist.js'
       - 'scripts/roadmap-next-actions.js'
       - 'scripts/roadmap-legal-current.js'
+      - 'scripts/roadmap-where-to-apply.js'
       - 'scripts/bake-roadmap-static.js'
       - 'scripts/bake-roadmap-next-actions.js'
       - 'scripts/roadmap-path-smoke.py'
       - 'scripts/roadmap-deep-audit.py'
       - 'scripts/roadmap-current-rules-audit.py'
+      - 'scripts/roadmap-where-to-apply-audit.py'
       - 'guides/**/index.html'
       - 'netlify.toml'
       - '.github/workflows/roadmap-path-check.yml'
@@ -39,3 +41,7 @@ jobs:
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
         run: python scripts/roadmap-current-rules-audit.py
+      - name: Verify where-to-apply guidance and Police fee wording
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/roadmap-where-to-apply-audit.py
