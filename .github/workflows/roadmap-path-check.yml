@@ -1,0 +1,41 @@
+name: Roadmap path check
+
+on:
+  pull_request:
+    paths:
+      - 'app.js'
+      - 'scripts/roadmap-core.js'
+      - 'scripts/roadmap-specialist.js'
+      - 'scripts/roadmap-next-actions.js'
+      - 'scripts/roadmap-legal-current.js'
+      - 'scripts/bake-roadmap-static.js'
+      - 'scripts/bake-roadmap-next-actions.js'
+      - 'scripts/roadmap-path-smoke.py'
+      - 'scripts/roadmap-deep-audit.py'
+      - 'scripts/roadmap-current-rules-audit.py'
+      - 'guides/**/index.html'
+      - 'netlify.toml'
+      - '.github/workflows/roadmap-path-check.yml'
+
+jobs:
+  roadmap-paths:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser test dependency
+        run: python -m pip install --disable-pip-version-check selenium==4.35.0
+      - name: Test all roadmap decision paths in English and Spanish
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/roadmap-path-smoke.py
+      - name: Run extensive route integrity audit
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/roadmap-deep-audit.py
+      - name: Verify current legally sensitive route rules
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/roadmap-current-rules-audit.py
