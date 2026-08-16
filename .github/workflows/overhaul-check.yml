@@ -9,6 +9,8 @@ on:
       - 'scripts/site-search.js'
       - 'scripts/homepage-declutter.js'
       - 'scripts/homepage-gateway-cta-smoke.py'
+      - 'scripts/remove-page-tocs.js'
+      - 'scripts/page-toc-smoke.py'
       - 'scripts/preview-smoke-check.py'
       - 'scripts/preview-smoke-run.py'
       - 'scripts/fix-roadmap-bundle-scope.js'
@@ -32,6 +34,7 @@ jobs:
           node --check scripts/final-visual-polish.js
           node --check scripts/site-search.js
           node --check scripts/homepage-declutter.js
+          node --check scripts/remove-page-tocs.js
           node --check scripts/fix-roadmap-bundle-scope.js
       - name: Check referenced internal paths
         run: |
@@ -80,3 +83,7 @@ jobs:
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
         run: python scripts/homepage-gateway-cta-smoke.py
+      - name: Verify page table of contents removed
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/page-toc-smoke.py
