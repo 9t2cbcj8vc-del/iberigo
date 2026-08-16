@@ -170,7 +170,7 @@ def assert_menu_paths(driver, lang, preset, routes):
             """
             const id = arguments[0];
             const card = document.querySelector(`[data-topic="${id}"]`);
-            const link = card?.querySelector('a');
+            const link = card?.querySelector(':scope > a');
             const roadmap = typeof directRoadmapFor === 'function' ? directRoadmapFor(id) : null;
             return {
               card: !!card,
