@@ -4,14 +4,13 @@ const path = require("path");
 const root = path.resolve(__dirname, "..");
 const appPath = path.join(root, "app.js");
 const sourcePath = path.join(root, "scripts", "roadmap-next-actions.js");
-const sourceCompletionPath = path.join(root, "scripts", "roadmap-source-completion.js");
 const marker = "/* IberiGo roadmap full next-actions upgrade · August 2026 */";
 const assetVersion = "20260816-roadmap-next-actions-2";
 const ignoredDirs = new Set([".git", "node_modules"]);
 
 let app = fs.readFileSync(appPath, "utf8");
 if (!app.includes(marker)) {
-  app += `\n\n${marker}\n${fs.readFileSync(sourcePath, "utf8")}\n${fs.readFileSync(sourceCompletionPath, "utf8")}\n`;
+  app += `\n\n${marker}\n${fs.readFileSync(sourcePath, "utf8")}\n`;
   fs.writeFileSync(appPath, app);
 }
 
@@ -33,4 +32,4 @@ function updateHtml(file) {
 }
 
 walk(root);
-console.log(`[roadmap-next-actions] bundled upgrade + source completion and set app.js cache key ${assetVersion}.`);
+console.log(`[roadmap-next-actions] bundled upgrade and set app.js cache key ${assetVersion}.`);
