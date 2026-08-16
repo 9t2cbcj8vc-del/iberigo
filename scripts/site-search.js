@@ -27,7 +27,7 @@
 
   (async () => {
     await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20260815-visual-library-1', 'iberigoOverhaul');
-    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20260815-visual-library-1', 'iberigoGatewayCards');
+    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20260816-homepage-cta-runtime-1', 'iberigoGatewayCards');
     await loadScript('script[data-iberigo-final-polish]', '/scripts/final-visual-polish.js?v=20260815-driving-semantics-2', 'iberigoFinalPolish');
   })();
 })();
