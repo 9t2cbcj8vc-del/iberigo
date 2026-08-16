@@ -45,7 +45,7 @@ CHECKS = {
         "spanish-family": ["EX-24", "gratuito", "un mes"],
         "work-employed": ["empleador", "EX-03", "Seguridad Social"],
         "work-self-employed": ["consulado", "EX-07", "Seguridad Social"],
-        "digital-nomad": ["20%", "fuera de España", "UGE"],
+        "digital-nomad": ["20 %", "fuera de España", "UGE"],
     },
 }
 
