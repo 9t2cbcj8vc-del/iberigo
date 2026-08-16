@@ -42,12 +42,12 @@ MOVE_CASES = [
 LIVING_ROUTES = [
     "padron", "nie", "tie", "social-security", "digital", "driving-licence-exchange",
     "sip-card", "private-health", "ehic-card", "banking", "renting-home",
-    "job-search", "taxes", "vida-laboral", "phone"
+    "job-search", "taxes", "vida-laboral", "phone",
 ]
 VACATION_ROUTES = [
     "vacation-entry", "vacation-flights", "vacation-ground", "driving-spain-visitors",
     "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
-    "travel-insurance", "sim-esim-vpn"
+    "travel-insurance", "sim-esim-vpn",
 ]
 BAD_TOKENS = ("undefined", "[object object]", "nan", "todo", "tbd")
 
@@ -88,7 +88,7 @@ def discover_static_guides():
         match = html_re.search(text)
         if not match:
             continue
-        attrs = dict((k.lower(), v) for k, v in attr_re.findall(match.group(1)))
+        attrs = {key.lower(): value for key, value in attr_re.findall(match.group(1))}
         guide_id = attrs.get("data-guide-id")
         lang = attrs.get("data-guide-lang")
         if guide_id and lang in {"en", "es"}:
@@ -103,40 +103,45 @@ def static_repository_audit():
 
     ids = sorted({guide_id for _, guide_id in guides})
     missing_pairs = [
-        guide_id for guide_id in ids
+        guide_id
+        for guide_id in ids
         if ("en", guide_id) not in guides or ("es", guide_id) not in guides
     ]
     if missing_pairs:
         fail(f"EN/ES static guide pairs missing: {missing_pairs}")
 
     internal_targets = set()
-    broken_internal = []
     for (lang, guide_id), path in guides.items():
         text = path.read_text(encoding="utf-8")
-        expected_self = f"/guides/es/{guide_id}/" if lang == "es" else f"/guides/{guide_id}/"
         expected_en = f"https://iberigo.eu/guides/{guide_id}/"
         expected_es = f"https://iberigo.eu/guides/es/{guide_id}/"
+        expected_canonical = expected_es if lang == "es" else expected_en
+
         if expected_en not in text or expected_es not in text:
             fail(f"{path}: missing EN/ES hreflang pair for {guide_id}")
-        canonical = re.search(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)', text, re.I)
-        if canonical:
-            expected = expected_es if lang == "es" else expected_en
-            if canonical.group(1) != expected:
-                fail(f"{path}: canonical mismatch {canonical.group(1)!r} != {expected!r}")
+        canonical = re.search(
+            r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)', text, re.I
+        )
+        if not canonical or canonical.group(1) != expected_canonical:
+            fail(f"{path}: canonical missing or incorrect")
         if f'data-guide-id="{guide_id}"' not in text or f'data-guide-lang="{lang}"' not in text:
             fail(f"{path}: guide metadata mismatch")
+
         for href in re.findall(r'href=["\'](/guides/(?:es/)?[^"\'#?]+/)["\']', text, re.I):
             internal_targets.add(href)
 
+    broken = []
     for href in sorted(internal_targets):
-        relative = href.strip("/") + "/index.html"
-        if not (ROOT / relative).exists():
-            broken_internal.append(href)
-    if broken_internal:
-        fail(f"Broken internal guide links in static pages: {broken_internal}")
+        target = ROOT / (href.strip("/") + "/index.html")
+        if not target.exists():
+            broken.append(href)
+    if broken:
+        fail(f"Broken internal guide links in static pages: {broken}")
 
-    print(f"PASS static repository · {len(ids)} EN/ES guide pairs · {len(internal_targets)} internal guide targets")
-    return guides
+    print(
+        f"PASS static repository · {len(ids)} EN/ES guide pairs · "
+        f"{len(internal_targets)} internal guide targets"
+    )
 
 
 def make_driver(width, height):
@@ -174,7 +179,7 @@ def set_language(driver, lang):
 
 
 def select_value(driver, name, value):
-    result = driver.execute_script(
+    state = driver.execute_script(
         """
         const input = document.querySelector(`input[name="${arguments[0]}"][value="${arguments[1]}"]`);
         if (!input) return {ok:false, reason:'missing'};
@@ -186,8 +191,8 @@ def select_value(driver, name, value):
         name,
         value,
     )
-    if not result.get("ok"):
-        fail(f"Could not select {name}={value}: {result}")
+    if not state.get("ok"):
+        fail(f"Could not select {name}={value}: {state}")
 
 
 def submit(driver):
@@ -196,68 +201,81 @@ def submit(driver):
 
 
 def model_snapshot(driver, expression):
-    return driver.execute_script(
+    data = driver.execute_script(
         f"""
         const roadmap = {expression};
         const result = document.querySelector('#wizardResult');
         const toText = (raw) => {{
           const box = document.createElement('div');
           box.innerHTML = raw || '';
-          return box.textContent.trim().replace(/\s+/g, ' ');
+          return box.textContent || '';
         }};
         const steps = Array.isArray(roadmap?.steps) ? roadmap.steps.map(toText) : [];
-        const sourceLinks = [...result.querySelectorAll('a.gov-link, a.guide-source-card')];
+        const sourceLinks = [...result.querySelectorAll('.route-links-note a[href]')];
         const route = typeof pickRoute === 'function' ? pickRoute() : null;
-        const linkIds = Array.isArray(roadmap?.links) ? roadmap.links : [];
         return {{
           routeId: route?.id || null,
           process: toText(roadmap?.process || ''),
           explanation: toText(roadmap?.explanation || ''),
           steps,
-          linkIds,
-          unresolvedLinkIds: linkIds.filter((id) => typeof urls !== 'object' || !urls[id]),
+          documents: Array.isArray(roadmap?.documents) ? roadmap.documents.map(toText) : [],
+          linkIds: Array.isArray(roadmap?.links) ? roadmap.links : [],
           visibleSteps: result.querySelectorAll('.roadmap-list--full > li').length,
           nowCount: result.querySelectorAll('.roadmap-now').length,
-          nowText: result.querySelector('.roadmap-now')?.textContent.trim().replace(/\s+/g, ' ') || '',
-          resultText: result.textContent.trim().replace(/\s+/g, ' '),
-          sourceCount: sourceLinks.length,
-          sourceBadHref: sourceLinks.filter((a) => !/^https:\/\//.test(a.href)).map((a) => a.href),
-          duplicateSourceHrefs: sourceLinks.map((a) => a.href).filter((href, i, all) => all.indexOf(href) !== i),
+          nowText: result.querySelector('.roadmap-now')?.textContent || '',
+          resultText: result.textContent || '',
+          sourceHrefs: sourceLinks.map((a) => a.href),
           overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
         }};
         """
     )
+    for key in ("process", "explanation", "nowText", "resultText"):
+        data[key] = clean_text(data[key])
+    data["steps"] = [clean_text(step) for step in data["steps"]]
+    data["documents"] = [clean_text(item) for item in data["documents"]]
+    return data
 
 
-def assert_quality(data, lang, label, expected_route=None):
+def assert_quality(data, lang, label, expected_route=None, require_documents=False):
     if expected_route and data["routeId"] != expected_route:
         fail(f"{label}: expected route {expected_route}, got {data['routeId']}")
     if not data["process"] or not data["explanation"]:
-        fail(f"{label}: missing process/explanation: {data}")
+        fail(f"{label}: missing process or explanation")
     if not data["steps"]:
         fail(f"{label}: no roadmap steps")
+    if require_documents and not data["documents"]:
+        fail(f"{label}: no document guidance")
+
     normalized = [" ".join(step.lower().split()) for step in data["steps"]]
     if any(not step for step in normalized):
-        fail(f"{label}: empty roadmap step: {data['steps']}")
+        fail(f"{label}: empty roadmap step")
     if len(normalized) != len(set(normalized)):
         fail(f"{label}: duplicate roadmap steps: {data['steps']}")
+
     joined = " ".join([data["process"], data["explanation"], *data["steps"]]).lower()
     bad = [token for token in BAD_TOKENS if token in joined]
     if bad:
         fail(f"{label}: placeholder/runtime tokens found: {bad}")
+
     if data["visibleSteps"] != len(data["steps"]):
         fail(f"{label}: rendered {data['visibleSteps']} of {len(data['steps'])} stored steps")
     if data["nowCount"] != 1 or data["steps"][0] not in data["nowText"]:
-        fail(f"{label}: Do-this-now mismatch: {data['nowText']!r}")
+        fail(f"{label}: Do-this-now does not match first action")
+
     legacy = "Próximos 3 pasos" if lang == "es" else "Next 3 steps"
     if legacy in data["resultText"]:
         fail(f"{label}: legacy '{legacy}' still visible")
-    if data["unresolvedLinkIds"]:
-        fail(f"{label}: unresolved source IDs {data['unresolvedLinkIds']}")
-    if data["linkIds"] and data["sourceCount"] < 1:
-        fail(f"{label}: source IDs exist but no source cards rendered")
-    if data["sourceBadHref"]:
-        fail(f"{label}: non-HTTPS source links {data['sourceBadHref']}")
+
+    if data["linkIds"]:
+        if len(data["sourceHrefs"]) != len(data["linkIds"]):
+            fail(
+                f"{label}: {len(data['linkIds'])} source IDs but "
+                f"{len(data['sourceHrefs'])} rendered source links"
+            )
+        bad_hrefs = [href for href in data["sourceHrefs"] if not href.startswith("https://")]
+        if bad_hrefs:
+            fail(f"{label}: non-HTTPS source links {bad_hrefs}")
+
     if data["overflow"]:
         fail(f"{label}: horizontal overflow")
 
@@ -268,24 +286,30 @@ def run_move_case(driver, lang, person, goal, expected_route, duration=None, spo
     driver.execute_script("setWizardFromPreset('moving');")
     sequence = [driver.execute_script("return document.querySelector('#routeWizard').dataset.step")]
     if sequence != ["person"]:
-        fail(f"{lang} {person}/{goal}: unexpected initial sequence {sequence}")
+        fail(f"{lang} {person}/{goal}: unexpected initial wizard state {sequence}")
 
     select_value(driver, "personType", person)
     submit(driver)
-    WebDriverWait(driver, 10).until(lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "goal")
+    WebDriverWait(driver, 10).until(
+        lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "goal"
+    )
     sequence.append("goal")
     select_value(driver, "goal", goal)
     submit(driver)
 
     if goal in ("studyAbroad", "studySpain"):
-        WebDriverWait(driver, 10).until(lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "duration")
+        WebDriverWait(driver, 10).until(
+            lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "duration"
+        )
         sequence.append("duration")
         if duration is None:
             fail(f"Study case missing duration: {person}/{goal}")
         select_value(driver, "duration", duration)
         submit(driver)
     elif person == "nonEu" and goal == "family":
-        WebDriverWait(driver, 10).until(lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "family")
+        WebDriverWait(driver, 10).until(
+            lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "family"
+        )
         sequence.append("family")
         if sponsor is None:
             fail("Non-EU family case missing sponsor")
@@ -296,6 +320,7 @@ def run_move_case(driver, lang, person, goal, expected_route, duration=None, spo
         lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "result"
     )
     sequence.append("result")
+
     expected_sequence = ["person", "goal"]
     if goal in ("studyAbroad", "studySpain"):
         expected_sequence.append("duration")
@@ -305,11 +330,14 @@ def run_move_case(driver, lang, person, goal, expected_route, duration=None, spo
     if sequence != expected_sequence:
         fail(f"{lang} {person}/{goal}: question sequence {sequence} != {expected_sequence}")
 
-    data = model_snapshot(driver, "roadmapFor(pickRoute())")
     suffix = f"/{duration}" if duration else f"/{sponsor}" if sponsor else ""
     label = f"{lang} move/{person}/{goal}{suffix}"
-    assert_quality(data, lang, label, expected_route)
-    print(f"PASS {label} -> {expected_route} · {len(data['steps'])} steps · {len(data['linkIds'])} source ids")
+    data = model_snapshot(driver, "roadmapFor(pickRoute())")
+    assert_quality(data, lang, label, expected_route, require_documents=True)
+    print(
+        f"PASS {label} -> {expected_route} · {len(data['steps'])} steps · "
+        f"{len(data['sourceHrefs'])} rendered sources"
+    )
     return len(data["steps"])
 
 
@@ -318,6 +346,7 @@ def assert_menu_and_direct_models(driver, lang, preset, routes):
     wait_loaded(driver)
     driver.execute_script("setWizardFromPreset(arguments[0]);", preset)
     prefix = "/guides/es/" if lang == "es" else "/guides/"
+
     for route in routes:
         data = driver.execute_script(
             """
@@ -325,17 +354,18 @@ def assert_menu_and_direct_models(driver, lang, preset, routes):
             const card = document.querySelector(`[data-topic="${id}"]`);
             const link = card?.querySelector(':scope > a');
             const roadmap = directRoadmapFor(id);
-            const toText = (raw) => { const b=document.createElement('div'); b.innerHTML=raw||''; return b.textContent.trim().replace(/\s+/g,' '); };
-            const steps = Array.isArray(roadmap?.steps) ? roadmap.steps.map(toText) : [];
+            const text = (raw) => {
+              const box = document.createElement('div');
+              box.innerHTML = raw || '';
+              return box.textContent || '';
+            };
             return {
               card: !!card,
               href: link?.getAttribute('href') || '',
-              process: toText(roadmap?.process || ''),
-              explanation: toText(roadmap?.explanation || ''),
-              steps,
-              linkIds: Array.isArray(roadmap?.links) ? roadmap.links : [],
-              unresolvedLinkIds: Array.isArray(roadmap?.links) ? roadmap.links.filter((id) => typeof urls !== 'object' || !urls[id]) : [],
-              preview: card?.querySelector('small')?.textContent.trim().replace(/\s+/g,' ') || ''
+              process: text(roadmap?.process || ''),
+              explanation: text(roadmap?.explanation || ''),
+              steps: Array.isArray(roadmap?.steps) ? roadmap.steps.map(text) : [],
+              preview: card?.querySelector('small')?.textContent || ''
             };
             """,
             route,
@@ -343,12 +373,11 @@ def assert_menu_and_direct_models(driver, lang, preset, routes):
         expected_href = f"{prefix}{route}/"
         if not data["card"] or data["href"] != expected_href:
             fail(f"{lang} {preset}/{route}: bad menu link {data}")
-        if not data["process"] or not data["explanation"] or not data["steps"]:
-            fail(f"{lang} {preset}/{route}: incomplete direct roadmap {data}")
-        if data["unresolvedLinkIds"]:
-            fail(f"{lang} {preset}/{route}: unresolved source IDs {data['unresolvedLinkIds']}")
-        if clean_text(data["steps"][0]) not in clean_text(data["preview"]):
-            fail(f"{lang} {preset}/{route}: preview is not first action: {data}")
+        if not clean_text(data["process"]) or not clean_text(data["explanation"]) or not data["steps"]:
+            fail(f"{lang} {preset}/{route}: incomplete direct roadmap")
+        first_step = clean_text(data["steps"][0])
+        if first_step not in clean_text(data["preview"]):
+            fail(f"{lang} {preset}/{route}: card preview is not the first action")
         print(f"PASS {lang} menu/{preset}/{route} · {len(data['steps'])} steps")
 
 
@@ -364,43 +393,49 @@ def assert_static_guide(driver, lang, route):
             route,
         )
     )
+
     meta = driver.execute_script(
         """
-        const id=arguments[0], lang=arguments[1];
         return {
-          guideId: document.documentElement.dataset.guideId,
-          guideLang: document.documentElement.dataset.guideLang,
-          htmlLang: document.documentElement.lang,
+          guideId: document.documentElement.dataset.guideId || '',
+          guideLang: document.documentElement.dataset.guideLang || '',
+          htmlLang: document.documentElement.lang || '',
           canonical: document.querySelector('link[rel="canonical"]')?.href || '',
           en: document.querySelector('link[rel="alternate"][hreflang="en"]')?.href || '',
           es: document.querySelector('link[rel="alternate"][hreflang="es"]')?.href || '',
           xdefault: document.querySelector('link[rel="alternate"][hreflang="x-default"]')?.href || '',
           overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
         };
-        """,
-        route,
-        lang,
+        """
     )
-    if meta["guideId"] != route or meta["guideLang"] != lang or meta["htmlLang"] != lang:
-        fail(f"static {lang}/{route}: language/guide metadata mismatch {meta}")
     expected_en = f"https://iberigo.eu/guides/{route}/"
     expected_es = f"https://iberigo.eu/guides/es/{route}/"
     expected_canonical = expected_es if lang == "es" else expected_en
-    if meta["canonical"] != expected_canonical or meta["en"] != expected_en or meta["es"] != expected_es or meta["xdefault"] != expected_en:
+    if meta["guideId"] != route or meta["guideLang"] != lang or meta["htmlLang"] != lang:
+        fail(f"static {lang}/{route}: language/guide metadata mismatch {meta}")
+    if (
+        meta["canonical"] != expected_canonical
+        or meta["en"] != expected_en
+        or meta["es"] != expected_es
+        or meta["xdefault"] != expected_en
+    ):
         fail(f"static {lang}/{route}: canonical/hreflang mismatch {meta}")
     if meta["overflow"]:
         fail(f"static {lang}/{route}: horizontal overflow")
+
     data = model_snapshot(driver, f"directRoadmapFor('{route}')")
     assert_quality(data, lang, f"static {lang}/{route}")
-    print(f"PASS static {lang}/{route} · {len(data['steps'])} steps")
+    print(
+        f"PASS static {lang}/{route} · {len(data['steps'])} steps · "
+        f"{len(data['sourceHrefs'])} rendered sources"
+    )
 
 
 def run_language(driver, lang, parity, check_static=False):
     set_language(driver, lang)
     for person, goal, expected, duration, sponsor in MOVE_CASES:
         count = run_move_case(driver, lang, person, goal, expected, duration, sponsor)
-        key = (person, goal, duration, sponsor)
-        parity.setdefault(key, {})[lang] = count
+        parity.setdefault((person, goal, duration, sponsor), {})[lang] = count
 
     assert_menu_and_direct_models(driver, lang, "living", LIVING_ROUTES)
     assert_menu_and_direct_models(driver, lang, "vacation", VACATION_ROUTES)
@@ -423,20 +458,16 @@ def assert_parity(parity):
 def main():
     wait_for_site()
     static_repository_audit()
-    parity = {}
 
+    desktop_parity = {}
     desktop = make_driver(1440, 1000)
     try:
-        run_language(desktop, "en", parity, check_static=True)
-        run_language(desktop, "es", parity, check_static=True)
+        run_language(desktop, "en", desktop_parity, check_static=True)
+        run_language(desktop, "es", desktop_parity, check_static=True)
     finally:
         desktop.quit()
+    assert_parity(desktop_parity)
 
-    assert_parity(parity)
-
-    # Full decision tree again at a narrow mobile viewport. This catches wrapping,
-    # hidden-control and result-overflow regressions without duplicating every
-    # static-page network navigation a second time.
     mobile_parity = {}
     mobile = make_driver(390, 844)
     try:
