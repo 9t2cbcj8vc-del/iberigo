@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
+    <title>IberiGo Homepage V2 Draft</title>
+    <meta name="description" content="Draft IberiGo homepage prototype for reviewing the next homepage direction." />
+    <link rel="stylesheet" href="styles.css?v=20260625-wordmark" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+    <style>
+      .home-v2 {
+        --v2-ink: #171f33;
+        --v2-muted: rgba(23, 31, 51, 0.66);
+        --v2-red: #a84a36;
+        --v2-gold: #e2a73c;
+        --v2-blue: #26395e;
+        --v2-cream: #fff7ec;
+        --v2-line: rgba(121, 57, 42, 0.12);
+      }
+
+      .home-v2-main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: clamp(1rem, 2.5vw, 2rem) clamp(1rem, 4vw, 2rem) 5rem;
+      }
+
+      .v2-hero {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+        gap: clamp(1.4rem, 4vw, 3.5rem);
+        align-items: center;
+        min-height: min(720px, calc(100vh - 150px));
+        overflow: hidden;
+        border-radius: 32px;
+        padding: clamp(1.4rem, 5vw, 4.5rem);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 238, 0.86)),
+          radial-gradient(circle at 12% 16%, rgba(226, 167, 60, 0.24), transparent 34%),
+          radial-gradient(circle at 88% 18%, rgba(168, 74, 54, 0.13), transparent 36%);
+        border: 1px solid rgba(121, 57, 42, 0.08);
+        box-shadow: 0 30px 90px rgba(52, 39, 31, 0.12);
+      }
+
+      .v2-hero::after {
+        content: "";
+        position: absolute;
+        right: -12%;
+        bottom: -30%;
+        width: 52%;
+        height: 58%;
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(226, 167, 60, 0.28), rgba(168, 74, 54, 0.1));
+        pointer-events: none;
+      }
+
+      .v2-kicker {
+        display: inline-flex;
+        width: fit-content;
+        margin-bottom: 1.1rem;
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        color: var(--v2-red);
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(168, 74, 54, 0.13);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .v2-hero h1 {
+        max-width: 760px;
+        margin: 0;
+        color: var(--v2-ink);
+        font-size: clamp(3.1rem, 7.4vw, 7rem);
+        line-height: 0.94;
+        letter-spacing: -0.045em;
+      }
+
+      .v2-hero-lead {
+        max-width: 620px;
+        margin: 1.2rem 0 0;
+        color: var(--v2-muted);
+        font-size: clamp(1.15rem, 2vw, 1.5rem);
+        line-height: 1.58;
+      }
+
+      .v2-trust-line {
+        margin-top: 1rem;
+        color: rgba(23, 31, 51, 0.58);
+        font-size: 0.98rem;
+        line-height: 1.5;
+      }
+
+      .v2-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        min-height: 56px;
+        margin-top: 2rem;
+        padding: 0 1.45rem;
+        border-radius: 999px;
+        color: #fff;
+        background: linear-gradient(135deg, #a34031, #dc9838);
+        box-shadow: 0 18px 38px rgba(168, 74, 54, 0.22);
+        text-decoration: none;
+        font-weight: 900;
+      }
+
+      .v2-roadmap-card {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .v2-roadmap-panel {
+        min-height: 330px;
+        border-radius: 30px;
+        padding: 1.35rem;
+        color: #fff;
+        background:
+          linear-gradient(180deg, rgba(38, 57, 94, 0.94), rgba(23, 31, 51, 0.94)),
+          radial-gradient(circle at 88% 0%, rgba(226, 167, 60, 0.26), transparent 44%);
+        box-shadow: 0 26px 60px rgba(23, 31, 51, 0.22);
+      }
+
+      .v2-roadmap-panel span {
+        display: grid;
+        place-items: center;
+        width: 64px;
+        height: 64px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.13);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 2rem;
+      }
+
+      .v2-roadmap-panel strong {
+        display: block;
+        margin-top: 6rem;
+        font-size: clamp(1.8rem, 3vw, 2.45rem);
+        line-height: 1.02;
+      }
+
+      .v2-roadmap-panel p {
+        margin: 0.8rem 0 0;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.55;
+      }
+
+      .v2-step-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+      }
+
+      .v2-step-row div {
+        min-height: 104px;
+        padding: 0.95rem;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid rgba(121, 57, 42, 0.09);
+        box-shadow: 0 14px 32px rgba(52, 39, 31, 0.08);
+      }
+
+      .v2-step-row small {
+        display: block;
+        color: var(--v2-red);
+        font-size: 0.76rem;
+        font-weight: 900;
+      }
+
+      .v2-step-row strong {
+        display: block;
+        margin-top: 0.45rem;
+        color: var(--v2-ink);
+        line-height: 1.25;
+      }
+
+      .v2-section {
+        margin-top: clamp(2rem, 6vw, 5rem);
+      }
+
+      .v2-section-heading {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        align-items: end;
+        margin-bottom: 1.2rem;
+      }
+
+      .v2-section-heading h2 {
+        margin: 0;
+        color: var(--v2-ink);
+        font-size: clamp(2rem, 4.2vw, 3.6rem);
+        line-height: 1;
+        letter-spacing: -0.035em;
+      }
+
+      .v2-section-heading p {
+        max-width: 430px;
+        margin: 0;
+        color: var(--v2-muted);
+        line-height: 1.58;
+      }
+
+      .v2-topic-grid,
+      .v2-start-grid,
+      .v2-latest-grid,
+      .v2-popular-grid,
+      .v2-trust-strip {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .v2-topic-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .v2-start-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .v2-latest-grid {
+        grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 0.9fr));
+      }
+
+      .v2-popular-grid,
+      .v2-trust-strip {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .v2-card {
+        position: relative;
+        display: grid;
+        min-height: 190px;
+        padding: 1.15rem;
+        overflow: hidden;
+        border-radius: 24px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 243, 0.9)),
+          radial-gradient(circle at 100% 0%, rgba(226, 167, 60, 0.18), transparent 48%);
+        border: 1px solid var(--v2-line);
+        box-shadow: 0 16px 40px rgba(52, 39, 31, 0.07);
+        text-decoration: none;
+      }
+
+      .v2-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 5px;
+        background: linear-gradient(180deg, var(--v2-red), var(--v2-gold));
+        opacity: 0.76;
+      }
+
+      .v2-card-icon {
+        display: inline-grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 16px;
+        background: rgba(168, 74, 54, 0.08);
+        color: var(--v2-red);
+        font-weight: 900;
+      }
+
+      .v2-card-body {
+        align-self: end;
+      }
+
+      .v2-card h3,
+      .v2-card h4 {
+        margin: 0;
+        color: var(--v2-ink);
+        font-size: 1.2rem;
+        line-height: 1.15;
+      }
+
+      .v2-card p {
+        margin: 0.55rem 0 0;
+        color: var(--v2-muted);
+        font-size: 0.94rem;
+        line-height: 1.5;
+      }
+
+      .v2-card strong {
+        color: var(--v2-red);
+      }
+
+      .v2-feature-card {
+        min-height: 260px;
+        background:
+          linear-gradient(135deg, rgba(38, 57, 94, 0.94), rgba(23, 31, 51, 0.95)),
+          radial-gradient(circle at 82% 0%, rgba(226, 167, 60, 0.28), transparent 46%);
+      }
+
+      .v2-feature-card h3,
+      .v2-feature-card p,
+      .v2-feature-card .v2-card-icon {
+        color: #fff;
+      }
+
+      .v2-feature-card p {
+        color: rgba(255, 255, 255, 0.74);
+      }
+
+      .v2-feature-card .v2-card-icon {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .v2-bottom-cta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1.5rem;
+        align-items: center;
+        margin-top: clamp(2rem, 6vw, 5rem);
+        padding: clamp(1.5rem, 5vw, 4rem);
+        border-radius: 32px;
+        color: #fff;
+        background:
+          linear-gradient(135deg, rgba(38, 57, 94, 0.95), rgba(23, 31, 51, 0.96)),
+          radial-gradient(circle at 8% 0%, rgba(226, 167, 60, 0.23), transparent 40%);
+        box-shadow: 0 28px 80px rgba(23, 31, 51, 0.17);
+      }
+
+      .v2-bottom-cta h2 {
+        margin: 0;
+        font-size: clamp(2.4rem, 5vw, 4.4rem);
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+      }
+
+      .v2-bottom-cta p {
+        max-width: 650px;
+        margin: 1rem 0 0;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 1.08rem;
+        line-height: 1.6;
+      }
+
+      .v2-bottom-cta .v2-primary {
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      .v2-trust-strip {
+        margin-top: 1rem;
+      }
+
+      .v2-trust-pill {
+        min-height: 86px;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(121, 57, 42, 0.08);
+        box-shadow: 0 14px 32px rgba(52, 39, 31, 0.05);
+        color: var(--v2-ink);
+        font-weight: 900;
+      }
+
+      .v2-trust-pill span {
+        display: grid;
+        place-items: center;
+        flex: 0 0 auto;
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        background: rgba(168, 74, 54, 0.08);
+        color: var(--v2-red);
+      }
+
+      .v2-draft-note {
+        margin: 2rem 0 0;
+        color: rgba(23, 31, 51, 0.58);
+        font-size: 0.9rem;
+        line-height: 1.55;
+        text-align: center;
+      }
+
+      @media (max-width: 980px) {
+        .v2-hero,
+        .v2-bottom-cta {
+          grid-template-columns: 1fr;
+        }
+
+        .v2-topic-grid,
+        .v2-start-grid,
+        .v2-popular-grid,
+        .v2-trust-strip {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .v2-latest-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .v2-section-heading {
+          display: block;
+        }
+
+        .v2-section-heading p {
+          margin-top: 0.8rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .home-v2-main {
+          padding-inline: 0.85rem;
+        }
+
+        .v2-hero,
+        .v2-bottom-cta {
+          border-radius: 24px;
+          padding: 1.2rem;
+        }
+
+        .v2-hero h1 {
+          font-size: clamp(2.55rem, 16vw, 4.7rem);
+        }
+
+        .v2-step-row,
+        .v2-topic-grid,
+        .v2-start-grid,
+        .v2-popular-grid,
+        .v2-trust-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .v2-roadmap-panel {
+          min-height: 250px;
+        }
+
+        .v2-roadmap-panel strong {
+          margin-top: 3.8rem;
+        }
+
+        .v2-card {
+          min-height: 168px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-shell home-v2">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <span class="brand-wordmark" aria-label="IberiGo">Iberi<span class="brand-wordmark-accent">Go</span></span>
+        </div>
+        <nav aria-label="Main sections">
+          <a href="/index.html?nav=start#guide-cards" data-i18n="startNav">Home</a>
+          <a href="/the-spain-files/" data-i18n="spainFilesNav">The Spain Files</a>
+          <a href="/support/index.html" data-i18n="supportNav">Donate</a>
+          <div class="language-switcher" aria-label="Language">
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang="es" aria-pressed="false">ES</button>
+          </div>
+        </nav>
+      </header>
+
+      <main class="home-v2-main">
+        <section class="v2-hero" aria-labelledby="homeV2Title">
+          <div>
+            <span class="v2-kicker">Start here</span>
+            <h1 id="homeV2Title">Thinking about moving to Spain?</h1>
+            <p class="v2-hero-lead">Everything you need to know, step by step.</p>
+            <p class="v2-trust-line">Clear information. Real experiences. Updated regularly.</p>
+            <a class="v2-primary" href="/the-spain-files/moving-to-spain-where-do-i-start/">Start your Spain Roadmap</a>
+          </div>
+          <div class="v2-roadmap-card" aria-hidden="true">
+            <div class="v2-roadmap-panel">
+              <span>☀</span>
+              <strong>Your move, made easier to understand.</strong>
+              <p>Start with money, work, healthcare, visa logic and the first paperwork steps.</p>
+            </div>
+            <div class="v2-step-row">
+              <div><small>01</small><strong>Understand your route</strong></div>
+              <div><small>02</small><strong>Prepare the right documents</strong></div>
+              <div><small>03</small><strong>Use official sources</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="v2-section" aria-labelledby="topicTitle">
+          <div class="v2-section-heading">
+            <h2 id="topicTitle">Or choose a topic</h2>
+            <p>Jump into the area that matches your question today.</p>
+          </div>
+          <div class="v2-topic-grid">
+            <a class="v2-card" href="/the-spain-files/moving-to-spain-where-do-i-start/">
+              <span class="v2-card-icon">→</span>
+              <div class="v2-card-body"><h3>Moving to Spain</h3><p>Start with the full roadmap and work out your first practical steps.</p></div>
+            </a>
+            <a class="v2-card" href="/guides/non-lucrative/">
+              <span class="v2-card-icon">ID</span>
+              <div class="v2-card-body"><h3>Immigration Guides</h3><p>Visa, residence, EU registration, TIE and family route starting points.</p></div>
+            </a>
+            <a class="v2-card" href="/the-spain-files/">
+              <span class="v2-card-icon">SF</span>
+              <div class="v2-card-body"><h3>The Spain Files</h3><p>Longer guides with real experience, verified facts and plain language.</p></div>
+            </a>
+            <a class="v2-card" href="/guides/vacation-entry/">
+              <span class="v2-card-icon">✈</span>
+              <div class="v2-card-body"><h3>Visiting Spain</h3><p>Short visits, Schengen basics, travel planning and practical trip guides.</p></div>
+            </a>
+          </div>
+        </section>
+
+        <section class="v2-section" aria-labelledby="startHereTitle">
+          <div class="v2-section-heading">
+            <h2 id="startHereTitle">Most people start here</h2>
+            <p>The questions that usually come before forms, appointments or fees.</p>
+          </div>
+          <div class="v2-start-grid">
+            <a class="v2-card" href="/the-spain-files/moving-to-spain-where-do-i-start/">
+              <span class="v2-card-icon">1</span>
+              <div class="v2-card-body"><h3>Where do I start?</h3><p>The big-picture order for moving to Spain without getting lost.</p></div>
+            </a>
+            <a class="v2-card" href="/the-spain-files/moving-to-spain-where-do-i-start/#afford-spain">
+              <span class="v2-card-icon">€</span>
+              <div class="v2-card-body"><h3>Can I afford Spain?</h3><p>Budget, rent, health cover, banking and first-month costs.</p></div>
+            </a>
+            <a class="v2-card" href="/the-spain-files/moving-to-spain-where-do-i-start/#find-work">
+              <span class="v2-card-icon">↗</span>
+              <div class="v2-card-body"><h3>Can I work in Spain?</h3><p>EU work rights, non-EU authorization and remote work routes.</p></div>
+            </a>
+            <a class="v2-card" href="/the-spain-files/moving-to-spain-where-do-i-start/#healthcare">
+              <span class="v2-card-icon">+</span>
+              <div class="v2-card-body"><h3>Healthcare explained</h3><p>Public healthcare, private insurance, EHIC and route-based cover.</p></div>
+            </a>
+            <a class="v2-card" href="/the-spain-files/moving-to-spain-where-do-i-start/#visa">
+              <span class="v2-card-icon">?</span>
+              <div class="v2-card-body"><h3>Can I apply after arriving?</h3><p>When you can move first and when the route starts outside Spain.</p></div>
+            </a>
+          </div>
+        </section>
+
+        <section class="v2-section" aria-labelledby="latestTitle">
+          <div class="v2-section-heading">
+            <h2 id="latestTitle">Latest from The Spain Files</h2>
+            <p>Longer explainers for the decisions people often make too quickly.</p>
+          </div>
+          <div class="v2-latest-grid">
+            <a class="v2-card v2-feature-card" href="/the-spain-files/moving-to-spain-where-do-i-start/">
+              <span class="v2-card-icon">★</span>
+              <div class="v2-card-body"><h3>Moving to Spain: Where Do I Start?</h3><p>A complete step-by-step roadmap for anyone planning to move to Spain.</p></div>
+            </a>
+            <a class="v2-card" href="/the-spain-files/nie-spain/">
+              <span class="v2-card-icon">#</span>
+              <div class="v2-card-body"><h3>How to get a NIE in Spain</h3><p>What the foreigner identification number is actually for.</p></div>
+            </a>
+            <a class="v2-card" href="/the-spain-files/">
+              <span class="v2-card-icon">…</span>
+              <div class="v2-card-body"><h3>More Spain Files</h3><p>Browse the growing library of practical Spain guides.</p></div>
+            </a>
+          </div>
+        </section>
+
+        <section class="v2-section" aria-labelledby="popularTitle">
+          <div class="v2-section-heading">
+            <h2 id="popularTitle">Popular Guides</h2>
+            <p>Fast access to common admin and daily-life guides.</p>
+          </div>
+          <div class="v2-popular-grid">
+            <a class="v2-card" href="/guides/nie/">
+              <span class="v2-card-icon">#</span>
+              <div class="v2-card-body"><h3>NIE</h3><p>Foreigner identification number for Spanish administration.</p></div>
+            </a>
+            <a class="v2-card" href="/guides/tie/">
+              <span class="v2-card-icon">▤</span>
+              <div class="v2-card-body"><h3>TIE</h3><p>Physical card after non-EU visa or residence approval.</p></div>
+            </a>
+            <a class="v2-card" href="/guides/padron/">
+              <span class="v2-card-icon">⌂</span>
+              <div class="v2-card-body"><h3>Padrón</h3><p>Town hall address registration and local proof of address.</p></div>
+            </a>
+            <a class="v2-card" href="/guides/eu-registration/">
+              <span class="v2-card-icon">★</span>
+              <div class="v2-card-body"><h3>EU Registration</h3><p>Green certificate route for EU, EEA and Swiss residents.</p></div>
+            </a>
+            <a class="v2-card" href="/guides/banking/">
+              <span class="v2-card-icon">€</span>
+              <div class="v2-card-body"><h3>Banking</h3><p>Spanish banks and starter account options.</p></div>
+            </a>
+            <a class="v2-card" href="/guides/sip-card/">
+              <span class="v2-card-icon">+</span>
+              <div class="v2-card-body"><h3>Healthcare</h3><p>Public health cards and regional names across Spain.</p></div>
+            </a>
+            <a class="v2-card" href="/guides/digital/">
+              <span class="v2-card-icon">⌘</span>
+              <div class="v2-card-body"><h3>Digital Certificate</h3><p>Access official Spanish services online.</p></div>
+            </a>
+            <a class="v2-card" href="/guides/renting-home/">
+              <span class="v2-card-icon">⌂</span>
+              <div class="v2-card-body"><h3>Renting a home</h3><p>Documents, deposits and red flags before signing.</p></div>
+            </a>
+          </div>
+        </section>
+
+        <section class="v2-bottom-cta" aria-labelledby="bottomCtaTitle">
+          <div>
+            <h2 id="bottomCtaTitle">Plan with confidence.</h2>
+            <p>Our Spain Roadmap shows you the exact steps you need to take, in the right order.</p>
+          </div>
+          <a class="v2-primary" href="/the-spain-files/moving-to-spain-where-do-i-start/">Start your Roadmap</a>
+        </section>
+
+        <section class="v2-trust-strip" aria-label="Why trust IberiGo">
+          <div class="v2-trust-pill"><span>✓</span>Independent &amp; unbiased</div>
+          <div class="v2-trust-pill"><span>↻</span>Updated regularly</div>
+          <div class="v2-trust-pill"><span>Aa</span>Written in plain English</div>
+          <div class="v2-trust-pill"><span>•</span>Real experiences</div>
+        </section>
+
+        <p class="v2-draft-note">Draft homepage prototype for review. This page is noindex/nofollow and is not linked from the live homepage.</p>
+      </main>
+
+      <footer class="site-footer">
+        <p data-i18n="footerSupportText">IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.</p>
+        <a href="/support/index.html" data-i18n="footerSupportLink">Donate</a>
+        <div class="site-footer-legal">
+          <p data-i18n="footerLegal">© 2026 IberiGo. Free to use. Not legal advice.</p>
+          <p data-i18n="footerReviewed">Last reviewed: June 2026</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
