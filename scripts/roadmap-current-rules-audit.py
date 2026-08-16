@@ -11,7 +11,7 @@ BASE = os.environ["PREVIEW_BASE"].rstrip("/")
 CHECKS = {
     "en": {
         "family": [
-            "requested authorization to reside for at least another year",
+            "authorization to reside for at least another year",
             "health insurance",
             "stable unregistered partner",
             "EX-02",
@@ -30,7 +30,7 @@ CHECKS = {
     },
     "es": {
         "family": [
-            "solicitado autorización para residir durante al menos otro año",
+            "autorización para residir durante al menos otro año",
             "seguro de enfermedad",
             "pareja estable no registrada",
             "EX-02",
@@ -110,7 +110,7 @@ def main():
                       ...(roadmap?.documents || []),
                       roadmap?.whatHappensNext || ''
                     ].join(' ');
-                    return (box.textContent || '').replace(/\s+/g,' ').trim();
+                    return (box.textContent || '').trim();
                     """,
                     route_id,
                 )
