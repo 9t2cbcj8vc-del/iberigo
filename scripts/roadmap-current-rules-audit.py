@@ -93,7 +93,7 @@ def main():
             app_src = driver.execute_script(
                 "return [...document.scripts].map(s=>s.src).find(src=>src.includes('/app.js')) || ''"
             )
-            if "20260816-roadmap-next-actions-3" not in app_src:
+            if "20260816-roadmap-next-actions-4" not in app_src:
                 raise AssertionError(f"{lang}: current-rule bundle cache key missing: {app_src}")
 
             for route_id, required in route_checks.items():
