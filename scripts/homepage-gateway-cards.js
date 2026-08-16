@@ -13,7 +13,7 @@
       eyebrow: "Mudanza",
       title: "Mudarse a España",
       description: "Residencia, NIE, TIE, padrón, registro UE y los pasos clave para empezar tu nueva vida en España.",
-      cta: "Empieza aquí",
+      cta: "Planifica tu mudanza",
       href: "/es/start-here/",
       image: visuals.arrival,
       alt: "Llegada y mudanza a una calle mediterránea española"
@@ -22,7 +22,7 @@
       eyebrow: "Viajes",
       title: "Visitar España",
       description: "Entrada, estancias cortas, transporte, alojamiento y ayuda práctica para planificar tu viaje.",
-      cta: "Explorar",
+      cta: "Planifica tu visita",
       href: "/guides/es/vacation-in-spain/",
       image: visuals.visit,
       alt: "Costa española y ambiente de viaje mediterráneo"
@@ -31,7 +31,7 @@
       eyebrow: "Vida cotidiana",
       title: "Vivir en España",
       description: "Sanidad, banca, impuestos, acceso digital y los trámites que forman parte de la vida diaria en España.",
-      cta: "Explorar",
+      cta: "Guías para vivir",
       href: "/guides/es/living-in-spain/",
       image: visuals.everyday,
       alt: "Vida cotidiana en un barrio residencial español"
@@ -41,7 +41,7 @@
       eyebrow: "Relocation",
       title: "Move to Spain",
       description: "Residency, NIE, TIE, padrón, EU registration and the key steps to start your new life in Spain.",
-      cta: "Start here",
+      cta: "Plan your move",
       href: "/start-here/",
       image: visuals.arrival,
       alt: "Arrival and relocation in a Spanish Mediterranean street"
@@ -50,7 +50,7 @@
       eyebrow: "Travel",
       title: "Visit Spain",
       description: "Entry rules, short stays, transport, places to stay and practical travel help for your trip.",
-      cta: "Explore",
+      cta: "Plan your visit",
       href: "/guides/vacation-in-spain/",
       image: visuals.visit,
       alt: "Spanish coast and Mediterranean travel scene"
@@ -59,7 +59,7 @@
       eyebrow: "Everyday life",
       title: "Living in Spain",
       description: "Healthcare, banking, taxes, digital access and the admin steps that shape daily life in Spain.",
-      cta: "Explore",
+      cta: "Browse living guides",
       href: "/guides/living-in-spain/",
       image: visuals.everyday,
       alt: "Everyday life in a Spanish residential neighbourhood"
