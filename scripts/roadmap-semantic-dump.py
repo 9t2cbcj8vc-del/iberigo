@@ -8,10 +8,11 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 
 BASE = os.environ["PREVIEW_BASE"].rstrip("/")
-ROUTES = [
-    "study-in-spain", "study-abroad", "study-short", "study-short-in-spain",
-    "spanish-family", "spanish-eu-return-family", "family", "eu-family",
-    "work-employed", "work-self-employed", "work-specialist", "digital-nomad",
+CASES = [
+    ("eu", "workEmployee", None, None),
+    ("nonEu", "studySpain", "long", None),
+    ("nonEu", "family", None, "spanishCitizen"),
+    ("nonEu", "workEmployee", None, None),
 ]
 
 
@@ -28,6 +29,22 @@ def wait_site():
     raise RuntimeError("Preview not ready")
 
 
+def choose(driver, name, value):
+    ok = driver.execute_script(
+        """
+        const input=document.querySelector(`input[name="${arguments[0]}"][value="${arguments[1]}"]`);
+        if(!input) return false;
+        input.click();
+        return input.checked;
+        """,
+        name,
+        value,
+    )
+    if not ok:
+        raise RuntimeError(f"Could not select {name}={value}")
+    driver.execute_script("document.querySelector('#routeWizard').requestSubmit()")
+
+
 def main():
     wait_site()
     options = Options()
@@ -37,48 +54,50 @@ def main():
     options.add_argument("--window-size=1440,1000")
     driver = webdriver.Chrome(options=options)
     try:
-        for lang in ("en", "es"):
+        for person, goal, duration, sponsor in CASES:
             driver.get(BASE + "/")
             WebDriverWait(driver, 25).until(
                 lambda d: d.execute_script(
-                    "return typeof roadmapFor==='function' && typeof routes!=='undefined' && "
+                    "return typeof setWizardFromPreset==='function' && "
                     "window.__iberigoRoadmapNextActionsLoaded===true"
                 )
             )
-            driver.execute_script("localStorage.setItem('holaPapersLang', arguments[0])", lang)
+            driver.execute_script("localStorage.setItem('holaPapersLang','es')")
             driver.refresh()
             WebDriverWait(driver, 25).until(
-                lambda d: d.execute_script(
-                    "return document.documentElement.lang===arguments[0] && typeof roadmapFor==='function'",
-                    lang,
+                lambda d: d.execute_script("return document.documentElement.lang==='es'")
+            )
+            driver.execute_script("setWizardFromPreset('moving')")
+            choose(driver, "personType", person)
+            WebDriverWait(driver, 10).until(
+                lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "goal"
+            )
+            choose(driver, "goal", goal)
+            if duration:
+                WebDriverWait(driver, 10).until(
+                    lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "duration"
                 )
+                choose(driver, "duration", duration)
+            if sponsor:
+                WebDriverWait(driver, 10).until(
+                    lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "family"
+                )
+                choose(driver, "familySponsor", sponsor)
+            WebDriverWait(driver, 10).until(
+                lambda d: d.execute_script("return document.querySelector('#routeWizard').dataset.step") == "result"
             )
-            data = driver.execute_script(
+            state = driver.execute_script(
                 """
-                const ids=arguments[0];
-                const text=(raw)=>{ const b=document.createElement('div'); b.innerHTML=raw||''; return (b.textContent||'').trim().replace(/\s+/g,' '); };
-                return ids.map(id=>{
-                  const route=routes.find(r=>r.id===id) || {id};
-                  const roadmap=roadmapFor(route);
-                  return {
-                    id,
-                    routeFound: !!routes.find(r=>r.id===id),
-                    title: route.title || '',
-                    summary: route.summary || '',
-                    appointment: route.appointment || '',
-                    routeDocuments: route.documents || [],
-                    process: text(roadmap?.process || ''),
-                    explanation: text(roadmap?.explanation || ''),
-                    steps: (roadmap?.steps || []).map(text),
-                    documents: (roadmap?.documents || []).map(text),
-                    links: roadmap?.links || [],
-                    whatHappensNext: text(roadmap?.whatHappensNext || '')
-                  };
-                });
-                """,
-                ROUTES,
+                const route=pickRoute();
+                return {
+                  routeId:route?.id||'',
+                  routeTitle:route?.title||'',
+                  routeSummary:route?.summary||'',
+                  visibleText:(document.querySelector('#wizardResult')?.textContent||'').trim().replace(/\s+/g,' ').slice(0,1800)
+                };
+                """
             )
-            print("SEMANTIC_" + lang.upper() + "=" + json.dumps(data, ensure_ascii=False, sort_keys=True))
+            print("SPANISH_UI=" + json.dumps(state, ensure_ascii=False, sort_keys=True))
     finally:
         driver.quit()
 
