@@ -4,8 +4,11 @@ on:
   pull_request:
     paths:
       - 'scripts/visual-overhaul.js'
+      - 'scripts/homepage-gateway-cards.js'
       - 'scripts/final-visual-polish.js'
       - 'scripts/site-search.js'
+      - 'scripts/homepage-declutter.js'
+      - 'scripts/homepage-gateway-cta-smoke.py'
       - 'scripts/preview-smoke-check.py'
       - 'scripts/preview-smoke-run.py'
       - 'scripts/fix-roadmap-bundle-scope.js'
@@ -25,8 +28,10 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check scripts/visual-overhaul.js
+          node --check scripts/homepage-gateway-cards.js
           node --check scripts/final-visual-polish.js
           node --check scripts/site-search.js
+          node --check scripts/homepage-declutter.js
           node --check scripts/fix-roadmap-bundle-scope.js
       - name: Check referenced internal paths
         run: |
@@ -71,3 +76,7 @@ jobs:
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
         run: python scripts/preview-smoke-run.py
+      - name: Verify final rendered homepage gateway CTAs
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/homepage-gateway-cta-smoke.py
