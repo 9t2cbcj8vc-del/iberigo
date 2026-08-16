@@ -1,0 +1,25 @@
+name: Roadmap semantic dump
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/roadmap-semantic-dump.py'
+      - '.github/workflows/roadmap-semantic-dump.yml'
+      - 'app.js'
+      - 'scripts/roadmap-next-actions.js'
+      - 'scripts/roadmap-core.js'
+      - 'scripts/roadmap-specialist.js'
+
+jobs:
+  semantic-dump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check selenium==4.35.0
+      - name: Dump legally sensitive route content
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/roadmap-semantic-dump.py
