@@ -111,16 +111,6 @@ def assert_roadmap_dom(driver, model_expression, lang, label, expected_route=Non
     print(f"PASS {lang} {label}{route_note} · {data['visibleSteps']} steps")
 
 
-def assert_move_result(driver, expected_route, lang, label):
-    WebDriverWait(driver, 15).until(
-        lambda d: d.execute_script(
-            "return document.querySelector('#routeWizard').dataset.step === 'result' && "
-            "!document.querySelector('#wizardResult').hidden"
-        )
-    )
-    assert_roadmap_dom(driver, "roadmapFor(pickRoute())", lang, label, expected_route)
-
-
 def run_move_case(driver, lang, person, goal, expected_route, duration=None, sponsor=None):
     driver.get(BASE + "/")
     wait_loaded(driver)
@@ -153,41 +143,66 @@ def run_move_case(driver, lang, person, goal, expected_route, duration=None, spo
         select_value(driver, "familySponsor", sponsor)
         submit(driver)
 
+    WebDriverWait(driver, 15).until(
+        lambda d: d.execute_script(
+            "return document.querySelector('#routeWizard').dataset.step === 'result' && "
+            "!document.querySelector('#wizardResult').hidden"
+        )
+    )
     suffix = f"/{duration}" if duration else f"/{sponsor}" if sponsor else ""
-    assert_move_result(driver, expected_route, lang, f"move/{person}/{goal}{suffix}")
+    assert_roadmap_dom(
+        driver,
+        "roadmapFor(pickRoute())",
+        lang,
+        f"move/{person}/{goal}{suffix}",
+        expected_route,
+    )
 
 
-def run_direct_case(driver, lang, preset, direct_route):
+def assert_menu_paths(driver, lang, preset, routes):
     driver.get(BASE + "/")
     wait_loaded(driver)
     driver.execute_script("setWizardFromPreset(arguments[0]);", preset)
-    selector = f'[data-topic="{direct_route}"] a'
-    WebDriverWait(driver, 10).until(
-        lambda d: d.execute_script("return !!document.querySelector(arguments[0]);", selector)
-    )
-    href = driver.execute_script(
-        "const a=document.querySelector(arguments[0]); return a ? a.href : '';",
-        selector,
-    )
-    if not href:
-        fail(f"Could not resolve guide link {preset}/{direct_route}")
+    prefix = "/guides/es/" if lang == "es" else "/guides/"
 
-    driver.get(href)
+    for route in routes:
+        data = driver.execute_script(
+            """
+            const id = arguments[0];
+            const card = document.querySelector(`[data-topic="${id}"]`);
+            const link = card?.querySelector('a');
+            const roadmap = typeof directRoadmapFor === 'function' ? directRoadmapFor(id) : null;
+            return {
+              card: !!card,
+              href: link?.getAttribute('href') || '',
+              stepCount: Array.isArray(roadmap?.steps) ? roadmap.steps.length : 0,
+              firstStep: roadmap?.steps?.[0] || '',
+              previewStep: card?.querySelector('small')?.textContent.trim() || ''
+            };
+            """,
+            route,
+        )
+        expected_href = f"{prefix}{route}/"
+        if not data["card"] or data["href"] != expected_href:
+            fail(f"{lang} {preset}/{route}: menu route mismatch: {data}")
+        if data["stepCount"] < 1 or not data["firstStep"] or not data["previewStep"]:
+            fail(f"{lang} {preset}/{route}: roadmap preview missing: {data}")
+        print(f"PASS {lang} menu/{preset}/{route} -> {expected_href} · {data['stepCount']} steps")
+
+
+def assert_static_guide_sample(driver, lang, route):
+    prefix = "/guides/es/" if lang == "es" else "/guides/"
+    driver.get(BASE + f"{prefix}{route}/")
     wait_loaded(driver)
     WebDriverWait(driver, 15).until(
         lambda d: d.execute_script(
             "return document.documentElement.dataset.guideId === arguments[0] && "
             "!!document.querySelector('#wizardResult .roadmap-list--full') && "
             "!!document.querySelector('#wizardResult .roadmap-now')",
-            direct_route,
+            route,
         )
     )
-    assert_roadmap_dom(
-        driver,
-        f"directRoadmapFor('{direct_route}')",
-        lang,
-        f"{preset}/{direct_route}",
-    )
+    assert_roadmap_dom(driver, f"directRoadmapFor('{route}')", lang, f"static/{route}")
 
 
 def run_language(driver, lang):
@@ -232,10 +247,14 @@ def run_language(driver, lang):
         "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
         "travel-insurance", "sim-esim-vpn"
     ]
-    for route in living_routes:
-        run_direct_case(driver, lang, "living", route)
-    for route in vacation_routes:
-        run_direct_case(driver, lang, "vacation", route)
+    assert_menu_paths(driver, lang, "living", living_routes)
+    assert_menu_paths(driver, lang, "vacation", vacation_routes)
+
+    # Representative static-guide navigation verifies that the bundled enhancement
+    # survives a real page navigation without turning this suite into dozens of
+    # repeated network round-trips.
+    assert_static_guide_sample(driver, lang, "vida-laboral")
+    assert_static_guide_sample(driver, lang, "vacation-entry")
 
 
 def main():
