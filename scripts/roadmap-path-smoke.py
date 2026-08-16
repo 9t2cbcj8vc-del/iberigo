@@ -85,12 +85,16 @@ def assert_roadmap_dom(driver, model_expression, lang, label, expected_route=Non
         const now = result.querySelector('.roadmap-now');
         const heading = list?.closest('.result-section')?.querySelector(':scope > strong')?.textContent.trim() || '';
         const route = typeof pickRoute === 'function' ? pickRoute() : null;
+        const rawFirstStep = roadmap?.steps?.[0] || '';
+        const stepParser = document.createElement('div');
+        stepParser.innerHTML = rawFirstStep;
+        const firstStepText = stepParser.textContent.trim();
         return {{
           routeId: route?.id || null,
           modelSteps: Array.isArray(roadmap?.steps) ? roadmap.steps.length : 0,
           visibleSteps: list ? list.querySelectorAll('li').length : 0,
           nowText: now?.textContent.trim() || '',
-          firstStep: roadmap?.steps?.[0] || '',
+          firstStep: firstStepText,
           heading,
           overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
         }};
