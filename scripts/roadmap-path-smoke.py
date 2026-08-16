@@ -36,6 +36,7 @@ def wait_loaded(driver):
         lambda d: d.execute_script(
             "return typeof setWizardFromPreset === 'function' && "
             "typeof pickRoute === 'function' && "
+            "typeof directRoadmapFor === 'function' && "
             "window.__iberigoRoadmapNextActionsLoaded === true && "
             "!!document.querySelector('#routeWizard')"
         )
@@ -75,22 +76,16 @@ def submit(driver):
     time.sleep(0.12)
 
 
-def assert_result(driver, expected_route, lang, label):
-    WebDriverWait(driver, 15).until(
-        lambda d: d.execute_script(
-            "return document.querySelector('#routeWizard').dataset.step === 'result' && "
-            "!document.querySelector('#wizardResult').hidden"
-        )
-    )
+def assert_roadmap_dom(driver, model_expression, lang, label, expected_route=None):
     data = driver.execute_script(
-        """
-        const route = pickRoute();
-        const roadmap = roadmapFor(route);
+        f"""
+        const roadmap = {model_expression};
         const result = document.querySelector('#wizardResult');
         const list = result.querySelector('.roadmap-list--full');
         const now = result.querySelector('.roadmap-now');
         const heading = list?.closest('.result-section')?.querySelector(':scope > strong')?.textContent.trim() || '';
-        return {
+        const route = typeof pickRoute === 'function' ? pickRoute() : null;
+        return {{
           routeId: route?.id || null,
           modelSteps: Array.isArray(roadmap?.steps) ? roadmap.steps.length : 0,
           visibleSteps: list ? list.querySelectorAll('li').length : 0,
@@ -98,10 +93,10 @@ def assert_result(driver, expected_route, lang, label):
           firstStep: roadmap?.steps?.[0] || '',
           heading,
           overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
-        };
+        }};
         """
     )
-    if data["routeId"] != expected_route:
+    if expected_route and data["routeId"] != expected_route:
         fail(f"{label}: expected route {expected_route}, got {data}")
     if data["modelSteps"] < 1 or data["visibleSteps"] != data["modelSteps"]:
         fail(f"{label}: full roadmap is not visible: {data}")
@@ -112,7 +107,18 @@ def assert_result(driver, expected_route, lang, label):
         fail(f"{label}: roadmap heading mismatch: {data}")
     if data["overflow"]:
         fail(f"{label}: horizontal overflow detected: {data}")
-    print(f"PASS {lang} {label}: {expected_route} · {data['visibleSteps']} steps")
+    route_note = f" -> {expected_route}" if expected_route else ""
+    print(f"PASS {lang} {label}{route_note} · {data['visibleSteps']} steps")
+
+
+def assert_move_result(driver, expected_route, lang, label):
+    WebDriverWait(driver, 15).until(
+        lambda d: d.execute_script(
+            "return document.querySelector('#routeWizard').dataset.step === 'result' && "
+            "!document.querySelector('#wizardResult').hidden"
+        )
+    )
+    assert_roadmap_dom(driver, "roadmapFor(pickRoute())", lang, label, expected_route)
 
 
 def run_move_case(driver, lang, person, goal, expected_route, duration=None, sponsor=None):
@@ -148,22 +154,41 @@ def run_move_case(driver, lang, person, goal, expected_route, duration=None, spo
         submit(driver)
 
     suffix = f"/{duration}" if duration else f"/{sponsor}" if sponsor else ""
-    assert_result(driver, expected_route, lang, f"{person}/{goal}{suffix}")
+    assert_move_result(driver, expected_route, lang, f"move/{person}/{goal}{suffix}")
 
 
-def run_vacation_case(driver, lang, person, expected_route):
+def run_direct_case(driver, lang, preset, direct_route):
     driver.get(BASE + "/")
     wait_loaded(driver)
-    driver.execute_script("setWizardFromPreset('vacation');")
-    select_value(driver, "personType", person)
-    submit(driver)
-    assert_result(driver, expected_route, lang, f"vacation/{person}")
+    driver.execute_script("setWizardFromPreset(arguments[0]);", preset)
+    selector = f'[data-direct-route="{direct_route}"]'
+    WebDriverWait(driver, 10).until(
+        lambda d: d.execute_script("return !!document.querySelector(arguments[0]);", selector)
+    )
+    clicked = driver.execute_script(
+        "const b=document.querySelector(arguments[0]); if(!b) return false; b.click(); return true;",
+        selector,
+    )
+    if not clicked:
+        fail(f"Could not open direct route {preset}/{direct_route}")
+    WebDriverWait(driver, 10).until(
+        lambda d: d.execute_script(
+            "return !!document.querySelector('#wizardResult .roadmap-list--full') && "
+            "!!document.querySelector('#wizardResult .roadmap-now')"
+        )
+    )
+    assert_roadmap_dom(
+        driver,
+        f"directRoadmapFor('{direct_route}')",
+        lang,
+        f"{preset}/{direct_route}",
+    )
 
 
 def run_language(driver, lang):
     set_language(driver, lang)
 
-    cases = [
+    move_cases = [
         ("eu", "workEmployee", "eu-employed", None, None),
         ("eu", "workSelf", "eu-self-employed", None, None),
         ("eu", "noWork", "eu-registration", None, None),
@@ -189,12 +214,23 @@ def run_language(driver, lang):
         ("nonEu", "family", "spanish-eu-return-family", None, "spanishCitizenEuReturn"),
         ("nonEu", "family", "family", None, "nonEuResident"),
     ]
-
-    for person, goal, expected, duration, sponsor in cases:
+    for person, goal, expected, duration, sponsor in move_cases:
         run_move_case(driver, lang, person, goal, expected, duration, sponsor)
 
-    run_vacation_case(driver, lang, "eu", "eu-vacation")
-    run_vacation_case(driver, lang, "nonEu", "non-eu-vacation")
+    living_routes = [
+        "padron", "digital", "nie", "tie", "social-security", "sip-card",
+        "private-health", "ehic-card", "banking", "renting-home", "job-search",
+        "taxes", "phone", "vida-laboral", "driving-licence-exchange"
+    ]
+    vacation_routes = [
+        "vacation-entry", "vacation-citizenship", "vacation-flights", "vacation-ground",
+        "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
+        "travel-insurance", "driving-spain-visitors", "sim-esim-vpn"
+    ]
+    for route in living_routes:
+        run_direct_case(driver, lang, "living", route)
+    for route in vacation_routes:
+        run_direct_case(driver, lang, "vacation", route)
 
 
 def main():
@@ -209,7 +245,7 @@ def main():
     try:
         run_language(driver, "en")
         run_language(driver, "es")
-        print("ALL ROADMAP PATHS PASSED IN EN AND ES")
+        print("ALL SELECTABLE ROADMAP PATHS PASSED IN EN AND ES")
     finally:
         driver.quit()
 
