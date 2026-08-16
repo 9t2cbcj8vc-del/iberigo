@@ -10,6 +10,8 @@ on:
       - 'scripts/bake-roadmap-static.js'
       - 'scripts/bake-roadmap-next-actions.js'
       - 'scripts/roadmap-path-smoke.py'
+      - 'scripts/roadmap-deep-audit.py'
+      - 'guides/**/index.html'
       - 'netlify.toml'
       - '.github/workflows/roadmap-path-check.yml'
 
@@ -27,3 +29,7 @@ jobs:
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
         run: python scripts/roadmap-path-smoke.py
+      - name: Run extensive route integrity audit
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/roadmap-deep-audit.py
