@@ -679,4 +679,28 @@
     <priority>0.8</priority>
     <lastmod>2026-07-22</lastmod>
   </url>
+  <url>
+    <loc>https://iberigo.eu/living-in-spain/staying-long-term/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/es/living-in-spain/staying-long-term/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/moving-to-spain/documents-apostilles-translations/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-17</lastmod>
+  </url>
+  <url>
+    <loc>https://iberigo.eu/es/moving-to-spain/documents-apostilles-translations/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-17</lastmod>
+  </url>
 </urlset>
