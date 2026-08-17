@@ -16,6 +16,9 @@ on:
       - 'scripts/fix-roadmap-bundle-scope.js'
       - 'scripts/add-long-term-and-documents-guides.js'
       - 'scripts/fix-new-guide-language-links.js'
+      - 'scripts/bake-living-hub-new-guides.js'
+      - 'scripts/living-hub-new-guides.js'
+      - 'scripts/living-hub-new-guides-smoke.py'
       - 'scripts/long-term-documents-smoke.py'
       - 'styles-overhaul.css'
       - 'styles-final-visual-polish.css'
@@ -42,6 +45,8 @@ jobs:
           node --check scripts/fix-roadmap-bundle-scope.js
           node --check scripts/add-long-term-and-documents-guides.js
           node --check scripts/fix-new-guide-language-links.js
+          node --check scripts/bake-living-hub-new-guides.js
+          node --check scripts/living-hub-new-guides.js
       - name: Check referenced internal paths
         run: |
           node <<'NODE'
@@ -97,3 +102,7 @@ jobs:
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
         run: python scripts/long-term-documents-smoke.py
+      - name: Verify new guides are visible in rendered Living hub
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/living-hub-new-guides-smoke.py
