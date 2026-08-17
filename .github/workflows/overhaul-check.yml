@@ -14,6 +14,9 @@ on:
       - 'scripts/preview-smoke-check.py'
       - 'scripts/preview-smoke-run.py'
       - 'scripts/fix-roadmap-bundle-scope.js'
+      - 'scripts/add-long-term-and-documents-guides.js'
+      - 'scripts/fix-new-guide-language-links.js'
+      - 'scripts/long-term-documents-smoke.py'
       - 'styles-overhaul.css'
       - 'styles-final-visual-polish.css'
       - 'netlify.toml'
@@ -36,6 +39,8 @@ jobs:
           node --check scripts/homepage-declutter.js
           node --check scripts/remove-page-tocs.js
           node --check scripts/fix-roadmap-bundle-scope.js
+          node --check scripts/add-long-term-and-documents-guides.js
+          node --check scripts/fix-new-guide-language-links.js
       - name: Check referenced internal paths
         run: |
           node <<'NODE'
@@ -87,3 +92,7 @@ jobs:
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
         run: python scripts/page-toc-smoke.py
+      - name: Verify long-term and document guide clusters
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/long-term-documents-smoke.py
