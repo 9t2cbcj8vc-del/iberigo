@@ -1,3 +1,4 @@
+import html as html_lib
 import json
 import os
 import re
@@ -67,37 +68,38 @@ def attr(html, pattern, label, path):
 
 def assert_page(case):
     path = case["path"]
-    html = fetch(path)
-    if f'<html lang="{case["lang"]}"' not in html:
+    raw = fetch(path)
+    decoded = html_lib.unescape(raw)
+    if f'<html lang="{case["lang"]}"' not in raw:
         raise AssertionError(f"{path}: wrong html lang")
 
-    canonical = attr(html, r'<link\s+rel="canonical"\s+href="([^"]+)"', "canonical", path)
+    canonical = attr(raw, r'<link\s+rel="canonical"\s+href="([^"]+)"', "canonical", path)
     expected = "https://iberigo.eu" + path
     if canonical != expected:
         raise AssertionError(f"{path}: canonical {canonical} != {expected}")
 
-    en = attr(html, r'<link\s+rel="alternate"\s+hreflang="en"\s+href="([^"]+)"', "en hreflang", path)
-    es = attr(html, r'<link\s+rel="alternate"\s+hreflang="es"\s+href="([^"]+)"', "es hreflang", path)
+    en = attr(raw, r'<link\s+rel="alternate"\s+hreflang="en"\s+href="([^"]+)"', "en hreflang", path)
+    es = attr(raw, r'<link\s+rel="alternate"\s+hreflang="es"\s+href="([^"]+)"', "es hreflang", path)
     expected_en = "https://iberigo.eu" + (path if case["lang"] == "en" else case["peer"])
     expected_es = "https://iberigo.eu" + (path if case["lang"] == "es" else case["peer"])
     if en != expected_en or es != expected_es:
         raise AssertionError(f"{path}: hreflang mismatch en={en} es={es}")
 
-    if f'data-lang-href="{case["peer"]}"' not in html:
+    if f'data-lang-href="{case["peer"]}"' not in raw:
         raise AssertionError(f"{path}: language-switch peer missing")
-    if case["h1"] not in html:
+    if case["h1"] not in decoded:
         raise AssertionError(f"{path}: H1 marker missing")
 
     for marker in case["markers"]:
-        if marker.lower() not in html.lower():
+        if marker.lower() not in decoded.lower():
             raise AssertionError(f"{path}: content marker missing: {marker}")
     for marker in case["sources"]:
-        if marker.lower() not in html.lower():
+        if marker.lower() not in raw.lower():
             raise AssertionError(f"{path}: official source missing: {marker}")
 
-    if re.search(r'<(?:aside|details)[^>]*guide-toc', html, re.I):
+    if re.search(r'<(?:aside|details)[^>]*guide-toc', raw, re.I):
         raise AssertionError(f"{path}: page TOC returned after final build")
-    if "On this page" in html or "En esta página" in html:
+    if "On this page" in decoded or "En esta página" in decoded:
         raise AssertionError(f"{path}: removed page-TOC wording returned")
 
     print(f"PASS {path} · canonical/hreflang/content/sources")
