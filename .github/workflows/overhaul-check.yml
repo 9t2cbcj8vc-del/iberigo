@@ -19,6 +19,7 @@ on:
       - 'scripts/long-term-documents-smoke.py'
       - 'styles-overhaul.css'
       - 'styles-final-visual-polish.css'
+      - '_redirects'
       - 'netlify.toml'
       - '.github/workflows/overhaul-check.yml'
 
