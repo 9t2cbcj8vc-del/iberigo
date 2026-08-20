@@ -92,7 +92,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install browser test dependency
-        run: python -m pip install --disable-pip-check selenium==4.35.0
+        run: python -m pip install --disable-pip-version-check selenium==4.35.0
       - name: Run deployed preview console and function checks
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
