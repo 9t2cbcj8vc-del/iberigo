@@ -37,17 +37,31 @@ function addFooterLink(file) {
 
 function fixFeedbackSuccessActions() {
   const replacements = [
-    [path.join(ROOT, 'help-feedback', 'index.html'), 'action="/help-feedback/thanks/"', 'action="/help-feedback/thanks/index.html"'],
-    [path.join(ROOT, 'es', 'help-feedback', 'index.html'), 'action="/es/help-feedback/thanks/"', 'action="/es/help-feedback/thanks/index.html"']
+    {
+      file: path.join(ROOT, 'help-feedback', 'index.html'),
+      from: ['action="/help-feedback/thanks/"', 'action="/help-feedback/thanks/index.html"'],
+      to: 'action="/feedback-thanks.html"'
+    },
+    {
+      file: path.join(ROOT, 'es', 'help-feedback', 'index.html'),
+      from: ['action="/es/help-feedback/thanks/"', 'action="/es/help-feedback/thanks/index.html"'],
+      to: 'action="/es-feedback-thanks.html"'
+    }
   ];
 
   let changed = 0;
-  for (const [file, from, to] of replacements) {
-    if (!fs.existsSync(file)) continue;
-    const html = fs.readFileSync(file, 'utf8');
-    if (html.includes(to)) continue;
-    if (!html.includes(from)) throw new Error(`Expected feedback form action not found in ${path.relative(ROOT, file)}`);
-    fs.writeFileSync(file, html.replace(from, to));
+  for (const replacement of replacements) {
+    if (!fs.existsSync(replacement.file)) continue;
+    let html = fs.readFileSync(replacement.file, 'utf8');
+    if (html.includes(replacement.to)) continue;
+
+    const current = replacement.from.find((candidate) => html.includes(candidate));
+    if (!current) {
+      throw new Error(`Expected feedback form action not found in ${path.relative(ROOT, replacement.file)}`);
+    }
+
+    html = html.replace(current, replacement.to);
+    fs.writeFileSync(replacement.file, html);
     changed += 1;
   }
   return changed;
