@@ -20,8 +20,13 @@ on:
       - 'scripts/living-hub-new-guides.js'
       - 'scripts/living-hub-new-guides-smoke.py'
       - 'scripts/long-term-documents-smoke.py'
+      - 'scripts/add-help-feedback-discovery.js'
+      - 'scripts/help-feedback-smoke.py'
+      - 'help-feedback/**'
+      - 'es/help-feedback/**'
       - 'styles-overhaul.css'
       - 'styles-final-visual-polish.css'
+      - 'styles-help-feedback.css'
       - '_redirects'
       - 'netlify.toml'
       - '.github/workflows/overhaul-check.yml'
@@ -47,6 +52,8 @@ jobs:
           node --check scripts/fix-new-guide-language-links.js
           node --check scripts/bake-living-hub-new-guides.js
           node --check scripts/living-hub-new-guides.js
+          node --check scripts/add-help-feedback-discovery.js
+          node --check help-feedback/help-feedback.js
       - name: Check referenced internal paths
         run: |
           node <<'NODE'
@@ -85,7 +92,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install browser test dependency
-        run: python -m pip install --disable-pip-version-check selenium==4.35.0
+        run: python -m pip install --disable-pip-check selenium==4.35.0
       - name: Run deployed preview console and function checks
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
@@ -106,3 +113,7 @@ jobs:
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
         run: python scripts/living-hub-new-guides-smoke.py
+      - name: Verify Help and Feedback forms and discovery
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/help-feedback-smoke.py
