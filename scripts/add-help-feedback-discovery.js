@@ -35,6 +35,24 @@ function addFooterLink(file) {
   return true;
 }
 
+function fixFeedbackSuccessActions() {
+  const replacements = [
+    [path.join(ROOT, 'help-feedback', 'index.html'), 'action="/help-feedback/thanks/"', 'action="/help-feedback/thanks/index.html"'],
+    [path.join(ROOT, 'es', 'help-feedback', 'index.html'), 'action="/es/help-feedback/thanks/"', 'action="/es/help-feedback/thanks/index.html"']
+  ];
+
+  let changed = 0;
+  for (const [file, from, to] of replacements) {
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    if (html.includes(to)) continue;
+    if (!html.includes(from)) throw new Error(`Expected feedback form action not found in ${path.relative(ROOT, file)}`);
+    fs.writeFileSync(file, html.replace(from, to));
+    changed += 1;
+  }
+  return changed;
+}
+
 function updateSearchIndex() {
   const file = path.join(ROOT, 'search-index.json');
   if (!fs.existsSync(file)) return;
@@ -81,7 +99,8 @@ function updateSitemap(fileName) {
 
 let touched = 0;
 for (const file of walk(ROOT)) if (addFooterLink(file)) touched += 1;
+const fixedActions = fixFeedbackSuccessActions();
 updateSearchIndex();
 updateSitemap('sitemap.xml');
 updateSitemap('sitemap-pages.xml');
-console.log(`Help & Feedback discovery applied to ${touched} footer(s).`);
+console.log(`Help & Feedback discovery applied to ${touched} footer(s); fixed ${fixedActions} success action(s).`);
