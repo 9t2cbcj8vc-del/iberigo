@@ -59,14 +59,25 @@ def assert_success_routing():
         redirects = handle.read()
 
     expected_rules = [
-        "/help-feedback/thanks /help-feedback/thanks/index.html 200!",
-        "/help-feedback/thanks/ /help-feedback/thanks/index.html 200!",
-        "/es/help-feedback/thanks /es/help-feedback/thanks/index.html 200!",
-        "/es/help-feedback/thanks/ /es/help-feedback/thanks/index.html 200!",
+        "/help-feedback/thanks /feedback-thanks.html 302!",
+        "/help-feedback/thanks/ /feedback-thanks.html 302!",
+        "/help-feedback/thanks/index.html /feedback-thanks.html 302!",
+        "/es/help-feedback/thanks /es-feedback-thanks.html 302!",
+        "/es/help-feedback/thanks/ /es-feedback-thanks.html 302!",
+        "/es/help-feedback/thanks/index.html /es-feedback-thanks.html 302!",
     ]
     for rule in expected_rules:
         if rule not in redirects:
             raise AssertionError(f"Missing feedback success redirect rule: {rule}")
+
+    direct_pages = {
+        "/feedback-thanks.html": "Thank you.",
+        "/es-feedback-thanks.html": "Gracias.",
+    }
+    for path, marker in direct_pages.items():
+        html = fetch(path)
+        if marker not in html:
+            raise AssertionError(f"{path}: success page marker missing")
 
     for path in [
         "/help-feedback/thanks/",
@@ -76,7 +87,7 @@ def assert_success_routing():
     ]:
         fetch(path)
 
-    print("PASS success routing: exact files and friendly EN/ES thank-you URLs return 200")
+    print("PASS success routing: flat success files and legacy EN/ES thank-you aliases return 200")
 
 
 def assert_rendered_refinements():
@@ -144,8 +155,8 @@ def assert_discovery():
 
 
 def main():
-    assert_form("/help-feedback/", "en", "/help-feedback/thanks/index.html", "Help &amp; Feedback")
-    assert_form("/es/help-feedback/", "es", "/es/help-feedback/thanks/index.html", "Ayuda y comentarios")
+    assert_form("/help-feedback/", "en", "/feedback-thanks.html", "Help &amp; Feedback")
+    assert_form("/es/help-feedback/", "es", "/es-feedback-thanks.html", "Ayuda y comentarios")
     assert_success_routing()
     assert_rendered_refinements()
     assert_discovery()
