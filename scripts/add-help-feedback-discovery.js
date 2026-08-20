@@ -35,34 +35,48 @@ function addFooterLink(file) {
   return true;
 }
 
-function fixFeedbackSuccessActions() {
-  const replacements = [
+function configureFeedbackForms() {
+  const configs = [
     {
       file: path.join(ROOT, 'help-feedback', 'index.html'),
-      from: ['action="/help-feedback/thanks/"', 'action="/help-feedback/thanks/index.html"'],
-      to: 'action="/feedback-thanks.html"'
+      formName: 'iberigo-help-feedback-en',
+      successAction: '/feedback-thanks.html',
+      oldActions: ['/help-feedback/thanks/', '/help-feedback/thanks/index.html', '/feedback-thanks.html']
     },
     {
       file: path.join(ROOT, 'es', 'help-feedback', 'index.html'),
-      from: ['action="/es/help-feedback/thanks/"', 'action="/es/help-feedback/thanks/index.html"'],
-      to: 'action="/es-feedback-thanks.html"'
+      formName: 'iberigo-help-feedback-es',
+      successAction: '/es-feedback-thanks.html',
+      oldActions: ['/es/help-feedback/thanks/', '/es/help-feedback/thanks/index.html', '/es-feedback-thanks.html']
     }
   ];
 
   let changed = 0;
-  for (const replacement of replacements) {
-    if (!fs.existsSync(replacement.file)) continue;
-    let html = fs.readFileSync(replacement.file, 'utf8');
-    if (html.includes(replacement.to)) continue;
+  for (const config of configs) {
+    if (!fs.existsSync(config.file)) continue;
+    let html = fs.readFileSync(config.file, 'utf8');
+    const before = html;
 
-    const current = replacement.from.find((candidate) => html.includes(candidate));
-    if (!current) {
-      throw new Error(`Expected feedback form action not found in ${path.relative(ROOT, replacement.file)}`);
+    html = html.replace(/(<form\b[^>]*\bname=")[^"]+("[^>]*data-help-feedback-form)/, `$1${config.formName}$2`);
+    html = html.replace(/(<input\b[^>]*\bname="form-name"[^>]*\bvalue=")[^"]+("[^>]*>)/, `$1${config.formName}$2`);
+
+    const actionPattern = new RegExp(`action="(?:${config.oldActions.map((value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})"`);
+    html = html.replace(actionPattern, `action="${config.successAction}"`);
+
+    if (!html.includes(`name="${config.formName}"`)) {
+      throw new Error(`Expected feedback form name not configured in ${path.relative(ROOT, config.file)}`);
+    }
+    if (!html.includes(`name="form-name" value="${config.formName}"`)) {
+      throw new Error(`Expected hidden form-name not configured in ${path.relative(ROOT, config.file)}`);
+    }
+    if (!html.includes(`action="${config.successAction}"`)) {
+      throw new Error(`Expected success action not configured in ${path.relative(ROOT, config.file)}`);
     }
 
-    html = html.replace(current, replacement.to);
-    fs.writeFileSync(replacement.file, html);
-    changed += 1;
+    if (html !== before) {
+      fs.writeFileSync(config.file, html);
+      changed += 1;
+    }
   }
   return changed;
 }
@@ -113,8 +127,8 @@ function updateSitemap(fileName) {
 
 let touched = 0;
 for (const file of walk(ROOT)) if (addFooterLink(file)) touched += 1;
-const fixedActions = fixFeedbackSuccessActions();
+const configuredForms = configureFeedbackForms();
 updateSearchIndex();
 updateSitemap('sitemap.xml');
 updateSitemap('sitemap-pages.xml');
-console.log(`Help & Feedback discovery applied to ${touched} footer(s); fixed ${fixedActions} success action(s).`);
+console.log(`Help & Feedback discovery applied to ${touched} footer(s); configured ${configuredForms} language-specific form(s).`);
