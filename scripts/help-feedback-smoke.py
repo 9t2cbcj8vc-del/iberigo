@@ -26,11 +26,30 @@ def fetch(path, attempts=20):
     raise AssertionError(f"Could not fetch {url}: {last}")
 
 
-def assert_form(path, lang, action, title, form_name):
+def assert_source_form(file_path, form_name, action, language):
+    with open(file_path, "r", encoding="utf-8") as handle:
+        html = handle.read()
+
+    required = [
+        f'name="{form_name}"',
+        f'name="form-name" value="{form_name}"',
+        f'action="{action}"',
+        f'name="language" value="{language}"',
+        'data-netlify="true"',
+        'netlify-honeypot="bot-field"',
+        'name="bot-field"',
+    ]
+    for marker in required:
+        if marker not in html:
+            raise AssertionError(f"{file_path}: source form configuration missing {marker}")
+    print(f"PASS source {file_path}: {form_name} -> {action} ({language})")
+
+
+def assert_deployed_form(path, lang, title, form_name):
     html = fetch(path)
     lowered = html.lower()
     if f'<html lang="{lang}"' not in lowered:
-        raise AssertionError(f"{path}: wrong language")
+        raise AssertionError(f"{path}: wrong page language")
     if title not in html:
         raise AssertionError(f"{path}: missing title marker {title}")
 
@@ -49,11 +68,14 @@ def assert_form(path, lang, action, title, form_name):
 
     if not re.search(r'<input[^>]*name="bot-field"[^>]*>', html, re.I):
         raise AssertionError(f"{path}: deployed honeypot bot-field input missing")
-    if f'action="{action}"' not in html:
-        raise AssertionError(f"{path}: wrong success action")
     for field in ["topic", "page_url", "message", "visitor_email", "language"]:
         if f'name="{field}"' not in html:
-            raise AssertionError(f"{path}: missing field {field}")
+            raise AssertionError(f"{path}: missing deployed field {field}")
+
+    language = re.search(r'<input[^>]*name="language"[^>]*value="([^"]+)"[^>]*>', html, re.I)
+    if not language or language.group(1) != lang:
+        raise AssertionError(f"{path}: deployed language field mismatch")
+
     email = re.search(r'<input[^>]+name="visitor_email"[^>]*>', html, re.I)
     if not email or "required" in email.group(0).lower():
         raise AssertionError(f"{path}: visitor email must remain optional")
@@ -61,7 +83,7 @@ def assert_form(path, lang, action, title, form_name):
         raise AssertionError(f"{path}: public email/mailto link must not be exposed")
     if "passport numbers" not in lowered and "números de pasaporte" not in lowered:
         raise AssertionError(f"{path}: sensitive-data warning missing")
-    print(f"PASS {path}: deployed form-name {form_name}, correct success action and language")
+    print(f"PASS {path}: deployed form-name {form_name} and language {lang}")
 
 
 def assert_success_routing():
@@ -165,8 +187,10 @@ def assert_discovery():
 
 
 def main():
-    assert_form("/help-feedback/", "en", "/feedback-thanks.html", "Help &amp; Feedback", "iberigo-help-feedback-en")
-    assert_form("/es/help-feedback/", "es", "/es-feedback-thanks.html", "Ayuda y comentarios", "iberigo-help-feedback-es")
+    assert_source_form("help-feedback/index.html", "iberigo-help-feedback-en", "/feedback-thanks.html", "en")
+    assert_source_form("es/help-feedback/index.html", "iberigo-help-feedback-es", "/es-feedback-thanks.html", "es")
+    assert_deployed_form("/help-feedback/", "en", "Help &amp; Feedback", "iberigo-help-feedback-en")
+    assert_deployed_form("/es/help-feedback/", "es", "Ayuda y comentarios", "iberigo-help-feedback-es")
     assert_success_routing()
     assert_rendered_refinements()
     assert_discovery()
