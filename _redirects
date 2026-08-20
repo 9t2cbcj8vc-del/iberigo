@@ -11,7 +11,9 @@ https://iberigo.es/* https://iberigo.eu/:splat 301!
 /es/moving-to-spain/documents-apostilles-translations /es/moving-to-spain/documents-apostilles-translations/index.html 200!
 /es/moving-to-spain/documents-apostilles-translations/ /es/moving-to-spain/documents-apostilles-translations/index.html 200!
 
-/help-feedback/thanks /help-feedback/thanks/index.html 200!
-/help-feedback/thanks/ /help-feedback/thanks/index.html 200!
-/es/help-feedback/thanks /es/help-feedback/thanks/index.html 200!
-/es/help-feedback/thanks/ /es/help-feedback/thanks/index.html 200!
+/help-feedback/thanks /feedback-thanks.html 302!
+/help-feedback/thanks/ /feedback-thanks.html 302!
+/help-feedback/thanks/index.html /feedback-thanks.html 302!
+/es/help-feedback/thanks /es-feedback-thanks.html 302!
+/es/help-feedback/thanks/ /es-feedback-thanks.html 302!
+/es/help-feedback/thanks/index.html /es-feedback-thanks.html 302!
