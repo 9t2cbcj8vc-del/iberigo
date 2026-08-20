@@ -3,6 +3,10 @@ import re
 import time
 import urllib.request
 
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+
 BASE = os.environ["PREVIEW_BASE"].rstrip("/")
 
 
@@ -50,6 +54,52 @@ def assert_form(path, lang, action, title):
     print(f"PASS {path}: Netlify form, optional email, privacy warning, no public email")
 
 
+def assert_rendered_refinements():
+    options = Options()
+    options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--window-size=1536,1000")
+    driver = webdriver.Chrome(options=options)
+    driver.set_page_load_timeout(35)
+
+    expected_notes = {
+        "/help-feedback/": "We read all messages, but a personal reply is not guaranteed.",
+        "/es/help-feedback/": "Leemos todos los mensajes, pero no podemos garantizar una respuesta personal.",
+    }
+
+    try:
+        for path, expected_note in expected_notes.items():
+            driver.get(BASE + path)
+            WebDriverWait(driver, 20).until(
+                lambda d: d.execute_script(
+                    "return Boolean(document.querySelector('.hf-reply-note')) && Boolean(document.querySelector('[name=\"topic\"]')) && Boolean(document.querySelector('[name=\"page_url\"]'));"
+                )
+            )
+            result = driver.execute_script(
+                """
+                const topic = document.querySelector('[name="topic"]').getBoundingClientRect();
+                const pageUrl = document.querySelector('[name="page_url"]').getBoundingClientRect();
+                return {
+                  topicTop: topic.top,
+                  pageTop: pageUrl.top,
+                  topicHeight: topic.height,
+                  pageHeight: pageUrl.height,
+                  note: document.querySelector('.hf-reply-note')?.textContent?.trim() || ''
+                };
+                """
+            )
+            if abs(result["topicTop"] - result["pageTop"]) > 2:
+                raise AssertionError(f"{path}: Topic and Page URL controls are vertically misaligned: {result}")
+            if abs(result["topicHeight"] - result["pageHeight"]) > 2:
+                raise AssertionError(f"{path}: Topic and Page URL controls have different heights: {result}")
+            if result["note"] != expected_note:
+                raise AssertionError(f"{path}: reply disclaimer mismatch: {result['note']!r}")
+            print(f"PASS {path}: aligned Topic/Page URL controls and reply disclaimer")
+    finally:
+        driver.quit()
+
+
 def assert_discovery():
     home = fetch("/")
     if 'href="/help-feedback/"' not in home or "Help & Feedback" not in home:
@@ -73,6 +123,7 @@ def main():
     assert_form("/es/help-feedback/", "es", "/es/help-feedback/thanks/", "Ayuda y comentarios")
     fetch("/help-feedback/thanks/")
     fetch("/es/help-feedback/thanks/")
+    assert_rendered_refinements()
     assert_discovery()
     print("HELP & FEEDBACK PASSED")
 
