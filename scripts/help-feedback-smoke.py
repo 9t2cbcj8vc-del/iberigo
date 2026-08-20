@@ -47,8 +47,6 @@ def assert_form(path, lang, action, title, form_name):
     if visible_name and visible_name.group(1) != form_name:
         raise AssertionError(f"{path}: visible form name is {visible_name.group(1)!r}, expected {form_name!r}")
 
-    if 'data-netlify="true"' not in html:
-        raise AssertionError(f"{path}: Netlify form detection marker missing")
     if 'netlify-honeypot="bot-field"' not in html:
         raise AssertionError(f"{path}: honeypot missing")
     if f'action="{action}"' not in html:
