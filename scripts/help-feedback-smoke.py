@@ -33,12 +33,22 @@ def assert_form(path, lang, action, title, form_name):
         raise AssertionError(f"{path}: wrong language")
     if title not in html:
         raise AssertionError(f"{path}: missing title marker {title}")
-    if f'name="{form_name}"' not in html:
-        raise AssertionError(f"{path}: expected Netlify form identity {form_name} missing")
-    if f'name="form-name" value="{form_name}"' not in html:
-        raise AssertionError(f"{path}: hidden form-name does not match {form_name}")
+
+    hidden = re.search(r'<input[^>]*name="form-name"[^>]*value="([^"]+)"[^>]*>', html, re.I)
+    if not hidden:
+        raise AssertionError(f"{path}: deployed hidden form-name field missing")
+    if hidden.group(1) != form_name:
+        raise AssertionError(f"{path}: deployed form-name is {hidden.group(1)!r}, expected {form_name!r}")
+
+    form_tag = re.search(r'<form\b[^>]*data-help-feedback-form[^>]*>', html, re.I)
+    if not form_tag:
+        raise AssertionError(f"{path}: feedback form tag missing")
+    visible_name = re.search(r'\bname="([^"]+)"', form_tag.group(0), re.I)
+    if visible_name and visible_name.group(1) != form_name:
+        raise AssertionError(f"{path}: visible form name is {visible_name.group(1)!r}, expected {form_name!r}")
+
     if 'data-netlify="true"' not in html:
-        raise AssertionError(f"{path}: Netlify form detection missing")
+        raise AssertionError(f"{path}: Netlify form detection marker missing")
     if 'netlify-honeypot="bot-field"' not in html:
         raise AssertionError(f"{path}: honeypot missing")
     if f'action="{action}"' not in html:
@@ -53,7 +63,7 @@ def assert_form(path, lang, action, title, form_name):
         raise AssertionError(f"{path}: public email/mailto link must not be exposed")
     if "passport numbers" not in lowered and "números de pasaporte" not in lowered:
         raise AssertionError(f"{path}: sensitive-data warning missing")
-    print(f"PASS {path}: {form_name}, correct success action, optional email and privacy warning")
+    print(f"PASS {path}: deployed form-name {form_name}, correct success action and language")
 
 
 def assert_success_routing():
