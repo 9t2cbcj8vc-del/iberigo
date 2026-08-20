@@ -26,15 +26,17 @@ def fetch(path, attempts=20):
     raise AssertionError(f"Could not fetch {url}: {last}")
 
 
-def assert_form(path, lang, action, title):
+def assert_form(path, lang, action, title, form_name):
     html = fetch(path)
     lowered = html.lower()
     if f'<html lang="{lang}"' not in lowered:
         raise AssertionError(f"{path}: wrong language")
     if title not in html:
         raise AssertionError(f"{path}: missing title marker {title}")
-    if 'name="iberigo-help-feedback"' not in html:
-        raise AssertionError(f"{path}: Netlify form name missing")
+    if f'name="{form_name}"' not in html:
+        raise AssertionError(f"{path}: expected Netlify form identity {form_name} missing")
+    if f'name="form-name" value="{form_name}"' not in html:
+        raise AssertionError(f"{path}: hidden form-name does not match {form_name}")
     if 'data-netlify="true"' not in html:
         raise AssertionError(f"{path}: Netlify form detection missing")
     if 'netlify-honeypot="bot-field"' not in html:
@@ -51,7 +53,7 @@ def assert_form(path, lang, action, title):
         raise AssertionError(f"{path}: public email/mailto link must not be exposed")
     if "passport numbers" not in lowered and "números de pasaporte" not in lowered:
         raise AssertionError(f"{path}: sensitive-data warning missing")
-    print(f"PASS {path}: Netlify form, optional email, privacy warning, no public email")
+    print(f"PASS {path}: {form_name}, correct success action, optional email and privacy warning")
 
 
 def assert_success_routing():
@@ -71,13 +73,13 @@ def assert_success_routing():
             raise AssertionError(f"Missing feedback success redirect rule: {rule}")
 
     direct_pages = {
-        "/feedback-thanks.html": "Thank you.",
-        "/es-feedback-thanks.html": "Gracias.",
+        "/feedback-thanks.html": ("<html lang=\"en\"", "Thank you."),
+        "/es-feedback-thanks.html": ("<html lang=\"es\"", "Gracias."),
     }
-    for path, marker in direct_pages.items():
+    for path, (lang_marker, text_marker) in direct_pages.items():
         html = fetch(path)
-        if marker not in html:
-            raise AssertionError(f"{path}: success page marker missing")
+        if lang_marker not in html or text_marker not in html:
+            raise AssertionError(f"{path}: wrong language or success marker")
 
     for path in [
         "/help-feedback/thanks/",
@@ -87,7 +89,7 @@ def assert_success_routing():
     ]:
         fetch(path)
 
-    print("PASS success routing: flat success files and legacy EN/ES thank-you aliases return 200")
+    print("PASS success routing: EN and ES success pages stay language-specific")
 
 
 def assert_rendered_refinements():
@@ -155,8 +157,8 @@ def assert_discovery():
 
 
 def main():
-    assert_form("/help-feedback/", "en", "/feedback-thanks.html", "Help &amp; Feedback")
-    assert_form("/es/help-feedback/", "es", "/es-feedback-thanks.html", "Ayuda y comentarios")
+    assert_form("/help-feedback/", "en", "/feedback-thanks.html", "Help &amp; Feedback", "iberigo-help-feedback-en")
+    assert_form("/es/help-feedback/", "es", "/es-feedback-thanks.html", "Ayuda y comentarios", "iberigo-help-feedback-es")
     assert_success_routing()
     assert_rendered_refinements()
     assert_discovery()
