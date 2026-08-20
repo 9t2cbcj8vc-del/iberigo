@@ -47,8 +47,8 @@ def assert_form(path, lang, action, title, form_name):
     if visible_name and visible_name.group(1) != form_name:
         raise AssertionError(f"{path}: visible form name is {visible_name.group(1)!r}, expected {form_name!r}")
 
-    if 'netlify-honeypot="bot-field"' not in html:
-        raise AssertionError(f"{path}: honeypot missing")
+    if not re.search(r'<input[^>]*name="bot-field"[^>]*>', html, re.I):
+        raise AssertionError(f"{path}: deployed honeypot bot-field input missing")
     if f'action="{action}"' not in html:
         raise AssertionError(f"{path}: wrong success action")
     for field in ["topic", "page_url", "message", "visitor_email", "language"]:
