@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = process.cwd();
-const SCRIPT_TAG = '<script src="/scripts/language-switch-fix.js?v=20260815-language-switch-1" defer></script>';
+const SCRIPT_TAG = '<script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>';
 const SCRIPT_RE = /\s*<script\s+src=["']\/scripts\/language-switch-fix\.js(?:\?[^"']*)?["']\s+defer><\/script>/gi;
 const SKIP_DIRS = new Set([".git", "node_modules"]);
 
@@ -27,4 +27,4 @@ function updateHtml(file) {
 }
 
 walk(ROOT);
-console.log("Baked persistent EN/ES language switching into HTML pages.");
+console.log("Baked persistent EN/ES language switching and active-state sync into HTML pages.");
