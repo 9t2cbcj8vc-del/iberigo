@@ -54,6 +54,31 @@ def assert_form(path, lang, action, title):
     print(f"PASS {path}: Netlify form, optional email, privacy warning, no public email")
 
 
+def assert_success_routing():
+    with open("_redirects", "r", encoding="utf-8") as handle:
+        redirects = handle.read()
+
+    expected_rules = [
+        "/help-feedback/thanks /help-feedback/thanks/index.html 200!",
+        "/help-feedback/thanks/ /help-feedback/thanks/index.html 200!",
+        "/es/help-feedback/thanks /es/help-feedback/thanks/index.html 200!",
+        "/es/help-feedback/thanks/ /es/help-feedback/thanks/index.html 200!",
+    ]
+    for rule in expected_rules:
+        if rule not in redirects:
+            raise AssertionError(f"Missing feedback success redirect rule: {rule}")
+
+    for path in [
+        "/help-feedback/thanks/",
+        "/help-feedback/thanks/index.html",
+        "/es/help-feedback/thanks/",
+        "/es/help-feedback/thanks/index.html",
+    ]:
+        fetch(path)
+
+    print("PASS success routing: exact files and friendly EN/ES thank-you URLs return 200")
+
+
 def assert_rendered_refinements():
     options = Options()
     options.add_argument("--headless=new")
@@ -119,10 +144,9 @@ def assert_discovery():
 
 
 def main():
-    assert_form("/help-feedback/", "en", "/help-feedback/thanks/", "Help &amp; Feedback")
-    assert_form("/es/help-feedback/", "es", "/es/help-feedback/thanks/", "Ayuda y comentarios")
-    fetch("/help-feedback/thanks/")
-    fetch("/es/help-feedback/thanks/")
+    assert_form("/help-feedback/", "en", "/help-feedback/thanks/index.html", "Help &amp; Feedback")
+    assert_form("/es/help-feedback/", "es", "/es/help-feedback/thanks/index.html", "Ayuda y comentarios")
+    assert_success_routing()
     assert_rendered_refinements()
     assert_discovery()
     print("HELP & FEEDBACK PASSED")
