@@ -7,6 +7,7 @@ const SITE = "https://iberigo.eu";
 const META_MARKER = "data-iberigo-freshness";
 const VISIBLE_MARKER = "data-iberigo-freshness-visible";
 const SITEMAPS = ["sitemap.xml", "sitemap-pages.xml"];
+const ACTION_DATA_DIR = path.join(ROOT, "scripts", "action-first");
 
 function git(args, options = {}) {
   return execFileSync("git", args, {
@@ -49,13 +50,31 @@ function relFile(route) {
   return path.relative(ROOT, routeFile(route)).replace(/\\/g, "/");
 }
 
+function actionDependencyMap() {
+  const result = new Map();
+  if (!fs.existsSync(ACTION_DATA_DIR)) return result;
+  for (const name of fs.readdirSync(ACTION_DATA_DIR).filter((entry) => entry.endsWith(".json")).sort()) {
+    const full = path.join(ACTION_DATA_DIR, name);
+    const data = JSON.parse(fs.readFileSync(full, "utf8"));
+    if (!data.route) continue;
+    const rel = path.relative(ROOT, full).replace(/\\/g, "/");
+    const existing = result.get(data.route) || [];
+    existing.push(rel);
+    result.set(data.route, existing);
+  }
+  return result;
+}
+
+const ACTION_DEPENDENCIES = actionDependencyMap();
+
 function isIsoDate(value) {
   return /^\d{4}-\d{2}-\d{2}$/.test(value || "") && !Number.isNaN(Date.parse(`${value}T00:00:00Z`));
 }
 
 function gitLastModified(route) {
   try {
-    const value = git(["log", "-1", "--format=%cs", "--", relFile(route)]);
+    const dependencies = ACTION_DEPENDENCIES.get(route) || [];
+    const value = git(["log", "-1", "--format=%cs", "--", relFile(route), ...dependencies]);
     return isIsoDate(value) ? value : "";
   } catch (error) {
     return "";
