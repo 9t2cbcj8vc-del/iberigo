@@ -1,0 +1,27 @@
+name: Crawler-first guide check
+
+on:
+  pull_request:
+    paths:
+      - 'guides/**'
+      - 'scripts/bake-crawler-first-guides.js'
+      - 'scripts/crawler-first-smoke.py'
+      - 'netlify.toml'
+      - '.github/workflows/crawler-first-check.yml'
+
+jobs:
+  crawler-first:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Bake crawler-first raw guide HTML locally
+        run: node scripts/bake-crawler-first-guides.js
+      - name: Audit every generated guide locally
+        run: python scripts/crawler-first-smoke.py --local
+      - name: Audit every generated guide on deployed preview
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/crawler-first-smoke.py --preview
