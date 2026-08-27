@@ -1,0 +1,63 @@
+{
+  "procedureKey": "padron",
+  "route": "/es/moving-to-spain/registering-on-the-padron/",
+  "lang": "es",
+  "eyebrow": "Haz esto ahora",
+  "title": "Padrón: separa la regla nacional del trámite local",
+  "intro": "La regla nacional es sencilla: debes empadronarte en el municipio donde resides habitualmente. La gestión concreta es municipal, por lo que tu ayuntamiento determina el canal de cita, el formulario local y las pruebas de domicilio que debes aportar.",
+  "status": "Regla nacional · tramitación específica de cada municipio",
+  "sourceChecked": "2026-08-27",
+  "sourceCheckedLabel": "Fuente oficial comprobada",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Trámite",
+      "text": "Alta o inscripción en el Padrón Municipal de Habitantes del domicilio donde resides habitualmente."
+    },
+    {
+      "id": "where",
+      "label": "Dónde ir",
+      "text": "Tu propio ayuntamiento. No existe una única oficina nacional del padrón ni un portal nacional único de citas para este trámite."
+    },
+    {
+      "id": "select",
+      "label": "Qué buscar",
+      "text": "En la web del ayuntamiento busca Padrón, Empadronamiento, Alta en el padrón o un servicio municipal de población con un nombre similar. El texto exacto y la necesidad de cita dependen del municipio."
+    },
+    {
+      "id": "forms",
+      "label": "Comprueba antes de ir",
+      "text": "Confirma el formulario vigente del municipio, el método de cita y las pruebas de domicilio que acepta. No copies la lista de documentos de otro ayuntamiento."
+    },
+    {
+      "id": "bring",
+      "label": "Prepara normalmente",
+      "bullets": [
+        "Pasaporte o documento nacional de identidad válido",
+        "La prueba de domicilio que acepte tu municipio para tu situación de vivienda",
+        "Contrato de alquiler o documentación de propiedad cuando corresponda",
+        "Autorización u otros documentos del ocupante o propietario si tu ayuntamiento los exige",
+        "Confirmación de cita si el sistema local exige cita previa"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "Pide después",
+      "text": "Pregunta cómo obtener un volante o certificado de empadronamiento si otro trámite necesita justificante. El padrón acredita residencia/domicilio municipal; por sí solo no concede residencia a efectos de extranjería."
+    }
+  ],
+  "links": [
+    {
+      "label": "INE: qué es el Padrón",
+      "url": "https://www.ine.es/ss/Satellite?c=SETramite_C&cid=1254734895886&lang=es_ES&p=1254734719739&pagename=SedeElectronica%2FSELayout&param1=saber"
+    },
+    {
+      "label": "Torrevieja: ejemplo local real",
+      "url": "/the-spain-files/es/padron-torrevieja/"
+    },
+    {
+      "label": "Qué suele venir después",
+      "url": "/es/moving-to-spain/settling-into-spain/"
+    }
+  ]
+}
