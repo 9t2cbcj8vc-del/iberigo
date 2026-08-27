@@ -1,0 +1,38 @@
+name: Content freshness check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  content-freshness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check freshness build syntax
+        run: node --check scripts/bake-content-freshness.js
+      - name: Check freshness audit syntax
+        run: python -m py_compile scripts/content-freshness-audit.py
+      - name: Bake crawler-first guide HTML locally
+        run: node scripts/bake-crawler-first-guides.js
+      - name: Bake SEO URL ownership locally
+        run: node scripts/bake-seo-url-ownership.js
+      - name: Bake Git-backed content freshness locally
+        run: node scripts/bake-content-freshness.js
+      - name: Bake structured data locally
+        run: node scripts/bake-structured-data.js
+      - name: Audit local sitemap and page freshness
+        run: python scripts/content-freshness-audit.py --local
+      - name: Audit deployed Netlify preview freshness
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.number }}--iberigo.netlify.app
+        run: python scripts/content-freshness-audit.py --preview
