@@ -4,7 +4,6 @@ import html as html_lib
 import os
 import re
 import time
-import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -40,6 +39,18 @@ def attr_content(page: str, pattern: str, label: str):
     return html_lib.unescape(match.group(1).strip())
 
 
+def meta_description(page: str):
+    match = re.search(
+        r"<meta\s+name=[\"']description[\"']\s+content=(\"([^\"]*)\"|'([^']*)')[^>]*>",
+        page,
+        flags=re.I | re.S,
+    )
+    if not match:
+        raise AssertionError("missing meta description")
+    value = match.group(2) if match.group(2) is not None else match.group(3)
+    return html_lib.unescape(value.strip())
+
+
 def tag_with_id(page: str, element_id: str):
     match = re.search(
         rf"<([a-zA-Z0-9-]+)\b[^>]*\bid=(?:\"{re.escape(element_id)}\"|'{re.escape(element_id)}')[^>]*>",
@@ -64,11 +75,7 @@ def audit_page(route: str, page: str):
 
     title = attr_content(page, r"<title>([\s\S]*?)</title>", "title")
     expected_h1 = re.sub(r"\s+—\s+IberiGo\s*$", "", title, flags=re.I)
-    description = attr_content(
-        page,
-        r"<meta\s+name=[\"']description[\"']\s+content=[\"']([^\"']*)[\"'][^>]*>",
-        "meta description",
-    )
+    description = meta_description(page)
 
     canonical = attr_content(
         page,
