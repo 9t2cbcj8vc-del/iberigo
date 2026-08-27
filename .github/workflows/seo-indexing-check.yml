@@ -1,0 +1,28 @@
+name: SEO indexing ownership check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  seo-indexing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Bake crawler-first guide HTML locally
+        run: node scripts/bake-crawler-first-guides.js
+      - name: Bake SEO URL ownership locally
+        run: node scripts/bake-seo-url-ownership.js
+      - name: Audit local indexing and canonical ownership
+        run: python scripts/seo-indexing-audit.py --local
+      - name: Audit deployed Netlify preview
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.number }}--iberigo.netlify.app
+        run: python scripts/seo-indexing-audit.py --preview

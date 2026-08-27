@@ -178,12 +178,15 @@ def assert_discovery():
         if f'"url": "{url}"' not in search:
             raise AssertionError(f"Search index missing {url}")
 
+    # Help & Feedback is a visitor utility, not a search landing page. Keep it
+    # discoverable through navigation/site search while excluding it from XML
+    # sitemaps now that the SEO ownership layer marks it noindex,follow.
     for sitemap in ["/sitemap.xml", "/sitemap-pages.xml"]:
         xml = fetch(sitemap)
         for url in ["https://iberigo.eu/help-feedback/", "https://iberigo.eu/es/help-feedback/"]:
-            if f"<loc>{url}</loc>" not in xml:
-                raise AssertionError(f"{sitemap}: missing {url}")
-    print("PASS discovery: homepage footer, search index and sitemaps")
+            if f"<loc>{url}</loc>" in xml:
+                raise AssertionError(f"{sitemap}: utility URL should not be listed: {url}")
+    print("PASS discovery: homepage footer + site search; feedback utilities excluded from SEO sitemaps")
 
 
 def main():
