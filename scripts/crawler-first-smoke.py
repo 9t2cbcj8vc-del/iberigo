@@ -133,12 +133,20 @@ def audit_page(route: str, page: str):
         raise AssertionError("generic homepage/roadmap copy leaked into crawler intro")
 
 
-def fetch(url: str, timeout=20):
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=timeout) as response:
-        if response.status != 200:
-            raise AssertionError(f"HTTP {response.status} for {url}")
-        return response.read().decode("utf-8", errors="replace")
+def fetch(url: str, timeout=30, attempts=3):
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                if response.status != 200:
+                    raise AssertionError(f"HTTP {response.status} for {url}")
+                return response.read().decode("utf-8", errors="replace")
+        except Exception as exc:  # noqa: BLE001
+            last_error = exc
+            if attempt < attempts:
+                time.sleep(attempt * 1.5)
+    raise last_error
 
 
 def wait_for_preview(base: str, timeout=180):
@@ -146,7 +154,7 @@ def wait_for_preview(base: str, timeout=180):
     last_error = None
     while time.time() < deadline:
         try:
-            fetch(base + "/", timeout=10)
+            fetch(base + "/", timeout=10, attempts=1)
             return
         except Exception as exc:  # noqa: BLE001
             last_error = exc
@@ -176,7 +184,7 @@ def audit_preview(base: str, routes):
         audit_page(route, page)
         return route
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         futures = {pool.submit(check, item): item[0] for item in routes}
         for future in concurrent.futures.as_completed(futures):
             route = futures[future]
