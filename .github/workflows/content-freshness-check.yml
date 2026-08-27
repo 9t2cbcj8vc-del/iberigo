@@ -1,4 +1,4 @@
-name: Structured data check
+name: Content freshness check
 
 on:
   pull_request:
@@ -8,9 +8,9 @@ permissions:
   contents: read
 
 jobs:
-  structured-data:
+  content-freshness:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -18,8 +18,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Check structured data build syntax
-        run: node --check scripts/bake-structured-data.js
+      - name: Check freshness build syntax
+        run: node --check scripts/bake-content-freshness.js
+      - name: Check freshness audit syntax
+        run: python -m py_compile scripts/content-freshness-audit.py
       - name: Bake crawler-first guide HTML locally
         run: node scripts/bake-crawler-first-guides.js
       - name: Bake SEO URL ownership locally
@@ -28,9 +30,9 @@ jobs:
         run: node scripts/bake-content-freshness.js
       - name: Bake structured data locally
         run: node scripts/bake-structured-data.js
-      - name: Audit local structured data
-        run: python scripts/structured-data-audit.py --local
-      - name: Audit deployed Netlify preview structured data
+      - name: Audit local sitemap and page freshness
+        run: python scripts/content-freshness-audit.py --local
+      - name: Audit deployed Netlify preview freshness
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.number }}--iberigo.netlify.app
-        run: python scripts/structured-data-audit.py --preview
+        run: python scripts/content-freshness-audit.py --preview
