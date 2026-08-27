@@ -27,6 +27,13 @@ function addHiddenById(html, id) {
   });
 }
 
+function metaDescription(html) {
+  const doubleQuoted = html.match(/<meta\s+name=[\"']description[\"']\s+content=\"([^\"]*)\"[^>]*>/i)?.[1];
+  if (doubleQuoted) return doubleQuoted.trim();
+  const singleQuoted = html.match(/<meta\s+name=[\"']description[\"']\s+content='([^']*)'[^>]*>/i)?.[1];
+  return singleQuoted?.trim();
+}
+
 function extractGuideMeta(html) {
   const root = html.match(/<html\b([^>]*)>/i)?.[1] || "";
   const id = root.match(/\bdata-guide-id=[\"']([^\"']+)[\"']/i)?.[1];
@@ -34,7 +41,7 @@ function extractGuideMeta(html) {
   if (!id || !lang) return null;
 
   const title = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim();
-  const description = html.match(/<meta\s+name=[\"']description[\"']\s+content=[\"']([^\"']*)[\"'][^>]*>/i)?.[1]?.trim();
+  const description = metaDescription(html);
   if (!title || !description) {
     throw new Error(`Missing title or description for generated guide ${id} (${lang})`);
   }
@@ -57,7 +64,7 @@ function replaceInitialResult(html, meta) {
   if (!re.test(html)) throw new Error(`Missing #wizardResult for generated guide ${meta.id} (${meta.lang})`);
 
   return html.replace(re, (full, attrs, body) => {
-    let cleanAttrs = attrs
+    const cleanAttrs = attrs
       .replace(/\s+hidden(?:=(?:\"hidden\"|'hidden'|hidden))?/gi, "")
       .replace(/\bis-empty\b/g, "")
       .replace(/\s{2,}/g, " ");
