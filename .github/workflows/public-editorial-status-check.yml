@@ -1,0 +1,30 @@
+name: Public editorial status check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  public-editorial-status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check cleanup script syntax
+        run: node --check scripts/remove-public-editorial-status.js
+      - name: Check audit syntax
+        run: python -m py_compile scripts/public-editorial-status-audit.py
+      - name: Remove public internal editorial QA notices locally
+        run: node scripts/remove-public-editorial-status.js
+      - name: Audit all public HTML locally
+        run: python scripts/public-editorial-status-audit.py --local
+      - name: Audit all public HTML on deployed Netlify preview
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.number }}--iberigo.netlify.app
+        run: python scripts/public-editorial-status-audit.py --preview
