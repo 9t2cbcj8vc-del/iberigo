@@ -1,0 +1,32 @@
+name: Structured data check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  structured-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check structured data build syntax
+        run: node --check scripts/bake-structured-data.js
+      - name: Bake crawler-first guide HTML locally
+        run: node scripts/bake-crawler-first-guides.js
+      - name: Bake SEO URL ownership locally
+        run: node scripts/bake-seo-url-ownership.js
+      - name: Bake structured data locally
+        run: node scripts/bake-structured-data.js
+      - name: Audit local structured data
+        run: python scripts/structured-data-audit.py --local
+      - name: Audit deployed Netlify preview structured data
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.number }}--iberigo.netlify.app
+        run: python scripts/structured-data-audit.py --preview
