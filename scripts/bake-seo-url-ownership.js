@@ -61,6 +61,14 @@ function replaceHreflangSet(route, enRoute, esRoute) {
   fs.writeFileSync(file, html, "utf8");
 }
 
+function setPageTitle(route, value) {
+  const file = requirePage(route);
+  let html = fs.readFileSync(file, "utf8");
+  html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${value}</title>`);
+  html = html.replace(/<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${value}" />`);
+  fs.writeFileSync(file, html, "utf8");
+}
+
 function sitemapBlocks(xml) {
   return [...xml.matchAll(/\s*<url>\s*[\s\S]*?<\/url>/gi)].map((match) => match[0]);
 }
@@ -112,6 +120,10 @@ for (const [enRoute, esRoute] of rules.hreflang_pairs) {
   replaceHreflangSet(enRoute, enRoute, esRoute);
   replaceHreflangSet(esRoute, enRoute, esRoute);
 }
+
+// The EN and ES Spain Files hubs previously shared the exact same title, which
+// makes them look like duplicate documents despite correct canonicals/hreflang.
+setPageTitle("/the-spain-files/es/", "The Spain Files en español — IberiGo");
 
 for (const [alias, primary] of Object.entries(rules.redirect_aliases)) {
   requirePage(alias);
