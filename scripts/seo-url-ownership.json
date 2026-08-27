@@ -1,0 +1,62 @@
+{
+  "primary_indexable": [
+    "/moving-to-spain/eu-registration/",
+    "/es/moving-to-spain/eu-registration/",
+    "/moving-to-spain/digital-nomad-spain/",
+    "/es/moving-to-spain/digital-nomad-spain/",
+    "/moving-to-spain/students/",
+    "/es/moving-to-spain/students/",
+    "/moving-to-spain/family-reunification/",
+    "/es/moving-to-spain/family-reunification/",
+    "/moving-to-spain/family-member-eu-citizen/",
+    "/es/moving-to-spain/family-member-eu-citizen/",
+    "/moving-to-spain/finding-accommodation/",
+    "/es/moving-to-spain/finding-accommodation/",
+    "/moving-to-spain/registering-on-the-padron/",
+    "/es/moving-to-spain/registering-on-the-padron/",
+    "/moving-to-spain/healthcare/",
+    "/es/moving-to-spain/healthcare/",
+    "/living-in-spain/opening-a-bank-account/",
+    "/es/living-in-spain/opening-a-bank-account/",
+    "/the-spain-files/nie-spain/",
+    "/the-spain-files/como-obtener-nie-en-espana/"
+  ],
+  "duplicate_aliases": {
+    "/guides/eu-registration/": "/moving-to-spain/eu-registration/",
+    "/guides/es/eu-registration/": "/es/moving-to-spain/eu-registration/",
+    "/guides/digital-nomad/": "/moving-to-spain/digital-nomad-spain/",
+    "/guides/es/digital-nomad/": "/es/moving-to-spain/digital-nomad-spain/",
+    "/guides/study/": "/moving-to-spain/students/",
+    "/guides/es/study/": "/es/moving-to-spain/students/",
+    "/guides/family/": "/moving-to-spain/family-reunification/",
+    "/guides/es/family/": "/es/moving-to-spain/family-reunification/",
+    "/guides/eu-family/": "/moving-to-spain/family-member-eu-citizen/",
+    "/guides/es/eu-family/": "/es/moving-to-spain/family-member-eu-citizen/",
+    "/guides/banking/": "/living-in-spain/opening-a-bank-account/",
+    "/guides/es/banking/": "/es/living-in-spain/opening-a-bank-account/",
+    "/guides/renting-home/": "/moving-to-spain/finding-accommodation/",
+    "/guides/es/renting-home/": "/es/moving-to-spain/finding-accommodation/",
+    "/guides/padron/": "/moving-to-spain/registering-on-the-padron/",
+    "/guides/es/padron/": "/es/moving-to-spain/registering-on-the-padron/",
+    "/guides/nie/": "/the-spain-files/nie-spain/",
+    "/guides/es/nie/": "/the-spain-files/como-obtener-nie-en-espana/",
+    "/guides/nie-only/": "/the-spain-files/nie-spain/",
+    "/guides/es/nie-only/": "/the-spain-files/como-obtener-nie-en-espana/",
+    "/the-spain-files/bank-account-spain/": "/living-in-spain/opening-a-bank-account/",
+    "/the-spain-files/abrir-cuenta-bancaria-espana/": "/es/living-in-spain/opening-a-bank-account/"
+  },
+  "utility_noindex": [
+    "/search/",
+    "/help-feedback/",
+    "/es/help-feedback/",
+    "/support/",
+    "/feedback-thanks.html",
+    "/es-feedback-thanks.html"
+  ],
+  "redirect_aliases": {
+    "/the-spain-files/es/nie-spain/": "/the-spain-files/como-obtener-nie-en-espana/"
+  },
+  "hreflang_pairs": [
+    ["/the-spain-files/nie-spain/", "/the-spain-files/como-obtener-nie-en-espana/"]
+  ]
+}
