@@ -1,0 +1,64 @@
+{
+  "procedureKey": "eu-registration",
+  "route": "/moving-to-spain/eu-registration/",
+  "lang": "en",
+  "eyebrow": "Do this next",
+  "title": "EU registration: your filing card",
+  "intro": "Use this as the practical filing checklist if you are an EU, EEA or Swiss citizen who will live in Spain for more than three months. Your qualifying evidence still depends on whether you work, study, are self-employed, retired or rely on sufficient resources.",
+  "status": "National procedure · office availability can vary by province",
+  "sourceChecked": "2026-08-27",
+  "sourceCheckedLabel": "Official source checked",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Procedure",
+      "text": "Certificado de Registro de Ciudadano de la Unión Europea — application form EX-18."
+    },
+    {
+      "id": "where",
+      "label": "Where to go",
+      "text": "Apply in person at the competent Oficina de Extranjería in your province or, where the procedure is handled there, the corresponding Policía Nacional office."
+    },
+    {
+      "id": "select",
+      "label": "What to select",
+      "text": "Where the Policía Cita Previa menu is used, look for “POLICIA - CERTIFICADO DE REGISTRO DE CIUDADANO DE LA U.E.” Do not choose NIE assignment or a TIE appointment instead."
+    },
+    {
+      "id": "forms",
+      "label": "Forms and fee",
+      "text": "Prepare EX-18 and proof of payment of Modelo 790, código 012. Check the current official fee before paying rather than relying on an old amount."
+    },
+    {
+      "id": "bring",
+      "label": "Bring",
+      "bullets": [
+        "Valid passport or national identity document",
+        "Completed EX-18",
+        "Modelo 790 código 012 payment proof",
+        "Evidence for your qualifying route: work, self-employment, study, retirement or sufficient resources",
+        "Healthcare evidence when your qualifying route requires it",
+        "Any additional documents requested by the office handling your appointment"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "What happens after",
+      "text": "If the requirements are met, the official procedure provides for the registration certificate to be issued at the filing. Keep it with your other Spain documents and continue with the practical setup steps that apply to you."
+    }
+  ],
+  "links": [
+    {
+      "label": "Official Policía procedure",
+      "url": "https://sede.policia.gob.es/portalCiudadano/_es/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php"
+    },
+    {
+      "label": "Official Cita Previa",
+      "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus"
+    },
+    {
+      "label": "Healthcare before registration",
+      "url": "/moving-to-spain/healthcare/"
+    }
+  ]
+}
