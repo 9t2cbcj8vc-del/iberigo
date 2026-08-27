@@ -70,10 +70,6 @@ def meta_content(html: str, key: str, attr: str = "name") -> str:
     return ""
 
 
-def page_lang(html: str) -> str:
-    return (re.search(r'<html\b[^>]*\blang=["\']([^"\']+)["\']', html, re.I)?.group(1) if False else "")
-
-
 def extract_lang(html: str) -> str:
     match = re.search(r'<html\b[^>]*\blang=["\']([^"\']+)["\']', html, re.I)
     return match.group(1).lower() if match else "en"
@@ -209,6 +205,7 @@ def audit_preview() -> None:
     validate_sitemaps(remote_sitemaps, expected)
 
     failures = []
+
     def check(route: str) -> None:
         validate_page(route, fetch(route, base), expected[route])
 
