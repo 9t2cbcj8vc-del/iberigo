@@ -57,20 +57,52 @@ def assert_clean(label: str, html: str) -> None:
         raise AssertionError(f"{label}: public internal-QA markers found: {', '.join(found)}")
 
 
-def fetch(route: str, base: str, attempts: int = 5) -> str:
+def request_once(route: str, base: str) -> tuple[int, str]:
+    url = base.rstrip("/") + route
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "IberiGo-public-editorial-status-audit/1.1"},
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=25) as response:
+            return response.status, response.read().decode("utf-8", errors="replace")
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode("utf-8", errors="replace")
+        return exc.code, body
+
+
+def wait_for_preview(base: str) -> None:
+    last = None
+    for attempt in range(12):
+        try:
+            home_status, _ = request_once("/", base)
+            start_status, _ = request_once("/start-here/", base)
+            if home_status == 200 and start_status == 200:
+                return
+            last = f"homepage={home_status}, start-here={start_status}"
+        except (urllib.error.URLError, TimeoutError) as exc:
+            last = repr(exc)
+        time.sleep(min(3 + attempt, 10))
+    raise AssertionError(f"Netlify preview did not become ready: {last}")
+
+
+def fetch_body(route: str, base: str, attempts: int = 6) -> str:
     url = base.rstrip("/") + route
     last_error = None
     for attempt in range(attempts):
         try:
-            request = urllib.request.Request(
-                url,
-                headers={"User-Agent": "IberiGo-public-editorial-status-audit/1.0"},
-            )
-            with urllib.request.urlopen(request, timeout=25) as response:
-                return response.read().decode("utf-8", errors="replace")
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as exc:
-            last_error = exc
-            time.sleep(min(2 + attempt, 6))
+            status, body = request_once(route, base)
+            if status == 200:
+                return body
+            # Some repository HTML files are redirect aliases or the custom 404 page.
+            # Their non-200 response bodies are still public output and must be clean,
+            # but route availability is enforced by the site's dedicated route tests.
+            if status in {404, 410}:
+                return body
+            last_error = f"HTTP {status}"
+        except (urllib.error.URLError, TimeoutError) as exc:
+            last_error = repr(exc)
+        time.sleep(min(2 + attempt, 7))
     raise AssertionError(f"could not fetch {url}: {last_error}")
 
 
@@ -85,14 +117,15 @@ def audit_local() -> None:
 
 def audit_preview() -> None:
     base = os.environ["PREVIEW_BASE"].rstrip("/")
+    wait_for_preview(base)
     files = public_html_files()
     routes = sorted({route_for(file) for file in files})
     failures = []
 
     def check(route: str) -> None:
-        assert_clean(route, fetch(route, base))
+        assert_clean(route, fetch_body(route, base))
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         future_map = {pool.submit(check, route): route for route in routes}
         for future in concurrent.futures.as_completed(future_map):
             route = future_map[future]
