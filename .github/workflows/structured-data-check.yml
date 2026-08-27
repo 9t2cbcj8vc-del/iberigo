@@ -13,6 +13,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -22,6 +24,8 @@ jobs:
         run: node scripts/bake-crawler-first-guides.js
       - name: Bake SEO URL ownership locally
         run: node scripts/bake-seo-url-ownership.js
+      - name: Bake Git-backed content freshness locally
+        run: node scripts/bake-content-freshness.js
       - name: Bake structured data locally
         run: node scripts/bake-structured-data.js
       - name: Audit local structured data
