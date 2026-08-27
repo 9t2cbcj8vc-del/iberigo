@@ -16,6 +16,7 @@ SITE = "https://iberigo.eu"
 MARKER = "data-iberigo-freshness"
 VISIBLE_MARKER = "data-iberigo-freshness-visible"
 SITEMAPS = ("sitemap.xml", "sitemap-pages.xml")
+ACTION_DATA_DIR = ROOT / "scripts" / "action-first"
 MONTHS_EN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 MONTHS_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
@@ -28,16 +29,33 @@ def route_file(route: str) -> Path:
     return ROOT / route.lstrip("/") / "index.html"
 
 
+def action_dependency_map() -> dict[str, list[str]]:
+    result: dict[str, list[str]] = {}
+    if not ACTION_DATA_DIR.exists():
+        return result
+    for file_path in sorted(ACTION_DATA_DIR.glob("*.json")):
+        data = json.loads(file_path.read_text(encoding="utf-8"))
+        route = data.get("route")
+        if not route:
+            continue
+        result.setdefault(route, []).append(file_path.relative_to(ROOT).as_posix())
+    return result
+
+
+ACTION_DEPENDENCIES = action_dependency_map()
+
+
 def git_last_modified(route: str) -> str:
     file_path = route_file(route)
     rel = file_path.relative_to(ROOT).as_posix()
+    paths = [rel, *ACTION_DEPENDENCIES.get(route, [])]
     value = subprocess.check_output(
-        ["git", "log", "-1", "--format=%cs", "--", rel],
+        ["git", "log", "-1", "--format=%cs", "--", *paths],
         cwd=ROOT,
         text=True,
     ).strip()
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
-        raise AssertionError(f"{route}: no trustworthy Git last-modified date for {rel}")
+        raise AssertionError(f"{route}: no trustworthy Git last-modified date for {', '.join(paths)}")
     return value
 
 
