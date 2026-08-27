@@ -1,0 +1,64 @@
+{
+  "procedureKey": "eu-registration",
+  "route": "/es/moving-to-spain/eu-registration/",
+  "lang": "es",
+  "eyebrow": "Haz esto ahora",
+  "title": "Registro UE: tu ficha para el trámite",
+  "intro": "Utiliza esta ficha como lista práctica si eres ciudadano de la UE, EEE o Suiza y vas a vivir en España más de tres meses. La documentación que demuestra tu derecho depende de si trabajas, eres autónomo, estudias, estás jubilado o dispones de recursos suficientes.",
+  "status": "Trámite nacional · la disponibilidad de oficinas puede variar por provincia",
+  "sourceChecked": "2026-08-27",
+  "sourceCheckedLabel": "Fuente oficial comprobada",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Trámite",
+      "text": "Certificado de Registro de Ciudadano de la Unión Europea — formulario de solicitud EX-18."
+    },
+    {
+      "id": "where",
+      "label": "Dónde ir",
+      "text": "Presenta personalmente en la Oficina de Extranjería competente de tu provincia o, cuando el trámite se gestione allí, en la comisaría correspondiente de Policía Nacional."
+    },
+    {
+      "id": "select",
+      "label": "Qué seleccionar",
+      "text": "Cuando se utilice el menú de Cita Previa de Policía, busca “POLICIA - CERTIFICADO DE REGISTRO DE CIUDADANO DE LA U.E.” No selecciones en su lugar asignación de NIE ni una cita de TIE."
+    },
+    {
+      "id": "forms",
+      "label": "Formularios y tasa",
+      "text": "Prepara el EX-18 y el justificante de pago del Modelo 790, código 012. Comprueba la tasa oficial vigente antes de pagar en lugar de utilizar un importe antiguo."
+    },
+    {
+      "id": "bring",
+      "label": "Lleva",
+      "bullets": [
+        "Pasaporte o documento nacional de identidad válido",
+        "EX-18 cumplimentado",
+        "Justificante de pago del Modelo 790 código 012",
+        "Pruebas de tu vía: trabajo, actividad por cuenta propia, estudios, jubilación o recursos suficientes",
+        "Prueba de cobertura sanitaria cuando tu vía la requiera",
+        "Cualquier documento adicional solicitado por la oficina que gestione tu cita"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "Qué ocurre después",
+      "text": "Si cumples los requisitos, el procedimiento oficial prevé la expedición del certificado de registro al presentar la solicitud. Guárdalo con el resto de tus documentos de España y continúa con los trámites prácticos que correspondan a tu situación."
+    }
+  ],
+  "links": [
+    {
+      "label": "Trámite oficial de Policía",
+      "url": "https://sede.policia.gob.es/portalCiudadano/_es/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php"
+    },
+    {
+      "label": "Cita Previa oficial",
+      "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus"
+    },
+    {
+      "label": "Sanidad antes del registro",
+      "url": "/es/moving-to-spain/healthcare/"
+    }
+  ]
+}
