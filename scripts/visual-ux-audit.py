@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VISUAL_MARKER = "data-iberigo-visual-ux-cleanup"
+RUNTIME_MARKER = "data-iberigo-action-first-runtime"
 ACTION_CARD_MARKER = '<section class="action-first-card" data-iberigo-action-first'
 LEGACY_ROUTES = (
     "/guides/nie/",
@@ -45,6 +46,21 @@ def assert_global_visual_css(label: str, html: str) -> None:
             raise AssertionError(f"{label}: missing mobile visual UX rule: {token}")
 
 
+def assert_runtime_js(label: str, js: str) -> None:
+    required = (
+        RUNTIME_MARKER,
+        "preserveDirectGuideShell",
+        'result.querySelector("[data-crawler-guide-intro]")',
+        'result.querySelector("[data-iberigo-action-first]")',
+        'section.querySelector(".roadmap-list")',
+        'section.querySelector(".compact-fees")',
+        'section.classList.contains("route-links-note")',
+    )
+    for token in required:
+        if token not in js:
+            raise AssertionError(f"{label}: missing client runtime protection: {token}")
+
+
 def assert_legacy_action_first(route: str, html: str, preview: bool) -> None:
     if html.count(ACTION_CARD_MARKER) != 1:
         raise AssertionError(f"{route}: expected exactly one action-first card")
@@ -66,11 +82,13 @@ def assert_legacy_action_first(route: str, html: str, preview: bool) -> None:
 def audit_local() -> None:
     home = route_file("/").read_text(encoding="utf-8")
     assert_global_visual_css("/", home)
+    app_js = (ROOT / "app.js").read_text(encoding="utf-8")
+    assert_runtime_js("app.js", app_js)
     for route in LEGACY_ROUTES:
         html = route_file(route).read_text(encoding="utf-8")
         assert_global_visual_css(route, html)
         assert_legacy_action_first(route, html, preview=False)
-    print("VISUAL UX LOCAL PASSED: compact mobile header and action-first legacy guides verified")
+    print("VISUAL UX LOCAL PASSED: compact header, static action cards and client runtime verified")
 
 
 def request_once(url: str) -> tuple[int, str]:
@@ -82,14 +100,14 @@ def request_once(url: str) -> tuple[int, str]:
         return exc.code, exc.read().decode("utf-8", errors="replace")
 
 
-def fetch(url: str, attempts: int = 10) -> str:
+def fetch(url: str, ready_marker: str, attempts: int = 10) -> str:
     last = None
     for attempt in range(attempts):
         try:
             status, body = request_once(url)
-            if status == 200 and VISUAL_MARKER in body:
+            if status == 200 and ready_marker in body:
                 return body
-            last = f"HTTP {status}, marker={VISUAL_MARKER in body}"
+            last = f"HTTP {status}, marker={ready_marker in body}"
         except (urllib.error.URLError, TimeoutError) as exc:
             last = repr(exc)
         time.sleep(min(2 + attempt, 8))
@@ -98,13 +116,15 @@ def fetch(url: str, attempts: int = 10) -> str:
 
 def audit_preview() -> None:
     base = os.environ["PREVIEW_BASE"].rstrip("/")
-    home = fetch(base + "/")
+    home = fetch(base + "/", VISUAL_MARKER)
     assert_global_visual_css("preview /", home)
+    app_js = fetch(base + "/app.js", RUNTIME_MARKER)
+    assert_runtime_js("preview app.js", app_js)
     for route in LEGACY_ROUTES:
-        html = fetch(base + route)
+        html = fetch(base + route, VISUAL_MARKER)
         assert_global_visual_css(f"preview {route}", html)
         assert_legacy_action_first(route, html, preview=True)
-    print("VISUAL UX PREVIEW PASSED: mobile header and NIE/TIE hierarchy verified on Netlify")
+    print("VISUAL UX PREVIEW PASSED: raw HTML and client runtime verified on Netlify")
 
 
 def main() -> None:
