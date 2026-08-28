@@ -1,0 +1,63 @@
+{
+  "procedureKey": "padron",
+  "route": "/moving-to-spain/registering-on-the-padron/",
+  "lang": "en",
+  "eyebrow": "Do this next",
+  "title": "Padrón: separate the national rule from the local process",
+  "intro": "The national rule is simple: register in the municipality where you normally live. The actual filing is municipal, so your town hall controls the appointment channel, local form and address evidence it asks you to provide.",
+  "status": "National rule · municipality-specific filing",
+  "sourceChecked": "2026-08-27",
+  "sourceCheckedLabel": "Official source checked",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Procedure",
+      "text": "Alta or inscripción in the Padrón Municipal de Habitantes for the address where you normally live."
+    },
+    {
+      "id": "where",
+      "label": "Where to go",
+      "text": "Your own ayuntamiento (town hall). There is no single national padrón office or national appointment portal for this filing."
+    },
+    {
+      "id": "select",
+      "label": "What to look for",
+      "text": "On the town hall website, look for Padrón, Empadronamiento, Alta en el padrón or a similarly named municipal population-register service. The exact wording and whether you need an appointment vary by municipality."
+    },
+    {
+      "id": "forms",
+      "label": "Check locally before you go",
+      "text": "Confirm the municipality's current form, appointment method and accepted proof of address. Do not copy another town's document list."
+    },
+    {
+      "id": "bring",
+      "label": "Usually prepare",
+      "bullets": [
+        "Valid passport or national identity document",
+        "The address evidence your municipality accepts for your housing situation",
+        "Rental contract or property evidence where applicable",
+        "Authorisation or additional occupant/owner documents if your municipality requires them",
+        "Appointment confirmation if the local system requires an appointment"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "Ask for next",
+      "text": "Ask how to obtain a volante or certificado de empadronamiento if another procedure needs proof. Padrón proves municipal residence/address; it does not itself grant immigration residence status."
+    }
+  ],
+  "links": [
+    {
+      "label": "INE: what the Padrón is",
+      "url": "https://www.ine.es/ss/Satellite?c=SETramite_C&cid=1254734895886&lang=es_ES&p=1254734719739&pagename=SedeElectronica%2FSELayout&param1=saber"
+    },
+    {
+      "label": "Torrevieja: real-life local example",
+      "url": "/the-spain-files/padron-torrevieja/"
+    },
+    {
+      "label": "What usually comes next",
+      "url": "/moving-to-spain/settling-into-spain/"
+    }
+  ]
+}
