@@ -1,0 +1,68 @@
+{
+  "procedureKey": "nie-assignment",
+  "route": "/guides/nie/",
+  "lang": "en",
+  "eyebrow": "Do this next",
+  "title": "NIE: your assignment filing card",
+  "intro": "Use this when you need a NIE assigned because you have an economic, professional or social connection with Spain. A NIE is an identification number; it is not, by itself, permission to live or work in Spain.",
+  "status": "National procedure · appointment handling can vary by province",
+  "sourceChecked": "2026-08-28",
+  "sourceCheckedLabel": "Official source checked",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Procedure",
+      "text": "Asignación de Número de Identidad de Extranjero (NIE) a instancia de interesado — application form EX-15."
+    },
+    {
+      "id": "where",
+      "label": "Where to go",
+      "text": "In Spain, apply through the Dirección General de la Policía, an Oficina de Extranjería or a Police station handling the procedure. If you are outside Spain, the official procedure allows the request through a Spanish consular office abroad."
+    },
+    {
+      "id": "select",
+      "label": "What to select",
+      "text": "Look for NIE assignment / Asignación de NIE in the appointment flow offered for your province. Do not choose EU registration or a TIE/fingerprinting appointment instead; the exact appointment label can vary by office."
+    },
+    {
+      "id": "forms",
+      "label": "Forms and fee",
+      "text": "Prepare EX-15 and the proof of payment for Modelo 790, código 012 that corresponds to NIE assignment. Check the current official fee before paying rather than relying on an old amount."
+    },
+    {
+      "id": "bring",
+      "label": "Bring",
+      "bullets": [
+        "Valid passport or identity document accepted for your case",
+        "Completed EX-15",
+        "Proof of payment of Modelo 790 código 012",
+        "Documents showing the economic, professional or social reason for requesting the NIE",
+        "Appointment confirmation and any copies requested by the office handling your application",
+        "Representation or authorization documents if someone is legally acting for you"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "What happens after",
+      "text": "If the request is accepted, you receive the assigned NIE for your dealings in Spain. The number does not replace the residence registration, visa or residence authorization that may separately apply to your stay."
+    }
+  ],
+  "links": [
+    {
+      "label": "Official Police NIE procedure",
+      "url": "https://sede.policia.gob.es/portalCiudadano/_es/tramites_extranjeria_tramite_asignacion_nie.php"
+    },
+    {
+      "label": "Official 790-012 generator",
+      "url": "https://sede.policia.gob.es/Tasa790_012/"
+    },
+    {
+      "label": "Official appointment portal",
+      "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus"
+    },
+    {
+      "label": "EU registration if you are moving to Spain",
+      "url": "/moving-to-spain/eu-registration/"
+    }
+  ]
+}
