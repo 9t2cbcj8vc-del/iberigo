@@ -11,7 +11,32 @@ if (source.includes(MARKER)) {
   process.exit(0);
 }
 
-const anchor = `  if (guideLang && guideLang !== currentLang) {
+const bootstrapAnchor = `clearWizardSelections();
+wizard.dataset.step = "person";
+applyTranslations();
+renderEmptyResult();
+showOnlyTopicCards();
+if (!openNavSectionIfRequested()) showNormalApp();`;
+
+if (!source.includes(bootstrapAnchor)) {
+  throw new Error("Could not locate initial app bootstrap in app.js");
+}
+
+const bootstrapReplacement = `// ${MARKER}: generated action-first guides already contain their visible guide DOM.
+// Do not wipe #wizardResult with the homepage empty state before the direct-guide initializer runs.
+const initialBakedActionFirst = document.querySelector("[data-iberigo-action-first]");
+clearWizardSelections();
+wizard.dataset.step = "person";
+applyTranslations();
+if (!initialBakedActionFirst) {
+  renderEmptyResult();
+  showOnlyTopicCards();
+  if (!openNavSectionIfRequested()) showNormalApp();
+}`;
+
+source = source.replace(bootstrapAnchor, bootstrapReplacement);
+
+const autoOpenAnchor = `  if (guideLang && guideLang !== currentLang) {
     currentLang = guideLang;
     localStorage.setItem("holaPapersLang", currentLang);
     applyTranslations();
@@ -19,18 +44,18 @@ const anchor = `  if (guideLang && guideLang !== currentLang) {
 
   const directRoadmap = directRoadmapFor(guideId);`;
 
-if (!source.includes(anchor)) {
+if (!source.includes(autoOpenAnchor)) {
   throw new Error("Could not locate generated-guide auto-open anchor in app.js");
 }
 
-const replacement = `  if (guideLang && guideLang !== currentLang) {
+const autoOpenReplacement = `  if (guideLang && guideLang !== currentLang) {
     currentLang = guideLang;
     localStorage.setItem("holaPapersLang", currentLang);
     applyTranslations();
   }
 
-  // ${MARKER}: action-first direct guides are already fully rendered by the build.
-  // Keep that DOM intact instead of replacing it with the legacy roadmap template.
+  // The build-baked action-first guide is already the intended browser view.
+  // Keep it intact instead of replacing it with the legacy roadmap template.
   const bakedActionFirstPage = document.querySelector("[data-iberigo-action-first]");
   if (bakedActionFirstPage) {
     currentDirectRoute = guideId;
@@ -48,6 +73,6 @@ const replacement = `  if (guideLang && guideLang !== currentLang) {
 
   const directRoadmap = directRoadmapFor(guideId);`;
 
-source = source.replace(anchor, replacement);
+source = source.replace(autoOpenAnchor, autoOpenReplacement);
 fs.writeFileSync(APP, source, "utf8");
-console.log("Action-first client runtime patched: baked direct-guide DOM is preserved after JavaScript initializes.");
+console.log("Action-first client runtime patched: bootstrap and direct-guide rendering preserve baked guide DOM.");
