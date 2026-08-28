@@ -1,0 +1,68 @@
+{
+  "procedureKey": "nie-assignment",
+  "route": "/guides/es/nie/",
+  "lang": "es",
+  "eyebrow": "Haz esto ahora",
+  "title": "NIE: tu ficha para la asignación",
+  "intro": "Utiliza esta ficha cuando necesites que te asignen un NIE por tener intereses económicos, profesionales o sociales relacionados con España. El NIE es un número de identificación; por sí solo no autoriza a vivir ni trabajar en España.",
+  "status": "Trámite nacional · la gestión de citas puede variar por provincia",
+  "sourceChecked": "2026-08-28",
+  "sourceCheckedLabel": "Fuente oficial comprobada",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Trámite",
+      "text": "Asignación de Número de Identidad de Extranjero (NIE) a instancia de interesado — formulario EX-15."
+    },
+    {
+      "id": "where",
+      "label": "Dónde ir",
+      "text": "En España, la solicitud se tramita ante la Dirección General de la Policía, una Oficina de Extranjería o una comisaría que gestione el procedimiento. Si te encuentras fuera de España, el procedimiento oficial permite solicitarlo a través de una oficina consular española."
+    },
+    {
+      "id": "select",
+      "label": "Qué seleccionar",
+      "text": "Busca asignación de NIE en el sistema de cita que ofrezca tu provincia. No selecciones registro de ciudadano de la UE ni una cita de TIE/toma de huellas; el nombre exacto de la cita puede variar según la oficina."
+    },
+    {
+      "id": "forms",
+      "label": "Formularios y tasa",
+      "text": "Prepara el EX-15 y el justificante de pago del Modelo 790, código 012 correspondiente a la asignación de NIE. Comprueba la tasa oficial vigente antes de pagar en lugar de utilizar un importe antiguo."
+    },
+    {
+      "id": "bring",
+      "label": "Lleva",
+      "bullets": [
+        "Pasaporte válido o documento de identidad admitido para tu caso",
+        "EX-15 cumplimentado",
+        "Justificante de pago del Modelo 790 código 012",
+        "Documentación que explique el motivo económico, profesional o social por el que solicitas el NIE",
+        "Confirmación de la cita y las copias que solicite la oficina que tramite tu solicitud",
+        "Documentación de representación o autorización si otra persona actúa legalmente por ti"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "Qué ocurre después",
+      "text": "Si se acepta la solicitud, recibes el NIE asignado para tus gestiones en España. El número no sustituye el registro de residencia, visado o autorización de residencia que pueda corresponder por separado a tu estancia."
+    }
+  ],
+  "links": [
+    {
+      "label": "Trámite oficial de NIE de Policía",
+      "url": "https://sede.policia.gob.es/portalCiudadano/_es/tramites_extranjeria_tramite_asignacion_nie.php"
+    },
+    {
+      "label": "Generador oficial 790-012",
+      "url": "https://sede.policia.gob.es/Tasa790_012/"
+    },
+    {
+      "label": "Portal oficial de Cita Previa",
+      "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus"
+    },
+    {
+      "label": "Registro UE si te mudas a España",
+      "url": "/es/moving-to-spain/eu-registration/"
+    }
+  ]
+}

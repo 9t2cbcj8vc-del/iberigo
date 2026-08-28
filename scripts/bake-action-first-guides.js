@@ -154,6 +154,16 @@ function stripGenerated(html) {
   return html;
 }
 
+function insertPanel(html, panel, route) {
+  const hero = /(<section\b[^>]*class=["'][^"']*\bguide-hero\b[^"']*["'][^>]*>[\s\S]*?<\/section>)/i;
+  if (hero.test(html)) return html.replace(hero, `$1\n        ${panel}`);
+
+  const legacyResult = /(<article\b(?=[^>]*\bid=["']wizardResult["'])[^>]*>[\s\S]*?)(<div\b[^>]*class=["'][^"']*\bresult-section\b[^"']*["'][^>]*>)/i;
+  if (legacyResult.test(html)) return html.replace(legacyResult, `$1\n            ${panel}\n            $2`);
+
+  throw new Error(`${route}: no supported action-first insertion point found`);
+}
+
 function bake(config, sourceFile) {
   const file = routeFile(config.route);
   if (!fs.existsSync(file)) throw new Error(`${config.route}: page file not found`);
@@ -165,9 +175,7 @@ function bake(config, sourceFile) {
   if (!/<\/head>/i.test(html)) throw new Error(`${config.route}: closing head not found`);
   html = html.replace(/\s*<\/head>/i, `\n    ${STYLE}\n  </head>`);
 
-  const hero = /(<section\b[^>]*class=["'][^"']*\bguide-hero\b[^"']*["'][^>]*>[\s\S]*?<\/section>)/i;
-  if (!hero.test(html)) throw new Error(`${config.route}: guide hero not found`);
-  html = html.replace(hero, `$1\n        ${renderPanel(config, sourceFile)}`);
+  html = insertPanel(html, renderPanel(config, sourceFile), config.route);
 
   fs.writeFileSync(file, html, "utf8");
 }

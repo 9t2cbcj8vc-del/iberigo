@@ -1,0 +1,68 @@
+{
+  "procedureKey": "tie-card",
+  "route": "/guides/tie/",
+  "lang": "en",
+  "eyebrow": "Do this next",
+  "title": "TIE: your card filing checklist",
+  "intro": "Use this for the physical TIE step once you have the visa, residence/stay authorization or favorable decision that supports your card. The TIE documents an existing legal status; it does not create that status by itself.",
+  "status": "National Police procedure · appointment labels and supporting-document checks can vary",
+  "sourceChecked": "2026-08-28",
+  "sourceCheckedLabel": "Official source checked",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Procedure",
+      "text": "Solicitud de Tarjeta de Identidad de Extranjero (TIE) — form EX-17 for the card-issuance step. Confirm that your underlying authorization or status is already in place."
+    },
+    {
+      "id": "where",
+      "label": "Where to go",
+      "text": "The TIE application is handled in person through the competent Oficina de Extranjería or Policía Nacional office for the procedure. Follow the office shown for your province and appointment."
+    },
+    {
+      "id": "select",
+      "label": "What to select",
+      "text": "In the appointment system, choose the TIE / fingerprinting (toma de huellas) option offered for your card type and province. Do not select NIE assignment or EU-citizen registration instead; wording can differ between offices."
+    },
+    {
+      "id": "forms",
+      "label": "Forms and fee",
+      "text": "Prepare EX-17 and proof of payment of Modelo 790, código 012 for the applicable TIE card line. Check the current official fee and the line that matches your card before paying."
+    },
+    {
+      "id": "bring",
+      "label": "Bring",
+      "bullets": [
+        "Valid passport or travel document required for your case",
+        "Completed EX-17",
+        "Proof of payment of Modelo 790 código 012",
+        "Your favorable resolution, visa or other evidence of the authorization/status supporting the TIE, as applicable",
+        "Appointment confirmation",
+        "Any photograph, address evidence or additional documents required by the Police office for your specific card type"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "What happens after",
+      "text": "The Police complete the identification/card-issuance step and give you the instructions for collection or the next step. Follow the collection instructions from that office; the TIE reflects the validity of the underlying authorization."
+    }
+  ],
+  "links": [
+    {
+      "label": "Official Police TIE procedure",
+      "url": "https://sede.policia.gob.es/portalCiudadano/_es/tramites_extranjeria_tramite_tarjeta_residencia_residenciaytrabajo.php"
+    },
+    {
+      "label": "Official EX-17 form",
+      "url": "https://inclusion.gob.es/documents/d/migraciones/ex17-formulario-solicitud-tarjeta-de-identidad-de-extranjero"
+    },
+    {
+      "label": "Official 790-012 generator",
+      "url": "https://sede.policia.gob.es/Tasa790_012/"
+    },
+    {
+      "label": "Official appointment portal",
+      "url": "https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus"
+    }
+  ]
+}
