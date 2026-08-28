@@ -49,12 +49,11 @@ def assert_global_visual_css(label: str, html: str) -> None:
 def assert_runtime_js(label: str, js: str) -> None:
     required = (
         RUNTIME_MARKER,
-        "preserveDirectGuideShell",
-        'result.querySelector("[data-crawler-guide-intro]")',
-        'result.querySelector("[data-iberigo-action-first]")',
-        'section.querySelector(".roadmap-list")',
-        'section.querySelector(".compact-fees")',
-        'section.classList.contains("route-links-note")',
+        "bakedActionFirstPage",
+        'document.querySelector("[data-iberigo-action-first]")',
+        "showDirectGuide();",
+        'type: "direct-guide"',
+        "directRoute: guideId",
     )
     for token in required:
         if token not in js:
@@ -88,7 +87,7 @@ def audit_local() -> None:
         html = route_file(route).read_text(encoding="utf-8")
         assert_global_visual_css(route, html)
         assert_legacy_action_first(route, html, preview=False)
-    print("VISUAL UX LOCAL PASSED: compact header, static action cards and client runtime verified")
+    print("VISUAL UX LOCAL PASSED: compact header, static action cards and baked-DOM runtime path verified")
 
 
 def request_once(url: str) -> tuple[int, str]:
@@ -124,7 +123,7 @@ def audit_preview() -> None:
         html = fetch(base + route, VISUAL_MARKER)
         assert_global_visual_css(f"preview {route}", html)
         assert_legacy_action_first(route, html, preview=True)
-    print("VISUAL UX PREVIEW PASSED: raw HTML and client runtime verified on Netlify")
+    print("VISUAL UX PREVIEW PASSED: raw HTML and baked-DOM client runtime verified on Netlify")
 
 
 def main() -> None:
