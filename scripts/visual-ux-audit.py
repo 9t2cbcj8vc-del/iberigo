@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VISUAL_MARKER = "data-iberigo-visual-ux-cleanup"
-ACTION_MARKER = "data-iberigo-action-first"
+ACTION_CARD_MARKER = '<section class="action-first-card" data-iberigo-action-first'
 LEGACY_ROUTES = (
     "/guides/nie/",
     "/guides/es/nie/",
@@ -46,9 +46,9 @@ def assert_global_visual_css(label: str, html: str) -> None:
 
 
 def assert_legacy_action_first(route: str, html: str, preview: bool) -> None:
-    if html.count(ACTION_MARKER) != 1:
+    if html.count(ACTION_CARD_MARKER) != 1:
         raise AssertionError(f"{route}: expected exactly one action-first card")
-    panel_pos = html.find(ACTION_MARKER)
+    panel_pos = html.find(ACTION_CARD_MARKER)
     result_hero_pos = html.find('class="result-hero"')
     if result_hero_pos == -1 or panel_pos > result_hero_pos:
         raise AssertionError(f"{route}: action-first card must appear before the legacy result hero")
