@@ -22,12 +22,18 @@ jobs:
         run: node --check scripts/bake-visual-ux-cleanup.js
       - name: Check action-first renderer syntax
         run: node --check scripts/bake-action-first-guides.js
+      - name: Check action-first client runtime patch syntax
+        run: node --check scripts/bake-action-first-runtime.js
       - name: Check visual audit syntax
         run: python -m py_compile scripts/visual-ux-audit.py
       - name: Bake action-first cards locally
         run: node scripts/bake-action-first-guides.js
       - name: Bake visual UX cleanup locally
         run: node scripts/bake-visual-ux-cleanup.js
+      - name: Patch client runtime locally
+        run: node scripts/bake-action-first-runtime.js
+      - name: Sync app.js cache-busting locally
+        run: node scripts/sync-app-version.js
       - name: Audit visual UX locally
         run: python scripts/visual-ux-audit.py --local
       - name: Audit deployed Netlify preview
