@@ -6,6 +6,20 @@ const DATA_DIR = path.join(__dirname, "action-first");
 const PANEL_MARKER = "data-iberigo-action-first";
 const STYLE_MARKER = "data-iberigo-action-first-style";
 const REQUIRED_ITEM_IDS = ["procedure", "where", "select", "forms", "bring", "after"];
+const LEGACY_ACTION_ROUTES = new Set([
+  "/guides/nie/",
+  "/guides/es/nie/",
+  "/guides/tie/",
+  "/guides/es/tie/",
+]);
+const LEGACY_DUPLICATE_HEADINGS = new Set([
+  "Next 3 steps",
+  "Forms and documents",
+  "Official source links",
+  "Próximos 3 pasos",
+  "Formularios y documentos",
+  "Enlaces oficiales",
+]);
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -154,12 +168,49 @@ function stripGenerated(html) {
   return html;
 }
 
+function resultSectionStarts(html) {
+  const re = /<div\b[^>]*class=["'][^"']*\bresult-section\b[^"']*["'][^>]*>/gi;
+  const starts = [];
+  let match;
+  while ((match = re.exec(html))) starts.push(match.index);
+  return starts;
+}
+
+function removeLegacyDuplicateSections(html, route) {
+  if (!LEGACY_ACTION_ROUTES.has(route)) return html;
+  const starts = resultSectionStarts(html);
+  if (!starts.length) return html;
+  const articleEnd = html.indexOf("</article>", starts[starts.length - 1]);
+  const disclaimerStart = html.indexOf('<p class="disclaimer"', starts[starts.length - 1]);
+  const lastBoundary = disclaimerStart !== -1 && disclaimerStart < articleEnd ? disclaimerStart : articleEnd;
+  const removals = [];
+
+  for (let i = 0; i < starts.length; i += 1) {
+    const start = starts[i];
+    const end = i + 1 < starts.length ? starts[i + 1] : lastBoundary;
+    if (end <= start) continue;
+    const chunk = html.slice(start, end);
+    const heading = chunk.match(/<strong>([^<]+)<\/strong>/i)?.[1]?.trim();
+    if (heading && LEGACY_DUPLICATE_HEADINGS.has(heading)) removals.push([start, end]);
+  }
+
+  for (const [start, end] of removals.reverse()) {
+    html = html.slice(0, start) + html.slice(end);
+  }
+  return html;
+}
+
 function insertPanel(html, panel, route) {
   const hero = /(<section\b[^>]*class=["'][^"']*\bguide-hero\b[^"']*["'][^>]*>[\s\S]*?<\/section>)/i;
   if (hero.test(html)) return html.replace(hero, `$1\n        ${panel}`);
 
-  const legacyResult = /(<article\b(?=[^>]*\bid=["']wizardResult["'])[^>]*>[\s\S]*?)(<div\b[^>]*class=["'][^"']*\bresult-section\b[^"']*["'][^>]*>)/i;
-  if (legacyResult.test(html)) return html.replace(legacyResult, `$1\n            ${panel}\n            $2`);
+  if (LEGACY_ACTION_ROUTES.has(route)) {
+    const crawlerIntro = /(<div\b[^>]*\bdata-crawler-guide-intro\b[^>]*>[\s\S]*?<\/div>)/i;
+    if (crawlerIntro.test(html)) return html.replace(crawlerIntro, `$1\n            ${panel}`);
+
+    const legacyArticle = /(<article\b(?=[^>]*\bid=["']wizardResult["'])[^>]*>)/i;
+    if (legacyArticle.test(html)) return html.replace(legacyArticle, `$1\n            ${panel}`);
+  }
 
   throw new Error(`${route}: no supported action-first insertion point found`);
 }
@@ -175,6 +226,7 @@ function bake(config, sourceFile) {
   if (!/<\/head>/i.test(html)) throw new Error(`${config.route}: closing head not found`);
   html = html.replace(/\s*<\/head>/i, `\n    ${STYLE}\n  </head>`);
 
+  html = removeLegacyDuplicateSections(html, config.route);
   html = insertPanel(html, renderPanel(config, sourceFile), config.route);
 
   fs.writeFileSync(file, html, "utf8");

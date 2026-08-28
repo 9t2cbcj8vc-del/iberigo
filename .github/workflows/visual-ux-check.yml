@@ -1,0 +1,36 @@
+name: Visual UX check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  visual-ux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check visual cleanup script syntax
+        run: node --check scripts/bake-visual-ux-cleanup.js
+      - name: Check action-first renderer syntax
+        run: node --check scripts/bake-action-first-guides.js
+      - name: Check visual audit syntax
+        run: python -m py_compile scripts/visual-ux-audit.py
+      - name: Bake action-first cards locally
+        run: node scripts/bake-action-first-guides.js
+      - name: Bake visual UX cleanup locally
+        run: node scripts/bake-visual-ux-cleanup.js
+      - name: Audit visual UX locally
+        run: python scripts/visual-ux-audit.py --local
+      - name: Audit deployed Netlify preview
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.number }}--iberigo.netlify.app
+        run: python scripts/visual-ux-audit.py --preview
