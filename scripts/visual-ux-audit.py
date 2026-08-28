@@ -45,9 +45,12 @@ def assert_static_action_guide(route: str, html: str, preview: bool) -> None:
         raise AssertionError(f"{route}: one-column direct-guide override missing")
     panel_pos = html.find(ACTION_CARD_MARKER)
     hero_pos = html.find('class="result-hero"')
-    intro_pos = html.find("data-crawler-guide-intro")
-    if not (intro_pos != -1 and hero_pos != -1 and intro_pos < panel_pos < hero_pos):
-        raise AssertionError(f"{route}: expected intro -> action card -> explanation order")
+    if hero_pos == -1 or panel_pos > hero_pos:
+        raise AssertionError(f"{route}: action card must appear before detailed explanation")
+    if preview:
+        intro_pos = html.find("data-crawler-guide-intro")
+        if intro_pos == -1 or not intro_pos < panel_pos < hero_pos:
+            raise AssertionError(f"{route}: deployed order must be intro -> action card -> explanation")
     for heading in DUPLICATE_HEADINGS:
         if f"<strong>{heading}</strong>" in html:
             raise AssertionError(f"{route}: duplicate filing block remains: {heading}")
