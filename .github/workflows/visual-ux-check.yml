@@ -10,7 +10,7 @@ permissions:
 jobs:
   visual-ux:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,7 +25,9 @@ jobs:
       - name: Check action-first client runtime patch syntax
         run: node --check scripts/bake-action-first-runtime.js
       - name: Check visual audit syntax
-        run: python -m py_compile scripts/visual-ux-audit.py
+        run: |
+          python -m py_compile scripts/visual-ux-audit.py
+          python -m py_compile scripts/browser-action-first-audit.py
       - name: Bake action-first cards locally
         run: node scripts/bake-action-first-guides.js
       - name: Bake visual UX cleanup locally
@@ -36,7 +38,22 @@ jobs:
         run: node scripts/sync-app-version.js
       - name: Audit visual UX locally
         run: python scripts/visual-ux-audit.py --local
-      - name: Audit deployed Netlify preview
+      - name: Audit deployed Netlify preview files
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.number }}--iberigo.netlify.app
         run: python scripts/visual-ux-audit.py --preview
+      - name: Install browser audit dependencies
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Audit rendered Netlify preview in Chromium
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.number }}--iberigo.netlify.app
+        run: python scripts/browser-action-first-audit.py
+      - name: Upload browser audit screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: action-first-browser-screenshots
+          path: browser-audit/*.png
+          if-no-files-found: ignore
