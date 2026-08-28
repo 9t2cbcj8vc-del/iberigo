@@ -11,70 +11,43 @@ if (source.includes(MARKER)) {
   process.exit(0);
 }
 
-const functionStart = source.indexOf(
-  'function renderRoadmapCard(roadmap, guideId = roadmap?.route?.id || currentDirectRoute) {'
-);
-const functionEnd = source.indexOf("\nfunction renderVacationRoadmap", functionStart);
-if (functionStart < 0 || functionEnd < 0) {
-  throw new Error("Could not locate renderRoadmapCard in app.js");
+const anchor = `  if (guideLang && guideLang !== currentLang) {
+    currentLang = guideLang;
+    localStorage.setItem("holaPapersLang", currentLang);
+    applyTranslations();
+  }
+
+  const directRoadmap = directRoadmapFor(guideId);`;
+
+if (!source.includes(anchor)) {
+  throw new Error("Could not locate generated-guide auto-open anchor in app.js");
 }
 
-let block = source.slice(functionStart, functionEnd);
+const replacement = `  if (guideLang && guideLang !== currentLang) {
+    currentLang = guideLang;
+    localStorage.setItem("holaPapersLang", currentLang);
+    applyTranslations();
+  }
 
-const explanationLine = '  const explanation = roadmap.explanation || roadmap.timeline || "";\n';
-if (!block.includes(explanationLine)) {
-  throw new Error("renderRoadmapCard explanation anchor changed");
-}
-block = block.replace(
-  explanationLine,
-  explanationLine +
-    `  // ${MARKER}: direct generated guides must retain their baked intro/action card after JS enhancement.\n` +
-    '  const directGuideId = document.documentElement.dataset.guideId || "";\n' +
-    '  const preserveDirectGuideShell = Boolean(directGuideId && guideId === directGuideId);\n' +
-    '  const bakedGuideIntro = preserveDirectGuideShell\n' +
-    '    ? result.querySelector("[data-crawler-guide-intro]")?.outerHTML || ""\n' +
-    '    : "";\n' +
-    '  const bakedActionFirst = preserveDirectGuideShell\n' +
-    '    ? result.querySelector("[data-iberigo-action-first]")?.outerHTML || ""\n' +
-    '    : "";\n' +
-    '  const hasActionFirst = Boolean(bakedActionFirst);\n'
-);
+  // ${MARKER}: action-first direct guides are already fully rendered by the build.
+  // Keep that DOM intact instead of replacing it with the legacy roadmap template.
+  const bakedActionFirstPage = document.querySelector("[data-iberigo-action-first]");
+  if (bakedActionFirstPage) {
+    currentDirectRoute = guideId;
+    currentEntryPreset = sectionPresetForGuide(guideId) || currentEntryPreset;
+    showDirectGuide();
+    result.hidden = false;
+    result.classList.remove("is-empty");
+    setCurrentScreenState({
+      type: "direct-guide",
+      entryPreset: currentEntryPreset,
+      directRoute: guideId
+    });
+    return;
+  }
 
-const renderAnchor =
-  '    ${renderBackButton(roadmap.process)}\n' +
-  '    ${renderResultIntro(roadmap, explanation, guideId)}';
-if (!block.includes(renderAnchor)) {
-  throw new Error("renderRoadmapCard template anchor changed");
-}
-block = block.replace(
-  renderAnchor,
-  '    ${renderBackButton(roadmap.process)}\n' +
-    '    ${bakedGuideIntro}\n' +
-    '    ${bakedActionFirst}\n' +
-    '    ${renderResultIntro(roadmap, explanation, guideId)}'
-);
+  const directRoadmap = directRoadmapFor(guideId);`;
 
-const afterTemplate = '  `;\n  setCurrentScreenState(';
-if (!block.includes(afterTemplate)) {
-  throw new Error("renderRoadmapCard completion anchor changed");
-}
-block = block.replace(
-  afterTemplate,
-  '  `;\n' +
-    '  if (hasActionFirst) {\n' +
-    '    result.querySelectorAll(".result-section").forEach((section) => {\n' +
-    '      if (\n' +
-    '        section.querySelector(".roadmap-list") ||\n' +
-    '        section.querySelector(".compact-fees") ||\n' +
-    '        section.classList.contains("route-links-note")\n' +
-    '      ) {\n' +
-    '        section.remove();\n' +
-    '      }\n' +
-    '    });\n' +
-    '  }\n' +
-    '  setCurrentScreenState('
-);
-
-source = source.slice(0, functionStart) + block + source.slice(functionEnd);
+source = source.replace(anchor, replacement);
 fs.writeFileSync(APP, source, "utf8");
-console.log("Action-first client runtime patched: direct guide intro/card preserved and duplicate filing blocks suppressed.");
+console.log("Action-first client runtime patched: baked direct-guide DOM is preserved after JavaScript initializes.");
