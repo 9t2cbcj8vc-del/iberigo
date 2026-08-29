@@ -49,7 +49,11 @@ def verify(page, name, route, expected_title):
 
     box = card.bounding_box()
     assert box, f"{route}: missing action-card box"
-    assert box["width"] >= 330, f"{route}: action card unexpectedly narrow ({box['width']})"
+    viewport_width = page.viewport_size["width"]
+    minimum_width = min(330, viewport_width * 0.72)
+    assert box["width"] >= minimum_width, (
+        f"{route}: action card unexpectedly narrow ({box['width']:.0f}px; minimum {minimum_width:.0f}px for {viewport_width}px viewport)"
+    )
     page.screenshot(path=str(OUT / f"{name}.png"), full_page=True)
     print(f"BROWSER PASS {route}: card width={box['width']:.0f}, y-order={order}")
 
