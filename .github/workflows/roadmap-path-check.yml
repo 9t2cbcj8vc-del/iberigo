@@ -13,6 +13,7 @@ on:
       - 'scripts/bake-roadmap-next-actions.js'
       - 'scripts/roadmap-path-smoke.py'
       - 'scripts/roadmap-deep-audit.py'
+      - 'scripts/roadmap-deep-audit-static-first.py'
       - 'scripts/roadmap-current-rules-audit.py'
       - 'scripts/roadmap-where-to-apply-audit.py'
       - 'guides/**/index.html'
@@ -36,7 +37,7 @@ jobs:
       - name: Run extensive route integrity audit
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
-        run: python scripts/roadmap-deep-audit.py
+        run: python scripts/roadmap-deep-audit-static-first.py
       - name: Verify current legally sensitive route rules
         env:
           PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app

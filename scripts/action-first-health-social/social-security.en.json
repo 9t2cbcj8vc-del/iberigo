@@ -1,0 +1,63 @@
+{
+  "procedureKey": "social-security-number",
+  "route": "/guides/social-security/",
+  "lang": "en",
+  "eyebrow": "Do this next",
+  "title": "Social Security number: your NUSS filing card",
+  "intro": "Use this when you need Spain's Social Security identifier. The NUSS is also known as the Número de Afiliación (NAF). Check first whether you already have one; if not, you can request it through Importass, and an employer may also request it when hiring you for the first time.",
+  "status": "National procedure · NUSS/NAF is separate from your NIE",
+  "sourceChecked": "2026-08-29",
+  "sourceCheckedLabel": "Official source checked",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Procedure",
+      "text": "Solicitar el Número de la Seguridad Social (NUSS) through Importass. If you already worked in Spain or were covered by School Insurance, check your personal area first because a NUSS may already be assigned."
+    },
+    {
+      "id": "where",
+      "label": "Where to go",
+      "text": "Use the official Importass portal of the Tesorería General de la Seguridad Social. The service can be used by the citizen, and the official route also supports an authorized representative."
+    },
+    {
+      "id": "select",
+      "label": "What to select",
+      "text": "Choose 'Solicitar el Número de la Seguridad Social'. If you only need to find or prove an existing number, use your Importass personal area or the relevant affiliation report instead of submitting a new request."
+    },
+    {
+      "id": "forms",
+      "label": "Forms and fee",
+      "text": "There is no immigration fee or Modelo 790 for a NUSS request. The online service asks for your identity details, contact information and habitual address."
+    },
+    {
+      "id": "bring",
+      "label": "Prepare",
+      "bullets": [
+        "DNI or NIE details used to identify you",
+        "Mobile phone number and email address",
+        "Your habitual address",
+        "Your existing Social Security details if you are checking whether a number is already assigned",
+        "Representation details if an authorized person is filing for you"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "What happens after",
+      "text": "The NUSS stays with you throughout your life. It is used when you are first registered for work and for Social Security services and benefits. Starting employment or self-employment is a separate registration step; having a NUSS alone does not mean you are currently registered as working."
+    }
+  ],
+  "links": [
+    {
+      "label": "Official Importass NUSS request",
+      "url": "https://portal.seg-social.gob.es/wps/portal/importass/importass/Categorias/Altas%2C%2Bbajas%2By%2Bmodificaciones/Altas%2By%2Bafiliacion%2Bde%2Btrabajadores/Solicitar%2Bel%2Bnumero%2Bde%2Bla%2BSeguridad%2BSocial"
+    },
+    {
+      "label": "Importass personal area",
+      "url": "https://portal.seg-social.gob.es/wps/portal/importass/importass/inicio"
+    },
+    {
+      "label": "Public healthcare and SIP guide",
+      "url": "/guides/sip-card/"
+    }
+  ]
+}

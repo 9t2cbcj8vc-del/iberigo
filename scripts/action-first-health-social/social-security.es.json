@@ -1,0 +1,63 @@
+{
+  "procedureKey": "social-security-number",
+  "route": "/guides/es/social-security/",
+  "lang": "es",
+  "eyebrow": "Haz esto ahora",
+  "title": "Número de Seguridad Social: tu ficha NUSS",
+  "intro": "Utiliza esta guía cuando necesites el identificador de la Seguridad Social en España. El NUSS también se conoce como Número de Afiliación (NAF). Comprueba primero si ya tienes uno; si no, puedes solicitarlo mediante Importass y la empresa también puede pedirlo al contratarte por primera vez.",
+  "status": "Trámite estatal · NUSS/NAF es distinto de tu NIE",
+  "sourceChecked": "2026-08-29",
+  "sourceCheckedLabel": "Fuente oficial comprobada",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Trámite",
+      "text": "Solicitar el Número de la Seguridad Social (NUSS) mediante Importass. Si ya has trabajado en España o estuviste cubierto por el Seguro Escolar, consulta primero tu área personal porque es posible que ya tengas un NUSS asignado."
+    },
+    {
+      "id": "where",
+      "label": "Dónde ir",
+      "text": "Utiliza el portal oficial Importass de la Tesorería General de la Seguridad Social. El trámite puede hacerlo la propia persona interesada y la vía oficial también permite actuar mediante representante autorizado."
+    },
+    {
+      "id": "select",
+      "label": "Qué seleccionar",
+      "text": "Selecciona 'Solicitar el Número de la Seguridad Social'. Si solo necesitas consultar o acreditar un número ya existente, utiliza tu área personal de Importass o el informe de afiliación correspondiente en lugar de presentar una nueva solicitud."
+    },
+    {
+      "id": "forms",
+      "label": "Formularios y tasa",
+      "text": "La solicitud del NUSS no lleva tasa de extranjería ni Modelo 790. El servicio online solicita tus datos identificativos, datos de contacto y domicilio habitual."
+    },
+    {
+      "id": "bring",
+      "label": "Prepara",
+      "bullets": [
+        "Datos de DNI o NIE utilizados para identificarte",
+        "Número de teléfono móvil y correo electrónico",
+        "Tu domicilio habitual",
+        "Datos previos de Seguridad Social si estás comprobando si ya existe un número asignado",
+        "Datos de representación si una persona autorizada presenta el trámite por ti"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "Qué ocurre después",
+      "text": "El NUSS te acompaña durante toda la vida. Se utiliza en la primera alta laboral y para los servicios y prestaciones de la Seguridad Social. El alta como trabajador por cuenta ajena o autónomo es un trámite separado; tener NUSS no significa por sí solo estar actualmente de alta trabajando."
+    }
+  ],
+  "links": [
+    {
+      "label": "Solicitud oficial de NUSS en Importass",
+      "url": "https://portal.seg-social.gob.es/wps/portal/importass/importass/Categorias/Altas%2C%2Bbajas%2By%2Bmodificaciones/Altas%2By%2Bafiliacion%2Bde%2Btrabajadores/Solicitar%2Bel%2Bnumero%2Bde%2Bla%2BSeguridad%2BSocial"
+    },
+    {
+      "label": "Área personal de Importass",
+      "url": "https://portal.seg-social.gob.es/wps/portal/importass/importass/inicio"
+    },
+    {
+      "label": "Guía de sanidad pública y SIP",
+      "url": "/guides/es/sip-card/"
+    }
+  ]
+}

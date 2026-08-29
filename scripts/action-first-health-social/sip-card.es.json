@@ -1,0 +1,64 @@
+{
+  "procedureKey": "public-healthcare-card",
+  "route": "/guides/es/sip-card/",
+  "lang": "es",
+  "eyebrow": "Haz esto ahora",
+  "title": "Sanidad pública: primero el derecho, después la tarjeta",
+  "intro": "Utiliza esta guía para separar dos pasos que suelen confundirse: el derecho a la asistencia sanitaria, que se gestiona a nivel estatal, y la tarjeta sanitaria de tu comunidad autónoma, que permite el acceso práctico al servicio regional de salud. En la Comunitat Valenciana, esa tarjeta es la SIP.",
+  "status": "Derecho estatal + tarjeta autonómica · SIP es propia de la Comunitat Valenciana",
+  "sourceChecked": "2026-08-29",
+  "sourceCheckedLabel": "Fuentes oficiales comprobadas",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Trámite",
+      "text": "Primero confirma si tu derecho a la asistencia sanitaria pública ya consta reconocido en España. Si necesitas reconocimiento, utiliza el trámite de asistencia sanitaria de la Seguridad Social. En la Comunitat Valenciana, después realiza el alta o recuperación en el Sistema de Información Poblacional (SIP) mediante el procedimiento GVA 21561."
+    },
+    {
+      "id": "where",
+      "label": "Dónde ir",
+      "text": "El derecho a la asistencia sanitaria se gestiona a través del sistema estatal de Seguridad Social/INSS. El alta SIP valenciana se tramita con la Generalitat Valenciana; tras la solicitud electrónica debes acudir al centro de salud asignado a tu domicilio para recoger la tarjeta o documento de inclusión."
+    },
+    {
+      "id": "select",
+      "label": "Qué seleccionar",
+      "text": "Si la Seguridad Social ya refleja tu derecho sanitario, pasa al paso de la tarjeta autonómica. En Valencia selecciona 'Alta de un ciudadano en el Sistema de Información Poblacional (SIP)' — GVA 21561. Para una primera alta no utilices el trámite de renovación por pérdida o deterioro."
+    },
+    {
+      "id": "forms",
+      "label": "Formularios y tasa",
+      "text": "El alta inicial en SIP de la Comunitat Valenciana es un trámite electrónico y no lleva tasa. Si todavía necesitas que se reconozca el derecho sanitario, utiliza antes el servicio online del INSS o la vía oficial de solicitud del derecho a la asistencia sanitaria."
+    },
+    {
+      "id": "bring",
+      "label": "Prepara",
+      "bullets": [
+        "Datos de identidad y DNI/NIE u otro documento admitido para tu caso",
+        "Tu domicilio actual en la Comunitat Valenciana",
+        "Justificante de padrón si la administración no puede verificarlo electrónicamente o te opones a la consulta",
+        "Documentación de Seguridad Social o del derecho sanitario que corresponda a tu modalidad de cobertura",
+        "Un sistema de identificación/firma electrónica admitido para la tramitación online de la Generalitat",
+        "Documento de identidad cuando acudas al centro de salud asignado a recoger la tarjeta o documento de inclusión"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "Qué ocurre después",
+      "text": "La solicitud electrónica de alta SIP está diseñada para recibir respuesta inmediata y se completa con la visita presencial al centro de salud asignado. El SIP registra identificación, domicilio y modalidad de cobertura sanitaria; no sustituye el reconocimiento estatal del derecho cuando este sea necesario."
+    }
+  ],
+  "links": [
+    {
+      "label": "Alta inicial SIP de la Comunitat Valenciana (GVA 21561)",
+      "url": "https://sede.gva.es/es/inicio/procedimientos?id_proc=G21561"
+    },
+    {
+      "label": "Seguridad Social: asistencia sanitaria",
+      "url": "https://prestaciones.seg-social.es/servicio/asistencia-sanitaria-gestion-beneficiarios.html"
+    },
+    {
+      "label": "Guía del número de Seguridad Social",
+      "url": "/guides/es/social-security/"
+    }
+  ]
+}
