@@ -20,11 +20,14 @@ jobs:
           python-version: "3.12"
       - name: Check guide scripts
         run: |
+          node --check scripts/clean-health-social-legacy-sections.js
           node --check scripts/bake-health-social-action-guides.js
           python -m py_compile scripts/health-social-audit.py
           python -m py_compile scripts/browser-health-social-audit.py
       - name: Bake crawler-first guide introductions locally
         run: node scripts/bake-crawler-first-guides.js
+      - name: Remove legacy healthcare and Social Security sections locally
+        run: node scripts/clean-health-social-legacy-sections.js
       - name: Bake healthcare and Social Security guides locally
         run: node scripts/bake-health-social-action-guides.js
       - name: Audit local output
