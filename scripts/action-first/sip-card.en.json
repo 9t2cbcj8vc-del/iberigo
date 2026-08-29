@@ -1,0 +1,64 @@
+{
+  "procedureKey": "public-healthcare-card",
+  "route": "/guides/sip-card/",
+  "lang": "en",
+  "eyebrow": "Do this next",
+  "title": "Public healthcare: entitlement first, health card second",
+  "intro": "Use this guide to separate two steps that are often confused: Spain-wide healthcare entitlement and the regional health card that gives you practical access to your autonomous community's health service. In the Valencian Community, that regional card is the SIP card.",
+  "status": "National entitlement + regional card · SIP is specific to the Valencian Community",
+  "sourceChecked": "2026-08-29",
+  "sourceCheckedLabel": "Official sources checked",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Procedure",
+      "text": "First confirm whether your public healthcare entitlement is already recognized in Spain. If recognition is needed, use the Social Security healthcare-entitlement procedure. In the Valencian Community, then register or reactivate yourself in the Sistema de Información Poblacional (SIP) using Generalitat procedure GVA 21561."
+    },
+    {
+      "id": "where",
+      "label": "Where to go",
+      "text": "Healthcare entitlement is handled through the national Social Security system/INSS. Valencian SIP registration is filed with the Generalitat Valenciana; after the electronic request, you go to the health centre assigned to your address to collect the card or inclusion document."
+    },
+    {
+      "id": "select",
+      "label": "What to select",
+      "text": "If Social Security already shows your healthcare right, move on to the regional card step. In Valencia choose 'Alta de un ciudadano en el Sistema de Información Poblacional (SIP)' — GVA 21561. Do not use the lost/damaged-card renewal procedure for a first registration."
+    },
+    {
+      "id": "forms",
+      "label": "Forms and fee",
+      "text": "The initial Valencian SIP registration is an electronic procedure and carries no fee. If healthcare entitlement itself still needs recognition, use the INSS online service or the official healthcare-entitlement application route before relying on the regional card step."
+    },
+    {
+      "id": "bring",
+      "label": "Prepare",
+      "bullets": [
+        "Identity details and your DNI/NIE or other accepted identity document for your case",
+        "Your current address in the Valencian Community",
+        "Padrón evidence if the administration cannot verify it electronically or you oppose the electronic check",
+        "Any Social Security or healthcare-entitlement evidence relevant to your coverage situation",
+        "A supported electronic identification/signature method for the Generalitat online filing",
+        "Identification when you attend your assigned health centre to collect the card or inclusion document"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "What happens after",
+      "text": "The Valencian electronic SIP request is designed for an immediate response, followed by an in-person visit to the assigned health centre for collection. SIP records your identification, address and healthcare-coverage status; it does not replace the national decision on entitlement when that decision is required."
+    }
+  ],
+  "links": [
+    {
+      "label": "Valencian SIP initial registration (GVA 21561)",
+      "url": "https://sede.gva.es/es/inicio/procedimientos?id_proc=G21561"
+    },
+    {
+      "label": "Social Security: healthcare entitlement",
+      "url": "https://prestaciones.seg-social.es/servicio/asistencia-sanitaria-gestion-beneficiarios.html"
+    },
+    {
+      "label": "Social Security number guide",
+      "url": "/guides/social-security/"
+    }
+  ]
+}
