@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "scripts" / "action-first-health-social"
-PANEL = "data-iberigo-action-first"
+PANEL = '<section class="action-first-card" data-iberigo-action-first'
 STATIC = 'data-iberigo-static-action-guide="true"'
 STATIC_STYLE = "data-iberigo-static-action-guide-style"
 REQUIRED_IDS = ("procedure", "where", "select", "forms", "bring", "after")
