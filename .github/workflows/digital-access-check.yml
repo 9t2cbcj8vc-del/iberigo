@@ -7,6 +7,7 @@ on:
       - 'scripts/action-first-digital/**'
       - 'scripts/clean-digital-legacy-sections.js'
       - 'scripts/bake-digital-action-guide.js'
+      - 'scripts/align-digital-crawler-description.js'
       - 'scripts/digital-access-audit.py'
       - 'scripts/browser-digital-access-audit.py'
       - 'guides/digital/index.html'
@@ -32,6 +33,7 @@ jobs:
         run: |
           node --check scripts/clean-digital-legacy-sections.js
           node --check scripts/bake-digital-action-guide.js
+          node --check scripts/align-digital-crawler-description.js
           python -m py_compile scripts/digital-access-audit.py
           python -m py_compile scripts/browser-digital-access-audit.py
       - name: Bake crawler-first guide introductions locally
@@ -40,6 +42,8 @@ jobs:
         run: node scripts/clean-digital-legacy-sections.js
       - name: Bake digital action guide locally
         run: node scripts/bake-digital-action-guide.js
+      - name: Align digital crawler description locally
+        run: node scripts/align-digital-crawler-description.js
       - name: Audit local output
         run: python scripts/digital-access-audit.py --local
       - name: Audit deployed Netlify preview
