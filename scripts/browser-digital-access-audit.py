@@ -47,10 +47,14 @@ def verify(page, name, route, expected_title):
     box = card.bounding_box()
     assert box, f"{route}: missing action-card box"
     viewport_width = page.viewport_size["width"]
-    assert box["width"] >= viewport_width * 0.72, f"{route}: action card too narrow ({box['width']} of {viewport_width})"
+    # Static guide content intentionally caps near 900px on desktop while retaining
+    # comfortable outer gutters on mobile. Require that intended width rather than
+    # a percentage of arbitrarily wide browser chrome.
+    minimum_width = min(900, viewport_width * 0.72)
+    page.screenshot(path=str(OUT / f"{name}.png"), full_page=True)
+    assert box["width"] >= minimum_width, f"{route}: action card too narrow ({box['width']} of {viewport_width}; minimum {minimum_width})"
     overflow = page.evaluate("() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1")
     assert not overflow, f"{route}: horizontal overflow"
-    page.screenshot(path=str(OUT / f"{name}.png"), full_page=True)
     print(f"BROWSER PASS {route}: card width={box['width']:.0f}, y-order={order}")
 
 
