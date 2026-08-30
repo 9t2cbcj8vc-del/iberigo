@@ -1,0 +1,26 @@
+{
+  "procedureKey": "taxes-spain",
+  "route": "/guides/taxes/",
+  "lang": "en",
+  "sourceChecked": "2026-08-30",
+  "eyebrow": "Do this next",
+  "title": "Taxes in Spain: establish tax residence before choosing a form",
+  "status": "Tax residence is separate from immigration residence",
+  "intro": "Do not start with a tax form. First establish whether Spain treats you as tax resident for the calendar year, then identify the income or reporting obligation involved and use the matching Agencia Tributaria procedure.",
+  "sourceCheckedLabel": "Official sources checked",
+  "items": [
+    {"id":"procedure","label":"1. Check your tax-residence position","text":"Spain can treat an individual as tax resident if they spend more than 183 days in Spain, if the main centre or base of their economic interests is in Spain, or through the rebuttable family presumption in the law. Immigration residence alone does not decide this."},
+    {"id":"where","label":"2. Use Agencia Tributaria as the filing authority","text":"Use the Spanish Tax Agency (AEAT) for census data, IRPF, IRNR and information returns. If two countries could treat you as resident, the relevant double-tax treaty may need to be applied."},
+    {"id":"select","label":"3. Identify the correct tax route","bullets":["Spanish tax resident: normally IRPF, subject to filing thresholds and any special regime","Non-resident with Spanish-source income: check IRNR and the applicable model","Change of tax residence or tax address: check Modelo 030 / census procedures","Foreign assets: check whether an information return such as Modelo 720 applies"]},
+    {"id":"forms","label":"4. Update census details when required","text":"For individuals outside the business/professional census, Modelo 030 is used for tax-census registration and changes such as tax address or residence status. Different census forms apply to business and professional activity."},
+    {"id":"bring","label":"5. Gather income and residence evidence","bullets":["Travel/residence evidence if tax residence could be disputed","Spanish and foreign income records","Foreign tax paid and treaty information where relevant","Bank, investment and property records for foreign-asset reporting checks","Current tax-address and identification details"]},
+    {"id":"after","label":"6. File the obligation that actually applies","text":"Spanish tax residents generally report worldwide income under IRPF, subject to treaties and special regimes. Non-residents generally use IRNR for Spanish-source income. Foreign-asset information returns are separate from the income-tax return and have their own thresholds and follow-up rules."}
+  ],
+  "links": [
+    {"label":"AEAT: tax residence rules","url":"https://sede.agenciatributaria.gob.es/Sede/no-residentes/residencia-personas-fisicas-juridicas/residencia-personas-fisicas.html"},
+    {"label":"AEAT: Modelo 030","url":"https://sede.agenciatributaria.gob.es/Sede/procedimientos/G321.shtml"},
+    {"label":"AEAT: residents with foreign income","url":"https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/residentes-rentas-procedentes-extranjero.html"},
+    {"label":"AEAT: non-resident income tax","url":"https://sede.agenciatributaria.gob.es/Sede/no-residentes/irnr-sin-establecimiento-permanente.html"},
+    {"label":"AEAT: Modelo 720 FAQs","url":"https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/impuestos-tasas/declaraciones-informativas/modelo-720-decla_____sobre-bienes-derechos-extranjero_/preguntas-frecuentes.html"}
+  ]
+}
