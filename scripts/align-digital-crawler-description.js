@@ -8,8 +8,26 @@ function routeFile(route) {
   return path.join(ROOT, route.replace(/^\//, ""), "index.html");
 }
 
-function escapeAttribute(value) {
-  return value.replaceAll("&", "&amp;").replaceAll('"', "&quot;");
+function escapeAttribute(value, quote) {
+  let escaped = value.replaceAll("&", "&amp;");
+  if (quote === '"') escaped = escaped.replaceAll('"', "&quot;");
+  if (quote === "'") escaped = escaped.replaceAll("'", "&#39;");
+  return escaped;
+}
+
+function replaceMetaContent(html, selectorPattern, description, label, required = true) {
+  const tagPattern = new RegExp(`<meta\\b(?=[^>]*${selectorPattern})[^>]*>`, "i");
+  const match = html.match(tagPattern);
+  if (!match) {
+    if (required) throw new Error(`${label}: meta tag not found`);
+    return html;
+  }
+  const tag = match[0];
+  const contentMatch = tag.match(/\bcontent=(['"])([\s\S]*?)\1/i);
+  if (!contentMatch) throw new Error(`${label}: content attribute not found`);
+  const quote = contentMatch[1];
+  const replacement = `content=${quote}${escapeAttribute(description, quote)}${quote}`;
+  return html.replace(tag, tag.replace(contentMatch[0], replacement));
 }
 
 for (const route of ROUTES) {
@@ -18,13 +36,9 @@ for (const route of ROUTES) {
   const intro = html.match(/<div\b[^>]*\bdata-crawler-guide-intro\b[^>]*>[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<\/div>/i);
   if (!intro) throw new Error(`${route}: crawler intro paragraph not found`);
   const description = intro[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-  const escaped = escapeAttribute(description);
 
-  const meta = /(<meta\s+name=["']description["']\s+content=["'])[^"']*(["'][^>]*>)/i;
-  const og = /(<meta\s+property=["']og:description["']\s+content=["'])[^"']*(["'][^>]*>)/i;
-  if (!meta.test(html)) throw new Error(`${route}: meta description not found`);
-  html = html.replace(meta, `$1${escaped}$2`);
-  if (og.test(html)) html = html.replace(og, `$1${escaped}$2`);
+  html = replaceMetaContent(html, `name=["']description["']`, description, `${route} description`);
+  html = replaceMetaContent(html, `property=["']og:description["']`, description, `${route} og:description`, false);
 
   fs.writeFileSync(file, html, "utf8");
 }
