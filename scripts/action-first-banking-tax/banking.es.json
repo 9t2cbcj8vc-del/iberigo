@@ -1,0 +1,24 @@
+{
+  "procedureKey": "banking-spain",
+  "route": "/guides/es/banking/",
+  "lang": "es",
+  "sourceChecked": "2026-08-30",
+  "eyebrow": "Haz esto ahora",
+  "title": "Banca en España: elige la cuenta que realmente necesitas",
+  "status": "Los requisitos cambian según el banco; los derechos de pago de la UE siguen aplicándose",
+  "intro": "Empieza por el uso que vas a darle, elige después la cuenta y prepara la identificación y la justificación del origen de fondos que pueda pedir la entidad. Un IBAN español puede ser cómodo, pero una cuenta de la UE no puede rechazarse para un pago SEPA solo por ser de otro país de la UE.",
+  "sourceCheckedLabel": "Fuentes oficiales comprobadas",
+  "items": [
+    {"id":"procedure","label":"1. Decide si necesitas una cuenta española","text":"Para nómina, alquiler y domiciliaciones, comprueba primero si tu cuenta SEPA actual ya sirve. Una cuenta local puede seguir siendo útil para oficinas, efectivo y productos bancarios españoles."},
+    {"id":"where","label":"2. Elige un proveedor regulado","text":"Compara bancos españoles y proveedores de pago autorizados. Los bancos suelen decidir libremente si abren una cuenta ordinaria, mientras que los clientes que cumplen los requisitos tienen derechos específicos para solicitar una cuenta de pago básica."},
+    {"id":"select","label":"3. Elige el tipo de cuenta correcto","text":"Pregunta si la entidad abrirá una cuenta de residente, no residente, corriente ordinaria o de pago básica. No declares una residencia que no puedas acreditar; los nombres y requisitos varían según la entidad."},
+    {"id":"forms","label":"4. Completa el proceso KYC del banco","text":"No existe un formulario público único para abrir una cuenta bancaria normal. Completa con precisión la solicitud del banco, las declaraciones de residencia fiscal y las preguntas de prevención de blanqueo."},
+    {"id":"bring","label":"5. Prepara identidad y documentación financiera","bullets":["Ciudadano de la UE: pueden pedir pasaporte o DNI nacional junto con el NIE","Ciudadano no UE: la TIE se usa habitualmente como identificación","A los no residentes pueden pedirles prueba de no residencia","Pueden solicitar domicilio, ingresos/empleo y origen de los fondos"]},
+    {"id":"after","label":"6. Revisa la cuenta antes de usarla","bullets":["Lee comisiones y condiciones de tarjeta y transferencias antes de firmar","Confirma el IBAN y las domiciliaciones que vas a utilizar","Conserva pruebas del origen de fondos","Si rechazan un IBAN de la UE solo por su código de país, consulta las normas contra la discriminación por IBAN"]}
+  ],
+  "links": [
+    {"label":"Banco de España: abrir una cuenta","url":"https://clientebancario.bde.es/pcb/es/blog/cuales-son-los-tramites-para-abrir-una-cuenta-.html"},
+    {"label":"Banco de España: cuenta de pago básica","url":"https://clientebancario.bde.es/pcb/es/menu-horizontal/productosservici/cuentasdepositos/cuentascorriente/guia-textual/CuentadepagoBasica/quienes-pueden-solicitarla-.html"},
+    {"label":"UE: discriminación por IBAN","url":"https://finance.ec.europa.eu/consumer-finance-and-payments/payment-services/payment-services/iban-discrimination_es"}
+  ]
+}
