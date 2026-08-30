@@ -1,6 +1,8 @@
 import argparse
+import html as html_lib
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -17,6 +19,10 @@ DUPLICATES = ("Next 3 steps", "Forms and documents", "Official source links", "O
 
 def route_file(route: str) -> Path:
     return ROOT / route.lstrip("/") / "index.html"
+
+
+def text_content(fragment: str) -> str:
+    return " ".join(html_lib.unescape(re.sub(r"<[^>]+>", " ", fragment)).split())
 
 
 def configs():
@@ -66,11 +72,21 @@ def validate(file: Path, data: dict, html: str, preview: bool):
     for link in data.get("links", []):
         if f'href="{link["url"]}"' not in html:
             raise AssertionError(f"{route}: link missing {link['url']}")
-    intro = html.find("data-crawler-guide-intro")
+
+    intro_pos = html.find("data-crawler-guide-intro")
     card = html.find(PANEL)
     hero = html.find('class="result-hero"')
-    if min(intro, card, hero) < 0 or not intro < card < hero:
+    if min(intro_pos, card, hero) < 0 or not intro_pos < card < hero:
         raise AssertionError(f"{route}: expected intro -> card -> detailed explanation")
+
+    intro_match = re.search(r"<div\b[^>]*data-crawler-guide-intro[^>]*>([\s\S]*?)</div>", html, flags=re.I)
+    meta_match = re.search(r"<meta\s+name=[\"']description[\"']\s+content=(\"([^\"]*)\"|'([^']*)')[^>]*>", html, flags=re.I | re.S)
+    if not intro_match or not meta_match:
+        raise AssertionError(f"{route}: crawler intro/meta description missing")
+    meta_description = html_lib.unescape((meta_match.group(2) if meta_match.group(2) is not None else meta_match.group(3)).strip())
+    if meta_description not in text_content(intro_match.group(1)):
+        raise AssertionError(f"{route}: meta description must be visible in crawler intro")
+
     for heading in DUPLICATES:
         if f"<strong>{heading}</strong>" in html:
             raise AssertionError(f"{route}: duplicate legacy section remains: {heading}")
@@ -89,7 +105,7 @@ def validate(file: Path, data: dict, html: str, preview: bool):
 def audit_local():
     for file, data in configs():
         validate(file, data, route_file(data["route"]).read_text(encoding="utf-8"), False)
-    print("DIGITAL ACCESS LOCAL PASSED: FNMT + Cl@ve static-first guides verified")
+    print("DIGITAL ACCESS LOCAL PASSED: FNMT + Cl@ve static-first guides and crawler metadata verified")
 
 
 def request(url: str):
