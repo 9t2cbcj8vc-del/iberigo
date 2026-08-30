@@ -1,0 +1,72 @@
+{
+  "procedureKey": "digital-access",
+  "route": "/guides/digital/",
+  "lang": "en",
+  "eyebrow": "Do this next",
+  "title": "Digital access: choose FNMT certificate or Cl@ve",
+  "intro": "Spain uses several accepted electronic-identification methods. The FNMT citizen certificate and Cl@ve are separate systems: the certificate is installed on your device, while Cl@ve identifies you through the government's shared login system. A portal decides which methods it accepts, so regular residents often benefit from setting up both.",
+  "status": "National digital-access tools · accepted methods depend on each service",
+  "sourceChecked": "2026-08-30",
+  "sourceCheckedLabel": "Official sources checked",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Procedure",
+      "text": "Choose the FNMT Certificado de Persona Física, register in Cl@ve, or set up both. One does not automatically create the other."
+    },
+    {
+      "id": "where",
+      "label": "Where to go",
+      "text": "For FNMT, use the official FNMT electronic office: configure the device, submit the certificate request, receive the request code, prove your identity and then download the certificate. For Cl@ve, start from the official Cl@ve registration service."
+    },
+    {
+      "id": "select",
+      "label": "Which one to choose",
+      "bullets": [
+        "FNMT certificate: useful when a portal accepts certificate-based identification or electronic signing; some procedures also use AutoFirma.",
+        "Cl@ve Móvil: convenient for routine identification on services integrated with Cl@ve, using the app/QR confirmation flow.",
+        "Cl@ve Permanente: designed for frequent access with a lasting password; higher-security services can add a one-time SMS code.",
+        "For the widest practical fallback, set up both if you are eligible. The specific portal always decides what it accepts."
+      ]
+    },
+    {
+      "id": "forms",
+      "label": "Registration and cost",
+      "text": "Neither route uses Modelo 790. The FNMT citizen certificate itself is free. Cl@ve has basic and advanced registration levels; basic registration does not unlock every service or Cl@ve Firma. Optional FNMT mobile video identification is a separate paid identity-verification service and is currently limited to a valid Spanish DNI."
+    },
+    {
+      "id": "bring",
+      "label": "Prepare",
+      "bullets": [
+        "Your DNI or NIE and the identity document required by the chosen route",
+        "For the standard FNMT office route: the request code sent by email",
+        "EU citizens using FNMT: NIE evidence plus passport or national identity document, as required by FNMT",
+        "A mobile phone number and email address for Cl@ve registration",
+        "For FNMT software certificate: keep using the same computer and user account from request through download"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "What happens after",
+      "text": "After FNMT identity accreditation, download the certificate using the same computer and user account used for the request, then make a protected backup. After Cl@ve registration, you can use Cl@ve Móvil and, if needed, activate Cl@ve Permanente. Some higher-security functions require advanced registration, and not every public service offers every identification method."
+    }
+  ],
+  "links": [
+    {
+      "label": "Official FNMT citizen certificate",
+      "url": "https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software"
+    },
+    {
+      "label": "FNMT identity accreditation",
+      "url": "https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software/acreditar-identidad/presencial"
+    },
+    {
+      "label": "Official Cl@ve registration",
+      "url": "https://clave.gob.es/registro/como-puedo-registrarme"
+    },
+    {
+      "label": "How Cl@ve works",
+      "url": "https://clave.gob.es/clave/que-es"
+    }
+  ]
+}
