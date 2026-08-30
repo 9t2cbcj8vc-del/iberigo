@@ -1,0 +1,26 @@
+{
+  "procedureKey": "taxes-spain",
+  "route": "/guides/es/taxes/",
+  "lang": "es",
+  "sourceChecked": "2026-08-30",
+  "eyebrow": "Haz esto ahora",
+  "title": "Impuestos en España: determina primero tu residencia fiscal",
+  "status": "La residencia fiscal es distinta de la residencia de extranjería",
+  "intro": "No empieces por un formulario. Primero determina si España te considera residente fiscal durante el año natural, identifica después la renta u obligación informativa y utiliza el trámite correspondiente de la Agencia Tributaria.",
+  "sourceCheckedLabel": "Fuentes oficiales comprobadas",
+  "items": [
+    {"id":"procedure","label":"1. Comprueba tu residencia fiscal","text":"España puede considerar residente fiscal a una persona si permanece más de 183 días en España, si aquí radica el núcleo principal o la base de sus intereses económicos, o por la presunción familiar rebatible prevista en la ley. La residencia de extranjería por sí sola no decide la residencia fiscal."},
+    {"id":"where","label":"2. Usa la Agencia Tributaria como autoridad de presentación","text":"La AEAT gestiona los datos censales, IRPF, IRNR y declaraciones informativas. Si dos países pueden considerarte residente, puede ser necesario aplicar el convenio para evitar la doble imposición correspondiente."},
+    {"id":"select","label":"3. Identifica la vía fiscal correcta","bullets":["Residente fiscal en España: normalmente IRPF, sujeto a límites de declaración y posibles regímenes especiales","No residente con rentas de fuente española: revisa IRNR y el modelo aplicable","Cambio de residencia fiscal o domicilio fiscal: revisa Modelo 030 / trámites censales","Bienes en el extranjero: comprueba si corresponde una declaración informativa como el Modelo 720"]},
+    {"id":"forms","label":"4. Actualiza los datos censales cuando proceda","text":"Para personas físicas fuera del censo de empresarios y profesionales, el Modelo 030 sirve para alta censal y cambios como domicilio fiscal o condición de residente. Para actividades empresariales o profesionales se utilizan otros modelos censales."},
+    {"id":"bring","label":"5. Reúne pruebas de renta y residencia","bullets":["Pruebas de estancia/residencia si la residencia fiscal puede discutirse","Documentación de rentas españolas y extranjeras","Impuestos pagados fuera de España e información del convenio cuando proceda","Datos de cuentas, inversiones e inmuebles para comprobar obligaciones informativas","Domicilio fiscal e identificación actualizados"]},
+    {"id":"after","label":"6. Presenta solo la obligación que te corresponde","text":"Los residentes fiscales en España tributan con carácter general por su renta mundial en IRPF, sin perjuicio de convenios y regímenes especiales. Los no residentes tributan en general por IRNR sobre rentas de fuente española. Las declaraciones informativas de bienes en el extranjero son independientes del IRPF y tienen sus propios límites y reglas posteriores."}
+  ],
+  "links": [
+    {"label":"AEAT: reglas de residencia fiscal","url":"https://sede.agenciatributaria.gob.es/Sede/no-residentes/residencia-personas-fisicas-juridicas/residencia-personas-fisicas.html"},
+    {"label":"AEAT: Modelo 030","url":"https://sede.agenciatributaria.gob.es/Sede/procedimientos/G321.shtml"},
+    {"label":"AEAT: residentes con rentas extranjeras","url":"https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/residentes-rentas-procedentes-extranjero.html"},
+    {"label":"AEAT: impuesto sobre la renta de no residentes","url":"https://sede.agenciatributaria.gob.es/Sede/no-residentes/irnr-sin-establecimiento-permanente.html"},
+    {"label":"AEAT: preguntas frecuentes Modelo 720","url":"https://sede.agenciatributaria.gob.es/Sede/todas-gestiones/impuestos-tasas/declaraciones-informativas/modelo-720-decla_____sobre-bienes-derechos-extranjero_/preguntas-frecuentes.html"}
+  ]
+}

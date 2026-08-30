@@ -1,0 +1,24 @@
+{
+  "procedureKey": "banking-spain",
+  "route": "/guides/banking/",
+  "lang": "en",
+  "sourceChecked": "2026-08-30",
+  "eyebrow": "Do this next",
+  "title": "Banking in Spain: choose the account you actually need",
+  "status": "Bank requirements vary; EU payment rights still apply",
+  "intro": "Start with the use case, then choose an account and prepare the bank's identity and source-of-funds checks. A Spanish IBAN can be convenient, but an EU account cannot be rejected for a SEPA payment merely because it is from another EU country.",
+  "sourceCheckedLabel": "Official sources checked",
+  "items": [
+    {"id":"procedure","label":"1. Decide if you need a Spanish account","text":"For salary, rent and direct debits, first check whether your existing SEPA account already works. A local account may still be convenient for branch service, cash and Spanish banking products."},
+    {"id":"where","label":"2. Choose a regulated provider","text":"Compare Spanish banks and authorised payment providers. Ordinary banks generally decide whether to open a standard account, while eligible customers have separate rights to request a basic payment account."},
+    {"id":"select","label":"3. Choose the right account status","text":"Ask whether the bank is opening a resident, non-resident, ordinary current or basic payment account. Do not claim resident status you cannot document; product names and requirements differ by bank."},
+    {"id":"forms","label":"4. Complete the bank's KYC onboarding","text":"There is no single government form for a normal bank account. Complete the bank's application, tax-residence declarations and anti-money-laundering questions accurately."},
+    {"id":"bring","label":"5. Prepare identity and financial evidence","bullets":["EU citizen: passport or national ID plus NIE may be requested","Non-EU citizen: TIE is commonly used for identification","Non-residents may be asked to prove non-resident status","Proof of address, income/employment and source of funds may be requested"]},
+    {"id":"after","label":"6. Check the account before using it","bullets":["Read fees, card and transfer conditions before signing","Confirm the IBAN and direct-debit setup you will use","Keep evidence of source of funds available","If an EU IBAN is rejected only because of its country code, check the EU IBAN-discrimination rules"]}
+  ],
+  "links": [
+    {"label":"Banco de España: opening an account","url":"https://clientebancario.bde.es/pcb/en/blog/cuales-son-los-tramites-para-abrir-una-cuenta-.html"},
+    {"label":"Banco de España: basic payment account","url":"https://clientebancario.bde.es/pcb/es/menu-horizontal/productosservici/cuentasdepositos/cuentascorriente/guia-textual/CuentadepagoBasica/quienes-pueden-solicitarla-.html"},
+    {"label":"EU: IBAN discrimination","url":"https://finance.ec.europa.eu/consumer-finance-and-payments/payment-services/payment-services/iban-discrimination_en"}
+  ]
+}

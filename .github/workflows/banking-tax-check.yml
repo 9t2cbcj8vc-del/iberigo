@@ -1,0 +1,61 @@
+name: Banking and tax guide check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/action-first-banking-tax/**'
+      - 'scripts/bake-banking-tax-action-guides.js'
+      - 'scripts/banking-tax-audit.py'
+      - 'scripts/browser-banking-tax-audit.py'
+      - 'guides/banking/index.html'
+      - 'guides/es/banking/index.html'
+      - 'guides/taxes/index.html'
+      - 'guides/es/taxes/index.html'
+      - 'netlify.toml'
+      - '.github/workflows/banking-tax-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  banking-tax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check guide scripts
+        run: |
+          node --check scripts/bake-banking-tax-action-guides.js
+          python -m py_compile scripts/banking-tax-audit.py
+          python -m py_compile scripts/browser-banking-tax-audit.py
+      - name: Bake crawler-first guide introductions locally
+        run: node scripts/bake-crawler-first-guides.js
+      - name: Bake banking and tax action guides locally
+        run: node scripts/bake-banking-tax-action-guides.js
+      - name: Audit local output
+        run: python scripts/banking-tax-audit.py --local
+      - name: Audit deployed Netlify preview
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/banking-tax-audit.py --preview
+      - name: Install browser audit dependencies
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Audit rendered preview in Chromium
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/browser-banking-tax-audit.py
+      - name: Upload browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: banking-tax-browser-screenshots
+          path: browser-banking-tax/*.png
+          if-no-files-found: ignore
