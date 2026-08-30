@@ -1,0 +1,72 @@
+{
+  "procedureKey": "digital-access",
+  "route": "/guides/es/digital/",
+  "lang": "es",
+  "eyebrow": "Haz esto ahora",
+  "title": "Acceso digital: elige certificado FNMT o Cl@ve",
+  "intro": "España utiliza varios métodos admitidos de identificación electrónica. El certificado de persona física de la FNMT y Cl@ve son sistemas distintos: el certificado se instala en tu dispositivo, mientras que Cl@ve te identifica mediante el sistema común de acceso de la Administración. Cada sede decide qué métodos admite, por lo que a quienes hacen trámites con frecuencia les puede resultar útil tener ambos.",
+  "status": "Herramientas estatales de acceso digital · cada servicio decide qué métodos admite",
+  "sourceChecked": "2026-08-30",
+  "sourceCheckedLabel": "Fuentes oficiales comprobadas",
+  "items": [
+    {
+      "id": "procedure",
+      "label": "Trámite",
+      "text": "Elige el Certificado de Persona Física de la FNMT, regístrate en Cl@ve o configura ambos. Obtener uno no crea automáticamente el otro."
+    },
+    {
+      "id": "where",
+      "label": "Dónde hacerlo",
+      "text": "Para FNMT, utiliza la sede electrónica oficial: configura el equipo, presenta la solicitud, recibe el código de solicitud, acredita tu identidad y después descarga el certificado. Para Cl@ve, empieza en el servicio oficial de registro de Cl@ve."
+    },
+    {
+      "id": "select",
+      "label": "Cuál elegir",
+      "bullets": [
+        "Certificado FNMT: útil cuando una sede admite identificación con certificado o firma electrónica; algunos trámites también utilizan AutoFirma.",
+        "Cl@ve Móvil: cómoda para la identificación habitual en servicios integrados con Cl@ve mediante la app o confirmación con QR.",
+        "Cl@ve Permanente: pensada para accesos frecuentes con una contraseña duradera; los servicios de mayor seguridad pueden añadir un código de un solo uso por SMS.",
+        "Para disponer de una alternativa más amplia, configura ambos si cumples los requisitos. La sede concreta siempre decide qué método admite."
+      ]
+    },
+    {
+      "id": "forms",
+      "label": "Registro y coste",
+      "text": "Ninguna de estas vías utiliza el Modelo 790. El certificado ciudadano FNMT es gratuito. Cl@ve distingue entre registro básico y avanzado; el nivel básico no sirve para todos los servicios ni permite Cl@ve Firma. La videoidentificación móvil opcional de FNMT es un servicio de acreditación de pago separado y actualmente está limitada a DNI español vigente."
+    },
+    {
+      "id": "bring",
+      "label": "Prepara",
+      "bullets": [
+        "Tu DNI o NIE y el documento de identidad exigido por la vía elegida",
+        "Para la vía presencial estándar de FNMT: el código de solicitud recibido por correo electrónico",
+        "Ciudadanos de la UE que utilicen FNMT: documento que acredite el NIE más pasaporte o documento nacional de identidad, según exige FNMT",
+        "Número de teléfono móvil y correo electrónico para el registro en Cl@ve",
+        "Para el certificado software FNMT: utiliza el mismo ordenador y usuario desde la solicitud hasta la descarga"
+      ]
+    },
+    {
+      "id": "after",
+      "label": "Qué ocurre después",
+      "text": "Tras acreditar la identidad para FNMT, descarga el certificado desde el mismo ordenador y usuario utilizados en la solicitud y guarda una copia de seguridad protegida. Tras registrarte en Cl@ve, puedes usar Cl@ve Móvil y, si lo necesitas, activar Cl@ve Permanente. Algunas funciones de mayor seguridad requieren registro avanzado y no todas las sedes ofrecen todos los métodos de identificación."
+    }
+  ],
+  "links": [
+    {
+      "label": "Certificado ciudadano FNMT oficial",
+      "url": "https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software"
+    },
+    {
+      "label": "Acreditación de identidad FNMT",
+      "url": "https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software/acreditar-identidad/presencial"
+    },
+    {
+      "label": "Registro oficial en Cl@ve",
+      "url": "https://clave.gob.es/registro/como-puedo-registrarme"
+    },
+    {
+      "label": "Cómo funciona Cl@ve",
+      "url": "https://clave.gob.es/clave/que-es"
+    }
+  ]
+}
