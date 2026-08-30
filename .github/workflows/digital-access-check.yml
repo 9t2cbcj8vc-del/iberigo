@@ -1,0 +1,63 @@
+name: Digital access guide check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/action-first-digital/**'
+      - 'scripts/clean-digital-legacy-sections.js'
+      - 'scripts/bake-digital-action-guide.js'
+      - 'scripts/digital-access-audit.py'
+      - 'scripts/browser-digital-access-audit.py'
+      - 'guides/digital/index.html'
+      - 'guides/es/digital/index.html'
+      - 'netlify.toml'
+      - '.github/workflows/digital-access-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  digital-access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check guide scripts
+        run: |
+          node --check scripts/clean-digital-legacy-sections.js
+          node --check scripts/bake-digital-action-guide.js
+          python -m py_compile scripts/digital-access-audit.py
+          python -m py_compile scripts/browser-digital-access-audit.py
+      - name: Bake crawler-first guide introductions locally
+        run: node scripts/bake-crawler-first-guides.js
+      - name: Remove legacy digital sections locally
+        run: node scripts/clean-digital-legacy-sections.js
+      - name: Bake digital action guide locally
+        run: node scripts/bake-digital-action-guide.js
+      - name: Audit local output
+        run: python scripts/digital-access-audit.py --local
+      - name: Audit deployed Netlify preview
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/digital-access-audit.py --preview
+      - name: Install browser audit dependencies
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Audit rendered preview in Chromium
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/browser-digital-access-audit.py
+      - name: Upload browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: digital-access-browser-screenshots
+          path: browser-digital-access/*.png
+          if-no-files-found: ignore
