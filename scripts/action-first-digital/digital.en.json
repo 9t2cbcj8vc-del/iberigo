@@ -17,7 +17,7 @@
     {
       "id": "where",
       "label": "Where to go",
-      "text": "For FNMT, use the official FNMT electronic office: configure the device, submit the certificate request, receive the request code, prove your identity and then download the certificate. For Cl@ve, start from the official Cl@ve registration service."
+      "text": "For FNMT, use the official FNMT electronic office: configure the device, submit the certificate request, receive the request code, prove your identity and then download the certificate. For Cl@ve, start from the official Cl@ve registration service. If you need an in-person appointment, direct AEAT and Seguridad Social appointment links are below. For AEAT Cl@ve registration, choose Other procedures → Electronic identification → Register in Cl@ve. For FNMT identity accreditation, first check the FNMT accreditation-office guidance because not every public office or appointment category performs FNMT accreditation."
     },
     {
       "id": "select",
@@ -63,6 +63,14 @@
     {
       "label": "Official Cl@ve registration",
       "url": "https://clave.gob.es/registro/como-puedo-registrarme"
+    },
+    {
+      "label": "Book AEAT appointment",
+      "url": "https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion"
+    },
+    {
+      "label": "Seguridad Social appointments (INSS/ISM)",
+      "url": "https://sede.seg-social.gob.es/wps/portal/sede/sede/Ciudadanos/cita%2Bprevia%2Bpara%2Bpensiones%2By%2Botras%2Bprestaciones"
     },
     {
       "label": "How Cl@ve works",
