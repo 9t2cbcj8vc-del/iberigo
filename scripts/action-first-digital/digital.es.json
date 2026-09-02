@@ -17,7 +17,7 @@
     {
       "id": "where",
       "label": "Dónde hacerlo",
-      "text": "Para FNMT, utiliza la sede electrónica oficial: configura el equipo, presenta la solicitud, recibe el código de solicitud, acredita tu identidad y después descarga el certificado. Para Cl@ve, empieza en el servicio oficial de registro de Cl@ve."
+      "text": "Para FNMT, utiliza la sede electrónica oficial: configura el equipo, presenta la solicitud, recibe el código de solicitud, acredita tu identidad y después descarga el certificado. Para Cl@ve, empieza en el servicio oficial de registro de Cl@ve. Si necesitas cita presencial, abajo tienes enlaces directos para pedir cita en AEAT y Seguridad Social. Para registrarte en Cl@ve en AEAT, elige Otras gestiones → Identificación electrónica → Registro en Cl@ve. Para acreditar tu identidad para FNMT, comprueba primero la información de oficinas de acreditación de FNMT, porque no todas las oficinas públicas ni todos los tipos de cita realizan esta acreditación."
     },
     {
       "id": "select",
@@ -63,6 +63,14 @@
     {
       "label": "Registro oficial en Cl@ve",
       "url": "https://clave.gob.es/registro/como-puedo-registrarme"
+    },
+    {
+      "label": "Pedir cita en AEAT",
+      "url": "https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion"
+    },
+    {
+      "label": "Cita Seguridad Social (INSS/ISM)",
+      "url": "https://sede.seg-social.gob.es/wps/portal/sede/sede/Ciudadanos/cita%2Bprevia%2Bpara%2Bpensiones%2By%2Botras%2Bprestaciones"
     },
     {
       "label": "Cómo funciona Cl@ve",
