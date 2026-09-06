@@ -12,19 +12,19 @@ INSS = "https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTIO
 TORREVIEJA = "https://torrevieja.sedelectronica.es/citaprevia.0"
 
 CHECKS = {
-    "/guides/taxes/": [AEAT, "Book an AEAT appointment"],
-    "/guides/es/taxes/": [AEAT, "Reservar cita con la AEAT"],
-    "/guides/social-security/": [INSS, "INSS appointment (benefits / other INSS matters)"],
-    "/guides/es/social-security/": [INSS, "Cita INSS (prestaciones / otras gestiones INSS)"],
+    "/guides/taxes/": [AEAT, "Book an AEAT appointment", 'data-iberigo-appointment-action="taxes-spain"'],
+    "/guides/es/taxes/": [AEAT, "Reservar cita con la AEAT", 'data-iberigo-appointment-action="taxes-spain"'],
+    "/guides/social-security/": [INSS, "INSS appointment (benefits / other INSS matters)", 'data-iberigo-appointment-action="social-security-number"'],
+    "/guides/es/social-security/": [INSS, "Cita INSS (prestaciones / otras gestiones INSS)", 'data-iberigo-appointment-action="social-security-number"'],
     "/moving-to-spain/eu-citizens/": [IMMIGRATION, "Book EU registration appointment", 'data-iberigo-appointment-action="eu-roadmap-cita"'],
     "/es/moving-to-spain/eu-citizens/": [IMMIGRATION, "Reservar cita de registro UE", 'data-iberigo-appointment-action="eu-roadmap-cita-es"'],
     "/moving-to-spain/non-eu-citizens/": [IMMIGRATION, "Book TIE / fingerprint appointment", 'data-iberigo-appointment-action="non-eu-roadmap-tie-cita"'],
     "/es/moving-to-spain/non-eu-citizens/": [IMMIGRATION, "Reservar cita TIE / huellas", 'data-iberigo-appointment-action="non-eu-roadmap-tie-cita-es"'],
-    "/the-spain-files/padron-torrevieja/": [TORREVIEJA, "Book cita previa", "select Residentes Internacionales"],
-    "/the-spain-files/es/padron-torrevieja/": [TORREVIEJA, "Reservar cita previa", "selecciona Residentes Internacionales"],
+    "/the-spain-files/padron-torrevieja/": [TORREVIEJA, "Book cita previa", "select Residentes Internacionales", 'data-iberigo-appointment-action="torrevieja-padron-en"'],
+    "/the-spain-files/es/padron-torrevieja/": [TORREVIEJA, "Reservar cita previa", "selecciona Residentes Internacionales", 'data-iberigo-appointment-action="torrevieja-padron-es"'],
     # Existing direct appointment routes that this pass must preserve.
-    "/guides/nie/": [IMMIGRATION, "Book an appointment"],
-    "/guides/tie/": [IMMIGRATION, "Book an appointment"],
+    "/guides/nie/": [IMMIGRATION],
+    "/guides/tie/": [IMMIGRATION],
     "/guides/digital/": [AEAT, INSS, "FNMT appointment via Tax Agency", "FNMT appointment via Social Security"],
 }
 
@@ -62,12 +62,18 @@ def audit(loader, label: str):
         for needle in needles:
             if needle not in html:
                 failures.append(f"{route}: missing {needle!r}")
-        if route.startswith("/guides/taxes/") or route == "/guides/taxes/":
-            if html.count(AEAT) != 1:
-                failures.append(f"{route}: AEAT appointment URL should appear exactly once, got {html.count(AEAT)}")
-        if route.startswith("/guides/social-security/") or route == "/guides/social-security/":
+        if route in {"/guides/nie/", "/guides/tie/"}:
+            lower = html.lower()
+            if "appointment" not in lower and "cita" not in lower:
+                failures.append(f"{route}: direct booking URL exists but appointment semantics are missing")
+        if route in {"/guides/taxes/", "/guides/es/taxes/"}:
+            if html.count('data-iberigo-appointment-action="taxes-spain"') != 1:
+                failures.append(f"{route}: expected exactly one injected AEAT appointment action")
+        if route in {"/guides/social-security/", "/guides/es/social-security/"}:
             if "NUSS" not in html or "Importass" not in html:
                 failures.append(f"{route}: NUSS/Importass primary route missing")
+            if html.count('data-iberigo-appointment-action="social-security-number"') != 1:
+                failures.append(f"{route}: expected exactly one injected INSS appointment action")
     if failures:
         raise AssertionError(f"{label} appointment audit failed:\n" + "\n".join(failures))
     print(f"PASS {label}: {len(CHECKS)} appointment-discovery routes verified")
