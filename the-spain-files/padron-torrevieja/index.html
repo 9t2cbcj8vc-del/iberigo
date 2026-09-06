@@ -46,6 +46,13 @@
       .article-experience strong { display: block; font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem; letter-spacing: 0.3px; }
       .article-experience blockquote { margin: 0; font-style: italic; color: #333; font-size: 15px; line-height: 1.7; }
       .article-experience p.experience-note { margin: 0.75rem 0 0; font-size: 13px; color: #888; font-style: normal; }
+      @media (max-width: 520px) {
+        .article-wrap { width: 100%; max-width: 100%; box-sizing: border-box; }
+        .article-body { min-width: 0; }
+        .article-body table { width: 100%; max-width: 100%; table-layout: fixed; }
+        .article-body th,
+        .article-body td { padding: 0.5rem 0.35rem; overflow-wrap: anywhere; word-break: normal; }
+      }
     </style>
   </head>
   <body>
