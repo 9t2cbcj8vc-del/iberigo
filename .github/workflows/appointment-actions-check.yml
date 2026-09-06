@@ -1,0 +1,66 @@
+name: Appointment actions check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/bake-appointment-actions.js'
+      - 'scripts/appointment-actions-audit.py'
+      - 'scripts/browser-appointment-actions-audit.py'
+      - 'netlify.toml'
+      - '.github/workflows/appointment-actions-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  appointment-actions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check appointment scripts
+        run: |
+          node --check scripts/bake-appointment-actions.js
+          python -m py_compile scripts/appointment-actions-audit.py
+          python -m py_compile scripts/browser-appointment-actions-audit.py
+      - name: Bake relevant local pages
+        run: |
+          node scripts/bake-roadmap-static.js
+          node scripts/bake-roadmap-next-actions.js
+          node scripts/bake-crawler-first-guides.js
+          node scripts/bake-action-first-guides.js
+          node scripts/bake-static-action-guides.js
+          node scripts/clean-health-social-legacy-sections.js
+          node scripts/bake-health-social-action-guides.js
+          node scripts/clean-digital-legacy-sections.js
+          node scripts/bake-digital-action-guide.js
+          node scripts/align-digital-crawler-description.js
+          node scripts/bake-banking-tax-action-guides.js
+          node scripts/bake-appointment-actions.js
+      - name: Audit local appointment discovery
+        run: python scripts/appointment-actions-audit.py --local
+      - name: Audit deployed Netlify preview
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/appointment-actions-audit.py --preview
+      - name: Install Chromium audit dependencies
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Audit rendered appointment actions
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/browser-appointment-actions-audit.py
+      - name: Upload appointment screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: appointment-actions-browser-screenshots
+          path: browser-appointment-actions/*.png
+          if-no-files-found: ignore
