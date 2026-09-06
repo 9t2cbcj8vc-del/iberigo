@@ -1,0 +1,42 @@
+name: Spain Files mobile overflow check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'the-spain-files/padron-torrevieja/index.html'
+      - 'the-spain-files/es/padron-torrevieja/index.html'
+      - 'the-spain-files/nie-spain/index.html'
+      - 'the-spain-files/non-lucrative-visa-spain/index.html'
+      - 'scripts/browser-spain-files-padron-overflow-audit.py'
+      - '.github/workflows/spain-files-mobile-overflow-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  browser-overflow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile browser audit
+        run: python -m py_compile scripts/browser-spain-files-padron-overflow-audit.py
+      - name: Install Chromium audit dependencies
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Audit deployed preview at phone, tablet and desktop widths
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/browser-spain-files-padron-overflow-audit.py
+      - name: Upload Padrón screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spain-files-padron-overflow-screenshots
+          path: browser-spain-files-overflow/*.png
+          if-no-files-found: ignore
