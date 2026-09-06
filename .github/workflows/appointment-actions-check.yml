@@ -34,6 +34,7 @@ jobs:
           node scripts/bake-roadmap-static.js
           node scripts/bake-roadmap-next-actions.js
           node scripts/bake-crawler-first-guides.js
+          node scripts/bake-action-first-guides.js
           node scripts/bake-static-action-guides.js
           node scripts/clean-health-social-legacy-sections.js
           node scripts/bake-health-social-action-guides.js
