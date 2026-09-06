@@ -18,6 +18,12 @@ CONTENT_PREFIXES = (
     "/start-here/",
     "/help-feedback/",
 )
+SPANISH_ALIASES = {
+    "/living-in-spain/digital-certificate/": "/guides/es/digital/",
+    "/living-in-spain/social-security/": "/guides/es/social-security/",
+    "/living-in-spain/taxes/": "/guides/es/taxes/",
+    "/the-spain-files/": "/the-spain-files/es/",
+}
 
 
 class AnchorParser(HTMLParser):
@@ -30,11 +36,7 @@ class AnchorParser(HTMLParser):
         if tag.lower() != "a":
             return
         attrs_dict = dict(attrs)
-        self._current = {
-            "href": attrs_dict.get("href", ""),
-            "attrs": attrs_dict,
-            "text": "",
-        }
+        self._current = {"href": attrs_dict.get("href", ""), "attrs": attrs_dict, "text": ""}
 
     def handle_data(self, data):
         if self._current is not None:
@@ -54,19 +56,32 @@ def route_to_file(route: str) -> pathlib.Path:
     return ROOT / rel
 
 
+def route_is_spanish(route: str) -> bool:
+    file = route_to_file(route)
+    if not file.exists() or not file.is_file():
+        return False
+    try:
+        head = file.read_text(encoding="utf-8")[:2400]
+    except Exception:
+        return False
+    return bool(re.search(r"<html\b[^>]*\blang=(['\"])es(?:-[^'\"]+)?\1", head, re.I))
+
+
 def spanish_counterpart(href: str):
     if not href.startswith("/") or href.startswith("//"):
         return None
     route = urlsplit(href).path
-    if route.startswith(("/es/", "/guides/es/", "/the-spain-files/es/")):
+    if route.startswith(("/es/", "/guides/es/", "/the-spain-files/es/")) or route_is_spanish(route):
         return None
     candidates = []
+    if route in SPANISH_ALIASES:
+        candidates.append(SPANISH_ALIASES[route])
     if route in ("/start-here/", "/start-here/index.html"):
         candidates.append("/es/start-here/")
     if route in ("/help-feedback/", "/help-feedback/index.html"):
         candidates.append("/es/help-feedback/")
     if route in ("/the-spain-files/", "/the-spain-files/index.html"):
-        candidates.append("/es/the-spain-files/")
+        candidates.append("/the-spain-files/es/")
     if route.startswith("/moving-to-spain/"):
         candidates.append("/es" + route)
     if route.startswith("/living-in-spain/"):
@@ -83,7 +98,7 @@ def spanish_counterpart(href: str):
 
 def is_language_control(anchor) -> bool:
     attrs = anchor["attrs"]
-    classes = attrs.get("class", "")
+    classes = attrs.get("class", "") or ""
     text = anchor["text"].strip()
     return (
         "data-lang" in attrs
@@ -102,21 +117,26 @@ def spanish_files():
     return sorted(set(files))
 
 
-def audit_html(html: str, label: str, local_presence=True):
-    parser = AnchorParser()
-    parser.feed(html)
-    failures = []
-    unresolved = []
+def route_for_file(file: pathlib.Path) -> str:
+    rel = file.relative_to(ROOT).as_posix()
+    if rel.endswith("index.html"):
+        rel = rel[:-len("index.html")]
+    return "/" + rel
+
+
+def audit_html(html: str, label: str):
+    parser = AnchorParser(); parser.feed(html)
+    failures, unresolved = [], []
     for anchor in parser.anchors:
         href = anchor["href"]
         if not href.startswith("/") or href.startswith("//") or is_language_control(anchor):
             continue
         route = urlsplit(href).path
-        if route.startswith(("/es/", "/guides/es/", "/the-spain-files/es/")):
+        if route.startswith(("/es/", "/guides/es/", "/the-spain-files/es/")) or route_is_spanish(route):
             continue
         if not route.startswith(CONTENT_PREFIXES):
             continue
-        counterpart = spanish_counterpart(href) if local_presence else None
+        counterpart = spanish_counterpart(href)
         if counterpart:
             failures.append(f"{label}: avoidable English internal link {href} -> {counterpart}")
         else:
@@ -128,16 +148,8 @@ def audit_html(html: str, label: str, local_presence=True):
     return failures, unresolved
 
 
-def route_for_file(file: pathlib.Path) -> str:
-    rel = file.relative_to(ROOT).as_posix()
-    if rel.endswith("index.html"):
-        rel = rel[:-len("index.html")]
-    return "/" + rel
-
-
 def audit_local():
-    failures = []
-    unresolved = []
+    failures, unresolved = [], []
     files = spanish_files()
     for file in files:
         route = route_for_file(file)
@@ -151,6 +163,10 @@ def audit_local():
             "/es/moving-to-spain/healthcare/",
             "/es/moving-to-spain/registering-on-the-padron/",
             "/es/moving-to-spain/eu-registration/",
+            "/guides/es/digital/",
+            "/guides/es/social-security/",
+            "/guides/es/taxes/",
+            "/the-spain-files/es/",
         ],
         ROOT / "es/moving-to-spain/non-eu-citizens/index.html": [
             "/guides/es/padron/",
@@ -158,7 +174,9 @@ def audit_local():
             "/guides/es/digital/",
             "/guides/es/taxes/",
             "/guides/es/tie/",
+            "/the-spain-files/es/",
         ],
+        ROOT / "guides/es/banking/index.html": ["/es/start-here/", "/the-spain-files/es/"],
     }
     for file, needles in specific.items():
         html = file.read_text(encoding="utf-8")
@@ -177,11 +195,10 @@ def audit_local():
     if failures:
         raise AssertionError("Spanish parity local audit failed:\n" + "\n".join(failures))
     print(f"PASS local: {len(files)} Spanish HTML pages have no avoidable English internal links")
-    if unresolved:
-        unique = sorted(set(unresolved))
-        print(f"INFO local: {len(unique)} genuine English-only/internal fallbacks remain")
-        for route, href in unique:
-            print(f"KEEP {route}: {href}")
+    unique = sorted(set(unresolved))
+    print(f"INFO local: {len(unique)} genuine English-only/internal fallbacks remain")
+    for route, href in unique:
+        print(f"KEEP {route}: {href}")
 
 
 def fetch(url: str):
@@ -209,6 +226,9 @@ def audit_preview(base: str):
         for anchor in parser.anchors:
             href = anchor["href"]
             if not href.startswith("/") or href.startswith("//") or is_language_control(anchor):
+                continue
+            target = urlsplit(href).path
+            if route_is_spanish(target):
                 continue
             counterpart = spanish_counterpart(href)
             if counterpart:
