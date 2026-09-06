@@ -87,7 +87,7 @@ appendSectionAction(
 );
 appendSectionAction(
   '/es/moving-to-spain/eu-citizens/',
-  'phaseTwo',
+  'faseDosLlegada',
   'eu-roadmap-cita-es',
   '¿Ya estás listo para registrarte como ciudadano de la UE?',
   'Usa el portal oficial de Cita Previa y selecciona el trámite de registro de ciudadano de la UE disponible en tu provincia. El nombre y la disponibilidad pueden variar por oficina.',
@@ -105,7 +105,7 @@ appendSectionAction(
 );
 appendSectionAction(
   '/es/moving-to-spain/non-eu-citizens/',
-  'tieBasics',
+  'conceptosBasicosTie',
   'non-eu-roadmap-tie-cita-es',
   '¿Ya tienes la aprobación y necesitas la TIE?',
   'Reserva esta cita solo cuando tu visado, autorización o resolución favorable te permita solicitar la tarjeta. Usa el portal oficial de Cita Previa para huellas/tarjeta.',
