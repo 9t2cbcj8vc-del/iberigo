@@ -11,6 +11,12 @@ const CONTENT_FAMILIES = [
   '/start-here/',
   '/help-feedback/'
 ];
+const SPANISH_ALIASES = new Map([
+  ['/living-in-spain/digital-certificate/', '/guides/es/digital/'],
+  ['/living-in-spain/social-security/', '/guides/es/social-security/'],
+  ['/living-in-spain/taxes/', '/guides/es/taxes/'],
+  ['/the-spain-files/', '/the-spain-files/es/']
+]);
 
 function walkHtml(relativeRoot) {
   const root = path.join(ROOT, relativeRoot);
@@ -33,11 +39,27 @@ function splitHref(href) {
   return { route: match ? match[1] : href, suffix: match && match[2] ? match[2] : '' };
 }
 
-function routeExists(route) {
-  if (!route.startsWith('/') || route.startsWith('//')) return false;
+function routeFile(route) {
+  if (!route.startsWith('/') || route.startsWith('//')) return null;
   let rel = route.slice(1);
   if (!rel || rel.endsWith('/')) rel += 'index.html';
-  return fs.existsSync(path.join(ROOT, rel));
+  return path.join(ROOT, rel);
+}
+
+function routeExists(route) {
+  const file = routeFile(route);
+  return Boolean(file && fs.existsSync(file));
+}
+
+function routeIsSpanish(route) {
+  const file = routeFile(route);
+  if (!file || !fs.existsSync(file)) return false;
+  try {
+    const head = fs.readFileSync(file, 'utf8').slice(0, 2400);
+    return /<html\b[^>]*\blang=(['"])es(?:-[^'\"]+)?\1/i.test(head);
+  } catch {
+    return false;
+  }
 }
 
 function spanishCounterpart(href) {
@@ -46,13 +68,15 @@ function spanishCounterpart(href) {
   if (
     route.startsWith('/es/') ||
     route.startsWith('/guides/es/') ||
-    route.startsWith('/the-spain-files/es/')
+    route.startsWith('/the-spain-files/es/') ||
+    routeIsSpanish(route)
   ) return null;
 
   const candidates = [];
+  if (SPANISH_ALIASES.has(route)) candidates.push(SPANISH_ALIASES.get(route));
   if (route === '/start-here/' || route === '/start-here/index.html') candidates.push('/es/start-here/');
   if (route === '/help-feedback/' || route === '/help-feedback/index.html') candidates.push('/es/help-feedback/');
-  if (route === '/the-spain-files/' || route === '/the-spain-files/index.html') candidates.push('/es/the-spain-files/');
+  if (route === '/the-spain-files/' || route === '/the-spain-files/index.html') candidates.push('/the-spain-files/es/');
   if (route.startsWith('/moving-to-spain/')) candidates.push(`/es${route}`);
   if (route.startsWith('/living-in-spain/')) candidates.push(`/es${route}`);
   if (route.startsWith('/guides/')) candidates.push(`/guides/es/${route.slice('/guides/'.length)}`);
@@ -68,7 +92,7 @@ function spanishCounterpart(href) {
 
 function isLanguageControl(tag, inner) {
   const visible = inner.replace(/<[^>]+>/g, '').trim();
-  return /language-switch|lang-switch|data-lang|hreflang/i.test(tag) || /^(?:EN|English)$/i.test(visible);
+  return /language-switch|lang-switch|\bdata-lang\s*=|\bhreflang\s*=/i.test(tag) || /^(?:EN|English)$/i.test(visible);
 }
 
 function cleanEnglishOnlyLabel(inner) {
@@ -90,7 +114,8 @@ function internalEnglishContentLinks(html) {
     if (
       route.startsWith('/es/') ||
       route.startsWith('/guides/es/') ||
-      route.startsWith('/the-spain-files/es/')
+      route.startsWith('/the-spain-files/es/') ||
+      routeIsSpanish(route)
     ) continue;
     if (CONTENT_FAMILIES.some(prefix => route.startsWith(prefix))) links.push(href);
   }
@@ -106,7 +131,6 @@ function removeStaleLanguageNote(html) {
   html = html.replace(sectionRe, '');
   html = html.replace(/<li>\s*<a\b[^>]*href=(['"])#languageNote\1[^>]*>[\s\S]*?<\/a>\s*<\/li>/gi, '');
 
-  // If the removed language note held the initial TOC state, give the first remaining TOC link a current state.
   if (!/data-guide-toc-link[^>]*aria-current=(['"])true\1/i.test(html)) {
     html = html.replace(/(<a\b[^>]*data-guide-toc-link)(?![^>]*aria-current=)([^>]*>)/i, '$1 aria-current="true"$2');
   }
@@ -152,6 +176,7 @@ console.log(`[spanish-parity] rewrote ${rewrittenLinks} avoidable English intern
 console.log(`[spanish-parity] removed ${removedNotes} stale English-only language notices`);
 for (const line of rewrites) console.log(`[spanish-parity] rewrite ${line}`);
 if (unresolved.length) {
-  console.log(`[spanish-parity] ${unresolved.length} genuinely English-only/internal fallbacks remain:`);
-  for (const line of [...new Set(unresolved)].sort()) console.log(`[spanish-parity] keep ${line}`);
+  const unique = [...new Set(unresolved)].sort();
+  console.log(`[spanish-parity] ${unique.length} genuinely English-only/internal fallbacks remain:`);
+  for (const line of unique) console.log(`[spanish-parity] keep ${line}`);
 }
