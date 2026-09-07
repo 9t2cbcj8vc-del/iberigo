@@ -18,6 +18,8 @@
     "/es/moving-to-spain/healthcare/",
     "/living-in-spain/opening-a-bank-account/",
     "/es/living-in-spain/opening-a-bank-account/",
+    "/living-in-spain/driving/",
+    "/es/living-in-spain/driving/",
     "/the-spain-files/nie-spain/",
     "/the-spain-files/como-obtener-nie-en-espana/"
   ],
@@ -57,6 +59,7 @@
     "/the-spain-files/es/nie-spain/": "/the-spain-files/como-obtener-nie-en-espana/"
   },
   "hreflang_pairs": [
+    ["/living-in-spain/driving/", "/es/living-in-spain/driving/"],
     ["/the-spain-files/nie-spain/", "/the-spain-files/como-obtener-nie-en-espana/"]
   ]
 }
