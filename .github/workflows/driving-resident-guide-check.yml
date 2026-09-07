@@ -1,0 +1,82 @@
+name: Resident driving guide check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/bake-driving-resident-guide.js'
+      - 'scripts/driving-resident-guide-audit.py'
+      - 'scripts/browser-driving-resident-guide-audit.py'
+      - 'scripts/bake-spanish-link-parity.js'
+      - 'scripts/seo-url-ownership.json'
+      - 'netlify.toml'
+      - '.github/workflows/driving-resident-guide-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  resident-driving:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check scripts
+        run: |
+          node --check scripts/bake-driving-resident-guide.js
+          python -m py_compile scripts/driving-resident-guide-audit.py
+          python -m py_compile scripts/browser-driving-resident-guide-audit.py
+      - name: Bake resident-driving pages in production order
+        run: |
+          node scripts/bake-roadmap-static.js
+          node scripts/fix-roadmap-bundle-scope.js
+          node scripts/bake-roadmap-next-actions.js
+          node scripts/add-long-term-and-documents-guides.js
+          node scripts/bake-driving-resident-guide.js
+          node scripts/fix-new-guide-language-links.js
+          node scripts/bake-living-hub-new-guides.js
+          node scripts/bake-readability.js
+          node scripts/bake-language-switch-fix.js
+          node scripts/content-declutter.js
+          node scripts/homepage-declutter.js
+          node scripts/add-help-feedback-discovery.js
+          node scripts/remove-page-tocs.js
+          node scripts/bake-crawler-first-guides.js
+          node scripts/bake-seo-url-ownership.js
+          node scripts/bake-action-first-guides.js
+          node scripts/bake-visual-ux-cleanup.js
+          node scripts/bake-static-action-guides.js
+          node scripts/clean-health-social-legacy-sections.js
+          node scripts/bake-health-social-action-guides.js
+          node scripts/clean-digital-legacy-sections.js
+          node scripts/bake-digital-action-guide.js
+          node scripts/align-digital-crawler-description.js
+          node scripts/bake-banking-tax-action-guides.js
+          node scripts/bake-appointment-actions.js
+          node scripts/bake-spanish-link-parity.js
+      - name: Audit generated local pages
+        run: python scripts/driving-resident-guide-audit.py --local
+      - name: Audit deployed Netlify preview
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/driving-resident-guide-audit.py --preview --base "$PREVIEW_BASE"
+      - name: Install Chromium
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Audit resident-driving pages in Chromium
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/browser-driving-resident-guide-audit.py --base "$PREVIEW_BASE"
+      - name: Upload driving screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resident-driving-screenshots
+          path: browser-driving-resident/*.png
+          if-no-files-found: ignore
