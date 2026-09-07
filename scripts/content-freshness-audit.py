@@ -17,6 +17,10 @@ MARKER = "data-iberigo-freshness"
 VISIBLE_MARKER = "data-iberigo-freshness-visible"
 SITEMAPS = ("sitemap.xml", "sitemap-pages.xml")
 ACTION_DATA_DIR = ROOT / "scripts" / "action-first"
+GENERATED_ROUTE_DEPENDENCIES = {
+    "/living-in-spain/driving/": ["scripts/bake-driving-resident-guide.js"],
+    "/es/living-in-spain/driving/": ["scripts/bake-driving-resident-guide.js"],
+}
 MONTHS_EN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 MONTHS_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
@@ -31,14 +35,18 @@ def route_file(route: str) -> Path:
 
 def action_dependency_map() -> dict[str, list[str]]:
     result: dict[str, list[str]] = {}
-    if not ACTION_DATA_DIR.exists():
-        return result
-    for file_path in sorted(ACTION_DATA_DIR.glob("*.json")):
-        data = json.loads(file_path.read_text(encoding="utf-8"))
-        route = data.get("route")
-        if not route:
-            continue
-        result.setdefault(route, []).append(file_path.relative_to(ROOT).as_posix())
+    if ACTION_DATA_DIR.exists():
+        for file_path in sorted(ACTION_DATA_DIR.glob("*.json")):
+            data = json.loads(file_path.read_text(encoding="utf-8"))
+            route = data.get("route")
+            if not route:
+                continue
+            result.setdefault(route, []).append(file_path.relative_to(ROOT).as_posix())
+    for route, dependencies in GENERATED_ROUTE_DEPENDENCIES.items():
+        result.setdefault(route, [])
+        for dependency in dependencies:
+            if dependency not in result[route]:
+                result[route].append(dependency)
     return result
 
 

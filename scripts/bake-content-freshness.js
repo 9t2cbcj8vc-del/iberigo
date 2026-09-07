@@ -8,6 +8,10 @@ const META_MARKER = "data-iberigo-freshness";
 const VISIBLE_MARKER = "data-iberigo-freshness-visible";
 const SITEMAPS = ["sitemap.xml", "sitemap-pages.xml"];
 const ACTION_DATA_DIR = path.join(ROOT, "scripts", "action-first");
+const GENERATED_ROUTE_DEPENDENCIES = new Map([
+  ["/living-in-spain/driving/", ["scripts/bake-driving-resident-guide.js"]],
+  ["/es/living-in-spain/driving/", ["scripts/bake-driving-resident-guide.js"]],
+]);
 
 function git(args, options = {}) {
   return execFileSync("git", args, {
@@ -52,15 +56,20 @@ function relFile(route) {
 
 function actionDependencyMap() {
   const result = new Map();
-  if (!fs.existsSync(ACTION_DATA_DIR)) return result;
-  for (const name of fs.readdirSync(ACTION_DATA_DIR).filter((entry) => entry.endsWith(".json")).sort()) {
-    const full = path.join(ACTION_DATA_DIR, name);
-    const data = JSON.parse(fs.readFileSync(full, "utf8"));
-    if (!data.route) continue;
-    const rel = path.relative(ROOT, full).replace(/\\/g, "/");
-    const existing = result.get(data.route) || [];
-    existing.push(rel);
-    result.set(data.route, existing);
+  if (fs.existsSync(ACTION_DATA_DIR)) {
+    for (const name of fs.readdirSync(ACTION_DATA_DIR).filter((entry) => entry.endsWith(".json")).sort()) {
+      const full = path.join(ACTION_DATA_DIR, name);
+      const data = JSON.parse(fs.readFileSync(full, "utf8"));
+      if (!data.route) continue;
+      const rel = path.relative(ROOT, full).replace(/\\/g, "/");
+      const existing = result.get(data.route) || [];
+      existing.push(rel);
+      result.set(data.route, existing);
+    }
+  }
+  for (const [route, dependencies] of GENERATED_ROUTE_DEPENDENCIES) {
+    const existing = result.get(route) || [];
+    result.set(route, [...new Set([...existing, ...dependencies])]);
   }
   return result;
 }
@@ -129,62 +138,60 @@ function formatVisibleDate(date, lang) {
   return `Updated ${new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(parsed)}`;
 }
 
-function addVisibleArticleDate(html, date) {
-  const match = html.match(/<p\b[^>]*class=["'][^"']*\barticle-meta\b[^"']*["'][^>]*>[\s\S]*?<\/p>/i);
-  if (!match) return html;
-  const lang = pageLanguage(html);
-  const text = formatVisibleDate(date, lang);
-  const replacement = match[0].replace(/<\/p>$/i, ` · <span ${VISIBLE_MARKER}>${text}</span></p>`);
-  return html.replace(match[0], replacement);
+function addVisibleFreshness(html, date) {
+  if (!isArticle(html)) return html;
+  const label = formatVisibleDate(date, pageLanguage(html));
+  const marker = `<span ${VISIBLE_MARKER}>${label}</span>`;
+  const patterns = [
+    /(<span\b[^>]*class=["'][^"']*guide-reading-time[^"']*["'][^>]*>[\s\S]*?<\/span>)/i,
+    /(<p\b[^>]*class=["'][^"']*article-meta[^"']*["'][^>]*>[\s\S]*?<\/p>)/i,
+  ];
+  for (const pattern of patterns) {
+    if (pattern.test(html)) return html.replace(pattern, `$1 · ${marker}`);
+  }
+  return html;
 }
 
-function bakePage(route, date) {
+function applyFreshness(route, date) {
   const file = routeFile(route);
-  if (!fs.existsSync(file)) throw new Error(`${route}: sitemap target missing at ${relFile(route)}`);
+  if (!fs.existsSync(file)) throw new Error(`Freshness route missing: ${route}`);
   let html = fs.readFileSync(file, "utf8");
   html = removeGeneratedFreshness(html);
   html = addLastModifiedMeta(html, date);
-  if (isArticle(html)) {
-    html = replaceArticleModifiedMeta(html, date);
-    html = addVisibleArticleDate(html, date);
-  }
+  if (isArticle(html)) html = replaceArticleModifiedMeta(html, date);
+  html = addVisibleFreshness(html, date);
   fs.writeFileSync(file, html, "utf8");
 }
 
-function updateSitemap(fileName, dates) {
-  const full = path.join(ROOT, fileName);
-  let xml = fs.readFileSync(full, "utf8");
-  xml = xml.replace(/<url>\s*[\s\S]*?<\/url>/gi, (block) => {
+function rewriteSitemap(fileName, dates) {
+  const file = path.join(ROOT, fileName);
+  let xml = fs.readFileSync(file, "utf8");
+  xml = xml.replace(/<url>\s*([\s\S]*?)<\/url>/gi, (block) => {
     const loc = block.match(/<loc>\s*([^<]+?)\s*<\/loc>/i)?.[1]?.trim();
     if (!loc || !loc.startsWith(SITE)) return block;
     const route = new URL(loc).pathname;
     const date = dates.get(route);
     if (!date) return block;
-    if (/<lastmod>\s*[^<]*\s*<\/lastmod>/i.test(block)) {
-      return block.replace(/<lastmod>\s*[^<]*\s*<\/lastmod>/i, `<lastmod>${date}</lastmod>`);
-    }
-    return block.replace(/(<loc>\s*[^<]+?\s*<\/loc>)/i, `$1\n    <lastmod>${date}</lastmod>`);
+    if (/<lastmod>[^<]*<\/lastmod>/i.test(block)) return block.replace(/<lastmod>[^<]*<\/lastmod>/i, `<lastmod>${date}</lastmod>`);
+    return block.replace(/\s*<\/url>/i, `\n    <lastmod>${date}</lastmod>\n  </url>`);
   });
-  fs.writeFileSync(full, xml, "utf8");
+  fs.writeFileSync(file, xml, "utf8");
 }
 
-const primary = sitemapEntries("sitemap-pages.xml");
-const secondary = sitemapEntries("sitemap.xml");
-const routes = [...new Set([...primary.keys(), ...secondary.keys()])];
 const reliable = hasReliableHistory();
+const existingSitemap = sitemapEntries("sitemap-pages.xml");
+const routes = [...existingSitemap.keys()].sort();
 const dates = new Map();
 let preserved = 0;
-
 for (const route of routes) {
-  const fromGit = reliable ? gitLastModified(route) : "";
-  const fallback = primary.get(route) || secondary.get(route) || "";
-  const date = fromGit || (isIsoDate(fallback) ? fallback : "");
-  if (!date) throw new Error(`${route}: no trustworthy Git or existing sitemap lastmod date available`);
-  if (!fromGit) preserved += 1;
+  let date = reliable ? gitLastModified(route) : "";
+  if (!date) {
+    date = existingSitemap.get(route) || "";
+    if (date) preserved += 1;
+  }
+  if (!isIsoDate(date)) throw new Error(`Freshness could not determine a trustworthy date for ${route}`);
   dates.set(route, date);
+  applyFreshness(route, date);
 }
-
-for (const route of primary.keys()) bakePage(route, dates.get(route));
-for (const sitemap of SITEMAPS) updateSitemap(sitemap, dates);
-
-console.log(`Content freshness baked for ${primary.size} indexable pages; ${preserved} dates preserved from existing sitemap fallback.`);
+for (const sitemap of SITEMAPS) rewriteSitemap(sitemap, dates);
+console.log(`Content freshness baked for ${routes.length} indexable pages; ${preserved} dates preserved from existing sitemap fallback.`);

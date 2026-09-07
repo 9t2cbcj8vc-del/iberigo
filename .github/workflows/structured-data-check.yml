@@ -20,6 +20,8 @@ jobs:
           python-version: "3.12"
       - name: Check structured data build syntax
         run: node --check scripts/bake-structured-data.js
+      - name: Generate resident-driving routes locally
+        run: node scripts/bake-driving-resident-guide.js
       - name: Bake crawler-first guide HTML locally
         run: node scripts/bake-crawler-first-guides.js
       - name: Bake SEO URL ownership locally
