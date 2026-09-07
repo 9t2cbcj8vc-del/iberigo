@@ -7,6 +7,7 @@ on:
       - 'scripts/bake-spanish-link-parity.js'
       - 'scripts/spanish-link-parity-audit.py'
       - 'scripts/browser-spanish-link-parity-audit.py'
+      - 'scripts/bake-driving-resident-guide.js'
       - 'netlify.toml'
       - '.github/workflows/spanish-link-parity-check.yml'
 
@@ -26,6 +27,7 @@ jobs:
           python-version: '3.12'
       - name: Check parity scripts
         run: |
+          node --check scripts/bake-driving-resident-guide.js
           node --check scripts/bake-spanish-link-parity.js
           python -m py_compile scripts/spanish-link-parity-audit.py
           python -m py_compile scripts/browser-spanish-link-parity-audit.py
@@ -35,6 +37,7 @@ jobs:
           node scripts/fix-roadmap-bundle-scope.js
           node scripts/bake-roadmap-next-actions.js
           node scripts/add-long-term-and-documents-guides.js
+          node scripts/bake-driving-resident-guide.js
           node scripts/fix-new-guide-language-links.js
           node scripts/bake-living-hub-new-guides.js
           node scripts/bake-readability.js
