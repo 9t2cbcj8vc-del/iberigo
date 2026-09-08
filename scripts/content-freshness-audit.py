@@ -17,9 +17,17 @@ MARKER = "data-iberigo-freshness"
 VISIBLE_MARKER = "data-iberigo-freshness-visible"
 SITEMAPS = ("sitemap.xml", "sitemap-pages.xml")
 ACTION_DATA_DIR = ROOT / "scripts" / "action-first"
+INTENT_DISCOVERY_DEPENDENCIES = [
+    "scripts/bake-intent-discovery.js",
+    "intent-discovery.js",
+    "intent-discovery-rules.js",
+]
 GENERATED_ROUTE_DEPENDENCIES = {
     "/living-in-spain/driving/": ["scripts/bake-driving-resident-guide.js"],
     "/es/living-in-spain/driving/": ["scripts/bake-driving-resident-guide.js"],
+    "/": INTENT_DISCOVERY_DEPENDENCIES,
+    "/start-here/": INTENT_DISCOVERY_DEPENDENCIES,
+    "/es/start-here/": INTENT_DISCOVERY_DEPENDENCIES,
 }
 MONTHS_EN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 MONTHS_ES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
@@ -72,7 +80,7 @@ def parse_sitemap_text(xml_text: str) -> dict[str, str]:
     namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
     result = {}
     for url in root.findall(f"{namespace}url"):
-        loc = (url.findtext(f"{namespace}loc") or "").strip()
+        loc = (url.findtext(f"{namespace}loc}") or "").strip()
         lastmod = (url.findtext(f"{namespace}lastmod") or "").strip()
         if not loc.startswith(SITE):
             continue
