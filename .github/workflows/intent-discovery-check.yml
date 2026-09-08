@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'intent-discovery.js'
+      - 'intent-discovery-rules.js'
       - 'scripts/bake-intent-discovery.js'
       - 'scripts/intent-discovery-audit.js'
       - 'scripts/intent-discovery-corpus.json'
@@ -32,6 +33,7 @@ jobs:
       - name: Check intent-discovery scripts
         run: |
           node --check intent-discovery.js
+          node --check intent-discovery-rules.js
           node --check scripts/bake-intent-discovery.js
           node --check scripts/intent-discovery-audit.js
           python -m py_compile scripts/browser-intent-discovery-audit.py
