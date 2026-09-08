@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from urllib.parse import quote
 from playwright.sync_api import sync_playwright
 
 BASE = os.environ.get("PREVIEW_BASE", "").rstrip("/")
@@ -50,9 +51,25 @@ def check_case(browser, route, name, query, expected_href, expected_id, width, h
     fallback = component.locator("[data-intent-fallback]")
     if not fallback.is_visible():
         raise AssertionError(f"{route}: full-search fallback is not visible")
+    expected_fallback = f"/search/?q={quote(query)}"
+    actual_fallback = fallback.get_attribute("href")
+    if actual_fallback != expected_fallback:
+        raise AssertionError(f"{route}: fallback did not preserve query; expected {expected_fallback}, got {actual_fallback}")
 
     if width == 375:
         page.screenshot(path=str(OUT / f"{name}-375x844.png"), full_page=True)
+    page.close()
+
+
+def check_full_search_handoff(browser):
+    query = "purple umbrella moon paperwork"
+    page = browser.new_page(viewport={"width": 375, "height": 844})
+    page.goto(f"{BASE}/search/?q={quote(query)}", wait_until="networkidle", timeout=90000)
+    search_input = page.locator("#siteSearch")
+    search_input.wait_for(state="visible", timeout=5000)
+    if search_input.input_value() != query:
+        raise AssertionError(f"Full search did not prefill handoff query: {search_input.input_value()!r}")
+    assert_no_overflow(page, "/search/")
     page.close()
 
 
@@ -64,8 +81,9 @@ def main():
         for case in CASES:
             check_case(browser, *case, 375, 844)
             check_case(browser, *case, 1280, 900)
+        check_full_search_handoff(browser)
         browser.close()
-    print(f"INTENT DISCOVERY BROWSER PASSED: {len(CASES) * 2} rendered cases")
+    print(f"INTENT DISCOVERY BROWSER PASSED: {len(CASES) * 2} discovery renders + full-search handoff")
 
 
 if __name__ == "__main__":
