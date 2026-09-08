@@ -80,7 +80,7 @@ def parse_sitemap_text(xml_text: str) -> dict[str, str]:
     namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
     result = {}
     for url in root.findall(f"{namespace}url"):
-        loc = (url.findtext(f"{namespace}loc}") or "").strip()
+        loc = (url.findtext(f"{namespace}loc") or "").strip()
         lastmod = (url.findtext(f"{namespace}lastmod") or "").strip()
         if not loc.startswith(SITE):
             continue
