@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 const engine = require('../intent-discovery.js');
+require('../intent-discovery-rules.js').apply(engine);
 const corpus = require('./intent-discovery-corpus.json');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -12,9 +13,7 @@ const PAGES = [
   { route: '/es/start-here/', file: 'es/start-here/index.html', lang: 'es', surface: 'start-here' }
 ];
 
-function count(haystack, needle) {
-  return haystack.split(needle).length - 1;
-}
+function count(haystack, needle) { return haystack.split(needle).length - 1; }
 
 function auditCorpus() {
   const failures = [];
@@ -37,9 +36,7 @@ function auditCorpus() {
   console.log(`INTENT CORPUS PASSED: ${corpus.length} queries (${counts.en} EN, ${counts.es} ES)`);
 }
 
-function routeFile(route) {
-  return route === '/' ? path.join(ROOT, 'index.html') : path.join(ROOT, route.slice(1), 'index.html');
-}
+function routeFile(route) { return route === '/' ? path.join(ROOT, 'index.html') : path.join(ROOT, route.slice(1), 'index.html'); }
 
 function auditHtml(route, html, lang, surface) {
   assert.strictEqual(count(html, MARKER), 1, `${route}: expected exactly one intent-discovery marker`);
@@ -49,16 +46,16 @@ function auditHtml(route, html, lang, surface) {
   assert(html.includes('data-intent-results'), `${route}: results container missing`);
   assert(html.includes('data-intent-fallback'), `${route}: full-search fallback missing`);
   assert(html.includes('/intent-discovery.js?v=20260908-intent-1'), `${route}: intent asset missing/stale`);
+  assert(html.includes('/intent-discovery-rules.js?v=20260908-intent-1'), `${route}: intent rules asset missing/stale`);
 }
 
 function auditLocal() {
   auditCorpus();
-  for (const page of PAGES) {
-    const html = fs.readFileSync(routeFile(page.route), 'utf8');
-    auditHtml(page.route, html, page.lang, page.surface);
-  }
+  for (const page of PAGES) auditHtml(page.route, fs.readFileSync(routeFile(page.route), 'utf8'), page.lang, page.surface);
   const engineSource = fs.readFileSync(path.join(ROOT, 'intent-discovery.js'), 'utf8');
+  const rulesSource = fs.readFileSync(path.join(ROOT, 'intent-discovery-rules.js'), 'utf8');
   assert(engineSource.includes('IberiGoIntentDiscovery'), 'Browser API export missing');
+  assert(rulesSource.includes('additions'), 'Intent ambiguity rules missing');
   for (const intent of engine.intents) {
     for (const lang of ['en', 'es']) {
       const target = routeFile(intent.urls[lang]);
@@ -75,9 +72,7 @@ async function fetchText(base, route, attempts = 10) {
       const response = await fetch(base.replace(/\/$/, '') + route, { headers: { 'user-agent': 'IberiGo-intent-discovery-audit/1.0' } });
       if (response.ok) return await response.text();
       last = `HTTP ${response.status}`;
-    } catch (error) {
-      last = String(error);
-    }
+    } catch (error) { last = String(error); }
     await new Promise((resolve) => setTimeout(resolve, Math.min(2000 + i * 500, 6000)));
   }
   throw new Error(`Could not fetch ${route}: ${last}`);
@@ -85,12 +80,11 @@ async function fetchText(base, route, attempts = 10) {
 
 async function auditPreview(base) {
   auditCorpus();
-  for (const page of PAGES) {
-    const html = await fetchText(base, page.route);
-    auditHtml(page.route, html, page.lang, page.surface);
-  }
+  for (const page of PAGES) auditHtml(page.route, await fetchText(base, page.route), page.lang, page.surface);
   const asset = await fetchText(base, '/intent-discovery.js?v=20260908-intent-1');
+  const rules = await fetchText(base, '/intent-discovery-rules.js?v=20260908-intent-1');
   assert(asset.includes('IberiGoIntentDiscovery'), 'Deployed intent-discovery asset is missing or stale');
+  assert(rules.includes('additions'), 'Deployed intent rules asset is missing or stale');
   console.log(`INTENT DISCOVERY PREVIEW PASSED: ${PAGES.length} surfaces`);
 }
 
@@ -106,7 +100,4 @@ async function main() {
   throw new Error('Choose --local, --preview or --corpus');
 }
 
-main().catch((error) => {
-  console.error(error.stack || error);
-  process.exit(1);
-});
+main().catch((error) => { console.error(error.stack || error); process.exit(1); });
