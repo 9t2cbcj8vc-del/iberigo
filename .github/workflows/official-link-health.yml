@@ -1,0 +1,139 @@
+name: Official link health
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'scripts/**/*.js'
+      - 'scripts/**/*.json'
+      - 'scripts/**/*.py'
+      - 'netlify.toml'
+      - '.github/workflows/official-link-health.yml'
+  schedule:
+    - cron: '17 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  inventory:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check monitor syntax and classifier
+        run: |
+          python -m py_compile scripts/official-link-health-audit.py
+          python scripts/official-link-health-audit.py --self-test
+      - name: Inventory official links without network access
+        run: python scripts/official-link-health-audit.py --inventory
+      - name: Upload official-link inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-link-inventory
+          path: |
+            official-link-health-report.json
+            official-link-health-report.md
+          if-no-files-found: error
+
+  live-health:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check monitor syntax and classifier
+        run: |
+          python -m py_compile scripts/official-link-health-audit.py
+          python scripts/official-link-health-audit.py --self-test
+      - name: Check live official links
+        id: audit
+        continue-on-error: true
+        run: python scripts/official-link-health-audit.py --network --workers 6
+      - name: Upload official-link health report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-link-health-report
+          path: |
+            official-link-health-report.json
+            official-link-health-report.md
+          if-no-files-found: error
+      - name: Open, update or close monitor issue
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const title = '[Monitor] Official link health';
+            let report;
+            let markdown = '';
+            try {
+              report = JSON.parse(fs.readFileSync('official-link-health-report.json', 'utf8'));
+              markdown = fs.readFileSync('official-link-health-report.md', 'utf8');
+            } catch (error) {
+              core.warning(`Could not read link-health report: ${error}`);
+              return;
+            }
+
+            const { owner, repo } = context.repo;
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: 'all',
+              per_page: 100,
+            });
+            const monitor = issues.find(item => !item.pull_request && item.title === title);
+            const actionable = Number(report.actionable_count || 0);
+            const broken = Number(report.hard_failure_count || 0);
+
+            if (report.mode !== 'network') {
+              core.warning('Live monitor did not produce a network report; leaving monitor issue unchanged.');
+              return;
+            }
+
+            if (actionable > 0) {
+              const body = [
+                'The weekly IberiGo official-link monitor found links that need review.',
+                '',
+                `**Actionable:** ${actionable} · **Confirmed broken priority links:** ${broken}`,
+                '',
+                markdown,
+                '',
+                `Workflow run: ${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`,
+              ].join('\n').slice(0, 60000);
+              if (monitor) {
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: monitor.number,
+                  state: 'open',
+                  body,
+                });
+              } else {
+                await github.rest.issues.create({ owner, repo, title, body });
+              }
+            } else if (monitor && monitor.state === 'open') {
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number: monitor.number,
+                state: 'closed',
+                state_reason: 'completed',
+                body: `${monitor.body || ''}\n\nLatest weekly check found no actionable official-link changes.`,
+              });
+            }
+      - name: Fail on confirmed broken priority links
+        if: steps.audit.outcome == 'failure'
+        run: exit 1
