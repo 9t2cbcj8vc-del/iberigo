@@ -6,14 +6,15 @@ require('../intent-discovery-rules.js').apply(engine);
 const corpus = require('./intent-discovery-corpus.json');
 
 const ROOT = path.resolve(__dirname, '..');
-const MARKER = 'data-iberigo-intent-discovery';
 const PAGES = [
   { route: '/', file: 'index.html', lang: 'en', surface: 'home' },
   { route: '/start-here/', file: 'start-here/index.html', lang: 'en', surface: 'start-here' },
   { route: '/es/start-here/', file: 'es/start-here/index.html', lang: 'es', surface: 'start-here' }
 ];
 
-function count(haystack, needle) { return haystack.split(needle).length - 1; }
+function componentCount(html) {
+  return (html.match(/<section\b[^>]*\bdata-iberigo-intent-discovery(?:\s|>)[^>]*>/gi) || []).length;
+}
 
 function auditCorpus() {
   const failures = [];
@@ -39,7 +40,7 @@ function auditCorpus() {
 function routeFile(route) { return route === '/' ? path.join(ROOT, 'index.html') : path.join(ROOT, route.slice(1), 'index.html'); }
 
 function auditHtml(route, html, lang, surface) {
-  assert.strictEqual(count(html, MARKER), 1, `${route}: expected exactly one intent-discovery marker`);
+  assert.strictEqual(componentCount(html), 1, `${route}: expected exactly one intent-discovery component`);
   assert(html.includes(`data-intent-surface="${surface}"`), `${route}: wrong/missing surface marker`);
   assert(html.includes(`data-intent-lang="${lang}"`), `${route}: wrong/missing language marker`);
   assert(html.includes('data-intent-input'), `${route}: input missing`);
