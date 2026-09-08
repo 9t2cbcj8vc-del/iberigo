@@ -10,6 +10,9 @@
   let visibleResults = [];
   let activeIndex = -1;
 
+  const initialQuery = new URLSearchParams(window.location.search).get("q");
+  if (initialQuery) input.value = initialQuery;
+
   const normalise = (value) =>
     String(value || "")
       .toLowerCase()
