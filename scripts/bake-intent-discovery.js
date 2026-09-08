@@ -7,10 +7,10 @@ const MARKER = 'data-iberigo-intent-discovery';
 
 const STYLE = `
 <style data-iberigo-intent-discovery-style>
-  .intent-discovery { width: min(1080px, calc(100% - 32px)); margin: 1.25rem auto; padding: clamp(1.2rem, 3vw, 1.7rem); border: 1px solid rgba(166, 74, 54, 0.14); border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(253,240,220,.68)); box-shadow: 0 16px 42px rgba(42,32,25,.07); }
-  .intent-discovery[data-intent-surface="home"] { margin-top: -0.15rem; margin-bottom: 1.4rem; }
+  .intent-discovery { width: min(1080px, calc(100% - 32px)); margin: 1.25rem auto; padding: clamp(1.2rem, 3vw, 1.7rem); border: 1px solid rgba(166,74,54,.14); border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(253,240,220,.68)); box-shadow: 0 16px 42px rgba(42,32,25,.07); }
+  .intent-discovery[data-intent-surface="home"] { margin-top: -.15rem; margin-bottom: 1.4rem; }
   .intent-discovery-kicker { margin: 0 0 .42rem; color: #a64a36; font-size: .74rem; font-weight: 900; letter-spacing: .075em; text-transform: uppercase; }
-  .intent-discovery h2 { margin: 0; color: #1b2030; font-size: clamp(1.45rem, 3.6vw, 2.05rem); line-height: 1.12; }
+  .intent-discovery h2 { margin: 0; color: #1b2030; font-size: clamp(1.45rem,3.6vw,2.05rem); line-height: 1.12; }
   .intent-discovery-intro { max-width: 70ch; margin: .55rem 0 1rem; color: rgba(27,32,48,.7); line-height: 1.62; }
   .intent-discovery-input-wrap { position: relative; }
   .intent-discovery-input-wrap svg { position: absolute; left: 1rem; top: 50%; width: 1.05rem; height: 1.05rem; transform: translateY(-50%); color: #a64a36; pointer-events: none; }
@@ -22,7 +22,7 @@ const STYLE = `
   .intent-discovery-examples button:hover { border-color: rgba(166,74,54,.34); background: #fff; }
   .intent-discovery-examples button:focus-visible, .intent-discovery-result:focus-visible, .intent-discovery-fallback:focus-visible { outline: 3px solid rgba(166,74,54,.26); outline-offset: 3px; }
   .intent-discovery-status { margin: .9rem 0 .55rem; color: rgba(27,32,48,.6); font-size: .88rem; font-weight: 800; }
-  .intent-discovery-results { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .65rem; }
+  .intent-discovery-results { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .65rem; }
   .intent-discovery-result { display: flex; min-width: 0; flex-direction: column; gap: .35rem; padding: .9rem; border: 1px solid rgba(166,74,54,.12); border-radius: 15px; background: rgba(255,255,255,.82); color: inherit; text-decoration: none; }
   .intent-discovery-result.is-primary { border-color: rgba(166,74,54,.3); background: #fff; box-shadow: 0 10px 26px rgba(42,32,25,.06); }
   .intent-discovery-result > span { color: #a64a36; font-size: .69rem; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
@@ -31,12 +31,7 @@ const STYLE = `
   .intent-discovery-result b { margin-top: .25rem; color: #a64a36; font-size: .82rem; }
   .intent-discovery-footer { margin: .8rem 0 0; }
   .intent-discovery-fallback { color: #a64a36; font-size: .88rem; font-weight: 900; text-underline-offset: 3px; }
-  @media (max-width: 760px) {
-    .intent-discovery { width: min(100% - 20px, 1080px); border-radius: 17px; }
-    .intent-discovery-results { grid-template-columns: 1fr; }
-    .intent-discovery-examples { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .2rem; scrollbar-width: thin; }
-    .intent-discovery-examples button { flex: 0 0 auto; }
-  }
+  @media (max-width:760px) { .intent-discovery { width: min(100% - 20px,1080px); border-radius: 17px; } .intent-discovery-results { grid-template-columns: 1fr; } .intent-discovery-examples { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .2rem; scrollbar-width: thin; } .intent-discovery-examples button { flex: 0 0 auto; } }
 </style>`;
 
 function markup(surface, lang) {
@@ -44,10 +39,7 @@ function markup(surface, lang) {
     <p class="intent-discovery-kicker" data-intent-kicker>Find the right procedure</p>
     <h2 id="intentDiscoveryTitle-${surface}-${lang}" data-intent-title>What do you need to do?</h2>
     <p class="intent-discovery-intro" data-intent-intro>Describe your situation in your own words. IberiGo will point you to the most useful starting guide.</p>
-    <div class="intent-discovery-input-wrap">
-      <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <input type="search" autocomplete="off" data-intent-input aria-describedby="intentDiscoveryStatus-${surface}-${lang}" />
-    </div>
+    <div class="intent-discovery-input-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input type="search" autocomplete="off" data-intent-input aria-describedby="intentDiscoveryStatus-${surface}-${lang}" /></div>
     <p class="intent-discovery-examples-label" data-intent-examples-label>Try an example</p>
     <div class="intent-discovery-examples" data-intent-examples aria-label="Example searches"></div>
     <p class="intent-discovery-status" id="intentDiscoveryStatus-${surface}-${lang}" data-intent-status role="status" aria-live="polite">Start typing or choose an example.</p>
@@ -72,15 +64,17 @@ function injectCommon(html) {
 }
 
 function injectHome(html) {
-  const marker = /\s*<section\s+id="wizard"\b/i;
+  const marker = /\s*<section\s+id="wizard"/i;
   if (!marker.test(html)) throw new Error('Homepage wizard insertion point not found');
-  return html.replace(marker, `\n\n        ${markup('home', 'en')}\n\n        <section id="wizard"`);
+  return html.replace(marker, `\n\n        ${markup('home','en')}\n\n        <section id="wizard"`);
 }
 
 function injectStartHere(html, lang) {
-  const hero = /(<section\b[^>]*class="[^"]*guide-hero[^"]*"[^>]*>[\s\S]*?<\/section>)/i;
-  if (!hero.test(html)) throw new Error(`Start Here ${lang}: hero insertion point not found`);
-  return html.replace(hero, `$1\n\n        ${markup('start-here', lang)}`);
+  const heroStart = html.search(/<section\b[^>]*class="[^"]*guide-hero[^"]*"[^>]*>/i);
+  if (heroStart < 0) throw new Error(`Start Here ${lang}: hero start not found`);
+  const nextSection = html.indexOf('<section', heroStart + 8);
+  if (nextSection < 0) throw new Error(`Start Here ${lang}: section after hero not found`);
+  return `${html.slice(0,nextSection)}${markup('start-here',lang)}\n\n        ${html.slice(nextSection)}`;
 }
 
 const pages = [
@@ -90,10 +84,10 @@ const pages = [
 ];
 
 for (const page of pages) {
-  const full = path.join(ROOT, page.file);
-  let html = clean(fs.readFileSync(full, 'utf8'));
-  html = page.kind === 'home' ? injectHome(html) : injectStartHere(html, page.lang);
+  const full = path.join(ROOT,page.file);
+  let html = clean(fs.readFileSync(full,'utf8'));
+  html = page.kind === 'home' ? injectHome(html) : injectStartHere(html,page.lang);
   html = injectCommon(html);
-  fs.writeFileSync(full, html);
+  fs.writeFileSync(full,html);
   console.log(`[intent-discovery] baked ${page.file}`);
 }
