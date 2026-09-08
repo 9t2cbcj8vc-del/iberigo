@@ -59,7 +59,7 @@ function clean(html) {
 function injectCommon(html) {
   if (!html.includes('</head>') || !html.includes('</body>')) throw new Error('Page shell missing head/body close tags');
   html = html.replace(/\s*<\/head>/i, `\n${STYLE}\n  </head>`);
-  html = html.replace(/\s*<\/body>/i, `\n    <script src="/intent-discovery.js?v=${VERSION}" defer data-iberigo-intent-discovery-script></script>\n  </body>`);
+  html = html.replace(/\s*<\/body>/i, `\n    <script src="/intent-discovery.js?v=${VERSION}" defer data-iberigo-intent-discovery-script></script>\n    <script src="/intent-discovery-rules.js?v=${VERSION}" defer data-iberigo-intent-discovery-script></script>\n  </body>`);
   return html;
 }
 
