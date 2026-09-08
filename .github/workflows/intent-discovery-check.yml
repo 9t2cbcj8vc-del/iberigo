@@ -10,6 +10,7 @@ on:
       - 'scripts/intent-discovery-audit.js'
       - 'scripts/intent-discovery-corpus.json'
       - 'scripts/browser-intent-discovery-audit.py'
+      - 'search/search.js'
       - 'index.html'
       - 'start-here/index.html'
       - 'es/start-here/index.html'
@@ -36,6 +37,7 @@ jobs:
           node --check intent-discovery-rules.js
           node --check scripts/bake-intent-discovery.js
           node --check scripts/intent-discovery-audit.js
+          node --check search/search.js
           python -m py_compile scripts/browser-intent-discovery-audit.py
       - name: Generate route dependencies and discovery surfaces
         run: |
