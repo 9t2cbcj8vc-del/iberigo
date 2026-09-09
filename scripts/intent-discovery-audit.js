@@ -39,6 +39,30 @@ function auditCorpus() {
 
 function routeFile(route) { return route === '/' ? path.join(ROOT, 'index.html') : path.join(ROOT, route.slice(1), 'index.html'); }
 
+function auditPlacement(route, html, surface) {
+  const component = html.search(/<section\b[^>]*\bdata-iberigo-intent-discovery(?:\s|>)/i);
+  assert(component >= 0, `${route}: intent component placement marker missing`);
+
+  if (surface === 'home') {
+    const headingStart = html.search(/<div\b[^>]*class="[^"]*section-heading[^"]*"[^>]*>/i);
+    const headingEndStart = headingStart >= 0 ? html.indexOf('</div>', headingStart) : -1;
+    const headingEnd = headingEndStart >= 0 ? headingEndStart + '</div>'.length : -1;
+    const featured = html.search(/<article\b[^>]*class="[^"]*featured-guide[^"]*"[^>]*>/i);
+    assert(headingStart >= 0 && headingEnd > headingStart, `${route}: homepage intro block missing`);
+    assert(featured >= 0, `${route}: featured guide marker missing`);
+    assert(component > headingEnd && component < featured, `${route}: intent discovery must sit after the intro and before the featured guide`);
+    return;
+  }
+
+  const heroStart = html.search(/<section\b[^>]*class="[^"]*guide-hero[^"]*"[^>]*>/i);
+  const heroEndStart = heroStart >= 0 ? html.indexOf('</section>', heroStart) : -1;
+  const heroEnd = heroEndStart >= 0 ? heroEndStart + '</section>'.length : -1;
+  const mobileToc = html.search(/<details\b[^>]*class="[^"]*guide-toc-mobile[^"]*"[^>]*>/i);
+  assert(heroStart >= 0 && heroEnd > heroStart, `${route}: hero block missing`);
+  assert(mobileToc >= 0, `${route}: mobile TOC marker missing`);
+  assert(component > heroEnd && component < mobileToc, `${route}: intent discovery must sit directly after the hero and before the mobile TOC`);
+}
+
 function auditHtml(route, html, lang, surface) {
   assert.strictEqual(componentCount(html), 1, `${route}: expected exactly one intent-discovery component`);
   assert(html.includes(`data-intent-surface="${surface}"`), `${route}: wrong/missing surface marker`);
@@ -48,6 +72,7 @@ function auditHtml(route, html, lang, surface) {
   assert(html.includes('data-intent-fallback'), `${route}: full-search fallback missing`);
   assert(html.includes('/intent-discovery.js?v=20260908-intent-1'), `${route}: intent asset missing/stale`);
   assert(html.includes('/intent-discovery-rules.js?v=20260908-intent-1'), `${route}: intent rules asset missing/stale`);
+  auditPlacement(route, html, surface);
 }
 
 function auditLocal() {
