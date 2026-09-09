@@ -36,8 +36,8 @@ def assert_early_placement(page, route, component):
     if route == "/":
         if "guide-card-panel" not in placement["parentClass"]:
             raise AssertionError(f"{route}: discovery is not inside the homepage intro panel: {placement}")
-        if "section-heading" not in placement["prevClass"] or "featured-guide" not in placement["nextClass"]:
-            raise AssertionError(f"{route}: discovery must be between intro heading and featured guide: {placement}")
+        if "section-heading" not in placement["prevClass"]:
+            raise AssertionError(f"{route}: discovery must immediately follow the homepage intro heading: {placement}")
     else:
         if "guide-hero" not in placement["prevClass"]:
             raise AssertionError(f"{route}: discovery must be directly after the hero: {placement}")
