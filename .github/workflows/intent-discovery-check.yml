@@ -1,0 +1,66 @@
+name: Intent discovery check
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'intent-discovery.js'
+      - 'intent-discovery-rules.js'
+      - 'scripts/bake-intent-discovery.js'
+      - 'scripts/intent-discovery-audit.js'
+      - 'scripts/intent-discovery-corpus.json'
+      - 'scripts/browser-intent-discovery-audit.py'
+      - 'search/search.js'
+      - 'index.html'
+      - 'start-here/index.html'
+      - 'es/start-here/index.html'
+      - 'netlify.toml'
+      - '.github/workflows/intent-discovery-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  intent-discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check intent-discovery scripts
+        run: |
+          node --check intent-discovery.js
+          node --check intent-discovery-rules.js
+          node --check scripts/bake-intent-discovery.js
+          node --check scripts/intent-discovery-audit.js
+          node --check search/search.js
+          python -m py_compile scripts/browser-intent-discovery-audit.py
+      - name: Generate route dependencies and discovery surfaces
+        run: |
+          node scripts/bake-driving-resident-guide.js
+          node scripts/bake-intent-discovery.js
+      - name: Audit bilingual intent corpus and local surfaces
+        run: node scripts/intent-discovery-audit.js --local
+      - name: Audit exact Netlify preview
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: node scripts/intent-discovery-audit.js --preview
+      - name: Install Chromium
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Audit rendered intent discovery
+        env:
+          PREVIEW_BASE: https://deploy-preview-${{ github.event.pull_request.number }}--iberigo.netlify.app
+        run: python scripts/browser-intent-discovery-audit.py
+      - name: Upload intent-discovery screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: intent-discovery-browser-screenshots
+          path: browser-intent-discovery/*.png
+          if-no-files-found: ignore

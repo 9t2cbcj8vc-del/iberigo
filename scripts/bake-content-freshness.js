@@ -8,9 +8,17 @@ const META_MARKER = "data-iberigo-freshness";
 const VISIBLE_MARKER = "data-iberigo-freshness-visible";
 const SITEMAPS = ["sitemap.xml", "sitemap-pages.xml"];
 const ACTION_DATA_DIR = path.join(ROOT, "scripts", "action-first");
+const INTENT_DISCOVERY_DEPENDENCIES = [
+  "scripts/bake-intent-discovery.js",
+  "intent-discovery.js",
+  "intent-discovery-rules.js",
+];
 const GENERATED_ROUTE_DEPENDENCIES = new Map([
   ["/living-in-spain/driving/", ["scripts/bake-driving-resident-guide.js"]],
   ["/es/living-in-spain/driving/", ["scripts/bake-driving-resident-guide.js"]],
+  ["/", INTENT_DISCOVERY_DEPENDENCIES],
+  ["/start-here/", INTENT_DISCOVERY_DEPENDENCIES],
+  ["/es/start-here/", INTENT_DISCOVERY_DEPENDENCIES],
 ]);
 
 function git(args, options = {}) {
