@@ -34,6 +34,26 @@ const STYLE = `
   @media (max-width:760px) { .intent-discovery { width: min(100% - 20px,1080px); border-radius: 17px; } .intent-discovery-results { grid-template-columns: 1fr; } .intent-discovery-examples { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .2rem; scrollbar-width: thin; } .intent-discovery-examples button { flex: 0 0 auto; } }
 </style>`;
 
+const PLACEMENT_SCRIPT = `<script data-iberigo-intent-discovery-script>
+(function () {
+  function placeStartHereIntent() {
+    var path = window.location.pathname.replace(/\\/index\\.html$/, '/');
+    if (path !== '/start-here/' && path !== '/es/start-here/') return false;
+    var intent = document.querySelector('[data-iberigo-intent-discovery][data-intent-surface="start-here"]');
+    var groups = document.querySelector('.overhaul-directory-groups');
+    if (!intent || !groups || intent.parentElement !== groups.parentElement) return false;
+    if (groups.previousElementSibling !== intent) groups.insertAdjacentElement('beforebegin', intent);
+    return true;
+  }
+  function settle() {
+    if (placeStartHereIntent()) return;
+    requestAnimationFrame(function () { requestAnimationFrame(placeStartHereIntent); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', settle, { once: true });
+  else settle();
+})();
+</script>`;
+
 function markup(surface, lang) {
   return `<section class="intent-discovery" ${MARKER} data-intent-surface="${surface}" data-intent-lang="${lang}" aria-labelledby="intentDiscoveryTitle-${surface}-${lang}">
     <p class="intent-discovery-kicker" data-intent-kicker>Find the right procedure</p>
@@ -59,7 +79,7 @@ function clean(html) {
 function injectCommon(html) {
   if (!html.includes('</head>') || !html.includes('</body>')) throw new Error('Page shell missing head/body close tags');
   html = html.replace(/\s*<\/head>/i, `\n${STYLE}\n  </head>`);
-  html = html.replace(/\s*<\/body>/i, `\n    <script src="/intent-discovery.js?v=${VERSION}" defer data-iberigo-intent-discovery-script></script>\n    <script src="/intent-discovery-rules.js?v=${VERSION}" defer data-iberigo-intent-discovery-script></script>\n  </body>`);
+  html = html.replace(/\s*<\/body>/i, `\n    <script src="/intent-discovery.js?v=${VERSION}" defer data-iberigo-intent-discovery-script></script>\n    <script src="/intent-discovery-rules.js?v=${VERSION}" defer data-iberigo-intent-discovery-script></script>\n    ${PLACEMENT_SCRIPT}\n  </body>`);
   return html;
 }
 
