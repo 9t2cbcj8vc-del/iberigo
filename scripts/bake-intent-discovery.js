@@ -8,7 +8,7 @@ const MARKER = 'data-iberigo-intent-discovery';
 const STYLE = `
 <style data-iberigo-intent-discovery-style>
   .intent-discovery { width: min(1080px, calc(100% - 32px)); margin: 1.25rem auto; padding: clamp(1.2rem, 3vw, 1.7rem); border: 1px solid rgba(166,74,54,.14); border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(253,240,220,.68)); box-shadow: 0 16px 42px rgba(42,32,25,.07); }
-  .intent-discovery[data-intent-surface="home"] { margin-top: -.15rem; margin-bottom: 1.4rem; }
+  .intent-discovery[data-intent-surface="home"] { margin-top: .2rem; margin-bottom: 1.4rem; }
   .intent-discovery-kicker { margin: 0 0 .42rem; color: #a64a36; font-size: .74rem; font-weight: 900; letter-spacing: .075em; text-transform: uppercase; }
   .intent-discovery h2 { margin: 0; color: #1b2030; font-size: clamp(1.45rem,3.6vw,2.05rem); line-height: 1.12; }
   .intent-discovery-intro { max-width: 70ch; margin: .55rem 0 1rem; color: rgba(27,32,48,.7); line-height: 1.62; }
@@ -64,17 +64,21 @@ function injectCommon(html) {
 }
 
 function injectHome(html) {
-  const marker = /\s*<section\s+id="wizard"/i;
-  if (!marker.test(html)) throw new Error('Homepage wizard insertion point not found');
-  return html.replace(marker, `\n\n        ${markup('home','en')}\n\n        <section id="wizard"`);
+  const headingStart = html.search(/<div\b[^>]*class="[^"]*section-heading[^"]*"[^>]*>/i);
+  if (headingStart < 0) throw new Error('Homepage intro heading block not found');
+  const headingEndStart = html.indexOf('</div>', headingStart);
+  if (headingEndStart < 0) throw new Error('Homepage intro heading block does not close');
+  const insertAt = headingEndStart + '</div>'.length;
+  return `${html.slice(0, insertAt)}\n\n          ${markup('home','en')}\n${html.slice(insertAt)}`;
 }
 
 function injectStartHere(html, lang) {
   const heroStart = html.search(/<section\b[^>]*class="[^"]*guide-hero[^"]*"[^>]*>/i);
   if (heroStart < 0) throw new Error(`Start Here ${lang}: hero start not found`);
-  const nextSection = html.indexOf('<section', heroStart + 8);
-  if (nextSection < 0) throw new Error(`Start Here ${lang}: section after hero not found`);
-  return `${html.slice(0,nextSection)}${markup('start-here',lang)}\n\n        ${html.slice(nextSection)}`;
+  const heroEndStart = html.indexOf('</section>', heroStart);
+  if (heroEndStart < 0) throw new Error(`Start Here ${lang}: hero end not found`);
+  const insertAt = heroEndStart + '</section>'.length;
+  return `${html.slice(0, insertAt)}\n\n        ${markup('start-here',lang)}\n${html.slice(insertAt)}`;
 }
 
 const pages = [
