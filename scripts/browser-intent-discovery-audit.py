@@ -24,15 +24,34 @@ def assert_no_overflow(page, route):
         raise AssertionError(f"{route}: horizontal overflow {metrics}")
 
 
+def assert_early_placement(page, route, component):
+    placement = component.evaluate("""(node) => ({
+      parentId: node.parentElement?.id || '',
+      parentClass: node.parentElement?.className || '',
+      prevClass: node.previousElementSibling?.className || '',
+      prevTag: node.previousElementSibling?.tagName || '',
+      nextClass: node.nextElementSibling?.className || '',
+      nextTag: node.nextElementSibling?.tagName || ''
+    })""")
+    if route == "/":
+        if "guide-card-panel" not in placement["parentClass"]:
+            raise AssertionError(f"{route}: discovery is not inside the homepage intro panel: {placement}")
+        if "section-heading" not in placement["prevClass"] or "featured-guide" not in placement["nextClass"]:
+            raise AssertionError(f"{route}: discovery must be between intro heading and featured guide: {placement}")
+    else:
+        if "guide-hero" not in placement["prevClass"] or "guide-toc-mobile" not in placement["nextClass"]:
+            raise AssertionError(f"{route}: discovery must be directly between hero and mobile TOC: {placement}")
+
+
 def check_case(browser, route, name, query, expected_href, expected_id, width, height):
     page = browser.new_page(viewport={"width": width, "height": height})
     page.goto(BASE + route, wait_until="networkidle", timeout=90000)
     component = page.locator("[data-iberigo-intent-discovery]")
     if component.count() != 1:
         raise AssertionError(f"{route}: expected one intent component, found {component.count()}")
-    component.scroll_into_view_if_needed()
     if not component.is_visible():
         raise AssertionError(f"{route}: intent component is not visible")
+    assert_early_placement(page, route, component)
     assert_no_overflow(page, route)
 
     box = component.bounding_box()
