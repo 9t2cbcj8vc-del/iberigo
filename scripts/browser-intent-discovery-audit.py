@@ -39,8 +39,10 @@ def assert_early_placement(page, route, component):
         if "section-heading" not in placement["prevClass"] or "featured-guide" not in placement["nextClass"]:
             raise AssertionError(f"{route}: discovery must be between intro heading and featured guide: {placement}")
     else:
-        if "guide-hero" not in placement["prevClass"] or "guide-toc-mobile" not in placement["nextClass"]:
-            raise AssertionError(f"{route}: discovery must be directly between hero and mobile TOC: {placement}")
+        if "guide-hero" not in placement["prevClass"]:
+            raise AssertionError(f"{route}: discovery must be directly after the hero: {placement}")
+        if "guide-section" not in placement["nextClass"] and "guide-toc-mobile" not in placement["nextClass"]:
+            raise AssertionError(f"{route}: discovery must be before the first guide section (or local mobile TOC): {placement}")
 
 
 def check_case(browser, route, name, query, expected_href, expected_id, width, height):
