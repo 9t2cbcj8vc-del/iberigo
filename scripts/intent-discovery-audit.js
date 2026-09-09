@@ -57,10 +57,11 @@ function auditPlacement(route, html, surface) {
   const heroStart = html.search(/<section\b[^>]*class="[^"]*guide-hero[^"]*"[^>]*>/i);
   const heroEndStart = heroStart >= 0 ? html.indexOf('</section>', heroStart) : -1;
   const heroEnd = heroEndStart >= 0 ? heroEndStart + '</section>'.length : -1;
-  const mobileToc = html.search(/<details\b[^>]*class="[^"]*guide-toc-mobile[^"]*"[^>]*>/i);
+  const firstGuideSection = heroEnd >= 0 ? html.slice(heroEnd).search(/<section\b[^>]*class="[^"]*guide-section[^"]*"[^>]*>/i) : -1;
+  const firstGuideSectionAbsolute = firstGuideSection >= 0 ? heroEnd + firstGuideSection : -1;
   assert(heroStart >= 0 && heroEnd > heroStart, `${route}: hero block missing`);
-  assert(mobileToc >= 0, `${route}: mobile TOC marker missing`);
-  assert(component > heroEnd && component < mobileToc, `${route}: intent discovery must sit directly after the hero and before the mobile TOC`);
+  assert(firstGuideSectionAbsolute >= 0, `${route}: first guide section missing`);
+  assert(component > heroEnd && component < firstGuideSectionAbsolute, `${route}: intent discovery must sit immediately after the hero and before the first guide section`);
 }
 
 function auditHtml(route, html, lang, surface) {
