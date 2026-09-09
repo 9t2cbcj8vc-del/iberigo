@@ -36,21 +36,36 @@ const STYLE = `
 
 const PLACEMENT_SCRIPT = `<script data-iberigo-intent-discovery-script>
 (function () {
-  function placeStartHereIntent() {
+  function isStartHere() {
     var path = window.location.pathname.replace(/\\/index\\.html$/, '/');
-    if (path !== '/start-here/' && path !== '/es/start-here/') return false;
+    return path === '/start-here/' || path === '/es/start-here/';
+  }
+  function placeStartHereIntent() {
     var intent = document.querySelector('[data-iberigo-intent-discovery][data-intent-surface="start-here"]');
     var groups = document.querySelector('.overhaul-directory-groups');
     if (!intent || !groups || intent.parentElement !== groups.parentElement) return false;
-    if (groups.previousElementSibling !== intent) groups.insertAdjacentElement('beforebegin', intent);
-    return true;
+    if (groups.previousElementSibling !== intent) groups.parentElement.insertBefore(intent, groups);
+    return groups.previousElementSibling === intent;
   }
-  function settle() {
+  function boot() {
+    if (!isStartHere()) return;
     if (placeStartHereIntent()) return;
-    requestAnimationFrame(function () { requestAnimationFrame(placeStartHereIntent); });
+    var root = document.querySelector('.guide-content') || document.body;
+    if (!root || typeof MutationObserver === 'undefined') return;
+    var observer = new MutationObserver(function () {
+      if (placeStartHereIntent()) observer.disconnect();
+    });
+    observer.observe(root, { childList: true });
+    window.addEventListener('load', function () {
+      if (placeStartHereIntent()) observer.disconnect();
+    }, { once: true });
+    window.setTimeout(function () {
+      placeStartHereIntent();
+      observer.disconnect();
+    }, 3000);
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', settle, { once: true });
-  else settle();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
+  else boot();
 })();
 </script>`;
 
