@@ -17,7 +17,7 @@
     {"id":"after","label":"6. File the obligation that actually applies","text":"Spanish tax residents generally report worldwide income under IRPF, subject to treaties and special regimes. Non-residents generally use IRNR for Spanish-source income. Foreign-asset information returns are separate from the income-tax return and have their own thresholds and follow-up rules."}
   ],
   "links": [
-    {"label":"AEAT: tax residence rules","url":"https://sede.agenciatributaria.gob.es/Sede/no-residentes/residencia-personas-fisicas-juridicas/residencia-personas-fisicas.html"},
+    {"label":"AEAT: tax residence rules","url":"https://sede.agenciatributaria.gob.es/Sede/no-residentes/residencia-personas-fisicas-juridicas.html"},
     {"label":"AEAT: Modelo 030","url":"https://sede.agenciatributaria.gob.es/Sede/procedimientos/G321.shtml"},
     {"label":"AEAT: residents with foreign income","url":"https://sede.agenciatributaria.gob.es/Sede/ciudadanos-familias-personas-discapacidad/residentes-rentas-procedentes-extranjero.html"},
     {"label":"AEAT: non-resident income tax","url":"https://sede.agenciatributaria.gob.es/Sede/no-residentes/irnr-sin-establecimiento-permanente.html"},
