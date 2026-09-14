@@ -27,10 +27,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Check monitor syntax and classifier
+      - name: Check monitor and canonicalizer syntax
         run: |
           python -m py_compile scripts/official-link-health-audit.py
           python scripts/official-link-health-audit.py --self-test
+          node --check scripts/normalize-official-links.js
+      - name: Normalize moved official destinations
+        run: |
+          node scripts/normalize-official-links.js
+          node scripts/normalize-official-links.js --verify
       - name: Inventory official links without network access
         run: python scripts/official-link-health-audit.py --inventory
       - name: Upload official-link inventory
@@ -55,10 +60,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Check monitor syntax and classifier
+      - name: Check monitor and canonicalizer syntax
         run: |
           python -m py_compile scripts/official-link-health-audit.py
           python scripts/official-link-health-audit.py --self-test
+          node --check scripts/normalize-official-links.js
+      - name: Normalize moved official destinations
+        run: |
+          node scripts/normalize-official-links.js
+          node scripts/normalize-official-links.js --verify
       - name: Check live official links
         id: audit
         continue-on-error: true
