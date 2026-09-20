@@ -854,26 +854,34 @@ body.iberigo-overhaul .site-footer a {
 }
 
 @media (max-width: 720px) {
+  body.iberigo-overhaul .app-shell {
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
   body.iberigo-overhaul .topbar {
     gap: 0.65rem;
     padding: 0.75rem 1rem;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  body.iberigo-overhaul .brand-lockup {
+    min-width: 0;
   }
 
   body.iberigo-overhaul .topbar nav {
     width: 100%;
-    flex-wrap: nowrap;
-    gap: 0.4rem;
-    overflow-x: auto;
-    padding-bottom: 0.2rem;
-    scrollbar-width: none;
-  }
-
-  body.iberigo-overhaul .topbar nav::-webkit-scrollbar {
-    display: none;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.35rem 0.5rem;
   }
 
   body.iberigo-overhaul .topbar nav > a:not(.search-nav-link) {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     min-height: 44px;
     display: inline-flex;
     align-items: center;

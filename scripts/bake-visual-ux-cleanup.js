@@ -6,6 +6,15 @@ const EXCLUDED_DIRS = new Set([".git", ".github", ".netlify", "node_modules", "o
 const STYLE_MARKER = "data-iberigo-visual-ux-cleanup";
 
 const STYLE = `<style ${STYLE_MARKER}>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
       @media (max-width: 760px) {
         .topbar {
           display: flex !important;
@@ -13,27 +22,26 @@ const STYLE = `<style ${STYLE_MARKER}>
           align-items: center !important;
           gap: 9px !important;
           padding: 10px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
         }
-        .brand-lockup { flex: 0 0 auto; }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
         .topbar nav {
           display: flex !important;
           flex: 1 1 100% !important;
           width: 100% !important;
-          flex-wrap: nowrap !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
           align-items: center !important;
           justify-content: flex-start !important;
           gap: 6px !important;
-          overflow-x: auto;
-          padding-bottom: 2px;
-          scrollbar-width: none;
-          -webkit-overflow-scrolling: touch;
         }
-        .topbar nav::-webkit-scrollbar { display: none; }
         .topbar nav a {
-          flex: 0 0 auto !important;
+          flex: 0 1 auto !important;
           min-height: 38px;
           padding: 8px 11px !important;
-          white-space: nowrap;
         }
         .topbar .search-nav-link { order: -2; }
         .topbar .language-switcher {
@@ -51,7 +59,7 @@ const STYLE = `<style ${STYLE_MARKER}>
         main > section { scroll-margin-top: 118px; }
       }
       @media (max-width: 420px) {
-        .topbar { padding-inline: 12px !important; }
+        .topbar { padding-inline: 12px !important; gap: 8px !important; }
         .topbar nav { gap: 5px !important; }
         .topbar nav a {
           flex-basis: auto !important;
