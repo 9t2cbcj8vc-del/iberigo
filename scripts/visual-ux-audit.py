@@ -30,7 +30,7 @@ def route_file(route: str) -> Path:
 def assert_global_visual_css(label: str, html: str) -> None:
     if html.count(VISUAL_MARKER) != 1:
         raise AssertionError(f"{label}: expected one visual UX marker")
-    for token in ("overflow-x: auto", "flex-basis: auto !important", "scroll-margin-top: 112px"):
+    for token in ("overflow-x: clip", "flex-wrap: wrap !important", "min-width: 0", "flex-basis: auto !important", "scroll-margin-top: 112px"):
         if token not in html: raise AssertionError(f"{label}: missing mobile rule {token}")
 
 
