@@ -1,0 +1,143 @@
+/* Custom checklist pack — extends help-feedback visual system */
+.pack-custom-page .hf-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+}
+
+.pack-custom-page .hf-topic-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pack-custom-page .hf-topic-card {
+  cursor: default;
+  min-height: 0;
+}
+
+.pack-custom-page .hf-topic-card:hover {
+  transform: none;
+}
+
+.pack-scope-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 0 1.4rem;
+}
+
+.pack-scope-card {
+  padding: clamp(1.2rem, 2.5vw, 1.6rem);
+  border: 1px solid rgba(166, 74, 54, 0.14);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 16px 42px rgba(42, 32, 25, 0.05);
+}
+
+.pack-scope-card h2 {
+  margin: 0 0 0.85rem;
+  color: #172233;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.7rem);
+  font-weight: 500;
+}
+
+.pack-scope-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: rgba(23, 34, 51, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.pack-scope-card li + li {
+  margin-top: 0.45rem;
+}
+
+.pack-scope-card.out-of-scope {
+  background: rgba(251, 234, 227, 0.55);
+  border-color: rgba(166, 74, 54, 0.22);
+}
+
+.pack-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0 0 1.4rem;
+}
+
+.pack-flow-step {
+  padding: 1.15rem 1.25rem;
+  border: 1px solid rgba(166, 74, 54, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.pack-flow-step strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #a64a36;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pack-flow-step p {
+  margin: 0;
+  color: rgba(23, 34, 51, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.pack-after {
+  margin: 1.4rem 0 0;
+  padding: clamp(1.3rem, 3vw, 2rem);
+}
+
+.pack-after .stripe-placeholder {
+  display: inline-block;
+  margin-top: 0.55rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px dashed rgba(166, 74, 54, 0.45);
+  border-radius: 8px;
+  background: rgba(253, 240, 220, 0.7);
+  color: #9a2f22;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
+.pack-consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.7rem;
+  align-items: start;
+  color: rgba(23, 34, 51, 0.74);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.pack-consent input {
+  margin-top: 0.2rem;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.pack-price-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: #f7f1e8;
+  color: #a64a36;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .pack-custom-page .hf-topic-grid,
+  .pack-scope-grid,
+  .pack-flow {
+    grid-template-columns: 1fr;
+  }
+}
