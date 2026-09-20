@@ -509,14 +509,14 @@ const searchMetadataByRoute = {
     keywords: ["visado de nómada digital", "teletrabajo España", "UGE-CE", "TIE", "residencia fiscal", "Seguridad Social", "freelancer"]
   },
   [routes.vacationHub]: {
-    category: "Vacation in Spain",
+    category: "Visit Spain",
     difficulty: "Easy",
     estimatedTime: "3 min",
     appliesTo: ["People planning a short trip to Spain", "People comparing transport, accommodation and trip-planning guides"],
     keywords: ["vacation in Spain", "short stay", "entry rules", "flights", "trains", "hotels", "tourism", "reviews"]
   },
   [routes.esVacationHub]: {
-    category: "Vacaciones en España",
+    category: "Visitar España",
     difficulty: "Fácil",
     estimatedTime: "3 min",
     appliesTo: ["Personas que planean un viaje corto a España", "Personas que comparan guías de transporte, alojamiento y planificación de viaje"],
@@ -7245,14 +7245,14 @@ pages.push({
     canonical: `https://iberigo.eu${routes.vacationHub}`,
     altHref: vacationHubPair.en.altHref,
     hreflangAlternates: vacationHubPair.en.hreflangAlternates,
-    title: "Vacation in Spain — IberiGo",
+    title: "Visit Spain — IberiGo",
     description: "Short visits, entry rules, transport, places to stay, and practical trip planning for a vacation in Spain.",
     metadata: guideMetadataFor(routes.vacationHub),
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Start Here", href: routes.startHere }, { label: "Vacation in Spain" }],
+    breadcrumbs: [{ label: "Start Here", href: routes.startHere }, { label: "Visit Spain" }],
     hero: {
-      kicker: "Vacation in Spain",
-      title: "Vacation in Spain",
+      kicker: "Visit Spain",
+      title: "Visit Spain",
       intro: "Short visits, entry rules, transport, places to stay, and practical trip planning — organized by what you need to sort out next."
     },
     sections: [
@@ -7308,14 +7308,14 @@ pages.push({
     canonical: `https://iberigo.eu${routes.esVacationHub}`,
     altHref: vacationHubPair.es.altHref,
     hreflangAlternates: vacationHubPair.es.hreflangAlternates,
-    title: "Vacaciones en España — IberiGo",
+    title: "Visitar España — IberiGo",
     description: "Visitas cortas, reglas de entrada, transporte, alojamiento y planificación práctica para unas vacaciones en España.",
     metadata: guideMetadataFor(routes.esVacationHub),
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Vacaciones en España" }],
+    breadcrumbs: [{ label: "Empieza aquí", href: routes.esStartHere }, { label: "Visitar España" }],
     hero: {
-      kicker: "Vacaciones en España",
-      title: "Vacaciones en España",
+      kicker: "Visitar España",
+      title: "Visitar España",
       intro: "Visitas cortas, reglas de entrada, transporte, alojamiento y planificación práctica del viaje, organizado según lo que necesites resolver a continuación."
     },
     sections: [
