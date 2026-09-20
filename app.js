@@ -2,7 +2,7 @@ const routes = [
   {
     id: "eu-vacation",
     title: "EU/EEA/Swiss short visit",
-    badge: "Vacation",
+    badge: "Visit",
     summary:
       "EU, EEA, and Swiss citizens can usually visit Spain for up to 3 months with a valid passport or national identity card.",
     appointment: "No immigration appointment for an ordinary short visit",
@@ -15,7 +15,7 @@ const routes = [
   {
     id: "non-eu-vacation",
     title: "Schengen short stay",
-    badge: "Vacation",
+    badge: "Visit",
     summary:
       "For a vacation or short visit, check whether your passport needs a Schengen short-stay visa or can enter visa-free. The 90 days are normally counted across the Schengen area in any 180-day period, not just Spain.",
     appointment: "No Spanish residence appointment for an ordinary short visit",
@@ -847,14 +847,14 @@ const translations = {
     movingChipStudy: "Study",
     movingChipFamily: "Family",
     movingButton: "Explore",
-    vacationTitle: "Vacation in Spain",
+    vacationTitle: "Visit Spain",
     vacationDesc: "Short visits, entry rules, transport, places to stay, and practical trip planning in Spain.",
     vacationChipEntry: "Entry rules",
     vacationChipTransport: "Transport",
     vacationChipStays: "Places to stay",
     vacationChipTrips: "Trip ideas",
     vacationButton: "Explore",
-    livingTitle: "Live in Spain",
+    livingTitle: "Living in Spain",
     livingDesc: "Healthcare, banking, taxes, digital access, and the key admin steps for everyday life in Spain.",
     livingChipHealth: "Healthcare",
     livingChipBanking: "Banking",
@@ -949,7 +949,7 @@ const translations = {
     movingChipStudy: "Estudios",
     movingChipFamily: "Familia",
     movingButton: "Explorar",
-    vacationTitle: "Vacaciones en España",
+    vacationTitle: "Visitar España",
     vacationDesc: "Visitas cortas, reglas de entrada, transporte, alojamiento y planificación práctica del viaje en España.",
     vacationChipEntry: "Entrada",
     vacationChipTransport: "Transporte",
@@ -2574,12 +2574,12 @@ function renderVacationSubtopics() {
           }
         ];
   result.innerHTML = renderTopicLibrary(
-    currentLang === "es" ? "Vacaciones en España" : "Vacation in Spain",
+    currentLang === "es" ? "Visitar España" : "Visit Spain",
     currentLang === "es"
       ? "Empieza por la parte del viaje que quieras aclarar y luego abre la guía concreta."
       : "Start with the part of the trip you want to sort out, then open the guide that fits.",
     groups,
-    currentLang === "es" ? "Guías de vacaciones en España" : "Vacation in Spain guides"
+    currentLang === "es" ? "Guías para visitar España" : "Visit Spain guides"
   );
   setCurrentScreenState({ type: "vacation-menu", entryPreset: currentEntryPreset });
 }
