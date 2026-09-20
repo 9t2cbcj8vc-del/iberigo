@@ -183,7 +183,7 @@ const pages = [
     intro: 'Do not apostille every document by default. First identify the document, the country that issued it, the Spanish procedure receiving it and whether an exemption applies.',
     asideTitle: 'Prepare in the right order',
     asideText: 'Apostille, diplomatic legalisation and sworn translation solve different problems. The receiving authority’s current procedure decides what your document actually needs.',
-    breadcrumbHome: 'Move to Spain', breadcrumbHref: '/moving-to-spain/documents-checklist/',
+    breadcrumbHome: 'Moving to Spain', breadcrumbHref: '/moving-to-spain/documents-checklist/',
     body: `
       <section class="guide-section" aria-labelledby="quickAnswer"><h2 id="quickAnswer">Quick answer</h2>
         <div class="guide-card-grid">

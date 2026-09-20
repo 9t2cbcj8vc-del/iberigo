@@ -99,7 +99,7 @@ function Header({ lang = "en", altHref = null } = {}) {
           <a href="${startHref}">${escapeHtml(labels.start)}</a>
           <a href="/index.html?nav=start#guide-cards">${escapeHtml(labels.home)}</a>
           <a href="/the-spain-files/">${escapeHtml(labels.spainFiles)}</a>
-          <a href="/support/index.html">${escapeHtml(labels.donate)}</a>
+          <a href="/support/">${escapeHtml(labels.donate)}</a>
           ${searchControlMarkup(lang)}
           <div class="language-switcher" aria-label="${escapeHtml(labels.language)}">
             <button type="button" data-lang="en" aria-pressed="${lang === "en"}"${lang !== "en" && altHref ? ` data-lang-href="${escapeHtml(altHref)}"` : ""}>EN</button>
@@ -113,7 +113,7 @@ function Footer({ lang = "en" } = {}) {
   const isSpanish = lang === "es";
   return `<footer class="site-footer">
         <p>${escapeHtml(isSpanish ? "IberiGo es gratis. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria." : "IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.")}</p>
-        <a href="/support/index.html">${escapeHtml(isSpanish ? "Donar" : "Donate")}</a>
+        <a href="/support/">${escapeHtml(isSpanish ? "Donar" : "Donate")}</a>
         <div class="site-footer-legal">
           <p>${escapeHtml(isSpanish ? "© 2026 IberiGo. Gratis. No es asesoramiento legal." : "© 2026 IberiGo. Free to use. Not legal advice.")}</p>
           <p>${escapeHtml(isSpanish ? "Última revisión" : "Last reviewed")}: ${REVIEWED}</p>

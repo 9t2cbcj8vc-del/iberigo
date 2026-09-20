@@ -77,11 +77,11 @@ function breadcrumbItems(route, page) {
   if (page.ogType === "article" && route !== "/the-spain-files/" && route !== "/the-spain-files/es/") {
     items.push(listItem(position++, "The Spain Files", `${SITE}${es ? "/the-spain-files/es/" : "/the-spain-files/"}`));
   } else if (/^\/(?:es\/)?moving-to-spain\//.test(route)) {
-    items.push(listItem(position++, es ? "Mudarse a España" : "Move to Spain", `${SITE}${es ? "/es/start-here/" : "/start-here/"}`));
+    items.push(listItem(position++, es ? "Mudarse a España" : "Moving to Spain", `${SITE}${es ? "/es/start-here/" : "/start-here/"}`));
   } else if (/^\/(?:es\/)?living-in-spain\//.test(route)) {
     items.push(listItem(position++, es ? "Vivir en España" : "Living in Spain", `${SITE}${es ? "/guides/es/living-in-spain/" : "/guides/living-in-spain/"}`));
-  } else if (/^\/(?:es\/)?visit-spain\//.test(route)) {
-    items.push(listItem(position++, es ? "Visitar España" : "Visit Spain", `${SITE}${es ? "/guides/es/visit-spain/" : "/guides/visit-spain/"}`));
+  } else if (/^\/guides\/(?:es\/)?vacation-in-spain\/?$/.test(route) || /^\/(?:es\/)?visit-spain\//.test(route)) {
+    items.push(listItem(position++, es ? "Visitar España" : "Visit Spain", `${SITE}${es ? "/guides/es/vacation-in-spain/" : "/guides/vacation-in-spain/"}`));
   }
 
   const currentName = page.h1 || page.title.replace(/\s+[—|-]\s+IberiGo\s*$/i, "") || "IberiGo";

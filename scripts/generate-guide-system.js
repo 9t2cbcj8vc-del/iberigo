@@ -99,7 +99,7 @@ function basicSkeleton({
     description,
     metadata: guideMetadataFor(route),
     breadcrumbs: [
-      { label: breadcrumbParent || (route.startsWith("/living") ? "Living in Spain" : "Moving to Spain"), href: route.startsWith("/living") ? "/living-in-spain/opening-a-bank-account/" : "/moving-to-spain/documents-checklist/" },
+      { label: breadcrumbParent || (route.startsWith("/living") ? "Living in Spain" : "Moving to Spain"), href: route.startsWith("/living") ? routes.livingHub : routes.checklist },
       { label: h1 }
     ],
     hero: {
@@ -4878,7 +4878,7 @@ pages.push({
     metadata: guideMetadataFor(routes.banking),
     showTrustBlocks: true,
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Bank Account" }],
+    breadcrumbs: [{ label: "Living in Spain", href: routes.livingHub }, { label: "Bank Account" }],
     hero: {
       kicker: "Everyday setup",
       title: "Opening a Bank Account in Spain",
@@ -5007,7 +5007,7 @@ pages.push({
     description: "A practical guide to Spain’s Digital Certificate and Cl@ve, including what they are used for, who needs them, how they differ, and common mistakes.",
     metadata: guideMetadataFor(routes.digital),
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Digital Certificate" }],
+    breadcrumbs: [{ label: "Living in Spain", href: routes.livingHub }, { label: "Digital Certificate" }],
     hero: {
       kicker: "Online access",
       title: "Digital Certificate and Cl@ve in Spain",
@@ -5139,7 +5139,7 @@ pages.push({
     description: "A practical guide to Spain’s Social Security system for new residents, including who may need a Social Security number, when it matters, and how it connects to work, healthcare and administration.",
     metadata: guideMetadataFor(routes.social),
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Social Security" }],
+    breadcrumbs: [{ label: "Living in Spain", href: routes.livingHub }, { label: "Social Security" }],
     hero: {
       kicker: "Work and administration",
       title: "Social Security in Spain",
@@ -5279,7 +5279,7 @@ pages.push({
     description: "A practical introduction to taxes in Spain for new residents, including tax residency, income tax, worldwide income, common obligations and mistakes to avoid.",
     metadata: guideMetadataFor(routes.taxes),
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Taxes" }],
+    breadcrumbs: [{ label: "Living in Spain", href: routes.livingHub }, { label: "Taxes" }],
     hero: {
       kicker: "Money and residency",
       title: "Taxes in Spain for New Residents",
@@ -5427,7 +5427,7 @@ pages.push({
     description: "A practical guide to driving in Spain as a new resident, including EU licences, non-EU licences, licence exchange, renewals, insurance and common mistakes.",
     metadata: guideMetadataFor(routes.driving),
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Living in Spain", href: routes.banking }, { label: "Driving Licence" }],
+    breadcrumbs: [{ label: "Living in Spain", href: routes.livingHub }, { label: "Driving Licence" }],
     hero: {
       kicker: "Driving and transport",
       title: "Driving Licence in Spain for New Residents",
@@ -5557,7 +5557,7 @@ pages.push({
     metadata: guideMetadataFor(routes.accommodation),
     showTrustBlocks: true,
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.euRoadmap }, { label: "Finding Accommodation" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Finding Accommodation" }],
     hero: {
       kicker: "Housing and address",
       title: "Finding Accommodation in Spain",
@@ -5706,7 +5706,7 @@ pages.push({
     description: "A practical checklist of documents you may need to prepare before moving to Spain, including identity documents, residency paperwork, healthcare, income proof, housing documents and official copies.",
     metadata: guideMetadataFor(routes.checklist),
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.euRoadmap }, { label: "Documents Checklist" }],
+    breadcrumbs: [{ label: "Start Here", href: routes.startHere }, { label: "Documents Checklist" }],
     hero: {
       kicker: "Documents and preparation",
       title: "Documents Checklist for Moving to Spain",
