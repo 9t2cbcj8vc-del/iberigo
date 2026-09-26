@@ -4525,3 +4525,15 @@ select {
 .site-search-more { min-height:44px;border:1px solid rgba(166,74,54,.2);border-radius:999px;background:#fff;color:var(--site-search-accent);font:inherit;font-weight:800; }
 body:has(.site-search-dialog[open]) { overflow:hidden; }
 @media(max-width:600px){.site-search-dialog{width:calc(100% - 16px);max-height:calc(100dvh - 16px);border-radius:16px}.site-search-panel{padding:18px}.site-search-results{max-height:60dvh}}
+
+/* Step timelines baked as <li><h3>…</h3><p>…</p></li> (no number badge):
+   the generator's inline `.guide-timeline li { grid-template-columns: auto 1fr }`
+   was designed for <li><span>N</span><div>…</div></li>. Let heading and body
+   span the full row so they stack instead of squeezing the body into a 0px column. */
+.guide-timeline > li > h3,
+.guide-timeline > li > h3 ~ * {
+  grid-column: 1 / -1;
+}
+.guide-timeline > li > h3 ~ * {
+  margin-top: -0.3rem;
+}

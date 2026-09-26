@@ -1,4 +1,4 @@
-const STYLESHEET_VERSION = "20260722-vacation-new-guides";
+const STYLESHEET_VERSION = "20260926-timeline-stack";
 const SITE_SEARCH_VERSION = "20260815-ultrawide-footer-1";
 
 const stylesheetHref = `/styles.css?v=${STYLESHEET_VERSION}`;
