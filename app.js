@@ -830,6 +830,7 @@ const startLink = document.querySelector('header nav a[href*="#guide-cards"]');
 const topbar = document.querySelector(".topbar");
 // Cookieless GoatCounter endpoint (site code "iberigo"). Counting only runs on
 // the production hostname so deploy previews and local builds are not counted.
+// Keep in sync with the loader at the top of scripts/site-search.js.
 const VISITOR_COUNTER_URL = "https://iberigo.goatcounter.com/count";
 const VISITOR_COUNTER_HOSTS = new Set(["iberigo.eu", "www.iberigo.eu"]);
 const languageButtons = document.querySelectorAll("[data-lang]");
@@ -1323,6 +1324,10 @@ function getValue(name) {
 
 function initializeVisitorCounter() {
   if (!VISITOR_COUNTER_URL || !VISITOR_COUNTER_HOSTS.has(window.location.hostname)) return;
+  // scripts/site-search.js (on every page) loads the same counter; this shared
+  // one-time guard makes sure count.js is only added once per page.
+  if (window.__iberigoVisitorCounterLoaded || document.querySelector("script[data-goatcounter]")) return;
+  window.__iberigoVisitorCounterLoaded = true;
 
   const script = document.createElement("script");
   script.async = true;

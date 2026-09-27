@@ -1,3 +1,20 @@
+// Cookieless GoatCounter visitor counter (site code "iberigo"). This file is on
+// every public page, so the counter loads here; app.js shares the same one-time
+// guard so pages that load both scripts are only counted once. Production
+// hostnames only: deploy previews and local builds are never counted.
+(function () {
+  var COUNTER_URL = "https://iberigo.goatcounter.com/count";
+  var HOSTS = ["iberigo.eu", "www.iberigo.eu"];
+  if (HOSTS.indexOf(window.location.hostname) === -1) return;
+  if (window.__iberigoVisitorCounterLoaded || document.querySelector("script[data-goatcounter]")) return;
+  window.__iberigoVisitorCounterLoaded = true;
+  var script = document.createElement("script");
+  script.async = true;
+  script.src = "https://gc.zgo.at/count.js";
+  script.dataset.goatcounter = COUNTER_URL;
+  document.head.appendChild(script);
+})();
+
 (function () {
   function addStyle(selector, href, datasetKey) {
     if (document.querySelector(selector)) return;
