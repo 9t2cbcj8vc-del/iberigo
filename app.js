@@ -807,6 +807,20 @@ const mirrorFields = {
 
 const wizard = document.querySelector("#routeWizard");
 const result = document.querySelector("#wizardResult");
+// Statically generated guide pages ship a crawler-first intro (the page's only
+// visible H1 + description + "Updated" date) and optional extra blocks such as
+// a short FAQ inside #wizardResult. Capture them before the runtime re-renders
+// the result panel so the rendered guide keeps them.
+const bakedGuideBlocks = (() => {
+  const intro = result?.querySelector("[data-crawler-guide-intro]");
+  const extras = result ? [...result.querySelectorAll("[data-guide-extra]")] : [];
+  return {
+    guideId: document.documentElement.dataset.guideId || "",
+    lang: document.documentElement.dataset.guideLang || document.documentElement.lang || "",
+    intro: intro ? intro.outerHTML : "",
+    extra: extras.map((node) => node.outerHTML).join("\n")
+  };
+})();
 const wizardSubmit = document.querySelector("#wizardSubmit");
 const guideCardsPanel = document.querySelector("#guide-cards");
 const wizardPanel = document.querySelector("#wizard");
@@ -814,7 +828,10 @@ const documentsPanel = document.querySelector("#documents");
 const sourcesPanel = document.querySelector("#sources");
 const startLink = document.querySelector('header nav a[href*="#guide-cards"]');
 const topbar = document.querySelector(".topbar");
-const VISITOR_COUNTER_URL = "";
+// Cookieless GoatCounter endpoint (site code "iberigo"). Counting only runs on
+// the production hostname so deploy previews and local builds are not counted.
+const VISITOR_COUNTER_URL = "https://iberigo.goatcounter.com/count";
+const VISITOR_COUNTER_HOSTS = new Set(["iberigo.eu", "www.iberigo.eu"]);
 const languageButtons = document.querySelectorAll("[data-lang]");
 const supportedLanguages = new Set(["en", "es"]);
 let currentLang = supportedLanguages.has(localStorage.getItem("holaPapersLang")) ? localStorage.getItem("holaPapersLang") : "en";
@@ -1305,7 +1322,7 @@ function getValue(name) {
 }
 
 function initializeVisitorCounter() {
-  if (!VISITOR_COUNTER_URL) return;
+  if (!VISITOR_COUNTER_URL || !VISITOR_COUNTER_HOSTS.has(window.location.hostname)) return;
 
   const script = document.createElement("script");
   script.async = true;
@@ -1835,8 +1852,12 @@ function renderRoadmapCard(roadmap, guideId = roadmap?.route?.id || currentDirec
   const explanation = roadmap.explanation || roadmap.timeline || "";
   result.hidden = false;
   result.classList.remove("is-empty");
+  const baked = bakedGuideBlocks.guideId && bakedGuideBlocks.guideId === guideId && bakedGuideBlocks.lang === currentLang
+    ? bakedGuideBlocks
+    : { intro: "", extra: "" };
   result.innerHTML = `
     ${renderBackButton(roadmap.process)}
+    ${baked.intro}
     ${renderResultIntro(roadmap, explanation, guideId)}
     ${renderWorkAuthorizationScopeNotice(roadmap.route?.id || guideId)}
     ${renderDeadlineWarningBlock(roadmap.route?.id || guideId)}
@@ -1850,6 +1871,7 @@ function renderRoadmapCard(roadmap, guideId = roadmap?.route?.id || currentDirec
     ${renderWhatHappensNextBlock(roadmap)}
     ${renderRoadmapLinks(roadmap.links, formAndTaxUrls(roadmap.route))}
     ${renderSafetyWingBlock(roadmap.route?.id || guideId)}
+    ${baked.extra}
     <p class="disclaimer">${resultDisclaimerFor(roadmap)}</p>
   `;
   setCurrentScreenState(

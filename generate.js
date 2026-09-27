@@ -178,32 +178,32 @@ const GUIDES = {
   },
   tie: {
     en: {
-      process: "TIE card in Spain — foreigner identity card guide",
-      explanation: "The TIE (Tarjeta de Identidad de Extranjero) documents your approved residence or stay in Spain. Confirm you have a visa, authorization, or favorable resolution before booking the fingerprint appointment."
+      process: "TIE card Spain: fingerprint appointment & EX-17",
+      explanation: "How to get your TIE card once approved: book the fingerprint (huellas) appointment, bring form EX-17 and the 790-012 fee, then collect the card."
     },
     es: {
-      process: "Tarjeta TIE en España — guía de la tarjeta de identidad de extranjero",
-      explanation: "La TIE documenta tu residencia o estancia autorizada en España. Confirma que tienes visado, autorización o resolución favorable antes de reservar la cita de huellas."
+      process: "Tarjeta TIE: cita de huellas, EX-17 y tasa 790",
+      explanation: "Cómo sacar la TIE: pide cita de toma de huellas, lleva el EX-17 y la tasa 790-012, y recoge la tarjeta. Solo tras aprobarse tu visado o autorización."
     }
   },
   "social-security": {
     en: {
-      process: "Social Security number in Spain",
-      explanation: "A Spanish Social Security number (NUSS) is needed for employment, self-employment contributions, and some official procedures. Your employer may help with registration, or you can apply directly through the official Social Security portal if you can identify yourself online, including with a digital certificate."
+      process: "Social Security number Spain (NUSS): how to get it",
+      explanation: "How foreigners get a Spanish Social Security number (NUSS): check if you already have one, request it free via Importass, or let your employer do it."
     },
     es: {
-      process: "Número de la Seguridad Social en España",
-      explanation: "El número de la Seguridad Social (NUSS) es necesario para el empleo, las cotizaciones de autónomos y algunos trámites oficiales. Tu empleador puede ayudarte con el alta o puedes solicitarlo directamente en la sede de la Seguridad Social si puedes identificarte online, incluido con certificado digital."
+      process: "Número de la Seguridad Social (NUSS): cómo pedirlo",
+      explanation: "Cómo conseguir tu número de la Seguridad Social (NUSS): comprueba si ya lo tienes, pídelo gratis en Importass o deja que lo tramite tu empresa."
     }
   },
   "sip-card": {
     en: {
-      process: "Public health card in Spain — SIP, TSI, Tarjeta Sanitaria",
-      explanation: "Every Spanish autonomous community has its own name for the public health card: SIP, TSI, or Tarjeta Sanitaria. First confirm your healthcare entitlement, then apply at the regional health service."
+      process: "SIP card and health card in Spain: how to apply",
+      explanation: "How to get the SIP card in the Valencian Community (Alicante, Torrevieja): confirm your healthcare entitlement, then file SIP procedure GVA 21561."
     },
     es: {
-      process: "Tarjeta sanitaria pública en España — SIP, TSI, Tarjeta Sanitaria",
-      explanation: "Cada comunidad autónoma tiene su propio nombre para la tarjeta sanitaria pública: SIP, TSI o Tarjeta Sanitaria. Confirma primero tu derecho a asistencia sanitaria y solicítala en el servicio de salud regional."
+      process: "Tarjeta SIP y tarjeta sanitaria: cómo solicitarla",
+      explanation: "Cómo pedir la tarjeta SIP en la Comunitat Valenciana (Alicante, Torrevieja): primero el derecho sanitario, después el alta SIP GVA 21561 en tu centro."
     }
   },
   "private-health": {
@@ -350,12 +350,12 @@ const GUIDES = {
   },
   "vacation-hotels": {
     en: {
-      process: "Hotel chains in Spain — where to stay",
-      explanation: "Spain has a wide range of hotel chains from budget to luxury. Major brands include Meliá, NH, Barceló, Riu, Iberostar, Marriott, and Hilton, with properties in cities, beaches, and resort destinations."
+      process: "Spanish hotel chains: the biggest groups in Spain",
+      explanation: "Meliá, Barceló and Eurostars lead Spain's hotel groups by rooms. Compare Spanish chains like NH, RIU, Iberostar and Paradores, with official booking links."
     },
     es: {
-      process: "Cadenas hoteleras en España — dónde alojarse",
-      explanation: "España cuenta con una amplia variedad de cadenas hoteleras de económico a lujo. Las principales marcas incluyen Meliá, NH, Barceló, Riu, Iberostar, Marriott y Hilton, con hoteles en ciudades, playas y resorts."
+      process: "Cadenas hoteleras españolas: las más grandes",
+      explanation: "Meliá, Barceló y Eurostars lideran las cadenas hoteleras en España por habitaciones. Compara NH, RIU, Iberostar y Paradores con enlaces oficiales."
     }
   },
   "vacation-tourism": {
@@ -437,6 +437,13 @@ function generatePage(id, lang, meta, template) {
 
   // Swap title
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
+
+  // The inherited homepage heading is only a hidden route-finder label on guide
+  // pages. Demote it so the guide's own title stays the page's single H1.
+  html = html.replace(
+    /<h1 id="guideCardsTitle"([^>]*)>([\s\S]*?)<\/h1>/,
+    '<h2 id="guideCardsTitle"$1>$2</h2>'
+  );
 
   // Swap meta description
   html = html.replace(

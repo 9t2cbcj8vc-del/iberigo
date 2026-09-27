@@ -346,10 +346,12 @@ function StatusBadge() {
   return "";
 }
 
-function ReadingTime(html, { lang = "en" } = {}) {
+function ReadingTime(html, { lang = "en", freshnessSlot = false } = {}) {
   const words = stripHtml(html).trim().split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.ceil(words / 200));
-  return `<p class="guide-reading-time">${minutes} ${lang === "es" ? "min de lectura" : "min read"}</p>`;
+  // freshnessSlot: bake-content-freshness.js appends the Git-derived "Updated" date here.
+  const slot = freshnessSlot ? " data-iberigo-freshness-slot" : "";
+  return `<p class="guide-reading-time"${slot}>${minutes} ${lang === "es" ? "min de lectura" : "min read"}</p>`;
 }
 
 function GuideTableOfContents(items = [], { variant = "desktop", lang = "en" } = {}) {
@@ -515,7 +517,7 @@ function GuideLayout(config) {
   const mainContent = [
     Breadcrumbs(config.breadcrumbs || [], { lang }),
     StatusBadge(),
-    GuideHero({ ...config.hero, meta: ReadingTime(sections.join("\n"), { lang }) }),
+    GuideHero({ ...config.hero, meta: ReadingTime(sections.join("\n"), { lang, freshnessSlot: Boolean(config.showFreshness) }) }),
     GuideTableOfContents(tocItems, { variant: "mobile", lang }),
     ...sections,
     showTrustBlocks ? ScopeNotice({ lang }) : "",
@@ -575,7 +577,9 @@ function GuideLayout(config) {
     <meta property="og:description" content="${escapeHtml(config.description)}" />
     <meta property="og:url" content="${canonical}" />
     <meta property="og:image" content="https://iberigo.eu/assets/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary_large_image" />${config.twitterMeta ? `
+    <meta name="twitter:title" content="${escapeHtml(config.title)}" />
+    <meta name="twitter:description" content="${escapeHtml(config.description)}" />` : ""}
     <link rel="stylesheet" href="${stylesheetHref}" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="apple-touch-icon" href="/assets/favicon.svg" />

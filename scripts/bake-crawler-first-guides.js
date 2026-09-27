@@ -51,12 +51,16 @@ function extractGuideMeta(html) {
     lang,
     title: title.replace(/\s+—\s+IberiGo\s*$/i, ""),
     description,
+    // Opt-in: pages marked data-guide-freshness="visible" get an empty slot
+    // that bake-content-freshness.js fills with the Git-derived "Updated" date.
+    showFreshness: /\bdata-guide-freshness=[\"']visible[\"']/i.test(root),
   };
 }
 
 function crawlerIntro(meta) {
   const label = meta.lang === "es" ? "Guía IberiGo" : "IberiGo guide";
-  return `\n          <div class="crawler-guide-intro" data-crawler-guide-intro data-crawler-guide-id="${meta.id}">\n            <span class="tagline">${label}</span>\n            <h1>${meta.title}</h1>\n            <p>${meta.description}</p>\n          </div>\n        `;
+  const freshness = meta.showFreshness ? `\n            <p class="guide-updated" data-iberigo-freshness-slot></p>` : "";
+  return `\n          <div class="crawler-guide-intro" data-crawler-guide-intro data-crawler-guide-id="${meta.id}">\n            <span class="tagline">${label}</span>\n            <h1>${meta.title}</h1>\n            <p>${meta.description}</p>${freshness}\n          </div>\n        `;
 }
 
 function replaceInitialResult(html, meta) {

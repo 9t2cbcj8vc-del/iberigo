@@ -147,9 +147,14 @@ function formatVisibleDate(date, lang) {
 }
 
 function addVisibleFreshness(html, date) {
-  if (!isArticle(html)) return html;
   const label = formatVisibleDate(date, pageLanguage(html));
   const marker = `<span ${VISIBLE_MARKER}>${label}</span>`;
+  // Explicit opt-in slot (any page type): <p data-iberigo-freshness-slot>…</p>
+  const slot = /(<([a-z0-9]+)\b[^>]*\bdata-iberigo-freshness-slot\b[^>]*>)([\s\S]*?)(<\/\2>)/i;
+  if (slot.test(html)) {
+    return html.replace(slot, (full, open, tag, inner, close) => `${open}${inner.trim() ? `${inner} · ` : ""}${marker}${close}`);
+  }
+  if (!isArticle(html)) return html;
   const patterns = [
     /(<span\b[^>]*class=["'][^"']*guide-reading-time[^"']*["'][^>]*>[\s\S]*?<\/span>)/i,
     /(<p\b[^>]*class=["'][^"']*article-meta[^"']*["'][^>]*>[\s\S]*?<\/p>)/i,
