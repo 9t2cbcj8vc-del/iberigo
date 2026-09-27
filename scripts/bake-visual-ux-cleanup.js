@@ -20,8 +20,8 @@ const STYLE = `<style ${STYLE_MARKER}>
           display: flex !important;
           flex-wrap: wrap !important;
           align-items: center !important;
-          gap: 9px !important;
-          padding: 10px 14px !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
           min-width: 0;
           max-width: 100%;
           box-sizing: border-box;
@@ -59,8 +59,8 @@ const STYLE = `<style ${STYLE_MARKER}>
         main > section { scroll-margin-top: 118px; }
       }
       @media (max-width: 420px) {
-        .topbar { padding-inline: 12px !important; gap: 8px !important; }
-        .topbar nav { gap: 5px !important; }
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
         .topbar nav a {
           flex-basis: auto !important;
           padding-inline: 10px !important;
