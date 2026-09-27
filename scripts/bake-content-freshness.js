@@ -155,13 +155,12 @@ function addVisibleFreshness(html, date) {
     return html.replace(slot, (full, open, tag, inner, close) => `${open}${inner.trim() ? `${inner} · ` : ""}${marker}${close}`);
   }
   if (!isArticle(html)) return html;
-  const patterns = [
-    /(<span\b[^>]*class=["'][^"']*guide-reading-time[^"']*["'][^>]*>[\s\S]*?<\/span>)/i,
-    /(<p\b[^>]*class=["'][^"']*article-meta[^"']*["'][^>]*>[\s\S]*?<\/p>)/i,
-  ];
-  for (const pattern of patterns) {
-    if (pattern.test(html)) return html.replace(pattern, `$1 · ${marker}`);
-  }
+  const readingTime = /(<span\b[^>]*class=["'][^"']*guide-reading-time[^"']*["'][^>]*>[\s\S]*?<\/span>)/i;
+  if (readingTime.test(html)) return html.replace(readingTime, `$1 · ${marker}`);
+  // Keep the date inside the article meta line (appending after </p> left a
+  // stray "· Updated …" text node floating below the hero on mobile).
+  const articleMeta = /(<p\b[^>]*class=["'][^"']*article-meta[^"']*["'][^>]*>[\s\S]*?)(<\/p>)/i;
+  if (articleMeta.test(html)) return html.replace(articleMeta, `$1 · ${marker}$2`);
   return html;
 }
 
