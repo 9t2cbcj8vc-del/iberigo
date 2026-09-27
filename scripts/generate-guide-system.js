@@ -99,7 +99,7 @@ function basicSkeleton({
     description,
     metadata: guideMetadataFor(route),
     breadcrumbs: [
-      { label: breadcrumbParent || (route.startsWith("/living") ? "Living in Spain" : "Moving to Spain"), href: route.startsWith("/living") ? routes.livingHub : routes.checklist },
+      { label: breadcrumbParent || (route.startsWith("/living") ? "Living in Spain" : "Moving to Spain"), href: route.startsWith("/living") ? routes.livingHub : routes.startHere },
       { label: h1 }
     ],
     hero: {
@@ -3295,7 +3295,7 @@ const pages = [
       title: "Moving to Spain as an EU Citizen — IberiGo",
       description: "A practical roadmap for EU citizens moving to Spain, including planning, arrival, padrón, healthcare, EU registration, banking, taxes and everyday setup.",
       metadata: guideMetadataFor(routes.euRoadmap),
-      breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "EU Citizen Roadmap" }],
+      breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "EU Citizen Roadmap" }],
       hero: {
         kicker: "Start here",
         title: "Moving to Spain as an EU Citizen",
@@ -3439,7 +3439,7 @@ const pages = [
       description: "A practical guide to the first steps after arriving in Spain, including accommodation, padrón, healthcare, registration, banking and digital access.",
       metadata: guideMetadataFor(routes.settling),
       showTrustBlocks: true,
-      breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Settling Into Spain" }],
+      breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Settling Into Spain" }],
       hero: {
         kicker: "Arrival guide",
         title: "Settling Into Spain",
@@ -3567,7 +3567,7 @@ const pages = [
       title: "EU Registration in Spain — IberiGo",
       description: "A practical guide to registering as an EU citizen in Spain, including who needs it, documents, healthcare proof, common mistakes and what happens after registration.",
       metadata: guideMetadataFor(routes.euRegistration),
-      breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "EU Registration Certificate" }],
+      breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "EU Registration Certificate" }],
       hero: {
         kicker: "EU citizen registration",
         title: "EU Registration in Spain",
@@ -3890,7 +3890,7 @@ pages.push({
     title: "Registering on the Padrón in Spain — IberiGo",
     description: "A practical guide to registering on the padrón in Spain, including what it is, why it matters, documents you may need, municipality differences and common mistakes.",
     metadata: guideMetadataFor(routes.padron),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Padrón" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Padrón" }],
     hero: {
       kicker: "Municipal registration",
       title: "Registering on the Padrón in Spain",
@@ -4027,7 +4027,7 @@ pages.push({
     title: "Healthcare in Spain for New Residents — IberiGo",
     description: "A practical guide to healthcare in Spain for new residents, including public healthcare, private insurance, S1 forms, regional health cards and common mistakes.",
     metadata: guideMetadataFor(routes.healthcare),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Healthcare" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Healthcare" }],
     hero: {
       kicker: "Healthcare routes",
       title: "Healthcare in Spain for New Residents",
@@ -5560,7 +5560,7 @@ pages.push({
     metadata: guideMetadataFor(routes.accommodation),
     showTrustBlocks: true,
     showContinueJourney: false,
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Finding Accommodation" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Finding Accommodation" }],
     hero: {
       kicker: "Housing and address",
       title: "Finding Accommodation in Spain",
@@ -5884,7 +5884,7 @@ pages.push({
     title: "Moving to Spain as a Non-EU Citizen — IberiGo",
     description: "A practical roadmap for non-EU citizens planning to move to Spain, including common residence routes, documents, healthcare, TIE, appointments and what to prepare.",
     metadata: guideMetadataFor(routes.nonEuRoadmap),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Non-EU Citizen Roadmap" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Non-EU Citizen Roadmap" }],
     hero: {
       kicker: "Residence routes",
       title: "Moving to Spain as a Non-EU Citizen",
@@ -6039,7 +6039,7 @@ pages.push({
     title: "Moving to Spain as a Family Member of an EU Citizen — IberiGo",
     description: "A practical roadmap for family members of EU citizens moving to Spain, including eligibility, documents, padrón, healthcare, residence card basics and common mistakes.",
     metadata: guideMetadataFor(routes.euFamilyMemberRoadmap),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Family Member of an EU Citizen" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Family Member of an EU Citizen" }],
     hero: {
       kicker: "Family residence route",
       title: "Moving to Spain as a Family Member of an EU Citizen",
@@ -6200,7 +6200,7 @@ pages.push({
     title: "Moving to Spain as a Student — IberiGo",
     description: "A practical roadmap for students planning to study in Spain, including study routes, documents, healthcare, accommodation, TIE basics and common mistakes.",
     metadata: guideMetadataFor(routes.students),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Student Roadmap" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Student Roadmap" }],
     hero: {
       kicker: "Study route",
       title: "Moving to Spain as a Student",
@@ -6365,7 +6365,7 @@ pages.push({
     title: "Moving to Spain for Work — IberiGo",
     description: "A practical roadmap for people planning to work in Spain, including employee routes, documents, Social Security, healthcare, taxes, TIE basics and common mistakes.",
     metadata: guideMetadataFor(routes.workInSpain),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Work in Spain Roadmap" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Work in Spain Roadmap" }],
     hero: {
       kicker: "Work route",
       title: "Moving to Spain for Work",
@@ -6535,7 +6535,7 @@ pages.push({
     title: "Retiring in Spain — IberiGo",
     description: "A practical roadmap for people planning to retire in Spain or live from sufficient resources, including documents, healthcare, tax considerations, EU registration, non-EU routes and common mistakes.",
     metadata: guideMetadataFor(routes.retireInSpain),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Retiring in Spain Roadmap" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Retiring in Spain Roadmap" }],
     hero: {
       kicker: "Retirement and resources",
       title: "Retiring in Spain",
@@ -6720,7 +6720,7 @@ pages.push({
     title: "Family Reunification in Spain — IberiGo",
     description: "A practical roadmap for people joining family in Spain, including relationship documents, eligibility basics, residence routes, TIE basics and common mistakes.",
     metadata: guideMetadataFor(routes.familyReunification),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Family Reunification Roadmap" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Family Reunification Roadmap" }],
     hero: {
       kicker: "Family-based residence route",
       title: "Family Reunification in Spain",
@@ -6884,7 +6884,7 @@ pages.push({
     title: "Digital Nomad Visa and Remote Work in Spain — IberiGo",
     description: "A practical roadmap for remote workers and digital nomads considering Spain, including eligibility basics, documents, taxes, healthcare, TIE basics and common mistakes.",
     metadata: guideMetadataFor(routes.digitalNomad),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Digital Nomad Roadmap" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Digital Nomad Roadmap" }],
     hero: {
       kicker: "Remote work route",
       title: "Digital Nomad Visa and Remote Work in Spain",
@@ -7051,7 +7051,7 @@ pages.push({
     title: "Self-Employed and Autónomo in Spain — IberiGo",
     description: "A practical roadmap for people considering self-employment in Spain, including autónomo basics, documents, tax, Social Security, healthcare, non-EU routes and common mistakes.",
     metadata: guideMetadataFor(routes.selfEmployed),
-    breadcrumbs: [{ label: "Moving to Spain", href: routes.checklist }, { label: "Self-Employed Roadmap" }],
+    breadcrumbs: [{ label: "Moving to Spain", href: routes.startHere }, { label: "Self-Employed Roadmap" }],
     hero: {
       kicker: "Self-employment route",
       title: "Self-Employed and Autónomo in Spain",

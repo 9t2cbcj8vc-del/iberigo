@@ -4,6 +4,14 @@ https://iberigo.es/* https://iberigo.eu/:splat 301!
 
 /the-spain-files/es/nie-spain/ /the-spain-files/como-obtener-nie-en-espana/ 301!
 
+# Section parent URLs that have no page of their own (they used to 404).
+/es/ /es/start-here/ 301
+/moving-to-spain/ /start-here/ 301
+/es/moving-to-spain/ /es/start-here/ 301
+/living-in-spain/ /guides/living-in-spain/ 301
+/es/living-in-spain/ /guides/es/living-in-spain/ 301
+/es/the-spain-files/ /the-spain-files/es/ 301
+
 /living-in-spain/staying-long-term /living-in-spain/staying-long-term/index.html 200!
 /living-in-spain/staying-long-term/ /living-in-spain/staying-long-term/index.html 200!
 /es/living-in-spain/staying-long-term /es/living-in-spain/staying-long-term/index.html 200!

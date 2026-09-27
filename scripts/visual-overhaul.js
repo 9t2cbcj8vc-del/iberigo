@@ -217,7 +217,7 @@
     if (wizard && !document.querySelector(".overhaul-route-intro")) {
       const block = document.createElement("section");
       block.className = "overhaul-route-intro";
-      block.innerHTML = `<div><span class="overhaul-kicker">Residence & registration</span><h2>${COPY.routeTitle}</h2><p>${COPY.routeText}</p></div><a class="overhaul-button overhaul-button-primary" href="#wizard">${COPY.routeButton} <span aria-hidden="true">↓</span></a>`;
+      block.innerHTML = `<div><span class="overhaul-kicker">Residence & registration</span><h2>${COPY.routeTitle}</h2><p>${COPY.routeText}</p></div><a class="overhaul-button overhaul-button-primary" href="${lang === "es" ? "/es/start-here/" : "/start-here/"}">${COPY.routeButton} <span aria-hidden="true">→</span></a>`;
       main.insertBefore(block, wizard);
     }
 
@@ -262,11 +262,13 @@
           ["Ciudadanos UE/EEE/Suiza", "/es/moving-to-spain/eu-citizens/"], ["Ciudadanos no UE", "/es/moving-to-spain/non-eu-citizens/"], ["Trabajar en España", "/es/moving-to-spain/work-in-spain/"], ["Autónomo", "/es/moving-to-spain/self-employed-spain/"], ["Nómada digital", "/es/moving-to-spain/digital-nomad-spain/"], ["Estudiar", "/es/moving-to-spain/students/"], ["Jubilarse / vivir sin trabajar", "/es/moving-to-spain/retire-in-spain/"], ["Familia de ciudadano UE", "/es/moving-to-spain/family-member-eu-citizen/"], ["Reagrupación familiar", "/es/moving-to-spain/family-reunification/"]
         ]],
         ["Documentos y citas", [["NIE", "/guides/es/nie/"], ["TIE", "/guides/es/tie/"], ["Registro UE", "/es/moving-to-spain/eu-registration/"], ["Lista de documentos", "/es/moving-to-spain/documents-checklist/"]]],
-        ["Primeras semanas", [["Padrón", "/es/moving-to-spain/registering-on-the-padron/"], ["Alojamiento", "/es/moving-to-spain/finding-accommodation/"], ["Cuenta bancaria", "/guides/es/banking/"], ["Seguridad Social", "/guides/es/social-security/"], ["Sanidad", "/es/moving-to-spain/healthcare/"], ["Acceso digital", "/guides/es/digital/"]]]
+        ["Primeras semanas", [["Padrón", "/es/moving-to-spain/registering-on-the-padron/"], ["Alojamiento", "/es/moving-to-spain/finding-accommodation/"], ["Cuenta bancaria", "/guides/es/banking/"], ["Seguridad Social", "/guides/es/social-security/"], ["Sanidad", "/es/moving-to-spain/healthcare/"], ["Acceso digital", "/guides/es/digital/"]]],
+        ["Por experiencia: The Spain Files", [["Cómo conseguir el NIE", "/the-spain-files/como-obtener-nie-en-espana/"], ["Padrón en Torrevieja", "/the-spain-files/es/padron-torrevieja/"], ["Visado de nómada digital", "/es/the-spain-files/visado-nomada-digital/"], ["Abrir una cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"]]]
       ] : [
         ["Find your route", [["EU / EEA / Swiss citizens", "/moving-to-spain/eu-citizens/"], ["Non-EU citizens", "/moving-to-spain/non-eu-citizens/"], ["Work in Spain", "/moving-to-spain/work-in-spain/"], ["Self-employed", "/moving-to-spain/self-employed-spain/"], ["Digital nomad", "/moving-to-spain/digital-nomad-spain/"], ["Study", "/moving-to-spain/students/"], ["Retire / live without working", "/moving-to-spain/retire-in-spain/"], ["Family of an EU citizen", "/moving-to-spain/family-member-eu-citizen/"], ["Family reunification", "/moving-to-spain/family-reunification/"]]],
         ["Documents & appointments", [["NIE", "/guides/nie/"], ["TIE", "/guides/tie/"], ["EU Registration", "/moving-to-spain/eu-registration/"], ["Documents checklist", "/moving-to-spain/documents-checklist/"]]],
-        ["Your first weeks", [["Padrón", "/moving-to-spain/registering-on-the-padron/"], ["Accommodation", "/moving-to-spain/finding-accommodation/"], ["Bank account", "/guides/banking/"], ["Social Security", "/guides/social-security/"], ["Healthcare", "/moving-to-spain/healthcare/"], ["Digital access", "/guides/digital/"]]]
+        ["Your first weeks", [["Padrón", "/moving-to-spain/registering-on-the-padron/"], ["Accommodation", "/moving-to-spain/finding-accommodation/"], ["Bank account", "/guides/banking/"], ["Social Security", "/guides/social-security/"], ["Healthcare", "/moving-to-spain/healthcare/"], ["Digital access", "/guides/digital/"]]],
+        ["From experience: The Spain Files", [["How to get a NIE", "/the-spain-files/nie-spain/"], ["Padrón in Torrevieja", "/the-spain-files/padron-torrevieja/"], ["Digital nomad visa", "/the-spain-files/digital-nomad-visa-spain/"], ["Opening a bank account", "/the-spain-files/bank-account-spain/"]]]
       ]
     },
     live: {
@@ -278,13 +280,15 @@
         ["Dinero y trabajo", [["Banca", "/guides/es/banking/"], ["Buscar trabajo", "/guides/es/job-search/"], ["Seguridad Social", "/guides/es/social-security/"], ["Vida laboral", "/guides/es/vida-laboral/"], ["Impuestos", "/guides/es/taxes/"]]],
         ["Sanidad", [["Sanidad pública", "/guides/es/sip-card/"], ["Seguro privado", "/guides/es/private-health/"], ["TSE / EHIC", "/guides/es/ehic-card/"]]],
         ["Digital y administración", [["Certificado digital / Cl@ve", "/guides/es/digital/"], ["NIE", "/guides/es/nie/"], ["TIE", "/guides/es/tie/"]]],
-        ["Transporte y conducción", [["Canje de permiso", "/guides/es/driving-licence-exchange/"], ["Teléfono", "/guides/es/phone/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]]
+        ["Transporte y conducción", [["Canje de permiso", "/guides/es/driving-licence-exchange/"], ["Teléfono", "/guides/es/phone/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]],
+        ["Por experiencia: The Spain Files", [["Padrón en Torrevieja", "/the-spain-files/es/padron-torrevieja/"], ["Abrir una cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Cómo conseguir el NIE", "/the-spain-files/como-obtener-nie-en-espana/"]]]
       ] : [
         ["Home", [["Renting a home", "/guides/renting-home/"], ["Padrón", "/guides/padron/"]]],
         ["Money & work", [["Banking", "/guides/banking/"], ["Job search", "/guides/job-search/"], ["Social Security", "/guides/social-security/"], ["Vida laboral", "/guides/vida-laboral/"], ["Taxes", "/guides/taxes/"]]],
         ["Healthcare", [["Public healthcare / health card", "/guides/sip-card/"], ["Private health insurance", "/guides/private-health/"], ["EHIC", "/guides/ehic-card/"]]],
         ["Digital & administration", [["Digital certificate / Cl@ve", "/guides/digital/"], ["NIE", "/guides/nie/"], ["TIE", "/guides/tie/"]]],
-        ["Transport & driving", [["Driving licence exchange", "/guides/driving-licence-exchange/"], ["Phone", "/guides/phone/"], ["SIM, eSIM & VPN", "/guides/sim-esim-vpn/"]]]
+        ["Transport & driving", [["Driving licence exchange", "/guides/driving-licence-exchange/"], ["Phone", "/guides/phone/"], ["SIM, eSIM & VPN", "/guides/sim-esim-vpn/"]]],
+        ["From experience: The Spain Files", [["Padrón in Torrevieja", "/the-spain-files/padron-torrevieja/"], ["Opening a bank account", "/the-spain-files/bank-account-spain/"], ["How to get a NIE", "/the-spain-files/nie-spain/"]]]
       ]
     },
     visit: {
@@ -334,6 +338,7 @@
 
   function visualForGroup(title, directoryKey) {
     const value = title.toLowerCase();
+    if (/spain files/.test(value)) return VISUALS.files;
     if (directoryKey === "live" && /transport|conducci|driving|conex|connection/.test(value)) return VISUALS.driving;
     if (directoryKey === "visit" && /around|mover|transport/.test(value)) return VISUALS.publicTransport;
     if (/health|sanidad/.test(value)) return VISUALS.healthcare;

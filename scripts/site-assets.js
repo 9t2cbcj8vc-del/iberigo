@@ -1,5 +1,5 @@
 const STYLESHEET_VERSION = "20260926-timeline-stack";
-const SITE_SEARCH_VERSION = "20260927-visitor-counter-1";
+const SITE_SEARCH_VERSION = "20260927-ux-quick-fixes-1";
 
 const stylesheetHref = `/styles.css?v=${STYLESHEET_VERSION}`;
 const siteSearchScriptSrc = `/scripts/site-search.js?v=${SITE_SEARCH_VERSION}`;
