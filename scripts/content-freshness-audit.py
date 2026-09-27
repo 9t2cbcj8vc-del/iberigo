@@ -141,6 +141,13 @@ def validate_page(route: str, html: str, expected: str, require_structured: bool
     if dt.date.fromisoformat(last_modified) > dt.date.today():
         raise AssertionError(f"{route}: last-modified is in the future: {last_modified}")
 
+    visible = re.search(rf'<span\b[^>]*{VISIBLE_MARKER}[^>]*>([^<]+)</span>', html, re.I)
+    if visible:
+        wanted = visible_date_text(expected, extract_lang(html))
+        if visible.group(1).strip() != wanted:
+            raise AssertionError(f"{route}: visible freshness={visible.group(1).strip()!r}, expected {wanted!r}")
+    if 'data-iberigo-freshness-slot' in html and not visible:
+        raise AssertionError(f"{route}: freshness slot was not filled")
     if is_article(html):
         article_modified = meta_content(html, "article:modified_time", "property")
         if article_modified != expected:
@@ -148,11 +155,6 @@ def validate_page(route: str, html: str, expected: str, require_structured: bool
         published_match = re.search(r'<meta\b(?=[^>]*property=["\']article:published_time["\'])[^>]*>', html, re.I)
         if published_match and MARKER in published_match.group(0):
             raise AssertionError(f"{route}: freshness build must not fabricate article:published_time")
-        visible = re.search(rf'<span\b[^>]*{VISIBLE_MARKER}[^>]*>([^<]+)</span>', html, re.I)
-        if visible:
-            wanted = visible_date_text(expected, extract_lang(html))
-            if visible.group(1).strip() != wanted:
-                raise AssertionError(f"{route}: visible freshness={visible.group(1).strip()!r}, expected {wanted!r}")
 
     if require_structured:
         graph = structured_graph(html)
