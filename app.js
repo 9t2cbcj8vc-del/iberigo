@@ -1871,8 +1871,8 @@ function renderRoadmapCard(roadmap, guideId = roadmap?.route?.id || currentDirec
     ${renderWhatHappensNextBlock(roadmap)}
     ${renderRoadmapLinks(roadmap.links, formAndTaxUrls(roadmap.route))}
     ${renderSafetyWingBlock(roadmap.route?.id || guideId)}
-    ${baked.extra}
     <p class="disclaimer">${resultDisclaimerFor(roadmap)}</p>
+    ${baked.extra}
   `;
   setCurrentScreenState(
     roadmap.route
