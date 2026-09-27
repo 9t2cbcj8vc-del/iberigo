@@ -3,6 +3,8 @@
 :root {
   --iberigo-navy: #0f2a44;
   --iberigo-orange: #f97316;
+  /* Text/filled-button orange: 5.2:1 on white, 4.9:1 on cream (WCAG AA). */
+  --iberigo-orange-strong: #c2410c;
   --iberigo-sand: #f6e8d6;
   --iberigo-cream: #fff8f1;
   --iberigo-sage: #a8c7b0;
@@ -146,7 +148,7 @@ body.iberigo-overhaul main {
 .overhaul-kicker {
   display: inline-flex;
   margin-bottom: 0.75rem;
-  color: var(--iberigo-orange);
+  color: var(--iberigo-orange-strong);
   font-size: 0.73rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -194,8 +196,8 @@ body.iberigo-overhaul main {
 }
 
 .overhaul-button-primary {
-  border: 1px solid var(--iberigo-orange);
-  background: var(--iberigo-orange);
+  border: 1px solid var(--iberigo-orange-strong);
+  background: var(--iberigo-orange-strong);
   color: #fff;
   box-shadow: 0 12px 26px rgba(249, 115, 22, 0.18);
 }
@@ -384,7 +386,7 @@ body.iberigo-home .overhaul-card-action {
   padding: 0.7rem 0;
   border: 0;
   background: transparent;
-  color: var(--iberigo-orange);
+  color: var(--iberigo-orange-strong);
   box-shadow: none;
   font-weight: 800;
 }
@@ -469,7 +471,7 @@ body.iberigo-overhaul .guide-hero h1 {
 
 body.iberigo-overhaul .guide-kicker,
 body.iberigo-overhaul .sf-tag {
-  color: var(--iberigo-orange);
+  color: var(--iberigo-orange-strong);
 }
 
 body.iberigo-overhaul .guide-hero-card {
@@ -531,8 +533,8 @@ body.iberigo-overhaul .featured-guide-button {
 
 body.iberigo-overhaul .guide-button:not(.guide-button--secondary),
 body.iberigo-overhaul .featured-guide-button {
-  background: var(--iberigo-orange);
-  border-color: var(--iberigo-orange);
+  background: var(--iberigo-orange-strong);
+  border-color: var(--iberigo-orange-strong);
   color: #fff;
 }
 
@@ -784,7 +786,7 @@ body.iberigo-section-files .sf-featured h3 {
 }
 
 body.iberigo-section-files .sf-featured-content > a {
-  color: var(--iberigo-orange);
+  color: var(--iberigo-orange-strong);
   font-weight: 800;
   text-decoration: none;
 }
@@ -861,8 +863,9 @@ body.iberigo-overhaul .site-footer a {
   }
 
   body.iberigo-overhaul .topbar {
-    gap: 0.65rem;
-    padding: 0.75rem 1rem;
+    /* Tighter sticky header on phones (tap targets stay 44px). */
+    gap: 0.35rem 0.65rem;
+    padding: 0.5rem 1rem;
     min-width: 0;
     max-width: 100%;
     box-sizing: border-box;
@@ -877,7 +880,7 @@ body.iberigo-overhaul .site-footer a {
     min-width: 0;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 0.35rem 0.5rem;
+    gap: 0.2rem 0.5rem;
   }
 
   body.iberigo-overhaul .topbar nav > a:not(.search-nav-link) {

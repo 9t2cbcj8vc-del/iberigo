@@ -31,7 +31,7 @@ const STYLE = `
   .intent-discovery-result b { margin-top: .25rem; color: #a64a36; font-size: .82rem; }
   .intent-discovery-footer { margin: .8rem 0 0; }
   .intent-discovery-fallback { color: #a64a36; font-size: .88rem; font-weight: 900; text-underline-offset: 3px; }
-  @media (max-width:760px) { .intent-discovery { width: min(100% - 20px,1080px); border-radius: 17px; } .intent-discovery-results { grid-template-columns: 1fr; } .intent-discovery-examples { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .2rem; scrollbar-width: thin; } .intent-discovery-examples button { flex: 0 0 auto; } }
+  @media (max-width:760px) { .intent-discovery { width: min(100% - 20px,1080px); border-radius: 17px; } .intent-discovery-results { grid-template-columns: 1fr; } .intent-discovery-examples { flex-wrap: wrap; overflow: visible; } .intent-discovery-examples button { flex: 0 1 auto; max-width: 100%; white-space: normal; text-align: left; } }
 </style>`;
 
 const PLACEMENT_SCRIPT = `<script data-iberigo-intent-discovery-script>

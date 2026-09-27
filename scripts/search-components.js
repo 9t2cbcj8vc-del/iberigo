@@ -107,7 +107,7 @@ function SearchPage() {
       </main>
       ${Footer()}
     </div>
-    <script src="/search/search.js" defer></script>
+    <script src="/search/search.js?v=20260927-ux-quick-fixes-1" defer></script>
     ${siteSearchScriptTag()}
   </body>
 </html>

@@ -143,15 +143,15 @@
 }
 
 .iberigo-home .iberigo-gateway-card--primary .gateway-card-action {
-  border-color: #f97316;
-  background: #f97316;
+  border-color: #c2410c;
+  background: #c2410c;
   color: #fff;
   box-shadow: 0 10px 22px rgba(249, 115, 22, 0.18);
 }
 
 .iberigo-home .iberigo-gateway-card--primary .gateway-card-action:hover {
-  background: #dc5d0f;
-  border-color: #dc5d0f;
+  background: #9a3412;
+  border-color: #9a3412;
   color: #fff;
 }
 

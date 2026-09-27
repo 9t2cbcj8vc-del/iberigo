@@ -63,7 +63,7 @@
 .search-kicker,
 .search-result-meta,
 .search-result-link {
-  color: var(--iberigo-orange, #f97316);
+  color: var(--iberigo-orange-strong, #c2410c);
 }
 
 .search-hero h1,
@@ -181,8 +181,8 @@
   min-height: 48px;
   padding: 0.8rem 1.2rem;
   border-radius: 10px;
-  border: 1px solid var(--iberigo-orange, #f97316);
-  background: var(--iberigo-orange, #f97316);
+  border: 1px solid var(--iberigo-orange-strong, #c2410c);
+  background: var(--iberigo-orange-strong, #c2410c);
   color: #fff;
   font-weight: 800;
   text-decoration: none;

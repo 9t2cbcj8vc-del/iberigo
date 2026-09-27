@@ -183,7 +183,7 @@ const pages = [
     intro: 'Do not apostille every document by default. First identify the document, the country that issued it, the Spanish procedure receiving it and whether an exemption applies.',
     asideTitle: 'Prepare in the right order',
     asideText: 'Apostille, diplomatic legalisation and sworn translation solve different problems. The receiving authority’s current procedure decides what your document actually needs.',
-    breadcrumbHome: 'Moving to Spain', breadcrumbHref: '/moving-to-spain/documents-checklist/',
+    breadcrumbHome: 'Moving to Spain', breadcrumbHref: '/start-here/',
     body: `
       <section class="guide-section" aria-labelledby="quickAnswer"><h2 id="quickAnswer">Quick answer</h2>
         <div class="guide-card-grid">
@@ -254,7 +254,7 @@ const pages = [
     intro: 'No apostilles todos los documentos por defecto. Primero identifica el documento, el país que lo expidió, el trámite español que lo recibe y si existe alguna exención.',
     asideTitle: 'Prepara en el orden correcto',
     asideText: 'La apostilla, la legalización diplomática y la traducción jurada resuelven problemas distintos. El procedimiento vigente de la administración receptora determina qué necesita tu documento.',
-    breadcrumbHome: 'Mudarse a España', breadcrumbHref: '/es/moving-to-spain/documents-checklist/',
+    breadcrumbHome: 'Mudarse a España', breadcrumbHref: '/es/start-here/',
     body: `
       <section class="guide-section" aria-labelledby="respuestaRapida"><h2 id="respuestaRapida">Respuesta rápida</h2>
         <div class="guide-card-grid">

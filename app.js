@@ -3997,8 +3997,18 @@ function resetToStart(clearBackStack = true) {
 function openNavSectionIfRequested() {
   const targetId = window.location.hash.replace("#", "");
   if (!targetId) return false;
+  // Legacy links (breadcrumbs, old shares) point at "?nav=start#guide-cards".
+  // That is just "the homepage / this page from the top": strip the marker from
+  // the URL and stay at the top instead of jumping past the hero.
+  if (targetId === "guide-cards") {
+    const params = new URLSearchParams(window.location.search);
+    params.delete("nav");
+    const query = params.toString();
+    window.history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}`);
+    return true;
+  }
   const target = document.querySelector(`#${targetId}`);
-  if (!target) return false;
+  if (!target || target.closest("[hidden]")) return false;
   target.scrollIntoView({ block: "start" });
   return true;
 }
@@ -4192,7 +4202,10 @@ wizard.dataset.step = "person";
 applyTranslations();
 renderEmptyResult();
 showOnlyTopicCards();
-if (!openNavSectionIfRequested()) showNormalApp();
+// Do not rewrite the URL or auto-scroll on first load: the page (and the
+// homepage hero) should open at the top. showNormalApp() is only used for the
+// explicit "back to start" action (resetToStart).
+openNavSectionIfRequested();
 
 // Auto-open a specific guide when the page was statically generated for it.
 // Generated pages carry data-guide-id and data-guide-lang on the <html> element.

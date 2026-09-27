@@ -1,4 +1,5 @@
 const fs = require("fs");
+const crypto = require("crypto");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
@@ -7,7 +8,10 @@ const sourcePath = path.join(root, "scripts", "roadmap-next-actions.js");
 const legalCurrentPath = path.join(root, "scripts", "roadmap-legal-current.js");
 const whereToApplyPath = path.join(root, "scripts", "roadmap-where-to-apply.js");
 const marker = "/* IberiGo roadmap full next-actions upgrade · August 2026 */";
-const assetVersion = "20260816-roadmap-next-actions-4";
+// Base key kept for the roadmap audits; a hash of the final bundled app.js is
+// appended below so every app.js change also changes the served cache key
+// (/app.js is cached for a week without revalidation, see _headers).
+const assetVersionBase = "20260816-roadmap-next-actions-4";
 const ignoredDirs = new Set([".git", "node_modules"]);
 
 let app = fs.readFileSync(appPath, "utf8");
@@ -15,6 +19,7 @@ if (!app.includes(marker)) {
   app += `\n\n${marker}\n${fs.readFileSync(sourcePath, "utf8")}\n\n${fs.readFileSync(legalCurrentPath, "utf8")}\n\n${fs.readFileSync(whereToApplyPath, "utf8")}\n`;
   fs.writeFileSync(appPath, app);
 }
+const assetVersion = `${assetVersionBase}-${crypto.createHash("sha256").update(app).digest("hex").slice(0, 10)}`;
 
 function applyLegalStaticCorrections(file, html) {
   const normalized = file.split(path.sep).join("/");

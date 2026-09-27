@@ -692,7 +692,7 @@
       margin-right: 8px;
       padding: 2px 8px;
       border-radius: 999px;
-      background: #f97316;
+      background: #c2410c;
       color: white;
       font-size: 0.72rem;
       font-weight: 750;
