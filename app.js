@@ -4004,7 +4004,7 @@ function openNavSectionIfRequested() {
     const params = new URLSearchParams(window.location.search);
     params.delete("nav");
     const query = params.toString();
-    window.history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}`);
+    window.history.replaceState(null, "", `${window.location.pathname.replace(/\/index\.html$/, "/")}${query ? `?${query}` : ""}`);
     return true;
   }
   const target = document.querySelector(`#${targetId}`);

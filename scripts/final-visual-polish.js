@@ -9,8 +9,10 @@
     digital: "/assets/visual-library/digital-connectivity.webp",
     transport: "/assets/visual-library/transport-spain.webp",
     driving: "/assets/topic-scenes/driving-spain-visitors-20260722.webp",
-    drivingLicence: "/assets/topic-scenes/driving-licence-exchange-20260719.webp"
+    drivingLicence: "/assets/topic-scenes/driving-licence-exchange-20260719.webp",
+    files: "/assets/visual-library/spain-files-editorial.webp"
   };
+  const spainFiles = visuals.files || "/assets/visual-library/spain-files-editorial.webp";
   const publicTransport = visuals.transport || "/assets/visual-library/transport-spain.webp";
   const driving = visuals.driving || "/assets/topic-scenes/driving-spain-visitors-20260722.webp";
   const drivingLicence = visuals.drivingLicence || "/assets/topic-scenes/driving-licence-exchange-20260719.webp";
@@ -31,7 +33,8 @@
     ["Sanidad", visuals.healthcare, [["Sanidad pública", "/guides/es/sip-card/"], ["Seguro privado", "/guides/es/private-health/"], ["TSE / EHIC", "/guides/es/ehic-card/"]]],
     ["España digital", visuals.digital, [["Certificado digital / Cl@ve", "/guides/es/digital/"]]],
     ["Transporte y conducción", driving, [["Canje de permiso", "/guides/es/driving-licence-exchange/"]]],
-    ["Teléfono e internet", visuals.digital, [["Teléfono", "/guides/es/phone/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]]
+    ["Teléfono e internet", visuals.digital, [["Teléfono", "/guides/es/phone/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]],
+    ["Por experiencia: The Spain Files", spainFiles, [["Padrón en Torrevieja", "/the-spain-files/es/padron-torrevieja/"], ["Abrir una cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Cómo conseguir el NIE", "/the-spain-files/como-obtener-nie-en-espana/"]]]
   ] : [
     ["Home", visuals.housing, [["Renting a home", "/guides/renting-home/"], ["Padrón", "/guides/padron/"]]],
     ["Money & banking", visuals.banking, [["Banking", "/guides/banking/"], ["Taxes", "/guides/taxes/"]]],
@@ -39,7 +42,8 @@
     ["Healthcare", visuals.healthcare, [["Public healthcare / health card", "/guides/sip-card/"], ["Private health insurance", "/guides/private-health/"], ["EHIC", "/guides/ehic-card/"]]],
     ["Digital Spain", visuals.digital, [["Digital certificate / Cl@ve", "/guides/digital/"]]],
     ["Transport & driving", driving, [["Driving licence exchange", "/guides/driving-licence-exchange/"]]],
-    ["Phone & internet", visuals.digital, [["Phone", "/guides/phone/"], ["SIM, eSIM & VPN", "/guides/sim-esim-vpn/"]]]
+    ["Phone & internet", visuals.digital, [["Phone", "/guides/phone/"], ["SIM, eSIM & VPN", "/guides/sim-esim-vpn/"]]],
+    ["From experience: The Spain Files", spainFiles, [["Padrón in Torrevieja", "/the-spain-files/padron-torrevieja/"], ["Opening a bank account", "/the-spain-files/bank-account-spain/"], ["How to get a NIE", "/the-spain-files/nie-spain/"]]]
   ];
 
   function renderLivingGroups() {
