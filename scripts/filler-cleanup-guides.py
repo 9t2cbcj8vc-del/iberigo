@@ -403,8 +403,8 @@ def process(html: str, lang: str) -> tuple[str, dict]:
         )
         html = html.replace("</head>", f"{style}\n  </head>", 1)
 
-    if any(stats.values()) and 'data-filler-cleanup="' not in html:
-        html = html.replace("<html", '<html data-filler-cleanup="1"', 1)
+    if any(stats.values()) and "data-filler-cleanup=" not in html:
+        html = re.sub(r"(<body\b)([^>]*)>", r'\1 data-filler-cleanup="1"\2>', html, count=1)
 
     return html, stats
 
