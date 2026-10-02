@@ -115,8 +115,10 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+  
+    <style data-filler-plain-links-style>.guide-plain-links{margin:0;padding-left:1.1rem;display:grid;gap:.45rem}.guide-plain-links a{color:#9a3412;font-weight:700;text-underline-offset:2px}</style>
   </head>
-  <body>
+  <body data-filler-cleanup="1">
     <div class="app-shell">
       <header class="topbar">
         <div class="brand-lockup">
@@ -144,34 +146,22 @@
             <li><span aria-current="page">Student Roadmap</span></li>
           </ol>
         </nav>
-        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle">
+        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle" style="grid-template-columns: minmax(0, 1fr);">
           <div>
             <span class="guide-kicker">Study route</span>
             <h1 id="pageTitle">Moving to Spain as a Student</h1>
             <p>A practical starting point for understanding student routes, what you may need to prepare, and which steps usually come before and after arriving in Spain.</p>
             <p class="guide-reading-time">7 min read</p>
           </div>
-          <aside class="guide-hero-card" aria-label="Guide summary">
-            <strong>Not one process for every student</strong>
-            <p>Student residence rules can depend on your nationality, course type, study length, documents, financial situation, healthcare cover and where you apply.</p>
-          </aside>
         </section>
         <details class="guide-toc-mobile" data-guide-toc>
           <summary>On this page</summary>
-          <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#importantNote" data-guide-toc-link>Important note</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#whoThisRoadmapIsFor" data-guide-toc-link>Who this roadmap is for</a></li><li><a href="#beforeYouApplyOrMove" data-guide-toc-link>Before you apply or move</a></li><li><a href="#euStudents" data-guide-toc-link>EU students</a></li><li><a href="#nonEuStudents" data-guide-toc-link>Non-EU students</a></li><li><a href="#healthcareAndAccommodation" data-guide-toc-link>Healthcare and accommodation</a></li><li><a href="#tieBasicsForStudents" data-guide-toc-link>TIE basics for students</a></li><li><a href="#workWhileStudying" data-guide-toc-link>Work while studying</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
+          <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#beforeYouApplyOrMove" data-guide-toc-link>Before you apply or move</a></li><li><a href="#euStudents" data-guide-toc-link>EU students</a></li><li><a href="#nonEuStudents" data-guide-toc-link>Non-EU students</a></li><li><a href="#healthcareAndAccommodation" data-guide-toc-link>Healthcare and accommodation</a></li><li><a href="#workWhileStudying" data-guide-toc-link>Work while studying</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
         </details>
         <section class="guide-section" aria-labelledby="quickAnswer"><h2 id="quickAnswer">Quick Answer</h2><p>Students from outside Spain may need a recognised study route, visa or authorisation depending on nationality and length of stay. Requirements can depend on course type, duration, nationality and where the application is made. Non-EU students may eventually need a TIE if staying longer. EU students follow a different process and may need EU Registration if staying longer than three months. This roadmap helps you understand the general journey — it does not replace official requirements.</p></section>
-        <section class="guide-section" aria-labelledby="importantNote"><h2 id="importantNote">Important note</h2><div class="guide-box guide-box--warning"><strong>Important</strong><p>This guide provides general information only and is not legal advice. Student residence rules can depend on your nationality, course type, study length, documents, financial situation, healthcare cover and where you apply. Always check the official requirements for your specific case before making decisions.</p></div></section>
-        <section class="guide-section" aria-labelledby="atGlance"><h2 id="atGlance">At a Glance</h2>
-          <table class="guide-table"><tbody><tr><th>Visa or authorisation?</th><td>May be required, depending on nationality, course type and study length.</td></tr><tr><th>Same for everyone?</th><td>No. EU and non-EU students follow different processes, and requirements vary by case.</td></tr><tr><th>Non-EU students</th><td>May eventually need a TIE if staying longer.</td></tr><tr><th>EU students</th><td>May need EU Registration if staying longer than three months.</td></tr><tr><th>Professional advice</th><td>May be useful, especially for unusual course types or nationalities.</td></tr></tbody></table>
-        </section>
-        <section class="guide-section" aria-labelledby="whoThisRoadmapIsFor"><h2 id="whoThisRoadmapIsFor">Who this roadmap is for</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Non-EU students</h3><p>Use this if you are planning to study in Spain from outside the EU.</p></article>
-          <article class="guide-info-card"><h3>EU students</h3><p>Use this if you are an EU, EEA or Swiss citizen planning to study in Spain.</p></article>
-          <article class="guide-info-card"><h3>Exchange students</h3><p>Use this if you are studying in Spain as part of an exchange programme.</p></article>
-          <article class="guide-info-card"><h3>University students</h3><p>Use this if you are enrolling in a Spanish university programme.</p></article>
-          <article class="guide-info-card"><h3>Language students</h3><p>Use this if you are attending a language course or school.</p></article>
-          <article class="guide-info-card"><h3>Vocational or recognised training students</h3><p>Use this if you are enrolling in vocational or other recognised training.</p></article>
-          <article class="guide-info-card"><h3>People already in Spain</h3><p>Use this if you are trying to understand whether the student route applies to your situation now.</p></article></div><div class="guide-box guide-box--info"><strong>Related roadmaps</strong><p>EU citizens should also check the EU Citizen Roadmap. Non-EU students should also check the Non-EU Citizen Roadmap for the broader non-EU journey.</p></div></section>
+        
+        
+        
         <section class="guide-section" aria-labelledby="beforeYouApplyOrMove"><h2 id="beforeYouApplyOrMove">Before you apply or move</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Identity</h3><p>A valid passport or national ID is usually central to the application.</p></article>
           <article class="guide-info-card"><h3>Admission or enrolment proof</h3><p>Proof of admission or enrolment is usually needed before applying for a study route.</p></article>
           <article class="guide-info-card"><h3>Healthcare cover</h3><p>Healthcare cover may be required, depending on your route and nationality.</p></article>
@@ -200,32 +190,14 @@
           <article class="guide-info-card"><h3>Requirements vary</h3><p>Requirements vary by case and location.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/moving-to-spain/healthcare/">View the Healthcare in Spain Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/finding-accommodation/">View the Finding Accommodation Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">View the Padrón Guide</a></div></section>
-        <section class="guide-section" aria-labelledby="tieBasicsForStudents"><h2 id="tieBasicsForStudents">TIE basics for students</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Many non-EU students need one</h3><p>Many non-EU students staying longer may need a TIE.</p></article>
-          <article class="guide-info-card"><h3>Not the same as NIE</h3><p>TIE is not the same as NIE.</p></article>
-          <article class="guide-info-card"><h3>Not the same as EU Registration</h3><p>TIE is not the same as EU Registration.</p></article>
-          <article class="guide-info-card"><h3>Appointments and collection</h3><p>TIE procedures can involve appointments, fingerprints and collection.</p></article>
-          <article class="guide-info-card"><h3>Depends on your case</h3><p>Details depend on approval, route and local procedure.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/guides/tie/">View the TIE Guide</a>
-          <a class="guide-button guide-button--secondary" href="/guides/nie/">View the NIE Guide</a></div><div class="guide-box guide-box--warning"><strong>Important</strong><p>Do not confuse TIE, NIE and EU Registration. Confirm which document applies to your situation before an appointment.</p></div></section>
+        <section class="guide-section" aria-labelledby="tieBasicsForStudents" data-filler-cleaned="tie"><h2 id="tieBasicsForStudents">TIE</h2><p>Many non-EU residents need a TIE (foreigner identity card) after approval or arrival. For the one-month deadline, fingerprint appointment and documents, see the <a href="/guides/tie/">TIE guide</a>.</p></section>
         <section class="guide-section" aria-labelledby="workWhileStudying"><h2 id="workWhileStudying">Work while studying</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Limited work may be allowed</h3><p>Non-EU students on a higher-education stay often have some work rights included, usually capped at a limited number of hours per week and conditional on being compatible with the course. Other student routes (secondary education, some language or training programmes) may have different or no work rights.</p></article>
           <article class="guide-info-card"><h3>Depends on status and route</h3><p>Work rights depend on the student's status, route and current rules, which can change.</p></article>
           <article class="guide-info-card"><h3>Verify before accepting work</h3><p>Students should verify the exact conditions that apply to their situation before accepting work, rather than assuming a general rule applies to their specific route.</p></article></div><div class="guide-box guide-box--warning"><strong>Important</strong><p>Do not assume student status automatically gives full-time work rights. Check the conditions that apply to your specific route before working.</p></div></section>
-        <section class="guide-section" aria-labelledby="commonMistakes"><h2 id="commonMistakes">Common Mistakes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Assuming every course qualifies for a study route.</p></article>
+        <section class="guide-section" aria-labelledby="commonMistakes" data-filler-cleaned="mistakes"><h2 id="commonMistakes">Common Mistakes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Assuming every course qualifies for a study route.</p></article>
           <article class="guide-info-card"><h3>2</h3><p>Assuming tourist stay is enough for long-term study.</p></article>
-          <article class="guide-info-card"><h3>3</h3><p>Confusing NIE and TIE.</p></article>
-          <article class="guide-info-card"><h3>4</h3><p>Ignoring healthcare requirements.</p></article>
-          <article class="guide-info-card"><h3>5</h3><p>Preparing documents too late.</p></article>
-          <article class="guide-info-card"><h3>6</h3><p>Ignoring translations, legalisation or apostille needs.</p></article>
-          <article class="guide-info-card"><h3>7</h3><p>Assuming student status automatically gives work rights.</p></article>
-          <article class="guide-info-card"><h3>8</h3><p>Waiting until appointments are urgent.</p></article>
-          <article class="guide-info-card"><h3>9</h3><p>Relying only on informal advice.</p></article></div></section>
-        <section class="guide-section" aria-labelledby="realQuestions"><h2 id="realQuestions">Real Questions People Ask</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Do I need a visa to study in Spain?</h3><p>It depends on your nationality, course type and study length. Some students need a visa or study authorisation; others may not. Check the official requirements for your case.</p></article>
-          <article class="guide-info-card"><h3>Can EU citizens study in Spain without a visa?</h3><p>Usually yes. EU, EEA and Swiss students do not usually need a visa, though EU registration may apply if staying longer than three months.</p></article>
-          <article class="guide-info-card"><h3>Do students need a TIE?</h3><p>Many non-EU students staying longer may need a TIE. Requirements depend on your route and approval.</p></article>
-          <article class="guide-info-card"><h3>Can students work in Spain?</h3><p>It depends on the student's status, route and current rules. Do not assume work rights are automatic — verify before accepting work.</p></article>
-          <article class="guide-info-card"><h3>Is NIE the same as TIE?</h3><p>No. NIE is an identification number. TIE is a physical foreigner identity card. They are not the same document.</p></article>
-          <article class="guide-info-card"><h3>Do I need private health insurance?</h3><p>It depends on your route and nationality. Some students may need private insurance; others may use another healthcare route.</p></article>
-          <article class="guide-info-card"><h3>Can I use temporary accommodation?</h3><p>It may work for some initial needs, but temporary accommodation may not always support every administrative step, such as padrón. Check before relying on it.</p></article>
-          <article class="guide-info-card"><h3>What if I am already in Spain?</h3><p>Use Start Here and this roadmap together to understand which route may apply, and check official requirements before assuming a specific process fits your situation.</p></article></div></section>
+          <article class="guide-info-card"><h3>3</h3><p>Confusing NIE and TIE.</p></article></div></section>
+        <section class="guide-section" aria-labelledby="realQuestions" data-filler-cleaned="questions"><h2 id="realQuestions">Real Questions People Ask</h2><h3>Can EU citizens study in Spain without a visa?</h3><p>Usually yes. EU, EEA and Swiss students do not usually need a visa, though EU registration may apply if staying longer than three months.</p><h3>Is NIE the same as TIE?</h3><p>No. NIE is an identification number. TIE is a physical foreigner identity card. They are not the same document.</p><h3>Do I need private health insurance?</h3><p>It depends on your route and nationality. Some students may need private insurance; others may use another healthcare route.</p><h3>Can I use temporary accommodation?</h3><p>It may work for some initial needs, but temporary accommodation may not always support every administrative step, such as padrón. Check before relying on it.</p></section>
         <section class="guide-section" aria-labelledby="whatHappensNext"><h2 id="whatHappensNext">Your Next Step</h2><div class="guide-button-row"><a class="guide-button" href="/start-here/">View Start Here</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/eu-citizens/">View the EU Citizen Roadmap</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/non-eu-citizens/">View the Non-EU Citizen Roadmap</a>
@@ -234,10 +206,7 @@
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/finding-accommodation/">View the Finding Accommodation Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">View the Padrón Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/settling-into-spain/">View the Settling Into Spain Guide</a></div><div class="guide-box guide-box--tip"><strong>Tip</strong><p>Keep a folder for identity, admission, financial and translated documents so you can respond quickly once you know your exact route requirements.</p></div></section>
-        <section class="guide-section guide-scope-notice" aria-labelledby="scopeNotice">
-          <h2 id="scopeNotice">Scope Notice</h2>
-          <p>This guide provides general information for Spain. Some procedures and supporting documents may vary by province or municipality.</p>
-        </section>
+        
         <section class="guide-section" aria-labelledby="officialSources"><h2 id="officialSources">Official Sources</h2><div class="guide-card-grid"><article class="guide-info-card guide-source-card guide-source-card--government">
             <div class="guide-source-head">
               <span class="guide-source-badge" aria-hidden="true">ES</span>
@@ -278,33 +247,13 @@
             <h3><a href="https://www.educacionyfp.gob.es" target="_blank" rel="noopener noreferrer">Ministry of Education</a></h3>
             <p>Ministerio de Educación, Formación Profesional y Deportes — Spain's national education ministry.</p>
           </article></div><div class="guide-box guide-box--info"><strong>Source status</strong><p>These links go to official websites. Official details can change, so always confirm current requirements directly with the official source.</p></div></section>
-        <section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
-          <h2 id="legalDisclaimer">Legal Disclaimer</h2>
-          <p>This guide is practical information, not legal, tax, immigration, financial or rental advice. Requirements can vary by municipality, office, bank and personal situation. Always check the current official source or ask the relevant office before making decisions.</p>
-        </section>
+        
         <div class="last-reviewed"><p><strong>Last reviewed:</strong> July 2026</p><p>Official sources are linked on this page for further checking; content has not been verified against them by a qualified professional.</p></div>
-        <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney">
-          <h2 id="continueJourney">Continue Your Journey</h2>
-          <div class="guide-journey-group"><h3>Related Guides</h3><div class="guide-card-grid"><article class="guide-info-card">
-            <h3>Documents Checklist</h3>
-            <p>Organize the core paperwork folder before appointments and everyday setup.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/documents-checklist/">View guide</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Healthcare Guide</h3>
-            <p>Compare public healthcare, S1, work-based entitlement and private-cover routes.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View guide</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Accommodation Guide</h3>
-            <p>Plan housing evidence, rentals and the address documents that later steps may need.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/finding-accommodation/">View guide</a>
-          </article></div></div>
-        </section>
+        <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney" data-filler-cleaned="continue"><h2 id="continueJourney">Continue</h2><ul class="guide-plain-links"><li><a href="/moving-to-spain/documents-checklist/">View guide</a></li><li><a href="/moving-to-spain/healthcare/">View guide</a></li><li><a href="/moving-to-spain/finding-accommodation/">View guide</a></li></ul></section>
           </div>
           <aside class="guide-toc" data-guide-toc aria-label="Table of contents">
           <strong>On this page</strong>
-          <nav><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#importantNote" data-guide-toc-link>Important note</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#whoThisRoadmapIsFor" data-guide-toc-link>Who this roadmap is for</a></li><li><a href="#beforeYouApplyOrMove" data-guide-toc-link>Before you apply or move</a></li><li><a href="#euStudents" data-guide-toc-link>EU students</a></li><li><a href="#nonEuStudents" data-guide-toc-link>Non-EU students</a></li><li><a href="#healthcareAndAccommodation" data-guide-toc-link>Healthcare and accommodation</a></li><li><a href="#tieBasicsForStudents" data-guide-toc-link>TIE basics for students</a></li><li><a href="#workWhileStudying" data-guide-toc-link>Work while studying</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
+          <nav><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#beforeYouApplyOrMove" data-guide-toc-link>Before you apply or move</a></li><li><a href="#euStudents" data-guide-toc-link>EU students</a></li><li><a href="#nonEuStudents" data-guide-toc-link>Non-EU students</a></li><li><a href="#healthcareAndAccommodation" data-guide-toc-link>Healthcare and accommodation</a></li><li><a href="#workWhileStudying" data-guide-toc-link>Work while studying</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
         </aside>
         </div>
         <section hidden data-editorial-checklist aria-label="Editorial checklist">

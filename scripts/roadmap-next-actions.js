@@ -627,11 +627,9 @@
         .join("");
     }
 
+    // Do not inject a separate "Do this now" box: it duplicated roadmap step 1
+    // verbatim on every legacy guide. Step 1 already gets the "Start here" badge.
     result.querySelectorAll(".roadmap-now").forEach((node) => node.remove());
-    const now = document.createElement("div");
-    now.className = "result-section roadmap-now";
-    now.innerHTML = `<strong>${labels.now}</strong><p>${roadmap.steps[0]}</p>`;
-    section.before(now);
   }
 
   const priorRenderRoadmap = renderRoadmap;

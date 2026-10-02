@@ -116,7 +116,7 @@
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
   </head>
-  <body>
+  <body data-filler-cleanup="1">
     <div class="app-shell">
       <header class="topbar">
         <div class="brand-lockup">
@@ -144,78 +144,23 @@
             <li><span aria-current="page">Ciudadanos de la UE</span></li>
           </ol>
         </nav>
-        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle">
+        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle" style="grid-template-columns: minmax(0, 1fr);">
           <div>
             <span class="guide-kicker">Empieza aquí</span>
             <h1 id="pageTitle">Mudarse a España como ciudadano de la UE</h1>
             <p>Una hoja de ruta práctica para ciudadanos de la UE, del EEE y de Suiza que se mudan a España. Sigue este orden general y usa las guías detalladas cuando un paso necesite documentos o comprobaciones locales.</p>
             <p class="guide-reading-time">8 min de lectura</p>
           </div>
-          <aside class="guide-hero-card" aria-label="Guide summary">
-            <strong>Orden, no plazos fijos</strong>
-            <p>La disponibilidad de citas puede variar, y algunos pasos pueden tardar más en zonas con mucha demanda.</p>
-          </aside>
         </section>
         <details class="guide-toc-mobile" data-guide-toc>
           <summary>En esta página</summary>
-          <nav aria-label="En esta página"><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#notaImportante" data-guide-toc-link>Nota importante</a></li><li><a href="#enResumen" data-guide-toc-link>En resumen</a></li><li><a href="#paraQuienEsEstaGuia" data-guide-toc-link>Para quién es esta guía</a></li><li><a href="#faseUnoPlanificacion" data-guide-toc-link>Fase 1: planificación antes de mudarte</a></li><li><a href="#faseDosLlegada" data-guide-toc-link>Fase 2: después de llegar</a></li><li><a href="#faseTresInstalacion" data-guide-toc-link>Fase 3: instalación diaria</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
+          <nav aria-label="En esta página"><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#faseUnoPlanificacion" data-guide-toc-link>Fase 1: planificación antes de mudarte</a></li><li><a href="#faseDosLlegada" data-guide-toc-link>Fase 2: después de llegar</a></li><li><a href="#faseTresInstalacion" data-guide-toc-link>Fase 3: instalación diaria</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
         </details>
         <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
         <section class="guide-section" aria-labelledby="respuestaRapida"><h2 id="respuestaRapida">Respuesta rápida</h2><p>Los ciudadanos de la UE, del EEE y de Suiza pueden mudarse a España sin visado. Si te quedas más de tres meses, normalmente necesitas registrarte como residente de la UE. El recorrido habitual suele incluir alojamiento, padrón, sanidad, registro de la UE y la instalación diaria. El orden y los requisitos exactos pueden variar según tu situación y tu localidad.</p></section>
-        <section class="guide-section" aria-labelledby="notaImportante"><h2 id="notaImportante">Nota importante</h2><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esta guía es información práctica, no asesoramiento legal, fiscal, de inmigración, financiero ni inmobiliario. Los requisitos pueden variar según el municipio, la oficina y tu situación personal. Comprueba siempre la fuente oficial vigente o pregunta en la oficina correspondiente antes de tomar decisiones.</p></div></section>
-        <section class="guide-section" aria-labelledby="enResumen"><h2 id="enResumen">En resumen</h2><table class="guide-table"><tbody>
-            <tr><th>¿Necesitas visado?</th><td>No.</td></tr>
-            <tr><th>¿Te quedas más de 3 meses?</th><td>Normalmente hace falta el registro de la UE.</td></tr>
-            <tr><th>¿Puedes trabajar?</th><td>Sí.</td></tr>
-            <tr><th>¿Tarjeta TIE?</th><td>Normalmente no. Los ciudadanos de la UE suelen recibir un certificado de registro.</td></tr>
-            <tr><th>Depende sobre todo de</th><td>Tu situación: trabajo, autoempleo, estudios, jubilación o recursos suficientes.</td></tr>
-            <tr><th>Plazos</th><td>La disponibilidad de citas y los requisitos pueden variar según la oficina y la localidad.</td></tr>
-          </tbody></table></section>
-        <section class="guide-section" aria-labelledby="paraQuienEsEstaGuia"><h2 id="paraQuienEsEstaGuia">Para quién es esta guía</h2><div class="guide-card-grid"><article class="guide-info-card">
-            <h3>Ciudadanos de la UE</h3>
-            <p>Útil si eres ciudadano de la UE y planeas una estancia larga en España.</p>
-            <a class="guide-button" href="/guides/es/eu-registration/">Ver la guía del registro de la UE (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Ciudadanos del EEE</h3>
-            <p>Los ciudadanos del EEE suelen seguir el mismo recorrido general.</p>
-            <a class="guide-button" href="/guides/es/eu-registration/">Ver la guía del registro de la UE (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Ciudadanos suizos</h3>
-            <p>Los ciudadanos suizos normalmente se incluyen en la vía de registro de ciudadanos de la UE.</p>
-            <a class="guide-button" href="/guides/es/eu-registration/">Ver la guía del registro de la UE (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Trabajadores por cuenta ajena</h3>
-            <p>Si vas a trabajar, ten en cuenta el empleo, la Seguridad Social, la sanidad y el registro de residencia.</p>
-            <a class="guide-button" href="/guides/es/eu-working/">Ver la guía de registro de trabajador de la UE</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Trabajadores por cuenta propia</h3>
-            <p>Quienes se mudan como autónomos pueden necesitar justificantes fiscales, de actividad y de Seguridad Social.</p>
-            <a class="guide-button" href="/guides/es/eu-registration/">Ver la guía del registro de la UE (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Estudiantes</h3>
-            <p>Los estudiantes pueden necesitar justificantes de estudios, sanidad y recursos.</p>
-            <a class="guide-button" href="/guides/es/eu-registration/">Ver la guía del registro de la UE (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Jubilados</h3>
-            <p>Los jubilados pueden necesitar justificantes de pensión, sanidad y recursos.</p>
-            <a class="guide-button" href="/guides/es/eu-registration/">Ver la guía del registro de la UE (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Personas que viven de ahorros o inversiones</h3>
-            <p>Quienes se mantienen con recursos propios pueden necesitar justificantes de recursos y sanidad.</p>
-            <a class="guide-button" href="/guides/es/eu-registration/">Ver la guía del registro de la UE (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Personas que se mudan con familia</h3>
-            <p>Los documentos de familia pueden importar, sobre todo si el estado civil o los dependientes son relevantes.</p>
-            <a class="guide-button" href="/guides/es/eu-family/">Ver la guía de la tarjeta de familiar de ciudadano de la UE</a>
-          </article></div><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Los familiares no comunitarios siguen un proceso distinto. Esta hoja de ruta es para el recorrido de ciudadanos de la UE, del EEE o de Suiza.</p></div><p>Varias de estas tarjetas llevan a la misma guía a propósito. Trabajar por cuenta ajena es la única base con guía propia; el autoempleo, los estudios, la jubilación y vivir de ahorros pasan todos por el mismo Certificado de Registro. Si te acompaña un familiar no comunitario, esa persona sigue la ruta separada de familiar de ciudadano de la UE.</p></section>
+        
+        
+        
         <section class="guide-section" aria-labelledby="faseUnoPlanificacion"><h2 id="faseUnoPlanificacion">Fase 1: planificación antes de mudarte</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Confirma tu situación</h3><p>Trabajo, autoempleo, estudios, jubilación o recursos propios pueden pedir justificantes distintos.</p></article>
           <article class="guide-info-card"><h3>Prepara tus documentos</h3><p>Empieza por identidad, ingresos, sanidad y estado civil, si procede.</p></article>
           <article class="guide-info-card"><h3>Investiga el alojamiento</h3><p>Comprueba si una dirección puede sustentar el empadronamiento antes de confiar en ella.</p></article>
@@ -248,22 +193,10 @@
           <a class="guide-button guide-button--secondary" href="/guides/es/social-security/">Ver la guía del número de la Seguridad Social</a>
           <a class="guide-button guide-button--secondary" href="/guides/es/taxes/">Ver la guía de impuestos en España</a>
           <a class="guide-button guide-button--secondary" href="/guides/es/driving-licence-exchange/">Ver la guía de canje del permiso de conducir</a></div><p>Cada paso de instalación tiene una guía breve con lo que debes llevar y dónde acudir.</p></section>
-        <section class="guide-section" aria-labelledby="erroresComunes"><h2 id="erroresComunes">Errores comunes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Pensar que los ciudadanos de la UE necesitan una TIE.</p></article>
+        <section class="guide-section" aria-labelledby="erroresComunes" data-filler-cleaned="mistakes"><h2 id="erroresComunes">Errores comunes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Pensar que los ciudadanos de la UE necesitan una TIE.</p></article>
           <article class="guide-info-card"><h3>2</h3><p>Confundir el NIE con el registro de la UE.</p></article>
-          <article class="guide-info-card"><h3>3</h3><p>Dejar la sanidad para el final.</p></article>
-          <article class="guide-info-card"><h3>4</h3><p>Firmar un alquiler sin comprobar si permite el empadronamiento.</p></article>
-          <article class="guide-info-card"><h3>5</h3><p>Suponer que todas las provincias funcionan igual.</p></article>
-          <article class="guide-info-card"><h3>6</h3><p>Esperar que todos los pasos se resuelvan rápido.</p></article>
-          <article class="guide-info-card"><h3>7</h3><p>Ignorar la residencia fiscal.</p></article>
-          <article class="guide-info-card"><h3>8</h3><p>Esperar a que un plazo se vuelva urgente.</p></article></div></section>
-        <section class="guide-section" aria-labelledby="preguntasFrecuentes"><h2 id="preguntasFrecuentes">Preguntas frecuentes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>¿Pueden los ciudadanos de la UE mudarse a España sin visado?</h3><p>Sí, los ciudadanos de la UE, del EEE y de Suiza normalmente pueden entrar en España sin visado. Las estancias más largas siguen implicando trámites locales y el registro de residencia de la UE.</p></article>
-          <article class="guide-info-card"><h3>¿Necesitan los ciudadanos de la UE una TIE?</h3><p>Normalmente no. Los ciudadanos de la UE suelen recibir un certificado de registro verde. Las tarjetas TIE se usan generalmente para ciudadanos no comunitarios.</p></article>
-          <article class="guide-info-card"><h3>¿Es el NIE lo mismo que el registro de la UE?</h3><p>No. El NIE es un número de identificación. El registro de la UE es el trámite de residencia para ciudadanos de la UE que se quedan más de tres meses.</p></article>
-          <article class="guide-info-card"><h3>¿Necesito el padrón antes del registro de la UE?</h3><p>Puede pedirse localmente y puede ser útil para otros trámites. Comprueba los requisitos de tu cita y tu municipio.</p></article>
-          <article class="guide-info-card"><h3>¿Necesito sanidad antes de registrarme?</h3><p>Depende de tu situación. Estudiantes, jubilados y personas con recursos propios pueden necesitar justificante de sanidad antes del registro de la UE.</p></article>
-          <article class="guide-info-card"><h3>¿Puedo trabajar antes del registro de la UE?</h3><p>Los ciudadanos de la UE generalmente pueden trabajar en España, pero el empleo, la Seguridad Social y el registro de residencia siguen teniendo que gestionarse correctamente.</p></article>
-          <article class="guide-info-card"><h3>¿Y si no hay citas disponibles?</h3><p>La disponibilidad de citas puede variar según la provincia. Sigue preparando documentos, revisa los canales oficiales y evita reservar el trámite equivocado por frustración.</p></article>
-          <article class="guide-info-card"><h3>¿Qué debo hacer primero al llegar?</h3><p>Consigue alojamiento y comprueba si la dirección permite el empadronamiento. A partir de ahí, organiza el padrón, la sanidad y el registro de la UE según tu situación.</p></article></div></section>
+          <article class="guide-info-card"><h3>3</h3><p>Dejar la sanidad para el final.</p></article></div></section>
+        <section class="guide-section" aria-labelledby="preguntasFrecuentes" data-filler-cleaned="questions"><h2 id="preguntasFrecuentes">Preguntas frecuentes</h2><h3>¿Pueden los ciudadanos de la UE mudarse a España sin visado?</h3><p>Sí, los ciudadanos de la UE, del EEE y de Suiza normalmente pueden entrar en España sin visado. Las estancias más largas siguen implicando trámites locales y el registro de residencia de la UE.</p><h3>¿Necesitan los ciudadanos de la UE una TIE?</h3><p>Normalmente no. Los ciudadanos de la UE suelen recibir un certificado de registro verde. Las tarjetas TIE se usan generalmente para ciudadanos no comunitarios.</p><h3>¿Es el NIE lo mismo que el registro de la UE?</h3><p>No. El NIE es un número de identificación. El registro de la UE es el trámite de residencia para ciudadanos de la UE que se quedan más de tres meses.</p><h3>¿Necesito el padrón antes del registro de la UE?</h3><p>Puede pedirse localmente y puede ser útil para otros trámites. Comprueba los requisitos de tu cita y tu municipio.</p></section>
         <section class="guide-section" aria-labelledby="tuProximoPaso"><h2 id="tuProximoPaso">Tu próximo paso</h2><div class="guide-button-row"><a class="guide-button" href="/es/moving-to-spain/settling-into-spain/">Ver la guía de primeros pasos</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/documents-checklist/">Ver la lista de documentos</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/finding-accommodation/">Ver la guía de alojamiento</a>
@@ -274,7 +207,7 @@
           </div>
           <aside class="guide-toc" data-guide-toc aria-label="En esta página">
           <strong>En esta página</strong>
-          <nav><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#notaImportante" data-guide-toc-link>Nota importante</a></li><li><a href="#enResumen" data-guide-toc-link>En resumen</a></li><li><a href="#paraQuienEsEstaGuia" data-guide-toc-link>Para quién es esta guía</a></li><li><a href="#faseUnoPlanificacion" data-guide-toc-link>Fase 1: planificación antes de mudarte</a></li><li><a href="#faseDosLlegada" data-guide-toc-link>Fase 2: después de llegar</a></li><li><a href="#faseTresInstalacion" data-guide-toc-link>Fase 3: instalación diaria</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
+          <nav><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#faseUnoPlanificacion" data-guide-toc-link>Fase 1: planificación antes de mudarte</a></li><li><a href="#faseDosLlegada" data-guide-toc-link>Fase 2: después de llegar</a></li><li><a href="#faseTresInstalacion" data-guide-toc-link>Fase 3: instalación diaria</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
         </aside>
         </div>
         <section hidden data-editorial-checklist aria-label="Editorial checklist">

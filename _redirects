@@ -12,6 +12,12 @@ https://iberigo.es/* https://iberigo.eu/:splat 301!
 /es/living-in-spain/ /guides/es/living-in-spain/ 301
 /es/the-spain-files/ /the-spain-files/es/ 301
 
+# Leftover section index 404s (PR filler-cleanup)
+/guides/ /start-here/ 301
+/guides/es/ /es/start-here/ 301
+/visit-spain/ /guides/vacation-in-spain/ 301
+/es/visit-spain/ /guides/es/vacation-in-spain/ 301
+
 /living-in-spain/staying-long-term /living-in-spain/staying-long-term/index.html 200!
 /living-in-spain/staying-long-term/ /living-in-spain/staying-long-term/index.html 200!
 /es/living-in-spain/staying-long-term /es/living-in-spain/staying-long-term/index.html 200!

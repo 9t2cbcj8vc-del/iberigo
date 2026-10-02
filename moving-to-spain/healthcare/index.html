@@ -115,8 +115,10 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+  
+    <style data-filler-plain-links-style>.guide-plain-links{margin:0;padding-left:1.1rem;display:grid;gap:.45rem}.guide-plain-links a{color:#9a3412;font-weight:700;text-underline-offset:2px}</style>
   </head>
-  <body>
+  <body data-filler-cleanup="1">
     <div class="app-shell">
       <header class="topbar">
         <div class="brand-lockup">
@@ -144,81 +146,39 @@
             <li><span aria-current="page">Healthcare</span></li>
           </ol>
         </nav>
-        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle">
+        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle" style="grid-template-columns: minmax(0, 1fr);">
           <div>
             <span class="guide-kicker">Healthcare routes</span>
             <h1 id="pageTitle">Healthcare in Spain for New Residents</h1>
             <p>A practical guide to understanding public healthcare, private insurance, S1 forms and regional health cards before and after moving to Spain.</p>
             <p class="guide-reading-time">6 min read</p>
           </div>
-          <aside class="guide-hero-card" aria-label="Guide summary">
-            <strong>No single answer</strong>
-            <p>Healthcare access can depend on work status, Social Security, pension rights, S1 entitlement, private insurance, region, residence route and family status.</p>
-          </aside>
         </section>
         <details class="guide-toc-mobile" data-guide-toc>
           <summary>On this page</summary>
-          <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#whoThisGuideIsFor" data-guide-toc-link>Who this guide is for</a></li><li><a href="#publicHealthcare" data-guide-toc-link>Public healthcare in Spain</a></li><li><a href="#privateInsurance" data-guide-toc-link>Private health insurance</a></li><li><a href="#s1Form" data-guide-toc-link>S1 form</a></li><li><a href="#regionalHealthCard" data-guide-toc-link>Regional health card</a></li><li><a href="#healthcareBeforeEuRegistration" data-guide-toc-link>Healthcare before EU registration</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
+          <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#publicHealthcare" data-guide-toc-link>Public healthcare in Spain</a></li><li><a href="#privateInsurance" data-guide-toc-link>Private health insurance</a></li><li><a href="#s1Form" data-guide-toc-link>S1 form</a></li><li><a href="#regionalHealthCard" data-guide-toc-link>Regional health card</a></li><li><a href="#healthcareBeforeEuRegistration" data-guide-toc-link>Healthcare before EU registration</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
         </details>
-        <section class="guide-section" aria-labelledby="quickAnswer"><h2 id="quickAnswer">Quick Answer</h2><p>Spain has a public healthcare system and private healthcare options. Access to public healthcare depends on your situation. Workers are often connected through Social Security. Some pensioners may use an S1 form. Some residents need private health insurance, especially for certain immigration or self-sufficient routes. Healthcare rules and regional health card procedures can vary by autonomous community.</p></section>
-        <section class="guide-section" aria-labelledby="atGlance"><h2 id="atGlance">At a Glance</h2>
-          <table class="guide-table"><tbody><tr><th>Public healthcare</th><td>May be available through work, Social Security, pension rights, family status or another recognised route.</td></tr><tr><th>Private insurance</th><td>May be useful or required depending on your residence route.</td></tr><tr><th>S1 form</th><td>May apply to some pensioners or people covered by another EU/EEA country.</td></tr><tr><th>Health card</th><td>Usually issued by the regional health service, not by immigration offices.</td></tr><tr><th>Regional variation</th><td>Documents and health-card procedures can vary by autonomous community.</td></tr></tbody></table>
-        </section>
-        <section class="guide-section" aria-labelledby="whoThisGuideIsFor"><h2 id="whoThisGuideIsFor">Who this guide is for</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>EU citizens</h3><p>Use this if your healthcare evidence may affect EU registration or local setup.</p></article>
-          <article class="guide-info-card"><h3>Non-EU residents</h3><p>Use this if your residence route may require healthcare cover or proof.</p></article>
-          <article class="guide-info-card"><h3>Workers</h3><p>Use this if employment and Social Security may connect you to public healthcare.</p></article>
-          <article class="guide-info-card"><h3>Self-employed people</h3><p>Use this if Social Security contributions and tax setup may affect your healthcare route.</p></article>
-          <article class="guide-info-card"><h3>Retirees</h3><p>Use this if pension status, S1 entitlement or private cover may apply.</p></article>
-          <article class="guide-info-card"><h3>Students</h3><p>Use this if you need to compare student cover, public entitlement and private insurance.</p></article>
-          <article class="guide-info-card"><h3>Family members</h3><p>Use this if your route may depend on family status or another person's entitlement.</p></article>
-          <article class="guide-info-card"><h3>Residence applicants</h3><p>Use this if you need healthcare evidence for an immigration or registration procedure.</p></article>
-          <article class="guide-info-card"><h3>People comparing options</h3><p>Use this if you are deciding between public healthcare and private insurance.</p></article></div></section>
-        <section class="guide-section" aria-labelledby="publicHealthcare"><h2 id="publicHealthcare">Public healthcare in Spain</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Regional management</h3><p>Public healthcare is managed through regional health services in each autonomous community.</p></article>
-          <article class="guide-info-card"><h3>Eligibility routes</h3><p>Eligibility may come through employment, Social Security, pension rights, family status or other recognised routes.</p></article>
-          <article class="guide-info-card"><h3>Separate documents</h3><p>The regional health card is not the same as the NIE, padrón or Social Security number.</p></article>
-          <article class="guide-info-card"><h3>Regional procedures</h3><p>Health-card procedures and document requests can vary by autonomous community.</p></article></div><div class="guide-box guide-box--warning"><strong>Important</strong><p>Do not assume public healthcare is automatic just because you live in Spain or have a padrón. Your recognised healthcare route still matters.</p></div></section>
-        <section class="guide-section" aria-labelledby="privateInsurance"><h2 id="privateInsurance">Private health insurance</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>May be useful or required</h3><p>Private insurance may be useful or required depending on your residency route and whether you have a recognised public healthcare route.</p></article>
-          <article class="guide-info-card"><h3>Comprehensive cover</h3><p>Some immigration or residence procedures may require comprehensive health cover.</p></article>
-          <article class="guide-info-card"><h3>Policy details</h3><p>Coverage, exclusions, waiting periods and copayments can vary by policy.</p></article>
-          <article class="guide-info-card"><h3>Check the exact requirement</h3><p>Before buying, check whether the policy meets the requirement for your specific procedure.</p></article></div><div class="guide-box guide-box--warning"><strong>Important</strong><p>Do not choose an insurer based only on price. Check the coverage, exclusions and whether the policy is suitable for the procedure using it.</p></div><div class="guide-button-row"><a class="guide-button" href="/guides/private-health/">View the Private Health Insurance Guide</a></div><p>The Private Health Insurance Guide names the main providers and the residence routes that typically require cover.</p></section>
-        <section class="guide-section" aria-labelledby="s1Form"><h2 id="s1Form">S1 form</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Who it may help</h3><p>Some pensioners or people covered by another EU/EEA country may be able to use an S1 form.</p></article>
-          <article class="guide-info-card"><h3>What it does</h3><p>It can help register healthcare entitlement in Spain.</p></article>
-          <article class="guide-info-card"><h3>Eligibility</h3><p>Eligibility depends on the issuing country and your personal situation.</p></article>
-          <article class="guide-info-card"><h3>Where to check</h3><p>Check with the authority responsible for healthcare cover in your home or competent country.</p></article></div><div class="guide-box guide-box--info"><strong>S1 is not the same as EHIC</strong><p>An S1 is used for certain residence-linked healthcare entitlement situations. EHIC is generally for temporary stays.</p></div><div class="guide-button-row"><a class="guide-button" href="/guides/ehic-card/">View the EHIC Guide</a></div><p>The EHIC Guide explains how the European Health Insurance Card differs from an S1, and which one applies to temporary stays versus residence.</p></section>
-        <section class="guide-section" aria-labelledby="regionalHealthCard"><h2 id="regionalHealthCard">Regional health card</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Issued regionally</h3><p>The health card is usually issued by the regional health service in your autonomous community.</p></article>
-          <article class="guide-info-card"><h3>Requirements vary</h3><p>Documents and steps can vary by autonomous community.</p></article>
-          <article class="guide-info-card"><h3>Common documents</h3><p>You may need padrón, identity documents, Social Security recognition, S1 registration or other proof.</p></article>
-          <article class="guide-info-card"><h3>Separate from residency</h3><p>The health card is separate from immigration residency, NIE, padrón and Social Security number.</p></article></div><div class="guide-box guide-box--checklist"><h3>Documents you may need</h3><ul><li>Passport, national ID or residence document</li><li>NIE, if available</li><li>Padrón certificate, where required</li><li>Social Security recognition or registration, if applicable</li><li>S1 registration, if applicable</li><li>Regional health service form, if required</li></ul></div><div class="guide-box guide-box--tip"><strong>Tip</strong><p>Check with your regional health service before the appointment so you know which documents they expect.</p></div><div class="guide-button-row"><a class="guide-button" href="/guides/sip-card/">View the Public Health Card Guide</a></div><p>The Public Health Card Guide covers the card itself — what it is called in your region, and what you use it for once issued.</p></section>
-        <section class="guide-section" aria-labelledby="healthcareBeforeEuRegistration"><h2 id="healthcareBeforeEuRegistration">Healthcare before EU registration</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Why timing matters</h3><p>Some EU citizens may need to show healthcare cover before or during EU Registration Certificate steps.</p></article>
-          <article class="guide-info-card"><h3>Self-sufficient, retired or students</h3><p>People applying as self-sufficient, retired or students may need to prepare healthcare evidence before the appointment.</p></article>
-          <article class="guide-info-card"><h3>Workers</h3><p>Workers may use work-related Social Security evidence, depending on the appointment requirements.</p></article>
-          <article class="guide-info-card"><h3>Check before booking</h3><p>Review the exact appointment instructions before assuming which healthcare proof will be accepted.</p></article></div><div class="guide-box guide-box--warning"><strong>Important</strong><p>Healthcare planning may need to happen before the EU registration appointment, especially if your route is not based on employment in Spain.</p></div><div class="guide-button-row"><a class="guide-button" href="/guides/eu-registration/">View the Quick EU Registration Guide (EX-18)</a></div><p>The EU Registration Guide covers the registration appointment itself, including the form and the fee.</p></section>
-        <section class="guide-section" aria-labelledby="commonMistakes"><h2 id="commonMistakes">Common Mistakes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Assuming padrón alone gives full healthcare access.</p></article>
+        <section class="guide-section" aria-labelledby="quickAnswer" data-filler-cleaned="healthcare-router"><h2 id="quickAnswer">Quick Answer</h2>
+<p>Spain has public healthcare (linked to Social Security for most workers and some other groups) and private options. There is no single “one card for everyone” answer — start from your situation:</p>
+<ul>
+<li><strong>Public health card (SIP / TSI)</strong> — in the Valencian Community the card is called <strong>SIP</strong>; other regions use their own name (often TSI). See the <a href="/guides/sip-card/">SIP / public health card guide</a>.</li>
+<li><strong>Private health insurance</strong> — often required for non-lucrative, digital-nomad and some self-sufficient residence routes. See <a href="/guides/private-health/">private health insurance</a>.</li>
+<li><strong>EHIC / TSE</strong> — temporary cover for EU visitors or while you sort longer-term access. See <a href="/guides/ehic-card/">EHIC guide</a>.</li>
+<li><strong>S1</strong> — some pensioners export healthcare rights from another EU country; check official S1 rules for your case.</li>
+</ul>
+<p>Registering on the <a href="/guides/padron/">padrón</a> is often needed before a regional health card. Rules and forms vary by autonomous community.</p>
+</section>
+        <section class="guide-section" aria-labelledby="commonMistakes" data-filler-cleaned="mistakes"><h2 id="commonMistakes">Common Mistakes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Assuming padrón alone gives full healthcare access.</p></article>
           <article class="guide-info-card"><h3>2</h3><p>Assuming NIE is the same as healthcare entitlement.</p></article>
-          <article class="guide-info-card"><h3>3</h3><p>Buying private insurance without checking residency requirements.</p></article>
-          <article class="guide-info-card"><h3>4</h3><p>Ignoring copayments or exclusions.</p></article>
-          <article class="guide-info-card"><h3>5</h3><p>Waiting until a medical issue is urgent.</p></article>
-          <article class="guide-info-card"><h3>6</h3><p>Not checking regional procedures.</p></article>
-          <article class="guide-info-card"><h3>7</h3><p>Confusing S1 with EHIC.</p></article>
-          <article class="guide-info-card"><h3>8</h3><p>Assuming tourist healthcare cover is enough for residence.</p></article></div></section>
-        <section class="guide-section" aria-labelledby="realQuestions"><h2 id="realQuestions">Real Questions People Ask</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Do I automatically get public healthcare if I move to Spain?</h3><p>No. Public healthcare access depends on your recognised route, such as work, Social Security, pension rights, family status or another entitlement.</p></article>
-          <article class="guide-info-card"><h3>Is private health insurance required?</h3><p>Sometimes. It depends on your residency route and whether you have another accepted healthcare route.</p></article>
-          <article class="guide-info-card"><h3>Is padrón enough to get healthcare?</h3><p>Usually not by itself. Padrón may be part of local registration, but healthcare entitlement depends on your situation.</p></article>
-          <article class="guide-info-card"><h3>What is an S1 form?</h3><p>An S1 is a form that may allow certain people, often pensioners or people covered by another EU/EEA country, to register healthcare entitlement in Spain.</p></article>
-          <article class="guide-info-card"><h3>Can I use my EHIC after moving?</h3><p>EHIC is generally for temporary stays. If you move to Spain, you should plan resident healthcare access rather than relying only on tourist cover.</p></article>
-          <article class="guide-info-card"><h3>Do I need healthcare before EU registration?</h3><p>You may, especially if you are applying as self-sufficient, retired or a student. Check your appointment instructions.</p></article>
-          <article class="guide-info-card"><h3>Is the health card the same as Social Security?</h3><p>No. A regional health card, Social Security number, NIE and padrón are separate documents or records, even when they interact.</p></article>
-          <article class="guide-info-card"><h3>Does healthcare work the same in every region?</h3><p>No. Public healthcare is managed through regional health services, so procedures and health-card requirements can vary.</p></article></div></section>
+          <article class="guide-info-card"><h3>3</h3><p>Buying private insurance without checking residency requirements.</p></article></div></section>
+        <section class="guide-section" aria-labelledby="realQuestions" data-filler-cleaned="questions"><h2 id="realQuestions">Real Questions People Ask</h2><h3>What is an S1 form?</h3><p>An S1 is a form that may allow certain people, often pensioners or people covered by another EU/EEA country, to register healthcare entitlement in Spain.</p><h3>Can I use my EHIC after moving?</h3><p>EHIC is generally for temporary stays. If you move to Spain, you should plan resident healthcare access rather than relying only on tourist cover.</p><h3>Do I need healthcare before EU registration?</h3><p>You may, especially if you are applying as self-sufficient, retired or a student. Check your appointment instructions.</p><h3>Is the health card the same as Social Security?</h3><p>No. A regional health card, Social Security number, NIE and padrón are separate documents or records, even when they interact.</p></section>
         <section class="guide-section" aria-labelledby="whatHappensNext"><h2 id="whatHappensNext">Your Next Step</h2><div class="guide-button-row"><a class="guide-button" href="/moving-to-spain/eu-citizens/">View the EU Citizen Roadmap</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/eu-registration/">View the EU Registration Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">View the Padrón Guide</a>
           <a class="guide-button guide-button--secondary" href="/living-in-spain/social-security/">View the Social Security in Spain Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/settling-into-spain/">View the Settling Into Spain Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/documents-checklist/">View the Documents Checklist</a></div><div class="guide-box guide-box--tip"><strong>Tip</strong><p>Keep healthcare documents in the same folder as your identity, padrón, Social Security and residence paperwork.</p></div></section>
-        <section class="guide-section guide-scope-notice" aria-labelledby="scopeNotice">
-          <h2 id="scopeNotice">Scope Notice</h2>
-          <p>This guide provides general information for Spain. Some procedures and supporting documents may vary by province or municipality.</p>
-        </section>
+        
         <section class="guide-section" aria-labelledby="officialSources"><h2 id="officialSources">Official Sources</h2><div class="guide-card-grid"><article class="guide-info-card guide-source-card guide-source-card--healthcare">
             <div class="guide-source-head">
               <span class="guide-source-badge" aria-hidden="true">MS</span>
@@ -251,43 +211,13 @@
             <h3><a href="https://www.seg-social.es" target="_blank" rel="noopener noreferrer">Social Security</a></h3>
             <p>Instituto Nacional de la Seguridad Social — the official Social Security portal for checking current entitlement and contribution information.</p>
           </article></div><div class="guide-box guide-box--info"><strong>Source status</strong><p>These links go to official websites where a single one exists. Some sources vary by municipality or region — check your own town hall or regional service for local instructions. Official details can change, so always confirm with the official source.</p></div></section>
-        <section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
-          <h2 id="legalDisclaimer">Legal Disclaimer</h2>
-          <p>This guide is practical information, not legal, tax, immigration, financial or rental advice. Requirements can vary by municipality, office, bank and personal situation. Always check the current official source or ask the relevant office before making decisions.</p>
-        </section>
+        
         <div class="last-reviewed"><p><strong>Last reviewed:</strong> July 2026</p><p>Official sources are linked on this page for further checking; content has not been verified against them by a qualified professional.</p></div>
-        <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney">
-          <h2 id="continueJourney">Continue Your Journey</h2>
-          <div class="guide-journey-group"><h3>Previous Step</h3><div class="guide-card-grid guide-card-grid--single"><article class="guide-info-card">
-            <h3>Padrón Guide</h3>
-            <p>Understand town hall address registration and the documents commonly requested.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">View guide</a>
-          </article></div></div>
-          <div class="guide-journey-group"><h3>Next Step</h3><div class="guide-card-grid guide-card-grid--single"><article class="guide-info-card">
-            <h3>EU Registration Certificate</h3>
-            <p>Prepare the EU Registration Certificate step for longer-term stays in Spain.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/eu-registration/">View guide</a>
-          </article></div></div>
-          <div class="guide-journey-group"><h3>Related Guides</h3><div class="guide-card-grid"><article class="guide-info-card">
-            <h3>Social Security Guide</h3>
-            <p>Understand Social Security numbers, work registration and related healthcare links.</p>
-            <a class="guide-button guide-button--secondary" href="/living-in-spain/social-security/">View guide</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>EU Citizen Roadmap</h3>
-            <p>Follow the usual order of moving steps for EU, EEA and Swiss citizens.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/eu-citizens/">View roadmap</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Documents Checklist</h3>
-            <p>Organize the core paperwork folder before appointments and everyday setup.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/documents-checklist/">View guide</a>
-          </article></div></div>
-        </section>
+        <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney" data-filler-cleaned="continue"><h2 id="continueJourney">Continue</h2><ul class="guide-plain-links"><li><a href="/moving-to-spain/registering-on-the-padron/">View guide</a></li><li><a href="/moving-to-spain/eu-registration/">View guide</a></li><li><a href="/living-in-spain/social-security/">View guide</a></li></ul></section>
           </div>
           <aside class="guide-toc" data-guide-toc aria-label="Table of contents">
           <strong>On this page</strong>
-          <nav><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#whoThisGuideIsFor" data-guide-toc-link>Who this guide is for</a></li><li><a href="#publicHealthcare" data-guide-toc-link>Public healthcare in Spain</a></li><li><a href="#privateInsurance" data-guide-toc-link>Private health insurance</a></li><li><a href="#s1Form" data-guide-toc-link>S1 form</a></li><li><a href="#regionalHealthCard" data-guide-toc-link>Regional health card</a></li><li><a href="#healthcareBeforeEuRegistration" data-guide-toc-link>Healthcare before EU registration</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
+          <nav><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#publicHealthcare" data-guide-toc-link>Public healthcare in Spain</a></li><li><a href="#privateInsurance" data-guide-toc-link>Private health insurance</a></li><li><a href="#s1Form" data-guide-toc-link>S1 form</a></li><li><a href="#regionalHealthCard" data-guide-toc-link>Regional health card</a></li><li><a href="#healthcareBeforeEuRegistration" data-guide-toc-link>Healthcare before EU registration</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
         </aside>
         </div>
         <section hidden data-editorial-checklist aria-label="Editorial checklist">

@@ -83,18 +83,23 @@ def assert_roadmap_dom(driver, model_expression, lang, label, expected_route=Non
         const result = document.querySelector('#wizardResult');
         const list = result.querySelector('.roadmap-list--full');
         const now = result.querySelector('.roadmap-now');
+        const firstLi = list?.querySelector('li');
         const heading = list?.closest('.result-section')?.querySelector(':scope > strong')?.textContent.trim() || '';
         const route = typeof pickRoute === 'function' ? pickRoute() : null;
         const rawFirstStep = roadmap?.steps?.[0] || '';
         const stepParser = document.createElement('div');
         stepParser.innerHTML = rawFirstStep;
         const firstStepText = stepParser.textContent.trim();
+        const badge = firstLi?.querySelector('.roadmap-step-badge')?.textContent.trim() || '';
+        const firstVisible = firstLi?.textContent.trim() || '';
         return {{
           routeId: route?.id || null,
           modelSteps: Array.isArray(roadmap?.steps) ? roadmap.steps.length : 0,
           visibleSteps: list ? list.querySelectorAll('li').length : 0,
           nowText: now?.textContent.trim() || '',
           firstStep: firstStepText,
+          firstVisible,
+          badge,
           heading,
           overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
         }};
@@ -104,8 +109,13 @@ def assert_roadmap_dom(driver, model_expression, lang, label, expected_route=Non
         fail(f"{label}: expected route {expected_route}, got {data}")
     if data["modelSteps"] < 1 or data["visibleSteps"] != data["modelSteps"]:
         fail(f"{label}: full roadmap is not visible: {data}")
-    if not data["nowText"] or data["firstStep"] not in data["nowText"]:
-        fail(f"{label}: Do-this-now block missing first action: {data}")
+    # Prefer the "Start here" badge on step 1. A separate "Do this now" box used to
+    # duplicate step 1 verbatim and was removed as filler; keep accepting it if present.
+    expected_badge = "Empieza aquí" if lang == "es" else "Start here"
+    has_now = bool(data.get("nowText") and data["firstStep"] in data["nowText"])
+    has_badge = data.get("badge") == expected_badge and data["firstStep"] in (data.get("firstVisible") or "")
+    if not (has_now or has_badge):
+        fail(f"{label}: first roadmap action not highlighted (badge or do-this-now): {data}")
     expected_heading = "Tu hoja de ruta" if lang == "es" else "Your roadmap"
     if data["heading"] != expected_heading:
         fail(f"{label}: roadmap heading mismatch: {data}")
@@ -202,7 +212,8 @@ def assert_static_guide_sample(driver, lang, route):
         lambda d: d.execute_script(
             "return document.documentElement.dataset.guideId === arguments[0] && "
             "!!document.querySelector('#wizardResult .roadmap-list--full') && "
-            "!!document.querySelector('#wizardResult .roadmap-now')",
+            "(!!document.querySelector('#wizardResult .roadmap-step-badge') || "
+            " !!document.querySelector('#wizardResult .roadmap-now'))",
             route,
         )
     )
