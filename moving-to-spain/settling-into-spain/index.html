@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html data-filler-cleanup="1" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -115,6 +115,8 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+  
+    <style data-filler-plain-links-style>.guide-plain-links{margin:0;padding-left:1.1rem;display:grid;gap:.45rem}.guide-plain-links a{color:#9a3412;font-weight:700;text-underline-offset:2px}</style>
   </head>
   <body>
     <div class="app-shell">
@@ -144,27 +146,21 @@
             <li><span aria-current="page">Settling Into Spain</span></li>
           </ol>
         </nav>
-        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle">
+        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle" style="grid-template-columns: minmax(0, 1fr);">
           <div>
             <span class="guide-kicker">Arrival guide</span>
             <h1 id="pageTitle">Settling Into Spain</h1>
             <p>A calm, practical guide to the first steps after you arrive in Spain. Follow the steps in order, but remember that appointment availability can vary by province and municipality.</p>
             <p class="guide-reading-time">6 min read</p>
           </div>
-          <aside class="guide-hero-card" aria-label="Guide summary">
-            <strong>Sequence, not deadlines</strong>
-            <p>Use this guide to understand what usually comes before what, then check the detailed guide for each step.</p>
-          </aside>
         </section>
         <details class="guide-toc-mobile" data-guide-toc>
           <summary>On this page</summary>
-          <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#timelinesVary" data-guide-toc-link>Timelines vary</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#secureAccommodation" data-guide-toc-link>Secure accommodation</a></li><li><a href="#registerPadron" data-guide-toc-link>Register on the padrón</a></li><li><a href="#arrangeHealthcare" data-guide-toc-link>Arrange healthcare</a></li><li><a href="#registerEuResident" data-guide-toc-link>Register as an EU resident, if applicable</a></li><li><a href="#openBankAccount" data-guide-toc-link>Open a bank account</a></li><li><a href="#digitalCertificateClave" data-guide-toc-link>Set up Digital Certificate or Cl@ve</a></li><li><a href="#reviewSocialSecurity" data-guide-toc-link>Review Social Security, if working</a></li><li><a href="#understandTax" data-guide-toc-link>Understand tax obligations</a></li><li><a href="#checkDriving" data-guide-toc-link>Check driving licence rules</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li></ol></nav>
+          <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#timelinesVary" data-guide-toc-link>Timelines vary</a></li><li><a href="#secureAccommodation" data-guide-toc-link>Secure accommodation</a></li><li><a href="#registerPadron" data-guide-toc-link>Register on the padrón</a></li><li><a href="#arrangeHealthcare" data-guide-toc-link>Arrange healthcare</a></li><li><a href="#registerEuResident" data-guide-toc-link>Register as an EU resident, if applicable</a></li><li><a href="#openBankAccount" data-guide-toc-link>Open a bank account</a></li><li><a href="#digitalCertificateClave" data-guide-toc-link>Set up Digital Certificate or Cl@ve</a></li><li><a href="#reviewSocialSecurity" data-guide-toc-link>Review Social Security, if working</a></li><li><a href="#understandTax" data-guide-toc-link>Understand tax obligations</a></li><li><a href="#checkDriving" data-guide-toc-link>Check driving licence rules</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li></ol></nav>
         </details>
         <section class="guide-section" aria-labelledby="quickAnswer"><h2 id="quickAnswer">Quick Answer</h2><p>After arriving in Spain, the practical sequence usually starts with accommodation and local address evidence, then padrón, healthcare, residence registration if applicable, banking, digital access, Social Security if working, tax review and driving checks. The exact order can shift depending on your situation and local appointment availability.</p></section>
         <section class="guide-section" aria-labelledby="timelinesVary"><h2 id="timelinesVary">Timelines vary</h2><p>The order of these steps matters more than the speed. In some areas, appointments may be available quickly. In others, including high-demand municipalities, waiting times can be much longer. This guide explains what to do next without promising a fixed timeline.</p></section>
-        <section class="guide-section" aria-labelledby="atGlance"><h2 id="atGlance">At a Glance</h2>
-          <table class="guide-table"><tbody><tr><th>Main purpose</th><td>Understand the practical sequence after arrival.</td></tr><tr><th>Fixed timeline?</th><td>No. Appointment availability can vary by province and municipality.</td></tr><tr><th>Address evidence</th><td>Address evidence can affect padrón, healthcare, banking and other steps.</td></tr><tr><th>Who should use this?</th><td>People who have arrived in Spain or are planning their arrival admin.</td></tr></tbody></table>
-        </section>
+        
         <section class="guide-section" aria-labelledby="secureAccommodation"><h2 id="secureAccommodation">Secure accommodation</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Arrival</h3><p>Your address is often the foundation for later steps, even if your first accommodation is temporary.</p></article>
           <article class="guide-info-card"><h3>Official requirements</h3><p>Requirements depend on the process using the address evidence. Town halls and other offices may ask for different proof.</p></article>
           <article class="guide-info-card"><h3>Practical advice</h3><p>Before signing or paying, ask whether the address can support the paperwork you expect to need, especially padrón.</p></article></div><div class="guide-box guide-box--tip"><strong>Tip</strong><p>Keep rental contracts, authorization letters, receipts and host details together so you can compare them with local instructions.</p></div></section>
@@ -192,61 +188,18 @@
         <section class="guide-section" aria-labelledby="checkDriving"><h2 id="checkDriving">Check driving licence rules</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Everyday Setup</h3><p>Driving rules depend on where your licence was issued and whether you are visiting or living in Spain.</p></article>
           <article class="guide-info-card"><h3>Official requirements</h3><p>Licence validity, exchange or renewal questions can vary depending on your country of issue and residence position.</p></article>
           <article class="guide-info-card"><h3>Practical advice</h3><p>Check the rules before relying on old assumptions from tourist visits or from another country.</p></article></div><p>Use the <a href="/living-in-spain/driving/">Driving Guide</a> to understand which licence questions to check next.</p></section>
-        <section class="guide-section" aria-labelledby="commonMistakes"><h2 id="commonMistakes">Common Mistakes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Treating the arrival steps as fixed deadlines instead of a sequence that depends on appointments and local rules.</p></article>
+        <section class="guide-section" aria-labelledby="commonMistakes" data-filler-cleaned="mistakes"><h2 id="commonMistakes">Common Mistakes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Treating the arrival steps as fixed deadlines instead of a sequence that depends on appointments and local rules.</p></article>
           <article class="guide-info-card"><h3>2</h3><p>Signing accommodation without checking whether it can support padrón or later address evidence.</p></article>
-          <article class="guide-info-card"><h3>3</h3><p>Assuming healthcare evidence is the same for workers, retirees, students and self-funded residents.</p></article>
-          <article class="guide-info-card"><h3>4</h3><p>Booking the wrong residence appointment because the terminology is confusing.</p></article>
-          <article class="guide-info-card"><h3>5</h3><p>Leaving banking, digital access, tax and driving questions until another process is blocked.</p></article></div></section>
-        <section class="guide-section" aria-labelledby="realQuestions"><h2 id="realQuestions">Real Questions People Ask</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Should I do everything in this exact order?</h3><p>Use this as a general sequence, but adapt it to your situation and local appointment availability. Some preparation can happen in parallel.</p></article>
-          <article class="guide-info-card"><h3>Can I register on the padrón with temporary accommodation?</h3><p>It depends on the municipality and the evidence you have. Check the town hall instructions before assuming the address will be accepted.</p></article>
-          <article class="guide-info-card"><h3>Do I need healthcare before EU registration?</h3><p>It depends on your EU registration route. If you are not working, healthcare evidence may be an important part of the registration file.</p></article>
-          <article class="guide-info-card"><h3>Is this only for EU citizens?</h3><p>No. Many arrival steps apply broadly, but EU registration is only relevant if that route applies to you.</p></article></div></section>
-        <section class="guide-section guide-scope-notice" aria-labelledby="scopeNotice">
-          <h2 id="scopeNotice">Scope Notice</h2>
-          <p>This guide provides general information for Spain. Some procedures and supporting documents may vary by province or municipality.</p>
-        </section>
-        <section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
-          <h2 id="legalDisclaimer">Legal Disclaimer</h2>
-          <p>This guide is practical information, not legal, tax, immigration, financial or rental advice. Requirements can vary by municipality, office, bank and personal situation. Always check the current official source or ask the relevant office before making decisions.</p>
-        </section>
+          <article class="guide-info-card"><h3>3</h3><p>Assuming healthcare evidence is the same for workers, retirees, students and self-funded residents.</p></article></div></section>
+        <section class="guide-section" aria-labelledby="realQuestions" data-filler-cleaned="questions"><h2 id="realQuestions">Real Questions People Ask</h2><h3>Should I do everything in this exact order?</h3><p>Use this as a general sequence, but adapt it to your situation and local appointment availability. Some preparation can happen in parallel.</p><h3>Do I need healthcare before EU registration?</h3><p>It depends on your EU registration route. If you are not working, healthcare evidence may be an important part of the registration file.</p><h3>Is this only for EU citizens?</h3><p>No. Many arrival steps apply broadly, but EU registration is only relevant if that route applies to you.</p></section>
+        
+        
         <p class="last-reviewed">Last reviewed: July 2026</p>
-        <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney">
-          <h2 id="continueJourney">Continue Your Journey</h2>
-          <div class="guide-journey-group"><h3>Previous Step</h3><div class="guide-card-grid guide-card-grid--single"><article class="guide-info-card">
-            <h3>EU Citizen Roadmap</h3>
-            <p>Follow the usual order of moving steps for EU, EEA and Swiss citizens.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/eu-citizens/">View roadmap</a>
-          </article></div></div>
-          <div class="guide-journey-group"><h3>Next Step</h3><div class="guide-card-grid guide-card-grid--single"><article class="guide-info-card">
-            <h3>Padrón Guide</h3>
-            <p>Understand town hall address registration and the documents commonly requested.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">View guide</a>
-          </article></div></div>
-          <div class="guide-journey-group"><h3>Related Guides</h3><div class="guide-card-grid"><article class="guide-info-card">
-            <h3>Healthcare Guide</h3>
-            <p>Compare public healthcare, S1, work-based entitlement and private-cover routes.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View guide</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>EU Registration Certificate</h3>
-            <p>Prepare the EU Registration Certificate step for longer-term stays in Spain.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/eu-registration/">View guide</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Bank Account Guide</h3>
-            <p>Set up everyday banking, payments and account documents in Spain.</p>
-            <a class="guide-button guide-button--secondary" href="/living-in-spain/opening-a-bank-account/">View guide</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Digital Certificate Guide</h3>
-            <p>Set up FNMT digital certificate or Cl@ve access for online public services.</p>
-            <a class="guide-button guide-button--secondary" href="/living-in-spain/digital-certificate/">View guide</a>
-          </article></div></div>
-        </section>
+        <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney" data-filler-cleaned="continue"><h2 id="continueJourney">Continue</h2><ul class="guide-plain-links"><li><a href="/moving-to-spain/eu-citizens/">View roadmap</a></li><li><a href="/moving-to-spain/registering-on-the-padron/">View guide</a></li><li><a href="/moving-to-spain/healthcare/">View guide</a></li></ul></section>
           </div>
           <aside class="guide-toc" data-guide-toc aria-label="Table of contents">
           <strong>On this page</strong>
-          <nav><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#timelinesVary" data-guide-toc-link>Timelines vary</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#secureAccommodation" data-guide-toc-link>Secure accommodation</a></li><li><a href="#registerPadron" data-guide-toc-link>Register on the padrón</a></li><li><a href="#arrangeHealthcare" data-guide-toc-link>Arrange healthcare</a></li><li><a href="#registerEuResident" data-guide-toc-link>Register as an EU resident, if applicable</a></li><li><a href="#openBankAccount" data-guide-toc-link>Open a bank account</a></li><li><a href="#digitalCertificateClave" data-guide-toc-link>Set up Digital Certificate or Cl@ve</a></li><li><a href="#reviewSocialSecurity" data-guide-toc-link>Review Social Security, if working</a></li><li><a href="#understandTax" data-guide-toc-link>Understand tax obligations</a></li><li><a href="#checkDriving" data-guide-toc-link>Check driving licence rules</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li></ol></nav>
+          <nav><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#timelinesVary" data-guide-toc-link>Timelines vary</a></li><li><a href="#secureAccommodation" data-guide-toc-link>Secure accommodation</a></li><li><a href="#registerPadron" data-guide-toc-link>Register on the padrón</a></li><li><a href="#arrangeHealthcare" data-guide-toc-link>Arrange healthcare</a></li><li><a href="#registerEuResident" data-guide-toc-link>Register as an EU resident, if applicable</a></li><li><a href="#openBankAccount" data-guide-toc-link>Open a bank account</a></li><li><a href="#digitalCertificateClave" data-guide-toc-link>Set up Digital Certificate or Cl@ve</a></li><li><a href="#reviewSocialSecurity" data-guide-toc-link>Review Social Security, if working</a></li><li><a href="#understandTax" data-guide-toc-link>Understand tax obligations</a></li><li><a href="#checkDriving" data-guide-toc-link>Check driving licence rules</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li></ol></nav>
         </aside>
         </div>
         <section hidden data-editorial-checklist aria-label="Editorial checklist">

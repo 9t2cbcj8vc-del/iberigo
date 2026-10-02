@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html data-filler-cleanup="1" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -115,6 +115,8 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+  
+    <style data-filler-plain-links-style>.guide-plain-links{margin:0;padding-left:1.1rem;display:grid;gap:.45rem}.guide-plain-links a{color:#9a3412;font-weight:700;text-underline-offset:2px}</style>
   </head>
   <body>
     <div class="app-shell">
@@ -144,72 +146,22 @@
             <li><span aria-current="page">EU Citizen Roadmap</span></li>
           </ol>
         </nav>
-        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle">
+        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle" style="grid-template-columns: minmax(0, 1fr);">
           <div>
             <span class="guide-kicker">Start here</span>
             <h1 id="pageTitle">Moving to Spain as an EU Citizen</h1>
             <p>A practical roadmap for EU, EEA and Swiss citizens moving to Spain. Follow the steps in this general order, then use the detailed guides when a step needs documents or local checks.</p>
             <p class="guide-reading-time">6 min read</p>
           </div>
-          <aside class="guide-hero-card" aria-label="Guide summary">
-            <strong>Sequence, not deadlines</strong>
-            <p>Appointment availability can vary, and some steps may take longer in high-demand areas.</p>
-          </aside>
         </section>
         <details class="guide-toc-mobile" data-guide-toc>
           <summary>On this page</summary>
-          <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#openingNote" data-guide-toc-link>Use this as a roadmap</a></li><li><a href="#whoNeeds" data-guide-toc-link>Who this roadmap is for</a></li><li><a href="#phaseOne" data-guide-toc-link>Phase 1: Planning before you move</a></li><li><a href="#phaseTwo" data-guide-toc-link>Phase 2: After arrival</a></li><li><a href="#phaseThree" data-guide-toc-link>Phase 3: Everyday setup</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
+          <nav aria-label="On this page"><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#openingNote" data-guide-toc-link>Use this as a roadmap</a></li><li><a href="#phaseOne" data-guide-toc-link>Phase 1: Planning before you move</a></li><li><a href="#phaseTwo" data-guide-toc-link>Phase 2: After arrival</a></li><li><a href="#phaseThree" data-guide-toc-link>Phase 3: Everyday setup</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
         </details>
         <section class="guide-section" aria-labelledby="quickAnswer"><h2 id="quickAnswer">Quick Answer</h2><p>EU, EEA and Swiss citizens can move to Spain without a visa. If you are staying longer than three months, you normally need to register as an EU resident. The main journey usually includes accommodation, padrón, healthcare, EU registration and everyday setup. The exact order and requirements can vary depending on your situation and location.</p></section>
-        <section class="guide-section" aria-labelledby="atGlance"><h2 id="atGlance">At a Glance</h2>
-          <table class="guide-table"><tbody><tr><th>Visa required?</th><td>No.</td></tr><tr><th>Staying longer than 3 months?</th><td>EU registration is usually required.</td></tr><tr><th>Can you work?</th><td>Yes.</td></tr><tr><th>TIE card?</th><td>Normally no. EU citizens usually receive a Certificate of Registration.</td></tr><tr><th>Main dependency</th><td>Your route: work, self-employment, study, retirement or sufficient resources.</td></tr><tr><th>Timing</th><td>Appointment availability and requirements may vary by office and location.</td></tr></tbody></table>
-        </section>
+        
         <section class="guide-section" aria-labelledby="openingNote"><h2 id="openingNote">Use this as a roadmap</h2><div class="guide-box guide-box--info"><strong>The order matters more than the speed</strong><p>In some municipalities or provinces, appointments may be available quickly. In others, waiting times can be much longer. This roadmap helps you understand what to prepare and what usually comes next.</p></div></section>
-        <section class="guide-section" aria-labelledby="whoNeeds"><h2 id="whoNeeds">Who this roadmap is for</h2><div class="guide-card-grid"><article class="guide-info-card">
-            <h3>EU citizens</h3>
-            <p>Use this if you are an EU citizen planning a longer stay in Spain.</p>
-            <a class="guide-button" href="/guides/eu-registration/">View the EU Registration Guide (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>EEA citizens</h3>
-            <p>EEA citizens usually follow the same broad route.</p>
-            <a class="guide-button" href="/guides/eu-registration/">View the EU Registration Guide (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Swiss citizens</h3>
-            <p>Swiss citizens are commonly included in the EU citizen registration route.</p>
-            <a class="guide-button" href="/guides/eu-registration/">View the EU Registration Guide (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Workers</h3>
-            <p>Employees should plan for work, Social Security, healthcare and residence registration steps.</p>
-            <a class="guide-button" href="/guides/eu-working/">View the EU Worker Registration Guide</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Self-employed people</h3>
-            <p>Self-employed movers may need tax, activity and Social Security evidence.</p>
-            <a class="guide-button" href="/guides/eu-registration/">View the EU Registration Guide (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Students</h3>
-            <p>Students may need study, healthcare and resources evidence.</p>
-            <a class="guide-button" href="/guides/eu-registration/">View the EU Registration Guide (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Retirees</h3>
-            <p>Retirees may need pension, healthcare and resources evidence.</p>
-            <a class="guide-button" href="/guides/eu-registration/">View the EU Registration Guide (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>People living from savings or investments</h3>
-            <p>Self-sufficient movers may need resources and healthcare evidence.</p>
-            <a class="guide-button" href="/guides/eu-registration/">View the EU Registration Guide (EX-18)</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>People moving with family</h3>
-            <p>Family documents may matter, especially when civil status or dependants are relevant.</p>
-            <a class="guide-button" href="/guides/eu-family/">View the EU-Family Residence Card Guide</a>
-          </article></div><div class="guide-box guide-box--warning"><strong>Important</strong><p>Non-EU family members follow a different process. This roadmap is for the EU, EEA or Swiss citizen journey.</p></div><p>Several of these cards point to the same guide on purpose. Working is the one basis with its own dedicated guide; self-employment, study, retirement and living from savings all go through the same EU Registration Certificate. If a non-EU family member is coming with you, they follow the separate EU-family route.</p></section>
+        
         <section class="guide-section" aria-labelledby="phaseOne"><h2 id="phaseOne">Phase 1: Planning before you move</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Confirm your route</h3><p>Working, self-employed, student, retired or self-sufficient routes can need different evidence.</p></article>
           <article class="guide-info-card"><h3>Prepare your documents</h3><p>Start with identity, income, healthcare and civil status documents if relevant.</p></article>
           <article class="guide-info-card"><h3>Research accommodation</h3><p>Check whether an address can support padrón registration before relying on it.</p></article>
@@ -242,32 +194,17 @@
           <a class="guide-button guide-button--secondary" href="/guides/social-security/">View the Social Security Number Guide</a>
           <a class="guide-button guide-button--secondary" href="/guides/taxes/">View the Taxes in Spain Guide</a>
           <a class="guide-button guide-button--secondary" href="/guides/driving-licence-exchange/">View the Driving Licence Exchange Guide</a></div><p>The everyday setup steps each have a short procedural guide covering what to bring and where to go.</p></section>
-        <section class="guide-section" aria-labelledby="commonMistakes"><h2 id="commonMistakes">Common Mistakes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Assuming EU citizens need a TIE.</p></article>
+        <section class="guide-section" aria-labelledby="commonMistakes" data-filler-cleaned="mistakes"><h2 id="commonMistakes">Common Mistakes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Assuming EU citizens need a TIE.</p></article>
           <article class="guide-info-card"><h3>2</h3><p>Confusing NIE with EU registration.</p></article>
-          <article class="guide-info-card"><h3>3</h3><p>Leaving healthcare planning too late.</p></article>
-          <article class="guide-info-card"><h3>4</h3><p>Signing accommodation without checking whether it can support padrón registration.</p></article>
-          <article class="guide-info-card"><h3>5</h3><p>Assuming all provinces work the same way.</p></article>
-          <article class="guide-info-card"><h3>6</h3><p>Expecting all steps to finish quickly.</p></article>
-          <article class="guide-info-card"><h3>7</h3><p>Ignoring tax residency.</p></article>
-          <article class="guide-info-card"><h3>8</h3><p>Waiting until a deadline becomes urgent.</p></article></div></section>
-        <section class="guide-section" aria-labelledby="realQuestions"><h2 id="realQuestions">Real Questions People Ask</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Can EU citizens move to Spain without a visa?</h3><p>Yes, EU, EEA and Swiss citizens can usually enter Spain without a visa. Longer stays still involve local administration and EU residence registration.</p></article>
-          <article class="guide-info-card"><h3>Do EU citizens need a TIE?</h3><p>Normally no. EU citizens usually receive a green EU Registration Certificate. TIE cards are generally used by non-EU citizens.</p></article>
-          <article class="guide-info-card"><h3>Is NIE the same as EU registration?</h3><p>No. NIE is an identification number. EU registration is the residence registration process for EU citizens staying longer than three months.</p></article>
-          <article class="guide-info-card"><h3>Do I need padrón before EU registration?</h3><p>It may be requested locally and can be useful for other steps. Check the requirements for your appointment and municipality.</p></article>
-          <article class="guide-info-card"><h3>Do I need healthcare before registering?</h3><p>It depends on your route. Students, retirees and self-sufficient applicants may need healthcare proof before EU registration.</p></article>
-          <article class="guide-info-card"><h3>Can I work before EU registration?</h3><p>EU citizens can generally work in Spain, but employment, Social Security and residence registration steps still need to be handled correctly.</p></article>
-          <article class="guide-info-card"><h3>What if appointments are not available?</h3><p>Appointment availability can vary by province. Keep preparing documents, check official channels and avoid booking the wrong process out of frustration.</p></article>
-          <article class="guide-info-card"><h3>What should I do first after arriving?</h3><p>Secure accommodation and understand whether the address can support padrón registration. From there, arrange padrón, healthcare and EU registration according to your situation.</p></article></div></section>
+          <article class="guide-info-card"><h3>3</h3><p>Leaving healthcare planning too late.</p></article></div></section>
+        <section class="guide-section" aria-labelledby="realQuestions" data-filler-cleaned="questions"><h2 id="realQuestions">Real Questions People Ask</h2><h3>Can EU citizens move to Spain without a visa?</h3><p>Yes, EU, EEA and Swiss citizens can usually enter Spain without a visa. Longer stays still involve local administration and EU residence registration.</p><h3>Do EU citizens need a TIE?</h3><p>Normally no. EU citizens usually receive a green EU Registration Certificate. TIE cards are generally used by non-EU citizens.</p><h3>Is NIE the same as EU registration?</h3><p>No. NIE is an identification number. EU registration is the residence registration process for EU citizens staying longer than three months.</p><h3>Do I need padrón before EU registration?</h3><p>It may be requested locally and can be useful for other steps. Check the requirements for your appointment and municipality.</p></section>
         <section class="guide-section" aria-labelledby="whatHappensNext"><h2 id="whatHappensNext">Your Next Step</h2><div class="guide-button-row"><a class="guide-button" href="/moving-to-spain/settling-into-spain/">View the Settling Into Spain Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/documents-checklist/">View the Documents Checklist</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/finding-accommodation/">View the Finding Accommodation Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">View the Padrón Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View the Healthcare in Spain Guide</a>
           <a class="guide-button guide-button--secondary" href="/moving-to-spain/eu-registration/">View the EU Registration Guide</a></div></section>
-        <section class="guide-section guide-scope-notice" aria-labelledby="scopeNotice">
-          <h2 id="scopeNotice">Scope Notice</h2>
-          <p>This guide provides general information for Spain. Some procedures and supporting documents may vary by province or municipality.</p>
-        </section>
+        
         <section class="guide-section" aria-labelledby="officialSources"><h2 id="officialSources">Official Sources</h2><div class="guide-card-grid"><article class="guide-info-card guide-source-card guide-source-card--government">
             <div class="guide-source-head">
               <span class="guide-source-badge" aria-hidden="true">ES</span>
@@ -300,33 +237,13 @@
             <h3>Local Town Halls</h3>
             <p>There is no single official website — padrón and local address requirements are set by each municipality. Check your own town hall's website for local instructions.</p>
           </article></div><div class="guide-box guide-box--info"><strong>Source status</strong><p>These links go to official websites where a single one exists. Some sources vary by municipality or region — check your own town hall or regional service for local instructions. Official details can change, so always confirm with the official source.</p></div></section>
-        <section class="guide-section guide-legal-disclaimer" aria-labelledby="legalDisclaimer">
-          <h2 id="legalDisclaimer">Legal Disclaimer</h2>
-          <p>This guide is practical information, not legal, tax, immigration, financial or rental advice. Requirements can vary by municipality, office, bank and personal situation. Always check the current official source or ask the relevant office before making decisions.</p>
-        </section>
+        
         <div class="last-reviewed"><p><strong>Last reviewed:</strong> July 2026</p><p>Official sources are linked on this page for further checking; content has not been verified against them by a qualified professional.</p></div>
-        <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney">
-          <h2 id="continueJourney">Continue Your Journey</h2>
-          <div class="guide-journey-group"><h3>Next Step</h3><div class="guide-card-grid guide-card-grid--single"><article class="guide-info-card">
-            <h3>Documents Checklist</h3>
-            <p>Organize the core paperwork folder before appointments and everyday setup.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/documents-checklist/">View guide</a>
-          </article></div></div>
-          <div class="guide-journey-group"><h3>Related Guides</h3><div class="guide-card-grid"><article class="guide-info-card">
-            <h3>Healthcare Guide</h3>
-            <p>Compare public healthcare, S1, work-based entitlement and private-cover routes.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View guide</a>
-          </article>
-          <article class="guide-info-card">
-            <h3>Bank Account Guide</h3>
-            <p>Set up everyday banking, payments and account documents in Spain.</p>
-            <a class="guide-button guide-button--secondary" href="/living-in-spain/opening-a-bank-account/">View guide</a>
-          </article></div></div>
-        </section>
+        <section class="guide-section guide-continue-journey" aria-labelledby="continueJourney" data-filler-cleaned="continue"><h2 id="continueJourney">Continue</h2><ul class="guide-plain-links"><li><a href="/moving-to-spain/documents-checklist/">View guide</a></li><li><a href="/moving-to-spain/healthcare/">View guide</a></li><li><a href="/living-in-spain/opening-a-bank-account/">View guide</a></li></ul></section>
           </div>
           <aside class="guide-toc" data-guide-toc aria-label="Table of contents">
           <strong>On this page</strong>
-          <nav><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#atGlance" data-guide-toc-link>At a Glance</a></li><li><a href="#openingNote" data-guide-toc-link>Use this as a roadmap</a></li><li><a href="#whoNeeds" data-guide-toc-link>Who this roadmap is for</a></li><li><a href="#phaseOne" data-guide-toc-link>Phase 1: Planning before you move</a></li><li><a href="#phaseTwo" data-guide-toc-link>Phase 2: After arrival</a></li><li><a href="#phaseThree" data-guide-toc-link>Phase 3: Everyday setup</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
+          <nav><ol><li><a href="#quickAnswer" data-guide-toc-link aria-current="true">Quick Answer</a></li><li><a href="#openingNote" data-guide-toc-link>Use this as a roadmap</a></li><li><a href="#phaseOne" data-guide-toc-link>Phase 1: Planning before you move</a></li><li><a href="#phaseTwo" data-guide-toc-link>Phase 2: After arrival</a></li><li><a href="#phaseThree" data-guide-toc-link>Phase 3: Everyday setup</a></li><li><a href="#commonMistakes" data-guide-toc-link>Common Mistakes</a></li><li><a href="#realQuestions" data-guide-toc-link>Real Questions People Ask</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Your Next Step</a></li></ol></nav>
         </aside>
         </div>
         <section hidden data-editorial-checklist aria-label="Editorial checklist">

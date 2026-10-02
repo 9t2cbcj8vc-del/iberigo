@@ -307,7 +307,7 @@
   },
   {
     "title": "Sanidad en España para nuevos residentes",
-    "description": "Una guía práctica sobre la sanidad en España para nuevos residentes: sanidad pública, seguro privado, formulario S1, tarjeta sanitaria regional y errores comunes.",
+    "description": "Enlace a SIP/TSI, seguro privado, TSE y S1 — no hay una sola tarjeta para todos.",
     "url": "/es/moving-to-spain/healthcare/",
     "language": "es",
     "type": "guide",
@@ -3072,7 +3072,7 @@
   },
   {
     "title": "Healthcare in Spain for New Residents",
-    "description": "A practical guide to healthcare in Spain for new residents, including public healthcare, private insurance, S1 forms, regional health cards and common mistakes.",
+    "description": "Router to SIP/TSI public health card, private insurance, EHIC and S1 — not one card for everyone.",
     "url": "/moving-to-spain/healthcare/",
     "language": "en",
     "type": "guide",
@@ -3188,7 +3188,7 @@
   },
   {
     "title": "Self-Employed and Autónomo in Spain",
-    "description": "A practical roadmap for people considering self-employment in Spain, including autónomo basics, documents, tax, Social Security, healthcare, non-EU routes and common mistakes.",
+    "description": "Autónomo roadmap: Modelo 036 tax census, RETA registration via Import@ss, and reduced cuota basics with official links.",
     "url": "/moving-to-spain/self-employed-spain/",
     "language": "en",
     "type": "roadmap",
@@ -3444,7 +3444,11 @@
       "Formulario sin firmar",
       "Faltan copias"
     ],
-    "keywords": [],
+    "keywords": [
+      "NIE",
+      "número de identidad",
+      "EX-15"
+    ],
     "text": "← The Spain Files Mudarte a España Cómo conseguir un NIE en España: guía completa (2026) Junio de 2026 · 8 min de lectura · Basado en experiencia en la provincia de Alicante Nota sobre la experiencia: Esta guía se basa en una solicitud de NIE realizada en diciembre de 2025 en la provincia de Alicante, concretamente en la zona de Torrevieja, por una ciudadana de la UE que se mudaba a España para reunirse con su cónyuge ya residente aquí. El proceso funciona de forma parecida en toda España, pero los detalles locales, como la disponibilidad de citas y las normas de pago de tasas, pueden variar bastante según la oficina y el municipio. ¿Qué es el NIE? El NIE (Número de Identidad de Extranjero) es un número de identificación único que España asigna a las personas extranjeras. Tiene este formato: X1234567Z, es decir, una letra, siete números y una letra de control. Lo puedes necesitar para: Comprar o alquilar una vivienda Abrir una cuenta bancaria en algunos bancos Empezar a trabajar o darte de alta como autónomo Firmar una escritura ante notario Pagar impuestos o hacer trámites con la Agencia Tributaria Comprar un coche o registrar un vehículo Muchos trámites sanitarios y administrativos Lo que el NIE no es: no es un permiso de residencia. No es una tarjeta física. Tener un NIE no te da derecho a vivir ni trabajar en España; es solo un número de identificación. Las personas no comunitarias siguen necesitando un visado o una autorización de residencia aparte para permanecer legalmente en España. ¿Quién necesita un NIE y cuándo? Ciudadanos de la UE, EEE y Suiza: normalmente recibirás un NIE como parte del Certificado de Registro de Ciudadano de la Unión, el llamado “NIE verde”, cuando te registres como residente. También puede que necesites obtener el NIE por separado antes s"
   },
   {
@@ -3539,7 +3543,11 @@
       "Form not signed",
       "Copies not brought"
     ],
-    "keywords": [],
+    "keywords": [
+      "NIE",
+      "foreigner identity number",
+      "EX-15"
+    ],
     "text": "← The Spain Files Moving to Spain How to get a NIE in Spain: complete guide (2026) June 2026 · 8 min read · Based on experience in Alicante province A note on experience: This guide draws on a December 2025 NIE application in Alicante province — specifically the Torrevieja area — by an EU citizen moving to Spain to join a spouse already resident here. The process works broadly the same across Spain, but local details like appointment availability and fee payment rules vary significantly by office and town. What is a NIE? The NIE (Número de Identidad de Extranjero) is a unique identification number that Spain assigns to foreign nationals. It looks like this: X1234567Z — a letter, seven digits, and a check letter. You will need it for: Buying or renting property Opening a bank account (some banks, not all) Starting employment or registering as self-employed (autónomo) Signing any notarial deed Paying taxes or registering with the Tax Agency Buying a car or registering a vehicle Many healthcare and administrative procedures What the NIE is NOT: It is not a residence permit. It is not a physical card. Having a NIE does not give you the right to live or work in Spain — it is purely an identification number. Non-EU citizens still need a separate visa or residence authorisation to stay legally. Who needs a NIE, and when? EU citizens (including EEA and Swiss): You will get a NIE number as part of the EU registration certificate process (the \"green NIE\") when you register as a resident. You may also need to get a NIE separately first if you need it for a property purchase or other transaction before you complete residence registration. Non-EU citizens: You need a NIE for any significant financial or administrative transaction in Spain, regardless of whether you are a resident. I"
   },
   {
