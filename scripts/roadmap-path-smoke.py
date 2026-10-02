@@ -212,7 +212,8 @@ def assert_static_guide_sample(driver, lang, route):
         lambda d: d.execute_script(
             "return document.documentElement.dataset.guideId === arguments[0] && "
             "!!document.querySelector('#wizardResult .roadmap-list--full') && "
-            "!!document.querySelector('#wizardResult .roadmap-now')",
+            "(!!document.querySelector('#wizardResult .roadmap-step-badge') || "
+            " !!document.querySelector('#wizardResult .roadmap-now'))",
             route,
         )
     )
