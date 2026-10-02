@@ -237,13 +237,15 @@ def snapshot(driver, expression):
           visibleSteps:result.querySelectorAll('.roadmap-list--full > li').length,
           nowCount:result.querySelectorAll('.roadmap-now').length,
           nowText:result.querySelector('.roadmap-now')?.textContent||'',
+          badge:result.querySelector('.roadmap-list--full > li .roadmap-step-badge')?.textContent.trim()||'',
+          firstVisible:result.querySelector('.roadmap-list--full > li')?.textContent.trim()||'',
           resultText:result.textContent||'',
           sourceHrefs:[...result.querySelectorAll('.route-links-note a[href]')].map(a=>a.href),
           overflow:document.documentElement.scrollWidth > document.documentElement.clientWidth + 1
         }};
         """
     )
-    for key in ("process", "explanation", "nowText", "resultText"):
+    for key in ("process", "explanation", "nowText", "firstVisible", "resultText"):
         data[key] = clean_text(data[key])
     data["steps"] = [clean_text(step) for step in data["steps"]]
     data["documents"] = [clean_text(doc) for doc in data["documents"]]
@@ -273,8 +275,15 @@ def assert_quality(data, lang, label, expected_route=None, require_documents=Fal
 
     if data["visibleSteps"] != len(data["steps"]):
         fail(f"{label}: rendered {data['visibleSteps']} of {len(data['steps'])} steps")
-    if data["nowCount"] != 1 or data["steps"][0] not in data["nowText"]:
-        fail(f"{label}: Do-this-now mismatch")
+    # Prefer "Start here" badge on step 1; legacy "Do this now" box is optional.
+    expected_badge = "Empieza aquí" if lang == "es" else "Start here"
+    has_now = data["nowCount"] == 1 and data["steps"][0] in data["nowText"]
+    has_badge = (
+        data.get("badge") == expected_badge
+        and data["steps"][0] in (data.get("firstVisible") or "")
+    )
+    if not (has_now or has_badge):
+        fail(f"{label}: first roadmap action not highlighted (badge or do-this-now)")
 
     legacy = "Próximos 3 pasos" if lang == "es" else "Next 3 steps"
     if legacy in data["resultText"]:
@@ -397,7 +406,8 @@ def assert_static_guide(driver, lang, route):
         lambda d: d.execute_script(
             "return document.documentElement.dataset.guideId===arguments[0] && "
             "!!document.querySelector('#wizardResult .roadmap-list--full') && "
-            "!!document.querySelector('#wizardResult .roadmap-now')",
+            "(!!document.querySelector('#wizardResult .roadmap-step-badge') || "
+            " !!document.querySelector('#wizardResult .roadmap-now'))",
             route,
         )
     )
