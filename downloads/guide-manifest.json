@@ -681,7 +681,7 @@
           "label": "FNMT cita previa via Social Security"
         },
         {
-          "url": "https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html",
+          "url": "https://clave.gob.es/registro/como-puedo-registrarme",
           "label": "Cl@ve registration"
         }
       ],
@@ -1510,7 +1510,7 @@
           "label": "Cita FNMT por Seguridad Social"
         },
         {
-          "url": "https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html",
+          "url": "https://clave.gob.es/registro/como-puedo-registrarme",
           "label": "Registro en Cl@ve"
         }
       ],

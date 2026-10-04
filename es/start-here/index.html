@@ -183,7 +183,35 @@
         main > section { scroll-margin-top: 112px; }
       }
     </style>
-    <meta name="last-modified" content="2026-09-27" data-iberigo-freshness />
+
+<style data-iberigo-intent-discovery-style>
+  .intent-discovery { width: min(1080px, calc(100% - 32px)); margin: 1.25rem auto; padding: clamp(1.2rem, 3vw, 1.7rem); border: 1px solid rgba(166,74,54,.14); border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(253,240,220,.68)); box-shadow: 0 16px 42px rgba(42,32,25,.07); }
+  .intent-discovery[data-intent-surface="home"] { margin-top: .2rem; margin-bottom: 1.4rem; }
+  .intent-discovery-kicker { margin: 0 0 .42rem; color: #a64a36; font-size: .74rem; font-weight: 900; letter-spacing: .075em; text-transform: uppercase; }
+  .intent-discovery h2 { margin: 0; color: #1b2030; font-size: clamp(1.45rem,3.6vw,2.05rem); line-height: 1.12; }
+  .intent-discovery-intro { max-width: 70ch; margin: .55rem 0 1rem; color: rgba(27,32,48,.7); line-height: 1.62; }
+  .intent-discovery-input-wrap { position: relative; }
+  .intent-discovery-input-wrap svg { position: absolute; left: 1rem; top: 50%; width: 1.05rem; height: 1.05rem; transform: translateY(-50%); color: #a64a36; pointer-events: none; }
+  .intent-discovery input { width: 100%; min-height: 3.35rem; box-sizing: border-box; padding: .78rem 1rem .78rem 2.75rem; border: 1px solid rgba(166,74,54,.22); border-radius: 999px; background: #fff; color: #1b2030; font: inherit; font-size: 1rem; }
+  .intent-discovery input:focus { outline: 3px solid rgba(166,74,54,.22); outline-offset: 2px; }
+  .intent-discovery-examples-label { margin: .78rem 0 .45rem; color: rgba(27,32,48,.58); font-size: .82rem; font-weight: 800; }
+  .intent-discovery-examples { display: flex; flex-wrap: wrap; gap: .45rem; }
+  .intent-discovery-examples button { min-height: 2.35rem; padding: .48rem .72rem; border: 1px solid rgba(166,74,54,.16); border-radius: 999px; background: rgba(255,255,255,.84); color: #7f3b2e; font: inherit; font-size: .82rem; font-weight: 800; cursor: pointer; }
+  .intent-discovery-examples button:hover { border-color: rgba(166,74,54,.34); background: #fff; }
+  .intent-discovery-examples button:focus-visible, .intent-discovery-result:focus-visible, .intent-discovery-fallback:focus-visible { outline: 3px solid rgba(166,74,54,.26); outline-offset: 3px; }
+  .intent-discovery-status { margin: .9rem 0 .55rem; color: rgba(27,32,48,.6); font-size: .88rem; font-weight: 800; }
+  .intent-discovery-results { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .65rem; }
+  .intent-discovery-result { display: flex; min-width: 0; flex-direction: column; gap: .35rem; padding: .9rem; border: 1px solid rgba(166,74,54,.12); border-radius: 15px; background: rgba(255,255,255,.82); color: inherit; text-decoration: none; }
+  .intent-discovery-result.is-primary { border-color: rgba(166,74,54,.3); background: #fff; box-shadow: 0 10px 26px rgba(42,32,25,.06); }
+  .intent-discovery-result > span { color: #a64a36; font-size: .69rem; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+  .intent-discovery-result strong { color: #1b2030; font-size: .98rem; line-height: 1.3; }
+  .intent-discovery-result small { flex: 1; color: rgba(27,32,48,.68); font-size: .84rem; line-height: 1.48; overflow-wrap: break-word; }
+  .intent-discovery-result b { margin-top: .25rem; color: #a64a36; font-size: .82rem; }
+  .intent-discovery-footer { margin: .8rem 0 0; }
+  .intent-discovery-fallback { color: #a64a36; font-size: .88rem; font-weight: 900; text-underline-offset: 3px; }
+  @media (max-width:760px) { .intent-discovery { width: min(100% - 20px,1080px); border-radius: 17px; } .intent-discovery-results { grid-template-columns: 1fr; } .intent-discovery-examples { flex-wrap: wrap; overflow: visible; } .intent-discovery-examples button { flex: 0 1 auto; max-width: 100%; white-space: normal; text-align: left; } }
+</style>
+    <meta name="last-modified" content="2026-10-04" data-iberigo-freshness />
     <script type="application/ld+json" data-iberigo-structured-data>
     {
       "@context": "https://schema.org",
@@ -256,13 +284,26 @@
             <span class="guide-kicker">Empieza aquí</span>
             <h1 id="pageTitle">Mudarse a España empieza aquí.</h1>
             <p>Elige la situación que más se parece a la tuya y te indicaremos la guía que explica qué revisar después.</p>
-            <p class="guide-reading-time" data-iberigo-freshness-slot>3 min de lectura · <span data-iberigo-freshness-visible>Actualizado 27 de septiembre de 2026</span></p>
+            <p class="guide-reading-time" data-iberigo-freshness-slot>3 min de lectura · <span data-iberigo-freshness-visible>Actualizado 4 de octubre de 2026</span></p>
           </div>
           <aside class="guide-hero-card" aria-label="Guide summary">
             <strong>Punto de partida sencillo</strong>
             <p>No necesitas conocer todos los términos administrativos antes de empezar, pero sí conviene confirmar qué ruta encaja con tu nacionalidad, tu motivo de mudanza y tu situación personal.</p>
           </aside>
         </section>
+
+        <section class="intent-discovery" data-iberigo-intent-discovery data-intent-surface="start-here" data-intent-lang="es" aria-labelledby="intentDiscoveryTitle-start-here-es">
+    <p class="intent-discovery-kicker" data-intent-kicker>Find the right procedure</p>
+    <h2 id="intentDiscoveryTitle-start-here-es" data-intent-title>What do you need to do?</h2>
+    <p class="intent-discovery-intro" data-intent-intro>Describe your situation in your own words. IberiGo will point you to the most useful starting guide.</p>
+    <div class="intent-discovery-input-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input type="search" autocomplete="off" data-intent-input aria-describedby="intentDiscoveryStatus-start-here-es" /></div>
+    <p class="intent-discovery-examples-label" data-intent-examples-label>Try an example</p>
+    <div class="intent-discovery-examples" data-intent-examples aria-label="Example searches"></div>
+    <p class="intent-discovery-status" id="intentDiscoveryStatus-start-here-es" data-intent-status role="status" aria-live="polite">Start typing or choose an example.</p>
+    <div class="intent-discovery-results" data-intent-results></div>
+    <p class="intent-discovery-footer"><a class="intent-discovery-fallback" data-intent-fallback href="/search/">Search all IberiGo guides</a></p>
+  </section>
+
         <section class="guide-section" aria-labelledby="chooseYourPath"><h2 id="chooseYourPath">Elige tu ruta</h2><div class="guide-box guide-box--info"><strong>Sobre esta página</strong><p>Esta página forma parte del sistema de guías de IberiGo en español. Algunas guías enlazadas todavía están disponibles solo en inglés; las versiones en español se prepararán en pasos separados.</p></div><div class="guide-card-grid"><article class="guide-info-card">
             <h3>Soy ciudadano de la UE</h3>
             <p>Empieza con la hoja de ruta para ciudadanos de la UE, del EEE y de Suiza que se mudan a España.</p>
@@ -332,13 +373,9 @@
           <h2 id="legalDisclaimer">Aviso legal</h2>
           <p>Esta guía ofrece información práctica, no asesoramiento legal, fiscal, migratorio, financiero ni sobre alquileres. Los requisitos pueden variar según el municipio, la oficina, el banco y la situación personal. Comprueba siempre la fuente oficial actual o consulta con la oficina correspondiente antes de tomar decisiones.</p>
         </section>
-        <p class="last-reviewed">Última revisión: julio de 2026</p>
+        <p class="last-reviewed">Última revisión: agosto de 2026</p>
           </div>
         </div>
-        <section hidden data-editorial-checklist aria-label="Editorial checklist">
-          <h2>Editorial Checklist</h2>
-          <ul><li>Grammar reviewed</li><li>Internal links checked</li><li>External links checked</li><li>Mobile reviewed</li><li>Desktop reviewed</li><li>Accessibility reviewed</li><li>SEO reviewed</li><li>Facts verified</li></ul>
-        </section>
         <script type="application/json" class="guide-frontmatter">{
   "title": "Empieza aquí: mudarse a España — IberiGo",
   "description": "Encuentra la guía de IberiGo adecuada para tu mudanza a España, tanto si eres ciudadano de la UE, ciudadano no UE, estudiante, trabajador, jubilado o vienes con familia.",
@@ -402,18 +439,9 @@
       "label": "View guide",
       "href": "/the-spain-files/bank-account-spain/"
     }
-  ],
-  "editorialChecklist": [
-    "Grammar reviewed",
-    "Internal links checked",
-    "External links checked",
-    "Mobile reviewed",
-    "Desktop reviewed",
-    "Accessibility reviewed",
-    "SEO reviewed",
-    "Facts verified"
   ]
-}</script>
+}
+        </script>
       </main>
       <footer class="site-footer">
         <p>IberiGo es gratis. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.</p>
@@ -483,5 +511,41 @@
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
     <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
       <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
+    <script src="/intent-discovery.js?v=20260908-intent-1" defer data-iberigo-intent-discovery-script></script>
+    <script src="/intent-discovery-rules.js?v=20260908-intent-1" defer data-iberigo-intent-discovery-script></script>
+    <script data-iberigo-intent-discovery-script>
+(function () {
+  function isStartHere() {
+    var path = window.location.pathname.replace(/\/index\.html$/, '/');
+    return path === '/start-here/' || path === '/es/start-here/';
+  }
+  function placeStartHereIntent() {
+    var intent = document.querySelector('[data-iberigo-intent-discovery][data-intent-surface="start-here"]');
+    var groups = document.querySelector('.overhaul-directory-groups');
+    if (!intent || !groups || intent.parentElement !== groups.parentElement) return false;
+    if (groups.previousElementSibling !== intent) groups.parentElement.insertBefore(intent, groups);
+    return groups.previousElementSibling === intent;
+  }
+  function boot() {
+    if (!isStartHere()) return;
+    if (placeStartHereIntent()) return;
+    var root = document.querySelector('.guide-content') || document.body;
+    if (!root || typeof MutationObserver === 'undefined') return;
+    var observer = new MutationObserver(function () {
+      if (placeStartHereIntent()) observer.disconnect();
+    });
+    observer.observe(root, { childList: true });
+    window.addEventListener('load', function () {
+      if (placeStartHereIntent()) observer.disconnect();
+    }, { once: true });
+    window.setTimeout(function () {
+      placeStartHereIntent();
+      observer.disconnect();
+    }, 3000);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
+  else boot();
+})();
+</script>
   </body>
 </html>

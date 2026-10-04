@@ -62,7 +62,7 @@ function callout(key, lang) {
 }
 
 function inject(html, key, lang, kind) {
-  if (html.includes(MARK)) return null;
+  if (html.includes('class="spain-files-callout"')) return null;
   const p = callout(key, lang);
   let next = null;
   if (kind === "system") {
