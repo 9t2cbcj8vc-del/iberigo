@@ -2225,13 +2225,13 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-hotels") {
     return currentLang === "es" ? {
       process: "Cadenas hoteleras",
-      explanation: "Si prefieres reservar directamente, las cadenas hoteleras pueden ayudarte a comparar estilos de viaje con menos ruido: hoteles urbanos, playa, resort, negocios o escapadas cortas. Meliá, Barceló, RIU e Iberostar tienen fuerte presencia española, especialmente en destinos de vacaciones; NH suele funcionar bien para ciudades; Marriott y Hilton ofrecen opciones internacionales; Paradores es una red pública española con hoteles en edificios históricos o lugares singulares. Reservar directo a veces mejora condiciones, fidelización o comunicación, pero compara siempre ubicación, cancelación y precio final.",
-      steps: ["Decide si buscas hotel urbano, resort, playa, viaje de trabajo o una estancia más clásica.", "Compara ubicación, categoría, condiciones y si te conviene reservar directo con la cadena.", "Usa varias cadenas grandes para ver rápidamente qué estilo encaja mejor con tu viaje."],
+      explanation: "Lista de grupos hoteleros españoles, no una guía de dónde alojarte. Por habitaciones en España, Hosteltur 2025 (datos hasta mediados de 2025) pone primero a Meliá (33.903 habitaciones, 139 hoteles), luego a Barceló (21.399) y a Eurostars, del Grupo Hotusa (18.058). La tabla de debajo separa esos grupos de las marcas internacionales. NH ya no está en el ranking español de Hosteltur.",
+      steps: ["Lee primero la tabla de grupos españoles y después la de internacionales.", "Abre la web oficial del estilo que buscas: ciudad, resort de playa o un Parador.", "Compara cancelación y precio final con una plataforma de reservas antes de pagar."],
       links: ["travel-paradores", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "hotel-marriott", "hotel-hilton"]
     } : {
       process: "Hotel chains",
-      explanation: "If you prefer to book direct, major chains can help you compare different stay styles: city, beach, business, resort, or shorter getaway.",
-      steps: ["Decide whether you want a city hotel, resort, beach stay, business trip option, or something more classic.", "Compare location, category, conditions, and whether booking direct with the chain makes sense.", "Use several major chains to get a quick feel for which style fits your trip best."],
+      explanation: "A reference list of Spanish hotel groups, not a where-to-stay guide. By rooms in Spain, the Hosteltur 2025 ranking (data to mid-2025) puts Meliá first (33,903 rooms, 139 hotels), then Barceló (21,399) and Eurostars, part of Grupo Hotusa (18,058). The table below separates those groups from international brands. NH is no longer in Hosteltur’s Spanish ranking.",
+      steps: ["Read the Spanish-groups table before the international one.", "Open the official site for the style you want: city, beach resort, or a Parador.", "Compare cancellation and the final price with a booking site before you pay."],
       links: ["travel-paradores", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "hotel-marriott", "hotel-hilton"]
     };
   }
@@ -2347,7 +2347,7 @@ function vacationTopicSummary(goal) {
     "vacation-flights": "Vuelos, aeropuertos y comparadores para llegar y moverte mejor.",
     "vacation-ground": "Trenes, autobuses y alquiler de coche para desplazarte dentro de España.",
     "vacation-booking": "Plataformas grandes para comparar alojamiento antes de reservar.",
-    "vacation-hotels": "Cadenas hoteleras importantes presentes en España.",
+    "vacation-hotels": "Lista de los mayores grupos hoteleros españoles, con habitaciones en España y webs oficiales.",
     "vacation-tourism": "Portales oficiales e ideas para elegir destinos y planificar mejor el viaje.",
     "vacation-reviews": "Reseñas y comparación de zonas, alojamientos y experiencias.",
     "travel-insurance": "Cobertura de emergencias médicas, cancelación y equipaje, aparte de la sanidad de la UE.",
@@ -2359,7 +2359,7 @@ function vacationTopicSummary(goal) {
     "vacation-flights": "Flights, airports, and search tools for arriving and moving around smoothly.",
     "vacation-ground": "Trains, buses, and car rental for getting around inside Spain.",
     "vacation-booking": "Large booking platforms for comparing places to stay before you reserve.",
-    "vacation-hotels": "Major hotel chains with a strong presence in Spain.",
+    "vacation-hotels": "List of the biggest Spanish hotel groups, with rooms in Spain and official sites.",
     "vacation-tourism": "Official tourism portals and ideas for choosing destinations and planning better.",
     "vacation-reviews": "Reviews and comparison tools for neighborhoods, stays, and experiences.",
     "travel-insurance": "Medical emergency, cancellation, and luggage cover, separate from EU health coverage.",
@@ -2573,7 +2573,7 @@ function renderVacationSubtopics() {
         {
           title: "Dónde alojarte",
           description: "Comparadores grandes y cadenas hoteleras que aparecen mucho en España.",
-          topics: [["vacation-booking", "Buscadores y reservas"], ["vacation-hotels", "Cadenas hoteleras"]],
+          topics: [["vacation-booking", "Buscadores y reservas"], ["vacation-hotels", "Cadenas hoteleras españolas"]],
           summaryFn: vacationTopicSummary
         },
         {
@@ -2605,7 +2605,7 @@ function renderVacationSubtopics() {
           {
             title: "Where to stay",
             description: "Large booking platforms and hotel brands that show up often in Spain.",
-            topics: [["vacation-booking", "Booking platforms"], ["vacation-hotels", "Hotel chains"]],
+            topics: [["vacation-booking", "Booking platforms"], ["vacation-hotels", "Spanish hotel chains"]],
             summaryFn: vacationTopicSummary
           },
           {
@@ -3112,7 +3112,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
   const hotelMeta = {
     en: {
       "hotel-melia": { intro: "One of Spain's most prominent hotel groups, with city, beach, and resort properties.", logo: "Meliá" },
-      "hotel-nh": { intro: "Strong Spanish and European city-hotel chain often useful for practical urban stays.", logo: "NH" },
+      "hotel-nh": { intro: "City-hotel brand. Hosteltur no longer lists its owner, Minor Hotels Europe & Americas, in the Spanish-chain ranking.", logo: "NH" },
       "hotel-barcelo": { intro: "Large Spanish hotel group with a broad mix of city, island, and holiday properties.", logo: "Barceló" },
       "hotel-riu": { intro: "Spanish chain especially known for resort-style stays in beach destinations.", logo: "RIU" },
       "hotel-iberostar": { intro: "Major Spanish resort and beach-hotel brand with a wide national footprint.", logo: "Iberostar" },
@@ -3121,7 +3121,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     },
     es: {
       "hotel-melia": { intro: "Uno de los grupos hoteleros más importantes de España, con hoteles urbanos, vacacionales y resorts.", logo: "Meliá" },
-      "hotel-nh": { intro: "Cadena fuerte en hoteles urbanos de España y Europa, útil para estancias prácticas en ciudad.", logo: "NH" },
+      "hotel-nh": { intro: "Marca de hoteles urbanos. Hosteltur ya no incluye a su propietaria, Minor Hotels Europe & Americas, en el ranking de cadenas españolas.", logo: "NH" },
       "hotel-barcelo": { intro: "Gran grupo hotelero español con mezcla amplia de hoteles urbanos, insulares y vacacionales.", logo: "Barceló" },
       "hotel-riu": { intro: "Cadena española especialmente conocida por estancias de resort en destinos de playa.", logo: "RIU" },
       "hotel-iberostar": { intro: "Gran marca española de resorts y playa con fuerte presencia en el país.", logo: "Iberostar" },
