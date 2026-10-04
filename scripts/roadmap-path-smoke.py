@@ -189,6 +189,7 @@ def assert_menu_paths(driver, lang, preset, routes):
             return {
               card: !!card,
               href: link?.getAttribute('href') || '',
+              publicPath: typeof guidePublicPath === 'function' ? guidePublicPath(id) : '',
               stepCount: Array.isArray(roadmap?.steps) ? roadmap.steps.length : 0,
               firstStep: roadmap?.steps?.[0] || '',
               previewStep: card?.querySelector('small')?.textContent.trim() || ''
@@ -196,7 +197,8 @@ def assert_menu_paths(driver, lang, preset, routes):
             """,
             route,
         )
-        expected_href = f"{prefix}{route}/"
+        # Canonical public URL, not the legacy guide id. Banking goes to the Spain File.
+        expected_href = data.get("publicPath") or f"{prefix}{route}/"
         if not data["card"] or data["href"] != expected_href:
             fail(f"{lang} {preset}/{route}: menu route mismatch: {data}")
         if data["stepCount"] < 1 or not data["firstStep"] or not data["previewStep"]:
