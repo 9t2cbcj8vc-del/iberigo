@@ -33,3 +33,26 @@ https://iberigo.es/* https://iberigo.eu/:splat 301!
 /es/help-feedback/thanks /es-feedback-thanks.html 302!
 /es/help-feedback/thanks/ /es-feedback-thanks.html 302!
 /es/help-feedback/thanks/index.html /es-feedback-thanks.html 302!
+
+# Duplicate-topic consolidation (301)
+/guides/es/nie-only/ /guides/es/nie/ 301
+/guides/nie-only/ /guides/nie/ 301
+/guides/es/tie-after-approval/ /guides/es/tie/ 301
+/guides/tie-after-approval/ /guides/tie/ 301
+/es/moving-to-spain/registering-on-the-padron/ /guides/es/padron/ 301
+/moving-to-spain/registering-on-the-padron/ /guides/padron/ 301
+/guides/es/digital-nomad/ /es/the-spain-files/visado-nomada-digital/ 301
+/guides/digital-nomad/ /the-spain-files/digital-nomad-visa-spain/ 301
+/guides/es/non-lucrative/ /es/the-spain-files/visado-no-lucrativo/ 301
+/guides/non-lucrative/ /the-spain-files/non-lucrative-visa-spain/ 301
+/guides/es/eu-working/ /guides/es/eu-registration/ 301
+/guides/eu-working/ /guides/eu-registration/ 301
+/guides/es/vacation-citizenship/ /guides/es/vacation-entry/ 301
+/guides/vacation-citizenship/ /guides/vacation-entry/ 301
+/guides/es/eu-vacation/ /guides/es/vacation-entry/ 301
+/guides/eu-vacation/ /guides/vacation-entry/ 301
+/guides/es/non-eu-vacation/ /guides/es/vacation-entry/ 301
+/guides/non-eu-vacation/ /guides/vacation-entry/ 301
+/living-in-spain/digital-certificate/ /guides/digital/ 301
+/living-in-spain/social-security/ /guides/social-security/ 301
+/living-in-spain/taxes/ /guides/taxes/ 301

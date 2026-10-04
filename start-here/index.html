@@ -117,6 +117,142 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
+
+<style data-iberigo-intent-discovery-style>
+  .intent-discovery { width: min(1080px, calc(100% - 32px)); margin: 1.25rem auto; padding: clamp(1.2rem, 3vw, 1.7rem); border: 1px solid rgba(166,74,54,.14); border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(253,240,220,.68)); box-shadow: 0 16px 42px rgba(42,32,25,.07); }
+  .intent-discovery[data-intent-surface="home"] { margin-top: .2rem; margin-bottom: 1.4rem; }
+  .intent-discovery-kicker { margin: 0 0 .42rem; color: #a64a36; font-size: .74rem; font-weight: 900; letter-spacing: .075em; text-transform: uppercase; }
+  .intent-discovery h2 { margin: 0; color: #1b2030; font-size: clamp(1.45rem,3.6vw,2.05rem); line-height: 1.12; }
+  .intent-discovery-intro { max-width: 70ch; margin: .55rem 0 1rem; color: rgba(27,32,48,.7); line-height: 1.62; }
+  .intent-discovery-input-wrap { position: relative; }
+  .intent-discovery-input-wrap svg { position: absolute; left: 1rem; top: 50%; width: 1.05rem; height: 1.05rem; transform: translateY(-50%); color: #a64a36; pointer-events: none; }
+  .intent-discovery input { width: 100%; min-height: 3.35rem; box-sizing: border-box; padding: .78rem 1rem .78rem 2.75rem; border: 1px solid rgba(166,74,54,.22); border-radius: 999px; background: #fff; color: #1b2030; font: inherit; font-size: 1rem; }
+  .intent-discovery input:focus { outline: 3px solid rgba(166,74,54,.22); outline-offset: 2px; }
+  .intent-discovery-examples-label { margin: .78rem 0 .45rem; color: rgba(27,32,48,.58); font-size: .82rem; font-weight: 800; }
+  .intent-discovery-examples { display: flex; flex-wrap: wrap; gap: .45rem; }
+  .intent-discovery-examples button { min-height: 2.35rem; padding: .48rem .72rem; border: 1px solid rgba(166,74,54,.16); border-radius: 999px; background: rgba(255,255,255,.84); color: #7f3b2e; font: inherit; font-size: .82rem; font-weight: 800; cursor: pointer; }
+  .intent-discovery-examples button:hover { border-color: rgba(166,74,54,.34); background: #fff; }
+  .intent-discovery-examples button:focus-visible, .intent-discovery-result:focus-visible, .intent-discovery-fallback:focus-visible { outline: 3px solid rgba(166,74,54,.26); outline-offset: 3px; }
+  .intent-discovery-status { margin: .9rem 0 .55rem; color: rgba(27,32,48,.6); font-size: .88rem; font-weight: 800; }
+  .intent-discovery-results { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .65rem; }
+  .intent-discovery-result { display: flex; min-width: 0; flex-direction: column; gap: .35rem; padding: .9rem; border: 1px solid rgba(166,74,54,.12); border-radius: 15px; background: rgba(255,255,255,.82); color: inherit; text-decoration: none; }
+  .intent-discovery-result.is-primary { border-color: rgba(166,74,54,.3); background: #fff; box-shadow: 0 10px 26px rgba(42,32,25,.06); }
+  .intent-discovery-result > span { color: #a64a36; font-size: .69rem; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+  .intent-discovery-result strong { color: #1b2030; font-size: .98rem; line-height: 1.3; }
+  .intent-discovery-result small { flex: 1; color: rgba(27,32,48,.68); font-size: .84rem; line-height: 1.48; overflow-wrap: break-word; }
+  .intent-discovery-result b { margin-top: .25rem; color: #a64a36; font-size: .82rem; }
+  .intent-discovery-footer { margin: .8rem 0 0; }
+  .intent-discovery-fallback { color: #a64a36; font-size: .88rem; font-weight: 900; text-underline-offset: 3px; }
+  @media (max-width:760px) { .intent-discovery { width: min(100% - 20px,1080px); border-radius: 17px; } .intent-discovery-results { grid-template-columns: 1fr; } .intent-discovery-examples { flex-wrap: wrap; overflow: visible; } .intent-discovery-examples button { flex: 0 1 auto; max-width: 100%; white-space: normal; text-align: left; } }
+</style>
+    <meta name="last-modified" content="2026-10-04" data-iberigo-freshness />
+    <script type="application/ld+json" data-iberigo-structured-data>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://iberigo.eu/start-here/#webpage",
+          "url": "https://iberigo.eu/start-here/",
+          "name": "Moving to Spain: where to start (EU and non-EU) — IberiGo",
+          "description": "Not sure where to begin your move to Spain? Pick your situation (EU or non-EU, work, study, retire, family) and get the right step-by-step guide.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://iberigo.eu/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://iberigo.eu/start-here/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://iberigo.eu/start-here/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "IberiGo",
+              "item": "https://iberigo.eu/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Moving to Spain starts here.",
+              "item": "https://iberigo.eu/start-here/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div class="app-shell">
@@ -137,7 +273,7 @@
         </nav>
       </header>
       <main class="guide-main">
-        <div class="guide-layout">
+        <div class="guide-layout guide-layout--single">
           <div class="guide-content">
             <nav class="guide-breadcrumbs" aria-label="Breadcrumb">
           <ol>
@@ -150,17 +286,26 @@
             <span class="guide-kicker">Start here</span>
             <h1 id="pageTitle">Moving to Spain starts here.</h1>
             <p>Choose the situation that sounds most like you, and we’ll point you to the guide that explains what to do next.</p>
-            <p class="guide-reading-time" data-iberigo-freshness-slot>2 min read</p>
+            <p class="guide-reading-time" data-iberigo-freshness-slot>2 min read · <span data-iberigo-freshness-visible>Updated 4 October 2026</span></p>
           </div>
           <aside class="guide-hero-card" aria-label="Guide summary">
             <strong>Simple starting point</strong>
             <p>You do not need to know the immigration terminology before starting, but you should verify which route fits your situation.</p>
           </aside>
         </section>
-        <details class="guide-toc-mobile" data-guide-toc>
-          <summary>On this page</summary>
-          <nav aria-label="On this page"><ol><li><a href="#chooseYourPath" data-guide-toc-link aria-current="true">Choose your path</a></li><li><a href="#mostPeopleStartHere" data-guide-toc-link>Most people start here</a></li><li><a href="#howGuidesWork" data-guide-toc-link>How IberiGo guides work</a></li><li><a href="#notSure" data-guide-toc-link>Not sure where to begin?</a></li></ol></nav>
-        </details>
+
+        <section class="intent-discovery" data-iberigo-intent-discovery data-intent-surface="start-here" data-intent-lang="en" aria-labelledby="intentDiscoveryTitle-start-here-en">
+    <p class="intent-discovery-kicker" data-intent-kicker>Find the right procedure</p>
+    <h2 id="intentDiscoveryTitle-start-here-en" data-intent-title>What do you need to do?</h2>
+    <p class="intent-discovery-intro" data-intent-intro>Describe your situation in your own words. IberiGo will point you to the most useful starting guide.</p>
+    <div class="intent-discovery-input-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input type="search" autocomplete="off" data-intent-input aria-describedby="intentDiscoveryStatus-start-here-en" /></div>
+    <p class="intent-discovery-examples-label" data-intent-examples-label>Try an example</p>
+    <div class="intent-discovery-examples" data-intent-examples aria-label="Example searches"></div>
+    <p class="intent-discovery-status" id="intentDiscoveryStatus-start-here-en" data-intent-status role="status" aria-live="polite">Start typing or choose an example.</p>
+    <div class="intent-discovery-results" data-intent-results></div>
+    <p class="intent-discovery-footer"><a class="intent-discovery-fallback" data-intent-fallback href="/search/">Search all IberiGo guides</a></p>
+  </section>
+
         <section class="guide-section" aria-labelledby="chooseYourPath"><h2 id="chooseYourPath">Choose your path</h2><div class="guide-card-grid"><article class="guide-info-card">
             <h3>I’m an EU citizen</h3>
             <p>Start with the roadmap for EU, EEA and Swiss citizens moving to Spain.</p>
@@ -204,21 +349,18 @@
           <article class="guide-info-card">
             <h3>EU Registration</h3>
             <p>Understand the EU Registration Certificate route for longer-term stays.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/eu-registration/">View the EU Registration Guide</a>
+            <a class="guide-button guide-button--secondary" href="/guides/eu-registration/">View the EU Registration Guide</a>
           </article>
           <article class="guide-info-card">
             <h3>Registering on the Padrón</h3>
             <p>Learn how town hall address registration fits into the move.</p>
-            <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">View the Padrón Guide</a>
+            <a class="guide-button guide-button--secondary" href="/guides/padron/">View the Padrón Guide</a>
           </article>
           <article class="guide-info-card">
             <h3>Healthcare in Spain</h3>
             <p>Compare the main healthcare routes before registration and daily-life setup.</p>
             <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">View the Healthcare Guide</a>
           </article></div></section>
-        <section class="guide-section" aria-labelledby="howGuidesWork"><h2 id="howGuidesWork">How IberiGo guides work</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Planning</h3><p>Understand your route and the documents that may matter.</p></article>
-          <article class="guide-info-card"><h3>Arrival</h3><p>Handle address, healthcare and registration steps in a practical order.</p></article>
-          <article class="guide-info-card"><h3>Settling In</h3><p>Move into banking, digital access, taxes and everyday administration.</p></article></div><div class="guide-box guide-box--checklist"><h3>Each guide explains</h3><ul><li>what the step is</li><li>who needs it</li><li>what to prepare</li><li>what to do next</li></ul></div></section>
         <section class="guide-section" aria-labelledby="notSure"><h2 id="notSure">Not sure where to begin?</h2><p>If you are unsure which route applies to you, use the EU or non-EU path as an orientation step, then confirm the route that matches your nationality, purpose and personal situation. Every guide explains who it applies to and points you to the next step.</p></section>
         <section class="guide-section guide-scope-notice" aria-labelledby="scopeNotice">
           <h2 id="scopeNotice">Scope Notice</h2>
@@ -228,17 +370,9 @@
           <h2 id="legalDisclaimer">Legal Disclaimer</h2>
           <p>This guide is practical information, not legal, tax, immigration, financial or rental advice. Requirements can vary by municipality, office, bank and personal situation. Always check the current official source or ask the relevant office before making decisions.</p>
         </section>
-        <p class="last-reviewed">Last reviewed: July 2026</p>
+        <p class="last-reviewed">Last reviewed: August 2026</p>
           </div>
-          <aside class="guide-toc" data-guide-toc aria-label="Table of contents">
-          <strong>On this page</strong>
-          <nav><ol><li><a href="#chooseYourPath" data-guide-toc-link aria-current="true">Choose your path</a></li><li><a href="#mostPeopleStartHere" data-guide-toc-link>Most people start here</a></li><li><a href="#howGuidesWork" data-guide-toc-link>How IberiGo guides work</a></li><li><a href="#notSure" data-guide-toc-link>Not sure where to begin?</a></li></ol></nav>
-        </aside>
         </div>
-        <section hidden data-editorial-checklist aria-label="Editorial checklist">
-          <h2>Editorial Checklist</h2>
-          <ul><li>Grammar reviewed</li><li>Internal links checked</li><li>External links checked</li><li>Mobile reviewed</li><li>Desktop reviewed</li><li>Accessibility reviewed</li><li>SEO reviewed</li><li>Facts verified</li></ul>
-        </section>
         <script type="application/json" class="guide-frontmatter">{
   "title": "Moving to Spain: where to start (EU and non-EU) — IberiGo",
   "description": "Not sure where to begin your move to Spain? Pick your situation (EU or non-EU, work, study, retire, family) and get the right step-by-step guide.",
@@ -282,13 +416,13 @@
       "title": "EU Registration Certificate",
       "description": "Prepare the EU Registration Certificate step for longer-term stays in Spain.",
       "label": "View guide",
-      "href": "/moving-to-spain/eu-registration/"
+      "href": "/guides/eu-registration/"
     },
     {
       "title": "Padrón Guide",
       "description": "Understand town hall address registration and the documents commonly requested.",
       "label": "View guide",
-      "href": "/moving-to-spain/registering-on-the-padron/"
+      "href": "/guides/padron/"
     },
     {
       "title": "Healthcare Guide",
@@ -296,25 +430,16 @@
       "label": "View guide",
       "href": "/moving-to-spain/healthcare/"
     }
-  ],
-  "editorialChecklist": [
-    "Grammar reviewed",
-    "Internal links checked",
-    "External links checked",
-    "Mobile reviewed",
-    "Desktop reviewed",
-    "Accessibility reviewed",
-    "SEO reviewed",
-    "Facts verified"
   ]
-}</script>
+}
+        </script>
       </main>
       <footer class="site-footer">
         <p>IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.</p>
         <a href="/support/">Donate</a>
+        <a class="footer-help-feedback-link" href="/help-feedback/" data-help-feedback-footer>Help & Feedback</a>
         <div class="site-footer-legal">
           <p>© 2026 IberiGo. Free to use. Not legal advice.</p>
-          <p>Last reviewed: July 2026</p>
         </div>
       </footer>
     </div>
@@ -375,5 +500,43 @@
       })();
     </script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
+    <script src="/intent-discovery.js?v=20260908-intent-1" defer data-iberigo-intent-discovery-script></script>
+    <script src="/intent-discovery-rules.js?v=20260908-intent-1" defer data-iberigo-intent-discovery-script></script>
+    <script data-iberigo-intent-discovery-script>
+(function () {
+  function isStartHere() {
+    var path = window.location.pathname.replace(/\/index\.html$/, '/');
+    return path === '/start-here/' || path === '/es/start-here/';
+  }
+  function placeStartHereIntent() {
+    var intent = document.querySelector('[data-iberigo-intent-discovery][data-intent-surface="start-here"]');
+    var groups = document.querySelector('.overhaul-directory-groups');
+    if (!intent || !groups || intent.parentElement !== groups.parentElement) return false;
+    if (groups.previousElementSibling !== intent) groups.parentElement.insertBefore(intent, groups);
+    return groups.previousElementSibling === intent;
+  }
+  function boot() {
+    if (!isStartHere()) return;
+    if (placeStartHereIntent()) return;
+    var root = document.querySelector('.guide-content') || document.body;
+    if (!root || typeof MutationObserver === 'undefined') return;
+    var observer = new MutationObserver(function () {
+      if (placeStartHereIntent()) observer.disconnect();
+    });
+    observer.observe(root, { childList: true });
+    window.addEventListener('load', function () {
+      if (placeStartHereIntent()) observer.disconnect();
+    }, { once: true });
+    window.setTimeout(function () {
+      placeStartHereIntent();
+      observer.disconnect();
+    }, 3000);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
+  else boot();
+})();
+</script>
   </body>
 </html>

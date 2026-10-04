@@ -115,6 +115,142 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
+
+<style data-iberigo-intent-discovery-style>
+  .intent-discovery { width: min(1080px, calc(100% - 32px)); margin: 1.25rem auto; padding: clamp(1.2rem, 3vw, 1.7rem); border: 1px solid rgba(166,74,54,.14); border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(253,240,220,.68)); box-shadow: 0 16px 42px rgba(42,32,25,.07); }
+  .intent-discovery[data-intent-surface="home"] { margin-top: .2rem; margin-bottom: 1.4rem; }
+  .intent-discovery-kicker { margin: 0 0 .42rem; color: #a64a36; font-size: .74rem; font-weight: 900; letter-spacing: .075em; text-transform: uppercase; }
+  .intent-discovery h2 { margin: 0; color: #1b2030; font-size: clamp(1.45rem,3.6vw,2.05rem); line-height: 1.12; }
+  .intent-discovery-intro { max-width: 70ch; margin: .55rem 0 1rem; color: rgba(27,32,48,.7); line-height: 1.62; }
+  .intent-discovery-input-wrap { position: relative; }
+  .intent-discovery-input-wrap svg { position: absolute; left: 1rem; top: 50%; width: 1.05rem; height: 1.05rem; transform: translateY(-50%); color: #a64a36; pointer-events: none; }
+  .intent-discovery input { width: 100%; min-height: 3.35rem; box-sizing: border-box; padding: .78rem 1rem .78rem 2.75rem; border: 1px solid rgba(166,74,54,.22); border-radius: 999px; background: #fff; color: #1b2030; font: inherit; font-size: 1rem; }
+  .intent-discovery input:focus { outline: 3px solid rgba(166,74,54,.22); outline-offset: 2px; }
+  .intent-discovery-examples-label { margin: .78rem 0 .45rem; color: rgba(27,32,48,.58); font-size: .82rem; font-weight: 800; }
+  .intent-discovery-examples { display: flex; flex-wrap: wrap; gap: .45rem; }
+  .intent-discovery-examples button { min-height: 2.35rem; padding: .48rem .72rem; border: 1px solid rgba(166,74,54,.16); border-radius: 999px; background: rgba(255,255,255,.84); color: #7f3b2e; font: inherit; font-size: .82rem; font-weight: 800; cursor: pointer; }
+  .intent-discovery-examples button:hover { border-color: rgba(166,74,54,.34); background: #fff; }
+  .intent-discovery-examples button:focus-visible, .intent-discovery-result:focus-visible, .intent-discovery-fallback:focus-visible { outline: 3px solid rgba(166,74,54,.26); outline-offset: 3px; }
+  .intent-discovery-status { margin: .9rem 0 .55rem; color: rgba(27,32,48,.6); font-size: .88rem; font-weight: 800; }
+  .intent-discovery-results { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .65rem; }
+  .intent-discovery-result { display: flex; min-width: 0; flex-direction: column; gap: .35rem; padding: .9rem; border: 1px solid rgba(166,74,54,.12); border-radius: 15px; background: rgba(255,255,255,.82); color: inherit; text-decoration: none; }
+  .intent-discovery-result.is-primary { border-color: rgba(166,74,54,.3); background: #fff; box-shadow: 0 10px 26px rgba(42,32,25,.06); }
+  .intent-discovery-result > span { color: #a64a36; font-size: .69rem; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; }
+  .intent-discovery-result strong { color: #1b2030; font-size: .98rem; line-height: 1.3; }
+  .intent-discovery-result small { flex: 1; color: rgba(27,32,48,.68); font-size: .84rem; line-height: 1.48; overflow-wrap: break-word; }
+  .intent-discovery-result b { margin-top: .25rem; color: #a64a36; font-size: .82rem; }
+  .intent-discovery-footer { margin: .8rem 0 0; }
+  .intent-discovery-fallback { color: #a64a36; font-size: .88rem; font-weight: 900; text-underline-offset: 3px; }
+  @media (max-width:760px) { .intent-discovery { width: min(100% - 20px,1080px); border-radius: 17px; } .intent-discovery-results { grid-template-columns: 1fr; } .intent-discovery-examples { flex-wrap: wrap; overflow: visible; } .intent-discovery-examples button { flex: 0 1 auto; max-width: 100%; white-space: normal; text-align: left; } }
+</style>
+    <meta name="last-modified" content="2026-10-04" data-iberigo-freshness />
+    <script type="application/ld+json" data-iberigo-structured-data>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://iberigo.eu/es/start-here/#webpage",
+          "url": "https://iberigo.eu/es/start-here/",
+          "name": "Empieza aquí: mudarse a España — IberiGo",
+          "description": "Encuentra la guía de IberiGo adecuada para tu mudanza a España, tanto si eres ciudadano de la UE, ciudadano no UE, estudiante, trabajador, jubilado o vienes con familia.",
+          "inLanguage": "es",
+          "isPartOf": {
+            "@id": "https://iberigo.eu/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://iberigo.eu/es/start-here/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://iberigo.eu/es/start-here/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "IberiGo",
+              "item": "https://iberigo.eu/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Mudarse a España empieza aquí.",
+              "item": "https://iberigo.eu/es/start-here/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div class="app-shell">
@@ -125,7 +261,7 @@
         <nav aria-label="Secciones principales">
           <a href="/es/start-here/">Empieza aquí</a>
           <a href="/index.html?nav=start#guide-cards">Portada</a>
-          <a href="/the-spain-files/">The Spain Files</a>
+          <a href="/the-spain-files/es/">The Spain Files</a>
           <a href="/support/">Donar</a>
           <a class="search-nav-link" href="/search/" aria-label="Buscar en IberiGo" title="Buscar en IberiGo" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg></a>
           <div class="language-switcher" aria-label="Idioma">
@@ -135,7 +271,7 @@
         </nav>
       </header>
       <main class="guide-main">
-        <div class="guide-layout">
+        <div class="guide-layout guide-layout--single">
           <div class="guide-content">
             <nav class="guide-breadcrumbs" aria-label="Miga de pan">
           <ol>
@@ -148,17 +284,26 @@
             <span class="guide-kicker">Empieza aquí</span>
             <h1 id="pageTitle">Mudarse a España empieza aquí.</h1>
             <p>Elige la situación que más se parece a la tuya y te indicaremos la guía que explica qué revisar después.</p>
-            <p class="guide-reading-time" data-iberigo-freshness-slot>3 min de lectura</p>
+            <p class="guide-reading-time" data-iberigo-freshness-slot>3 min de lectura · <span data-iberigo-freshness-visible>Actualizado 4 de octubre de 2026</span></p>
           </div>
           <aside class="guide-hero-card" aria-label="Guide summary">
             <strong>Punto de partida sencillo</strong>
             <p>No necesitas conocer todos los términos administrativos antes de empezar, pero sí conviene confirmar qué ruta encaja con tu nacionalidad, tu motivo de mudanza y tu situación personal.</p>
           </aside>
         </section>
-        <details class="guide-toc-mobile" data-guide-toc>
-          <summary>En esta página</summary>
-          <nav aria-label="En esta página"><ol><li><a href="#chooseYourPath" data-guide-toc-link aria-current="true">Elige tu ruta</a></li><li><a href="#mostPeopleStartHere" data-guide-toc-link>La mayoría de las personas empieza aquí</a></li><li><a href="#howGuidesWork" data-guide-toc-link>Cómo funcionan las guías de IberiGo</a></li><li><a href="#languageNote" data-guide-toc-link>Sobre los enlaces en inglés</a></li><li><a href="#notSure" data-guide-toc-link>¿No sabes por dónde empezar?</a></li></ol></nav>
-        </details>
+
+        <section class="intent-discovery" data-iberigo-intent-discovery data-intent-surface="start-here" data-intent-lang="es" aria-labelledby="intentDiscoveryTitle-start-here-es">
+    <p class="intent-discovery-kicker" data-intent-kicker>Find the right procedure</p>
+    <h2 id="intentDiscoveryTitle-start-here-es" data-intent-title>What do you need to do?</h2>
+    <p class="intent-discovery-intro" data-intent-intro>Describe your situation in your own words. IberiGo will point you to the most useful starting guide.</p>
+    <div class="intent-discovery-input-wrap"><svg aria-hidden="true" viewBox="0 0 24 24" focusable="false"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input type="search" autocomplete="off" data-intent-input aria-describedby="intentDiscoveryStatus-start-here-es" /></div>
+    <p class="intent-discovery-examples-label" data-intent-examples-label>Try an example</p>
+    <div class="intent-discovery-examples" data-intent-examples aria-label="Example searches"></div>
+    <p class="intent-discovery-status" id="intentDiscoveryStatus-start-here-es" data-intent-status role="status" aria-live="polite">Start typing or choose an example.</p>
+    <div class="intent-discovery-results" data-intent-results></div>
+    <p class="intent-discovery-footer"><a class="intent-discovery-fallback" data-intent-fallback href="/search/">Search all IberiGo guides</a></p>
+  </section>
+
         <section class="guide-section" aria-labelledby="chooseYourPath"><h2 id="chooseYourPath">Elige tu ruta</h2><div class="guide-box guide-box--info"><strong>Sobre esta página</strong><p>Esta página forma parte del sistema de guías de IberiGo en español. Algunas guías enlazadas todavía están disponibles solo en inglés; las versiones en español se prepararán en pasos separados.</p></div><div class="guide-card-grid"><article class="guide-info-card">
             <h3>Soy ciudadano de la UE</h3>
             <p>Empieza con la hoja de ruta para ciudadanos de la UE, del EEE y de Suiza que se mudan a España.</p>
@@ -217,12 +362,8 @@
           <article class="guide-info-card">
             <h3>Abrir una cuenta bancaria</h3>
             <p>Compara documentos, comisiones y uso diario de una cuenta bancaria en España.</p>
-            <a class="guide-button guide-button--secondary" href="/es/living-in-spain/opening-a-bank-account/">Ver la guía</a>
+            <a class="guide-button guide-button--secondary" href="/the-spain-files/abrir-cuenta-bancaria-espana/">Ver la guía</a>
           </article></div></section>
-        <section class="guide-section" aria-labelledby="howGuidesWork"><h2 id="howGuidesWork">Cómo funcionan las guías de IberiGo</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Planificación</h3><p>Entender tu ruta y los documentos que pueden ser importantes.</p></article>
-          <article class="guide-info-card"><h3>Llegada</h3><p>Organizar alojamiento, padrón, tarjeta sanitaria y otros pasos en un orden práctico.</p></article>
-          <article class="guide-info-card"><h3>Instalación</h3><p>Pasar a cuenta bancaria, certificado digital, Seguridad Social, impuestos y administración diaria.</p></article></div><div class="guide-box guide-box--checklist"><h3>Cada guía explica</h3><ul><li>qué es el paso</li><li>a quién puede afectar</li><li>qué conviene preparar</li><li>qué revisar después</li></ul></div></section>
-        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre los enlaces en inglés</h2><p>Algunas rutas enlazan a guías actuales en inglés porque las versiones españolas todavía no existen. No asumas que una guía enlazada cubre todas las situaciones: usa cada página como orientación práctica y confirma siempre los requisitos oficiales que correspondan a tu caso.</p></section>
         <section class="guide-section" aria-labelledby="notSure"><h2 id="notSure">¿No sabes por dónde empezar?</h2><p>Si no tienes claro qué ruta se aplica a ti, empieza por la vía UE o no UE como orientación. Después confirma la ruta que encaja con tu nacionalidad, tu motivo de mudanza y tus circunstancias personales. En España, algunos detalles pueden variar según la provincia, el municipio, la oficina o el momento de la cita.</p></section>
         <section class="guide-section guide-scope-notice" aria-labelledby="scopeNotice">
           <h2 id="scopeNotice">Aviso de alcance</h2>
@@ -232,17 +373,9 @@
           <h2 id="legalDisclaimer">Aviso legal</h2>
           <p>Esta guía ofrece información práctica, no asesoramiento legal, fiscal, migratorio, financiero ni sobre alquileres. Los requisitos pueden variar según el municipio, la oficina, el banco y la situación personal. Comprueba siempre la fuente oficial actual o consulta con la oficina correspondiente antes de tomar decisiones.</p>
         </section>
-        <p class="last-reviewed">Última revisión: July 2026</p>
+        <p class="last-reviewed">Última revisión: agosto de 2026</p>
           </div>
-          <aside class="guide-toc" data-guide-toc aria-label="En esta página">
-          <strong>En esta página</strong>
-          <nav><ol><li><a href="#chooseYourPath" data-guide-toc-link aria-current="true">Elige tu ruta</a></li><li><a href="#mostPeopleStartHere" data-guide-toc-link>La mayoría de las personas empieza aquí</a></li><li><a href="#howGuidesWork" data-guide-toc-link>Cómo funcionan las guías de IberiGo</a></li><li><a href="#languageNote" data-guide-toc-link>Sobre los enlaces en inglés</a></li><li><a href="#notSure" data-guide-toc-link>¿No sabes por dónde empezar?</a></li></ol></nav>
-        </aside>
         </div>
-        <section hidden data-editorial-checklist aria-label="Editorial checklist">
-          <h2>Editorial Checklist</h2>
-          <ul><li>Grammar reviewed</li><li>Internal links checked</li><li>External links checked</li><li>Mobile reviewed</li><li>Desktop reviewed</li><li>Accessibility reviewed</li><li>SEO reviewed</li><li>Facts verified</li></ul>
-        </section>
         <script type="application/json" class="guide-frontmatter">{
   "title": "Empieza aquí: mudarse a España — IberiGo",
   "description": "Encuentra la guía de IberiGo adecuada para tu mudanza a España, tanto si eres ciudadano de la UE, ciudadano no UE, estudiante, trabajador, jubilado o vienes con familia.",
@@ -304,27 +437,18 @@
       "title": "Bank Account Guide",
       "description": "Set up everyday banking, payments and account documents in Spain.",
       "label": "View guide",
-      "href": "/living-in-spain/opening-a-bank-account/"
+      "href": "/the-spain-files/bank-account-spain/"
     }
-  ],
-  "editorialChecklist": [
-    "Grammar reviewed",
-    "Internal links checked",
-    "External links checked",
-    "Mobile reviewed",
-    "Desktop reviewed",
-    "Accessibility reviewed",
-    "SEO reviewed",
-    "Facts verified"
   ]
-}</script>
+}
+        </script>
       </main>
       <footer class="site-footer">
         <p>IberiGo es gratis. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.</p>
         <a href="/support/">Donar</a>
+        <a class="footer-help-feedback-link" href="/es/help-feedback/" data-help-feedback-footer>Ayuda y comentarios</a>
         <div class="site-footer-legal">
           <p>© 2026 IberiGo. Gratis. No es asesoramiento legal.</p>
-          <p>Última revisión: July 2026</p>
         </div>
       </footer>
     </div>
@@ -385,5 +509,43 @@
       })();
     </script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
+    <script src="/intent-discovery.js?v=20260908-intent-1" defer data-iberigo-intent-discovery-script></script>
+    <script src="/intent-discovery-rules.js?v=20260908-intent-1" defer data-iberigo-intent-discovery-script></script>
+    <script data-iberigo-intent-discovery-script>
+(function () {
+  function isStartHere() {
+    var path = window.location.pathname.replace(/\/index\.html$/, '/');
+    return path === '/start-here/' || path === '/es/start-here/';
+  }
+  function placeStartHereIntent() {
+    var intent = document.querySelector('[data-iberigo-intent-discovery][data-intent-surface="start-here"]');
+    var groups = document.querySelector('.overhaul-directory-groups');
+    if (!intent || !groups || intent.parentElement !== groups.parentElement) return false;
+    if (groups.previousElementSibling !== intent) groups.parentElement.insertBefore(intent, groups);
+    return groups.previousElementSibling === intent;
+  }
+  function boot() {
+    if (!isStartHere()) return;
+    if (placeStartHereIntent()) return;
+    var root = document.querySelector('.guide-content') || document.body;
+    if (!root || typeof MutationObserver === 'undefined') return;
+    var observer = new MutationObserver(function () {
+      if (placeStartHereIntent()) observer.disconnect();
+    });
+    observer.observe(root, { childList: true });
+    window.addEventListener('load', function () {
+      if (placeStartHereIntent()) observer.disconnect();
+    }, { once: true });
+    window.setTimeout(function () {
+      placeStartHereIntent();
+      observer.disconnect();
+    }, 3000);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
+  else boot();
+})();
+</script>
   </body>
 </html>

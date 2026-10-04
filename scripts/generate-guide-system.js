@@ -26,7 +26,7 @@ const routes = {
   esChecklist: "/es/moving-to-spain/documents-checklist/",
   esAccommodation: "/es/moving-to-spain/finding-accommodation/",
   esSettling: "/es/moving-to-spain/settling-into-spain/",
-  esBanking: "/es/living-in-spain/opening-a-bank-account/",
+  esBanking: "/the-spain-files/abrir-cuenta-bancaria-espana/",
   esEuRoadmap: "/es/moving-to-spain/eu-citizens/",
   esNonEuRoadmap: "/es/moving-to-spain/non-eu-citizens/",
   esEuFamilyMemberRoadmap: "/es/moving-to-spain/family-member-eu-citizen/",
@@ -34,21 +34,21 @@ const routes = {
   esStudents: "/es/moving-to-spain/students/",
   esRetireInSpain: "/es/moving-to-spain/retire-in-spain/",
   esSelfEmployed: "/es/moving-to-spain/self-employed-spain/",
-  esEuRegistration: "/es/moving-to-spain/eu-registration/",
-  esPadron: "/es/moving-to-spain/registering-on-the-padron/",
+  esEuRegistration: "/guides/es/eu-registration/",
+  esPadron: "/guides/es/padron/",
   esHealthcare: "/es/moving-to-spain/healthcare/",
   esFamilyReunification: "/es/moving-to-spain/family-reunification/",
-  esDigitalNomad: "/es/moving-to-spain/digital-nomad-spain/",
+  esDigitalNomad: "/es/the-spain-files/visado-nomada-digital/",
   euRoadmap: "/moving-to-spain/eu-citizens/",
   settling: "/moving-to-spain/settling-into-spain/",
-  euRegistration: "/moving-to-spain/eu-registration/",
-  padron: "/moving-to-spain/registering-on-the-padron/",
+  euRegistration: "/guides/eu-registration/",
+  padron: "/guides/padron/",
   healthcare: "/moving-to-spain/healthcare/",
   checklist: "/moving-to-spain/documents-checklist/",
-  banking: "/living-in-spain/opening-a-bank-account/",
-  digital: "/living-in-spain/digital-certificate/",
-  social: "/living-in-spain/social-security/",
-  taxes: "/living-in-spain/taxes/",
+  banking: "/the-spain-files/bank-account-spain/",
+  digital: "/guides/digital/",
+  social: "/guides/social-security/",
+  taxes: "/guides/taxes/",
   driving: "/living-in-spain/driving/",
   accommodation: "/moving-to-spain/finding-accommodation/",
   nonEuRoadmap: "/moving-to-spain/non-eu-citizens/",
@@ -57,7 +57,7 @@ const routes = {
   workInSpain: "/moving-to-spain/work-in-spain/",
   retireInSpain: "/moving-to-spain/retire-in-spain/",
   familyReunification: "/moving-to-spain/family-reunification/",
-  digitalNomad: "/moving-to-spain/digital-nomad-spain/",
+  digitalNomad: "/the-spain-files/digital-nomad-visa-spain/",
   selfEmployed: "/moving-to-spain/self-employed-spain/",
   vacationHub: "/guides/vacation-in-spain/",
   esVacationHub: "/guides/es/vacation-in-spain/",
@@ -565,13 +565,13 @@ const officialSourcesByRoute = {
   [routes.euRoadmap]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where appointment booking for foreigners' procedures is available. Check the current appointment options for your specific procedure." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where appointment booking for foreigners' procedures is available. Check the current appointment options for your specific procedure." },
     { name: "Local Town Halls", varies: true, note: "There is no single official website — padrón and local address requirements are set by each municipality. Check your own town hall's website for local instructions." }
   ],
   [routes.euRegistration]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for EU registration and residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where appointment booking for EU Registration Certificate appointments is available. Check the current appointment options for your specific procedure." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where appointment booking for EU Registration Certificate appointments is available. Check the current appointment options for your specific procedure." }
   ],
   [routes.padron]: [
     { name: "Spanish Government", url: "https://www.ine.es", note: "Instituto Nacional de Estadística (INE) — national padrón municipal statistics and the Padrón Online portal." },
@@ -596,17 +596,17 @@ const officialSourcesByRoute = {
   [routes.esFamilyReunification]: [
     { name: "Gobierno de España", url: "https://administracion.gob.es", note: "Punto de Acceso General — el punto de entrada oficial central a los trámites de la administración pública española." },
     { name: "Ministerio responsable de migraciones", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — área de Migraciones, responsable de los trámites de residencia y de las vías por familia." },
-    { name: "Ministerio de Asuntos Exteriores (información consular)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevante para las solicitudes que se tramitan en consulados españoles en el extranjero." },
-    { name: "Portal de citas de la Policía", url: "https://sede.policia.gob.es", note: "Sede electrónica de la Policía Nacional, donde se gestiona la cita previa relacionada con la TIE para familiares. Consulta las opciones de cita vigentes para tu trámite concreto." },
+    { name: "Ministerio de Asuntos Exteriores (información consular)", url: "https://www.exteriores.gob.es/es/Paginas/index.aspx", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevante para las solicitudes que se tramitan en consulados españoles en el extranjero." },
+    { name: "Portal de citas de la Policía", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Sede electrónica de la Policía Nacional, donde se gestiona la cita previa relacionada con la TIE para familiares. Consulta las opciones de cita vigentes para tu trámite concreto." },
     { name: "Información oficial de la UE para familias (solo para comparar)", url: "https://europa.eu/youreurope/citizens/index_es.htm", note: "«Tu Europa» — el portal oficial de la UE para la ciudadanía, útil solo para comparar esta vía con la vía separada de familiar de ciudadano de la UE." }
   ],
   [routes.esDigitalNomad]: [
     { name: "Gobierno de España", url: "https://administracion.gob.es", note: "Punto de Acceso General — el punto de entrada oficial central a los trámites de la administración pública española." },
     { name: "Ministerio responsable de migraciones", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — área de Migraciones, responsable de los trámites de residencia, incluidas las vías relacionadas con el teletrabajo." },
-    { name: "Ministerio de Asuntos Exteriores (información consular)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevante para las solicitudes que se tramitan en consulados españoles en el extranjero." },
+    { name: "Ministerio de Asuntos Exteriores (información consular)", url: "https://www.exteriores.gob.es/es/Paginas/index.aspx", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevante para las solicitudes que se tramitan en consulados españoles en el extranjero." },
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — la administración tributaria española, relevante para las cuestiones de residencia fiscal y de rentas obtenidas en el extranjero." },
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — portal oficial de la Seguridad Social, relevante para el tratamiento de personas empleadas, freelancers y titulares de empresa." },
-    { name: "Portal de citas de la Policía", url: "https://sede.policia.gob.es", note: "Sede electrónica de la Policía Nacional, donde se gestiona la cita previa relacionada con la TIE. Consulta las opciones de cita vigentes para tu trámite concreto." }
+    { name: "Portal de citas de la Policía", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Sede electrónica de la Policía Nacional, donde se gestiona la cita previa relacionada con la TIE. Consulta las opciones de cita vigentes para tu trámite concreto." }
   ],
   [routes.taxes]: [
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration. Useful for checking tax residency, filing and worldwide-income questions; it does not replace professional tax advice, and this guide is not tax advice." }
@@ -615,7 +615,7 @@ const officialSourcesByRoute = {
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal for checking current registration, contribution and entitlement information." }
   ],
   [routes.driving]: [
-    { name: "Dirección General de Tráfico (DGT)", url: "https://www.dgt.es", note: "DGT is Spain's traffic authority and the official place to check current driving-licence, exchange, renewal and medical-check rules referenced throughout this guide." }
+    { name: "Dirección General de Tráfico (DGT)", url: "https://www.dgt.es/inicio/", note: "DGT is Spain's traffic authority and the official place to check current driving-licence, exchange, renewal and medical-check rules referenced throughout this guide." }
   ],
   // Without an entry here the generator's `showTrustBlocks` gate (which keys off
   // officialSources.length) silently drops the Scope Notice, Official Sources AND
@@ -629,20 +629,20 @@ const officialSourcesByRoute = {
   [routes.nonEuRoadmap]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking is available. Check the current appointment options for your specific route." },
-    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for visa applications handled through Spanish consulates abroad." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where TIE-related appointment booking is available. Check the current appointment options for your specific route." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es/es/Paginas/index.aspx", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for visa applications handled through Spanish consulates abroad." }
   ],
   [routes.euFamilyMemberRoadmap]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where family-member residence card appointment booking is available. Check the current appointment options for your specific case." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where family-member residence card appointment booking is available. Check the current appointment options for your specific case." },
     { name: "EU official information for families", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, with help and advice for EU nationals and their family." }
   ],
   [routes.students]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for students is available. Check the current appointment options for your specific route." },
-    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for student visa applications handled through Spanish consulates abroad." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where TIE-related appointment booking for students is available. Check the current appointment options for your specific route." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es/es/Paginas/index.aspx", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for student visa applications handled through Spanish consulates abroad." },
     { name: "Ministry of Education", url: "https://www.educacionyfp.gob.es", note: "Ministerio de Educación, Formación Profesional y Deportes — Spain's national education ministry." }
   ],
   [routes.workInSpain]: [
@@ -651,31 +651,31 @@ const officialSourcesByRoute = {
     { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social — Spain's ministry for labour and employment matters." },
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal for checking current registration and contribution information." },
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax obligations arising from work in Spain." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for workers is available. Check the current appointment options for your specific route." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where TIE-related appointment booking for workers is available. Check the current appointment options for your specific route." }
   ],
   [routes.retireInSpain]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including sufficient-resources and non-lucrative-type routes." },
-    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for non-EU applications handled through Spanish consulates abroad." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es/es/Paginas/index.aspx", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for non-EU applications handled through Spanish consulates abroad." },
     { name: "Ministry of Health", url: "https://www.sanidad.gob.es", note: "Ministerio de Sanidad — Spain's national health ministry, relevant for retiree healthcare routes." },
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal, relevant for pension-linked healthcare entitlement and S1-type routes." },
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and pension/investment income questions." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for non-EU retirees is available. Check the current appointment options for your specific route." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where TIE-related appointment booking for non-EU retirees is available. Check the current appointment options for your specific route." }
   ],
   [routes.familyReunification]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence and family-based procedures." },
-    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for family members is available. Check the current appointment options for your specific case." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es/es/Paginas/index.aspx", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where TIE-related appointment booking for family members is available. Check the current appointment options for your specific case." },
     { name: "EU official information for families (comparison only)", url: "https://europa.eu/youreurope/citizens/index_en.htm", note: "\"Your Europe\" — the EU's official citizen portal, relevant only for comparing this route with the separate Family Member of an EU Citizen route." }
   ],
   [routes.digitalNomad]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
     { name: "Ministry responsible for immigration", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — Migraciones section, responsible for residence procedures, including remote-work-related routes." },
-    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
+    { name: "Ministry of Foreign Affairs (consular information)", url: "https://www.exteriores.gob.es/es/Paginas/index.aspx", note: "Ministerio de Asuntos Exteriores, Unión Europea y Cooperación — relevant for applications handled through Spanish consulates abroad." },
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for tax-residency and foreign-income questions for remote workers." },
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal, relevant for how employees, freelancers and business owners are treated." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for digital nomads is available. Check the current appointment options for your specific route." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where TIE-related appointment booking for digital nomads is available. Check the current appointment options for your specific route." }
   ],
   [routes.selfEmployed]: [
     { name: "Spanish Government", url: "https://administracion.gob.es", note: "Punto de Acceso General — the central official entry point for Spanish public administration procedures." },
@@ -683,18 +683,18 @@ const officialSourcesByRoute = {
     { name: "Agencia Tributaria", url: "https://sede.agenciatributaria.gob.es", note: "Agencia Tributaria (AEAT) — Spain's tax administration, relevant for autónomo tax registration and obligations." },
     { name: "Seguridad Social", url: "https://www.seg-social.es", note: "Instituto Nacional de la Seguridad Social — the official Social Security portal, relevant for autónomo registration and contributions." },
     { name: "Ministry of Labour", url: "https://www.mites.gob.es", note: "Ministerio de Trabajo y Economía Social — Spain's ministry for labour and employment matters." },
-    { name: "Police appointment portal", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office, where TIE-related appointment booking for self-employed non-EU residents is available. Check the current appointment options for your specific route." }
+    { name: "Police appointment portal", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office, where TIE-related appointment booking for self-employed non-EU residents is available. Check the current appointment options for your specific route." }
   ],
   [routes.checklist]: [
     { name: "Modelo 790-012 official fee form", url: "https://sede.policia.gob.es/Tasa790_012/index.jsp", note: "Policía Nacional e-office — the official fee-payment page for Tasa 790-012." },
     { name: "EX-18 official form (Ministry responsible for immigration)", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — the official immigration portal for checking current EX-18 form and procedure information." },
-    { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Policía Nacional e-office — general appointment and registration portal referenced throughout this checklist." },
+    { name: "Policía Nacional", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Policía Nacional e-office — general appointment and registration portal referenced throughout this checklist." },
     { name: "Apostille and legalisation", url: "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Legalizacion-y-apostilla.aspx", note: "Ministerio de Asuntos Exteriores — official information on legalisation and apostille of foreign documents." }
   ],
   [routes.esChecklist]: [
     { name: "Formulario oficial de tasa Modelo 790-012", url: "https://sede.policia.gob.es/Tasa790_012/index.jsp", note: "Sede electrónica de la Policía Nacional — página oficial de pago de la tasa 790-012." },
     { name: "Formulario EX-18 (Ministerio responsable de inmigración)", url: "https://www.inclusion.gob.es/web/migraciones/home", note: "Ministerio de Inclusión, Seguridad Social y Migraciones — el portal oficial de inmigración para consultar el formulario EX-18 y la información del trámite." },
-    { name: "Policía Nacional", url: "https://sede.policia.gob.es", note: "Sede electrónica de la Policía Nacional — portal general de citas y registro mencionado en esta lista." },
+    { name: "Policía Nacional", url: "https://sede.policia.gob.es/portalCiudadano/_es/index.php", note: "Sede electrónica de la Policía Nacional — portal general de citas y registro mencionado en esta lista." },
     { name: "Apostilla y legalización", url: "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Legalizacion-y-apostilla.aspx", note: "Ministerio de Asuntos Exteriores — información oficial sobre legalización y apostilla de documentos extranjeros." }
   ]
 };
@@ -1876,7 +1876,7 @@ const pages = [
               "Información sobre tu residencia fiscal."
             ]
           })}${InfoBox({ title: "Los requisitos exactos varían según el banco", text: "Los bancos pueden pedir pruebas distintas según tu nacionalidad, tu situación de residencia, el origen de tus ingresos, tu residencia fiscal y el tipo de cuenta." })}${SourceLinks([
-          { label: "Ver la guía de banca en España", href: "/guides/es/banking/" }
+          { label: "Ver la guía de banca en España", href: "/the-spain-files/abrir-cuenta-bancaria-espana/" }
         ])}<p>La guía de banca en España es la versión breve de referencia, con lo que los bancos suelen pedir.</p>`
         }),
         GuideSection({
@@ -2006,7 +2006,7 @@ const pages = [
             { title: "Ciudadanos de la UE", text: "Útil si eres ciudadano de la UE y planeas una estancia larga en España.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
             { title: "Ciudadanos del EEE", text: "Los ciudadanos del EEE suelen seguir el mismo recorrido general.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
             { title: "Ciudadanos suizos", text: "Los ciudadanos suizos normalmente se incluyen en la vía de registro de ciudadanos de la UE.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
-            { title: "Trabajadores por cuenta ajena", text: "Si vas a trabajar, ten en cuenta el empleo, la Seguridad Social, la sanidad y el registro de residencia.", href: "/guides/es/eu-working/", label: "Ver la guía de registro de trabajador de la UE" },
+            { title: "Trabajadores por cuenta ajena", text: "Si vas a trabajar, ten en cuenta el empleo, la Seguridad Social, la sanidad y el registro de residencia.", href: "/guides/es/eu-registration/", label: "Ver la guía de registro de trabajador de la UE" },
             { title: "Trabajadores por cuenta propia", text: "Quienes se mudan como autónomos pueden necesitar justificantes fiscales, de actividad y de Seguridad Social.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
             { title: "Estudiantes", text: "Los estudiantes pueden necesitar justificantes de estudios, sanidad y recursos.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
             { title: "Jubilados", text: "Los jubilados pueden necesitar justificantes de pensión, sanidad y recursos.", href: "/guides/es/eu-registration/", label: "Ver la guía del registro de la UE (EX-18)" },
@@ -2067,7 +2067,7 @@ const pages = [
             { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes },
             { label: "Ver la guía de conducción (en inglés)", href: routes.driving }
           ])}${SourceLinks([
-          { label: "Ver la guía de banca en España", href: "/guides/es/banking/" },
+          { label: "Ver la guía de banca en España", href: "/the-spain-files/abrir-cuenta-bancaria-espana/" },
           { label: "Ver la guía de certificado digital y Cl@ve", href: "/guides/es/digital/" },
           { label: "Ver la guía del número de la Seguridad Social", href: "/guides/es/social-security/" },
           { label: "Ver la guía de impuestos en España", href: "/guides/es/taxes/" },
@@ -2186,8 +2186,8 @@ const pages = [
             { title: "Estudiar en España", text: "Las vías de estudios suelen depender de la matrícula, la duración del programa y los medios económicos.", href: routes.esStudents, label: "Ver hoja de ruta", secondaryHref: "/guides/es/study/", secondaryLabel: "Ver la guía de estancia por estudios" },
             { title: "Reunirte con familia en España", text: "La reagrupación familiar suele depender del parentesco y de la situación del familiar que te reagrupa.", href: routes.esFamilyReunification, label: "Ver hoja de ruta", secondaryHref: "/guides/es/family/", secondaryLabel: "Ver la guía de reagrupación familiar" },
             { title: "Familiar de un ciudadano de la UE", text: "Esta vía puede diferir de las vías familiares no comunitarias habituales, según el parentesco y la situación.", href: routes.esEuFamilyMemberRoadmap, label: "Ver hoja de ruta", secondaryHref: "/guides/es/eu-family/", secondaryLabel: "Ver la guía de tarjeta de familiar de la UE" },
-            { title: "Jubilarte o vivir de recursos suficientes", text: "Esta vía suele depender de justificar ingresos, ahorros y cobertura sanitaria en vez de un empleo.", href: routes.esRetireInSpain, label: "Ver hoja de ruta", secondaryHref: "/guides/es/non-lucrative/", secondaryLabel: "Ver la guía de residencia no lucrativa" },
-            { title: "Nómada digital / trabajo remoto", text: "Esta vía suele depender del empleo remoto o de clientes con sede fuera de España.", href: routes.esDigitalNomad, label: "Ver hoja de ruta", secondaryHref: "/guides/es/digital-nomad/", secondaryLabel: "Ver la guía de nómada digital" },
+            { title: "Jubilarte o vivir de recursos suficientes", text: "Esta vía suele depender de justificar ingresos, ahorros y cobertura sanitaria en vez de un empleo.", href: routes.esRetireInSpain, label: "Ver hoja de ruta", secondaryHref: "/es/the-spain-files/visado-no-lucrativo/", secondaryLabel: "Ver la guía de residencia no lucrativa" },
+            { title: "Nómada digital / trabajo remoto", text: "Esta vía suele depender del empleo remoto o de clientes con sede fuera de España.", href: routes.esDigitalNomad, label: "Ver hoja de ruta", secondaryHref: "/es/the-spain-files/visado-nomada-digital/", secondaryLabel: "Ver la guía de nómada digital" },
             { title: "Autónomo / actividad empresarial", text: "Esta vía suele depender del plan de negocio, la actividad y los justificantes económicos.", href: routes.esSelfEmployed, label: "Ver hoja de ruta", secondaryHref: "/guides/es/work-authorization/", secondaryLabel: "Ver la guía de autorización de trabajo (EX-07)" },
             { title: "Ya estoy en España y no sé qué aplica", text: "Usa Empieza aquí y esta hoja de ruta juntas para acotar qué puede aplicarse.", href: routes.esStartHere, label: "Continuar" }
           ])
@@ -2230,7 +2230,7 @@ const pages = [
             { title: "Entiende tus obligaciones fiscales", text: "Pueden surgir dudas fiscales según tu residencia, ingresos y bienes." }
           ])}<div class="guide-box guide-box--info"><strong>El orden puede variar</strong><p>No todo el mundo sigue el mismo orden. Algunos pasos pueden ir en paralelo, y la disponibilidad de citas puede variar según la provincia y la situación.</p></div>${SourceLinks([
           { label: "Ver la guía del padrón", href: "/guides/es/padron/" },
-          { label: "Ver la guía de banca en España", href: "/guides/es/banking/" },
+          { label: "Ver la guía de banca en España", href: "/the-spain-files/abrir-cuenta-bancaria-espana/" },
           { label: "Ver la guía de certificado digital y Cl@ve", href: "/guides/es/digital/" },
           { label: "Ver la guía de impuestos en España", href: "/guides/es/taxes/" }
         ])}<p>Cada uno de estos pasos posteriores a la llegada tiene su propia guía breve.</p>`
@@ -2427,7 +2427,7 @@ const pages = [
             { title: "Citas y huellas", text: "Los trámites de tarjeta pueden implicar citas, huellas y un paso de recogida aparte." },
             { title: "Depende de la aprobación y el trámite", text: "El proceso exacto depende de la aprobación y del procedimiento local de la oficina." }
           ])}<div class="guide-box guide-box--warning"><strong>Importante</strong><p>No confundas la tarjeta de residencia como familiar, el certificado de registro del ciudadano de la UE y un NIE. Confirma qué documento aplica a tu caso antes de una cita.</p></div>${SourceLinks([
-          { label: "Ver la guía de la TIE tras la aprobación", href: "/guides/es/tie-after-approval/" }
+          { label: "Ver la guía de la TIE tras la aprobación", href: "/guides/es/tie/" }
         ])}<p>Cuando tras la aprobación hay cita de tarjeta, la guía de la TIE tras la aprobación cubre el paso de huellas y recogida.</p>`
         }),
         GuideSection({
@@ -2551,7 +2551,7 @@ const pages = [
             { label: "Ver la guía de sanidad (en inglés)", href: routes.healthcare },
             { label: "Ver la guía de impuestos (en inglés)", href: routes.taxes }
           ])}${SourceLinks([
-          { label: "Ver la guía de registro de trabajador de la UE", href: "/guides/es/eu-working/" }
+          { label: "Ver la guía de registro de trabajador de la UE", href: "/guides/es/eu-registration/" }
         ])}<p>La guía de registro de trabajador de la UE cubre el Certificado de Registro sobre la base del empleo, incluidos el formulario y la tasa.</p>`
         }),
         GuideSection({
@@ -2940,7 +2940,7 @@ const pages = [
             { title: "Distintos canales según la vía", text: "El trámite puede implicar a un consulado español, autoridades de extranjería u otros canales oficiales, según la vía." },
             { title: "Puede seguir la TIE", text: "Puede requerirse una TIE tras la aprobación o la llegada." }
           ])}${SourceLinks([
-            { label: "Ver la guía de residencia no lucrativa", href: "/guides/es/non-lucrative/" },
+            { label: "Ver la guía de residencia no lucrativa", href: "/es/the-spain-files/visado-no-lucrativo/" },
             { label: "Ver la hoja de ruta de ciudadanos no UE", href: routes.esNonEuRoadmap },
             { label: "Ver la lista de documentos", href: routes.esChecklist }
           ])}<p>Para la mayoría de las personas jubiladas o con recursos propios la vía en cuestión es la residencia no lucrativa. La guía correspondiente cubre lo que esta hoja de ruta no detalla: el formulario, la documentación que suelen pedir los consulados y cómo se expresa el requisito de medios económicos.</p>`
@@ -3325,7 +3325,7 @@ const pages = [
             { title: "EU citizens", text: "Use this if you are an EU citizen planning a longer stay in Spain.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
             { title: "EEA citizens", text: "EEA citizens usually follow the same broad route.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
             { title: "Swiss citizens", text: "Swiss citizens are commonly included in the EU citizen registration route.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
-            { title: "Workers", text: "Employees should plan for work, Social Security, healthcare and residence registration steps.", href: "/guides/eu-working/", label: "View the EU Worker Registration Guide" },
+            { title: "Workers", text: "Employees should plan for work, Social Security, healthcare and residence registration steps.", href: "/guides/eu-registration/", label: "View the EU Worker Registration Guide" },
             { title: "Self-employed people", text: "Self-employed movers may need tax, activity and Social Security evidence.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
             { title: "Students", text: "Students may need study, healthcare and resources evidence.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
             { title: "Retirees", text: "Retirees may need pension, healthcare and resources evidence.", href: "/guides/eu-registration/", label: "View the EU Registration Guide (EX-18)" },
@@ -3386,7 +3386,7 @@ const pages = [
             { label: "View the Taxes in Spain Guide", href: routes.taxes },
             { label: "View the Driving Licence Guide", href: routes.driving }
           ])}${SourceLinks([
-          { label: "View the Banking in Spain Guide", href: "/guides/banking/" },
+          { label: "View the Banking in Spain Guide", href: "/the-spain-files/bank-account-spain/" },
           { label: "View the Digital Certificate and Cl@ve Guide", href: "/guides/digital/" },
           { label: "View the Social Security Number Guide", href: "/guides/social-security/" },
           { label: "View the Taxes in Spain Guide", href: "/guides/taxes/" },
@@ -3617,7 +3617,7 @@ const pages = [
             { title: "Retired", text: "You may be asked for pension evidence, healthcare proof such as S1 or suitable insurance, and resources evidence." },
             { title: "Sufficient resources", text: "You may be asked for proof of funds or income and suitable healthcare cover." }
           ])}${SourceLinks([
-          { label: "View the EU Worker Registration Guide", href: "/guides/eu-working/" }
+          { label: "View the EU Worker Registration Guide", href: "/guides/eu-registration/" }
         ])}<p>If your qualifying basis is employment, the EU Worker Registration Guide covers that route specifically.</p>`
         }),
         GuideSection({
@@ -3781,7 +3781,7 @@ const pages = [
             { title: "Jubilarte", text: "Puede que te pidan justificante de pensión, sanitario (como el S1 o un seguro adecuado) y de recursos." },
             { title: "Recursos suficientes", text: "Puede que te pidan justificante de fondos o ingresos y cobertura sanitaria adecuada." }
           ])}${SourceLinks([
-          { label: "Ver la guía de registro de trabajador de la UE", href: "/guides/es/eu-working/" }
+          { label: "Ver la guía de registro de trabajador de la UE", href: "/guides/es/eu-registration/" }
         ])}<p>Si tu base para calificar es el empleo, la guía de registro de trabajador de la UE cubre esa vía en concreto.</p>`
         }),
         GuideSection({
@@ -4747,7 +4747,7 @@ pages.push({
           <tr><th>Vía de empleo</th><td>Normalmente conectada con un empleo en España. Puede implicar trámites por parte de la empresa. Usa la <a href="${routes.esWorkInSpain}">hoja de ruta de trabajar en España</a>.</td></tr>
           <tr><th>Vía de autónomo</th><td>Normalmente conectada con una actividad económica independiente en España. El alta fiscal y de Seguridad Social puede ser compleja. Usa la <a href="${routes.esSelfEmployed}">hoja de ruta de autónomo</a>.</td></tr>
         </tbody></table><div class="guide-box guide-box--warning"><strong>Importante</strong><p>No des por hecho que estas vías sean intercambiables. Confirma cuál encaja con tu estructura de trabajo real antes de solicitar.</p></div>${SourceLinks([
-          { label: "Ver la guía de nómada digital", href: "/guides/es/digital-nomad/" }
+          { label: "Ver la guía de nómada digital", href: "/es/the-spain-files/visado-nomada-digital/" }
         ])}<p>Una vez decidido qué vía se aplica, la guía de nómada digital cubre el detalle procedimental que esta hoja de ruta no entra a explicar: los documentos que suelen exigirse y el paso de la tarjeta tras la aprobación.</p>`
       }),
       GuideSection({
@@ -4933,7 +4933,7 @@ pages.push({
             "Tax residency information."
           ]
         })}${InfoBox({ title: "Exact requirements vary by bank", text: "Banks can ask for different evidence depending on your nationality, residency status, income source, tax residency and account type." })}${SourceLinks([
-          { label: "View the Banking in Spain Guide", href: "/guides/banking/" }
+          { label: "View the Banking in Spain Guide", href: "/the-spain-files/bank-account-spain/" }
         ])}<p>The Banking in Spain Guide is the shorter reference version, covering what banks typically ask for.</p>`
       }),
       GuideSection({
@@ -5928,8 +5928,8 @@ pages.push({
           { title: "Study in Spain", text: "Study routes usually depend on enrolment, programme length and financial means.", href: routes.students, label: "View roadmap", secondaryHref: "/guides/study/", secondaryLabel: "View the Study Stay Guide" },
           { title: "Join family in Spain", text: "Family reunification routes usually depend on the relationship and the sponsoring family member's status.", href: routes.familyReunification, label: "View roadmap", secondaryHref: "/guides/family/", secondaryLabel: "View the Family Reunification Guide" },
           { title: "Family member of an EU citizen", text: "This route can differ from standard non-EU family routes, depending on the relationship and situation.", href: routes.euFamilyMemberRoadmap, label: "View roadmap", secondaryHref: "/guides/eu-family/", secondaryLabel: "View the EU-Family Residence Card Guide" },
-          { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View roadmap", secondaryHref: "/guides/non-lucrative/", secondaryLabel: "View the Non-Lucrative Residence Guide" },
-          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: routes.digitalNomad, label: "View roadmap", secondaryHref: "/guides/digital-nomad/", secondaryLabel: "View the Digital Nomad Guide" },
+          { title: "Retire or live from sufficient resources", text: "This route usually depends on proof of income, savings and healthcare cover rather than employment.", href: routes.retireInSpain, label: "View roadmap", secondaryHref: "/the-spain-files/non-lucrative-visa-spain/", secondaryLabel: "View the Non-Lucrative Residence Guide" },
+          { title: "Digital nomad / remote work", text: "This route usually depends on remote employment or client relationships based outside Spain.", href: routes.digitalNomad, label: "View roadmap", secondaryHref: "/the-spain-files/digital-nomad-visa-spain/", secondaryLabel: "View the Digital Nomad Guide" },
           { title: "Self-employed / business activity", text: "This route usually depends on the business plan, activity and financial evidence.", href: routes.selfEmployed, label: "View roadmap", secondaryHref: "/guides/work-authorization/", secondaryLabel: "View the Work Authorization Guide (EX-07)" },
           { title: "Already in Spain and unsure what applies", text: "Use the Start Here page and this roadmap together to narrow down what may apply.", href: routes.startHere, label: "Continue" }
         ])
@@ -5972,7 +5972,7 @@ pages.push({
           { title: "Understand tax obligations", text: "Tax questions may arise depending on residence, income and assets." }
         ])}${InfoBox({ title: "Order can vary", text: "Not everyone follows the same order. Some steps may happen in parallel, and appointment availability can vary by province and situation." })}${SourceLinks([
           { label: "View the Padrón Guide", href: "/guides/padron/" },
-          { label: "View the Banking in Spain Guide", href: "/guides/banking/" },
+          { label: "View the Banking in Spain Guide", href: "/the-spain-files/bank-account-spain/" },
           { label: "View the Digital Certificate and Cl@ve Guide", href: "/guides/digital/" },
           { label: "View the Taxes in Spain Guide", href: "/guides/taxes/" }
         ])}<p>Each of these post-arrival steps has its own short procedural guide.</p>`
@@ -6147,7 +6147,7 @@ pages.push({
           { title: "Appointments and fingerprints", text: "Card procedures may involve appointments, fingerprints and a separate collection step." },
           { title: "Depends on approval and procedure", text: "The exact process depends on approval and the local procedure used by the office." }
         ])}${WarningBox("Do not confuse the family-member residence card, the EU citizen's registration certificate, and a NIE. Confirm which document applies to your case before an appointment.")}${SourceLinks([
-          { label: "View the TIE After Approval Guide", href: "/guides/tie-after-approval/" }
+          { label: "View the TIE After Approval Guide", href: "/guides/tie/" }
         ])}<p>Where a card appointment follows an approval, the TIE After Approval Guide covers the fingerprinting and collection step.</p>`
       }),
       CommonMistakes([
@@ -6414,7 +6414,7 @@ pages.push({
           { label: "View the Healthcare in Spain Guide", href: routes.healthcare },
           { label: "View the Taxes in Spain Guide", href: routes.taxes }
         ])}${SourceLinks([
-          { label: "View the EU Worker Registration Guide", href: "/guides/eu-working/" }
+          { label: "View the EU Worker Registration Guide", href: "/guides/eu-registration/" }
         ])}<p>The EU Worker Registration Guide covers the EU Registration Certificate on the basis of employment, including the form and the fee.</p>`
       }),
       GuideSection({
@@ -6594,7 +6594,7 @@ pages.push({
           { title: "Different channels depending on route", text: "The process may involve a Spanish consulate, immigration authorities or other official channels, depending on the route." },
           { title: "TIE may follow", text: "A TIE may be required after approval or arrival." }
         ])}${SourceLinks([
-          { label: "View the Non-Lucrative Residence Guide", href: "/guides/non-lucrative/" },
+          { label: "View the Non-Lucrative Residence Guide", href: "/the-spain-files/non-lucrative-visa-spain/" },
           { label: "View the Non-EU Citizen Roadmap", href: routes.nonEuRoadmap },
           { label: "View the Documents Checklist", href: routes.checklist }
         ])}<p>For most retirees and self-sufficient applicants the route in question is non-lucrative residence. The Non-Lucrative Residence Guide covers what this roadmap does not: the form, the evidence consulates typically ask for, and how the funds requirement is expressed.</p>`
@@ -6927,7 +6927,7 @@ pages.push({
           <tr><th>Employee route</th><td>Usually connected to employment in Spain. May involve employer-side processes. Use the <a href="${routes.workInSpain}">Work in Spain Roadmap</a>.</td></tr>
           <tr><th>Self-employed / autónomo route</th><td>Usually connected to independent economic activity in Spain. Tax and Social Security setup can be complex. Use the <a href="${routes.selfEmployed}">Self-Employed Roadmap</a>.</td></tr>
         </tbody></table>${WarningBox("Do not assume these routes are interchangeable. Confirm which one matches your actual work structure before applying.")}${SourceLinks([
-          { label: "View the Digital Nomad Guide", href: "/guides/digital-nomad/" }
+          { label: "View the Digital Nomad Guide", href: "/the-spain-files/digital-nomad-visa-spain/" }
         ])}<p>Once you have settled which route applies, the Digital Nomad Guide covers the procedural detail this roadmap does not: the documents typically required, and the card step that follows approval.</p>`
       }),
       GuideSection({
@@ -7409,7 +7409,7 @@ pages.push({
         id: "moneyAndWork",
         title: "Money and work",
         children: StartHereGuideCards([
-          { title: "Bank account and banking basics", text: "Spanish bank account for salary, rent, utilities, and tax — needed within weeks of arriving.", href: "/guides/banking/", label: "View guide" },
+          { title: "Bank account and banking basics", text: "Spanish bank account for salary, rent, utilities, and tax — needed within weeks of arriving.", href: "/the-spain-files/bank-account-spain/", label: "View guide" },
           { title: "Renting a home in Spain", text: "How to search, prepare documents, check contracts, and avoid risky payments.", href: "/guides/renting-home/", label: "View guide" },
           { title: "Job search in Spain", text: "SEPE, InfoJobs, and LinkedIn are the main channels; EU citizens work freely, non-EU need authorization.", href: "/guides/job-search/", label: "View guide" },
           { title: "Taxes and tax address", text: "Tax residency, annual IRPF return, and the Beckham Law option for recent arrivals.", href: "/guides/taxes/", label: "View guide" },
@@ -7471,7 +7471,7 @@ pages.push({
         id: "dineroYTrabajo",
         title: "Dinero y trabajo",
         children: StartHereGuideCards([
-          { title: "Cuenta bancaria y banca básica", text: "Cuenta para nómina, alquiler, recibos y operaciones bancarias diarias.", href: "/guides/es/banking/", label: "Ver guía" },
+          { title: "Cuenta bancaria y banca básica", text: "Cuenta para nómina, alquiler, recibos y operaciones bancarias diarias.", href: "/the-spain-files/abrir-cuenta-bancaria-espana/", label: "Ver guía" },
           { title: "Alquilar una vivienda en España", text: "Cómo buscar vivienda, preparar documentos, revisar contratos y evitar pagos dudosos.", href: "/guides/es/renting-home/", label: "Ver guía" },
           { title: "Buscar trabajo en España", text: "Portales públicos y pasos básicos para empezar a buscar trabajo.", href: "/guides/es/job-search/", label: "Ver guía" },
           { title: "Impuestos y domicilio fiscal", text: "Domicilio fiscal y trámites básicos con Hacienda.", href: "/guides/es/taxes/", label: "Ver guía" },

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-guide-id="family" data-guide-lang="en">
+<html lang="en" data-guide-id="family" data-guide-lang="en" data-seo-primary="/moving-to-spain/family-reunification/" data-crawler-first="true">
   <head>
     <base href="/" />
     <link rel="alternate" hreflang="en" href="https://iberigo.eu/guides/family/" />
@@ -7,6 +7,8 @@
     <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/guides/family/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="googlebot" content="noindex, follow" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
     <title>Family reunification in Spain — IberiGo</title>
     <meta name="description" content="For eligible relatives joining a non-EU legal resident in Spain. Requires family relationship evidence, sponsor residence documents, housing proof, and…" />
@@ -24,6 +26,81 @@
     <link rel="stylesheet" href="styles.css?v=20260926-timeline-stack" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="apple-touch-icon" href="/assets/favicon.svg" />
+  
+    <style data-crawler-first-guide-style>
+      .crawler-guide-intro { max-width: 820px; padding: clamp(0.4rem, 1vw, 0.8rem) 0; }
+      .crawler-guide-intro .tagline { display: inline-block; margin-bottom: 0.55rem; }
+      .crawler-guide-intro h1 { margin: 0 0 0.9rem; font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.04; }
+      .crawler-guide-intro p { max-width: 68ch; margin: 0; font-size: 1.05rem; line-height: 1.7; }
+    </style>
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
   </head>
   <body>
     <div class="app-shell">
@@ -44,7 +121,7 @@
       </header>
 
       <main>
-        <section id="guide-cards" class="panel guide-card-panel" aria-labelledby="guideCardsTitle">
+        <section id="guide-cards" class="panel guide-card-panel" aria-labelledby="guideCardsTitle" hidden>
           <div class="section-heading">
             <h2 id="guideCardsTitle" data-i18n="startHeading">Where should we begin?</h2>
           </div>
@@ -80,7 +157,7 @@
         </section>
 
         <section id="wizard" class="panel wizard-panel">
-          <form class="wizard" id="routeWizard">
+          <form class="wizard" id="routeWizard" hidden>
             <div class="wizard-progress" aria-label="Progress">
               <span data-i18n="progressPerson">1. Status</span>
               <span data-i18n="progressGoal">2. Goal</span>
@@ -118,12 +195,18 @@
           </form>
 
           <article class="result-card" id="wizardResult" aria-live="polite">
+          <div class="crawler-guide-intro" data-crawler-guide-intro data-crawler-guide-id="family">
+            <span class="tagline">IberiGo guide</span>
+            <h1>Family reunification in Spain</h1>
+            <p>For eligible relatives joining a non-EU legal resident in Spain. Requires family relationship evidence, sponsor residence documents, housing proof, and…</p>
+          </div>
+        
             <div class="result-hero">
               <div class="result-hero-copy">
                 <h3>Family reunification</h3>
                 <section class="result-purpose" aria-label="What this is for">
                   <strong>What this is for</strong>
-                  <div class="result-purpose-body"><p><strong>What it is:</strong> Family reunification (reagrupación familiar) lets a non-EU citizen who already holds legal residence in Spain sponsor certain close relatives so they can join them on a dependent temporary residence authorization. It is a separate route from being sponsored by an EU, EEA, or Swiss citizen, which instead follows the EU-family residence card process.</p><p><strong>Who can sponsor:</strong> The Spain-based sponsor normally needs to have held legal residence for at least one year and have at least one more year of validity remaining on their own authorization, and must show housing and income that meet the threshold for the family size being reunited.</p><p><strong>Eligible relatives:</strong> Typically the sponsor's spouse or registered partner, minor children, and in some cases dependent parents can be included; each relationship has to be documented.</p><p><strong>How the process runs:</strong> The sponsor files the reunification application in Spain. Once it is approved, the family member applies for their entry visa at a Spanish consulate abroad, travels to Spain, and then completes the TIE card step to receive their residence card.</p><p><strong>Practical note:</strong> Processing commonly takes several months, and supporting documents such as birth or marriage certificates usually need an apostille and a sworn Spanish translation before they are accepted.</p></div>
+                  <div class="result-purpose-body"><p><strong>What it is:</strong> Family reunification (reagrupación familiar) lets a non-EU citizen who already holds legal residence in Spain sponsor certain close relatives so they can join them on a dependent temporary residence authorization. It is a separate route from being sponsored by an EU, EEA, or Swiss citizen, which instead follows the EU-family residence card process.</p><p><strong>Who can sponsor:</strong> The Spain-based sponsor normally needs to have lived legally in Spain for at least one year and have requested authorization to reside for at least another year, subject to the official exceptions. The sponsor must also show adequate housing, sufficient regular means and health insurance for the sponsor and the family members being reunited.</p><p><strong>Eligible relatives:</strong> Qualifying relatives can include a spouse or partner — including a properly proven stable unregistered partner where the official conditions are met — children and represented persons in the stated categories, and certain dependent ascendants or other specifically listed relatives.</p><p><strong>How the process runs:</strong> The sponsor files the reunification application in Spain. Once it is approved, the family member applies for their entry visa at a Spanish consulate abroad, travels to Spain, and then completes the TIE card step to receive their residence card.</p><p><strong>Practical note:</strong> Processing commonly takes several months, and supporting documents such as birth or marriage certificates usually need an apostille and a sworn Spanish translation before they are accepted.</p></div>
                 </section>
               </div>
             </div>
@@ -183,7 +266,7 @@
           </article>
         </section>
 
-        <section id="documents" class="panel document-panel">
+        <section id="documents" class="panel document-panel" hidden>
           <div class="section-heading">
             <h2>Documents that often slow people down</h2>
           </div>
@@ -219,7 +302,7 @@
           <p class="helper-note">Not every document applies to every route. The guide should help you narrow this down.</p>
         </section>
 
-        <section id="sources" class="sources panel">
+        <section id="sources" class="sources panel" hidden>
           <div class="section-heading">
             <h2>Official sources</h2>
           </div>
@@ -245,7 +328,7 @@
                 <a href="https://www.sede.fnmt.gob.es/certificados/persona-fisica" target="_blank" rel="noreferrer">FNMT citizen digital certificate</a>
                 <a href="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion" target="_blank" rel="noreferrer">FNMT appointment via Tax Agency</a>
                 <a href="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=CPMSWACS&ORGANISMO=I" target="_blank" rel="noreferrer">FNMT appointment via Social Security</a>
-                <a href="https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html" target="_blank" rel="noreferrer">Cl@ve registration</a>
+                <a href="https://clave.gob.es/registro/como-puedo-registrarme" target="_blank" rel="noreferrer">Cl@ve registration</a>
               </div>
             </article>
             <article>
@@ -268,13 +351,15 @@
       <footer class="site-footer">
         <p data-i18n="footerSupportText">IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.</p>
         <a href="/support/" data-i18n="footerSupportLink">Donate</a>
+        <a class="footer-help-feedback-link" href="/help-feedback/" data-help-feedback-footer>Help & Feedback</a>
         <div class="site-footer-legal">
           <p data-i18n="footerLegal">© 2026 IberiGo. Free to use. Not legal advice.</p>
-          <p data-i18n="footerReviewed">Last reviewed: July 2026</p>
         </div>
       </footer>
     </div>
-    <script src="app.js?v=h6fb85a66f9"></script>
+    <script src="app.js?v=h12c4e7e646"></script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
   </body>
 </html>

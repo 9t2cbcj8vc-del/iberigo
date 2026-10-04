@@ -115,6 +115,120 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
+    <meta name="last-modified" content="2026-10-04" data-iberigo-freshness />
+    <script type="application/ld+json" data-iberigo-structured-data>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://iberigo.eu/es/moving-to-spain/retire-in-spain/#webpage",
+          "url": "https://iberigo.eu/es/moving-to-spain/retire-in-spain/",
+          "name": "Jubilarte en España — IberiGo",
+          "description": "Una hoja de ruta práctica para quienes planean jubilarse en España o vivir de recursos suficientes: documentos, sanidad, impuestos, registro de la UE, vías no comunitarias y errores comunes.",
+          "inLanguage": "es",
+          "isPartOf": {
+            "@id": "https://iberigo.eu/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://iberigo.eu/es/moving-to-spain/retire-in-spain/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://iberigo.eu/es/moving-to-spain/retire-in-spain/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "IberiGo",
+              "item": "https://iberigo.eu/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Mudarse a España",
+              "item": "https://iberigo.eu/es/start-here/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Jubilarte en España",
+              "item": "https://iberigo.eu/es/moving-to-spain/retire-in-spain/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body data-filler-cleanup="1">
     <div class="app-shell">
@@ -125,7 +239,7 @@
         <nav aria-label="Secciones principales">
           <a href="/es/start-here/">Empieza aquí</a>
           <a href="/index.html?nav=start#guide-cards">Portada</a>
-          <a href="/the-spain-files/">The Spain Files</a>
+          <a href="/the-spain-files/es/">The Spain Files</a>
           <a href="/support/">Donar</a>
           <a class="search-nav-link" href="/search/" aria-label="Buscar en IberiGo" title="Buscar en IberiGo" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg></a>
           <div class="language-switcher" aria-label="Idioma">
@@ -135,7 +249,7 @@
         </nav>
       </header>
       <main class="guide-main">
-        <div class="guide-layout">
+        <div class="guide-layout guide-layout--single">
           <div class="guide-content">
             <nav class="guide-breadcrumbs" aria-label="Miga de pan">
           <ol>
@@ -152,11 +266,6 @@
             <p class="guide-reading-time">10 min de lectura</p>
           </div>
         </section>
-        <details class="guide-toc-mobile" data-guide-toc>
-          <summary>En esta página</summary>
-          <nav aria-label="En esta página"><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#ciudadanosUeJubilandose" data-guide-toc-link>Ciudadanos de la UE que se jubilan o viven de recursos propios</a></li><li><a href="#ciudadanosNoUeJubilandose" data-guide-toc-link>Ciudadanos no UE que se jubilan en España</a></li><li><a href="#antesDeSolicitarOMudarte" data-guide-toc-link>Antes de solicitar o mudarte</a></li><li><a href="#sanidadParaJubilados" data-guide-toc-link>Sanidad para jubilados</a></li><li><a href="#impuestosYPensiones" data-guide-toc-link>Impuestos y pensiones</a></li><li><a href="#alojamientoYPadron" data-guide-toc-link>Alojamiento y padrón</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </details>
-        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
         <section class="guide-section" aria-labelledby="respuestaRapida"><h2 id="respuestaRapida">Respuesta rápida</h2><p>Las personas que se jubilan en España pueden seguir vías distintas según su nacionalidad y su situación económica. Ciudadanos de la UE y no comunitarios siguen procesos distintos. La cobertura sanitaria y el justificante de recursos suelen ser importantes. Conviene revisar pronto los ingresos por pensión, los ahorros, las inversiones y la residencia fiscal. Esta hoja de ruta te ayuda a entender el recorrido general; no sustituye los requisitos oficiales.</p></section>
         
         
@@ -165,13 +274,13 @@
           <article class="guide-info-card"><h3>Registro de la UE si te quedas más tiempo</h3><p>Si te quedas más de tres meses, puede aplicar el registro de la UE.</p></article>
           <article class="guide-info-card"><h3>Recursos y cobertura sanitaria</h3><p>Los jubilados o personas autosuficientes de la UE pueden necesitar justificar recursos suficientes y cobertura sanitaria.</p></article>
           <article class="guide-info-card"><h3>Depende de la oficina y la situación</h3><p>Los justificantes exactos pueden depender de la oficina y la situación personal.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/es/moving-to-spain/eu-citizens/">Ver la hoja de ruta de ciudadanos de la UE</a>
-          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/eu-registration/">Ver la guía del registro de la UE</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">Ver la guía de sanidad (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/taxes/">Ver la guía de impuestos (en inglés)</a></div></section>
+          <a class="guide-button guide-button--secondary" href="/guides/es/eu-registration/">Ver la guía del registro de la UE</a>
+          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/healthcare/">Ver la guía de sanidad</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/taxes/">Ver la guía de impuestos</a></div></section>
         <section class="guide-section" aria-labelledby="ciudadanosNoUeJubilandose"><h2 id="ciudadanosNoUeJubilandose">Ciudadanos no UE que se jubilan en España</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Hace falta la vía correcta primero</h3><p>Los ciudadanos no comunitarios normalmente necesitan el visado o la vía de residencia correcta antes de vivir en España a largo plazo.</p></article>
           <article class="guide-info-card"><h3>Vías para solicitantes autosuficientes</h3><p>Algunas vías pueden estar pensadas para personas que pueden mantenerse sin trabajar en España.</p></article>
           <article class="guide-info-card"><h3>Distintos canales según la vía</h3><p>El trámite puede implicar a un consulado español, autoridades de extranjería u otros canales oficiales, según la vía.</p></article>
-          <article class="guide-info-card"><h3>Puede seguir la TIE</h3><p>Puede requerirse una TIE tras la aprobación o la llegada.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/guides/es/non-lucrative/">Ver la guía de residencia no lucrativa</a>
+          <article class="guide-info-card"><h3>Puede seguir la TIE</h3><p>Puede requerirse una TIE tras la aprobación o la llegada.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/es/the-spain-files/visado-no-lucrativo/">Ver la guía de residencia no lucrativa</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/non-eu-citizens/">Ver la hoja de ruta de ciudadanos no UE</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/documents-checklist/">Ver la lista de documentos</a></div><p>Para la mayoría de las personas jubiladas o con recursos propios la vía en cuestión es la residencia no lucrativa. La guía correspondiente cubre lo que esta hoja de ruta no detalla: el formulario, la documentación que suelen pedir los consulados y cómo se expresa el requisito de medios económicos.</p></section>
         <section class="guide-section" aria-labelledby="antesDeSolicitarOMudarte"><h2 id="antesDeSolicitarOMudarte">Antes de solicitar o mudarte</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Identidad</h3><p>Un pasaporte o documento nacional en vigor suele ser central en la solicitud.</p></article>
@@ -188,19 +297,19 @@
           <article class="guide-info-card"><h3>Vías basadas en pensión o formulario S1</h3><p>Algunos jubilados pueden usar vías de sanidad pública, como el derecho basado en la pensión o el S1, cuando proceda.</p></article>
           <article class="guide-info-card"><h3>Puede hacer falta seguro privado</h3><p>Otros pueden necesitar seguro médico privado según la vía y la situación.</p></article>
           <article class="guide-info-card"><h3>Depende del trámite</h3><p>Los requisitos de seguro privado pueden depender del trámite concreto.</p></article>
-          <article class="guide-info-card"><h3>Variación regional</h3><p>Los trámites de tarjeta sanitaria regional pueden variar.</p></article></div><div class="guide-box guide-box--warning"><strong>Importante</strong><p>No supongas que el seguro médico privado siempre satisface cualquier vía. Comprueba el requisito de tu trámite concreto.</p></div><div class="guide-button-row"><a class="guide-button" href="/moving-to-spain/healthcare/">Ver la guía de sanidad (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/social-security/">Ver la guía de Seguridad Social (en inglés)</a></div></section>
+          <article class="guide-info-card"><h3>Variación regional</h3><p>Los trámites de tarjeta sanitaria regional pueden variar.</p></article></div><div class="guide-box guide-box--warning"><strong>Importante</strong><p>No supongas que el seguro médico privado siempre satisface cualquier vía. Comprueba el requisito de tu trámite concreto.</p></div><div class="guide-button-row"><a class="guide-button" href="/es/moving-to-spain/healthcare/">Ver la guía de sanidad</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/social-security/">Ver la guía de Seguridad Social</a></div></section>
         <section class="guide-section" aria-labelledby="impuestosYPensiones"><h2 id="impuestosYPensiones">Impuestos y pensiones</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Puede afectar a la residencia fiscal</h3><p>Mudarte a España puede afectar a tu residencia fiscal.</p></article>
           <article class="guide-info-card"><h3>Distinta de la residencia de inmigración</h3><p>La residencia fiscal es distinta de la residencia de inmigración.</p></article>
           <article class="guide-info-card"><h3>Puede aplicarse a los ingresos mundiales</h3><p>España puede gravar a los residentes por sus ingresos mundiales según las circunstancias.</p></article>
           <article class="guide-info-card"><h3>Varios tipos de ingresos a revisar</h3><p>Conviene revisar pensiones, ingresos de inversión, ingresos de alquiler y de ahorros.</p></article>
-          <article class="guide-info-card"><h3>Los convenios pueden importar</h3><p>Los convenios de doble imposición pueden afectar al resultado.</p></article></div><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esto no es asesoramiento fiscal sobre pensiones específico de ningún país. Busca asesoramiento profesional para tu situación de pensión e impuestos concreta.</p></div><div class="guide-button-row"><a class="guide-button" href="/living-in-spain/taxes/">Ver la guía de impuestos (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/digital-certificate/">Ver la guía del certificado digital y Cl@ve (en inglés)</a></div></section>
+          <article class="guide-info-card"><h3>Los convenios pueden importar</h3><p>Los convenios de doble imposición pueden afectar al resultado.</p></article></div><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esto no es asesoramiento fiscal sobre pensiones específico de ningún país. Busca asesoramiento profesional para tu situación de pensión e impuestos concreta.</p></div><div class="guide-button-row"><a class="guide-button" href="/guides/es/taxes/">Ver la guía de impuestos</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/digital/">Ver la guía del certificado digital y Cl@ve</a></div></section>
         <section class="guide-section" aria-labelledby="alojamientoYPadron"><h2 id="alojamientoYPadron">Alojamiento y padrón</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>A menudo hace falta una dirección estable</h3><p>Los jubilados suelen necesitar una dirección estable para los trámites administrativos.</p></article>
           <article class="guide-info-card"><h3>El padrón sirve para varios trámites</h3><p>El padrón puede necesitarse para la sanidad, los trámites de residencia y los servicios locales.</p></article>
           <article class="guide-info-card"><h3>Varía según el municipio</h3><p>Los requisitos varían según el municipio.</p></article>
           <article class="guide-info-card"><h3>Comprueba antes de firmar</h3><p>Antes de firmar un contrato de alquiler, comprueba si la dirección permite el empadronamiento.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/es/moving-to-spain/finding-accommodation/">Ver la guía de alojamiento</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">Ver la guía del padrón (en inglés)</a></div></section>
+          <a class="guide-button guide-button--secondary" href="/guides/es/padron/">Ver la guía del padrón</a></div></section>
         <section class="guide-section" aria-labelledby="conceptosBasicosTieJubilados" data-filler-cleaned="tie"><h2 id="conceptosBasicosTieJubilados">TIE</h2><p>Muchos residentes no comunitarios necesitan la TIE (tarjeta de identidad de extranjero) después de la aprobación o la llegada. Detalles, plazo de un mes y cita de huellas: <a href="/guides/es/tie/">guía de la TIE</a>.</p></section>
         <section class="guide-section" aria-labelledby="erroresComunes" data-filler-cleaned="mistakes"><h2 id="erroresComunes">Errores comunes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Suponer que tener una propiedad da derecho de residencia.</p></article>
           <article class="guide-info-card"><h3>2</h3><p>Suponer que los ingresos por pensión bastan automáticamente.</p></article>
@@ -210,22 +319,14 @@
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/eu-citizens/">Ver la hoja de ruta de ciudadanos de la UE</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/non-eu-citizens/">Ver la hoja de ruta de ciudadanos no UE</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/documents-checklist/">Ver la lista de documentos</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">Ver la guía de sanidad (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/taxes/">Ver la guía de impuestos (en inglés)</a>
+          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/healthcare/">Ver la guía de sanidad</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/taxes/">Ver la guía de impuestos</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/finding-accommodation/">Ver la guía de alojamiento</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">Ver la guía del padrón (en inglés)</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/padron/">Ver la guía del padrón</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/settling-into-spain/">Ver la guía de primeros pasos</a></div><div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, pensión, economía y traducciones para poder responder rápido en cuanto conozcas los requisitos exactos de tu vía.</p></div></section>
-        <p class="last-reviewed">Última revisión: July 2026</p>
+        <p class="last-reviewed">Última revisión: agosto de 2026</p>
           </div>
-          <aside class="guide-toc" data-guide-toc aria-label="En esta página">
-          <strong>En esta página</strong>
-          <nav><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#ciudadanosUeJubilandose" data-guide-toc-link>Ciudadanos de la UE que se jubilan o viven de recursos propios</a></li><li><a href="#ciudadanosNoUeJubilandose" data-guide-toc-link>Ciudadanos no UE que se jubilan en España</a></li><li><a href="#antesDeSolicitarOMudarte" data-guide-toc-link>Antes de solicitar o mudarte</a></li><li><a href="#sanidadParaJubilados" data-guide-toc-link>Sanidad para jubilados</a></li><li><a href="#impuestosYPensiones" data-guide-toc-link>Impuestos y pensiones</a></li><li><a href="#alojamientoYPadron" data-guide-toc-link>Alojamiento y padrón</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </aside>
         </div>
-        <section hidden data-editorial-checklist aria-label="Editorial checklist">
-          <h2>Editorial Checklist</h2>
-          <ul><li>Grammar reviewed</li><li>Internal links checked</li><li>External links checked</li><li>Mobile reviewed</li><li>Desktop reviewed</li><li>Accessibility reviewed</li><li>SEO reviewed</li><li>Facts verified</li></ul>
-        </section>
         <script type="application/json" class="guide-frontmatter">{
   "title": "Jubilarte en España — IberiGo",
   "description": "Una hoja de ruta práctica para quienes planean jubilarse en España o vivir de recursos suficientes: documentos, sanidad, impuestos, registro de la UE, vías no comunitarias y errores comunes.",
@@ -271,27 +372,18 @@
       "title": "Bank Account Guide",
       "description": "Set up everyday banking, payments and account documents in Spain.",
       "label": "View guide",
-      "href": "/living-in-spain/opening-a-bank-account/"
+      "href": "/the-spain-files/bank-account-spain/"
     }
-  ],
-  "editorialChecklist": [
-    "Grammar reviewed",
-    "Internal links checked",
-    "External links checked",
-    "Mobile reviewed",
-    "Desktop reviewed",
-    "Accessibility reviewed",
-    "SEO reviewed",
-    "Facts verified"
   ]
-}</script>
+}
+        </script>
       </main>
       <footer class="site-footer">
         <p>IberiGo es gratis. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.</p>
         <a href="/support/">Donar</a>
+        <a class="footer-help-feedback-link" href="/es/help-feedback/" data-help-feedback-footer>Ayuda y comentarios</a>
         <div class="site-footer-legal">
           <p>© 2026 IberiGo. Gratis. No es asesoramiento legal.</p>
-          <p>Última revisión: July 2026</p>
         </div>
       </footer>
     </div>
@@ -352,5 +444,7 @@
       })();
     </script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
   </body>
 </html>

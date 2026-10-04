@@ -161,8 +161,8 @@ def audit_local():
     specific = {
         ROOT / "es/moving-to-spain/eu-citizens/index.html": [
             "/es/moving-to-spain/healthcare/",
-            "/es/moving-to-spain/registering-on-the-padron/",
-            "/es/moving-to-spain/eu-registration/",
+            "/guides/es/padron/",
+            "/guides/es/eu-registration/",
             "/guides/es/digital/",
             "/guides/es/social-security/",
             "/guides/es/taxes/",
@@ -170,7 +170,7 @@ def audit_local():
         ],
         ROOT / "es/moving-to-spain/non-eu-citizens/index.html": [
             "/guides/es/padron/",
-            "/guides/es/banking/",
+            "/the-spain-files/abrir-cuenta-bancaria-espana/",
             "/guides/es/digital/",
             "/guides/es/taxes/",
             "/guides/es/tie/",

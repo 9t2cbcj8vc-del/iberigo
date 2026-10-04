@@ -53,7 +53,7 @@
   const intents = [
     {
       id: 'tie-after-approval',
-      urls: { en: '/guides/tie-after-approval/', es: '/guides/es/tie-after-approval/' },
+      urls: { en: '/guides/tie/', es: '/guides/es/tie/' },
       titles: { en: 'TIE after approval', es: 'TIE después de la aprobación' },
       summaries: {
         en: 'Your residence or stay has been approved and you now need the physical TIE card, fingerprints or collection steps.',
@@ -98,6 +98,18 @@
       },
       aliases: ['need tie', 'what is tie', 'tie card', 'tarjeta tie', 'necesito tie', 'que es tie', 'tarjeta extranjero'],
       keywords: ['tie', 'tarjeta', 'foreigner']
+    },
+
+    {
+      id: 'padron-torrevieja',
+      urls: { en: '/the-spain-files/padron-torrevieja/', es: '/the-spain-files/es/padron-torrevieja/' },
+      titles: { en: 'Padrón in Torrevieja', es: 'Empadronamiento en Torrevieja' },
+      summaries: {
+        en: 'Town-hall padrón in Torrevieja: appointment channel, documents and real wait times.',
+        es: 'Empadronamiento en Torrevieja: cita, documentos y plazos reales.'
+      },
+      aliases: ['padron torrevieja', 'empadronamiento torrevieja', 'empadronarme torrevieja', 'padron in torrevieja', 'cita padron torrevieja'],
+      keywords: ['torrevieja', 'padron', 'empadronamiento']
     },
     {
       id: 'padron',
@@ -178,7 +190,7 @@
     },
     {
       id: 'banking',
-      urls: { en: '/guides/banking/', es: '/guides/es/banking/' },
+      urls: { en: '/the-spain-files/bank-account-spain/', es: '/the-spain-files/abrir-cuenta-bancaria-espana/' },
       titles: { en: 'Banking in Spain', es: 'Banca en España' },
       summaries: { en: 'Understand Spanish bank accounts, IBANs and common resident/non-resident documentation.', es: 'Entiende cuentas bancarias españolas, IBAN y documentación habitual.' },
       aliases: ['open bank account', 'spanish bank account', 'bank account spain', 'iban spain', 'abrir cuenta bancaria', 'cuenta bancaria espana', 'cuenta banco', 'iban espanol'],
@@ -250,7 +262,7 @@
     },
     {
       id: 'digital-nomad',
-      urls: { en: '/moving-to-spain/digital-nomad-spain/', es: '/es/moving-to-spain/digital-nomad-spain/' },
+      urls: { en: '/the-spain-files/digital-nomad-visa-spain/', es: '/es/the-spain-files/visado-nomada-digital/' },
       titles: { en: 'Digital nomad route', es: 'Ruta de nómada digital' },
       summaries: { en: 'Remote work mainly for employers or clients outside Spain: start with the international telework route.', es: 'Trabajo remoto principalmente para empresas o clientes fuera de España: empieza por la vía de teletrabajo internacional.' },
       aliases: ['digital nomad visa', 'remote work visa spain', 'work remotely from spain', 'nomada digital', 'visado teletrabajo', 'trabajar remoto desde espana', 'teletrabajo internacional'],
@@ -258,8 +270,8 @@
     },
     {
       id: 'non-lucrative',
-      urls: { en: '/moving-to-spain/retire-in-spain/', es: '/es/moving-to-spain/retire-in-spain/' },
-      titles: { en: 'Retire / live without working', es: 'Jubilarse / vivir sin trabajar' },
+      urls: { en: '/the-spain-files/non-lucrative-visa-spain/', es: '/es/the-spain-files/visado-no-lucrativo/' },
+      titles: { en: 'Non-lucrative visa', es: 'Visado no lucrativo' },
       summaries: { en: 'For non-EU people planning to live in Spain without working, including many retirees with sufficient means.', es: 'Para personas no UE que quieren vivir en España sin trabajar, incluidos muchos jubilados con medios suficientes.' },
       aliases: ['retire in spain', 'live in spain without working', 'non lucrative visa', 'non-lucrative visa', 'retirement visa', 'jubilarme en espana', 'vivir sin trabajar', 'visado no lucrativo', 'residencia no lucrativa'],
       keywords: ['retire', 'retirement', 'lucrative', 'jubilar', 'jubilado', 'lucrativa']
@@ -362,7 +374,8 @@
     if (intent.id === 'social-security' && /(nuss|social security|seguridad social)/.test(q)) score += 45;
     if (intent.id === 'driving-exchange' && /(exchange|canje|canjear|cambiar)/.test(q) && /(licen|carnet|permiso|conduc)/.test(q)) score += 42;
     if (intent.id === 'digital' && /(clave|fnmt|certificado digital|digital certificate)/.test(q)) score += 42;
-    if (intent.id === 'padron' && /(padron|empadron|register.*address|ayuntamiento)/.test(q)) score += 42;
+    if (intent.id === 'padron' && /(padron|empadron|register.*address|ayuntamiento)/.test(q) && !/torrevieja/.test(q)) score += 42;
+    if (intent.id === 'padron-torrevieja' && /torrevieja/.test(q)) score += 80;
     if (intent.id === 'eu-family' && /(partner|spouse|pareja|conyuge|familiar)/.test(q) && /(non eu|no ue|eu citizen|ciudadano ue|europe)/.test(q)) score += 35;
 
     return score;

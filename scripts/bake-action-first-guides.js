@@ -11,6 +11,10 @@ const LEGACY_ACTION_ROUTES = new Set([
   "/guides/es/nie/",
   "/guides/tie/",
   "/guides/es/tie/",
+  "/guides/padron/",
+  "/guides/es/padron/",
+  "/guides/eu-registration/",
+  "/guides/es/eu-registration/",
 ]);
 const LEGACY_DUPLICATE_HEADINGS = new Set([
   "Next 3 steps",
@@ -232,7 +236,29 @@ function bake(config, sourceFile) {
   fs.writeFileSync(file, html, "utf8");
 }
 
+
+function stripForeignPanels(allowed) {
+  const skip = new Set(['.git', '.github', '.netlify', 'node_modules', 'outputs', 'work']);
+  function walk(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (skip.has(entry.name)) continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (entry.isFile() && entry.name.endsWith('.html')) {
+        const rel = '/' + path.relative(ROOT, full).split(path.sep).join('/');
+        const route = rel.endsWith('/index.html') ? rel.slice(0, -'index.html'.length) : rel;
+        if (allowed.has(route)) continue;
+        const html = fs.readFileSync(full, 'utf8');
+        if (!html.includes(PANEL_MARKER)) continue;
+        fs.writeFileSync(full, stripGenerated(html));
+      }
+    }
+  }
+  walk(ROOT);
+}
+
 const configs = loadConfigs();
 for (const { config, sourceFile } of configs) bake(config, sourceFile);
 
+stripForeignPanels(new Set(configs.map((entry) => entry.config.route)));
 console.log(`Action-first cards baked for ${configs.length} bilingual guide routes.`);

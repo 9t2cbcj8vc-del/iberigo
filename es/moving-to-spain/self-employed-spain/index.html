@@ -115,6 +115,120 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
+    <meta name="last-modified" content="2026-10-04" data-iberigo-freshness />
+    <script type="application/ld+json" data-iberigo-structured-data>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://iberigo.eu/es/moving-to-spain/self-employed-spain/#webpage",
+          "url": "https://iberigo.eu/es/moving-to-spain/self-employed-spain/",
+          "name": "Autónomo y trabajo por cuenta propia en España — IberiGo",
+          "description": "Una hoja de ruta práctica para quienes consideran el trabajo por cuenta propia en España: conceptos básicos de autónomo, documentos, impuestos, Seguridad Social, sanidad, vías no comunitarias y errores comunes.",
+          "inLanguage": "es",
+          "isPartOf": {
+            "@id": "https://iberigo.eu/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://iberigo.eu/es/moving-to-spain/self-employed-spain/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://iberigo.eu/es/moving-to-spain/self-employed-spain/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "IberiGo",
+              "item": "https://iberigo.eu/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Mudarse a España",
+              "item": "https://iberigo.eu/es/start-here/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Autónomo y trabajo por cuenta propia en España",
+              "item": "https://iberigo.eu/es/moving-to-spain/self-employed-spain/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body data-filler-cleanup="1">
     <div class="app-shell">
@@ -125,7 +239,7 @@
         <nav aria-label="Secciones principales">
           <a href="/es/start-here/">Empieza aquí</a>
           <a href="/index.html?nav=start#guide-cards">Portada</a>
-          <a href="/the-spain-files/">The Spain Files</a>
+          <a href="/the-spain-files/es/">The Spain Files</a>
           <a href="/support/">Donar</a>
           <a class="search-nav-link" href="/search/" aria-label="Buscar en IberiGo" title="Buscar en IberiGo" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg></a>
           <div class="language-switcher" aria-label="Idioma">
@@ -135,7 +249,7 @@
         </nav>
       </header>
       <main class="guide-main">
-        <div class="guide-layout">
+        <div class="guide-layout guide-layout--single">
           <div class="guide-content">
             <nav class="guide-breadcrumbs" aria-label="Miga de pan">
           <ol>
@@ -152,11 +266,6 @@
             <p class="guide-reading-time">10 min de lectura</p>
           </div>
         </section>
-        <details class="guide-toc-mobile" data-guide-toc>
-          <summary>En esta página</summary>
-          <nav aria-label="En esta página"><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#conceptosBasicosAutonomo" data-guide-toc-link>Conceptos básicos de autónomo</a></li><li><a href="#ciudadanosUeAutoempleo" data-guide-toc-link>Ciudadanos de la UE y el autoempleo</a></li><li><a href="#ciudadanosNoUeAutoempleo" data-guide-toc-link>Ciudadanos no UE y el autoempleo</a></li><li><a href="#antesDeEmpezar" data-guide-toc-link>Antes de empezar</a></li><li><a href="#impuestosFacturasRegistros" data-guide-toc-link>Impuestos, facturas y registros</a></li><li><a href="#seguridadSocialYSanidad" data-guide-toc-link>Seguridad Social y sanidad</a></li><li><a href="#certificadoDigitalYAdministracion" data-guide-toc-link>Certificado digital y administración</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </details>
-        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
         <section class="guide-section" aria-labelledby="respuestaRapida"><h2 id="respuestaRapida">Respuesta rápida</h2><p>El trabajo por cuenta propia en España suele estar conectado con el alta como autónomo, las obligaciones fiscales y la Seguridad Social. Ciudadanos de la UE y no comunitarios pueden enfrentarse a cuestiones de residencia distintas. Los ciudadanos no comunitarios normalmente necesitan la vía de residencia o trabajo correcta antes de realizar actividad por cuenta propia. El alta como autónomo no es lo mismo que el permiso de inmigración. Esta hoja de ruta te ayuda a entender el recorrido general; no sustituye los requisitos oficiales.</p></section>
         
         
@@ -174,15 +283,15 @@
           <article class="guide-info-card"><h3>Registro de la UE si te quedas más tiempo</h3><p>Si te quedas más de tres meses, puede aplicar el registro de la UE.</p></article>
           <article class="guide-info-card"><h3>El autoempleo como una vía</h3><p>El autoempleo puede ser una vía para el registro de la UE, pero pueden requerirse justificantes.</p></article>
           <article class="guide-info-card"><h3>Revisa pronto impuestos y Seguridad Social</h3><p>Conviene revisar pronto las obligaciones fiscales y de Seguridad Social.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/es/moving-to-spain/eu-citizens/">Ver la hoja de ruta de ciudadanos de la UE</a>
-          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/eu-registration/">Ver la guía del registro de la UE</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/social-security/">Ver la guía de Seguridad Social (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/taxes/">Ver la guía de impuestos (en inglés)</a></div></section>
+          <a class="guide-button guide-button--secondary" href="/guides/es/eu-registration/">Ver la guía del registro de la UE</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/social-security/">Ver la guía de Seguridad Social</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/taxes/">Ver la guía de impuestos</a></div></section>
         <section class="guide-section" aria-labelledby="ciudadanosNoUeAutoempleo"><h2 id="ciudadanosNoUeAutoempleo">Ciudadanos no UE y el autoempleo</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Hace falta la vía correcta primero</h3><p>Los ciudadanos no comunitarios normalmente necesitan la vía de residencia o trabajo correcta antes de realizar actividad por cuenta propia en España.</p></article>
           <article class="guide-info-card"><h3>Puede implicar un plan de negocio</h3><p>El trámite puede implicar un plan de negocio, documentos profesionales, autorización o pasos consulares según la vía.</p></article>
           <article class="guide-info-card"><h3>No es un permiso por sí solo</h3><p>El alta como autónomo por sí sola no debe tratarse como permiso para vivir o trabajar.</p></article>
           <article class="guide-info-card"><h3>Puede seguir la TIE</h3><p>Puede requerirse una TIE tras la aprobación o la llegada.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/guides/es/work-authorization/">Ver la guía de autorización de trabajo</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/non-eu-citizens/">Ver la hoja de ruta de ciudadanos no UE</a>
-          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/digital-nomad-spain/">Ver la hoja de ruta de nómada digital</a>
+          <a class="guide-button guide-button--secondary" href="/es/the-spain-files/visado-nomada-digital/">Ver la hoja de ruta de nómada digital</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/documents-checklist/">Ver la lista de documentos</a></div><p>La guía de autorización de trabajo cubre las dos vías laborales en paralelo, incluida la autorización de trabajo por cuenta propia (EX-07) que se aplica aquí, y en qué se diferencia de la vía por cuenta ajena (EX-03).</p></section>
         <section class="guide-section" aria-labelledby="antesDeEmpezar"><h2 id="antesDeEmpezar">Antes de empezar</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Identidad</h3><p>Un pasaporte o documento nacional en vigor suele ser central en el trámite.</p></article>
           <article class="guide-info-card"><h3>Autorización de residencia o trabajo, según la vía</h3><p>Puede necesitarse documentación de residencia o trabajo, según tu vía.</p></article>
@@ -198,18 +307,18 @@
           <article class="guide-info-card"><h3>Alta, facturación, declaraciones, registros</h3><p>Esto puede incluir alta, facturación, declaraciones y llevanza de registros.</p></article>
           <article class="guide-info-card"><h3>Depende de la actividad</h3><p>El IVA, el IRPF y otras obligaciones pueden depender de la actividad.</p></article>
           <article class="guide-info-card"><h3>La residencia fiscal es aparte</h3><p>La residencia fiscal es distinta de la residencia de inmigración.</p></article>
-          <article class="guide-info-card"><h3>Un asesor fiscal puede ser útil</h3><p>Un asesor fiscal o gestor puede ser útil para tu situación concreta.</p></article></div><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esto no es una guía exacta de declaraciones. Busca asesoramiento profesional para tus obligaciones fiscales y de facturación concretas.</p></div><div class="guide-button-row"><a class="guide-button" href="/living-in-spain/taxes/">Ver la guía de impuestos (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/digital-certificate/">Ver la guía del certificado digital y Cl@ve (en inglés)</a></div></section>
+          <article class="guide-info-card"><h3>Un asesor fiscal puede ser útil</h3><p>Un asesor fiscal o gestor puede ser útil para tu situación concreta.</p></article></div><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Esto no es una guía exacta de declaraciones. Busca asesoramiento profesional para tus obligaciones fiscales y de facturación concretas.</p></div><div class="guide-button-row"><a class="guide-button" href="/guides/es/taxes/">Ver la guía de impuestos</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/digital/">Ver la guía del certificado digital y Cl@ve</a></div></section>
         <section class="guide-section" aria-labelledby="seguridadSocialYSanidad"><h2 id="seguridadSocialYSanidad">Seguridad Social y sanidad</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>A menudo conectado con la Seguridad Social</h3><p>El autoempleo suele estar conectado con el alta en la Seguridad Social.</p></article>
           <article class="guide-info-card"><h3>Puede afectar a la sanidad y las prestaciones</h3><p>Las cuotas de la Seguridad Social pueden afectar al acceso a la sanidad y a las prestaciones.</p></article>
           <article class="guide-info-card"><h3>Depende de la situación y la vía</h3><p>El acceso a la sanidad depende de la situación y la vía.</p></article>
-          <article class="guide-info-card"><h3>Mantén los conceptos separados</h3><p>No confundas el número de la Seguridad Social con el NIE, la TIE o la tarjeta sanitaria.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/living-in-spain/social-security/">Ver la guía de Seguridad Social (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">Ver la guía de sanidad (en inglés)</a></div><div class="guide-button-row"><a class="guide-button" href="/guides/es/social-security/">Ver la guía del número de la Seguridad Social</a>
+          <article class="guide-info-card"><h3>Mantén los conceptos separados</h3><p>No confundas el número de la Seguridad Social con el NIE, la TIE o la tarjeta sanitaria.</p></article></div><div class="guide-button-row"><a class="guide-button" href="/guides/es/social-security/">Ver la guía de Seguridad Social</a>
+          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/healthcare/">Ver la guía de sanidad</a></div><div class="guide-button-row"><a class="guide-button" href="/guides/es/social-security/">Ver la guía del número de la Seguridad Social</a>
           <a class="guide-button guide-button--secondary" href="/guides/es/vida-laboral/">Ver la guía de vida laboral</a></div><p>La guía del número de la Seguridad Social cubre cómo obtenerlo, y la guía de vida laboral cómo solicitar tu informe de cotizaciones.</p></section>
         <section class="guide-section" aria-labelledby="certificadoDigitalYAdministracion"><h2 id="certificadoDigitalYAdministracion">Certificado digital y administración</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>La administración online es habitual</h3><p>Muchos autónomos necesitan gestionar trámites administrativos online.</p></article>
           <article class="guide-info-card"><h3>El certificado digital o Cl@ve puede ayudar</h3><p>El certificado digital o Cl@ve puede ayudar con los trámites fiscales y de Seguridad Social.</p></article>
           <article class="guide-info-card"><h3>No todo está online</h3><p>No todos los trámites son idénticos ni están completamente disponibles online.</p></article>
-          <article class="guide-info-card"><h3>Guarda tus registros</h3><p>Guarda las notificaciones oficiales y tus registros.</p></article></div><p>Usa la <a href="/living-in-spain/digital-certificate/">guía del certificado digital y Cl@ve (en inglés)</a> para comparar los dos sistemas.</p><div class="guide-button-row"><a class="guide-button" href="/guides/es/digital/">Ver la guía de certificado digital y Cl@ve</a></div><p>La guía de certificado digital y Cl@ve cubre cómo obtener cada uno, algo que suele ser requisito para presentar trámites online como autónomo.</p></section>
+          <article class="guide-info-card"><h3>Guarda tus registros</h3><p>Guarda las notificaciones oficiales y tus registros.</p></article></div><p>Usa la <a href="/guides/es/digital/">guía del certificado digital y Cl@ve</a> para comparar los dos sistemas.</p><div class="guide-button-row"><a class="guide-button" href="/guides/es/digital/">Ver la guía de certificado digital y Cl@ve</a></div><p>La guía de certificado digital y Cl@ve cubre cómo obtener cada uno, algo que suele ser requisito para presentar trámites online como autónomo.</p></section>
         <section class="guide-section" aria-labelledby="conceptosBasicosTieAutonomos" data-filler-cleaned="tie"><h2 id="conceptosBasicosTieAutonomos">TIE</h2><p>Muchos residentes no comunitarios necesitan la TIE (tarjeta de identidad de extranjero) después de la aprobación o la llegada. Detalles, plazo de un mes y cita de huellas: <a href="/guides/es/tie/">guía de la TIE</a>.</p></section>
         <section class="guide-section" aria-labelledby="erroresComunes" data-filler-cleaned="mistakes"><h2 id="erroresComunes">Errores comunes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Suponer que el alta como autónomo da automáticamente derecho de residencia.</p></article>
           <article class="guide-info-card"><h3>2</h3><p>Confundir las vías de autónomo, empleado y nómada digital.</p></article>
@@ -218,24 +327,16 @@
         <section class="guide-section" aria-labelledby="tuProximoPaso"><h2 id="tuProximoPaso">Tu próximo paso</h2><div class="guide-button-row"><a class="guide-button" href="/es/start-here/">Ver Empieza aquí</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/eu-citizens/">Ver la hoja de ruta de ciudadanos de la UE</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/non-eu-citizens/">Ver la hoja de ruta de ciudadanos no UE</a>
-          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/digital-nomad-spain/">Ver la hoja de ruta de nómada digital</a>
+          <a class="guide-button guide-button--secondary" href="/es/the-spain-files/visado-nomada-digital/">Ver la hoja de ruta de nómada digital</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/work-in-spain/">Ver la hoja de ruta de trabajo en España</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/documents-checklist/">Ver la lista de documentos</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/social-security/">Ver la guía de Seguridad Social (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/taxes/">Ver la guía de impuestos (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/digital-certificate/">Ver la guía del certificado digital y Cl@ve (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">Ver la guía de sanidad (en inglés)</a></div><div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, negocio, impuestos y Seguridad Social para poder responder rápido en cuanto conozcas los requisitos exactos de tu vía.</p></div></section>
-        <p class="last-reviewed">Última revisión: July 2026</p>
+          <a class="guide-button guide-button--secondary" href="/guides/es/social-security/">Ver la guía de Seguridad Social</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/taxes/">Ver la guía de impuestos</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/digital/">Ver la guía del certificado digital y Cl@ve</a>
+          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/healthcare/">Ver la guía de sanidad</a></div><div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, negocio, impuestos y Seguridad Social para poder responder rápido en cuanto conozcas los requisitos exactos de tu vía.</p></div></section>
+        <p class="last-reviewed">Última revisión: agosto de 2026</p>
           </div>
-          <aside class="guide-toc" data-guide-toc aria-label="En esta página">
-          <strong>En esta página</strong>
-          <nav><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#conceptosBasicosAutonomo" data-guide-toc-link>Conceptos básicos de autónomo</a></li><li><a href="#ciudadanosUeAutoempleo" data-guide-toc-link>Ciudadanos de la UE y el autoempleo</a></li><li><a href="#ciudadanosNoUeAutoempleo" data-guide-toc-link>Ciudadanos no UE y el autoempleo</a></li><li><a href="#antesDeEmpezar" data-guide-toc-link>Antes de empezar</a></li><li><a href="#impuestosFacturasRegistros" data-guide-toc-link>Impuestos, facturas y registros</a></li><li><a href="#seguridadSocialYSanidad" data-guide-toc-link>Seguridad Social y sanidad</a></li><li><a href="#certificadoDigitalYAdministracion" data-guide-toc-link>Certificado digital y administración</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </aside>
         </div>
-        <section hidden data-editorial-checklist aria-label="Editorial checklist">
-          <h2>Editorial Checklist</h2>
-          <ul><li>Grammar reviewed</li><li>Internal links checked</li><li>External links checked</li><li>Mobile reviewed</li><li>Desktop reviewed</li><li>Accessibility reviewed</li><li>SEO reviewed</li><li>Facts verified</li></ul>
-        </section>
         <script type="application/json" class="guide-frontmatter">{
   "title": "Autónomo y trabajo por cuenta propia en España — IberiGo",
   "description": "Una hoja de ruta práctica para quienes consideran el trabajo por cuenta propia en España: conceptos básicos de autónomo, documentos, impuestos, Seguridad Social, sanidad, vías no comunitarias y errores comunes.",
@@ -280,27 +381,18 @@
       "title": "Bank Account Guide",
       "description": "Set up everyday banking, payments and account documents in Spain.",
       "label": "View guide",
-      "href": "/living-in-spain/opening-a-bank-account/"
+      "href": "/the-spain-files/bank-account-spain/"
     }
-  ],
-  "editorialChecklist": [
-    "Grammar reviewed",
-    "Internal links checked",
-    "External links checked",
-    "Mobile reviewed",
-    "Desktop reviewed",
-    "Accessibility reviewed",
-    "SEO reviewed",
-    "Facts verified"
   ]
-}</script>
+}
+        </script>
       </main>
       <footer class="site-footer">
         <p>IberiGo es gratis. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.</p>
         <a href="/support/">Donar</a>
+        <a class="footer-help-feedback-link" href="/es/help-feedback/" data-help-feedback-footer>Ayuda y comentarios</a>
         <div class="site-footer-legal">
           <p>© 2026 IberiGo. Gratis. No es asesoramiento legal.</p>
-          <p>Última revisión: July 2026</p>
         </div>
       </footer>
     </div>
@@ -361,5 +453,7 @@
       })();
     </script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
   </body>
 </html>

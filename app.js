@@ -1,3 +1,8 @@
+/* IberiGo roadmap bundle globals */
+var linkLabels = window.linkLabels || (window.linkLabels = { en: {}, es: {} });
+var urls = window.urls || (window.urls = {});
+var govMeta = window.govMeta || (window.govMeta = {});
+
 const routes = [
   {
     id: "eu-vacation",
@@ -31,7 +36,7 @@ const routes = [
     title: "EU/EEA/Swiss registration",
     badge: "EU stay over 3 months",
     summary:
-      "EU, EEA, and Swiss citizens who plan to live in Spain for more than three months must register and obtain the Certificado de Registro de Ciudadano de la Unión — commonly called the 'green NIE' because it shows your NIE number on a small green document. It is not a TIE card. You need to show you can support yourself: through work, sufficient funds, or study with health cover. Have your EX-18 form, NIE, padrón certificate, and proof of means ready before the appointment. The fee is 12.00 EUR via Modelo 790-012. If you do not yet have a NIE, confirm with your local office whether they assign it during this registration or require a separate step first — practice varies by province.",
+      "EU, EEA, and Swiss citizens who plan to live in Spain for more than three months must register and obtain the Certificado de Registro de Ciudadano de la Unión — commonly called the 'green NIE' because it shows your NIE number on a small green document. It is not a TIE card. You need to show you can support yourself: through work, sufficient funds, or study with health cover. Have your EX-18 form, NIE, padrón certificate, and proof of means ready before the appointment. The fee is 12.00 EUR via Modelo 790-012. If you do not yet have a NIE, confirm with your local office whether they assign it during this registration or require a separate step first — practice varies by province. If you are working, your contract, Social Security alta or autónomo registration is normally the proof of means, and you usually do not need separate funds or private health cover.",
     appointment: "Certificado de Registro de Ciudadano de la Union Europea",
     documents: [
       "EX-18 form",
@@ -543,7 +548,7 @@ const lifeAdminGuides = {
       ["FNMT citizen certificate", "https://www.sede.fnmt.gob.es/certificados/persona-fisica"],
       ["FNMT appointment via Tax Agency", "https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion"],
       ["FNMT appointment via Social Security", "https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=CPMSWACS&ORGANISMO=I"],
-      ["Cl@ve registration", "https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html"],
+      ["Cl@ve registration", "https://clave.gob.es/registro/como-puedo-registrarme"],
       ["Cl@ve office finder", "https://administracion.gob.es/pag_Home/atencionCiudadana/encuentraTuOficina/OficinasRegistro_CLAVE.html"]
     ]
   }
@@ -864,14 +869,14 @@ const translations = {
     movingChipEu: "EU register",
     movingChipStudy: "Study",
     movingChipFamily: "Family",
-    movingButton: "Explore",
+    movingButton: "Plan your move",
     vacationTitle: "Visit Spain",
     vacationDesc: "Short visits, entry rules, transport, places to stay, and practical trip planning in Spain.",
     vacationChipEntry: "Entry rules",
     vacationChipTransport: "Transport",
     vacationChipStays: "Places to stay",
     vacationChipTrips: "Trip ideas",
-    vacationButton: "Explore",
+    vacationButton: "Plan your visit",
     livingTitle: "Living in Spain",
     livingDesc: "Healthcare, banking, taxes, digital access, and the key admin steps for everyday life in Spain.",
     livingChipHealth: "Healthcare",
@@ -880,7 +885,7 @@ const translations = {
     livingChipTaxes: "Taxes",
     livingChipSocial: "Social Security",
     livingChipDigital: "Digital access",
-    livingButton: "Explore",
+    livingButton: "Browse living guides",
     hintPlain: "Plain-language next steps",
     hintSources: "Spanish government links",
     hintScope: "Spain-wide guidance",
@@ -939,10 +944,10 @@ const translations = {
     directTaxes: "Taxes and tax address",
     directPhone: "Phone number and internet",
     openGuideButton: "Open guide",
-    footerSupportText: "IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.",
+    footerSupportText: "If IberiGo helps you, you can support its maintenance with a voluntary contribution.",
     footerSupportLink: "Donate",
-    footerLegal: "© 2026 IberiGo. Free to use. Not legal advice.",
-    footerReviewed: "Last reviewed: July 2026"
+    footerLegal: "© 2026 IberiGo. Not legal advice.",
+    footerReviewed: "Last reviewed: August 2026"
   },
   es: {
     headerTitle: "Mudarte, viajar y establecerte en España.",
@@ -966,14 +971,14 @@ const translations = {
     movingChipEu: "Registro UE",
     movingChipStudy: "Estudios",
     movingChipFamily: "Familia",
-    movingButton: "Explorar",
+    movingButton: "Planifica tu mudanza",
     vacationTitle: "Visitar España",
     vacationDesc: "Visitas cortas, reglas de entrada, transporte, alojamiento y planificación práctica del viaje en España.",
     vacationChipEntry: "Entrada",
     vacationChipTransport: "Transporte",
     vacationChipStays: "Alojamiento",
     vacationChipTrips: "Ideas",
-    vacationButton: "Explorar",
+    vacationButton: "Planifica tu visita",
     livingTitle: "Vivir en España",
     livingDesc: "Sanidad, banca, impuestos, acceso digital y los trámites clave para la vida diaria en España.",
     livingChipHealth: "Sanidad",
@@ -982,7 +987,7 @@ const translations = {
     livingChipTaxes: "Impuestos",
     livingChipSocial: "Seguridad Social",
     livingChipDigital: "Acceso digital",
-    livingButton: "Explorar",
+    livingButton: "Guías para vivir",
     hintPlain: "Pasos claros y sencillos",
     hintSources: "Enlaces del Gobierno de España",
     hintScope: "Guía general para España",
@@ -1041,10 +1046,10 @@ const translations = {
     directTaxes: "Impuestos y domicilio fiscal",
     directPhone: "Número de teléfono e internet",
     openGuideButton: "Abrir guía",
-    footerSupportText: "IberiGo es gratuito. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.",
+    footerSupportText: "Si IberiGo te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.",
     footerSupportLink: "Donar",
-    footerLegal: "© 2026 IberiGo. Gratuito. No es asesoramiento legal.",
-    footerReviewed: "Última revisión: julio de 2026"
+    footerLegal: "© 2026 IberiGo. No es asesoramiento legal.",
+    footerReviewed: "Última revisión: agosto de 2026"
   },
 };
 
@@ -1055,7 +1060,7 @@ function t(key) {
 const roadmapDetails = {
   "eu-registration": {
     process: "EU Registration Certificate",
-    explanation: "<p><strong>What it is:</strong> EU, EEA, and Swiss citizens who plan to live in Spain for more than three months must register and obtain the Certificado de Registro de Ciudadano de la Unión — commonly called the \"green NIE\" because it shows your NIE number on a small green document. It is not a TIE card.</p><p><strong>What you need to show:</strong> You need to show you can support yourself: through work, sufficient funds, or study with health cover.</p><p><strong>How the process runs:</strong> Have your EX-18 form, NIE, padrón certificate, and proof of means ready before the appointment. The fee is 12.00 EUR via Modelo 790-012.</p><p><strong>Practical note:</strong> If you do not yet have a NIE, confirm with your local office whether they assign it during this registration or require a separate step first — practice varies by province.</p>",
+    explanation: "<p><strong>What it is:</strong> EU, EEA, and Swiss citizens who plan to live in Spain for more than three months must register and obtain the Certificado de Registro de Ciudadano de la Unión — commonly called the \"green NIE\" because it shows your NIE number on a small green document. It is not a TIE card.</p><p><strong>What you need to show:</strong> You need to show you can support yourself: through work, sufficient funds, or study with health cover.</p><p><strong>How the process runs:</strong> Have your EX-18 form, NIE, padrón certificate, and proof of means ready before the appointment. The fee is 12.00 EUR via Modelo 790-012.</p><p><strong>Practical note:</strong> If you do not yet have a NIE, confirm with your local office whether they assign it during this registration or require a separate step first — practice varies by province. If you are working, an employment contract, Social Security alta, or autónomo registration is normally your proof of means, so you usually do not also need separate savings or private health cover — work is what gives access to public healthcare. Where the Policía cita previa menu is used, choose “POLICIA - CERTIFICADO DE REGISTRO DE CIUDADANO DE LA U.E.”, not NIE assignment or a TIE appointment. Confirm the current 790-012 fee before paying (it has been 12.00 EUR). If the requirements are met, the certificate is issued at the filing. Keep it with your NIE for work, tax, healthcare and digital ID.</p>",
     difficulty: "Medium",
     timeline: "Often a few weeks, depending on appointment availability",
     steps: [
@@ -1188,7 +1193,7 @@ const roadmapDetails = {
 const roadmapDetailsEs = {
   "eu-registration": {
     process: "Certificado de registro de ciudadano de la UE",
-    explanation: "Los ciudadanos de la UE, EEE y Suiza que planean vivir en España más de tres meses deben registrarse y obtener el Certificado de Registro de Ciudadano de la Unión, a menudo llamado NIE verde porque muestra tu número NIE en un documento verde pequeño. No es una tarjeta TIE. Debes demostrar que puedes mantenerte: por trabajo, fondos suficientes o estudios con cobertura sanitaria. Ten preparados el formulario EX-18, NIE, certificado de padrón y prueba de medios antes de la cita. La tasa es de 12.00 EUR mediante el Modelo 790-012. Si todavía no tienes NIE, confirma con la oficina local si lo asignan durante este registro o si exigen un paso separado primero, porque la práctica puede variar por provincia.",
+    explanation: "Los ciudadanos de la UE, EEE y Suiza que planean vivir en España más de tres meses deben registrarse y obtener el Certificado de Registro de Ciudadano de la Unión, a menudo llamado NIE verde porque muestra tu número NIE en un documento verde pequeño. No es una tarjeta TIE. Debes demostrar que puedes mantenerte: por trabajo, fondos suficientes o estudios con cobertura sanitaria. Ten preparados el formulario EX-18, NIE, certificado de padrón y prueba de medios antes de la cita. La tasa es de 12.00 EUR mediante el Modelo 790-012. Si todavía no tienes NIE, confirma con la oficina local si lo asignan durante este registro o si exigen un paso separado primero, porque la práctica puede variar por provincia. Si trabajas, el contrato, el alta en la Seguridad Social o el alta de autónomo suele ser la prueba de medios, así que normalmente no hace falta mostrar ahorros aparte ni seguro privado: trabajar da acceso a la sanidad pública. En el menú de cita previa de Policía, elige “POLICIA - CERTIFICADO DE REGISTRO DE CIUDADANO DE LA U.E.”, no asignación de NIE ni cita de TIE. Confirma la tasa vigente del 790-012 antes de pagar (ha sido 12,00 EUR). Si cumples los requisitos, el certificado se expide en el momento de la presentación. Guárdalo junto con el NIE para trabajo, impuestos, sanidad e identificación digital.",
     difficulty: "Media",
     timeline: "Normalmente unas semanas, según la disponibilidad de citas",
     steps: [
@@ -1908,12 +1913,12 @@ function directRoadmapFor(goal) {
   if (goal === "padron") {
     return currentLang === "es" ? {
       process: "Padrón / registro en el ayuntamiento",
-      explanation: "<p><strong>Qué es:</strong> El padrón es el registro de tu domicilio en el ayuntamiento.</p><p><strong>Cuándo puedes necesitarlo:</strong> El certificado o volante de padrón suele pedirse para:</p><ul><li>El <a href=\"/guides/es/tie/\">TIE</a></li><li>Renovaciones de residencia</li><li><a href=\"/moving-to-spain/healthcare/\">Sanidad</a> (en inglés)</li><li>Colegio</li><li>A veces, para <a href=\"/es/living-in-spain/opening-a-bank-account/\">abrir una cuenta bancaria</a></li></ul><p><strong>Qué puede pedir la oficina:</strong> Cada municipio decide qué acepta como prueba de domicilio, como contrato de alquiler, escritura, autorización del titular o recibos.</p><p><strong>Nota práctica:</strong> Conviene empadronarte en cuanto tengas una dirección estable, porque te lo pedirán en muchos pasos posteriores.</p>",
+      explanation: "<p><strong>Qué es:</strong> El padrón es el registro de tu domicilio en el ayuntamiento.</p><p><strong>Cuándo puedes necesitarlo:</strong> El certificado o volante de padrón suele pedirse para:</p><ul><li>El <a href=\"/guides/es/tie/\">TIE</a></li><li>Renovaciones de residencia</li><li><a href=\"/moving-to-spain/healthcare/\">Sanidad</a> (en inglés)</li><li>Colegio</li><li>A veces, para <a href=\"/the-spain-files/abrir-cuenta-bancaria-espana/\">abrir una cuenta bancaria</a></li></ul><p><strong>Qué puede pedir la oficina:</strong> Cada municipio decide qué acepta como prueba de domicilio, como contrato de alquiler, escritura, autorización del titular o recibos.</p><p><strong>Nota práctica:</strong> Conviene empadronarte en cuanto tengas una dirección estable, porque te lo pedirán en muchos pasos posteriores.</p><p><strong>Qué no es:</strong> El padrón acredita tu domicilio en el ayuntamiento. No es residencia de extranjería, ni el NIE, ni la TIE.</p><p><strong>Dónde se presenta:</strong> No hay una oficina nacional única. Te empadronas en el ayuntamiento del municipio donde vives de verdad. Ese ayuntamiento decide el formulario, si hace falta cita y qué prueba de domicilio acepta. Pide volante o certificado de empadronamiento si otro trámite lo exige.</p><p><strong>Antes de firmar un alquiler:</strong> Pregunta si el arrendador facilita el empadronamiento y déjalo por escrito. No copies la lista de documentos de otro municipio.</p><p><strong>Ejemplo real:</strong> <a href=\"/the-spain-files/es/padron-torrevieja/\">Empadronamiento en Torrevieja</a> — cita, documentos y plazos reales.</p>",
       steps: ["Reúne pasaporte o documento de identidad y prueba de domicilio.", "Comprueba el proceso de tu ayuntamiento, porque cada municipio organiza el padrón a su manera.", "Pide certificado o volante de padrón si lo necesitas para TIE, residencia, sanidad u otro trámite."],
       links: ["padron-info"]
     } : {
       process: "Padrón / town hall registration",
-      explanation: "<p><strong>What it is:</strong> The padrón is your registration with the local town hall (ayuntamiento) confirming your address in Spain.</p><p><strong>When you may need it:</strong> A padrón certificate or volante is commonly requested for:</p><ul><li>Your <a href=\"/guides/tie/\">TIE</a></li><li>Residence renewals</li><li><a href=\"/moving-to-spain/healthcare/\">Healthcare registration</a></li><li>School enrolment</li><li>Often for <a href=\"/living-in-spain/opening-a-bank-account/\">opening a bank account</a></li></ul><p><strong>What the office may expect:</strong> Each municipality sets its own rules for what counts as proof of address. A rental contract, property deed, owner's authorisation letter, or utility bill are common, but accepted documents vary.</p><p><strong>Practical note:</strong> It's worth registering as soon as you have a settled address — the padrón certificate is requested constantly, and having it ready can save time at later steps.</p>",
+      explanation: "<p><strong>What it is:</strong> The padrón is your registration with the local town hall (ayuntamiento) confirming your address in Spain.</p><p><strong>When you may need it:</strong> A padrón certificate or volante is commonly requested for:</p><ul><li>Your <a href=\"/guides/tie/\">TIE</a></li><li>Residence renewals</li><li><a href=\"/moving-to-spain/healthcare/\">Healthcare registration</a></li><li>School enrolment</li><li>Often for <a href=\"/the-spain-files/bank-account-spain/\">opening a bank account</a></li></ul><p><strong>What the office may expect:</strong> Each municipality sets its own rules for what counts as proof of address. A rental contract, property deed, owner's authorisation letter, or utility bill are common, but accepted documents vary.</p><p><strong>Practical note:</strong> It's worth registering as soon as you have a settled address — the padrón certificate is requested constantly, and having it ready can save time at later steps.</p><p><strong>What it is not:</strong> Padrón proves your address with the town hall. It is not immigration residence, a NIE, or a TIE.</p><p><strong>Where you file:</strong> There is no single national padrón office. You register at the ayuntamiento of the municipality where you actually live. That town hall decides the form, whether you need an appointment, and which proof of address it accepts. Ask for a volante or certificado de empadronamiento if another procedure needs proof.</p><p><strong>Before you sign a rental contract:</strong> Ask whether the landlord will support empadronamiento and get that in writing. Do not copy another town's document list.</p><p><strong>Worked example:</strong> <a href=\"/the-spain-files/padron-torrevieja/\">Padrón in Torrevieja</a> — appointment channel, documents and real wait times.</p>",
       steps: ["Gather passport or ID and proof of address.", "Check your town hall process, because each municipality handles padrón differently.", "Request a padrón certificate or volante if you need it for TIE, residence, healthcare, or another procedure."],
       links: ["padron-info"]
     };
@@ -1934,13 +1939,13 @@ function directRoadmapFor(goal) {
   if (goal === "nie") {
     return currentLang === "es" ? {
       process: "Número NIE",
-      explanation: "<p><strong>Qué es:</strong> El NIE (Número de Identidad de Extranjero) es el número de identificación vitalicio que España asigna a los extranjeros. Se usa para trámites oficiales y financieros como comprar una vivienda, firmar ante notario, abrir una cuenta bancaria, empezar a trabajar o pagar impuestos.</p><p><strong>Qué no es:</strong> El NIE es solo un número — no es una tarjeta ni un permiso de residencia. Tener un NIE no da derecho a vivir ni a trabajar en España.</p><p><strong>Cuándo puedes necesitarlo:</strong></p><ul><li>Comprar una vivienda</li><li>Firmar un acto notarial</li><li>Abrir una cuenta bancaria</li><li>Empezar a trabajar</li><li>Pagar impuestos</li></ul><p><strong>Qué puede pedir la oficina:</strong> La policía suele exigir un motivo concreto y documentado para asignarlo — una compra inmobiliaria, un contrato de trabajo, un acto notarial, un requisito bancario o una obligación fiscal — no simplemente quererlo por si acaso.</p><p><strong>Nota práctica:</strong> La disponibilidad de citas varía mucho según la provincia. En zonas costeras concurridas como la Costa Blanca pueden aparecer huecos de forma imprevisible, así que puede ayudar comprobar a primera hora de la mañana y los fines de semana. Muchas personas también se empadronan (<a href=\"/guides/es/padron/\">padrón</a>) por las mismas fechas, porque el certificado de empadronamiento suele pedirse para trámites bancarios, sanitarios y de residencia posteriores al NIE.</p><p><strong>Plazos orientativos:</strong> Si acudes con la documentación en regla, el número suele asignarse el mismo día, pero esto puede variar según la oficina.</p>",
+      explanation: "<p><strong>Qué es:</strong> El NIE (Número de Identidad de Extranjero) es el número de identificación vitalicio que España asigna a los extranjeros. Se usa para trámites oficiales y financieros como comprar una vivienda, firmar ante notario, abrir una cuenta bancaria, empezar a trabajar o pagar impuestos.</p><p><strong>Qué no es:</strong> El NIE es solo un número — no es una tarjeta ni un permiso de residencia. Tener un NIE no da derecho a vivir ni a trabajar en España.</p><p><strong>Cuándo puedes necesitarlo:</strong></p><ul><li>Comprar una vivienda</li><li>Firmar un acto notarial</li><li>Abrir una cuenta bancaria</li><li>Empezar a trabajar</li><li>Pagar impuestos</li></ul><p><strong>Qué puede pedir la oficina:</strong> La policía suele exigir un motivo concreto y documentado para asignarlo — una compra inmobiliaria, un contrato de trabajo, un acto notarial, un requisito bancario o una obligación fiscal — no simplemente quererlo por si acaso.</p><p><strong>Nota práctica:</strong> La disponibilidad de citas varía mucho según la provincia. En zonas costeras concurridas como la Costa Blanca pueden aparecer huecos de forma imprevisible, así que puede ayudar comprobar a primera hora de la mañana y los fines de semana. Muchas personas también se empadronan (<a href=\"/guides/es/padron/\">padrón</a>) por las mismas fechas, porque el certificado de empadronamiento suele pedirse para trámites bancarios, sanitarios y de residencia posteriores al NIE.</p><p><strong>Plazos orientativos:</strong> Si acudes con la documentación en regla, el número suele asignarse el mismo día, pero esto puede variar según la oficina.</p><p><strong>Desde fuera o con representante:</strong> Fuera de España, un consulado español puede tramitar el EX-15. Si presenta otra persona, lleva una autorización de representación. La guía más larga, con experiencia de primera mano, está en <a href=\"/the-spain-files/como-obtener-nie-en-espana/\">Cómo conseguir un NIE en España</a>.</p>",
       steps: ["Escribe o reúne la prueba del motivo: banco, compra, notaría, trabajo, impuestos u otro trámite concreto.", "Prepara pasaporte o documento de identidad y copias si las piden.", "Pide la cita o revisa el trámite oficial de asignación de NIE y la tasa 790-012."],
       links: ["nie", "cita", "790-012"],
       route: { id: "nie" }
     } : {
       process: "NIE number",
-      explanation: "<p><strong>What it is:</strong> The NIE (Número de Identidad de Extranjero) is Spain's lifetime identification number for foreigners. It is used for official and financial transactions such as buying property, signing before a notary, opening a bank account, starting work, or paying tax.</p><p><strong>What it is not:</strong> A NIE is just a number — not a card and not a residence permit. Having a NIE does not give you the right to live or work in Spain.</p><p><strong>When you may need it:</strong></p><ul><li>Buying property</li><li>Signing a notarial deed</li><li>Opening a bank account</li><li>Starting work</li><li>Paying tax</li></ul><p><strong>What the office may expect:</strong> Police offices usually expect a concrete, documented reason to assign one — a property purchase, employment contract, notarial act, bank requirement, or tax obligation — not just wanting it in case it is useful later.</p><p><strong>Practical note:</strong> Appointment availability varies sharply by province. In busy coastal areas like the Costa Blanca, slots can appear unpredictably, so it can help to check early in the morning and at weekends. Many people also register on the <a href=\"/guides/padron/\">padrón</a> around the same time, since a padrón certificate is commonly requested for banking, healthcare, and residence procedures that follow the NIE.</p><p><strong>Timing:</strong> If your paperwork is accepted, the number is often assigned the same day, but this can vary by office.</p>",
+      explanation: "<p><strong>What it is:</strong> The NIE (Número de Identidad de Extranjero) is Spain's lifetime identification number for foreigners. It is used for official and financial transactions such as buying property, signing before a notary, opening a bank account, starting work, or paying tax.</p><p><strong>What it is not:</strong> A NIE is just a number — not a card and not a residence permit. Having a NIE does not give you the right to live or work in Spain.</p><p><strong>When you may need it:</strong></p><ul><li>Buying property</li><li>Signing a notarial deed</li><li>Opening a bank account</li><li>Starting work</li><li>Paying tax</li></ul><p><strong>What the office may expect:</strong> Police offices usually expect a concrete, documented reason to assign one — a property purchase, employment contract, notarial act, bank requirement, or tax obligation — not just wanting it in case it is useful later.</p><p><strong>Practical note:</strong> Appointment availability varies sharply by province. In busy coastal areas like the Costa Blanca, slots can appear unpredictably, so it can help to check early in the morning and at weekends. Many people also register on the <a href=\"/guides/padron/\">padrón</a> around the same time, since a padrón certificate is commonly requested for banking, healthcare, and residence procedures that follow the NIE.</p><p><strong>Timing:</strong> If your paperwork is accepted, the number is often assigned the same day, but this can vary by office.</p><p><strong>Filing from abroad or through someone else:</strong> Outside Spain, a Spanish consulate can take the EX-15 request. If someone files for you, bring a representative authorisation. For the longer first-hand walkthrough, see <a href=\"/the-spain-files/nie-spain/\">How to get a NIE in Spain</a>.</p>",
       steps: ["Write or gather proof of the reason: bank, purchase, notary, work, tax, or another concrete procedure.", "Prepare passport or identity document and copies if requested.", "Book the appointment or review the official NIE assignment procedure and 790-012 fee."],
       links: ["nie", "cita", "790-012"],
       route: { id: "nie" }
@@ -1949,12 +1954,12 @@ function directRoadmapFor(goal) {
   if (goal === "tie") {
     return currentLang === "es" ? {
       process: "Tarjeta TIE después de aprobar el visado",
-      explanation: "Después de elegir TIE, confirma primero que ya existe una concesión, visado o resolución favorable. La TIE no concede la residencia por sí sola; documenta una autorización ya aprobada.",
+      explanation: "Después de elegir TIE, confirma primero que ya existe una concesión, visado o resolución favorable. La TIE no concede la residencia por sí sola; documenta una autorización ya aprobada. Reserva “POLICÍA - TOMA DE HUELLAS” (huellas / expedición de tarjeta), no una cita de NIE. La línea de primera tarjeta en el Modelo 790-012 es 16,08 EUR; confirma el importe vigente antes de pagar. La tarjeta suele estar lista unas semanas después de las huellas. Presenta dentro del plazo de tu resolución: perder ese plazo es un riesgo real y el plazo exacto depende del tipo de autorización.",
       steps: ["Comprueba que tienes visado, resolución favorable o autorización que permite pedir la tarjeta.", "Completa EX-17 y paga la tasa 790-012 de expedición de tarjeta.", "Reserva cita de huellas o expedición de tarjeta y lleva pasaporte, foto, aprobación, tasa pagada y padrón si tu domicilio debe constar."],
       links: ["tie-form", "cita", "790-012"]
     } : {
       process: "TIE card after VISA approval",
-      explanation: "After choosing TIE, first confirm that a visa, authorization, or favorable decision already exists. The TIE does not grant residence by itself; it documents permission that was already approved.",
+      explanation: "After choosing TIE, first confirm that a visa, authorization, or favorable decision already exists. The TIE does not grant residence by itself; it documents permission that was already approved. Book “POLICÍA - TOMA DE HUELLAS” (fingerprint / card issue), not an NIE appointment. The first-card line on Modelo 790-012 is 16.08 EUR — confirm the current amount before you pay. The card is often ready a few weeks after fingerprints. File inside the deadline on your resolution; missing that window is a real risk and the exact deadline depends on the authorization type.",
       steps: ["Check that you have the visa, favorable resolution, or authorization that lets you request the card.", "Complete EX-17 and pay the matching 790-012 card fee.", "Book the fingerprint/card appointment and bring passport, photo, approval, paid fee, and padrón if your address must be shown."],
       links: ["tie-form", "cita", "790-012"]
     };
@@ -2014,13 +2019,13 @@ function directRoadmapFor(goal) {
   if (goal === "banking") {
     return currentLang === "es" ? {
       process: "Cuenta bancaria y banca básica",
-      explanation: "<p><strong>Para qué sirve:</strong> Abrir una cuenta bancaria en España suele ser uno de los primeros pasos prácticos al instalarte. Puede hacer falta para nómina, alquiler, recibos, suministros y trámites fiscales.</p><p><strong>Qué puede pedir el banco:</strong></p><ul><li>Pasaporte o documento de identidad</li><li>NIE o TIE, si ya lo tienes</li><li>Padrón o prueba de domicilio</li><li>Justificante de ingresos o empleo</li></ul><p><strong>Nota práctica:</strong> Algunas entidades ofrecen cuentas de no residente o para recién llegados, pero pueden tener límites. Bancos grandes como CaixaBank, Santander, BBVA, Sabadell y Bankinter son habituales; Revolut y bunq pueden servir como opción temporal mientras organizas la documentación local.</p>",
-      steps: ["Comprueba primero para qué necesitas la cuenta: nómina, alquiler, autónomo, ahorros o trámites diarios.", "Prepara identificación, NIE/TIE si ya lo tienes, prueba de domicilio y cualquier justificante de ingresos o residencia que el banco pueda pedir.", "Compara si te conviene una cuenta para recién llegado, una cuenta de no residente o una cuenta ordinaria de residente según tu situación real.", "Si todavía no puedes abrir una cuenta bancaria española tradicional, una opción temporal puede ser empezar con Revolut o bunq mientras organizas tu documentación local."],
+      explanation: "<p><strong>Empieza aquí:</strong> La guía práctica, con un ejemplo real de sucursal, es <a href=\"/the-spain-files/abrir-cuenta-bancaria-espana/\">Abrir una cuenta bancaria en España</a>.</p><p><strong>Qué suelen pedir:</strong> pasaporte o documento, NIE o TIE si ya lo tienes, padrón u otra prueba de domicilio, y justificante de ingresos o empleo. A veces se puede abrir una cuenta de no residente, con más límites.</p><p><strong>Apps del día a día:</strong> Revolut y Wise sirven para pagos cotidianos, pero puede que no valgan si el casero o la empresa exigen un IBAN español. Pregunta antes de comprometerte.</p>",
+      steps: ["Lee la guía de The Spain Files para la documentación, las comisiones y qué revisar antes de firmar.", "Decide si necesitas cuenta de residente, de no residente o solo un IBAN europeo para el día a día.", "Lleva pasaporte, NIE/TIE si lo tienes y prueba de domicilio al banco que elijas."],
       links: ["bank-santander", "bank-bbva", "bank-caixabank", "bank-sabadell", "bank-bankinter", "bank-revolut", "bank-bunq", "bank-wise"]
     } : {
       process: "Bank account and banking basics",
-      explanation: "<p><strong>What it is for:</strong> Opening a Spanish bank account is one of the first practical steps after arriving. You typically need it for salary payments, rent direct debits, utility contracts, and tax filings.</p><p><strong>What the bank may expect:</strong></p><ul><li>NIE</li><li>Passport</li><li>Padrón certificate</li><li>Proof of income or employment</li></ul><p><strong>Practical note:</strong> Non-residents can often open a non-resident account with fewer documents, but these have limitations. Major retail banks include CaixaBank, Santander, BBVA, Sabadell, and Bankinter; online options like Revolut and Wise are popular for everyday use, but may not satisfy landlords or employers who require a Spanish IBAN. Some banks have English-speaking branches or services in expat-heavy areas — worth asking before you commit.</p>",
-      steps: ["First confirm what you need the account for: salary, rent, self-employment, savings, or everyday payments.", "Prepare identity documents, NIE/TIE if you already have one, proof of address, and any income or residence evidence the bank may request.", "Compare whether a newcomer account, non-resident account, or ordinary resident account fits your real situation best.", "If you cannot open a traditional Spanish bank account yet, a temporary starting option can be Revolut or bunq while you sort out your local paperwork."],
+      explanation: "<p><strong>Start here:</strong> The practical guide, including a real branch example, is <a href=\"/the-spain-files/bank-account-spain/\">Opening a bank account in Spain</a>.</p><p><strong>What banks often ask for:</strong> passport or ID, NIE or TIE if you already have one, padrón or another address proof, and income or employment evidence. Non-residents can sometimes open a more limited non-resident account.</p><p><strong>Everyday apps:</strong> Revolut and Wise are useful for day-to-day payments, but they may not satisfy a landlord or employer who wants a Spanish IBAN. Ask before you commit, especially in expat-heavy towns where some branches work in English.</p>",
+      steps: ["Read the Spain File for the document pack, fees and what to check before you sign.", "Decide whether you need a resident account, a non-resident account, or only an everyday EU IBAN for now.", "Take passport, NIE/TIE if you have it, and address proof to the bank you choose."],
       links: ["bank-santander", "bank-bbva", "bank-caixabank", "bank-sabadell", "bank-bankinter", "bank-revolut", "bank-bunq", "bank-wise"]
     };
   }
@@ -2054,12 +2059,12 @@ function directRoadmapFor(goal) {
   if (goal === "job-search") {
     return currentLang === "es" ? {
       process: "Buscar trabajo en España",
-      explanation: "<p><strong>Para qué sirve:</strong> Buscar trabajo en España suele combinar servicios públicos, portales generalistas, plataformas especializadas y contactos profesionales.</p><p><strong>Derecho a trabajar:</strong> Comprueba primero qué reglas se aplican a tu situación. Si eres ciudadano de la UE, el EEE o Suiza, consulta la <a href=\"/guides/es/eu-working/\">guía para trabajar como ciudadano de la UE</a>. Si no lo eres, empieza por la <a href=\"/guides/es/work-authorization/\">guía de autorización de trabajo para ciudadanos no comunitarios</a>. Encontrar una oferta no concede por sí solo permiso para trabajar.</p><p><strong>Cómo buscar:</strong> Usa Empléate, los servicios públicos autonómicos y EURES junto con portales privados. Las ofertas pueden repetirse, pero cada plataforma tiene filtros, sectores y formas de candidatura distintos.</p><p><strong>Nota práctica:</strong> El español amplía las opciones fuera de empresas internacionales y puestos que buscan expresamente otros idiomas.</p>",
+      explanation: "<p><strong>Para qué sirve:</strong> Buscar trabajo en España suele combinar servicios públicos, portales generalistas, plataformas especializadas y contactos profesionales.</p><p><strong>Derecho a trabajar:</strong> Comprueba primero qué reglas se aplican a tu situación. Si eres ciudadano de la UE, el EEE o Suiza, consulta la <a href=\"/guides/es/eu-registration/\">guía para trabajar como ciudadano de la UE</a>. Si no lo eres, empieza por la <a href=\"/guides/es/work-authorization/\">guía de autorización de trabajo para ciudadanos no comunitarios</a>. Encontrar una oferta no concede por sí solo permiso para trabajar.</p><p><strong>Cómo buscar:</strong> Usa Empléate, los servicios públicos autonómicos y EURES junto con portales privados. Las ofertas pueden repetirse, pero cada plataforma tiene filtros, sectores y formas de candidatura distintos.</p><p><strong>Nota práctica:</strong> El español amplía las opciones fuera de empresas internacionales y puestos que buscan expresamente otros idiomas.</p>",
       steps: ["Define si buscas empleo local, trabajo estacional, un puesto remoto que puedas desempeñar legalmente desde España o un sector concreto.", "Prepara un CV adaptado al puesto, datos de contacto actualizados y la documentación básica que pueda pedir el empleador.", "Empieza por Empléate, los servicios públicos de empleo y EURES; después amplía con portales generalistas y especializados, crea alertas útiles y usa el canal de candidatura que indique cada oferta."],
       links: ["jobs-empleate", "jobs-sepe", "jobs-eures", "jobs-infojobs", "jobs-linkedin", "jobs-indeed", "jobs-jobtoday", "jobs-tecnoempleo", "jobs-englishjobs", "jobs-language-assistants"]
     } : {
       process: "Job search in Spain",
-      explanation: "<p><strong>What it is for:</strong> Finding work in Spain usually means combining public employment services, general job boards, specialist platforms, and professional contacts.</p><p><strong>Right to work:</strong> First check which rules apply to you. EU, EEA, and Swiss citizens can use the <a href=\"/guides/eu-working/\">EU working guide</a>; non-EU citizens should start with the <a href=\"/guides/work-authorization/\">non-EU work authorization guide</a>. Finding a vacancy does not itself grant permission to work.</p><p><strong>How to search:</strong> Use Empléate, regional public employment services, and EURES alongside private platforms. Listings may overlap, but each service has different filters, sectors, and application routes.</p><p><strong>Practical note:</strong> Spanish expands your options outside international employers and roles that specifically need another language.</p>",
+      explanation: "<p><strong>What it is for:</strong> Finding work in Spain usually means combining public employment services, general job boards, specialist platforms, and professional contacts.</p><p><strong>Right to work:</strong> First check which rules apply to you. EU, EEA, and Swiss citizens can use the <a href=\"/guides/eu-registration/\">EU working guide</a>; non-EU citizens should start with the <a href=\"/guides/work-authorization/\">non-EU work authorization guide</a>. Finding a vacancy does not itself grant permission to work.</p><p><strong>How to search:</strong> Use Empléate, regional public employment services, and EURES alongside private platforms. Listings may overlap, but each service has different filters, sectors, and application routes.</p><p><strong>Practical note:</strong> Spanish expands your options outside international employers and roles that specifically need another language.</p>",
       steps: ["Decide whether you want local work, seasonal work, a remote role you can legally perform from Spain, or a specific sector.", "Prepare a role-focused CV, current contact details, and the basic documents an employer may request.", "Start with Empléate, public employment services, and EURES; then widen the search through general and specialist platforms, set useful alerts, and use the application channel named in each listing."],
       links: ["jobs-empleate", "jobs-sepe", "jobs-eures", "jobs-infojobs", "jobs-linkedin", "jobs-indeed", "jobs-jobtoday", "jobs-tecnoempleo", "jobs-englishjobs", "jobs-language-assistants"]
     };
@@ -2155,12 +2160,12 @@ function directRoadmapFor(goal) {
   if (goal === "vacation-entry") {
     return currentLang === "es" ? {
       process: "Reglas de entrada y estancia corta",
-      explanation: "La entrada a España depende de tu pasaporte. Los ciudadanos de la UE, EEE y Suiza pueden entrar con pasaporte o documento nacional de identidad válido. Muchas nacionalidades no comunitarias pueden entrar sin visado hasta 90 días en cualquier periodo de 180 días dentro de todo el espacio Schengen, no solo España. Otras nacionalidades necesitan visado Schengen antes de viajar. Desde abril de 2026 está en vigor el Sistema de Entradas y Salidas (EES): a los viajeros no comunitarios se les registran las huellas y una foto en la frontera en la primera entrada en lugar de sellar el pasaporte, y el sistema controla automáticamente la regla de 90/180 — los ciudadanos de la UE/EEE/Suiza y los no comunitarios con permiso de residencia o visado de larga duración están exentos. ETIAS, una autorización previa al viaje aparte para viajeros no comunitarios exentos de visado, se espera más adelante y todavía no es obligatoria; conviene revisar el estado actual antes del viaje. El seguro de viaje no suele ser obligatorio para ciudadanos UE, pero es recomendable y puede ser obligatorio para solicitantes de visado Schengen.",
+      explanation: "La entrada a España depende de tu pasaporte. Los ciudadanos de la UE, EEE y Suiza pueden entrar con pasaporte o documento nacional de identidad válido. Muchas nacionalidades no comunitarias —incluidos pasaportes exentos de visado como Estados Unidos, Reino Unido, Canadá y Australia— pueden entrar sin visado hasta 90 días en cualquier periodo de 180 días dentro de todo el espacio Schengen, no solo España. Otras nacionalidades necesitan un visado Schengen en un consulado español antes de viajar. En la frontera pueden pedirte alojamiento, viaje de vuelta o continuación, y medios suficientes. Desde abril de 2026 está en vigor el Sistema de Entradas y Salidas (EES): a los viajeros no comunitarios se les registran las huellas y una foto en la frontera en la primera entrada en lugar de sellar el pasaporte, y el sistema controla automáticamente la regla de 90/180 — los ciudadanos de la UE/EEE/Suiza y los no comunitarios con permiso de residencia o visado de larga duración están exentos. ETIAS, una autorización previa al viaje aparte para viajeros no comunitarios exentos de visado, se espera más adelante y todavía no es obligatoria; conviene revisar el estado actual antes del viaje. El seguro de viaje no suele ser obligatorio para ciudadanos UE, pero es recomendable y puede ser obligatorio para solicitantes de visado Schengen.",
       steps: ["Confirma si tu estancia es una visita corta ordinaria y no una mudanza o residencia.", "Revisa si eres ciudadano de la UE/EEE/Suiza o si tu pasaporte entra por reglas Schengen para no comunitarios.", "Si eres viajero no comunitario, cuenta con el registro biométrico (huellas y foto) en la frontera por el EES a la entrada.", "Comprueba antes de viajar los documentos de entrada, seguro si aplica y la regla de 90/180 cuando corresponda."],
       links: ["eu-short-stay", "schengen", "ees", "calculator"]
     } : {
       process: "Entry rules and short stays",
-      explanation: "Entry to Spain depends on your passport. EU, EEA, and Swiss citizens can enter freely with a valid passport or national ID for any length of stay. Most other nationalities can enter Spain visa-free for up to 90 days in any 180-day period across the whole Schengen area — not just Spain. Some nationalities need a Schengen short-stay visa before travelling. Since April 2026 the EU's Entry/Exit System (EES) is in force: non-EU visitors have their fingerprints and photo registered at the border on first entry instead of a passport stamp, and the system tracks the 90/180 allowance automatically — EU/EEA/Swiss citizens and non-EU holders of a Spanish residence permit or long-stay visa are exempt. ETIAS, a separate pre-travel authorisation for currently visa-free non-EU visitors, is expected later and not yet required — check the current status before you travel. Travel insurance is not legally required for EU citizens but is strongly recommended; it may be required for Schengen visa applicants.",
+      explanation: "Entry to Spain depends on your passport. EU, EEA, and Swiss citizens can enter freely with a valid passport or national ID for any length of stay. Most other nationalities — including many visa-free passports such as the US, UK, Canada and Australia — can enter Spain visa-free for up to 90 days in any 180-day period across the whole Schengen area, not just Spain. Some nationalities need a Schengen short-stay visa from a Spanish consulate before travelling. At the border you may be asked for accommodation, return or onward travel, and enough money for the stay. Since April 2026 the EU's Entry/Exit System (EES) is in force: non-EU visitors have their fingerprints and photo registered at the border on first entry instead of a passport stamp, and the system tracks the 90/180 allowance automatically — EU/EEA/Swiss citizens and non-EU holders of a Spanish residence permit or long-stay visa are exempt. ETIAS, a separate pre-travel authorisation for currently visa-free non-EU visitors, is expected later and not yet required — check the current status before you travel. Travel insurance is not legally required for EU citizens but is strongly recommended; it may be required for Schengen visa applicants.",
       steps: ["Confirm that your stay is an ordinary short visit rather than a move or residence plan.", "Check whether you are travelling as an EU/EEA/Swiss citizen or under Schengen short-stay rules for non-EU passports.", "If you are a non-EU visitor, expect biometric registration (fingerprints and photo) at the border under the EES on entry.", "Before travelling, review entry documents, any insurance requirement, and the 90/180 rule where relevant."],
       links: ["eu-short-stay", "schengen", "ees", "calculator"]
     };
@@ -2422,6 +2427,22 @@ function topicBackdrop(goal) {
   return icons[goal] || `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="28"/><path d="M46 60h28"/></svg>`;
 }
 
+function guidePublicPath(id) {
+  const es = currentLang === "es";
+  const map = {
+    "nie-only": es ? "/guides/es/nie/" : "/guides/nie/",
+    "tie-after-approval": es ? "/guides/es/tie/" : "/guides/tie/",
+    "eu-working": es ? "/guides/es/eu-registration/" : "/guides/eu-registration/",
+    "eu-vacation": es ? "/guides/es/vacation-entry/" : "/guides/vacation-entry/",
+    "non-eu-vacation": es ? "/guides/es/vacation-entry/" : "/guides/vacation-entry/",
+    "vacation-citizenship": es ? "/guides/es/vacation-entry/" : "/guides/vacation-entry/",
+    "digital-nomad": es ? "/es/the-spain-files/visado-nomada-digital/" : "/the-spain-files/digital-nomad-visa-spain/",
+    "non-lucrative": es ? "/es/the-spain-files/visado-no-lucrativo/" : "/the-spain-files/non-lucrative-visa-spain/",
+    banking: es ? "/the-spain-files/abrir-cuenta-bancaria-espana/" : "/the-spain-files/bank-account-spain/"
+  };
+  return map[id] || (es ? `/guides/es/${id}/` : `/guides/${id}/`);
+}
+
 function renderTopicLibrary(title, intro, groups, ariaLabel) {
   const renderTopicCards = (topics, summaryFn) => topics
     .map(([id, label]) => {
@@ -2433,7 +2454,7 @@ function renderTopicLibrary(title, intro, groups, ariaLabel) {
           <h4>${label}</h4>
           <p>${summaryFn(id)}</p>
           <small>${firstStep}</small>
-          <a href="${currentLang === "es" ? `/guides/es/${id}/` : `/guides/${id}/`}">${t("openGuideButton")}</a>
+          <a href="${guidePublicPath(id)}">${t("openGuideButton")}</a>
         </article>
       `;
     })
@@ -2860,7 +2881,7 @@ function renderFormsAndTaxesBlock(route) {
           : "Form";
       const kindLabel = isPlainKindRow || /^(Form|Formulario|Lomake|Modelo)$/i.test(normalizedKind) ? "" : normalizedKind;
       const rowTag = isGuideLink
-          ? `a class="${rowClass}" href="${currentLang === "es" ? `/guides/es/${directRoute}/` : `/guides/${directRoute}/`}"`
+          ? `a class="${rowClass}" href="${guidePublicPath(directRoute)}"`
           : officialUrl
             ? `a class="${rowClass}" href="${officialUrl}" target="_blank" rel="noreferrer"`
           : `div class="${rowClass}"`;
@@ -3343,7 +3364,7 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     fnmt: "https://www.sede.fnmt.gob.es/certificados/persona-fisica",
     "fnmt-aeat-cita": "https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion",
     "fnmt-ss-cita": "https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=CPMSWACS&ORGANISMO=I",
-    clave: "https://clave.gob.es/clave_Home/registro/Como-puedo-registrarme.html",
+    clave: "https://clave.gob.es/registro/como-puedo-registrarme",
     schengen: "https://travel-europe.europa.eu/en/etias/about-etias/who-should-apply",
     ees: "https://travel-europe.europa.eu/ees_en",
     calculator: "https://ec.europa.eu/assets/home/visa-calculator-2/calculator.htm?lang=en",
@@ -3397,8 +3418,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "insurance-safetywing": "https://safetywing.com/?referenceID=26543349&utm_source=26543349&utm_medium=Ambassador",
     "vida-laboral-official": "https://sede.seg-social.gob.es",
     "clave-setup": "https://clave.gob.es",
-    "dgt-licence-exchange": "https://sede.dgt.gob.es",
-    "dgt-bilateral-agreements": "https://sede.dgt.gob.es",
+    "dgt-licence-exchange": "https://sede.dgt.gob.es/es/",
+    "dgt-bilateral-agreements": "https://sede.dgt.gob.es/es/",
     "travel-spaininfo": "https://www.spain.info/es/",
     "travel-renfe": "https://www.renfe.com/es/en",
     "travel-aena": "https://www.aena.es/en/passengers/passengers.html",
@@ -3436,8 +3457,8 @@ function renderRouteLinks(linkTypes, excludedUrls = new Set()) {
     "citizenship-residence": "https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia",
     "citizenship-application": "https://sede.mjusticia.gob.es/es/tramites/nacionalidad-espanola/",
     "ehic-eu-info": "https://ec.europa.eu/social/main.jsp?catId=559",
-    "dgt-general": "https://www.dgt.es",
-    "dgt-online-procedures": "https://sede.dgt.gob.es",
+    "dgt-general": "https://www.dgt.es/inicio/",
+    "dgt-online-procedures": "https://sede.dgt.gob.es/es/",
     "provider-holafly": "https://esim.holafly.com/",
     "provider-airalo": "https://www.airalo.com/spain-esim",
     "provider-nordvpn": "https://nordvpn.com/",
@@ -4237,3 +4258,1957 @@ openNavSectionIfRequested();
     renderRoadmapCard(roadmap);
   }
 }());
+
+
+/* IberiGo roadmap source bundle · August 2026 */
+(() => {
+if (typeof routes === "undefined" || typeof roadmapDetails === "undefined" || typeof wizard === "undefined") return;
+const addOrReplaceRoute = (route) => {
+const existing = routes.find((item) => item.id === route.id);
+if (existing) Object.assign(existing, route);
+else routes.push(route);
+};
+const extendTranslations = () => {
+Object.assign(translations.en, {
+goalWorkEmployee: "Work for a Spanish employer",
+goalWorkEmployeeDesc: "Employee residence and work authorization, normally started by the employer.",
+goalWorkSelf: "Work as self-employed in Spain",
+goalWorkSelfDesc: "Self-employed residence and work authorization using the consular route.",
+goalStudyAbroad: "Study in Spain — applying from abroad",
+goalStudyAbroadDesc: "Student visa / long-stay study route through the Spanish consulate.",
+goalStudySpain: "Study in Spain — already legally in Spain",
+goalStudySpainDesc: "Check whether you can apply in Spain through Extranjería or Mercurio.",
+familyEu: "EU/EEA/Swiss citizen",
+familyEuDesc: "Points to the EU-family residence-card route (EX-19).",
+familySpanish: "Spanish citizen",
+familySpanishDesc: "Normally points to the family member of a Spanish national route (EX-24).",
+familyNonEu: "Non-EU citizen resident in Spain",
+familyNonEuDesc: "Points to ordinary family reunification (EX-02)."
+});
+Object.assign(translations.es, {
+goalWorkEmployee: "Trabajar para una empresa española",
+goalWorkEmployeeDesc: "Autorización de residencia y trabajo por cuenta ajena, normalmente iniciada por el empleador.",
+goalWorkSelf: "Trabajar por cuenta propia en España",
+goalWorkSelfDesc: "Autorización inicial por cuenta propia mediante la vía consular.",
+goalStudyAbroad: "Estudiar en España — solicitud desde el extranjero",
+goalStudyAbroadDesc: "Visado / estancia de larga duración por estudios a través del consulado español.",
+goalStudySpain: "Estudiar en España — ya estás legalmente en España",
+goalStudySpainDesc: "Comprueba si puedes solicitar en España por Extranjería o Mercurio.",
+familyEu: "Ciudadano de la UE/EEE/Suiza",
+familyEuDesc: "Conduce a la tarjeta de familiar de ciudadano de la UE (EX-19).",
+familySpanish: "Ciudadano español",
+familySpanishDesc: "Normalmente conduce a la autorización de familiar de español (EX-24).",
+familyNonEu: "Residente no comunitario en España",
+familyNonEuDesc: "Conduce a la reagrupación familiar ordinaria (EX-02)."
+});
+};
+const splitWizardChoices = () => {
+const workInput = wizard.querySelector('input[name="goal"][value="work"]');
+const workLabel = workInput?.closest("label");
+if (workInput && workLabel && !wizard.querySelector('input[name="goal"][value="workEmployee"]')) {
+workInput.value = "workEmployee";
+workLabel.dataset.goalCard = "work-employee";
+const workSpan = workLabel.querySelector("span");
+const workSmall = workLabel.querySelector("small");
+if (workSpan) workSpan.dataset.i18n = "goalWorkEmployee";
+if (workSmall) workSmall.dataset.i18n = "goalWorkEmployeeDesc";
+const selfLabel = workLabel.cloneNode(true);
+const selfInput = selfLabel.querySelector("input");
+const selfSpan = selfLabel.querySelector("span");
+const selfSmall = selfLabel.querySelector("small");
+selfInput.value = "workSelf";
+selfInput.checked = false;
+selfLabel.dataset.goalCard = "work-self";
+if (selfSpan) selfSpan.dataset.i18n = "goalWorkSelf";
+if (selfSmall) selfSmall.dataset.i18n = "goalWorkSelfDesc";
+workLabel.after(selfLabel);
+}
+const studyInput = wizard.querySelector('input[name="goal"][value="study"]');
+const studyLabel = studyInput?.closest("label");
+if (studyInput && studyLabel && !wizard.querySelector('input[name="goal"][value="studyAbroad"]')) {
+studyInput.value = "studyAbroad";
+studyLabel.dataset.goalCard = "study-abroad";
+const studySpan = studyLabel.querySelector("span");
+const studySmall = studyLabel.querySelector("small");
+if (studySpan) studySpan.dataset.i18n = "goalStudyAbroad";
+if (studySmall) studySmall.dataset.i18n = "goalStudyAbroadDesc";
+const inSpainLabel = studyLabel.cloneNode(true);
+const inSpainInput = inSpainLabel.querySelector("input");
+const inSpainSpan = inSpainLabel.querySelector("span");
+const inSpainSmall = inSpainLabel.querySelector("small");
+inSpainInput.value = "studySpain";
+inSpainInput.checked = false;
+inSpainLabel.dataset.goalCard = "study-spain";
+if (inSpainSpan) inSpainSpan.dataset.i18n = "goalStudySpain";
+if (inSpainSmall) inSpainSmall.dataset.i18n = "goalStudySpainDesc";
+studyLabel.after(inSpainLabel);
+}
+const euFamilyInput = wizard.querySelector('input[name="familySponsor"][value="euSpanish"]');
+const euFamilyLabel = euFamilyInput?.closest("label");
+if (euFamilyInput && euFamilyLabel) {
+euFamilyInput.value = "euCitizen";
+const span = euFamilyLabel.querySelector("span");
+const small = euFamilyLabel.querySelector("small");
+if (span) span.dataset.i18n = "familyEu";
+if (small) small.dataset.i18n = "familyEuDesc";
+}
+if (!wizard.querySelector('input[name="familySponsor"][value="spanishCitizen"]')) {
+const nonEuFamilyInput = wizard.querySelector('input[name="familySponsor"][value="nonEuResident"]');
+const nonEuLabel = nonEuFamilyInput?.closest("label");
+if (nonEuLabel) {
+const spanishLabel = document.createElement("label");
+spanishLabel.innerHTML = '<input type="radio" name="familySponsor" value="spanishCitizen" /> <span data-i18n="familySpanish">Spanish citizen</span><small data-i18n="familySpanishDesc">Normally points to the family member of a Spanish national route (EX-24).</small>';
+nonEuLabel.before(spanishLabel);
+}
+}
+};
+addOrReplaceRoute({
+id: "work-employed",
+title: "Employee residence and work authorization",
+badge: "Spanish employer",
+summary: "For a non-EU worker hired by a Spanish employer for more than 90 days. The employer normally files the initial authorization; after approval the worker completes the visa, entry, Social Security and TIE steps.",
+appointment: "Employer files the authorization; TIE appointment after approval and entry",
+documents: ["EX-03", "Passport", "Signed employment contract", "Employer and qualification evidence where required", "790-052 / 790-062 fee evidence", "EX-17 and 790-012 after approval"]
+});
+addOrReplaceRoute({
+id: "work-self-employed",
+title: "Self-employed residence and work authorization",
+badge: "Self-employed",
+summary: "For a non-EU person who is not resident in Spain and plans to carry out a self-employed activity. The initial EX-07 application is presented through the competent Spanish consulate, followed by visa, Social Security and TIE steps if approved.",
+appointment: "Initial application through the competent Spanish consulate; TIE after approval and entry",
+documents: ["EX-07", "Passport", "Business plan / investment evidence", "Licences and professional qualifications where required", "790-052 / 790-062 fee evidence", "EX-17 and 790-012 after approval"]
+});
+addOrReplaceRoute({
+id: "study-abroad",
+title: "Long-stay study application from abroad",
+badge: "Study from abroad",
+summary: "For a non-EU student applying from outside Spain for studies lasting more than 90 days. The application starts at the Spanish consulate responsible for the place of legal residence.",
+appointment: "Spanish consulate / visa application, then TIE if the stay exceeds six months",
+documents: ["EX-00 / consular study application documents", "Passport", "Admission and paid enrolment evidence", "Funds", "Health insurance", "Criminal record / medical evidence when required", "EX-17 after arrival if a TIE is required"]
+});
+addOrReplaceRoute({
+id: "study-in-spain",
+title: "Long-stay study application from Spain",
+badge: "Apply in Spain",
+summary: "For eligible non-EU students already legally in Spain. Current rules allow qualifying applications from Spain, including electronically through Mercurio, subject to the study type, legal status and filing deadlines.",
+appointment: "Extranjería or Mercurio; TIE if the stay exceeds six months",
+documents: ["EX-00", "Passport", "Proof of legal status in Spain", "Admission and paid enrolment evidence", "Funds", "Health insurance", "790-052", "EX-17 if a TIE is required"]
+});
+addOrReplaceRoute({
+id: "study-short",
+title: "Short study stay up to 90 days",
+badge: "Study up to 90 days",
+summary: "A course or study stay of up to 90 days does not use the long-stay study authorization. Check the Schengen short-stay visa rules for your nationality and the conditions of the specific course or activity.",
+appointment: "Schengen visa appointment only if your nationality requires a visa",
+documents: ["Passport", "Course / admission evidence", "Schengen visa documents if required", "Travel insurance and means where required"]
+});
+addOrReplaceRoute({
+id: "spanish-family",
+title: "Family member of a Spanish national",
+badge: "Spanish-family residence",
+summary: "The current general route for a non-EU family member joining a Spanish national is the temporary residence authorization for family members of Spanish nationals, using EX-24. It is separate from the EX-19 EU-family card route unless EU free-movement rules specifically apply.",
+appointment: "EX-24 through the competent Extranjería / consular route; TIE after approval or entry",
+documents: ["EX-24", "Passport of the foreign family member", "DNI or passport of the Spanish family member", "Family relationship evidence", "Criminal record / dependency evidence where required", "EX-17 and 790-012 for the TIE after approval"]
+});
+Object.assign(roadmapDetails, {
+"work-employed": {
+process: "Employee residence and work authorization",
+explanation: "<p><strong>Who this is for:</strong> a non-EU worker who will be employed by a Spanish employer for more than 90 days.</p><p><strong>Who applies:</strong> the Spanish employer normally files the initial authorization. This is not a tourist-visa or short-stay workaround.</p><p><strong>How the process runs:</strong> employer files the authorization → authorization fees are paid → if approved, the worker applies for the corresponding visa at the competent Spanish consulate → enters Spain → Social Security registration → TIE fingerprints/card.</p>",
+difficulty: "High",
+timeline: "Official authorization stage can take up to three months, plus visa and card steps",
+steps: ["Employer confirms the position and prepares EX-03 and supporting company/contract documents.", "Employer submits the initial authorization, including through Mercurio when using the electronic route.", "Pay the 790-052 residence fee and, where applicable, the 790-062 work fee.", "After approval, apply for the entry visa at the Spanish consulate responsible for your legal residence.", "Enter Spain and complete Social Security registration within the authorization/visa deadlines.", "Book TIE fingerprints and complete EX-17 + 790-012."],
+documents: ["Passport", "EX-03", "Signed employment contract", "Employer solvency / compliance evidence", "Professional qualification evidence where required", "790-052 and applicable 790-062", "EX-17 and 790-012 for TIE"],
+links: ["work-employed", "mercurio", "790-052", "790-062", "consulates", "cita", "790-012"]
+},
+"work-self-employed": {
+process: "Self-employed residence and work authorization",
+explanation: "<p><strong>Who this is for:</strong> a non-EU person who is not resident in Spain and wants to establish a self-employed activity.</p><p><strong>How you apply:</strong> the applicant files EX-07 personally through the competent Spanish consulate. The project must meet the professional, licensing and investment requirements for the planned activity.</p><p><strong>After approval:</strong> request the visa, enter Spain, register with Social Security and then obtain the TIE.</p>",
+difficulty: "High",
+timeline: "Official authorization stage can take up to three months, plus visa and card steps",
+steps: ["Prepare EX-07, business plan, investment evidence, licences and professional qualifications where required.", "Present the initial application at the Spanish consulate responsible for your legal residence.", "Pay 790-052 and, for authorizations of six months or more, the applicable 790-062 work fee.", "After approval, request and collect the visa within the official deadlines.", "Enter Spain and complete Social Security registration.", "Book TIE fingerprints and complete EX-17 + 790-012."],
+documents: ["Passport", "EX-07", "Business/project evidence", "Licences / qualifications", "Criminal record evidence", "790-052 and applicable 790-062", "EX-17 and 790-012 for TIE"],
+links: ["work-self-employed", "consulates", "790-052", "790-062", "cita", "790-012"]
+},
+"study-abroad": {
+process: "Long-stay study application from abroad",
+explanation: "<p><strong>Who this is for:</strong> a non-EU student outside Spain planning qualifying studies lasting more than 90 days.</p><p><strong>Where to apply:</strong> at the Spanish diplomatic mission or consular office responsible for where you legally reside. Consular booking systems differ by country, so use the official consulate directory and then the visa instructions for your own consulate.</p><p><strong>After arrival:</strong> if the authorized stay exceeds six months, request the TIE within the official one-month window.</p>",
+difficulty: "Medium to high",
+timeline: "Consular study-visa decision is normally up to one month after a complete filing",
+steps: ["Secure admission and pay the enrolment/registration amount required by the official route.", "Prepare passport, funds, health insurance and any criminal-record / medical documents required for your case.", "File through the competent Spanish consulate at least two months before studies begin unless an official exception applies.", "Pay Modelo 790-052, section 1.1.1, when the authorization fee is due.", "Collect the visa within the stated deadline if approved.", "If the stay exceeds six months, book the TIE after arrival."],
+documents: ["Passport", "Admission and enrolment evidence", "Funds", "Health insurance", "Criminal record / medical certificate when required", "EX-17 and 790-012 if TIE required"],
+links: ["study-official", "consulates", "790-052", "cita", "790-012"]
+},
+"study-in-spain": {
+process: "Long-stay study application from Spain",
+explanation: "<p><strong>Who this is for:</strong> an eligible non-EU student already legally in Spain. The exact eligibility depends on the study category and your current legal status.</p><p><strong>Where to apply:</strong> at the competent Oficina de Extranjería or electronically through Mercurio. For higher education, current rules allow an adult in regular status to apply from Spain subject to the filing deadlines.</p>",
+difficulty: "Medium to high",
+timeline: "Official decision period is normally up to two months",
+steps: ["Check the official study sheet to confirm that your study type and current status allow an in-Spain application.", "Prepare EX-00, admission/enrolment, funds, health insurance and proof of legal status.", "Pay the 790-052 study authorization fee.", "Submit at Extranjería or electronically through Mercurio within the official deadlines.", "If the stay exceeds six months, complete the TIE step after approval."],
+documents: ["Passport", "EX-00", "Proof of regular/legal status in Spain", "Admission and enrolment evidence", "Funds", "Health insurance", "790-052", "EX-17 and 790-012 if TIE required"],
+links: ["study-official", "mercurio", "790-052", "cita", "790-012"]
+},
+"study-short": {
+process: "Short study stay up to 90 days",
+explanation: "<p><strong>For stays up to 90 days:</strong> the long-stay study authorization is not the normal route. Check whether your nationality requires a Schengen visa and follow the course/provider requirements.</p><p><strong>Border systems:</strong> EES is operational for applicable non-EU short-stay travellers. ETIAS is not yet operational and no ETIAS application is currently required.</p>",
+difficulty: "Low to medium",
+timeline: "Depends on whether a Schengen visa is required",
+steps: ["Confirm the course/activity duration is 90 days or less.", "Check whether your nationality requires a Schengen visa.", "If required, apply at the competent Spanish consulate; otherwise prepare normal visa-free entry documents.", "Do not use the long-stay EX-00 route for a simple stay of 90 days or less."],
+documents: ["Passport", "Course/admission evidence", "Schengen visa documents if required", "Insurance / accommodation / means as applicable"],
+links: ["schengen", "consulates", "ees", "etias-status", "calculator"]
+},
+"spanish-family": {
+process: "Residence for a family member of a Spanish national (EX-24)",
+explanation: "<p><strong>Important:</strong> joining a Spanish citizen is now normally a separate route from the EU-family EX-19 card. The current general procedure uses EX-24.</p><p><strong>Where to apply:</strong> the correct filing location depends on where the Spanish citizen and foreign family member are living. The official procedure allows filing through the competent Extranjería office, the competent Spanish consulate in defined cases, and Mercurio for electronic filing where applicable.</p><p><strong>Fee:</strong> the residence-authorization procedure itself is free. After approval/entry, the TIE card step has its own Police fee.</p>",
+difficulty: "Medium to high",
+timeline: "Official authorization decision period is normally up to two months",
+steps: ["Confirm that the Spanish-family route applies rather than EU free-movement rules.", "Prepare EX-24, identity documents and evidence of the qualifying family relationship/dependency.", "Use the official procedure to identify whether the application is filed by the Spanish sponsor in Spain, by the foreign family member through the consulate, or in Spain where permitted.", "Use Mercurio when the electronic filing option applies.", "If approval requires a visa before entry, complete the visa step within the stated deadline.", "After approval or entry, request the TIE within the official one-month window."],
+documents: ["EX-24", "Passport of foreign family member", "DNI/passport of Spanish family member", "Family relationship evidence", "Criminal record / dependency evidence where required", "EX-17 and 790-012 for TIE"],
+links: ["spanish-family-official", "ex24", "mercurio", "consulates", "cita", "790-012"]
+}
+});
+Object.assign(roadmapDetailsEs, {
+"work-employed": {
+process: "Autorización de residencia y trabajo por cuenta ajena",
+explanation: "<p><strong>Para quién:</strong> persona no comunitaria contratada por una empresa española para trabajar más de 90 días.</p><p><strong>Quién presenta:</strong> normalmente el empleador español inicia la autorización. No es una vía que se pueda sustituir por una estancia turística.</p>",
+difficulty: "Alta",
+timeline: "La fase de autorización puede tardar hasta tres meses, más visado y TIE",
+steps: ["El empleador prepara EX-03, contrato y documentación empresarial.", "Presenta la autorización inicial, también por Mercurio cuando usa la vía electrónica.", "Abona la tasa 790-052 y, cuando corresponda, la 790-062.", "Tras la aprobación, solicita el visado en el consulado español competente.", "Entra en España y completa el alta en Seguridad Social.", "Reserva huellas/TIE y completa EX-17 + 790-012."],
+documents: ["Pasaporte", "EX-03", "Contrato firmado", "Pruebas del empleador", "Titulación cuando corresponda", "790-052 y 790-062 si procede", "EX-17 y 790-012 para TIE"],
+links: ["work-employed", "mercurio", "790-052", "790-062", "consulates", "cita", "790-012"]
+},
+"work-self-employed": {
+process: "Autorización de residencia y trabajo por cuenta propia",
+explanation: "<p><strong>Para quién:</strong> persona no comunitaria no residente en España que quiere desarrollar una actividad lucrativa por cuenta propia.</p><p><strong>Presentación:</strong> la solicitud EX-07 se presenta personalmente en el consulado español competente por lugar de residencia.</p>",
+difficulty: "Alta",
+timeline: "La fase de autorización puede tardar hasta tres meses, más visado y TIE",
+steps: ["Prepara EX-07, plan de negocio, inversión, licencias y titulaciones cuando proceda.", "Presenta la solicitud inicial en el consulado español competente.", "Abona 790-052 y, para autorizaciones de seis meses o más, la 790-062 correspondiente.", "Tras la aprobación, solicita y recoge el visado dentro del plazo oficial.", "Entra en España y completa el alta en Seguridad Social.", "Reserva huellas/TIE y completa EX-17 + 790-012."],
+documents: ["Pasaporte", "EX-07", "Proyecto empresarial", "Licencias/titulaciones", "Antecedentes", "790-052 y 790-062 si procede", "EX-17 y 790-012"],
+links: ["work-self-employed", "consulates", "790-052", "790-062", "cita", "790-012"]
+},
+"study-abroad": {
+process: "Estancia de larga duración por estudios desde el extranjero",
+explanation: "<p><strong>Para quién:</strong> estudiante no comunitario fuera de España con estudios de más de 90 días.</p><p><strong>Presentación:</strong> en la misión diplomática u oficina consular española competente por tu residencia legal.</p>",
+difficulty: "Media a alta",
+timeline: "El plazo consular máximo suele ser un mes tras una solicitud completa",
+steps: ["Obtén admisión y paga la matrícula exigida.", "Prepara pasaporte, medios, seguro y antecedentes/certificado médico cuando proceda.", "Presenta en el consulado competente con al menos dos meses de antelación salvo excepción oficial.", "Abona Modelo 790-052, epígrafe 1.1.1, cuando se devengue la tasa de autorización.", "Recoge el visado dentro del plazo si se aprueba.", "Si la estancia supera seis meses, solicita la TIE tras entrar."],
+documents: ["Pasaporte", "Admisión y matrícula", "Medios económicos", "Seguro", "Antecedentes/certificado médico cuando proceda", "EX-17 y 790-012 si TIE"],
+links: ["study-official", "consulates", "790-052", "cita", "790-012"]
+},
+"study-in-spain": {
+process: "Estancia por estudios solicitada desde España",
+explanation: "<p><strong>Para quién:</strong> estudiante no comunitario que ya se encuentra legalmente en España y cumple las condiciones para presentar desde España.</p><p><strong>Dónde:</strong> Oficina de Extranjería competente o Mercurio por vía telemática.</p>",
+difficulty: "Media a alta",
+timeline: "El plazo oficial de resolución suele ser de hasta dos meses",
+steps: ["Comprueba en la hoja oficial que tu tipo de estudios y situación permiten presentar desde España.", "Prepara EX-00, admisión/matrícula, medios, seguro y prueba de situación legal.", "Abona la tasa 790-052 de estudios.", "Presenta en Extranjería o por Mercurio dentro de los plazos.", "Si la estancia supera seis meses, completa la TIE tras la aprobación."],
+documents: ["Pasaporte", "EX-00", "Prueba de situación legal", "Admisión/matrícula", "Medios", "Seguro", "790-052", "EX-17 y 790-012 si TIE"],
+links: ["study-official", "mercurio", "790-052", "cita", "790-012"]
+},
+"study-short": {
+process: "Estudios de hasta 90 días",
+explanation: "<p>Para un curso o estudios de hasta 90 días no se utiliza normalmente la autorización de estancia de larga duración. Comprueba si tu nacionalidad necesita visado Schengen.</p><p>EES está operativo para los viajeros no comunitarios a los que se aplica. ETIAS todavía no está operativo y actualmente no se solicita.</p>",
+difficulty: "Baja a media",
+timeline: "Depende de si necesitas visado Schengen",
+steps: ["Confirma que el curso dura 90 días o menos.", "Comprueba si tu nacionalidad exige visado Schengen.", "Si lo exige, solicita en el consulado competente; si estás exento, prepara la documentación normal de entrada.", "No uses EX-00 de larga duración para una estancia simple de 90 días o menos."],
+documents: ["Pasaporte", "Prueba del curso", "Documentación Schengen si se exige", "Seguro/alojamiento/medios cuando proceda"],
+links: ["schengen", "consulates", "ees", "etias-status", "calculator"]
+},
+"spanish-family": {
+process: "Residencia de familiar de persona con nacionalidad española (EX-24)",
+explanation: "<p><strong>Importante:</strong> reunirse con un ciudadano español utiliza normalmente una vía propia distinta de la tarjeta EX-19 de familiar de ciudadano de la UE. El procedimiento general actual usa EX-24.</p><p><strong>Presentación:</strong> según dónde residan el ciudadano español y el familiar extranjero, puede corresponder Extranjería, consulado o Mercurio.</p><p><strong>Tasa:</strong> el procedimiento de autorización de residencia es gratuito; la TIE posterior tiene su propia tasa policial.</p>",
+difficulty: "Media a alta",
+timeline: "El plazo oficial de resolución suele ser de hasta dos meses",
+steps: ["Confirma que corresponde la vía de familiar de español y no el régimen de libre circulación UE.", "Prepara EX-24, identidades y prueba del vínculo/dependencia.", "Usa la hoja oficial para determinar quién presenta y dónde.", "Utiliza Mercurio cuando corresponda la vía telemática.", "Si tras la aprobación hace falta visado de entrada, complétalo dentro del plazo.", "Después de la aprobación o entrada, solicita la TIE dentro del plazo de un mes."],
+documents: ["EX-24", "Pasaporte del familiar extranjero", "DNI/pasaporte del familiar español", "Prueba del vínculo", "Antecedentes/dependencia cuando proceda", "EX-17 y 790-012 para TIE"],
+links: ["spanish-family-official", "ex24", "mercurio", "consulates", "cita", "790-012"]
+}
+});
+const euRegistration = routes.find((item) => item.id === "eu-registration");
+if (euRegistration) {
+euRegistration.summary = "EU, EEA, and Swiss citizens staying in Spain for more than three months register for the Certificado de Registro de Ciudadano de la Unión. Bring EX-18, identity, the evidence for your residence basis and local address evidence requested by the office. If you already have a NIE, bring it; a previously issued standalone NIE should not be presented as universally mandatory before EU registration.";
+euRegistration.documents = ["EX-18 form", "Passport or national ID", "Existing NIE if already assigned", "Padrón / address evidence requested by the office", "Employment, self-employment, study, or sufficient-resource evidence", "Health coverage where required", "Paid tasa receipt"];
+}
+if (roadmapDetails["eu-registration"]) {
+roadmapDetails["eu-registration"].steps = ["Prepare EX-18 and your passport or EU national ID.", "If you already have a NIE, bring it; otherwise follow the instructions of the office handling your EU registration.", "Prepare padrón/address evidence requested by the office and proof of your residence basis (work, self-employment, study, or sufficient resources).", "Arrange health cover if your residence basis requires it.", "Pay Modelo 790-012 for the EU registration certificate.", "Book and attend the EU Registration Certificate appointment."];
+roadmapDetails["eu-registration"].documents = ["Passport or EU national ID", "EX-18", "Existing NIE if already assigned", "Padrón/address evidence requested by the office", "Work/funds/study proof", "Health cover if required", "790-012 receipt"];
+}
+if (roadmapDetailsEs["eu-registration"]) {
+roadmapDetailsEs["eu-registration"].steps = ["Prepara EX-18 y pasaporte o documento nacional UE.", "Si ya tienes NIE, llévalo; si no, sigue las instrucciones de la oficina que tramite tu registro UE.", "Prepara padrón/prueba de domicilio que pida la oficina y la prueba de tu base de residencia.", "Contrata cobertura sanitaria si tu situación la exige.", "Paga el Modelo 790-012 del certificado UE.", "Reserva y acude a la cita del Certificado de Registro UE."];
+roadmapDetailsEs["eu-registration"].documents = ["Pasaporte o documento UE", "EX-18", "NIE existente si ya está asignado", "Padrón/prueba de domicilio solicitada", "Prueba de trabajo/fondos/estudios", "Cobertura sanitaria cuando proceda", "790-012"];
+}
+const nonEuVacation = routes.find((item) => item.id === "non-eu-vacation");
+if (nonEuVacation) nonEuVacation.summary = "For a short visit, first check whether your nationality requires a Schengen visa. EES is operational for applicable non-EU short-stay travellers. ETIAS is not yet operational and no ETIAS application is currently required.";
+if (roadmapDetails["non-eu-vacation"]) {
+roadmapDetails["non-eu-vacation"].steps = ["Check whether your nationality requires a Schengen short-stay visa.", "If a visa is required, apply through the Spanish consulate responsible for your legal residence.", "If visa-exempt, prepare the normal entry documents and respect the 90/180 limit.", "Expect EES registration at the external border where it applies.", "Do not apply for ETIAS yet: it is not currently operational."];
+roadmapDetails["non-eu-vacation"].links = ["schengen", "consulates", "ees", "etias-status", "calculator"];
+}
+if (roadmapDetailsEs["non-eu-vacation"]) {
+roadmapDetailsEs["non-eu-vacation"].steps = ["Comprueba si tu nacionalidad necesita visado Schengen de corta duración.", "Si necesitas visado, solicítalo en el consulado español competente por tu residencia legal.", "Si estás exento, prepara los documentos normales de entrada y respeta el límite 90/180.", "EES ya está operativo y se aplica a los viajeros no comunitarios correspondientes.", "No solicites ETIAS todavía: actualmente no está operativo."];
+roadmapDetailsEs["non-eu-vacation"].links = ["schengen", "consulates", "ees", "etias-status", "calculator"];
+}
+const digitalNomad = routes.find((item) => item.id === "digital-nomad");
+if (digitalNomad) digitalNomad.summary = "Spain's international telework route is for non-EU remote workers. Employees may work only for companies outside Spain; self-employed/professional applicants may perform Spanish-client work up to 20% of their total professional activity. From abroad, use the consular visa route; if legally in Spain, the residence authorization is filed with UGE-CE.";
+if (roadmapDetails["digital-nomad"]) {
+roadmapDetails["digital-nomad"].steps = ["Confirm whether you are an employee or a self-employed/professional remote worker and apply the correct Spanish-client rule.", "Prepare the employment/professional relationship evidence, company documents, qualifications/experience and other required evidence.", "If outside Spain, use the competent Spanish consulate for the telework visa; if legally in Spain, file the residence authorization through UGE-CE.", "For the UGE residence authorization, pay Modelo 790-038 and keep the NRC/payment evidence required by the filing system.", "After approval, complete the TIE step where applicable."];
+roadmapDetails["digital-nomad"].links = ["digital-nomad-official", "uge-apply", "790-038", "consulates", "cita", "790-012"];
+}
+if (roadmapDetailsEs["digital-nomad"]) {
+roadmapDetailsEs["digital-nomad"].steps = ["Confirma si eres trabajador por cuenta ajena o profesional/autónomo remoto y aplica la regla correcta sobre actividad para clientes españoles.", "Prepara relación laboral/profesional, documentos de empresa, titulación/experiencia y demás pruebas exigidas.", "Si estás fuera de España, usa el consulado competente para el visado; si estás legalmente en España, presenta la autorización en UGE-CE.", "Para la autorización UGE, paga el Modelo 790-038 y conserva el NRC/justificante requerido.", "Tras la aprobación, completa la TIE cuando corresponda."];
+roadmapDetailsEs["digital-nomad"].links = ["digital-nomad-official", "uge-apply", "790-038", "consulates", "cita", "790-012"];
+}
+if (roadmapDetails["non-lucrative"]) {
+roadmapDetails["non-lucrative"].steps = ["Confirm that you will reside without carrying out work or professional activity in Spain.", "Prepare funds, health insurance, criminal record and medical certificate as required.", "Find the Spanish consulate responsible for your legal residence and follow that consulate's non-lucrative visa filing/appointment instructions.", "Pay Modelo 790-052, section 2.1.1, for the residence authorization.", "After approval, collect the visa, enter Spain within its validity and request the TIE within one month of entry."];
+roadmapDetails["non-lucrative"].links = ["non-lucrative-official", "consulates", "790-052", "cita", "790-012"];
+}
+if (roadmapDetailsEs["non-lucrative"]) {
+roadmapDetailsEs["non-lucrative"].steps = ["Confirma que vas a residir sin realizar actividad laboral o profesional en España.", "Prepara fondos, seguro médico, antecedentes y certificado médico cuando corresponda.", "Localiza el consulado español competente por tu residencia legal y sigue sus instrucciones de cita/presentación.", "Paga Modelo 790-052, epígrafe 2.1.1.", "Tras la aprobación, recoge el visado, entra dentro de su vigencia y solicita la TIE dentro del mes siguiente a la entrada."];
+roadmapDetailsEs["non-lucrative"].links = ["non-lucrative-official", "consulates", "790-052", "cita", "790-012"];
+}
+if (roadmapDetails.family) {
+roadmapDetails.family.steps = ["Confirm that the sponsor in Spain is a non-EU legal resident and that ordinary family reunification is the correct route.", "Prepare EX-02, family relationship evidence, sponsor residence documents, housing evidence and economic means.", "The sponsor files in Spain, including electronically through Mercurio where using the online route.", "Pay Modelo 790-052, section 2.1.2.", "After approval, the family member completes the visa step at the competent Spanish consulate.", "After arrival, complete the TIE step with EX-17 and 790-012."];
+roadmapDetails.family.links = ["family-official", "mercurio", "790-052", "consulates", "cita", "790-012"];
+}
+if (roadmapDetailsEs.family) {
+roadmapDetailsEs.family.steps = ["Confirma que quien reagrupa es residente legal no comunitario y que corresponde reagrupación familiar ordinaria.", "Prepara EX-02, vínculo familiar, residencia del reagrupante, vivienda y medios económicos.", "El reagrupante presenta en España, también por Mercurio cuando use la vía telemática.", "Paga Modelo 790-052, epígrafe 2.1.2.", "Tras la aprobación, el familiar completa el visado en el consulado español competente.", "Después de la entrada, completa la TIE con EX-17 y 790-012."];
+roadmapDetailsEs.family.links = ["family-official", "mercurio", "790-052", "consulates", "cita", "790-012"];
+}
+const euFamily = routes.find((item) => item.id === "eu-family");
+if (euFamily) {
+euFamily.title = "Family member of an EU/EEA/Swiss citizen";
+euFamily.summary = "For a non-EU family member joining or accompanying an EU, EEA or Swiss citizen under EU free-movement rules. This route normally uses EX-19. A family member joining a Spanish citizen should use the separate Spanish-family route unless EU free-movement rules specifically apply.";
+}
+const legacyWork = routes.find((item) => item.id === "work-authorization");
+if (legacyWork) {
+legacyWork.summary = "Non-EU work routes split into two different procedures: employment by a Spanish employer (EX-03, normally employer-led and eligible for Mercurio) and initial self-employment (EX-07, filed through the competent Spanish consulate). Choose the matching route in the roadmap before filing.";
+}
+if (roadmapDetails["work-authorization"]) {
+roadmapDetails["work-authorization"].explanation = "<p><strong>Choose the correct branch first:</strong> employee work and self-employed work are separate initial procedures.</p><p><strong>Employee:</strong> EX-03, normally filed by the Spanish employer, with Mercurio available for electronic filing.</p><p><strong>Self-employed:</strong> EX-07, filed personally through the competent Spanish consulate for an applicant who is not resident in Spain.</p>";
+roadmapDetails["work-authorization"].steps = ["If a Spanish company is hiring you, use the employee route (EX-03).", "If you will establish your own activity, use the self-employed route (EX-07).", "Do not rely on a Schengen short stay to replace the required work authorization.", "Use the official route-specific page before paying fees or booking the visa/TIE steps."];
+roadmapDetails["work-authorization"].links = ["work-employed", "work-self-employed", "mercurio", "790-052", "790-062", "consulates"];
+}
+if (roadmapDetailsEs["work-authorization"]) {
+roadmapDetailsEs["work-authorization"].explanation = "<p><strong>Elige la rama correcta:</strong> trabajo por cuenta ajena y por cuenta propia son procedimientos iniciales distintos.</p><p><strong>Cuenta ajena:</strong> EX-03, normalmente presentado por el empleador, con Mercurio para vía telemática.</p><p><strong>Cuenta propia:</strong> EX-07, presentado personalmente por el solicitante no residente en el consulado español competente.</p>";
+roadmapDetailsEs["work-authorization"].steps = ["Si te contrata una empresa española, usa la vía por cuenta ajena EX-03.", "Si montarás tu propia actividad, usa la vía por cuenta propia EX-07.", "No uses una estancia Schengen como sustituto de la autorización de trabajo.", "Abre la hoja oficial de la vía concreta antes de pagar tasas o tramitar visado/TIE."];
+roadmapDetailsEs["work-authorization"].links = ["work-employed", "work-self-employed", "mercurio", "790-052", "790-062", "consulates"];
+}
+const legacyStudy = routes.find((item) => item.id === "study");
+if (legacyStudy) legacyStudy.summary = "Non-EU study stays over 90 days now need the correct application path based on where you apply: Spanish consulate from abroad, or an eligible in-Spain application through Extranjería/Mercurio where the current rules allow it.";
+if (roadmapDetails.study) {
+roadmapDetails.study.explanation = "<p><strong>First choose where you are applying from:</strong> from abroad, use the competent Spanish consulate; if already legally in Spain, check whether your study category and legal status allow an in-Spain application through Extranjería or Mercurio.</p>";
+roadmapDetails.study.steps = ["Confirm the study lasts more than 90 days; shorter studies use short-stay rules.", "If outside Spain, follow the competent Spanish consulate's study-visa process.", "If legally in Spain, check the official sheet to see whether you can file from Spain and use Mercurio where available.", "Pay the applicable study authorization fee and complete TIE if the stay exceeds six months."];
+roadmapDetails.study.links = ["study-official", "consulates", "mercurio", "790-052", "cita", "790-012"];
+}
+if (roadmapDetailsEs.study) {
+roadmapDetailsEs.study.explanation = "<p><strong>Primero elige desde dónde presentas:</strong> desde el extranjero, usa el consulado español competente; si ya estás legalmente en España, comprueba si tu categoría de estudios y situación permiten presentar desde España por Extranjería o Mercurio.</p>";
+roadmapDetailsEs.study.steps = ["Confirma que los estudios duran más de 90 días; los estudios más cortos siguen reglas de estancia corta.", "Si estás fuera, sigue el proceso de estudios del consulado competente.", "Si estás legalmente en España, revisa la hoja oficial y usa Mercurio cuando esté disponible.", "Paga la tasa de autorización que corresponda y completa la TIE si la estancia supera seis meses."];
+roadmapDetailsEs.study.links = ["study-official", "consulates", "mercurio", "790-052", "cita", "790-012"];
+}
+if (roadmapDetails["eu-family"]) {
+roadmapDetails["eu-family"].explanation = "<p><strong>Who this route is for:</strong> a non-EU family member joining or accompanying an EU, EEA or Swiss citizen under EU free-movement rules.</p><p><strong>Form:</strong> EX-19. A family member joining a Spanish citizen normally uses the separate EX-24 Spanish-family route unless EU free-movement rules specifically apply.</p>";
+roadmapDetails["eu-family"].steps = ["Confirm the sponsor is an EU/EEA/Swiss citizen and that EU free-movement rules apply.", "Prepare family relationship evidence and the EU citizen's residence-basis documents.", "Complete EX-19.", "File through the competent office and follow the official appointment instructions.", "Pay the applicable 790-012 card fee and complete the card/fingerprint step where required."];
+roadmapDetails["eu-family"].documents = ["Passport", "EX-19", "EU/EEA/Swiss sponsor identity and residence evidence", "Marriage/partnership/birth/dependency evidence", "790-012 receipt where required"];
+}
+if (roadmapDetailsEs["eu-family"]) {
+roadmapDetailsEs["eu-family"].explanation = "<p><strong>Para quién:</strong> familiar no comunitario que acompaña o se reúne con un ciudadano de la UE, EEE o Suiza bajo las normas de libre circulación.</p><p><strong>Formulario:</strong> EX-19. El familiar de un ciudadano español usa normalmente la vía separada EX-24, salvo que sean aplicables específicamente las normas de libre circulación UE.</p>";
+roadmapDetailsEs["eu-family"].steps = ["Confirma que quien te reúne es ciudadano UE/EEE/Suiza y que se aplica libre circulación.", "Prepara vínculo familiar y documentos de residencia del ciudadano UE.", "Completa EX-19.", "Presenta por la oficina competente y sigue las instrucciones oficiales de cita.", "Paga la tasa 790-012 aplicable y completa tarjeta/huellas cuando corresponda."];
+roadmapDetailsEs["eu-family"].documents = ["Pasaporte", "EX-19", "Identidad y residencia del ciudadano UE/EEE/Suiza", "Prueba de matrimonio/pareja/nacimiento/dependencia", "790-012 cuando proceda"];
+}
+const feeHelper = (title, purpose, officialUrl) => ({ title, purpose, officialUrl, fields: [], checks: [] });
+Object.assign(formHelpers, {
+"790-052": feeHelper("Modelo 790 Código 052", "Residence-authorization fee for many Extranjería procedures handled by provincial immigration offices.", "https://sede.administracionespublicas.gob.es/tasasPDF/prepareProvincia?idModelo=790&idTasa=052"),
+"790-062": feeHelper("Modelo 790 Código 062", "Work-authorization fee used for applicable initial work authorizations.", "https://sede.administracionespublicas.gob.es/tasasPDF/prepareProvincia?idModelo=790&idTasa=062"),
+"790-038": feeHelper("Modelo 790 Código 038", "Fee used for international-mobility residence authorizations handled by UGE, including the international telework residence authorization.", "https://sede.inclusion.gob.es/w/autorizaciones-de-trabajo-y-residencia-tasa-038?redirect=%2Fextranjeria"),
+"EX-24": feeHelper("EX-24 Spanish-family residence", "Official form for temporary residence authorization for family members of Spanish nationals.", "https://www.inclusion.gob.es/documents/d/migraciones/ex24-formulario-autorizacion-de-residencia-temporal-de-familiares-de-personas-con-nacionalidad-espanola-1")
+});
+const employeeForms = {
+forms: [["EX-03", "Initial employee residence and work authorization", "Authorization form", "EX-03"], ["EX-17", "TIE after approval", "Form", "EX-17"]],
+taxes: [["790-052", "Residence authorization fee — section 2.1.3", "Official amount (EUR)", "790-052"], ["790-062", "Work authorization fee where applicable", "Official amount (EUR)", "790-062"], ["790-012", "TIE card after approval", "See Police generator", "790-012"]],
+links: ["work-employed", "mercurio", "790-052", "790-062", "consulates", "cita", "790-012"]
+};
+const selfForms = {
+forms: [["EX-07", "Initial self-employed residence and work authorization", "Authorization form", "EX-07"], ["EX-17", "TIE after approval", "Form", "EX-17"]],
+taxes: [["790-052", "Residence authorization fee — section 2.1.3", "Official amount (EUR)", "790-052"], ["790-062", "Self-employed work authorization fee if authorization is six months or more", "Official amount (EUR)", "790-062"], ["790-012", "TIE card after approval", "See Police generator", "790-012"]],
+links: ["work-self-employed", "consulates", "790-052", "790-062", "cita", "790-012"]
+};
+routeFormsAndTaxes["work-employed"] = employeeForms;
+routeFormsAndTaxes["work-self-employed"] = selfForms;
+routeFormsAndTaxesEs["work-employed"] = {
+forms: [["EX-03", "Autorización inicial de residencia y trabajo por cuenta ajena", "Formulario de autorización", "EX-03"], ["EX-17", "TIE tras la aprobación", "Formulario", "EX-17"]],
+taxes: [["790-052", "Tasa de residencia — epígrafe 2.1.3", "Importe oficial (EUR)", "790-052"], ["790-062", "Tasa de autorización de trabajo cuando corresponda", "Importe oficial (EUR)", "790-062"], ["790-012", "TIE tras la aprobación", "Ver generador Policía", "790-012"]],
+links: ["work-employed", "mercurio", "790-052", "790-062", "consulates", "cita", "790-012"]
+};
+routeFormsAndTaxesEs["work-self-employed"] = {
+forms: [["EX-07", "Autorización inicial de residencia y trabajo por cuenta propia", "Formulario de autorización", "EX-07"], ["EX-17", "TIE tras la aprobación", "Formulario", "EX-17"]],
+taxes: [["790-052", "Tasa de residencia — epígrafe 2.1.3", "Importe oficial (EUR)", "790-052"], ["790-062", "Tasa de trabajo por cuenta propia si la autorización es de seis meses o más", "Importe oficial (EUR)", "790-062"], ["790-012", "TIE tras la aprobación", "Ver generador Policía", "790-012"]],
+links: ["work-self-employed", "consulates", "790-052", "790-062", "cita", "790-012"]
+};
+routeFormsAndTaxes["study-abroad"] = { forms: [["EX-00", "Long-stay study authorization form", "Authorization form", "EX-00"], ["EX-17", "TIE if stay exceeds six months", "Form", "EX-17"]], taxes: [["790-052", "Initial long-stay study authorization — section 1.1.1", "Official amount (EUR)", "790-052"], ["790-012", "TIE if required after arrival", "See Police generator", "790-012"]], links: ["study-official", "consulates", "790-052", "cita", "790-012"] };
+routeFormsAndTaxes["study-in-spain"] = { forms: [["EX-00", "Long-stay study authorization form", "Authorization form", "EX-00"], ["EX-17", "TIE if stay exceeds six months", "Form", "EX-17"]], taxes: [["790-052", "Initial long-stay study authorization — section 1.1.1", "Official amount (EUR)", "790-052"], ["790-012", "TIE if required", "See Police generator", "790-012"]], links: ["study-official", "mercurio", "790-052", "cita", "790-012"] };
+routeFormsAndTaxes["study-short"] = { forms: [], taxes: [], links: ["schengen", "consulates", "ees", "etias-status", "calculator"] };
+routeFormsAndTaxes["spanish-family"] = { forms: [["EX-24", "Residence authorization for family member of a Spanish national", "Authorization form", "EX-24"], ["EX-17", "TIE after approval / entry", "Form", "EX-17"]], taxes: [["790-012", "TIE card fee after approval / entry", "See Police generator", "790-012"]], links: ["spanish-family-official", "ex24", "mercurio", "consulates", "cita", "790-012"] };
+routeFormsAndTaxesEs["study-abroad"] = { forms: [["EX-00", "Formulario de estancia de larga duración por estudios", "Formulario de autorización", "EX-00"], ["EX-17", "TIE si la estancia supera seis meses", "Formulario", "EX-17"]], taxes: [["790-052", "Autorización inicial de estudios — epígrafe 1.1.1", "Importe oficial (EUR)", "790-052"], ["790-012", "TIE si corresponde tras la entrada", "Ver generador Policía", "790-012"]], links: ["study-official", "consulates", "790-052", "cita", "790-012"] };
+routeFormsAndTaxesEs["study-in-spain"] = { forms: [["EX-00", "Formulario de estancia de larga duración por estudios", "Formulario de autorización", "EX-00"], ["EX-17", "TIE si la estancia supera seis meses", "Formulario", "EX-17"]], taxes: [["790-052", "Autorización inicial de estudios — epígrafe 1.1.1", "Importe oficial (EUR)", "790-052"], ["790-012", "TIE si corresponde", "Ver generador Policía", "790-012"]], links: ["study-official", "mercurio", "790-052", "cita", "790-012"] };
+routeFormsAndTaxesEs["study-short"] = { forms: [], taxes: [], links: ["schengen", "consulates", "ees", "etias-status", "calculator"] };
+routeFormsAndTaxesEs["spanish-family"] = { forms: [["EX-24", "Autorización de residencia para familiar de persona española", "Formulario de autorización", "EX-24"], ["EX-17", "TIE tras aprobación / entrada", "Formulario", "EX-17"]], taxes: [["790-012", "Tasa de TIE tras aprobación / entrada", "Ver generador Policía", "790-012"]], links: ["spanish-family-official", "ex24", "mercurio", "consulates", "cita", "790-012"] };
+if (routeFormsAndTaxes["eu-registration"]?.forms) {
+routeFormsAndTaxes["eu-registration"].forms = routeFormsAndTaxes["eu-registration"].forms.map((row) => row[0] === "NIE" ? ["NIE (if already assigned)", "Bring an existing NIE if you already have one; do not treat a standalone prior NIE as universally mandatory.", "Existing detail", ""] : row);
+}
+if (routeFormsAndTaxesEs["eu-registration"]?.forms) {
+routeFormsAndTaxesEs["eu-registration"].forms = routeFormsAndTaxesEs["eu-registration"].forms.map((row) => row[0] === "NIE" ? ["NIE (si ya está asignado)", "Lleva tu NIE si ya lo tienes; no se presenta como requisito universal obtenerlo por separado antes del registro UE.", "Dato existente", ""] : row);
+}
+routeFormsAndTaxes["digital-nomad"] = { forms: [["UGE online application", "International telework residence authorization", "Official application portal", "digital-nomad-official"], ["EX-17", "TIE after approval", "Form", "EX-17"]], taxes: [["790-038", "International mobility authorization fee — point 7", "Official amount (EUR)", "790-038"], ["790-012", "TIE after approval", "See Police generator", "790-012"]], links: ["digital-nomad-official", "uge-apply", "790-038", "consulates", "cita", "790-012"] };
+routeFormsAndTaxesEs["digital-nomad"] = { forms: [["Solicitud online UGE", "Autorización de residencia para teletrabajo internacional", "Portal oficial de solicitud", "digital-nomad-official"], ["EX-17", "TIE tras aprobación", "Formulario", "EX-17"]], taxes: [["790-038", "Tasa de movilidad internacional — punto 7", "Importe oficial (EUR)", "790-038"], ["790-012", "TIE tras aprobación", "Ver generador Policía", "790-012"]], links: ["digital-nomad-official", "uge-apply", "790-038", "consulates", "cita", "790-012"] };
+routeFormsAndTaxes["non-lucrative"] = { forms: [["EX-01", "Initial non-lucrative residence authorization", "Authorization form", "EX-01"], ["EX-17", "TIE after visa / entry", "Form", "EX-17"]], taxes: [["790-052", "Non-lucrative residence authorization — section 2.1.1", "Official amount (EUR)", "790-052"], ["790-012", "TIE after entry", "See Police generator", "790-012"]], links: ["non-lucrative-official", "consulates", "790-052", "cita", "790-012"] };
+routeFormsAndTaxesEs["non-lucrative"] = { forms: [["EX-01", "Autorización inicial de residencia no lucrativa", "Formulario de autorización", "EX-01"], ["EX-17", "TIE tras visado / entrada", "Formulario", "EX-17"]], taxes: [["790-052", "Residencia no lucrativa — epígrafe 2.1.1", "Importe oficial (EUR)", "790-052"], ["790-012", "TIE tras entrada", "Ver generador Policía", "790-012"]], links: ["non-lucrative-official", "consulates", "790-052", "cita", "790-012"] };
+routeFormsAndTaxes.family = { forms: [["EX-02", "Family reunification residence authorization", "Authorization form", "EX-02"], ["EX-17", "TIE after approval / visa / entry", "Form", "EX-17"]], taxes: [["790-052", "Family reunification authorization — section 2.1.2", "Official amount (EUR)", "790-052"], ["790-012", "TIE after entry", "See Police generator", "790-012"]], links: ["family-official", "mercurio", "790-052", "consulates", "cita", "790-012"] };
+routeFormsAndTaxesEs.family = { forms: [["EX-02", "Autorización de residencia por reagrupación familiar", "Formulario de autorización", "EX-02"], ["EX-17", "TIE tras aprobación / visado / entrada", "Formulario", "EX-17"]], taxes: [["790-052", "Reagrupación familiar — epígrafe 2.1.2", "Importe oficial (EUR)", "790-052"], ["790-012", "TIE tras entrada", "Ver generador Policía", "790-012"]], links: ["family-official", "mercurio", "790-052", "consulates", "cita", "790-012"] };
+if (routeFormsAndTaxes["work-authorization"]) {
+routeFormsAndTaxes["work-authorization"].taxes = [["790-052", "Residence authorization fee for the selected employee/self-employed route", "Official amount (EUR)", "790-052"], ["790-062", "Work authorization fee where applicable", "Official amount (EUR)", "790-062"], ["790-012", "TIE after approval", "See Police generator", "790-012"]];
+routeFormsAndTaxes["work-authorization"].links = ["work-employed", "work-self-employed", "mercurio", "790-052", "790-062", "consulates"];
+}
+if (routeFormsAndTaxesEs["work-authorization"]) {
+routeFormsAndTaxesEs["work-authorization"].taxes = [["790-052", "Tasa de residencia de la vía seleccionada", "Importe oficial (EUR)", "790-052"], ["790-062", "Tasa de trabajo cuando proceda", "Importe oficial (EUR)", "790-062"], ["790-012", "TIE tras aprobación", "Ver generador Policía", "790-012"]];
+routeFormsAndTaxesEs["work-authorization"].links = ["work-employed", "work-self-employed", "mercurio", "790-052", "790-062", "consulates"];
+}
+if (routeFormsAndTaxes.study) {
+routeFormsAndTaxes.study.taxes = [["790-052", "In-Spain long-stay study authorization where applicable", "Official amount (EUR)", "790-052"], ["790-012", "TIE if required", "See Police generator", "790-012"]];
+routeFormsAndTaxes.study.links = ["study-official", "consulates", "mercurio", "790-052", "cita", "790-012"];
+}
+if (routeFormsAndTaxesEs.study) {
+routeFormsAndTaxesEs.study.taxes = [["790-052", "Autorización de estudios desde España cuando proceda", "Importe oficial (EUR)", "790-052"], ["790-012", "TIE si corresponde", "Ver generador Policía", "790-012"]];
+routeFormsAndTaxesEs.study.links = ["study-official", "consulates", "mercurio", "790-052", "cita", "790-012"];
+}
+if (routeFormsAndTaxes["non-eu-vacation"]) routeFormsAndTaxes["non-eu-vacation"].links = ["schengen", "consulates", "ees", "etias-status", "calculator"];
+if (routeFormsAndTaxesEs["non-eu-vacation"]) routeFormsAndTaxesEs["non-eu-vacation"].links = ["schengen", "consulates", "ees", "etias-status", "calculator"];
+Object.assign(linkLabels.en, {
+schengen: "Check if you need a Schengen visa",
+ees: "Entry/Exit System (EES) — operational",
+"etias-status": "ETIAS status — not active yet",
+mercurio: "Apply online in Mercurio",
+"790-052": "Generate / pay 790-052",
+"790-062": "Generate / pay 790-062",
+"790-038": "Pay 790-038 (UGE)",
+"uge-apply": "Apply online through UGE-CE",
+consulates: "Find your Spanish consulate",
+"spanish-family-official": "Family member of a Spanish national — official route",
+ex24: "EX-24 official form"
+});
+Object.assign(linkLabels.es, {
+schengen: "Comprobar si necesitas visado Schengen",
+ees: "Sistema de Entradas y Salidas (EES) — operativo",
+"etias-status": "Estado de ETIAS — todavía no operativo",
+mercurio: "Presentar online en Mercurio",
+"790-052": "Generar / pagar 790-052",
+"790-062": "Generar / pagar 790-062",
+"790-038": "Pagar 790-038 (UGE)",
+"uge-apply": "Presentar online por UGE-CE",
+consulates: "Buscar tu consulado español",
+"spanish-family-official": "Familiar de persona española — vía oficial",
+ex24: "Formulario oficial EX-24"
+});
+Object.assign(urls, {
+schengen: "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en",
+ees: "https://home-affairs.ec.europa.eu/news/entry-exit-system-fully-operational-10-april-2026-who-exempt-2026-07-27_en",
+"etias-status": "https://www.travel-europe.europa.eu/etias/about-etias",
+mercurio: "https://sede.administracionespublicas.gob.es/pagina/index/directorio/mercurio2/language/es_ES",
+"790-052": "https://sede.administracionespublicas.gob.es/tasasPDF/prepareProvincia?idModelo=790&idTasa=052",
+"790-062": "https://sede.administracionespublicas.gob.es/tasasPDF/prepareProvincia?idModelo=790&idTasa=062",
+"790-038": "https://sede.inclusion.gob.es/w/autorizaciones-de-trabajo-y-residencia-tasa-038?redirect=%2Fextranjeria",
+"uge-apply": "https://sede.inclusion.gob.es/w/presentacion-solicitudes-autorizacion-residencia?redirect=%2Fextranjeria",
+consulates: "https://www.exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Servicios-consulares.aspx",
+"spanish-family-official": "https://www.inclusion.gob.es/web/migraciones/w/18.-autorizacion-de-residencia-temporal-de-familiares-de-personas-con-nacionalidad-espanola",
+ex24: "https://www.inclusion.gob.es/documents/d/migraciones/ex24-formulario-autorizacion-de-residencia-temporal-de-familiares-de-personas-con-nacionalidad-espanola-1"
+});
+Object.assign(govMeta, {
+mercurio: { subtitle: currentLang === "es" ? "Sede oficial de Extranjería" : "Official Extranjería filing portal", variant: "general", system: "spain" },
+"790-052": { subtitle: currentLang === "es" ? "Tasa oficial de Extranjería" : "Official Extranjería fee", variant: "tax", system: "spain" },
+"790-062": { subtitle: currentLang === "es" ? "Tasa oficial de trabajo" : "Official work authorization fee", variant: "tax", system: "spain" },
+"790-038": { subtitle: currentLang === "es" ? "Tasa oficial UGE" : "Official UGE fee", variant: "tax", system: "spain" },
+"uge-apply": { subtitle: currentLang === "es" ? "Sede electrónica UGE-CE" : "UGE-CE electronic office", variant: "general", system: "spain" },
+consulates: { subtitle: currentLang === "es" ? "Directorio oficial de servicios consulares" : "Official consular-services directory", variant: "general", system: "spain" },
+"spanish-family-official": { subtitle: currentLang === "es" ? "Ministerio de Inclusión" : "Ministry of Inclusion", variant: "general", system: "spain" },
+ex24: { subtitle: currentLang === "es" ? "Modelos oficiales de Extranjería" : "Official Extranjería forms", variant: "general", system: "spain" },
+"etias-status": { subtitle: currentLang === "es" ? "Portal oficial de la UE" : "Official EU travel portal", variant: "eu", system: "eu" },
+ees: { subtitle: currentLang === "es" ? "Comisión Europea" : "European Commission", variant: "eu", system: "eu" }
+});
+pickRoute = function () {
+const personType = getValue("personType");
+const goal = getValue("goal");
+const duration = getValue("duration");
+const familySponsor = getValue("familySponsor");
+if (goal === "vacation" && personType === "eu") return routes.find((route) => route.id === "eu-vacation");
+if (goal === "vacation") return routes.find((route) => route.id === "non-eu-vacation");
+if (personType === "eu") {
+if (duration === "short") return routes.find((route) => route.id === "eu-vacation");
+if (goal === "workEmployee" || goal === "workSelf") return routes.find((route) => route.id === "eu-working");
+return routes.find((route) => route.id === "eu-registration");
+}
+if (goal === "workEmployee") return routes.find((route) => route.id === "work-employed");
+if (goal === "workSelf") return routes.find((route) => route.id === "work-self-employed");
+if (goal === "remote") return routes.find((route) => route.id === "digital-nomad");
+if (goal === "family" && familySponsor === "euCitizen") return routes.find((route) => route.id === "eu-family");
+if (goal === "family" && familySponsor === "spanishCitizen") return routes.find((route) => route.id === "spanish-family");
+if (goal === "family") return routes.find((route) => route.id === "family");
+if ((goal === "studyAbroad" || goal === "studySpain") && duration === "short") return routes.find((route) => route.id === "study-short");
+if (goal === "studyAbroad") return routes.find((route) => route.id === "study-abroad");
+if (goal === "studySpain") return routes.find((route) => route.id === "study-in-spain");
+if (goal === "work") return routes.find((route) => route.id === "work-authorization");
+if (goal === "study") return routes.find((route) => route.id === "study");
+if (goal === "family" && familySponsor === "euSpanish") return routes.find((route) => route.id === "eu-family");
+if (duration === "short") return routes.find((route) => route.id === "non-eu-vacation");
+if (goal === "noWork") return routes.find((route) => route.id === "non-lucrative");
+return null;
+};
+const syncChoiceVisibility = () => {
+const isEu = getValue("personType") === "eu";
+const studyAbroad = wizard.querySelector('input[name="goal"][value="studyAbroad"]')?.closest("label");
+const studySpain = wizard.querySelector('input[name="goal"][value="studySpain"]')?.closest("label");
+if (studyAbroad) {
+const span = studyAbroad.querySelector("span");
+const small = studyAbroad.querySelector("small");
+if (isEu) {
+if (span) span.dataset.i18n = "goalStudy";
+if (small) small.dataset.i18n = "goalStudyDesc";
+} else {
+if (span) span.dataset.i18n = "goalStudyAbroad";
+if (small) small.dataset.i18n = "goalStudyAbroadDesc";
+}
+}
+if (studySpain) {
+studySpain.hidden = isEu;
+const input = studySpain.querySelector("input");
+if (isEu && input?.checked) {
+input.checked = false;
+const first = studyAbroad?.querySelector("input");
+if (first) first.checked = true;
+}
+}
+};
+extendTranslations();
+splitWizardChoices();
+syncChoiceVisibility();
+wizard.addEventListener("change", (event) => {
+if (event.target?.name === "personType") {
+syncChoiceVisibility();
+applyTranslations();
+}
+});
+setLanguage(currentLang);
+const staticGuideId = document.documentElement.dataset.guideId;
+if (staticGuideId) {
+const staticRoute = routes.find((route) => route.id === staticGuideId);
+if (staticRoute) {
+showDirectGuide();
+renderRoadmapCard(roadmapFor(staticRoute), staticGuideId);
+}
+}
+})();
+
+
+(() => {
+  if (typeof routes === "undefined" || typeof roadmapDetails === "undefined" || typeof wizard === "undefined") return;
+  if (window.__iberigoRoadmapCompletenessLoaded) return;
+  window.__iberigoRoadmapCompletenessLoaded = true;
+
+  const addOrReplaceRoute = (route) => {
+    const existing = routes.find((item) => item.id === route.id);
+    if (existing) Object.assign(existing, route);
+    else routes.push(route);
+  };
+
+  const en = {
+    goalWorkSpecialist: "Specialist work / mobility route",
+    goalWorkSpecialistDesc: "Highly qualified, EU Blue Card, company transfer, seasonal, research, entrepreneur or internship routes.",
+    goalSpecialCase: "Other or special situation",
+    goalSpecialCaseDesc: "For cases such as previous residence, long-term EU status, exceptional circumstances or another uncommon route.",
+    familySpanishStandard: "Spanish citizen — standard Spanish-family route",
+    familySpanishStandardDesc: "Normally the EX-24 family member of a Spanish national route.",
+    familySpanishEuReturn: "Spanish citizen — EU free-movement return case",
+    familySpanishEuReturnDesc: "Only if the Spanish citizen genuinely exercised EU free-movement rights in another EU/EEA country before returning to Spain."
+  };
+  const es = {
+    goalWorkSpecialist: "Trabajo especializado / movilidad",
+    goalWorkSpecialistDesc: "Alta cualificación, Tarjeta Azul UE, traslado empresarial, temporada, investigación, emprendimiento o prácticas.",
+    goalSpecialCase: "Otro caso o situación especial",
+    goalSpecialCaseDesc: "Para residencia previa, estatuto de residente de larga duración-UE, circunstancias excepcionales u otra vía menos común.",
+    familySpanishStandard: "Ciudadano español — vía familiar española estándar",
+    familySpanishStandardDesc: "Normalmente la autorización EX-24 de familiar de persona española.",
+    familySpanishEuReturn: "Ciudadano español — retorno bajo libre circulación UE",
+    familySpanishEuReturnDesc: "Solo si la persona española ejerció realmente la libre circulación en otro país UE/EEE antes de volver a España."
+  };
+  Object.assign(translations.en, en);
+  Object.assign(translations.es, es);
+
+  window.urls = window.urls || {};
+  Object.assign(window.urls, {
+    "specialist-highly-qualified": "https://www.inclusion.gob.es/en/web/migraciones/w/66.-autorizacion-inicial-de-residencia-y-trabajo-de-profesionales-altamente-cualificados",
+    "specialist-ict": "https://prie.comercio.gob.es/es-es/Paginas/Traslado-EMpresarial.aspx",
+    "specialist-seasonal": "https://www.inclusion.gob.es/en/web/migraciones/w/23.-autorizacion-de-residencia-temporal-y-trabajo-para-actividades-de-temporada",
+    "specialist-entrepreneur": "https://prie.comercio.gob.es/es-es/Paginas/Emprendedores.aspx",
+    "specialist-research": "https://www.inclusion.gob.es/en/web/migraciones/w/68.-autorizacion-de-residencia-temporal-y-trabajo-para-investigacion",
+    "specialist-internship": "https://www.inclusion.gob.es/en/web/migraciones/w/21.-autorizacion-de-residencia-para-practicas",
+    "special-catalogue": "https://www.inclusion.gob.es/web/migraciones/listado-completo",
+    "study-employment": "https://ciudadaniaexterior.inclusion.gob.es/web/migraciones/w/hoja-4-bis-acceso-al-empleo-de-las-personas-titulares-de-una-autorizacion-de-estancia-de-larga-duracion-por-estudios-movilidad-de-alumnos-servicios-de-voluntariado-o-actividades-formativas"
+  });
+
+  window.linkLabels = window.linkLabels || { en: {}, es: {} };
+  window.linkLabels.en = window.linkLabels.en || {};
+  window.linkLabels.es = window.linkLabels.es || {};
+  Object.assign(window.linkLabels.en, {
+    "specialist-highly-qualified": "Highly qualified professional / EU Blue Card",
+    "specialist-ict": "Intra-company transfer (ICT)",
+    "specialist-seasonal": "Seasonal work authorization",
+    "specialist-entrepreneur": "Entrepreneur residence route",
+    "specialist-research": "Research / R&D residence route",
+    "specialist-internship": "Residence authorization for internships",
+    "special-catalogue": "Complete official Migraciones catalogue",
+    "study-employment": "Official student-work rules",
+    consulates: "Find your consulate & application instructions"
+  });
+  Object.assign(window.linkLabels.es, {
+    "specialist-highly-qualified": "Profesional altamente cualificado / Tarjeta Azul UE",
+    "specialist-ict": "Traslado intraempresarial (ICT)",
+    "specialist-seasonal": "Autorización de trabajo de temporada",
+    "specialist-entrepreneur": "Residencia para emprendedores",
+    "specialist-research": "Residencia para investigación / I+D+i",
+    "specialist-internship": "Autorización de residencia para prácticas",
+    "special-catalogue": "Catálogo oficial completo de Migraciones",
+    "study-employment": "Reglas oficiales de trabajo para estudiantes",
+    consulates: "Busca tu consulado e instrucciones de solicitud"
+  });
+
+  window.govMeta = window.govMeta || {};
+  Object.assign(window.govMeta, {
+    "specialist-highly-qualified": { subtitle: "Ministry of Inclusion — UGE/Blue Card route", variant: "general", system: "spain" },
+    "specialist-ict": { subtitle: "Official PRIE intra-company transfer route", variant: "general", system: "spain" },
+    "specialist-seasonal": { subtitle: "Ministry of Inclusion — EX-06 / Mercurio route", variant: "general", system: "spain" },
+    "specialist-entrepreneur": { subtitle: "Official PRIE entrepreneur route", variant: "general", system: "spain" },
+    "specialist-research": { subtitle: "Ministry of Inclusion — research / UGE route", variant: "general", system: "spain" },
+    "specialist-internship": { subtitle: "Ministry of Inclusion — internship residence route", variant: "general", system: "spain" },
+    "special-catalogue": { subtitle: "Ministry of Inclusion — all immigration procedures", variant: "general", system: "spain" },
+    "study-employment": { subtitle: "Ministry of Inclusion — work access during long-stay study", variant: "general", system: "spain" }
+  });
+
+  const ensureGoalChoice = (value, afterValue, titleKey, descKey, cardName) => {
+    if (wizard.querySelector(`input[name="goal"][value="${value}"]`)) return;
+    const source = wizard.querySelector(`input[name="goal"][value="${afterValue}"]`)?.closest("label");
+    if (!source) return;
+    const label = source.cloneNode(true);
+    const input = label.querySelector("input");
+    const span = label.querySelector("span");
+    const small = label.querySelector("small");
+    input.value = value;
+    input.checked = false;
+    label.dataset.goalCard = cardName;
+    if (span) span.dataset.i18n = titleKey;
+    if (small) small.dataset.i18n = descKey;
+    source.after(label);
+  };
+
+  ensureGoalChoice("workSpecialist", "workSelf", "goalWorkSpecialist", "goalWorkSpecialistDesc", "work-specialist");
+  ensureGoalChoice("specialCase", "family", "goalSpecialCase", "goalSpecialCaseDesc", "special-case");
+
+  const spanishStandard = wizard.querySelector('input[name="familySponsor"][value="spanishCitizen"]')?.closest("label");
+  if (spanishStandard) {
+    const span = spanishStandard.querySelector("span");
+    const small = spanishStandard.querySelector("small");
+    if (span) span.dataset.i18n = "familySpanishStandard";
+    if (small) small.dataset.i18n = "familySpanishStandardDesc";
+    if (!wizard.querySelector('input[name="familySponsor"][value="spanishCitizenEuReturn"]')) {
+      const label = spanishStandard.cloneNode(true);
+      const input = label.querySelector("input");
+      const newSpan = label.querySelector("span");
+      const newSmall = label.querySelector("small");
+      input.value = "spanishCitizenEuReturn";
+      input.checked = false;
+      if (newSpan) newSpan.dataset.i18n = "familySpanishEuReturn";
+      if (newSmall) newSmall.dataset.i18n = "familySpanishEuReturnDesc";
+      spanishStandard.after(label);
+    }
+  }
+
+  const syncCompletenessChoices = () => {
+    const isEu = typeof getValue === "function" && getValue("personType") === "eu";
+    ["workSpecialist", "specialCase"].forEach((value) => {
+      const label = wizard.querySelector(`input[name="goal"][value="${value}"]`)?.closest("label");
+      if (!label) return;
+      label.hidden = isEu;
+      const input = label.querySelector("input");
+      if (isEu && input?.checked) input.checked = false;
+    });
+  };
+  syncCompletenessChoices();
+  wizard.addEventListener("change", (event) => {
+    if (event.target?.name === "personType") {
+      syncCompletenessChoices();
+      if (typeof applyTranslations === "function") applyTranslations();
+    }
+  });
+
+  addOrReplaceRoute({
+    id: "work-specialist",
+    title: "Specialist work and mobility routes",
+    badge: "Non-EU specialist routes",
+    summary: "Use this comparison when a normal EX-03 job or EX-07 self-employed route may not fit. Spain has separate routes for highly qualified professionals / EU Blue Card, intra-company transfers, seasonal work, innovative entrepreneurs, research and internships.",
+    appointment: "UGE-CE, Mercurio or the competent Spanish consulate depending on the specialist route",
+    documents: ["Passport", "Employer / host / project evidence", "Qualifications or experience where required", "Route-specific application form", "Applicable authorization fee", "Visa and TIE documents where required"]
+  });
+  addOrReplaceRoute({
+    id: "spanish-eu-return-family",
+    title: "Spanish citizen returning under EU free-movement rules",
+    badge: "Check EX-19 applicability",
+    summary: "A non-EU family member of a Spanish citizen normally uses EX-24. A Spanish citizen who genuinely exercised EU free-movement rights in another EU/EEA country before returning to Spain may instead fall under the EU-family EX-19 route. Confirm that EU law applies before filing.",
+    appointment: "EU-family residence-card route if the free-movement conditions are met",
+    documents: ["EX-19 if EU free-movement rules apply", "Passports / Spanish ID", "Evidence of the family relationship", "Evidence of the Spanish citizen's genuine residence / free movement in another EU/EEA state", "790-012 where applicable"]
+  });
+  addOrReplaceRoute({
+    id: "special-cases",
+    title: "Other or special immigration situation",
+    badge: "Official catalogue",
+    summary: "IberiGo covers the main planned-move routes. Use the complete official Migraciones catalogue if your case involves previous Spanish residence, long-term EU residence from another Member State, exceptional circumstances, arraigo, humanitarian/protection status, or another specialist procedure.",
+    appointment: "Depends on the specific official procedure",
+    documents: ["Identify your current legal status", "Open the official procedure matching that status", "Follow only the form, fee and filing channel listed for that procedure"]
+  });
+
+  roadmapDetails["work-specialist"] = {
+    process: "Choose the correct specialist work or mobility route",
+    explanation: `<p><strong>Do not default to EX-03 if one of these descriptions fits better.</strong> Spain has separate procedures with different filing bodies, forms, fees and timelines.</p>
+      <div class="guide-card-grid">
+        <article class="guide-info-card"><h3>Highly qualified / EU Blue Card</h3><p>For qualifying high-skilled employment. The company or authorised entity files electronically through UGE-CE using the international-mobility process. Modelo 790-038 applies. Check the current qualification, contract and salary rules before choosing the national highly-qualified or EU Blue Card modality.</p></article>
+        <article class="guide-info-card"><h3>Intra-company transfer</h3><p>For managers, specialists or trainees transferred within the same company or corporate group. The EU-ICT or national ICT route is handled through UGE-CE rather than the ordinary EX-03 path.</p></article>
+        <article class="guide-info-card"><h3>Seasonal work</h3><p>For qualifying seasonal employment. The employer files EX-06 through Mercurio, with 790-052 and applicable 790-062. The authorization is designed around recurring seasonal activity and return obligations.</p></article>
+        <article class="guide-info-card"><h3>Innovative entrepreneur</h3><p>For an innovative entrepreneurial project of special economic interest. This is not the same as an ordinary autónomo / EX-07 application. The entrepreneur route is handled through the UGE-CE / PRIE framework.</p></article>
+        <article class="guide-info-card"><h3>Research / R&amp;D / university</h3><p>For qualifying researchers, R&amp;D personnel and certain university or higher-education staff. The host entity files through UGE-CE and Modelo 790-038 applies.</p></article>
+        <article class="guide-info-card"><h3>Internship / trainee residence</h3><p>For qualifying graduate internships based on an internship agreement or training contract. The host entity files electronically through Mercurio; 790-052 applies, followed by a visa if the applicant is abroad and a TIE when required.</p></article>
+      </div>`,
+    difficulty: "Varies by route",
+    timeline: "Varies: specialist procedures range from fast UGE decisions to route-specific Extranjería processing",
+    steps: [
+      "Match the job, transfer, host entity or project to the specialist category above before filing anything.",
+      "Open the official route and confirm the exact eligibility, applicant/filing party, form and supporting documents.",
+      "Use UGE-CE for highly qualified, intra-company, entrepreneur and qualifying research routes; use Mercurio where the official seasonal or internship route requires it.",
+      "Pay the authorization-stage fee shown by the official route (commonly 790-038 for UGE mobility or 790-052/062 for relevant Extranjería work routes).",
+      "If applying from abroad, complete the Spanish consular visa step after authorization where required.",
+      "After entry or approval, complete Social Security registration where relevant and the TIE step within the applicable deadline."
+    ],
+    documents: ["Passport", "Employer / host / project evidence", "Qualifications / professional experience", "Route-specific application", "Authorization fee evidence", "Visa / EX-17 / TIE evidence where applicable"],
+    links: ["specialist-highly-qualified", "specialist-ict", "specialist-seasonal", "specialist-entrepreneur", "specialist-research", "specialist-internship", "uge-apply", "mercurio", "790-038", "790-052", "790-062", "consulates", "cita", "790-012"]
+  };
+
+  roadmapDetailsEs["work-specialist"] = {
+    process: "Elige la vía correcta de trabajo especializado o movilidad",
+    explanation: `<p><strong>No uses EX-03 por defecto si encajas mejor en una de estas vías.</strong> España tiene procedimientos separados con distintos órganos, formularios, tasas y plazos.</p>
+      <div class="guide-card-grid">
+        <article class="guide-info-card"><h3>Alta cualificación / Tarjeta Azul UE</h3><p>Para empleo cualificado que cumpla los requisitos. La empresa o entidad legitimada presenta por UGE-CE mediante movilidad internacional. Se utiliza la tasa 790-038. Comprueba la titulación, contrato y umbral salarial vigentes.</p></article>
+        <article class="guide-info-card"><h3>Traslado intraempresarial</h3><p>Para directivos, especialistas o trabajadores en formación trasladados dentro de la misma empresa o grupo. La vía ICT-UE o nacional se tramita por UGE-CE.</p></article>
+        <article class="guide-info-card"><h3>Trabajo de temporada</h3><p>Para empleo estacional. El empleador presenta EX-06 por Mercurio, con 790-052 y 790-062 cuando corresponda.</p></article>
+        <article class="guide-info-card"><h3>Emprendimiento innovador</h3><p>Para un proyecto innovador de especial interés económico. No es lo mismo que la vía ordinaria de autónomo EX-07; se encuadra en UGE-CE / PRIE.</p></article>
+        <article class="guide-info-card"><h3>Investigación / I+D+i / universidad</h3><p>Para investigadores, personal I+D+i y determinados puestos universitarios. La entidad de acogida presenta por UGE-CE y se aplica 790-038.</p></article>
+        <article class="guide-info-card"><h3>Prácticas</h3><p>Para determinadas prácticas de titulados con convenio o contrato de formación. La entidad de acogida presenta por Mercurio; se aplica 790-052, visado si se está fuera y TIE cuando corresponda.</p></article>
+      </div>`,
+    difficulty: "Variable según la vía",
+    timeline: "Variable según el procedimiento",
+    steps: [
+      "Identifica primero qué categoría especializada corresponde a tu empleo, traslado, entidad de acogida o proyecto.",
+      "Abre la hoja oficial y confirma requisitos, sujeto que presenta, formulario y documentos.",
+      "Usa UGE-CE para alta cualificación, traslado intraempresarial, emprendimiento y determinadas vías de investigación; usa Mercurio para temporada o prácticas cuando lo indique la hoja oficial.",
+      "Paga la tasa de autorización correspondiente (habitualmente 790-038 en movilidad UGE o 790-052/062 en las vías de Extranjería aplicables).",
+      "Si estás fuera de España, completa el visado consular tras la autorización cuando sea necesario.",
+      "Tras la entrada o aprobación, completa Seguridad Social cuando corresponda y la TIE dentro del plazo aplicable."
+    ],
+    documents: ["Pasaporte", "Pruebas del empleador/entidad/proyecto", "Titulación o experiencia", "Solicitud de la vía concreta", "Justificante de tasas", "Visado / EX-17 / TIE cuando proceda"],
+    links: ["specialist-highly-qualified", "specialist-ict", "specialist-seasonal", "specialist-entrepreneur", "specialist-research", "specialist-internship", "uge-apply", "mercurio", "790-038", "790-052", "790-062", "consulates", "cita", "790-012"]
+  };
+
+  roadmapDetails["spanish-eu-return-family"] = {
+    process: "Check whether the EX-19 EU-family route applies to a returning Spanish citizen",
+    explanation: "<p><strong>Normal rule:</strong> a non-EU family member joining a Spanish citizen normally uses the dedicated EX-24 Spanish-family authorization.</p><p><strong>Possible EU-law exception:</strong> if the Spanish citizen genuinely exercised EU free-movement rights by residing in another EU/EEA country and is returning to Spain, EU free-movement rules may apply and EX-19 can be the relevant family-card route. Do not select EX-19 only because the sponsor is Spanish; verify the free-movement history first.</p>",
+    difficulty: "Medium — route selection matters",
+    timeline: "Depends on whether EU free-movement rules apply",
+    steps: ["Document the Spanish citizen's genuine residence / free-movement history in another EU/EEA state.", "Confirm from the official EU-family guidance that the return case falls under EU free-movement law.", "If it does, prepare EX-19 and the family/residence evidence; if it does not, use the standard EX-24 Spanish-family route.", "Follow the competent filing / appointment instructions and pay the applicable 790-012 card fee where required."],
+    documents: ["EX-19 if EU law applies", "Passport of the non-EU family member", "Spanish DNI/passport", "Family relationship evidence", "Proof of genuine prior EU/EEA residence / free movement", "790-012 where applicable"],
+    links: ["eu-family-official", "cita", "790-012", "spanish-family-official", "ex24"]
+  };
+
+  roadmapDetailsEs["spanish-eu-return-family"] = {
+    process: "Comprueba si se aplica EX-19 al retorno de un ciudadano español",
+    explanation: "<p><strong>Regla general:</strong> el familiar no comunitario de una persona española utiliza normalmente la autorización específica EX-24.</p><p><strong>Posible excepción de Derecho UE:</strong> si la persona española ejerció realmente la libre circulación residiendo en otro país UE/EEE y vuelve a España, pueden resultar aplicables las normas de libre circulación y la vía EX-19. No elijas EX-19 solo porque el familiar sea español: confirma primero el historial de libre circulación.</p>",
+    difficulty: "Media — es importante elegir bien la vía",
+    timeline: "Depende de que se aplique o no libre circulación UE",
+    steps: ["Reúne prueba de la residencia real / libre circulación de la persona española en otro Estado UE/EEE.", "Confirma en la información oficial que el caso de retorno está cubierto por Derecho UE.", "Si se aplica, prepara EX-19 y pruebas familiares/residencia; si no, utiliza la vía estándar EX-24.", "Sigue las instrucciones de presentación/cita y paga 790-012 cuando corresponda."],
+    documents: ["EX-19 si se aplica Derecho UE", "Pasaporte del familiar", "DNI/pasaporte español", "Prueba del vínculo", "Prueba de residencia previa real en UE/EEE", "790-012 cuando proceda"],
+    links: ["eu-family-official", "cita", "790-012", "spanish-family-official", "ex24"]
+  };
+
+  roadmapDetails["special-cases"] = {
+    process: "Find the official procedure for a special or previous-status case",
+    explanation: "<p><strong>This is an escape route, not a generic visa.</strong> IberiGo's main wizard focuses on ordinary planned moves. If your case involves a previous Spanish authorization, long-term EU status issued by another Member State, exceptional circumstances, arraigo, humanitarian/protection status, a minor-specific procedure or another unusual category, use the official Migraciones catalogue rather than forcing your case into a normal work/study/family route.</p>",
+    difficulty: "Depends on the procedure",
+    timeline: "Depends on the procedure",
+    steps: ["Identify your current legal status and the reason you need a new or modified authorization.", "Open the complete official Migraciones catalogue and choose the sheet matching that status and purpose.", "Use only the form, fee, filing channel and deadline stated on that official sheet; seek professional immigration advice if the classification remains unclear."],
+    documents: ["Current passport", "Current/previous Spanish authorization or EU long-term card if any", "Evidence relevant to the specific official procedure"],
+    links: ["special-catalogue"]
+  };
+  roadmapDetailsEs["special-cases"] = {
+    process: "Localiza el procedimiento oficial para un caso especial o de estatus previo",
+    explanation: "<p><strong>Esta es una vía de salida, no un visado genérico.</strong> El asistente principal de IberiGo se centra en mudanzas planificadas habituales. Si tu caso implica una autorización española anterior, residencia de larga duración-UE expedida por otro Estado miembro, circunstancias excepcionales, arraigo, protección/humanitario, procedimientos de menores u otra categoría poco habitual, utiliza el catálogo oficial de Migraciones.</p>",
+    difficulty: "Depende del procedimiento",
+    timeline: "Depende del procedimiento",
+    steps: ["Identifica tu situación legal actual y el motivo del nuevo trámite o modificación.", "Abre el catálogo oficial completo y elige la hoja que corresponda a tu situación y objetivo.", "Utiliza únicamente el formulario, tasa, canal y plazo que indique esa hoja; busca asesoramiento profesional si sigue sin estar clara la clasificación."],
+    documents: ["Pasaporte vigente", "Autorización española anterior/actual o tarjeta de larga duración-UE si existe", "Pruebas específicas del procedimiento"],
+    links: ["special-catalogue"]
+  };
+
+  if (roadmapDetails["study-abroad"]) {
+    roadmapDetails["study-abroad"].explanation = "<p><strong>Apply from abroad:</strong> for qualifying studies over 90 days, start through the Spanish consulate responsible for your legal residence. Use that consulate's own filing/appointment instructions because local booking systems and visa-fee collection differ.</p><p><strong>Fees:</strong> the long-stay study authorization has an applicable 790-052 fee under the central procedure, while the consular visa process can also have its own visa fee. Follow the competent consulate's instructions for how and when each payment is made.</p><p><strong>Work while studying:</strong> where the student-work rules apply, work must remain compatible with the studies and generally cannot exceed 30 hours per week.</p>";
+    roadmapDetails["study-abroad"].steps = ["Secure admission and complete any required enrolment/payment.", "Prepare passport, funds, health insurance and criminal-record / medical evidence when required.", "Find the competent Spanish consulate and follow its study-visa filing instructions, normally sufficiently before the studies begin.", "Pay the applicable authorization and consular visa fees using the method instructed for your case.", "Collect the visa if approved and enter Spain within its validity.", "If the authorized stay exceeds six months, request the TIE within the applicable post-entry deadline."];
+    roadmapDetails["study-abroad"].links = ["study-official", "study-employment", "consulates", "790-052", "cita", "790-012"];
+  }
+  if (roadmapDetailsEs["study-abroad"]) {
+    roadmapDetailsEs["study-abroad"].explanation = "<p><strong>Solicitud desde fuera:</strong> para estudios de más de 90 días, inicia el proceso en el consulado español competente por tu residencia legal. Sigue sus instrucciones propias de presentación y cita.</p><p><strong>Tasas:</strong> la autorización de estudios de larga duración tiene la tasa 790-052 que corresponda y el trámite consular puede incluir además la tasa de visado. Sigue las instrucciones del consulado sobre cuándo y cómo pagar.</p><p><strong>Trabajo durante los estudios:</strong> cuando se permita, debe ser compatible con los estudios y, con carácter general, no superar 30 horas semanales.</p>";
+    roadmapDetailsEs["study-abroad"].steps = ["Obtén admisión y completa la matrícula/pago exigido.", "Prepara pasaporte, medios, seguro y antecedentes/certificado médico cuando proceda.", "Localiza el consulado competente y sigue sus instrucciones de visado de estudios con la antelación exigida.", "Abona las tasas de autorización y visado aplicables por el método indicado para tu caso.", "Recoge el visado si se aprueba y entra dentro de su vigencia.", "Si la estancia supera seis meses, solicita la TIE dentro del plazo aplicable."];
+    roadmapDetailsEs["study-abroad"].links = ["study-official", "study-employment", "consulates", "790-052", "cita", "790-012"];
+  }
+  if (roadmapDetails["study-in-spain"]) {
+    roadmapDetails["study-in-spain"].explanation += "<p><strong>Higher-education in-country applications:</strong> current rules allow qualifying adult higher-education applicants in regular status to apply from Spain, subject to the official timing and study-category conditions.</p><p><strong>Student work:</strong> where work access applies, the activity must be compatible with the studies and generally cannot exceed 30 hours per week.</p>";
+    roadmapDetails["study-in-spain"].links = ["study-official", "study-employment", "mercurio", "790-052", "cita", "790-012"];
+  }
+  if (roadmapDetailsEs["study-in-spain"]) {
+    roadmapDetailsEs["study-in-spain"].explanation += "<p><strong>Solicitud desde España para estudios superiores:</strong> las reglas actuales permiten que determinados solicitantes adultos, en situación regular y que cursen estudios superiores, presenten desde España si cumplen los requisitos y plazos oficiales.</p><p><strong>Trabajo:</strong> cuando proceda, la actividad debe ser compatible con los estudios y, con carácter general, no superar 30 horas semanales.</p>";
+    roadmapDetailsEs["study-in-spain"].links = ["study-official", "study-employment", "mercurio", "790-052", "cita", "790-012"];
+  }
+
+  if (roadmapDetails["digital-nomad"]) {
+    roadmapDetails["digital-nomad"].explanation = "<p><strong>Employee:</strong> the international telework route is for remote employment for companies outside Spain.</p><p><strong>Professional / self-employed applicant:</strong> professional activity for Spanish companies/clients may be possible, but it must stay within the official 20% limit of total professional activity.</p><p><strong>Where to apply:</strong> from abroad, use the competent Spanish consulate for the telework visa; if legally in Spain, use the UGE-CE residence-authorization route. A consular telework visa can be issued for up to one year or for the shorter work period where applicable.</p>";
+  }
+  if (roadmapDetailsEs["digital-nomad"]) {
+    roadmapDetailsEs["digital-nomad"].explanation = "<p><strong>Cuenta ajena:</strong> la vía de teletrabajo internacional está pensada para empleo remoto de empresas situadas fuera de España.</p><p><strong>Profesional/autónomo:</strong> puede existir actividad para empresas o clientes españoles, pero debe mantenerse dentro del límite oficial del 20 % de la actividad profesional total.</p><p><strong>Dónde presentar:</strong> desde fuera, consulado español competente para el visado; si estás legalmente en España, autorización de residencia por UGE-CE. El visado consular puede tener hasta un año de vigencia o la duración inferior del trabajo cuando corresponda.</p>";
+  }
+
+  const priorPickRoute = pickRoute;
+  pickRoute = function () {
+    const personType = getValue("personType");
+    const goal = getValue("goal");
+    const familySponsor = getValue("familySponsor");
+    if (personType !== "eu" && goal === "workSpecialist") return routes.find((route) => route.id === "work-specialist");
+    if (personType !== "eu" && goal === "specialCase") return routes.find((route) => route.id === "special-cases");
+    if (personType !== "eu" && goal === "family" && familySponsor === "spanishCitizenEuReturn") return routes.find((route) => route.id === "spanish-eu-return-family");
+    return priorPickRoute();
+  };
+
+  if (typeof routeFormsAndTaxes !== "undefined") {
+    routeFormsAndTaxes["work-specialist"] = { forms: [], taxes: [], links: roadmapDetails["work-specialist"].links };
+    routeFormsAndTaxes["spanish-eu-return-family"] = { forms: [["EX-19", "EU-family residence card if EU free-movement law applies", "Form", "EX-19"]], taxes: [["790-012", "Card fee where applicable", "See Police generator", "790-012"]], links: roadmapDetails["spanish-eu-return-family"].links };
+    routeFormsAndTaxes["special-cases"] = { forms: [], taxes: [], links: ["special-catalogue"] };
+  }
+  if (typeof routeFormsAndTaxesEs !== "undefined") {
+    routeFormsAndTaxesEs["work-specialist"] = { forms: [], taxes: [], links: roadmapDetailsEs["work-specialist"].links };
+    routeFormsAndTaxesEs["spanish-eu-return-family"] = { forms: [["EX-19", "Tarjeta de familiar UE si se aplica libre circulación", "Formulario", "EX-19"]], taxes: [["790-012", "Tasa de tarjeta cuando proceda", "Ver generador Policía", "790-012"]], links: roadmapDetailsEs["spanish-eu-return-family"].links };
+    routeFormsAndTaxesEs["special-cases"] = { forms: [], taxes: [], links: ["special-catalogue"] };
+  }
+
+  const pageLang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
+  const pageCopy = pageLang === "es" ? {
+    specialistTitle: "Vías de trabajo especializado que debes comparar",
+    specialistIntro: "Si tu empleo encaja en alta cualificación, traslado de empresa, temporada, investigación, emprendimiento innovador o prácticas, no des por hecho que corresponde la vía ordinaria EX-03.",
+    regular: "Empleo ordinario",
+    regularText: "Empresa española → EX-03 / Mercurio cuando corresponda → tasas → visado → Seguridad Social → TIE.",
+    self: "Autónomo ordinario",
+    selfText: "EX-07 → consulado español competente → tasas → visado → Seguridad Social → TIE. Un proyecto innovador puede encajar mejor en la vía de emprendedores UGE.",
+    digitalTitle: "Empleado remoto y profesional remoto no siguen exactamente la misma regla",
+    digitalText: "Cuenta ajena: empresa fuera de España. Profesional/autónomo: puede existir actividad española dentro del límite oficial del 20 %. Desde fuera se usa el consulado; si estás legalmente en España, UGE-CE.",
+    studentTitle: "Dos vías de solicitud para estudios de más de 90 días",
+    studentText: "Desde fuera: consulado competente. Desde España: determinados adultos en situación regular y estudios superiores pueden presentar por Extranjería/Mercurio si cumplen los requisitos y plazos. Cuando se permite trabajar, la actividad debe ser compatible y normalmente no superar 30 horas semanales.",
+    familyTitle: "Si el familiar que te reúne es español, no uses automáticamente EX-19",
+    familyText: "La vía general actual es EX-24. EX-19 puede aplicar en un caso de retorno si la persona española ejerció realmente la libre circulación en otro país UE/EEE. Comprueba esa excepción antes de presentar.",
+    specialTitle: "¿Ninguna de estas vías describe tu caso?",
+    specialText: "No fuerces tu situación dentro de una ruta normal. Para residencia previa, larga duración-UE, arraigo, circunstancias excepcionales, protección u otras categorías, usa el catálogo oficial completo de Migraciones."
+  } : {
+    specialistTitle: "Specialist work routes you should compare",
+    specialistIntro: "If your job fits highly qualified work, a company transfer, seasonal work, research, an innovative entrepreneur project or an internship, do not assume the ordinary EX-03 route is the right one.",
+    regular: "Ordinary Spanish employment",
+    regularText: "Spanish employer → EX-03 / Mercurio where applicable → fees → visa → Social Security → TIE.",
+    self: "Ordinary self-employment",
+    selfText: "EX-07 → competent Spanish consulate → fees → visa → Social Security → TIE. An innovative project may fit the separate UGE entrepreneur route instead.",
+    digitalTitle: "Remote employees and remote professionals do not have exactly the same rule",
+    digitalText: "Employee: employer outside Spain. Professional/self-employed: Spanish activity can be possible within the official 20% limit. Apply through the consulate from abroad or UGE-CE when legally in Spain.",
+    studentTitle: "Two application paths for studies over 90 days",
+    studentText: "From abroad: competent Spanish consulate. From Spain: qualifying adult higher-education applicants in regular status can apply through Extranjería/Mercurio if the conditions and deadlines are met. Where student work is allowed, it must remain compatible and generally stay within 30 hours per week.",
+    familyTitle: "If the sponsor is Spanish, do not automatically use EX-19",
+    familyText: "The current general route is EX-24. EX-19 may apply to a genuine EU free-movement return case where the Spanish citizen previously exercised free-movement rights in another EU/EEA country. Check that exception before filing.",
+    specialTitle: "None of these routes describes your situation?",
+    specialText: "Do not force a special case into a normal route. For previous residence, long-term EU status, arraigo, exceptional circumstances, protection or other categories, use the complete official Migraciones catalogue."
+  };
+
+  const externalCard = (href, title, text) => `<article class="guide-info-card guide-source-card guide-source-card--government"><div class="guide-source-head"><span class="guide-source-badge" aria-hidden="true">ES</span><span class="guide-source-tag">${pageLang === "es" ? "Fuente oficial" : "Official source"}</span></div><h3><a href="${href}" target="_blank" rel="noopener noreferrer">${title}</a></h3><p>${text}</p></article>`;
+  const injectAfter = (selector, html, key) => {
+    if (document.querySelector(`[data-roadmap-completeness="${key}"]`)) return;
+    const target = document.querySelector(selector);
+    if (!target) return;
+    target.insertAdjacentHTML("afterend", html.replace("<section ", `<section data-roadmap-completeness="${key}" `));
+  };
+  const appendBox = (selector, html, key) => {
+    if (document.querySelector(`[data-roadmap-completeness="${key}"]`)) return;
+    const target = document.querySelector(selector);
+    if (!target) return;
+    target.insertAdjacentHTML("beforeend", `<div data-roadmap-completeness="${key}" class="guide-box guide-box--info">${html}</div>`);
+  };
+
+  const path = location.pathname.replace(/\/$/, "");
+  const isEsPath = path.startsWith("/es/");
+  const workPath = isEsPath ? "/es/moving-to-spain/work-in-spain" : "/moving-to-spain/work-in-spain";
+  const nonEuPath = isEsPath ? "/es/moving-to-spain/non-eu-citizens" : "/moving-to-spain/non-eu-citizens";
+  const selfPath = isEsPath ? "/es/moving-to-spain/self-employed-spain" : "/moving-to-spain/self-employed-spain";
+  const digitalPath = isEsPath ? "/es/moving-to-spain/digital-nomad-spain" : "/moving-to-spain/digital-nomad-spain";
+  const studentPath = isEsPath ? "/es/moving-to-spain/students" : "/moving-to-spain/students";
+  const familyPath = isEsPath ? "/es/moving-to-spain/family-reunification" : "/moving-to-spain/family-reunification";
+  const euFamilyPath = isEsPath ? "/es/moving-to-spain/family-member-eu-citizen" : "/moving-to-spain/family-member-eu-citizen";
+
+  if (path === workPath || path === nonEuPath) {
+    const specialistSection = `<section class="guide-section" aria-labelledby="specialistWorkRoutes"><h2 id="specialistWorkRoutes">${pageCopy.specialistTitle}</h2><p>${pageCopy.specialistIntro}</p><div class="guide-card-grid">
+      ${externalCard(window.urls["specialist-highly-qualified"], pageLang === "es" ? "Alta cualificación / Tarjeta Azul UE" : "Highly qualified / EU Blue Card", pageLang === "es" ? "Empresa o entidad legitimada → UGE-CE → 790-038 → visado si procede → TIE." : "Employer/authorised entity → UGE-CE → 790-038 → visa if required → TIE.")}
+      ${externalCard(window.urls["specialist-ict"], pageLang === "es" ? "Traslado intraempresarial" : "Intra-company transfer", pageLang === "es" ? "ICT-UE o vía nacional para traslados dentro de la misma empresa o grupo, por UGE-CE." : "EU-ICT or national route for transfers within the same company/group, through UGE-CE.")}
+      ${externalCard(window.urls["specialist-seasonal"], pageLang === "es" ? "Trabajo de temporada" : "Seasonal work", pageLang === "es" ? "Empleador → EX-06 / Mercurio → tasas → visado → alta SS → TIE." : "Employer → EX-06 / Mercurio → fees → visa → Social Security → TIE.")}
+      ${externalCard(window.urls["specialist-entrepreneur"], pageLang === "es" ? "Emprendimiento innovador" : "Innovative entrepreneur", pageLang === "es" ? "Proyecto innovador de especial interés; vía UGE/PRIE, distinta del autónomo ordinario." : "Innovative project of special economic interest; UGE/PRIE route, separate from ordinary self-employment.")}
+      ${externalCard(window.urls["specialist-research"], pageLang === "es" ? "Investigación / I+D+i" : "Research / R&D", pageLang === "es" ? "Entidad de acogida → UGE-CE → 790-038 → visado si procede → TIE." : "Host entity → UGE-CE → 790-038 → visa if required → TIE.")}
+      ${externalCard(window.urls["specialist-internship"], pageLang === "es" ? "Prácticas" : "Internship residence", pageLang === "es" ? "Entidad de acogida → Mercurio → 790-052 → visado si procede → TIE." : "Host entity → Mercurio → 790-052 → visa if required → TIE.")}
+    </div><div class="guide-box guide-box--info"><strong>${pageCopy.regular}</strong><p>${pageCopy.regularText}</p></div><div class="guide-box guide-box--info"><strong>${pageCopy.self}</strong><p>${pageCopy.selfText}</p></div></section>`;
+    injectAfter(path === workPath ? '[aria-labelledby="nonEuCitizensWorking"]' : '[aria-labelledby="chooseYourRoute"]', specialistSection, "specialist-work-static");
+  }
+
+  if (path === selfPath) appendBox('[aria-labelledby="nonEuCitizensSelfEmployment"]', `<strong>${pageCopy.self}</strong><p>${pageCopy.selfText}</p><p><a href="${window.urls["specialist-entrepreneur"]}" target="_blank" rel="noopener noreferrer">${pageLang === "es" ? "Compara con la vía oficial de emprendedores →" : "Compare the official entrepreneur route →"}</a></p>`, "self-route-static");
+  if (path === digitalPath) appendBox('[aria-labelledby="digitalNomadVsEmployeeVsSelfEmployed"]', `<strong>${pageCopy.digitalTitle}</strong><p>${pageCopy.digitalText}</p>`, "digital-rule-static");
+  if (path === studentPath) appendBox('[aria-labelledby="nonEuStudents"]', `<strong>${pageCopy.studentTitle}</strong><p>${pageCopy.studentText}</p><p><a href="${window.urls["study-employment"]}" target="_blank" rel="noopener noreferrer">${pageLang === "es" ? "Ver reglas oficiales de trabajo para estudiantes →" : "See official student-work rules →"}</a></p>`, "student-path-static");
+  if (path === familyPath || path === euFamilyPath) appendBox('[aria-labelledby="quickAnswer"]', `<strong>${pageCopy.familyTitle}</strong><p>${pageCopy.familyText}</p>`, "family-spanish-static");
+  if (path === nonEuPath) appendBox('[aria-labelledby="chooseYourRoute"]', `<strong>${pageCopy.specialTitle}</strong><p>${pageCopy.specialText}</p><p><a href="${window.urls["special-catalogue"]}" target="_blank" rel="noopener noreferrer">${pageLang === "es" ? "Abrir catálogo oficial completo →" : "Open the complete official catalogue →"}</a></p>`, "special-cases-static");
+
+  if (typeof setLanguage === "function" && typeof currentLang !== "undefined") setLanguage(currentLang);
+})();
+
+
+
+/* IberiGo roadmap full next-actions upgrade · August 2026 */
+(() => {
+  if (
+    typeof routes === "undefined" ||
+    typeof roadmapDetails === "undefined" ||
+    typeof roadmapDetailsEs === "undefined" ||
+    typeof wizard === "undefined" ||
+    typeof result === "undefined"
+  ) return;
+  if (window.__iberigoRoadmapNextActionsLoaded) return;
+  window.__iberigoRoadmapNextActionsLoaded = true;
+
+  const addOrReplaceRoute = (route) => {
+    const existing = routes.find((item) => item.id === route.id);
+    if (existing) Object.assign(existing, route);
+    else routes.push(route);
+  };
+
+  Object.assign(translations.en, {
+    nextSteps: "Your roadmap"
+  });
+  Object.assign(translations.es, {
+    nextSteps: "Tu hoja de ruta"
+  });
+
+  if (typeof urls !== "undefined") {
+    Object.assign(urls, {
+      "eu-worker-rights-en": "https://europa.eu/youreurope/citizens/residence/residence-rights/workers/index_en.htm",
+      "eu-worker-rights-es": "https://europa.eu/youreurope/citizens/residence/residence-rights/workers/index_es.htm",
+      "eu-student-rights-en": "https://europa.eu/youreurope/citizens/residence/residence-rights/students/index_en.htm",
+      "eu-student-rights-es": "https://europa.eu/youreurope/citizens/residence/residence-rights/students/index_es.htm",
+      "eu-family-registration-en": "https://europa.eu/youreurope/citizens/residence/documents-formalities/eu-family-members-registration/index_en.htm",
+      "eu-family-registration-es": "https://europa.eu/youreurope/citizens/residence/documents-formalities/eu-family-members-registration/index_es.htm"
+    });
+  }
+
+  if (typeof linkLabels !== "undefined") {
+    linkLabels.en = linkLabels.en || {};
+    linkLabels.es = linkLabels.es || {};
+    Object.assign(linkLabels.en, {
+      "eu-worker-rights-en": "EU worker and self-employed residence rights",
+      "eu-student-rights-en": "EU student residence rights",
+      "eu-family-registration-en": "Registering EU family members"
+    });
+    Object.assign(linkLabels.es, {
+      "eu-worker-rights-es": "Derechos de residencia de trabajadores y autónomos UE",
+      "eu-student-rights-es": "Derechos de residencia de estudiantes UE",
+      "eu-family-registration-es": "Registro de familiares ciudadanos de la UE"
+    });
+  }
+
+  if (typeof govMeta !== "undefined") {
+    Object.assign(govMeta, {
+      "eu-worker-rights-en": { subtitle: "Your Europe — official EU guidance", variant: "eu", system: "eu" },
+      "eu-worker-rights-es": { subtitle: "Tu Europa — orientación oficial de la UE", variant: "eu", system: "eu" },
+      "eu-student-rights-en": { subtitle: "Your Europe — official EU guidance", variant: "eu", system: "eu" },
+      "eu-student-rights-es": { subtitle: "Tu Europa — orientación oficial de la UE", variant: "eu", system: "eu" },
+      "eu-family-registration-en": { subtitle: "Your Europe — official EU guidance", variant: "eu", system: "eu" },
+      "eu-family-registration-es": { subtitle: "Tu Europa — orientación oficial de la UE", variant: "eu", system: "eu" }
+    });
+  }
+
+  addOrReplaceRoute({
+    id: "eu-employed",
+    title: "EU/EEA/Swiss employee registration",
+    badge: "EU employee",
+    summary: "For an EU, EEA or Swiss citizen moving to Spain to work for an employer. The immigration step is the EU Registration Certificate; employment evidence is the residence basis.",
+    appointment: "Certificado de Registro de Ciudadano de la Unión Europea",
+    documents: ["Passport or EU national ID", "EX-18", "Employment/recruitment evidence", "Address evidence requested by the office", "790-012 receipt"]
+  });
+
+  addOrReplaceRoute({
+    id: "eu-self-employed",
+    title: "EU/EEA/Swiss self-employed registration",
+    badge: "EU self-employed",
+    summary: "For an EU, EEA or Swiss citizen moving to Spain to work as self-employed. The residence document is still the EU Registration Certificate, but your self-employed status is the evidence supporting the worker basis.",
+    appointment: "Certificado de Registro de Ciudadano de la Unión Europea",
+    documents: ["Passport or EU national ID", "EX-18", "Evidence of self-employed status", "Address evidence requested by the office", "790-012 receipt"]
+  });
+
+  addOrReplaceRoute({
+    id: "eu-study",
+    title: "EU/EEA/Swiss student registration",
+    badge: "EU student over 3 months",
+    summary: "For an EU, EEA or Swiss student staying in Spain for more than three months. Student residence is based on enrolment, sufficient resources and comprehensive health coverage, followed by EU registration.",
+    appointment: "Certificado de Registro de Ciudadano de la Unión Europea",
+    documents: ["Passport or EU national ID", "EX-18", "Enrolment evidence", "Sufficient-resources evidence", "Comprehensive health coverage", "Address evidence requested by the office", "790-012 receipt"]
+  });
+
+  addOrReplaceRoute({
+    id: "eu-study-short",
+    title: "EU/EEA/Swiss short study stay",
+    badge: "Study up to 90 days",
+    summary: "For an EU, EEA or Swiss citizen studying in Spain for up to 90 days. A residence registration certificate is not required solely for the first three months of the stay.",
+    appointment: "No EU residence-registration appointment solely for a stay of up to 90 days",
+    documents: ["Passport or EU national ID", "Course/enrolment evidence", "Health coverage for the stay"]
+  });
+
+  addOrReplaceRoute({
+    id: "eu-study-unsure",
+    title: "EU/EEA/Swiss study — duration not decided",
+    badge: "Decide duration first",
+    summary: "The residence paperwork changes at the three-month point. Confirm the expected study duration before booking an immigration appointment.",
+    appointment: "No appointment until you know whether the stay will exceed three months",
+    documents: ["Passport or EU national ID", "Course/enrolment information", "Expected study dates"]
+  });
+
+  addOrReplaceRoute({
+    id: "eu-remote",
+    title: "EU/EEA/Swiss remote worker in Spain",
+    badge: "EU remote work",
+    summary: "EU, EEA and Swiss citizens do not use Spain's non-EU digital-nomad visa. For a long-term move, use the EU registration route and separately identify the employment, Social Security and tax setup that applies to your remote work.",
+    appointment: "Certificado de Registro de Ciudadano de la Unión Europea",
+    documents: ["Passport or EU national ID", "EX-18", "Evidence supporting your residence basis", "Remote employment or self-employment evidence", "Address evidence requested by the office", "790-012 receipt"]
+  });
+
+  addOrReplaceRoute({
+    id: "eu-family-self",
+    title: "EU/EEA/Swiss citizen joining family in Spain",
+    badge: "EU family move",
+    summary: "If you are yourself an EU, EEA or Swiss citizen, you normally register as an EU citizen rather than applying for the EX-19 card used by non-EU family members. Your family relationship can be relevant to the evidence supporting your residence right.",
+    appointment: "Certificado de Registro de Ciudadano de la Unión Europea",
+    documents: ["Passport or EU national ID", "EX-18", "Family relationship evidence where relevant", "Sponsor's residence evidence where relevant", "Address evidence requested by the office", "790-012 receipt"]
+  });
+
+  addOrReplaceRoute({
+    id: "study-short-in-spain",
+    title: "Short study while already legally in Spain",
+    badge: "Study up to 90 days",
+    summary: "For a non-EU person who is already legally in Spain and takes a short course of up to 90 days. A short course does not by itself extend your existing immigration permission.",
+    appointment: "No separate long-stay study application solely because the course lasts up to 90 days",
+    documents: ["Passport", "Proof of current legal status in Spain", "Course/enrolment evidence"]
+  });
+
+  addOrReplaceRoute({
+    id: "study-unsure-abroad",
+    title: "Study from abroad — duration not decided",
+    badge: "Decide duration first",
+    summary: "For a non-EU applicant outside Spain who has not yet decided whether the studies will last up to 90 days or more than 90 days. The short-stay and long-stay routes are different, so confirm the course dates before filing.",
+    appointment: "Depends on the final study duration and your nationality",
+    documents: ["Passport", "Course/admission information", "Expected start and end dates"]
+  });
+
+  addOrReplaceRoute({
+    id: "study-unsure-in-spain",
+    title: "Study in Spain — duration not decided",
+    badge: "Check status and duration",
+    summary: "For a non-EU person already legally in Spain who has not yet decided the study duration. Confirm how long the course will last and whether your current legal status remains valid before choosing a study-authorization route.",
+    appointment: "Depends on your current legal status and the final study duration",
+    documents: ["Passport", "Proof of current legal status in Spain", "Course/admission information", "Expected start and end dates"]
+  });
+
+  roadmapDetails["eu-employed"] = {
+    process: "EU Registration Certificate as an employee",
+    explanation: "<p><strong>Your route:</strong> as an EU, EEA or Swiss citizen employed in Spain, you use the EU Registration Certificate rather than a work visa or TIE.</p><p><strong>Your residence basis:</strong> employment or confirmation of recruitment is the key evidence supporting your worker status.</p>",
+    difficulty: "Medium",
+    timeline: "Mostly depends on local appointment availability",
+    steps: [
+      "Confirm the job and gather your employment contract or confirmation of recruitment.",
+      "Prepare EX-18, your passport or EU national ID, and the address evidence requested by the office.",
+      "Arrange your Spanish Social Security number / employment registration with the employer where required for your work setup.",
+      "Pay Modelo 790-012 and book the EU Registration Certificate appointment.",
+      "Attend the appointment with your worker evidence and keep the certificate for later healthcare, tax and digital-ID steps.",
+      "After registration, set up the public-service and digital-access steps that apply to you."
+    ],
+    documents: ["Passport or EU national ID", "EX-18", "Employment/recruitment evidence", "Address evidence requested by the office", "790-012 receipt"],
+    links: ["eu-certificate", "eu-worker-rights-en", "social-security-number", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "Once your EU registration is in place, keep the certificate and NIE available for employment, healthcare, tax and digital-administration procedures."
+  };
+
+  roadmapDetailsEs["eu-employed"] = {
+    process: "Certificado de Registro UE como trabajador por cuenta ajena",
+    explanation: "<p><strong>Tu vía:</strong> como ciudadano UE/EEE/Suiza empleado en España, utilizas el Certificado de Registro UE, no un visado de trabajo ni una TIE.</p><p><strong>Base de residencia:</strong> el contrato o confirmación de contratación es la prueba principal de tu condición de trabajador.</p>",
+    difficulty: "Media",
+    timeline: "Depende sobre todo de la disponibilidad local de citas",
+    steps: [
+      "Confirma el empleo y reúne el contrato o confirmación de contratación.",
+      "Prepara EX-18, pasaporte o documento nacional UE y la prueba de domicilio que pida la oficina.",
+      "Tramita el número / alta en la Seguridad Social con el empleador cuando corresponda a tu situación laboral.",
+      "Paga el Modelo 790-012 y reserva la cita del Certificado de Registro UE.",
+      "Acude con la prueba laboral y conserva el certificado para sanidad, impuestos e identidad digital.",
+      "Después del registro, completa los trámites de servicios públicos y acceso digital que te correspondan."
+    ],
+    documents: ["Pasaporte o documento UE", "EX-18", "Contrato o prueba de contratación", "Prueba de domicilio solicitada", "790-012"],
+    links: ["eu-certificate", "eu-worker-rights-es", "social-security-number", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "Con el registro UE completado, guarda el certificado y el NIE para empleo, sanidad, impuestos y administración digital."
+  };
+
+  roadmapDetails["eu-self-employed"] = {
+    process: "EU Registration Certificate as self-employed",
+    explanation: "<p><strong>Your route:</strong> EU, EEA and Swiss citizens do not need a self-employed immigration visa. For residence registration, evidence that you are genuinely self-employed supports the worker basis.</p><p><strong>Separate admin:</strong> tax and Social Security registration for the activity are separate from the immigration certificate, even though the evidence can overlap.</p>",
+    difficulty: "Medium",
+    timeline: "Mostly depends on business setup and local appointment availability",
+    steps: [
+      "Define the activity and complete the tax / Social Security setup required for your self-employed work.",
+      "Gather evidence showing your self-employed status or activity in Spain.",
+      "Prepare EX-18, identity and the address evidence requested by the office.",
+      "Pay Modelo 790-012 and book the EU Registration Certificate appointment.",
+      "Attend the appointment with your self-employed evidence.",
+      "Keep the certificate and NIE for ongoing tax, Social Security, healthcare and digital-administration steps."
+    ],
+    documents: ["Passport or EU national ID", "EX-18", "Self-employed status/activity evidence", "Address evidence requested by the office", "790-012 receipt"],
+    links: ["eu-certificate", "eu-worker-rights-en", "tax-agency", "social-security-number", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "Continue the normal autónomo tax and Social Security obligations for your activity and use the EU certificate/NIE for later public administration."
+  };
+
+  roadmapDetailsEs["eu-self-employed"] = {
+    process: "Certificado de Registro UE como autónomo",
+    explanation: "<p><strong>Tu vía:</strong> los ciudadanos UE/EEE/Suiza no necesitan un visado de autónomo. Para el registro de residencia, la prueba de actividad por cuenta propia acredita la base como trabajador.</p><p><strong>Trámites separados:</strong> el alta fiscal y de Seguridad Social de la actividad son distintos del certificado de residencia, aunque la documentación puede solaparse.</p>",
+    difficulty: "Media",
+    timeline: "Depende de la puesta en marcha de la actividad y de las citas locales",
+    steps: [
+      "Define la actividad y completa el alta fiscal / de Seguridad Social que corresponda a tu trabajo por cuenta propia.",
+      "Reúne pruebas de tu condición o actividad como autónomo en España.",
+      "Prepara EX-18, identidad y la prueba de domicilio que solicite la oficina.",
+      "Paga el Modelo 790-012 y reserva la cita del Certificado de Registro UE.",
+      "Acude a la cita con la prueba de actividad por cuenta propia.",
+      "Conserva certificado y NIE para impuestos, Seguridad Social, sanidad y administración digital."
+    ],
+    documents: ["Pasaporte o documento UE", "EX-18", "Prueba de actividad/autónomo", "Prueba de domicilio solicitada", "790-012"],
+    links: ["eu-certificate", "eu-worker-rights-es", "tax-agency", "social-security-number", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "Continúa con las obligaciones fiscales y de Seguridad Social de tu actividad y utiliza certificado/NIE para los trámites posteriores."
+  };
+
+  roadmapDetails["eu-study"] = {
+    process: "EU student registration for a stay over three months",
+    explanation: "<p><strong>Your route:</strong> for studies lasting more than three months, an EU, EEA or Swiss student can be required to register residence in Spain.</p><p><strong>Student basis:</strong> prepare enrolment, sufficient resources and comprehensive health coverage, then complete the EU Registration Certificate.</p>",
+    difficulty: "Medium",
+    timeline: "Mostly depends on local appointment availability",
+    steps: [
+      "Confirm the course will keep you in Spain for more than three months and secure enrolment at the educational establishment.",
+      "Prepare sufficient-resources evidence and comprehensive health coverage for the study period.",
+      "Prepare EX-18, identity and the address evidence requested by the office.",
+      "Pay Modelo 790-012 and book the EU Registration Certificate appointment.",
+      "Attend the appointment with your student-basis documents.",
+      "After registration, set up the healthcare and digital-access arrangements that apply to your situation."
+    ],
+    documents: ["Passport or EU national ID", "EX-18", "Enrolment evidence", "Resources evidence", "Comprehensive health coverage", "Address evidence requested by the office", "790-012 receipt"],
+    links: ["eu-student-rights-en", "eu-certificate", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "Keep your registration certificate and study/health documents current while you remain in Spain."
+  };
+
+  roadmapDetailsEs["eu-study"] = {
+    process: "Registro como estudiante UE para estancia superior a tres meses",
+    explanation: "<p><strong>Tu vía:</strong> para estudios de más de tres meses, a un estudiante UE/EEE/Suiza se le puede exigir registrar su residencia en España.</p><p><strong>Base de estudiante:</strong> prepara matrícula, recursos suficientes y cobertura sanitaria completa y después tramita el Certificado de Registro UE.</p>",
+    difficulty: "Media",
+    timeline: "Depende sobre todo de la disponibilidad local de citas",
+    steps: [
+      "Confirma que el curso te mantendrá en España más de tres meses y formaliza la matrícula.",
+      "Prepara prueba de recursos suficientes y cobertura sanitaria completa para el periodo de estudios.",
+      "Prepara EX-18, identidad y la prueba de domicilio solicitada por la oficina.",
+      "Paga el Modelo 790-012 y reserva la cita del Certificado de Registro UE.",
+      "Acude con la documentación que acredita tu condición de estudiante.",
+      "Después del registro, organiza la sanidad y el acceso digital que correspondan a tu situación."
+    ],
+    documents: ["Pasaporte o documento UE", "EX-18", "Matrícula", "Prueba de recursos", "Cobertura sanitaria completa", "Prueba de domicilio solicitada", "790-012"],
+    links: ["eu-student-rights-es", "eu-certificate", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "Conserva actualizado el certificado de registro y la documentación de estudios y cobertura sanitaria mientras permanezcas en España."
+  };
+
+  roadmapDetails["eu-study-short"] = {
+    process: "EU short study stay up to 90 days",
+    explanation: "<p><strong>For the first three months:</strong> an EU, EEA or Swiss citizen cannot be required to register residence solely because of the stay. Keep valid identity and course/health documentation available.</p>",
+    difficulty: "Low",
+    timeline: "No EU residence-registration filing solely for a stay up to 90 days",
+    steps: [
+      "Confirm the course and your expected departure date keep the stay within 90 days.",
+      "Travel/stay with a valid passport or EU national ID and keep course/enrolment evidence.",
+      "Keep appropriate health coverage available for the stay.",
+      "If the stay will extend beyond three months, switch to the EU student-registration roadmap before the three-month point."
+    ],
+    documents: ["Passport or EU national ID", "Course/enrolment evidence", "Health coverage"],
+    links: ["eu-student-rights-en", "eu-short-stay"]
+  };
+
+  roadmapDetailsEs["eu-study-short"] = {
+    process: "Estudios UE de hasta 90 días",
+    explanation: "<p><strong>Durante los primeros tres meses:</strong> a un ciudadano UE/EEE/Suiza no se le puede exigir registrar la residencia únicamente por esa estancia. Lleva identificación válida y documentación del curso/cobertura sanitaria.</p>",
+    difficulty: "Baja",
+    timeline: "Sin registro de residencia UE únicamente por una estancia de hasta 90 días",
+    steps: [
+      "Confirma que las fechas del curso y de salida mantienen la estancia dentro de 90 días.",
+      "Permanece con pasaporte o documento UE válido y guarda la prueba del curso/matrícula.",
+      "Mantén cobertura sanitaria adecuada durante la estancia.",
+      "Si vas a superar tres meses, cambia a la hoja de ruta de registro como estudiante UE antes de ese punto."
+    ],
+    documents: ["Pasaporte o documento UE", "Prueba de curso/matrícula", "Cobertura sanitaria"],
+    links: ["eu-student-rights-es", "eu-short-stay"]
+  };
+
+  roadmapDetails["eu-study-unsure"] = {
+    process: "Decide the study duration before choosing the residence filing",
+    explanation: "<p><strong>Why this matters:</strong> the EU residence-registration requirement changes after the first three months. Do not book the wrong immigration appointment while your study dates are still uncertain.</p>",
+    difficulty: "Low",
+    timeline: "Decide the expected study dates first",
+    steps: [
+      "Confirm the course start date and expected end date.",
+      "If the total stay will be up to 90 days, use the EU short-study roadmap and do not book EU residence registration solely for that stay.",
+      "If the stay will exceed three months, use the EU student-registration roadmap and prepare enrolment, resources and comprehensive health coverage."
+    ],
+    documents: ["Passport or EU national ID", "Course dates", "Enrolment information"],
+    links: ["eu-student-rights-en", "eu-short-stay", "eu-certificate"]
+  };
+
+  roadmapDetailsEs["eu-study-unsure"] = {
+    process: "Decide la duración de los estudios antes de elegir el trámite de residencia",
+    explanation: "<p><strong>Por qué importa:</strong> la obligación de registro de residencia UE cambia después de los primeros tres meses. No reserves una cita de extranjería incorrecta mientras las fechas sigan sin definirse.</p>",
+    difficulty: "Baja",
+    timeline: "Primero confirma las fechas previstas",
+    steps: [
+      "Confirma la fecha de inicio y la fecha prevista de finalización del curso.",
+      "Si la estancia total será de hasta 90 días, usa la ruta de estudios cortos UE y no reserves registro de residencia solo por esa estancia.",
+      "Si superarás tres meses, usa la ruta de estudiante UE y prepara matrícula, recursos y cobertura sanitaria completa."
+    ],
+    documents: ["Pasaporte o documento UE", "Fechas del curso", "Información de matrícula"],
+    links: ["eu-student-rights-es", "eu-short-stay", "eu-certificate"]
+  };
+
+  roadmapDetails["eu-remote"] = {
+    process: "EU citizen working remotely from Spain",
+    explanation: "<p><strong>Immigration:</strong> as an EU, EEA or Swiss citizen, you do not use the non-EU digital-nomad visa. For a long-term stay, the residence document is the EU Registration Certificate.</p><p><strong>Work setup:</strong> first identify whether you remain employed by a foreign employer, become self-employed, or work for a Spanish employer. Social Security and tax treatment can differ, so do not treat the immigration certificate as the whole remote-work setup.</p>",
+    difficulty: "Medium",
+    timeline: "Residence timing depends on local appointments; work/tax setup depends on your arrangement",
+    steps: [
+      "Identify your remote-work setup: foreign employer, Spanish employer, or self-employed/professional activity.",
+      "Confirm which evidence supports your EU residence basis and gather the employment/self-employment documents for that setup.",
+      "Check the Social Security and tax administration that applies before assuming the non-EU digital-nomad rules apply to you.",
+      "Prepare EX-18, identity and the address evidence requested by the office.",
+      "Pay Modelo 790-012 and complete the EU Registration Certificate appointment.",
+      "After registration, set up healthcare and digital administration and keep your work/tax records current."
+    ],
+    documents: ["Passport or EU national ID", "EX-18", "Employment/self-employment evidence", "Address evidence requested by the office", "790-012 receipt"],
+    links: ["eu-worker-rights-en", "eu-certificate", "social-security-number", "tax-agency", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "Your immigration registration and your remote-work tax/Social Security setup are related but separate; keep both sides current."
+  };
+
+  roadmapDetailsEs["eu-remote"] = {
+    process: "Ciudadano UE trabajando en remoto desde España",
+    explanation: "<p><strong>Inmigración:</strong> como ciudadano UE/EEE/Suiza no utilizas el visado de nómada digital destinado a no comunitarios. Para una estancia larga, el documento de residencia es el Certificado de Registro UE.</p><p><strong>Situación laboral:</strong> identifica primero si sigues empleado por una empresa extranjera, trabajas para una empresa española o actúas como autónomo/profesional. Seguridad Social e impuestos pueden variar; el certificado de residencia no resuelve por sí solo toda la situación laboral.</p>",
+    difficulty: "Media",
+    timeline: "La residencia depende de citas locales; trabajo e impuestos dependen de tu estructura",
+    steps: [
+      "Identifica tu estructura de trabajo remoto: empleador extranjero, empleador español o actividad autónoma/profesional.",
+      "Confirma qué prueba acredita tu base de residencia UE y reúne la documentación laboral correspondiente.",
+      "Comprueba la administración de Seguridad Social e impuestos aplicable antes de asumir que te corresponden las reglas de nómada digital no comunitario.",
+      "Prepara EX-18, identidad y la prueba de domicilio solicitada.",
+      "Paga Modelo 790-012 y completa la cita del Certificado de Registro UE.",
+      "Después, organiza sanidad y administración digital y mantén al día la documentación laboral/fiscal."
+    ],
+    documents: ["Pasaporte o documento UE", "EX-18", "Prueba laboral/autónomo", "Prueba de domicilio solicitada", "790-012"],
+    links: ["eu-worker-rights-es", "eu-certificate", "social-security-number", "tax-agency", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "El registro de residencia y la configuración fiscal/Seguridad Social del trabajo remoto están relacionados, pero son trámites distintos."
+  };
+
+  roadmapDetails["eu-family-self"] = {
+    process: "EU citizen joining family in Spain",
+    explanation: "<p><strong>Your route:</strong> because you are yourself an EU, EEA or Swiss citizen, you normally obtain an EU Registration Certificate rather than the EX-19 residence card used by non-EU family members.</p><p><strong>Family basis:</strong> if your residence right depends on joining another EU citizen, the sponsor's residence evidence and proof of the family relationship can be relevant.</p>",
+    difficulty: "Medium",
+    timeline: "Mostly depends on local appointment availability",
+    steps: [
+      "Confirm who you are joining and whether you will register on your own worker/student/resources basis or as an EU family member/dependant.",
+      "If relying on the family relationship, gather the sponsor's registration/residence evidence and proof of the relationship or dependency where relevant.",
+      "Prepare EX-18, your passport or EU national ID, and the address evidence requested by the office.",
+      "Pay Modelo 790-012 and book the EU Registration Certificate appointment.",
+      "Attend the appointment with the evidence supporting your residence right.",
+      "After registration, set up the healthcare and digital-administration steps that apply to you."
+    ],
+    documents: ["Passport or EU national ID", "EX-18", "Family relationship evidence where relevant", "Sponsor residence evidence where relevant", "Address evidence requested by the office", "790-012 receipt"],
+    links: ["eu-family-registration-en", "eu-certificate", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "You receive the EU-citizen registration certificate; EX-19 remains the residence-card route for qualifying non-EU family members."
+  };
+
+  roadmapDetailsEs["eu-family-self"] = {
+    process: "Ciudadano UE que se reúne con familiares en España",
+    explanation: "<p><strong>Tu vía:</strong> al ser tú mismo ciudadano UE/EEE/Suiza, normalmente obtienes un Certificado de Registro UE en lugar de la tarjeta EX-19 destinada a familiares no comunitarios.</p><p><strong>Base familiar:</strong> si tu derecho de residencia depende de reunirte con otro ciudadano UE, pueden ser relevantes la prueba de residencia del familiar y el vínculo familiar.</p>",
+    difficulty: "Media",
+    timeline: "Depende sobre todo de la disponibilidad local de citas",
+    steps: [
+      "Confirma con quién te reúnes y si registrarás tu residencia por trabajo/estudios/recursos propios o como familiar/dependiente de otro ciudadano UE.",
+      "Si dependes del vínculo familiar, reúne la prueba de registro/residencia del familiar y la prueba del vínculo o dependencia cuando proceda.",
+      "Prepara EX-18, pasaporte o documento UE y la prueba de domicilio solicitada.",
+      "Paga Modelo 790-012 y reserva la cita del Certificado de Registro UE.",
+      "Acude con las pruebas que sustentan tu derecho de residencia.",
+      "Después del registro, organiza sanidad y administración digital según tu situación."
+    ],
+    documents: ["Pasaporte o documento UE", "EX-18", "Prueba de vínculo cuando proceda", "Prueba de residencia del familiar cuando proceda", "Prueba de domicilio solicitada", "790-012"],
+    links: ["eu-family-registration-es", "eu-certificate", "790-012", "cita", "fnmt", "clave"],
+    whatHappensNext: "Recibes el certificado de registro como ciudadano UE; EX-19 sigue siendo la tarjeta para familiares no comunitarios que cumplan los requisitos."
+  };
+
+  roadmapDetails["study-short-in-spain"] = {
+    process: "Short study while already legally in Spain",
+    explanation: "<p><strong>Your situation:</strong> a course lasting up to 90 days does not by itself create or extend immigration permission. Your existing lawful status in Spain remains the key limit.</p>",
+    difficulty: "Low to medium",
+    timeline: "No separate long-stay study filing solely for the short course",
+    steps: [
+      "Check the expiry date and conditions of your current lawful status in Spain.",
+      "Confirm the course lasts no more than 90 days and keep the admission/enrolment evidence.",
+      "Do not assume the course extends your existing permission to stay.",
+      "If the course or planned stay will exceed 90 days, switch to the in-Spain long-stay study route and confirm you meet its filing conditions."
+    ],
+    documents: ["Passport", "Current legal-status evidence", "Course/enrolment evidence"],
+    links: ["study-official", "mercurio"]
+  };
+
+  roadmapDetailsEs["study-short-in-spain"] = {
+    process: "Estudios cortos estando ya legalmente en España",
+    explanation: "<p><strong>Tu situación:</strong> un curso de hasta 90 días no crea ni amplía por sí solo un permiso migratorio. El límite principal sigue siendo tu situación legal actual en España.</p>",
+    difficulty: "Baja a media",
+    timeline: "Sin solicitud separada de estudios de larga duración únicamente por el curso corto",
+    steps: [
+      "Comprueba la fecha de caducidad y las condiciones de tu situación legal actual en España.",
+      "Confirma que el curso no supera 90 días y guarda la prueba de admisión/matrícula.",
+      "No des por hecho que el curso amplía tu permiso actual de estancia.",
+      "Si el curso o tu estancia prevista superarán 90 días, cambia a la vía de estudios de larga duración desde España y comprueba sus requisitos de presentación."
+    ],
+    documents: ["Pasaporte", "Prueba de situación legal actual", "Prueba de curso/matrícula"],
+    links: ["study-official", "mercurio"]
+  };
+
+  roadmapDetails["study-unsure-abroad"] = {
+    process: "Confirm the study duration before filing from abroad",
+    explanation: "<p><strong>Do not file yet:</strong> studies up to 90 days and studies over 90 days use different immigration rules. Confirm the official course dates first.</p>",
+    difficulty: "Low",
+    timeline: "Depends on the final course duration",
+    steps: [
+      "Get the official course start and end dates from the school or institution.",
+      "If the stay will be up to 90 days, check the Schengen short-stay rules for your nationality.",
+      "If the stay will exceed 90 days, use the long-stay study application from abroad and follow your competent Spanish consulate's instructions."
+    ],
+    documents: ["Passport", "Course/admission information", "Official course dates"],
+    links: ["study-official", "schengen", "consulates"]
+  };
+
+  roadmapDetailsEs["study-unsure-abroad"] = {
+    process: "Confirma la duración de los estudios antes de presentar desde el extranjero",
+    explanation: "<p><strong>No presentes todavía:</strong> los estudios de hasta 90 días y los de más de 90 días siguen reglas migratorias diferentes. Confirma primero las fechas oficiales del curso.</p>",
+    difficulty: "Baja",
+    timeline: "Depende de la duración final del curso",
+    steps: [
+      "Obtén del centro las fechas oficiales de inicio y finalización.",
+      "Si la estancia será de hasta 90 días, comprueba las reglas Schengen de corta estancia para tu nacionalidad.",
+      "Si superarás 90 días, usa la solicitud de estudios de larga duración desde el extranjero y sigue las instrucciones del consulado español competente."
+    ],
+    documents: ["Pasaporte", "Información de admisión/curso", "Fechas oficiales del curso"],
+    links: ["study-official", "schengen", "consulates"]
+  };
+
+  roadmapDetails["study-unsure-in-spain"] = {
+    process: "Confirm study duration and current status before filing in Spain",
+    explanation: "<p><strong>Start with status and dates:</strong> if you are already legally in Spain, first confirm how long the course will last and how long your current permission remains valid.</p>",
+    difficulty: "Low to medium",
+    timeline: "Depends on the final study duration and your current legal status",
+    steps: [
+      "Check the expiry date and conditions of your current legal status in Spain.",
+      "Get the official start/end dates for the course.",
+      "If the course stays within 90 days and within your lawful stay, use the short-study guidance.",
+      "If it will exceed 90 days, check whether your study type and current status allow an in-Spain long-stay study application before the filing deadline."
+    ],
+    documents: ["Passport", "Current legal-status evidence", "Course/admission information", "Official course dates"],
+    links: ["study-official", "mercurio"]
+  };
+
+  roadmapDetailsEs["study-unsure-in-spain"] = {
+    process: "Confirma duración y situación actual antes de presentar en España",
+    explanation: "<p><strong>Empieza por situación y fechas:</strong> si ya estás legalmente en España, confirma primero cuánto durará el curso y hasta cuándo es válida tu situación actual.</p>",
+    difficulty: "Baja a media",
+    timeline: "Depende de la duración final y de tu situación legal actual",
+    steps: [
+      "Comprueba la caducidad y condiciones de tu situación legal actual en España.",
+      "Obtén las fechas oficiales de inicio y finalización del curso.",
+      "Si el curso queda dentro de 90 días y de tu estancia legal, utiliza la guía de estudios cortos.",
+      "Si superará 90 días, comprueba si tu tipo de estudios y situación actual permiten una solicitud de larga duración desde España dentro del plazo."
+    ],
+    documents: ["Pasaporte", "Prueba de situación legal actual", "Información de admisión/curso", "Fechas oficiales del curso"],
+    links: ["study-official", "mercurio"]
+  };
+
+  if (typeof routeFormsAndTaxes !== "undefined") {
+    const registration = routeFormsAndTaxes["eu-registration"] || { forms: [], taxes: [], links: [] };
+    const worker = routeFormsAndTaxes["eu-working"] || registration;
+    routeFormsAndTaxes["eu-employed"] = worker;
+    routeFormsAndTaxes["eu-self-employed"] = worker;
+    routeFormsAndTaxes["eu-study"] = registration;
+    routeFormsAndTaxes["eu-remote"] = registration;
+    routeFormsAndTaxes["eu-family-self"] = registration;
+    routeFormsAndTaxes["eu-study-short"] = { forms: [], taxes: [], links: roadmapDetails["eu-study-short"].links };
+    routeFormsAndTaxes["eu-study-unsure"] = { forms: [], taxes: [], links: roadmapDetails["eu-study-unsure"].links };
+    routeFormsAndTaxes["study-short-in-spain"] = { forms: [], taxes: [], links: roadmapDetails["study-short-in-spain"].links };
+    routeFormsAndTaxes["study-unsure-abroad"] = { forms: [], taxes: [], links: roadmapDetails["study-unsure-abroad"].links };
+    routeFormsAndTaxes["study-unsure-in-spain"] = { forms: [], taxes: [], links: roadmapDetails["study-unsure-in-spain"].links };
+  }
+  if (typeof routeFormsAndTaxesEs !== "undefined") {
+    const registration = routeFormsAndTaxesEs["eu-registration"] || { forms: [], taxes: [], links: [] };
+    const worker = routeFormsAndTaxesEs["eu-working"] || registration;
+    routeFormsAndTaxesEs["eu-employed"] = worker;
+    routeFormsAndTaxesEs["eu-self-employed"] = worker;
+    routeFormsAndTaxesEs["eu-study"] = registration;
+    routeFormsAndTaxesEs["eu-remote"] = registration;
+    routeFormsAndTaxesEs["eu-family-self"] = registration;
+    routeFormsAndTaxesEs["eu-study-short"] = { forms: [], taxes: [], links: roadmapDetailsEs["eu-study-short"].links };
+    routeFormsAndTaxesEs["eu-study-unsure"] = { forms: [], taxes: [], links: roadmapDetailsEs["eu-study-unsure"].links };
+    routeFormsAndTaxesEs["study-short-in-spain"] = { forms: [], taxes: [], links: roadmapDetailsEs["study-short-in-spain"].links };
+    routeFormsAndTaxesEs["study-unsure-abroad"] = { forms: [], taxes: [], links: roadmapDetailsEs["study-unsure-abroad"].links };
+    routeFormsAndTaxesEs["study-unsure-in-spain"] = { forms: [], taxes: [], links: roadmapDetailsEs["study-unsure-in-spain"].links };
+  }
+
+  if (typeof nonEuStartingPointRoutes !== "undefined") {
+    ["study-short-in-spain", "study-unsure-abroad", "study-unsure-in-spain"].forEach((id) => nonEuStartingPointRoutes.add(id));
+  }
+
+  const priorPickRoute = pickRoute;
+  pickRoute = function () {
+    const personType = getValue("personType");
+    const goal = getValue("goal");
+    const duration = getValue("duration");
+
+    if (personType === "eu") {
+      if (goal === "workEmployee") return routes.find((route) => route.id === "eu-employed");
+      if (goal === "workSelf") return routes.find((route) => route.id === "eu-self-employed");
+      if (goal === "remote") return routes.find((route) => route.id === "eu-remote");
+      if (goal === "family") return routes.find((route) => route.id === "eu-family-self");
+      if (goal === "studyAbroad" || goal === "studySpain") {
+        if (duration === "short") return routes.find((route) => route.id === "eu-study-short");
+        if (duration === "notSure" || !duration) return routes.find((route) => route.id === "eu-study-unsure");
+        return routes.find((route) => route.id === "eu-study");
+      }
+    }
+
+    if (personType !== "eu" && goal === "studyAbroad" && duration === "notSure") {
+      return routes.find((route) => route.id === "study-unsure-abroad");
+    }
+    if (personType !== "eu" && goal === "studySpain" && duration === "short") {
+      return routes.find((route) => route.id === "study-short-in-spain");
+    }
+    if (personType !== "eu" && goal === "studySpain" && duration === "notSure") {
+      return routes.find((route) => route.id === "study-unsure-in-spain");
+    }
+
+    return priorPickRoute();
+  };
+
+  const priorRouteVisualFor = typeof routeVisualFor === "function" ? routeVisualFor : null;
+  if (priorRouteVisualFor) {
+    routeVisualFor = function (routeId = "") {
+      const contextual = {
+        "eu-employed": "./assets/goal-cards/work.webp",
+        "eu-self-employed": "./assets/goal-cards/work.webp",
+        "eu-study": "./assets/goal-cards/study.webp",
+        "eu-study-short": "./assets/goal-cards/study.webp",
+        "eu-study-unsure": "./assets/goal-cards/study.webp",
+        "eu-remote": "./assets/goal-cards/remote.webp",
+        "eu-family-self": "./assets/goal-cards/family.webp",
+        "study-short-in-spain": "./assets/goal-cards/study.webp",
+        "study-unsure-abroad": "./assets/goal-cards/study.webp",
+        "study-unsure-in-spain": "./assets/goal-cards/study.webp"
+      };
+      return contextual[routeId] || priorRouteVisualFor(routeId);
+    };
+  }
+
+  const studyGoals = new Set(["studyAbroad", "studySpain"]);
+  wizard.addEventListener("submit", (event) => {
+    const step = wizard.dataset.step || "person";
+    const goal = getValue("goal");
+
+    if (step === "goal" && studyGoals.has(goal)) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      if (typeof pushCurrentScreenState === "function") pushCurrentScreenState();
+      wizard.querySelectorAll('input[name="duration"]').forEach((input) => { input.checked = false; });
+      wizard.dataset.step = "duration";
+      updateQuestionVisibility();
+      if (typeof setCurrentScreenState === "function") {
+        setCurrentScreenState({
+          type: "wizard",
+          entryPreset: typeof currentEntryPreset !== "undefined" ? currentEntryPreset : null,
+          step: "duration",
+          selections: typeof wizardSelectionState === "function" ? wizardSelectionState() : {}
+        });
+      }
+      showWizardPrompt(
+        currentLang === "es" ? "¿Cuánto durarán tus estudios en España?" : "How long will you study in Spain?",
+        currentLang === "es"
+          ? "El límite de 90 días cambia la vía. Elige corta, larga o 'no lo sé' para recibir el siguiente paso correcto."
+          : "The 90-day point changes the route. Choose short, long, or 'not sure' so IberiGo can give you the right next step."
+      );
+      wizard.scrollIntoView({ block: "start", behavior: "smooth" });
+      return;
+    }
+
+    if (step === "duration" && studyGoals.has(goal) && !getValue("duration")) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      showWizardPrompt(
+        currentLang === "es" ? "Elige una duración" : "Choose a study duration",
+        currentLang === "es"
+          ? "Selecciona menos de 90 días, más de 90 días o 'no lo sé'."
+          : "Select less than 90 days, more than 90 days, or 'not sure'."
+      );
+    }
+  }, true);
+
+  function actionLabels() {
+    return currentLang === "es"
+      ? { now: "Haz esto ahora", roadmap: "Tu hoja de ruta", start: "Empieza aquí" }
+      : { now: "Do this now", roadmap: "Your roadmap", start: "Start here" };
+  }
+
+  function findRoadmapSection() {
+    const list = result.querySelector(".roadmap-list");
+    return list?.closest(".result-section") || null;
+  }
+
+  function enhanceRoadmapResult(roadmap) {
+    if (!roadmap || !Array.isArray(roadmap.steps) || !roadmap.steps.length || !result || result.hidden) return;
+    const section = findRoadmapSection();
+    if (!section) return;
+    const labels = actionLabels();
+    const heading = section.querySelector(":scope > strong");
+    if (heading) heading.textContent = labels.roadmap;
+
+    const list = section.querySelector(".roadmap-list");
+    if (list) {
+      list.classList.add("roadmap-list--full");
+      list.innerHTML = roadmap.steps
+        .map((step, index) => `<li class="${index === 0 ? "roadmap-step--now" : ""}">${index === 0 ? `<span class="roadmap-step-badge">${labels.start}</span>` : ""}${step}</li>`)
+        .join("");
+    }
+
+    // Do not inject a separate "Do this now" box: it duplicated roadmap step 1
+    // verbatim on every legacy guide. Step 1 already gets the "Start here" badge.
+    result.querySelectorAll(".roadmap-now").forEach((node) => node.remove());
+  }
+
+  const priorRenderRoadmap = renderRoadmap;
+  renderRoadmap = function () {
+    priorRenderRoadmap();
+    const directGoals = new Set(["padron", "digital", "nie"]);
+    const goal = getValue("goal");
+    const roadmap = directGoals.has(goal)
+      ? generalRouteResult()
+      : roadmapFor(pickRoute());
+    enhanceRoadmapResult(roadmap);
+  };
+
+  const priorRenderRoadmapCard = renderRoadmapCard;
+  renderRoadmapCard = function (roadmap, guideId = roadmap?.route?.id || currentDirectRoute) {
+    priorRenderRoadmapCard(roadmap, guideId);
+    enhanceRoadmapResult(roadmap);
+  };
+
+  const style = document.createElement("style");
+  style.id = "iberigo-roadmap-next-actions-style";
+  style.textContent = `
+    .roadmap-now {
+      background: #fff3e8;
+      border: 1px solid #f3caa6;
+      border-left: 4px solid #f97316;
+      border-radius: 16px;
+      padding: 18px 20px;
+    }
+    .roadmap-now > strong {
+      display: block;
+      color: #0f2a44;
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .roadmap-now p {
+      margin: 0;
+      color: #0f2a44;
+      font-size: 1.03rem;
+      font-weight: 650;
+      line-height: 1.55;
+    }
+    .roadmap-list--full {
+      display: grid;
+      gap: 10px;
+    }
+    .roadmap-list--full li {
+      padding: 4px 0 4px 4px;
+    }
+    .roadmap-list--full .roadmap-step--now {
+      font-weight: 650;
+      color: #0f2a44;
+    }
+    .roadmap-step-badge {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #c2410c;
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      vertical-align: 0.08em;
+    }
+    @media (max-width: 520px) {
+      .roadmap-now { padding: 16px; }
+      .roadmap-now p { font-size: 1rem; }
+    }
+  `;
+  if (!document.getElementById(style.id)) document.head.appendChild(style);
+
+  function roadmapForCurrentScreen() {
+    const guideId = document.documentElement.dataset.guideId;
+    if (guideId) {
+      const direct = typeof directRoadmapFor === "function" ? directRoadmapFor(guideId) : null;
+      if (direct) return direct;
+      const route = routes.find((item) => item.id === guideId);
+      if (route) return roadmapFor(route);
+    }
+    if (typeof currentDirectRoute !== "undefined" && currentDirectRoute) {
+      const direct = directRoadmapFor(currentDirectRoute);
+      if (direct) return direct;
+    }
+    if (wizard.dataset.step === "result" && !result.hidden) {
+      const route = pickRoute();
+      if (route) return roadmapFor(route);
+    }
+    return null;
+  }
+
+  applyTranslations();
+  enhanceRoadmapResult(roadmapForCurrentScreen());
+})();
+
+
+(() => {
+  if (
+    typeof routes === "undefined" ||
+    typeof roadmapDetails === "undefined" ||
+    typeof roadmapDetailsEs === "undefined"
+  ) return;
+
+  const familyRoute = routes.find((route) => route.id === "family");
+  if (familyRoute) {
+    familyRoute.summary = "Ordinary family reunification for relatives of a non-EU legal resident in Spain. The sponsor normally files after at least one year of residence and after requesting authorization to reside for at least another year, subject to the official exceptions. Housing, sufficient means and health insurance are core requirements.";
+    familyRoute.documents = [
+      "Family relationship evidence",
+      "Sponsor residence / renewal evidence",
+      "Housing and economic means evidence",
+      "Health insurance for the sponsor and family members being reunited",
+      "Passports",
+      "Legalized/apostilled and translated civil records where required"
+    ];
+  }
+
+  roadmapDetails.family = {
+    ...roadmapDetails.family,
+    process: "Family reunification",
+    explanation: '<p><strong>What it is:</strong> Ordinary family reunification (reagrupación familiar) lets a non-EU legal resident in Spain sponsor qualifying close relatives. It is separate from the EU-family route and from the dedicated route for family members of Spanish nationals.</p><p><strong>When the sponsor can normally file:</strong> after residing legally in Spain for at least one year and after requesting authorization to reside for at least another year. The current rules contain exceptions for specified long-term / long-term-EU situations, so check the official sheet for the sponsor\'s exact status. Where renewal or long-term status is required, the reunification authorization cannot be granted until that status is effectively renewed or granted.</p><p><strong>Core requirements:</strong> the sponsor must show sufficient regular means, adequate housing and health insurance for the sponsor and the family members being reunited.</p><p><strong>Eligible family:</strong> this can include a spouse or qualifying partner, including a properly proven stable unregistered partner where the official conditions are met, children and represented persons in the stated categories, and certain dependent ascendants or other specifically listed relatives.</p><p><strong>How it runs:</strong> the sponsor files in Spain. After approval, the family member completes the visa step where required, enters Spain and then requests the TIE.</p>',
+    steps: [
+      "Confirm that the sponsor is a non-EU legal resident and that ordinary family reunification is the correct route.",
+      "Confirm the sponsor meets the one-year residence / requested-another-year rule or one of the official exceptions.",
+      "Prepare EX-02, family relationship evidence, sponsor residence or renewal evidence, adequate-housing evidence, sufficient economic means and health insurance for the sponsor and family members being reunited.",
+      "The sponsor files in Spain, including through Mercurio when using the electronic route.",
+      "Pay Modelo 790-052, section 2.1.2.",
+      "After approval, the family member completes the visa step at the competent Spanish consulate where required.",
+      "After entry, complete the TIE step with EX-17 and 790-012."
+    ],
+    documents: [
+      "EX-02",
+      "Family relationship evidence",
+      "Sponsor residence / renewal evidence",
+      "Adequate-housing evidence",
+      "Sufficient regular economic means",
+      "Health insurance for the sponsor and family members being reunited",
+      "Passports",
+      "Legalized/apostilled and translated civil records where required",
+      "EX-17 and 790-012 after entry"
+    ]
+  };
+
+  roadmapDetailsEs.family = {
+    ...roadmapDetailsEs.family,
+    process: "Reagrupación familiar",
+    explanation: '<p><strong>Qué es:</strong> La reagrupación familiar ordinaria permite que una persona no comunitaria residente legal en España reagrupe a determinados familiares. Es una vía distinta del régimen de familiar de ciudadano de la UE y de la autorización específica para familiares de personas españolas.</p><p><strong>Cuándo puede presentar normalmente la persona reagrupante:</strong> después de haber residido legalmente en España al menos un año y de haber solicitado autorización para residir durante al menos otro año. La normativa vigente contempla excepciones concretas para determinados supuestos de larga duración / larga duración-UE, por lo que conviene comprobar la hoja oficial según la situación del reagrupante. Cuando sea necesaria una renovación o concesión de larga duración, la autorización de reagrupación no puede concederse hasta que esa situación se haya renovado o concedido efectivamente.</p><p><strong>Requisitos básicos:</strong> deben acreditarse medios económicos fijos y regulares suficientes, vivienda adecuada y seguro de enfermedad para la persona reagrupante y los familiares reagrupados.</p><p><strong>Familiares:</strong> puede incluir cónyuge o pareja que cumpla los requisitos — incluida una pareja estable no registrada debidamente acreditada cuando proceda —, hijos y personas representadas en los supuestos previstos, y determinados ascendientes dependientes u otros familiares expresamente contemplados.</p><p><strong>Cómo funciona:</strong> la persona reagrupante presenta en España. Tras la aprobación, el familiar completa el visado cuando sea necesario, entra en España y solicita la TIE.</p>',
+    steps: [
+      "Confirma que quien reagrupa es residente legal no comunitario y que corresponde la reagrupación familiar ordinaria.",
+      "Comprueba que cumple la regla de un año de residencia y solicitud para residir al menos otro año, o una de las excepciones oficiales.",
+      "Prepara EX-02, vínculo familiar, residencia o renovación del reagrupante, vivienda adecuada, medios económicos suficientes y seguro de enfermedad para el reagrupante y los familiares reagrupados.",
+      "La persona reagrupante presenta en España, también por Mercurio cuando use la vía telemática.",
+      "Paga Modelo 790-052, epígrafe 2.1.2.",
+      "Tras la aprobación, el familiar completa el visado en el consulado español competente cuando sea necesario.",
+      "Después de la entrada, completa la TIE con EX-17 y 790-012."
+    ],
+    documents: [
+      "EX-02",
+      "Prueba del vínculo familiar",
+      "Residencia / renovación de la persona reagrupante",
+      "Prueba de vivienda adecuada",
+      "Medios económicos fijos y regulares suficientes",
+      "Seguro de enfermedad para la persona reagrupante y los familiares reagrupados",
+      "Pasaportes",
+      "Documentos civiles legalizados/apostillados y traducidos cuando proceda",
+      "EX-17 y 790-012 después de la entrada"
+    ]
+  };
+
+  const studyInSpainRoute = routes.find((route) => route.id === "study-in-spain");
+  if (studyInSpainRoute) {
+    studyInSpainRoute.summary = "For eligible non-EU applicants already lawfully in Spain. In-country eligibility depends on the study category and current status; higher-education applications have specific regular-status and filing-timing rules.";
+  }
+
+  roadmapDetails["study-in-spain"] = {
+    ...roadmapDetails["study-in-spain"],
+    explanation: '<p><strong>Who this is for:</strong> an eligible non-EU applicant already lawfully in Spain. In-country eligibility depends on the study category and current immigration status.</p><p><strong>Higher education:</strong> current rules allow an adult in regular status to apply from Spain. As a general rule, the application must be filed at least two months before the current legal status expires and at least two months before the studies begin, unless an official exception applies.</p><p><strong>Post-compulsory secondary education:</strong> the in-Spain route has narrower status conditions; check the official study sheet rather than assuming that every lawful short stay qualifies.</p><p><strong>Where to apply:</strong> at the competent Oficina de Extranjería or electronically through Mercurio when that filing channel applies.</p>',
+    steps: [
+      "Identify the exact study category and confirm that your current status allows an in-Spain application.",
+      "For higher education, check the general two-month timing rules against both the expiry of your current legal status and the study start date; check the official exceptions if a deadline cannot be met.",
+      "Prepare EX-00, admission/enrolment, funds, health insurance and proof of your current legal status.",
+      "Pay the 790-052 study authorization fee.",
+      "Submit at the competent Extranjería office or electronically through Mercurio within the applicable deadline.",
+      "If the authorized stay exceeds six months, complete the TIE step after approval."
+    ]
+  };
+
+  roadmapDetailsEs["study-in-spain"] = {
+    ...roadmapDetailsEs["study-in-spain"],
+    explanation: '<p><strong>Para quién:</strong> solicitante no comunitario que ya se encuentra legalmente en España y cumple las condiciones de presentación desde España. La elegibilidad depende del tipo de estudios y de la situación migratoria actual.</p><p><strong>Estudios superiores:</strong> las reglas actuales permiten que una persona adulta en situación regular solicite desde España. Como regla general, debe presentar al menos dos meses antes de que expire su situación legal actual y al menos dos meses antes del inicio de los estudios, salvo que resulte aplicable una excepción oficial.</p><p><strong>Educación secundaria postobligatoria:</strong> la presentación desde España tiene condiciones de situación más restrictivas; consulta la hoja oficial y no des por hecho que cualquier estancia legal permite solicitar.</p><p><strong>Dónde presentar:</strong> en la Oficina de Extranjería competente o telemáticamente por Mercurio cuando corresponda ese canal.</p>',
+    steps: [
+      "Identifica la categoría exacta de estudios y confirma que tu situación actual permite presentar desde España.",
+      "Para estudios superiores, comprueba la regla general de dos meses tanto respecto a la caducidad de tu situación legal actual como al inicio de los estudios; revisa las excepciones oficiales si no puedes cumplir un plazo.",
+      "Prepara EX-00, admisión/matrícula, medios, seguro de enfermedad y prueba de tu situación legal actual.",
+      "Abona la tasa 790-052 de estudios.",
+      "Presenta en la Oficina de Extranjería competente o por Mercurio dentro del plazo aplicable.",
+      "Si la estancia autorizada supera seis meses, completa la TIE tras la aprobación."
+    ]
+  };
+})();
+
+
+(() => {
+  if (
+    typeof routes === "undefined" ||
+    typeof roadmapDetails === "undefined" ||
+    typeof roadmapDetailsEs === "undefined" ||
+    typeof result === "undefined"
+  ) return;
+  if (window.__iberigoRoadmapWhereToApplyLoaded) return;
+  window.__iberigoRoadmapWhereToApplyLoaded = true;
+
+  const whereEn = {
+    "eu-employed": "<strong>In person:</strong> use the competent Oficina de Extranjería in your province of residence or, where the procedure is handled there, the corresponding Policía Nacional office. Use the official Cita Previa system and select the EU Registration Certificate procedure.",
+    "eu-self-employed": "<strong>In person:</strong> use the competent Oficina de Extranjería in your province of residence or, where the procedure is handled there, the corresponding Policía Nacional office. Use the official Cita Previa system and select the EU Registration Certificate procedure.",
+    "eu-registration": "<strong>In person:</strong> use the competent Oficina de Extranjería in your province of residence or, where the procedure is handled there, the corresponding Policía Nacional office. Use the official Cita Previa system and select the EU Registration Certificate procedure.",
+    "eu-remote": "<strong>Residence filing:</strong> complete EU registration in person at the competent Oficina de Extranjería in your province of residence or, where applicable, the corresponding Policía Nacional office. Your tax and Social Security setup is separate and depends on your remote-work arrangement.",
+    "eu-family-self": "<strong>In person:</strong> if you are registering as an EU citizen, use the competent Oficina de Extranjería in your province of residence or, where applicable, the corresponding Policía Nacional office. Do not use the non-EU EX-19 card simply because you are joining family.",
+    "eu-study-short": "<strong>No residence filing solely for this short stay:</strong> for study lasting up to 90 days, you do not need an EU residence-registration appointment only because of the study stay. If the stay will exceed three months, switch to the EU student-registration route.",
+    "eu-study": "<strong>In person:</strong> use the competent Oficina de Extranjería in your province of residence or, where the procedure is handled there, the corresponding Policía Nacional office. Use Cita Previa for the EU Registration Certificate procedure.",
+    "eu-study-unsure": "<strong>Do not file yet:</strong> first confirm the official course dates. If the stay will exceed three months, use the competent Oficina de Extranjería / corresponding Policía Nacional EU-registration procedure; if it stays within 90 days, no EU residence filing is required solely for the study stay.",
+    "work-employed": "<strong>Initial authorization:</strong> the Spanish employer files with the competent Oficina de Extranjería, including through Mercurio when using the electronic route. <strong>After approval:</strong> you complete the visa step at the Spanish consulate responsible for your legal residence, then the TIE fingerprint/card step with Policía Nacional after entry.",
+    "work-self-employed": "<strong>Initial application:</strong> present EX-07 personally at the Spanish consulate responsible for your place of legal residence. <strong>After approval and entry:</strong> complete Social Security registration and the TIE fingerprint/card step with Policía Nacional.",
+    "work-specialist": "<strong>Depends on the specialist route:</strong> UGE-CE handles highly qualified / EU Blue Card, intra-company, entrepreneur and qualifying research routes; Mercurio is used where the official seasonal or internship procedure requires it. If you are abroad, complete the Spanish consular visa step after authorization where required, followed by the TIE with Policía Nacional.",
+    "non-lucrative": "<strong>Initial application:</strong> apply at the Spanish consulate responsible for your place of legal residence outside Spain. <strong>After the visa and arrival:</strong> complete the TIE fingerprint/card step with Policía Nacional within the deadline that applies to your authorization.",
+    "digital-nomad": "<strong>If you are outside Spain:</strong> use the Spanish consulate responsible for your legal residence. <strong>If you are already legally in Spain:</strong> use the UGE-CE electronic filing route. After approval, complete the TIE with Policía Nacional where a card is required.",
+    "special-cases": "<strong>Where you file depends on the exact procedure.</strong> Open the official Migraciones catalogue, choose the sheet matching your current status and purpose, and use only the filing body or electronic channel stated there. Do not force an exceptional-status case into a normal work, study or family route.",
+    "study-short": "<strong>If your nationality requires a Schengen visa:</strong> apply at the competent Spanish consulate. <strong>If you are visa-exempt:</strong> there is no Spanish long-stay study filing solely for a course of up to 90 days; follow the applicable Schengen entry conditions.",
+    "study-abroad": "<strong>Initial application:</strong> use the Spanish diplomatic mission or consular office responsible for where you legally reside. <strong>After arrival:</strong> if the authorized stay exceeds six months, complete the TIE fingerprint/card step with Policía Nacional.",
+    "study-unsure-abroad": "<strong>Do not file until the course dates are confirmed.</strong> If the stay will exceed 90 days, apply through the Spanish consulate responsible for your legal residence. If it stays within 90 days, use the Schengen short-stay rules for your nationality.",
+    "study-short-in-spain": "<strong>No separate long-stay filing solely for the short course:</strong> your current lawful status in Spain controls how long you can remain. If the course or planned stay will exceed 90 days, check whether you qualify to file a long-stay study application from Spain.",
+    "study-in-spain": "<strong>In Spain:</strong> submit at the competent Oficina de Extranjería or electronically through Mercurio when that channel applies. <strong>After approval:</strong> if the authorized stay exceeds six months, complete the TIE fingerprint/card step with Policía Nacional.",
+    "study-unsure-in-spain": "<strong>Do not file until you confirm both status and dates.</strong> If the course will exceed 90 days and your current status allows an in-Spain application, use the competent Oficina de Extranjería or Mercurio within the applicable deadline.",
+    "eu-family": "<strong>Residence-card application in Spain:</strong> apply in person at the Oficina de Extranjería in your province or, failing that, the corresponding Policía Nacional office. If your nationality requires an entry visa, obtain it first from the competent Spanish consulate. Complete the card/fingerprint step with Policía Nacional as required.",
+    "spanish-family": "<strong>The filing channel depends on where the Spanish citizen and foreign family member live:</strong> use the competent Oficina de Extranjería, Mercurio when electronic filing applies, or the competent Spanish consulate in the cases specified by the official procedure. After approval or entry, complete the TIE with Policía Nacional.",
+    "spanish-eu-return-family": "<strong>If EU free-movement law applies:</strong> follow the EX-19 EU-family filing route through the competent Extranjería / corresponding Police procedure. <strong>If it does not:</strong> use the standard EX-24 Spanish-family route through Extranjería, Mercurio or the competent consulate as the official procedure directs.",
+    "family": "<strong>Initial authorization:</strong> the non-EU sponsor files in Spain with the competent Oficina de Extranjería, including through Mercurio when using the electronic route. <strong>After approval:</strong> the joining family member completes the visa step at the competent Spanish consulate where required, then the TIE with Policía Nacional after entry."
+  };
+
+  const whereEs = {
+    "eu-employed": "<strong>Presencial:</strong> utiliza la Oficina de Extranjería competente de tu provincia de residencia o, cuando el trámite se gestione allí, la comisaría correspondiente de la Policía Nacional. Usa Cita Previa y selecciona el trámite del Certificado de Registro de Ciudadano de la UE.",
+    "eu-self-employed": "<strong>Presencial:</strong> utiliza la Oficina de Extranjería competente de tu provincia de residencia o, cuando el trámite se gestione allí, la comisaría correspondiente de la Policía Nacional. Usa Cita Previa y selecciona el trámite del Certificado de Registro de Ciudadano de la UE.",
+    "eu-registration": "<strong>Presencial:</strong> utiliza la Oficina de Extranjería competente de tu provincia de residencia o, cuando el trámite se gestione allí, la comisaría correspondiente de la Policía Nacional. Usa Cita Previa y selecciona el trámite del Certificado de Registro de Ciudadano de la UE.",
+    "eu-remote": "<strong>Trámite de residencia:</strong> completa el registro UE de forma presencial en la Oficina de Extranjería competente de tu provincia o, cuando corresponda, en la comisaría de Policía Nacional. La configuración fiscal y de Seguridad Social es un trámite separado y depende de tu estructura de trabajo remoto.",
+    "eu-family-self": "<strong>Presencial:</strong> si te registras como ciudadano de la UE, utiliza la Oficina de Extranjería competente de tu provincia o, cuando corresponda, la comisaría de Policía Nacional. No uses la tarjeta EX-19 para no comunitarios solo por reunirte con familiares.",
+    "eu-study-short": "<strong>Sin trámite de residencia únicamente por esta estancia corta:</strong> si los estudios duran hasta 90 días, no necesitas una cita de registro UE solo por los estudios. Si vas a superar tres meses, cambia a la vía de registro como estudiante UE.",
+    "eu-study": "<strong>Presencial:</strong> utiliza la Oficina de Extranjería competente de tu provincia de residencia o, cuando el trámite se gestione allí, la comisaría correspondiente de la Policía Nacional. Usa Cita Previa para el Certificado de Registro de Ciudadano de la UE.",
+    "eu-study-unsure": "<strong>No presentes todavía:</strong> confirma primero las fechas oficiales del curso. Si superarás tres meses, usa el trámite de registro UE de la Oficina de Extranjería / Policía Nacional competente; si la estancia queda dentro de 90 días, no necesitas registro UE únicamente por los estudios.",
+    "work-employed": "<strong>Autorización inicial:</strong> la empresa española presenta ante la Oficina de Extranjería competente, también por Mercurio cuando utilice la vía electrónica. <strong>Tras la aprobación:</strong> completas el visado en el consulado español competente para tu residencia legal y, después de entrar, la TIE con la Policía Nacional.",
+    "work-self-employed": "<strong>Solicitud inicial:</strong> presenta EX-07 personalmente en el consulado español competente para tu lugar de residencia legal. <strong>Tras la aprobación y entrada:</strong> completa el alta en Seguridad Social y la TIE con la Policía Nacional.",
+    "work-specialist": "<strong>Depende de la vía especializada:</strong> UGE-CE gestiona alta cualificación / Tarjeta Azul UE, traslado intraempresarial, emprendedores y determinados supuestos de investigación; Mercurio se utiliza cuando la vía oficial de temporada o prácticas lo exige. Si estás fuera de España, completa el visado consular tras la autorización cuando proceda y después la TIE con Policía Nacional.",
+    "non-lucrative": "<strong>Solicitud inicial:</strong> presenta en el consulado español competente para tu lugar de residencia legal fuera de España. <strong>Tras el visado y la llegada:</strong> completa la TIE con la Policía Nacional dentro del plazo aplicable a tu autorización.",
+    "digital-nomad": "<strong>Si estás fuera de España:</strong> utiliza el consulado español competente para tu residencia legal. <strong>Si ya estás legalmente en España:</strong> utiliza la vía electrónica de UGE-CE. Tras la aprobación, completa la TIE con Policía Nacional cuando se requiera tarjeta.",
+    "special-cases": "<strong>El lugar de presentación depende del procedimiento exacto.</strong> Abre el catálogo oficial de Migraciones, elige la hoja que corresponda a tu situación actual y finalidad, y utiliza únicamente el órgano o canal electrónico indicado allí. No fuerces un caso excepcional dentro de una vía normal de trabajo, estudios o familia.",
+    "study-short": "<strong>Si tu nacionalidad exige visado Schengen:</strong> solicita en el consulado español competente. <strong>Si estás exento de visado:</strong> no hay una solicitud española de estudios de larga duración únicamente por un curso de hasta 90 días; cumple las condiciones Schengen de entrada aplicables.",
+    "study-abroad": "<strong>Solicitud inicial:</strong> utiliza la misión diplomática u oficina consular española competente para el lugar donde resides legalmente. <strong>Tras la llegada:</strong> si la estancia autorizada supera seis meses, completa la TIE con la Policía Nacional.",
+    "study-unsure-abroad": "<strong>No presentes hasta confirmar las fechas del curso.</strong> Si la estancia superará 90 días, solicita en el consulado español competente para tu residencia legal. Si queda dentro de 90 días, utiliza las reglas Schengen de corta estancia de tu nacionalidad.",
+    "study-short-in-spain": "<strong>Sin solicitud separada de larga duración únicamente por el curso corto:</strong> tu situación legal actual en España determina cuánto puedes permanecer. Si el curso o la estancia prevista superarán 90 días, comprueba si puedes presentar una solicitud de estudios de larga duración desde España.",
+    "study-in-spain": "<strong>En España:</strong> presenta en la Oficina de Extranjería competente o electrónicamente por Mercurio cuando ese canal corresponda. <strong>Tras la aprobación:</strong> si la estancia autorizada supera seis meses, completa la TIE con la Policía Nacional.",
+    "study-unsure-in-spain": "<strong>No presentes hasta confirmar situación y fechas.</strong> Si el curso superará 90 días y tu situación actual permite solicitar desde España, utiliza la Oficina de Extranjería competente o Mercurio dentro del plazo aplicable.",
+    "eu-family": "<strong>Solicitud de tarjeta en España:</strong> presenta personalmente en la Oficina de Extranjería de tu provincia o, en su defecto, en la comisaría correspondiente de Policía Nacional. Si tu nacionalidad exige visado de entrada, solicítalo antes en el consulado español competente. Completa la tarjeta/huellas con Policía Nacional cuando proceda.",
+    "spanish-family": "<strong>El canal depende de dónde residan la persona española y el familiar extranjero:</strong> utiliza la Oficina de Extranjería competente, Mercurio cuando corresponda la vía electrónica o el consulado español competente en los supuestos previstos por el procedimiento oficial. Tras la aprobación o entrada, completa la TIE con Policía Nacional.",
+    "spanish-eu-return-family": "<strong>Si se aplica el Derecho de libre circulación UE:</strong> sigue la vía EX-19 de familiar UE mediante Extranjería / Policía competente. <strong>Si no se aplica:</strong> utiliza la vía estándar EX-24 de familiar de persona española mediante Extranjería, Mercurio o el consulado competente según indique el procedimiento oficial.",
+    "family": "<strong>Autorización inicial:</strong> la persona reagrupante no comunitaria presenta en España ante la Oficina de Extranjería competente, también por Mercurio cuando use la vía electrónica. <strong>Tras la aprobación:</strong> el familiar completa el visado en el consulado español competente cuando sea necesario y, después de entrar, la TIE con Policía Nacional."
+  };
+
+  const linkAdds = {
+    "eu-employed": ["eu-certificate", "cita"],
+    "eu-self-employed": ["eu-certificate", "cita"],
+    "eu-registration": ["eu-certificate", "cita"],
+    "eu-remote": ["eu-certificate", "cita"],
+    "eu-family-self": ["eu-certificate", "cita"],
+    "eu-study": ["eu-certificate", "cita"],
+    "work-employed": ["mercurio", "consulates", "cita"],
+    "work-self-employed": ["consulates", "cita"],
+    "non-lucrative": ["non-lucrative-official", "consulates", "cita", "790-012"],
+    "digital-nomad": ["digital-nomad-official", "uge-apply", "consulates", "cita", "790-012"],
+    "study-short": ["schengen", "consulates"],
+    "study-abroad": ["study-official", "consulates", "cita"],
+    "study-unsure-abroad": ["study-official", "schengen", "consulates"],
+    "study-in-spain": ["study-official", "mercurio", "cita"],
+    "study-unsure-in-spain": ["study-official", "mercurio"],
+    "eu-family": ["eu-family-official", "consulates", "cita", "790-012"],
+    "spanish-family": ["spanish-family-official", "mercurio", "consulates", "cita", "790-012"],
+    "spanish-eu-return-family": ["eu-family-official", "spanish-family-official", "cita", "790-012"],
+    "family": ["family-official", "mercurio", "consulates", "cita", "790-052", "790-012"]
+  };
+
+  const unique = (items) => [...new Set((items || []).filter(Boolean))];
+  Object.keys(whereEn).forEach((id) => {
+    if (roadmapDetails[id]) {
+      roadmapDetails[id].whereToApply = whereEn[id];
+      roadmapDetails[id].links = unique([...(roadmapDetails[id].links || []), ...(linkAdds[id] || [])]);
+    }
+    if (roadmapDetailsEs[id]) {
+      roadmapDetailsEs[id].whereToApply = whereEs[id];
+      roadmapDetailsEs[id].links = unique([...(roadmapDetailsEs[id].links || []), ...(linkAdds[id] || [])]);
+    }
+  });
+
+  const replacePoliceFees = (value, lang) => {
+    if (typeof value === "string") {
+      let text = value;
+      if (lang === "es") {
+        text = text
+          .replace(/La tasa es de 12\.00 EUR mediante el Modelo 790-012\.?/g, "Usa el Modelo 790-012 y comprueba el importe vigente en el generador oficial de tasas de la Policía.")
+          .replace(/\(primera tarjeta[^)]*16\.08 EUR[^)]*\)/gi, "(comprueba el importe vigente en el generador oficial 790-012 de la Policía)")
+          .replace(/12\.00 EUR|16\.08 EUR|€\s*12(?:\.00)?|€\s*16\.08|12,00\s*€|16,08\s*€/gi, "importe vigente del 790-012");
+      } else {
+        text = text
+          .replace(/The fee is 12\.00 EUR via Modelo 790-012\.?/g, "Use Modelo 790-012 and check the current amount in the official Police fee generator.")
+          .replace(/\(first card[^)]*16\.08 EUR[^)]*\)/gi, "(check the current amount in the official 790-012 Police fee generator)")
+          .replace(/12\.00 EUR|16\.08 EUR|€\s*12(?:\.00)?|€\s*16\.08|12,00\s*€|16,08\s*€/gi, "current 790-012 amount");
+      }
+      return text;
+    }
+    if (Array.isArray(value)) return value.map((item) => replacePoliceFees(item, lang));
+    if (value && typeof value === "object") {
+      Object.keys(value).forEach((key) => {
+        value[key] = replacePoliceFees(value[key], lang);
+      });
+    }
+    return value;
+  };
+
+  routes.forEach((route) => replacePoliceFees(route, "en"));
+  replacePoliceFees(roadmapDetails, "en");
+  replacePoliceFees(roadmapDetailsEs, "es");
+  if (typeof routeFormsAndTaxes !== "undefined") replacePoliceFees(routeFormsAndTaxes, "en");
+  if (typeof routeFormsAndTaxesEs !== "undefined") replacePoliceFees(routeFormsAndTaxesEs, "es");
+
+  const heading = () => currentLang === "es" ? "Dónde hacer este trámite" : "Where to do this";
+
+  function enhanceWhereToApply(roadmap) {
+    result.querySelectorAll(".roadmap-where").forEach((node) => node.remove());
+    if (!roadmap?.whereToApply || !result || result.hidden) return;
+    const block = document.createElement("div");
+    block.className = "result-section roadmap-where";
+    block.dataset.routeWhere = roadmap.route?.id || "";
+    block.innerHTML = `<strong>${heading()}</strong><p>${roadmap.whereToApply}</p>`;
+    const now = result.querySelector(".roadmap-now");
+    if (now) now.after(block);
+    else {
+      const firstSection = result.querySelector(".result-section");
+      if (firstSection) firstSection.before(block);
+      else result.append(block);
+    }
+  }
+
+  const priorRenderRoadmap = renderRoadmap;
+  renderRoadmap = function () {
+    priorRenderRoadmap();
+    enhanceWhereToApply(roadmapFor(pickRoute()));
+  };
+
+  const priorRenderRoadmapCard = renderRoadmapCard;
+  renderRoadmapCard = function (roadmap, guideId = roadmap?.route?.id || currentDirectRoute) {
+    priorRenderRoadmapCard(roadmap, guideId);
+    enhanceWhereToApply(roadmap);
+  };
+
+  const style = document.createElement("style");
+  style.id = "iberigo-roadmap-where-style";
+  style.textContent = `
+    .roadmap-where {
+      border: 1px solid #d8e3ea;
+      border-left: 4px solid #0f5c6e;
+      border-radius: 16px;
+      padding: 18px 20px;
+      background: #f7fbfc;
+    }
+    .roadmap-where > strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #0f2a44;
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .roadmap-where p {
+      margin: 0;
+      line-height: 1.6;
+    }
+    @media (max-width: 520px) {
+      .roadmap-where { padding: 16px; }
+    }
+  `;
+  if (!document.getElementById(style.id)) document.head.appendChild(style);
+
+  if (typeof roadmapForCurrentScreen === "function") enhanceWhereToApply(roadmapForCurrentScreen());
+})();
+

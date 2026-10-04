@@ -8,7 +8,7 @@ OUT = Path("browser-intent-discovery")
 OUT.mkdir(exist_ok=True)
 
 CASES = [
-    ("/", "home-en", "My visa was approved", "/guides/tie-after-approval/", "tie-after-approval"),
+    ("/", "home-en", "My visa was approved", "/guides/tie/", "tie-after-approval"),
     ("/start-here/", "start-en", "I need a socail security number", "/guides/social-security/", "social-security"),
     ("/es/start-here/", "start-es", "necesito empadronaminto", "/guides/es/padron/", "padron"),
 ]

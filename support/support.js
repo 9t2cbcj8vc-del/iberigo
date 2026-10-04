@@ -5,9 +5,9 @@ const supportTranslations = {
     supportNav: "Donate",
     supportTitle: "Support IberiGo",
     supportLead: "Help keep IberiGo free, simple and useful.",
-    bodyOne: "IberiGo is a free independent guide created to help people understand moving, travelling and settling in Spain.",
+    bodyOne: "IberiGo turns official Spanish information into plain-language guides, practical checklists and clear starting points.",
     bodyTwo: "The website collects plain-language information, practical checklists and links to official Spanish sources, so visitors can find the right starting point without unnecessary confusion.",
-    bodyThree: "If IberiGo has helped you, you can make a voluntary contribution to support the maintenance of the website.",
+    bodyThree: "If IberiGo has helped you, you can make an optional contribution toward keeping the site maintained and free.",
     supportButton: "Donate",
     helpsTitle: "Your support helps with",
     helpsHosting: "Website hosting and domain costs",
@@ -20,9 +20,9 @@ const supportTranslations = {
     disclaimerTwo: "A contribution does not buy legal, immigration, tax, financial or professional advice.",
     disclaimerThree: "IberiGo is not a law firm, gestoría, tax adviser, immigration adviser or public authority.",
     disclaimerFour: "Information on this website is general guidance only. Always check official sources or speak with a qualified professional before making important decisions.",
-    footerSupportText: "IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.",
+    footerSupportText: "If IberiGo helps you, you can support its maintenance with a voluntary contribution.",
     footerSupportLink: "Donate",
-    footerLegal: "© 2026 IberiGo. Free to use. Not legal advice.",
+    footerLegal: "© 2026 IberiGo. Not legal advice.",
     footerReviewed: "Last reviewed: July 2026"
   },
   es: {
@@ -31,9 +31,9 @@ const supportTranslations = {
     supportNav: "Donar",
     supportTitle: "Apoyar IberiGo",
     supportLead: "Ayuda a mantener IberiGo gratuito, sencillo y útil.",
-    bodyOne: "IberiGo es una guía independiente y gratuita creada para ayudar a las personas a entender cómo mudarse, viajar y establecerse en España.",
+    bodyOne: "IberiGo convierte la información oficial española en guías claras, listas prácticas y puntos de partida útiles.",
     bodyTwo: "El sitio reúne información en lenguaje claro, listas prácticas y enlaces a fuentes oficiales españolas para que los visitantes puedan encontrar un buen punto de partida sin confusión innecesaria.",
-    bodyThree: "Si IberiGo te ha ayudado, puedes hacer una contribución voluntaria para apoyar el mantenimiento del sitio.",
+    bodyThree: "Si IberiGo te ha ayudado, puedes hacer una contribución opcional para ayudar a mantener el sitio actualizado y gratuito.",
     supportButton: "Donar",
     helpsTitle: "Tu apoyo ayuda con",
     helpsHosting: "Costes de alojamiento web y dominio",
@@ -46,9 +46,9 @@ const supportTranslations = {
     disclaimerTwo: "Una contribución no compra asesoramiento legal, migratorio, fiscal, financiero ni profesional.",
     disclaimerThree: "IberiGo no es un despacho de abogados, gestoría, asesor fiscal, asesor migratorio ni autoridad pública.",
     disclaimerFour: "La información de este sitio es solo orientación general. Comprueba siempre las fuentes oficiales o habla con un profesional cualificado antes de tomar decisiones importantes.",
-    footerSupportText: "IberiGo es gratuito. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.",
+    footerSupportText: "Si IberiGo te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.",
     footerSupportLink: "Donar",
-    footerLegal: "© 2026 IberiGo. Gratuito. No es asesoramiento legal.",
+    footerLegal: "© 2026 IberiGo. No es asesoramiento legal.",
     footerReviewed: "Última revisión: julio de 2026"
   }
 };

@@ -22,7 +22,7 @@ function sectionStarts(html) {
 
 function clean(html, route) {
   const starts = sectionStarts(html);
-  if (!starts.length) throw new Error(`${route}: no legacy result sections found`);
+  if (!starts.length) return html;
   const articleEnd = html.indexOf("</article>", starts[starts.length - 1]);
   if (articleEnd < 0) throw new Error(`${route}: result article closing tag not found`);
   const disclaimer = html.indexOf('<p class="disclaimer"', starts[starts.length - 1]);
@@ -38,7 +38,7 @@ function clean(html, route) {
     if (heading && HEADINGS.has(heading)) removals.push([start, end, heading]);
   }
 
-  if (!removals.length) throw new Error(`${route}: no legacy practical sections matched for cleanup`);
+  if (!removals.length) return html;
   for (const [start, end] of removals.reverse()) html = html.slice(0, start) + html.slice(end);
   return html;
 }

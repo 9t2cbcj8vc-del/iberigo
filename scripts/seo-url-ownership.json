@@ -1,9 +1,5 @@
 {
   "primary_indexable": [
-    "/moving-to-spain/eu-registration/",
-    "/es/moving-to-spain/eu-registration/",
-    "/moving-to-spain/digital-nomad-spain/",
-    "/es/moving-to-spain/digital-nomad-spain/",
     "/moving-to-spain/students/",
     "/es/moving-to-spain/students/",
     "/moving-to-spain/family-reunification/",
@@ -12,40 +8,50 @@
     "/es/moving-to-spain/family-member-eu-citizen/",
     "/moving-to-spain/finding-accommodation/",
     "/es/moving-to-spain/finding-accommodation/",
-    "/moving-to-spain/registering-on-the-padron/",
-    "/es/moving-to-spain/registering-on-the-padron/",
-    "/moving-to-spain/healthcare/",
-    "/es/moving-to-spain/healthcare/",
-    "/living-in-spain/opening-a-bank-account/",
-    "/es/living-in-spain/opening-a-bank-account/",
     "/living-in-spain/driving/",
     "/es/living-in-spain/driving/",
     "/the-spain-files/nie-spain/",
-    "/the-spain-files/como-obtener-nie-en-espana/"
+    "/the-spain-files/como-obtener-nie-en-espana/",
+    "/guides/nie/",
+    "/guides/es/nie/",
+    "/guides/tie/",
+    "/guides/es/tie/",
+    "/guides/padron/",
+    "/guides/es/padron/",
+    "/guides/eu-registration/",
+    "/guides/es/eu-registration/",
+    "/guides/vacation-entry/",
+    "/guides/es/vacation-entry/",
+    "/guides/sip-card/",
+    "/guides/es/sip-card/",
+    "/the-spain-files/bank-account-spain/",
+    "/the-spain-files/abrir-cuenta-bancaria-espana/",
+    "/the-spain-files/digital-nomad-visa-spain/",
+    "/es/the-spain-files/visado-nomada-digital/",
+    "/the-spain-files/non-lucrative-visa-spain/",
+    "/es/the-spain-files/visado-no-lucrativo/",
+    "/the-spain-files/padron-torrevieja/",
+    "/the-spain-files/es/padron-torrevieja/"
   ],
   "duplicate_aliases": {
-    "/guides/eu-registration/": "/moving-to-spain/eu-registration/",
-    "/guides/es/eu-registration/": "/es/moving-to-spain/eu-registration/",
-    "/guides/digital-nomad/": "/moving-to-spain/digital-nomad-spain/",
-    "/guides/es/digital-nomad/": "/es/moving-to-spain/digital-nomad-spain/",
     "/guides/study/": "/moving-to-spain/students/",
     "/guides/es/study/": "/es/moving-to-spain/students/",
     "/guides/family/": "/moving-to-spain/family-reunification/",
     "/guides/es/family/": "/es/moving-to-spain/family-reunification/",
     "/guides/eu-family/": "/moving-to-spain/family-member-eu-citizen/",
     "/guides/es/eu-family/": "/es/moving-to-spain/family-member-eu-citizen/",
-    "/guides/banking/": "/living-in-spain/opening-a-bank-account/",
-    "/guides/es/banking/": "/es/living-in-spain/opening-a-bank-account/",
     "/guides/renting-home/": "/moving-to-spain/finding-accommodation/",
     "/guides/es/renting-home/": "/es/moving-to-spain/finding-accommodation/",
-    "/guides/padron/": "/moving-to-spain/registering-on-the-padron/",
-    "/guides/es/padron/": "/es/moving-to-spain/registering-on-the-padron/",
-    "/guides/nie/": "/the-spain-files/nie-spain/",
-    "/guides/es/nie/": "/the-spain-files/como-obtener-nie-en-espana/",
-    "/guides/nie-only/": "/the-spain-files/nie-spain/",
-    "/guides/es/nie-only/": "/the-spain-files/como-obtener-nie-en-espana/",
-    "/the-spain-files/bank-account-spain/": "/living-in-spain/opening-a-bank-account/",
-    "/the-spain-files/abrir-cuenta-bancaria-espana/": "/es/living-in-spain/opening-a-bank-account/"
+    "/moving-to-spain/digital-nomad-spain/": "/the-spain-files/digital-nomad-visa-spain/",
+    "/es/moving-to-spain/digital-nomad-spain/": "/es/the-spain-files/visado-nomada-digital/",
+    "/moving-to-spain/eu-registration/": "/guides/eu-registration/",
+    "/es/moving-to-spain/eu-registration/": "/guides/es/eu-registration/",
+    "/living-in-spain/opening-a-bank-account/": "/the-spain-files/bank-account-spain/",
+    "/es/living-in-spain/opening-a-bank-account/": "/the-spain-files/abrir-cuenta-bancaria-espana/",
+    "/guides/banking/": "/the-spain-files/bank-account-spain/",
+    "/guides/es/banking/": "/the-spain-files/abrir-cuenta-bancaria-espana/",
+    "/moving-to-spain/healthcare/": "/guides/sip-card/",
+    "/es/moving-to-spain/healthcare/": "/guides/es/sip-card/"
   },
   "utility_noindex": [
     "/search/",
@@ -59,7 +65,13 @@
     "/the-spain-files/es/nie-spain/": "/the-spain-files/como-obtener-nie-en-espana/"
   },
   "hreflang_pairs": [
-    ["/living-in-spain/driving/", "/es/living-in-spain/driving/"],
-    ["/the-spain-files/nie-spain/", "/the-spain-files/como-obtener-nie-en-espana/"]
+    [
+      "/living-in-spain/driving/",
+      "/es/living-in-spain/driving/"
+    ],
+    [
+      "/the-spain-files/nie-spain/",
+      "/the-spain-files/como-obtener-nie-en-espana/"
+    ]
   ]
 }

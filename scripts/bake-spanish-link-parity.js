@@ -15,6 +15,9 @@ const SPANISH_ALIASES = new Map([
   ['/living-in-spain/digital-certificate/', '/guides/es/digital/'],
   ['/living-in-spain/social-security/', '/guides/es/social-security/'],
   ['/living-in-spain/taxes/', '/guides/es/taxes/'],
+  ['/guides/digital/', '/guides/es/digital/'],
+  ['/guides/social-security/', '/guides/es/social-security/'],
+  ['/guides/taxes/', '/guides/es/taxes/'],
   ['/the-spain-files/', '/the-spain-files/es/']
 ]);
 

@@ -28,7 +28,7 @@
 
   const livingGroups = lang === "es" ? [
     ["Hogar", visuals.housing, [["Alquilar vivienda", "/guides/es/renting-home/"], ["Padrón", "/guides/es/padron/"]]],
-    ["Dinero y banca", visuals.banking, [["Banca", "/guides/es/banking/"], ["Impuestos", "/guides/es/taxes/"]]],
+    ["Dinero y banca", visuals.banking, [["Banca", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Impuestos", "/guides/es/taxes/"]]],
     ["Trabajo y carrera", visuals.work, [["Buscar trabajo", "/guides/es/job-search/"], ["Seguridad Social", "/guides/es/social-security/"], ["Vida laboral", "/guides/es/vida-laboral/"]]],
     ["Sanidad", visuals.healthcare, [["Sanidad pública", "/guides/es/sip-card/"], ["Seguro privado", "/guides/es/private-health/"], ["TSE / EHIC", "/guides/es/ehic-card/"]]],
     ["España digital", visuals.digital, [["Certificado digital / Cl@ve", "/guides/es/digital/"]]],
@@ -37,7 +37,7 @@
     ["Por experiencia: The Spain Files", spainFiles, [["Padrón en Torrevieja", "/the-spain-files/es/padron-torrevieja/"], ["Abrir una cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Cómo conseguir el NIE", "/the-spain-files/como-obtener-nie-en-espana/"]]]
   ] : [
     ["Home", visuals.housing, [["Renting a home", "/guides/renting-home/"], ["Padrón", "/guides/padron/"]]],
-    ["Money & banking", visuals.banking, [["Banking", "/guides/banking/"], ["Taxes", "/guides/taxes/"]]],
+    ["Money & banking", visuals.banking, [["Banking", "/the-spain-files/bank-account-spain/"], ["Taxes", "/guides/taxes/"]]],
     ["Work & career", visuals.work, [["Job search", "/guides/job-search/"], ["Social Security", "/guides/social-security/"], ["Vida laboral", "/guides/vida-laboral/"]]],
     ["Healthcare", visuals.healthcare, [["Public healthcare / health card", "/guides/sip-card/"], ["Private health insurance", "/guides/private-health/"], ["EHIC", "/guides/ehic-card/"]]],
     ["Digital Spain", visuals.digital, [["Digital certificate / Cl@ve", "/guides/digital/"]]],

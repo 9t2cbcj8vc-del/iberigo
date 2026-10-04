@@ -46,7 +46,7 @@ function clean(html, route) {
   for (const [start, end] of removals.reverse()) {
     html = html.slice(0, start) + html.slice(end);
   }
-  if (!removals.length) throw new Error(`${route}: no legacy practical sections matched for cleanup`);
+  if (!removals.length) return html;
   return html;
 }
 

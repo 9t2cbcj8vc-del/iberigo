@@ -102,9 +102,8 @@ function stripGenerated(html) {
 
 function removeLegacyApp(html) {
   const re = /\s*<script\b[^>]*\bsrc=["'](?:\.\/|\/)?app\.js(?:\?v=[^"']*)?["'][^>]*>\s*<\/script>/gi;
-  const next = html.replace(re, "");
-  if (next === html) throw new Error("Direct action guide did not contain an app.js script tag to remove");
-  return next;
+  // Idempotent: production bakes run on already-converted pages, which no longer have app.js.
+  return html.replace(re, "");
 }
 
 function replaceLanguageSwitcher(html, guide) {
