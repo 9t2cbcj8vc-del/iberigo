@@ -1,21 +1,21 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-seo-primary="/guides/es/sip-card/">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="googlebot" content="noindex, follow" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
-    <title>Sanidad en España para nuevos residentes — IberiGo</title>
-    <meta name="description" content="Una guía práctica sobre la sanidad en España para nuevos residentes: sanidad pública, seguro privado, formulario S1, tarjeta sanitaria regional y errores comunes." />
+    <title>Sanidad en España: ¿qué vía? — IberiGo</title>
+    <meta name="description" content="Acceso corto a la tarjeta SIP o sanitaria, el seguro privado, la TSE y el S1, para abrir la página que corresponde a tu situación." />
     <link rel="canonical" href="https://iberigo.eu/es/moving-to-spain/healthcare/" />
     <link rel="alternate" hreflang="en" href="https://iberigo.eu/moving-to-spain/healthcare/" />
     <link rel="alternate" hreflang="es" href="https://iberigo.eu/es/moving-to-spain/healthcare/" />
     <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/moving-to-spain/healthcare/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IberiGo" />
-    <meta property="og:title" content="Sanidad en España para nuevos residentes — IberiGo" />
-    <meta property="og:description" content="Una guía práctica sobre la sanidad en España para nuevos residentes: sanidad pública, seguro privado, formulario S1, tarjeta sanitaria regional y errores comunes." />
+    <meta property="og:title" content="Sanidad en España: ¿qué vía? — IberiGo" />
+    <meta property="og:description" content="Acceso corto a la tarjeta SIP o sanitaria, el seguro privado, la TSE y el S1, para abrir la página que corresponde a tu situación." />
     <meta property="og:url" content="https://iberigo.eu/es/moving-to-spain/healthcare/" />
     <meta property="og:image" content="https://iberigo.eu/assets/og-image.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -115,6 +115,74 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
   </head>
   <body data-filler-cleanup="1">
     <div class="app-shell">
@@ -125,7 +193,7 @@
         <nav aria-label="Secciones principales">
           <a href="/es/start-here/">Empieza aquí</a>
           <a href="/index.html?nav=start#guide-cards">Portada</a>
-          <a href="/the-spain-files/">The Spain Files</a>
+          <a href="/the-spain-files/es/">The Spain Files</a>
           <a href="/support/">Donar</a>
           <a class="search-nav-link" href="/search/" aria-label="Buscar en IberiGo" title="Buscar en IberiGo" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg></a>
           <div class="language-switcher" aria-label="Idioma">
@@ -135,7 +203,7 @@
         </nav>
       </header>
       <main class="guide-main">
-        <div class="guide-layout">
+        <div class="guide-layout guide-layout--single">
           <div class="guide-content">
             <nav class="guide-breadcrumbs" aria-label="Miga de pan">
           <ol>
@@ -147,87 +215,22 @@
         <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle" style="grid-template-columns: minmax(0, 1fr);">
           <div>
             <span class="guide-kicker">Vías sanitarias</span>
-            <h1 id="pageTitle">Sanidad en España para nuevos residentes</h1>
-            <p>Una guía práctica para entender la sanidad pública, el seguro privado, el formulario S1 y la tarjeta sanitaria regional antes y después de mudarte a España.</p>
+            <h1 id="pageTitle">Sanidad en España: ¿qué vía?</h1>
+            <p>Tarjeta pública, seguro privado, TSE o S1: elige la vía que corresponde a tu cobertura.</p>
             <p class="guide-reading-time">8 min de lectura</p>
           </div>
         </section>
-        <details class="guide-toc-mobile" data-guide-toc>
-          <summary>En esta página</summary>
-          <nav aria-label="En esta página"><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#deUnVistazo" data-guide-toc-link>De un vistazo</a></li><li><a href="#sanidadPublica" data-guide-toc-link>La sanidad pública en España</a></li><li><a href="#seguroPrivado" data-guide-toc-link>Seguro médico privado</a></li><li><a href="#formularioS1" data-guide-toc-link>Formulario S1</a></li><li><a href="#tarjetaSanitariaRegional" data-guide-toc-link>Tarjeta sanitaria regional</a></li><li><a href="#sanidadAntesDelRegistroDeLaUe" data-guide-toc-link>Sanidad antes del registro de la UE</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasReales" data-guide-toc-link>Preguntas reales de la gente</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </details>
-        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
-        <section class="guide-section" aria-labelledby="respuestaRapida" data-filler-cleaned="healthcare-router"><h2 id="respuestaRapida">Respuesta rápida</h2>
-<p>España tiene sanidad pública (ligada a la Seguridad Social para la mayoría de trabajadores y algunos otros grupos) y opciones privadas. No hay una sola tarjeta para todos — empieza por tu situación:</p>
-<ul>
-<li><strong>Tarjeta sanitaria pública (SIP / TSI)</strong> — en la Comunitat Valenciana se llama <strong>SIP</strong>; otras comunidades usan su propio nombre (a menudo TSI). Ver la <a href="/guides/es/sip-card/">guía SIP / tarjeta sanitaria</a>.</li>
-<li><strong>Seguro privado</strong> — suele exigirse en vías no lucrativas, nómada digital y algunas de recursos propios. Ver <a href="/guides/es/private-health/">seguro privado</a>.</li>
-<li><strong>TSE / EHIC</strong> — cobertura temporal para visitantes de la UE o mientras resolviste el acceso largo plazo. Ver <a href="/guides/es/ehic-card/">guía TSE</a>.</li>
-<li><strong>S1</strong> — algunos pensionistas exportan derechos sanitarios desde otro país de la UE; comprueba las reglas oficiales S1 de tu caso.</li>
-</ul>
-<p>El <a href="/guides/es/padron/">padrón</a> suele hacer falta antes de la tarjeta sanitaria regional. Normas y formularios varían por comunidad autónoma.</p>
-</section>
-        <section class="guide-section" aria-labelledby="deUnVistazo"><h2 id="deUnVistazo">De un vistazo</h2><table class="guide-table"><tbody>
-            <tr><th>Sanidad pública</th><td>Puede estar disponible por trabajo, Seguridad Social, derechos de pensión, situación familiar u otra vía reconocida.</td></tr>
-            <tr><th>Seguro privado</th><td>Puede ser útil u obligatorio según tu vía de residencia.</td></tr>
-            <tr><th>Formulario S1</th><td>Puede aplicarse a algunas personas jubiladas o cubiertas por otro país de la UE/EEE.</td></tr>
-            <tr><th>Tarjeta sanitaria</th><td>La emite normalmente el servicio de salud regional, no las oficinas de extranjería.</td></tr>
-            <tr><th>Variación regional</th><td>Los documentos y los trámites de la tarjeta sanitaria pueden variar según la comunidad autónoma.</td></tr>
-          </tbody></table></section>
-        <section class="guide-section" aria-labelledby="sanidadAntesDelRegistroDeLaUe"><h2 id="sanidadAntesDelRegistroDeLaUe">Sanidad antes del registro de la UE</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Por qué importa el momento</h3><p>Algunos ciudadanos de la UE pueden necesitar acreditar cobertura sanitaria antes o durante los pasos del Certificado de Registro de la UE.</p></article>
-          <article class="guide-info-card"><h3>Recursos propios, jubilación o estudios</h3><p>Quien solicita por recursos suficientes, jubilación o estudios puede necesitar preparar la prueba sanitaria antes de la cita.</p></article>
-          <article class="guide-info-card"><h3>Personas trabajadoras</h3><p>Quien trabaja puede usar la prueba de Seguridad Social vinculada al empleo, según los requisitos de la cita.</p></article>
-          <article class="guide-info-card"><h3>Comprueba antes de reservar</h3><p>Revisa las instrucciones exactas de la cita antes de suponer qué prueba sanitaria se aceptará.</p></article></div><div class="guide-box guide-box--warning"><strong>Importante</strong><p>Puede que la planificación sanitaria deba hacerse antes de la cita de registro de la UE, especialmente si tu vía no se basa en el empleo en España.</p></div><div class="guide-button-row"><a class="guide-button" href="/guides/es/eu-registration/">Ver la guía rápida del registro de la UE (EX-18)</a></div><p>La guía del registro de la UE cubre la cita de registro en sí, incluidos el formulario y la tasa.</p></section>
-        <section class="guide-section" aria-labelledby="erroresComunes" data-filler-cleaned="mistakes"><h2 id="erroresComunes">Errores comunes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Dar por hecho que el padrón por sí solo da acceso completo a la sanidad.</p></article>
-          <article class="guide-info-card"><h3>2</h3><p>Suponer que el NIE equivale al derecho a la asistencia sanitaria.</p></article>
-          <article class="guide-info-card"><h3>3</h3><p>Contratar un seguro privado sin comprobar los requisitos de residencia.</p></article></div></section>
-        <section class="guide-section" aria-labelledby="preguntasReales" data-filler-cleaned="questions"><h2 id="preguntasReales">Preguntas frecuentes</h2><h3>¿Qué es el formulario S1?</h3><p>El S1 es un formulario que puede permitir a determinadas personas, a menudo jubiladas o cubiertas por otro país de la UE/EEE, registrar su derecho a la asistencia sanitaria en España.</p><h3>¿Puedo usar mi Tarjeta Sanitaria Europea después de mudarme?</h3><p>La Tarjeta Sanitaria Europea es generalmente para estancias temporales. Si te mudas a España, conviene planificar el acceso sanitario como residente en lugar de depender solo de la cobertura de turista.</p><h3>¿Necesito sanidad antes del registro de la UE?</h3><p>Es posible, sobre todo si solicitas por recursos suficientes, jubilación o estudios. Consulta las instrucciones de tu cita.</p><h3>¿La tarjeta sanitaria es lo mismo que la Seguridad Social?</h3><p>No. La tarjeta sanitaria regional, el número de la Seguridad Social, el NIE y el padrón son documentos o registros distintos, aunque se relacionen entre sí.</p></section>
-        <section class="guide-section" aria-labelledby="whatHappensNext"><h2 id="whatHappensNext">Tu próximo paso</h2><div class="guide-button-row"><a class="guide-button" href="/es/moving-to-spain/eu-citizens/">Ver la hoja de ruta para ciudadanos de la UE</a>
-          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/eu-registration/">Ver la guía de registro de la UE</a>
-          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/registering-on-the-padron/">Ver la guía del padrón</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/social-security/">Ver la guía de la Seguridad Social (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/settling-into-spain/">Ver la guía de instalarte en España</a>
-          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/documents-checklist/">Ver la lista de documentos</a></div><div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda los documentos sanitarios en la misma carpeta que los de identidad, padrón, Seguridad Social y residencia.</p></div></section>
         
-        <section class="guide-section" aria-labelledby="officialSources"><h2 id="officialSources">Fuentes oficiales</h2><div class="guide-card-grid"><article class="guide-info-card guide-source-card guide-source-card--healthcare">
-            <div class="guide-source-head">
-              <span class="guide-source-badge" aria-hidden="true">MS</span>
-              <span class="guide-source-tag">Health Ministry</span>
-            </div>
-            <h3><a href="https://www.sanidad.gob.es" target="_blank" rel="noopener noreferrer">Gobierno de España</a></h3>
-            <p>Ministerio de Sanidad — el ministerio de sanidad nacional de España.</p>
-          </article>
-          <article class="guide-info-card guide-source-card guide-source-card--government">
-            <div class="guide-source-head">
-              <span class="guide-source-badge" aria-hidden="true">ES</span>
-              <span class="guide-source-tag">Spanish Government</span>
-            </div>
-            <h3><a href="https://www.inclusion.gob.es/web/migraciones/home" target="_blank" rel="noopener noreferrer">Ministerio responsable de migraciones</a></h3>
-            <p>Ministerio de Inclusión, Seguridad Social y Migraciones — área de Migraciones, responsable del registro de la UE y de los trámites de residencia.</p>
-          </article>
-          <article class="guide-info-card guide-source-card guide-source-card--municipal">
-            <div class="guide-source-head">
-              <span class="guide-source-badge" aria-hidden="true">LOC</span>
-              <span class="guide-source-tag">Local / Regional</span>
-            </div>
-            <h3>Servicios regionales de salud</h3>
-            <p>No existe una única web oficial: los trámites y los nombres de la tarjeta sanitaria varían según la comunidad autónoma. Consulta tu servicio de salud regional para las instrucciones locales.</p>
-          </article>
-          <article class="guide-info-card guide-source-card guide-source-card--social-security">
-            <div class="guide-source-head">
-              <span class="guide-source-badge" aria-hidden="true">SS</span>
-              <span class="guide-source-tag">Social Security</span>
-            </div>
-            <h3><a href="https://www.seg-social.es" target="_blank" rel="noopener noreferrer">Seguridad Social</a></h3>
-            <p>Instituto Nacional de la Seguridad Social — portal oficial de la Seguridad Social para consultar el derecho vigente y la información de cotización.</p>
-          </article></div><div class="guide-box guide-box--info"><strong>Estado de la fuente</strong><p>Estos enlaces llevan a sitios web oficiales cuando existe uno único. Algunas fuentes varían según el municipio o la región — consulta tu ayuntamiento o servicio regional para instrucciones locales. Los detalles oficiales pueden cambiar, así que confirma siempre con la fuente oficial.</p></div></section>
-        
-        <div class="last-reviewed"><p><strong>Última revisión:</strong> July 2026</p><p>En esta página se enlazan fuentes oficiales para más comprobación; el contenido no ha sido verificado frente a ellas por un profesional cualificado.</p></div>
+        <section class="guide-section" aria-labelledby="quickAnswer"><h2 id="quickAnswer">¿Qué vía sanitaria es la tuya?</h2>
+          <p>No hay una sola tarjeta para todo el mundo. Empieza por tu situación y abre la guía que corresponda.</p>
+          <div class="guide-card-grid">
+            <article class="guide-info-card"><h3>Tarjeta sanitaria pública</h3><p>En la Comunidad Valenciana es la SIP. En otras comunidades tiene otro nombre, a menudo TSI. <a href="/guides/es/sip-card/">Guía de la tarjeta SIP / sanitaria</a>.</p></article>
+            <article class="guide-info-card"><h3>Seguro privado</h3><p>Suele exigirse para el visado no lucrativo, el de nómada digital y los estudios, normalmente sin copago y con cobertura amplia. <a href="/guides/es/private-health/">Guía de seguro privado</a>.</p></article>
+            <article class="guide-info-card"><h3>TSE / GHIC</h3><p>Para asistencia necesaria en una estancia temporal, no para mudarte a España. <a href="/guides/es/ehic-card/">Guía de la TSE</a>.</p></article>
+            <article class="guide-info-card"><h3>S1 de tu país</h3><p>Pensionistas y algunos trabajadores desplazados pueden estar cubiertos por un S1 del país que les paga. Pregunta allí antes de dar por hecha la sanidad pública española.</p></article>
           </div>
-          <aside class="guide-toc" data-guide-toc aria-label="En esta página">
-          <strong>En esta página</strong>
-          <nav><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#deUnVistazo" data-guide-toc-link>De un vistazo</a></li><li><a href="#sanidadPublica" data-guide-toc-link>La sanidad pública en España</a></li><li><a href="#seguroPrivado" data-guide-toc-link>Seguro médico privado</a></li><li><a href="#formularioS1" data-guide-toc-link>Formulario S1</a></li><li><a href="#tarjetaSanitariaRegional" data-guide-toc-link>Tarjeta sanitaria regional</a></li><li><a href="#sanidadAntesDelRegistroDeLaUe" data-guide-toc-link>Sanidad antes del registro de la UE</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasReales" data-guide-toc-link>Preguntas reales de la gente</a></li><li><a href="#whatHappensNext" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </aside>
+          <p>Los ciudadanos de la UE que se quedan más de tres meses suelen necesitar también el <a href="/guides/es/eu-registration/">registro de ciudadano de la UE</a>. Quien trabaja suele quedar cubierto por la Seguridad Social al darse de alta; mira la <a href="/guides/es/social-security/">guía del número de la Seguridad Social</a>.</p>
+        </section>
         </div>
         <section hidden data-editorial-checklist aria-label="Editorial checklist">
           <h2>Editorial Checklist</h2>
@@ -300,7 +303,7 @@
       "title": "Bank Account Guide",
       "description": "Set up everyday banking, payments and account documents in Spain.",
       "label": "View guide",
-      "href": "/living-in-spain/opening-a-bank-account/"
+      "href": "/the-spain-files/bank-account-spain/"
     }
   ],
   "editorialChecklist": [
@@ -318,9 +321,10 @@
       <footer class="site-footer">
         <p>IberiGo es gratis. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.</p>
         <a href="/support/">Donar</a>
+        <a class="footer-help-feedback-link" href="/es/help-feedback/" data-help-feedback-footer>Ayuda y comentarios</a>
         <div class="site-footer-legal">
           <p>© 2026 IberiGo. Gratis. No es asesoramiento legal.</p>
-          <p>Última revisión: July 2026</p>
+          <p>Última revisión: julio de 2026</p>
         </div>
       </footer>
     </div>
@@ -381,5 +385,7 @@
       })();
     </script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
   </body>
 </html>

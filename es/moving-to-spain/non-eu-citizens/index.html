@@ -117,6 +117,120 @@
     </style>
   
     <style data-filler-short-answer-style>.guide-jump-links{margin:.75rem 0 0;font-size:.95rem}.guide-jump-links a{color:#9a3412;font-weight:700}</style>
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
+    <meta name="last-modified" content="2026-10-02" data-iberigo-freshness />
+    <script type="application/ld+json" data-iberigo-structured-data>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://iberigo.eu/es/moving-to-spain/non-eu-citizens/#webpage",
+          "url": "https://iberigo.eu/es/moving-to-spain/non-eu-citizens/",
+          "name": "Mudarse a España como ciudadano no UE — IberiGo",
+          "description": "Una hoja de ruta práctica para ciudadanos no comunitarios que planean mudarse a España: vías de residencia habituales, documentos, sanidad, TIE, citas y qué preparar.",
+          "inLanguage": "es",
+          "isPartOf": {
+            "@id": "https://iberigo.eu/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://iberigo.eu/es/moving-to-spain/non-eu-citizens/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://iberigo.eu/es/moving-to-spain/non-eu-citizens/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "IberiGo",
+              "item": "https://iberigo.eu/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Mudarse a España",
+              "item": "https://iberigo.eu/es/start-here/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Mudarse a España como ciudadano no UE",
+              "item": "https://iberigo.eu/es/moving-to-spain/non-eu-citizens/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body data-filler-cleanup="1">
     <div class="app-shell">
@@ -127,7 +241,7 @@
         <nav aria-label="Secciones principales">
           <a href="/es/start-here/">Empieza aquí</a>
           <a href="/index.html?nav=start#guide-cards">Portada</a>
-          <a href="/the-spain-files/">The Spain Files</a>
+          <a href="/the-spain-files/es/">The Spain Files</a>
           <a href="/support/">Donar</a>
           <a class="search-nav-link" href="/search/" aria-label="Buscar en IberiGo" title="Buscar en IberiGo" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg></a>
           <div class="language-switcher" aria-label="Idioma">
@@ -137,7 +251,7 @@
         </nav>
       </header>
       <main class="guide-main">
-        <div class="guide-layout">
+        <div class="guide-layout guide-layout--single">
           <div class="guide-content">
             <nav class="guide-breadcrumbs" aria-label="Miga de pan">
           <ol>
@@ -154,11 +268,6 @@
             <p class="guide-reading-time">9 min de lectura</p>
           </div>
         </section>
-        <details class="guide-toc-mobile" data-guide-toc>
-          <summary>En esta página</summary>
-          <nav aria-label="En esta página"><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#elegirTuVia" data-guide-toc-link>Elige tu vía</a></li><li><a href="#antesDeMudarte" data-guide-toc-link>Antes de mudarte</a></li><li><a href="#visadoAutorizacionResidencia" data-guide-toc-link>Visado, autorización y residencia</a></li><li><a href="#despuesDeLaAprobacionLlegada" data-guide-toc-link>Después de la aprobación o la llegada</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </details>
-        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta guía como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
         <section class="guide-section" aria-labelledby="shortAnswer" data-filler-cleaned="roadmap-short"><h2 id="shortAnswer">Short answer</h2><p>Las mudanzas de fuera de la UE dependen de la vía (trabajo, estudios, familia, nómada digital, autónomo, jubilación/recursos). Identifica la vía, prepara documentos y luego los pasos de llegada: padrón, sanidad y TIE si corresponde.</p><p class="guide-jump-links"><strong>Jump to:</strong> <a href="#elegirTuVia">Elige tu vía</a> · <a href="#antesDeMudarte">Antes de mudarte</a> · <a href="#despuesDeLaAprobacionLlegada">Después de la llegada</a> · <a href="#conceptosBasicosTie">TIE</a> · <a href="#erroresComunes">Errores comunes</a></p></section>
         <section class="guide-section" aria-labelledby="respuestaRapida"><h2 id="respuestaRapida">Respuesta rápida</h2><p>Los ciudadanos no comunitarios normalmente necesitan un visado, una autorización de residencia u otra vía legal reconocida para vivir en España. El trámite correcto depende del motivo de tu mudanza. Las vías habituales incluyen trabajo, estudios, familia, jubilación o recursos suficientes, nómada digital, autoempleo, y la reagrupación con un familiar ciudadano de la UE. Muchas personas acaban necesitando una TIE tras la aprobación. Esta hoja de ruta te ayuda a identificar la siguiente guía adecuada; no sustituye el asesoramiento legal.</p></section>
         
@@ -192,13 +301,13 @@
             <h3>Jubilarte o vivir de recursos suficientes</h3>
             <p>Esta vía suele depender de justificar ingresos, ahorros y cobertura sanitaria en vez de un empleo.</p>
             <a class="guide-button" href="/es/moving-to-spain/retire-in-spain/">Ver hoja de ruta</a>
-            <a class="guide-button guide-button--secondary" href="/guides/es/non-lucrative/">Ver la guía de residencia no lucrativa</a>
+            <a class="guide-button guide-button--secondary" href="/es/the-spain-files/visado-no-lucrativo/">Ver la guía de residencia no lucrativa</a>
           </article>
           <article class="guide-info-card">
             <h3>Nómada digital / trabajo remoto</h3>
             <p>Esta vía suele depender del empleo remoto o de clientes con sede fuera de España.</p>
-            <a class="guide-button" href="/es/moving-to-spain/digital-nomad-spain/">Ver hoja de ruta</a>
-            <a class="guide-button guide-button--secondary" href="/guides/es/digital-nomad/">Ver la guía de nómada digital</a>
+            <a class="guide-button" href="/es/the-spain-files/visado-nomada-digital/">Ver hoja de ruta</a>
+            <a class="guide-button guide-button--secondary" href="/es/the-spain-files/visado-nomada-digital/">Ver la guía de nómada digital</a>
           </article>
           <article class="guide-info-card">
             <h3>Autónomo / actividad empresarial</h3>
@@ -231,10 +340,10 @@
           <article class="guide-info-card"><h3>Abre una cuenta bancaria</h3><p>Una cuenta española puede ayudarte con los pagos diarios.</p></article>
           <article class="guide-info-card"><h3>Configura el certificado digital o Cl@ve, si está disponible</h3><p>El acceso digital puede ayudar con Hacienda, la Seguridad Social y otros trámites online.</p></article>
           <article class="guide-info-card"><h3>Entiende tus obligaciones fiscales</h3><p>Pueden surgir dudas fiscales según tu residencia, ingresos y bienes.</p></article></div><div class="guide-box guide-box--info"><strong>El orden puede variar</strong><p>No todo el mundo sigue el mismo orden. Algunos pasos pueden ir en paralelo, y la disponibilidad de citas puede variar según la provincia y la situación.</p></div><div class="guide-button-row"><a class="guide-button" href="/guides/es/padron/">Ver la guía del padrón</a>
-          <a class="guide-button guide-button--secondary" href="/guides/es/banking/">Ver la guía de banca en España</a>
+          <a class="guide-button guide-button--secondary" href="/the-spain-files/abrir-cuenta-bancaria-espana/">Ver la guía de banca en España</a>
           <a class="guide-button guide-button--secondary" href="/guides/es/digital/">Ver la guía de certificado digital y Cl@ve</a>
           <a class="guide-button guide-button--secondary" href="/guides/es/taxes/">Ver la guía de impuestos en España</a></div><p>Cada uno de estos pasos posteriores a la llegada tiene su propia guía breve.</p></section>
-        <section class="guide-section" aria-labelledby="conceptosBasicosTie" data-filler-cleaned="tie"><h2 id="conceptosBasicosTie">TIE</h2><p>Muchos residentes no comunitarios necesitan la TIE (tarjeta de identidad de extranjero) después de la aprobación o la llegada. Detalles, plazo de un mes y cita de huellas: <a href="/guides/es/tie/">guía de la TIE</a>.</p></section>
+        <section class="guide-section" aria-labelledby="conceptosBasicosTie" data-filler-cleaned="tie"><h2 id="conceptosBasicosTie">TIE</h2><p>Muchos residentes no comunitarios necesitan la TIE (tarjeta de identidad de extranjero) después de la aprobación o la llegada. Detalles, plazo de un mes y cita de huellas: <a href="/guides/es/tie/">guía de la TIE</a>.</p><div class="guide-box guide-box--info" data-iberigo-appointment-action="non-eu-roadmap-tie-cita-es"><strong>¿Ya tienes la aprobación y necesitas la TIE?</strong><p>Reserva esta cita solo cuando tu visado, autorización o resolución favorable te permita solicitar la tarjeta. Usa el portal oficial de Cita Previa para huellas/tarjeta.</p><div class="guide-button-row"><a class="guide-button" href="https://sede.administracionespublicas.gob.es/pagina/index/directorio/icpplus/language/es_ES" target="_blank" rel="noopener noreferrer">Reservar cita TIE / huellas</a></div></div></section>
         <section class="guide-section" aria-labelledby="erroresComunes" data-filler-cleaned="mistakes"><h2 id="erroresComunes">Errores comunes</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>1</h3><p>Elegir la vía equivocada para tu situación.</p></article>
           <article class="guide-info-card"><h3>2</h3><p>Confundir el NIE con la TIE.</p></article>
           <article class="guide-info-card"><h3>3</h3><p>Suponer que las normas de estancia turística permiten la residencia.</p></article></div></section>
@@ -243,15 +352,11 @@
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/documents-checklist/">Ver la lista de documentos</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/settling-into-spain/">Ver la guía de primeros pasos</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/finding-accommodation/">Ver la guía de alojamiento</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">Ver la guía de sanidad (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/es/living-in-spain/opening-a-bank-account/">Ver la guía de cuenta bancaria</a>
-          <a class="guide-button guide-button--secondary" href="/living-in-spain/taxes/">Ver la guía de impuestos (en inglés)</a></div><div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, estado civil, ingresos y traducciones para poder responder rápido en cuanto conozcas tu vía exacta.</p></div></section>
-        <p class="last-reviewed">Última revisión: July 2026</p>
+          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/healthcare/">Ver la guía de sanidad</a>
+          <a class="guide-button guide-button--secondary" href="/the-spain-files/abrir-cuenta-bancaria-espana/">Ver la guía de cuenta bancaria</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/taxes/">Ver la guía de impuestos</a></div><div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Guarda una carpeta con documentos de identidad, estado civil, ingresos y traducciones para poder responder rápido en cuanto conozcas tu vía exacta.</p></div></section>
+        <p class="last-reviewed">Última revisión: julio de 2026</p>
           </div>
-          <aside class="guide-toc" data-guide-toc aria-label="En esta página">
-          <strong>En esta página</strong>
-          <nav><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#elegirTuVia" data-guide-toc-link>Elige tu vía</a></li><li><a href="#antesDeMudarte" data-guide-toc-link>Antes de mudarte</a></li><li><a href="#visadoAutorizacionResidencia" data-guide-toc-link>Visado, autorización y residencia</a></li><li><a href="#despuesDeLaAprobacionLlegada" data-guide-toc-link>Después de la aprobación o la llegada</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </aside>
         </div>
         <section hidden data-editorial-checklist aria-label="Editorial checklist">
           <h2>Editorial Checklist</h2>
@@ -301,7 +406,7 @@
       "title": "Bank Account Guide",
       "description": "Set up everyday banking, payments and account documents in Spain.",
       "label": "View guide",
-      "href": "/living-in-spain/opening-a-bank-account/"
+      "href": "/the-spain-files/bank-account-spain/"
     }
   ],
   "editorialChecklist": [
@@ -319,9 +424,9 @@
       <footer class="site-footer">
         <p>IberiGo es gratis. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.</p>
         <a href="/support/">Donar</a>
+        <a class="footer-help-feedback-link" href="/es/help-feedback/" data-help-feedback-footer>Ayuda y comentarios</a>
         <div class="site-footer-legal">
           <p>© 2026 IberiGo. Gratis. No es asesoramiento legal.</p>
-          <p>Última revisión: July 2026</p>
         </div>
       </footer>
     </div>
@@ -382,5 +487,7 @@
       })();
     </script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
   </body>
 </html>

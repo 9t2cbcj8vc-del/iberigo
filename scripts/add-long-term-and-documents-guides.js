@@ -351,6 +351,17 @@ function mainHtml(page) {
   </main>`;
 }
 
+
+function setRobots(html) {
+  const robots = '<meta name="robots" content="index, follow" />';
+  const googlebot = '<meta name="googlebot" content="index, follow" />';
+  if (/<meta\s+name=["\']robots["\'][^>]*>/i.test(html)) html = html.replace(/<meta\s+name=["\']robots["\'][^>]*>/i, robots);
+  else html = html.replace(/<meta\s+name=["\']viewport["\'][^>]*>/i, (m) => `${m}\n    ${robots}`);
+  if (/<meta\s+name=["\']googlebot["\'][^>]*>/i.test(html)) html = html.replace(/<meta\s+name=["\']googlebot["\'][^>]*>/i, googlebot);
+  else html = html.replace(robots, `${robots}\n    ${googlebot}`);
+  return html;
+}
+
 function replaceTag(html, regex, replacement, label) {
   if (!regex.test(html)) throw new Error(`Could not find ${label}`);
   return html.replace(regex, replacement);
@@ -359,6 +370,7 @@ function replaceTag(html, regex, replacement, label) {
 function renderPage(page) {
   const templatePath = path.join(root, page.template);
   let html = fs.readFileSync(templatePath, 'utf8');
+  html = setRobots(html);
   const enRoute = page.lang === 'en' ? page.route : page.peer;
   const esRoute = page.lang === 'es' ? page.route : page.peer;
   const canonical = `https://iberigo.eu${page.route}`;

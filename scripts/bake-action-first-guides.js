@@ -11,6 +11,10 @@ const LEGACY_ACTION_ROUTES = new Set([
   "/guides/es/nie/",
   "/guides/tie/",
   "/guides/es/tie/",
+  "/guides/padron/",
+  "/guides/es/padron/",
+  "/guides/eu-registration/",
+  "/guides/es/eu-registration/",
 ]);
 const LEGACY_DUPLICATE_HEADINGS = new Set([
   "Next 3 steps",

@@ -40,15 +40,9 @@ const FILES = {
 // page (dir relative to repo root) -> [file key, lang, kind]
 const PAGES = [
   ["guides/nie", "nie", "en", "legacy"],
-  ["guides/nie-only", "nie", "en", "legacy"],
   ["guides/es/nie", "nie", "es", "legacy"],
-  ["guides/es/nie-only", "nie", "es", "legacy"],
   ["guides/padron", "padron", "en", "legacy"],
   ["guides/es/padron", "padron", "es", "legacy"],
-  ["moving-to-spain/registering-on-the-padron", "padron", "en", "system"],
-  ["es/moving-to-spain/registering-on-the-padron", "padron", "es", "system"],
-  ["guides/digital-nomad", "dnv", "en", "legacy"],
-  ["guides/es/digital-nomad", "dnv", "es", "legacy"],
   ["moving-to-spain/digital-nomad-spain", "dnv", "en", "system"],
   ["es/moving-to-spain/digital-nomad-spain", "dnv", "es", "system"],
   ["guides/banking", "bank", "en", "legacy"],

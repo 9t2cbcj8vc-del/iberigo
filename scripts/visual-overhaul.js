@@ -259,15 +259,15 @@
       image: VISUALS.arrival,
       groups: lang === "es" ? [
         ["Encuentra tu ruta", [
-          ["Ciudadanos UE/EEE/Suiza", "/es/moving-to-spain/eu-citizens/"], ["Ciudadanos no UE", "/es/moving-to-spain/non-eu-citizens/"], ["Trabajar en España", "/es/moving-to-spain/work-in-spain/"], ["Autónomo", "/es/moving-to-spain/self-employed-spain/"], ["Nómada digital", "/es/moving-to-spain/digital-nomad-spain/"], ["Estudiar", "/es/moving-to-spain/students/"], ["Jubilarse / vivir sin trabajar", "/es/moving-to-spain/retire-in-spain/"], ["Familia de ciudadano UE", "/es/moving-to-spain/family-member-eu-citizen/"], ["Reagrupación familiar", "/es/moving-to-spain/family-reunification/"]
+          ["Ciudadanos UE/EEE/Suiza", "/es/moving-to-spain/eu-citizens/"], ["Ciudadanos no UE", "/es/moving-to-spain/non-eu-citizens/"], ["Trabajar en España", "/es/moving-to-spain/work-in-spain/"], ["Autónomo", "/es/moving-to-spain/self-employed-spain/"], ["Nómada digital", "/es/the-spain-files/visado-nomada-digital/"], ["Estudiar", "/es/moving-to-spain/students/"], ["Jubilarse / vivir sin trabajar", "/es/moving-to-spain/retire-in-spain/"], ["Familia de ciudadano UE", "/es/moving-to-spain/family-member-eu-citizen/"], ["Reagrupación familiar", "/es/moving-to-spain/family-reunification/"]
         ]],
-        ["Documentos y citas", [["NIE", "/guides/es/nie/"], ["TIE", "/guides/es/tie/"], ["Registro UE", "/es/moving-to-spain/eu-registration/"], ["Lista de documentos", "/es/moving-to-spain/documents-checklist/"]]],
-        ["Primeras semanas", [["Padrón", "/es/moving-to-spain/registering-on-the-padron/"], ["Alojamiento", "/es/moving-to-spain/finding-accommodation/"], ["Cuenta bancaria", "/guides/es/banking/"], ["Seguridad Social", "/guides/es/social-security/"], ["Sanidad", "/es/moving-to-spain/healthcare/"], ["Acceso digital", "/guides/es/digital/"]]],
+        ["Documentos y citas", [["NIE", "/guides/es/nie/"], ["TIE", "/guides/es/tie/"], ["Registro UE", "/guides/es/eu-registration/"], ["Lista de documentos", "/es/moving-to-spain/documents-checklist/"]]],
+        ["Primeras semanas", [["Padrón", "/guides/es/padron/"], ["Alojamiento", "/es/moving-to-spain/finding-accommodation/"], ["Cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Seguridad Social", "/guides/es/social-security/"], ["Sanidad", "/es/moving-to-spain/healthcare/"], ["Acceso digital", "/guides/es/digital/"]]],
         ["Por experiencia: The Spain Files", [["Cómo conseguir el NIE", "/the-spain-files/como-obtener-nie-en-espana/"], ["Padrón en Torrevieja", "/the-spain-files/es/padron-torrevieja/"], ["Visado de nómada digital", "/es/the-spain-files/visado-nomada-digital/"], ["Abrir una cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"]]]
       ] : [
-        ["Find your route", [["EU / EEA / Swiss citizens", "/moving-to-spain/eu-citizens/"], ["Non-EU citizens", "/moving-to-spain/non-eu-citizens/"], ["Work in Spain", "/moving-to-spain/work-in-spain/"], ["Self-employed", "/moving-to-spain/self-employed-spain/"], ["Digital nomad", "/moving-to-spain/digital-nomad-spain/"], ["Study", "/moving-to-spain/students/"], ["Retire / live without working", "/moving-to-spain/retire-in-spain/"], ["Family of an EU citizen", "/moving-to-spain/family-member-eu-citizen/"], ["Family reunification", "/moving-to-spain/family-reunification/"]]],
-        ["Documents & appointments", [["NIE", "/guides/nie/"], ["TIE", "/guides/tie/"], ["EU Registration", "/moving-to-spain/eu-registration/"], ["Documents checklist", "/moving-to-spain/documents-checklist/"]]],
-        ["Your first weeks", [["Padrón", "/moving-to-spain/registering-on-the-padron/"], ["Accommodation", "/moving-to-spain/finding-accommodation/"], ["Bank account", "/guides/banking/"], ["Social Security", "/guides/social-security/"], ["Healthcare", "/moving-to-spain/healthcare/"], ["Digital access", "/guides/digital/"]]],
+        ["Find your route", [["EU / EEA / Swiss citizens", "/moving-to-spain/eu-citizens/"], ["Non-EU citizens", "/moving-to-spain/non-eu-citizens/"], ["Work in Spain", "/moving-to-spain/work-in-spain/"], ["Self-employed", "/moving-to-spain/self-employed-spain/"], ["Digital nomad", "/the-spain-files/digital-nomad-visa-spain/"], ["Study", "/moving-to-spain/students/"], ["Retire / live without working", "/moving-to-spain/retire-in-spain/"], ["Family of an EU citizen", "/moving-to-spain/family-member-eu-citizen/"], ["Family reunification", "/moving-to-spain/family-reunification/"]]],
+        ["Documents & appointments", [["NIE", "/guides/nie/"], ["TIE", "/guides/tie/"], ["EU Registration", "/guides/eu-registration/"], ["Documents checklist", "/moving-to-spain/documents-checklist/"]]],
+        ["Your first weeks", [["Padrón", "/guides/padron/"], ["Accommodation", "/moving-to-spain/finding-accommodation/"], ["Bank account", "/the-spain-files/bank-account-spain/"], ["Social Security", "/guides/social-security/"], ["Healthcare", "/moving-to-spain/healthcare/"], ["Digital access", "/guides/digital/"]]],
         ["From experience: The Spain Files", [["How to get a NIE", "/the-spain-files/nie-spain/"], ["Padrón in Torrevieja", "/the-spain-files/padron-torrevieja/"], ["Digital nomad visa", "/the-spain-files/digital-nomad-visa-spain/"], ["Opening a bank account", "/the-spain-files/bank-account-spain/"]]]
       ]
     },
@@ -277,14 +277,14 @@
       image: VISUALS.everyday,
       groups: lang === "es" ? [
         ["Hogar", [["Alquilar vivienda", "/guides/es/renting-home/"], ["Padrón", "/guides/es/padron/"]]],
-        ["Dinero y trabajo", [["Banca", "/guides/es/banking/"], ["Buscar trabajo", "/guides/es/job-search/"], ["Seguridad Social", "/guides/es/social-security/"], ["Vida laboral", "/guides/es/vida-laboral/"], ["Impuestos", "/guides/es/taxes/"]]],
+        ["Dinero y trabajo", [["Banca", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Buscar trabajo", "/guides/es/job-search/"], ["Seguridad Social", "/guides/es/social-security/"], ["Vida laboral", "/guides/es/vida-laboral/"], ["Impuestos", "/guides/es/taxes/"]]],
         ["Sanidad", [["Sanidad pública", "/guides/es/sip-card/"], ["Seguro privado", "/guides/es/private-health/"], ["TSE / EHIC", "/guides/es/ehic-card/"]]],
         ["Digital y administración", [["Certificado digital / Cl@ve", "/guides/es/digital/"], ["NIE", "/guides/es/nie/"], ["TIE", "/guides/es/tie/"]]],
         ["Transporte y conducción", [["Canje de permiso", "/guides/es/driving-licence-exchange/"], ["Teléfono", "/guides/es/phone/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]],
         ["Por experiencia: The Spain Files", [["Padrón en Torrevieja", "/the-spain-files/es/padron-torrevieja/"], ["Abrir una cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Cómo conseguir el NIE", "/the-spain-files/como-obtener-nie-en-espana/"]]]
       ] : [
         ["Home", [["Renting a home", "/guides/renting-home/"], ["Padrón", "/guides/padron/"]]],
-        ["Money & work", [["Banking", "/guides/banking/"], ["Job search", "/guides/job-search/"], ["Social Security", "/guides/social-security/"], ["Vida laboral", "/guides/vida-laboral/"], ["Taxes", "/guides/taxes/"]]],
+        ["Money & work", [["Banking", "/the-spain-files/bank-account-spain/"], ["Job search", "/guides/job-search/"], ["Social Security", "/guides/social-security/"], ["Vida laboral", "/guides/vida-laboral/"], ["Taxes", "/guides/taxes/"]]],
         ["Healthcare", [["Public healthcare / health card", "/guides/sip-card/"], ["Private health insurance", "/guides/private-health/"], ["EHIC", "/guides/ehic-card/"]]],
         ["Digital & administration", [["Digital certificate / Cl@ve", "/guides/digital/"], ["NIE", "/guides/nie/"], ["TIE", "/guides/tie/"]]],
         ["Transport & driving", [["Driving licence exchange", "/guides/driving-licence-exchange/"], ["Phone", "/guides/phone/"], ["SIM, eSIM & VPN", "/guides/sim-esim-vpn/"]]],
@@ -296,12 +296,12 @@
       text: COPY.visitHubText,
       image: VISUALS.visit,
       groups: lang === "es" ? [
-        ["Antes de viajar", [["Entrada y estancias cortas", "/guides/es/vacation-entry/"], ["Ciudadanía y reglas de entrada", "/guides/es/vacation-citizenship/"], ["Seguro de viaje", "/guides/es/travel-insurance/"]]],
+        ["Antes de viajar", [["Entrada y estancias cortas", "/guides/es/vacation-entry/"], ["Ciudadanía y reglas de entrada", "/guides/es/vacation-entry/"], ["Seguro de viaje", "/guides/es/travel-insurance/"]]],
         ["Llegar y moverse", [["Vuelos y aeropuertos", "/guides/es/vacation-flights/"], ["Transporte terrestre", "/guides/es/vacation-ground/"], ["Conducir como visitante", "/guides/es/driving-spain-visitors/"]]],
         ["Dónde alojarse", [["Hoteles", "/guides/es/vacation-hotels/"], ["Plataformas de reserva", "/guides/es/vacation-booking/"]]],
         ["Planificar", [["Turismo e ideas", "/guides/es/vacation-tourism/"], ["Reseñas y comparaciones", "/guides/es/vacation-reviews/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]]
       ] : [
-        ["Before you travel", [["Entry rules & short stays", "/guides/vacation-entry/"], ["Citizenship & entry rules", "/guides/vacation-citizenship/"], ["Travel insurance", "/guides/travel-insurance/"]]],
+        ["Before you travel", [["Entry rules & short stays", "/guides/vacation-entry/"], ["Citizenship & entry rules", "/guides/vacation-entry/"], ["Travel insurance", "/guides/travel-insurance/"]]],
         ["Getting there & around", [["Flights & airports", "/guides/vacation-flights/"], ["Ground transport", "/guides/vacation-ground/"], ["Driving as a visitor", "/guides/driving-spain-visitors/"]]],
         ["Where to stay", [["Hotels", "/guides/vacation-hotels/"], ["Booking platforms", "/guides/vacation-booking/"]]],
         ["Plan your trip", [["Tourism & ideas", "/guides/vacation-tourism/"], ["Reviews & comparisons", "/guides/vacation-reviews/"], ["SIM, eSIM & VPN", "/guides/sim-esim-vpn/"]]]

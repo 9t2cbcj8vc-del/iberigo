@@ -39,7 +39,7 @@ const pages = [
           <article class="guide-info-card"><h3>Non-EU licence</h3><p>A qualifying third-country licence is generally valid for at most six months after you acquire normal residence in Spain. After that, exchange it if a DGT agreement allows it or obtain a new Spanish licence if it does not.</p></article>
           <article class="guide-info-card"><h3>Before booking anything</h3><p>Use DGT's country selector. The exact route, documents, possible tests and filing channel depend on the country that issued the licence and the categories you hold.</p></article>
         </div>
-        <div class="guide-button-row"><a class="guide-button" href="${URLS.exchange}" target="_blank" rel="noopener noreferrer">Check your country on DGT</a><a class="guide-button guide-button--secondary" href="${URLS.appointment}" target="_blank" rel="noopener noreferrer">DGT appointment service</a></div>
+        <div class="guide-button-row"><a class="guide-button" href="${URLS.exchange}" target="_blank" rel="noopener noreferrer">Check your country on DGT</a><a class="guide-button guide-button--secondary" href="${URLS.appointment}" target="_blank" rel="noopener noreferrer">DGT appointment service</a><a class="guide-button guide-button--secondary" href="/guides/driving-licence-exchange/">Exchange steps on IberiGo</a></div>
       </section>
 
       <section class="guide-section" aria-labelledby="chooseRoute"><h2 id="chooseRoute">Choose your licence route</h2>

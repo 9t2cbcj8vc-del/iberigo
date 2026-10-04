@@ -115,6 +115,114 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
+    <meta name="last-modified" content="2026-09-27" data-iberigo-freshness />
+    <script type="application/ld+json" data-iberigo-structured-data>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://iberigo.eu/guides/living-in-spain/#webpage",
+          "url": "https://iberigo.eu/guides/living-in-spain/",
+          "name": "Living in Spain — IberiGo",
+          "description": "Documents, healthcare, money, work, and everyday setup for living in Spain, organized by what you need to sort out next.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://iberigo.eu/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://iberigo.eu/guides/living-in-spain/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://iberigo.eu/guides/living-in-spain/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "IberiGo",
+              "item": "https://iberigo.eu/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Living in Spain",
+              "item": "https://iberigo.eu/guides/living-in-spain/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div class="app-shell">
@@ -135,7 +243,7 @@
         </nav>
       </header>
       <main class="guide-main">
-        <div class="guide-layout">
+        <div class="guide-layout guide-layout--single">
           <div class="guide-content">
             <nav class="guide-breadcrumbs" aria-label="Breadcrumb">
           <ol>
@@ -144,22 +252,13 @@
             <li><span aria-current="page">Living in Spain</span></li>
           </ol>
         </nav>
-        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle">
+        <section class="panel guide-card-panel guide-hero" aria-labelledby="pageTitle" style="grid-template-columns: minmax(0, 1fr);">
           <div>
-            <span class="guide-kicker">Living in Spain</span>
             <h1 id="pageTitle">Living in Spain</h1>
             <p>Documents and admin, healthcare, money and work, and everyday setup — organized by what you need to sort out next.</p>
             <p class="guide-reading-time">2 min read</p>
           </div>
-          <aside class="guide-hero-card" aria-label="Guide summary">
-            <strong>About this guide</strong>
-            <p>This page is part of the IberiGo guide system.</p>
-          </aside>
         </section>
-        <details class="guide-toc-mobile" data-guide-toc>
-          <summary>On this page</summary>
-          <nav aria-label="On this page"><ol><li><a href="#documentsAndAdmin" data-guide-toc-link aria-current="true">Documents and admin</a></li><li><a href="#health" data-guide-toc-link>Health</a></li><li><a href="#moneyAndWork" data-guide-toc-link>Money and work</a></li><li><a href="#everydaySetup" data-guide-toc-link>Everyday setup</a></li></ol></nav>
-        </details>
         <section class="guide-section" aria-labelledby="documentsAndAdmin"><h2 id="documentsAndAdmin">Documents and admin</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Staying in Spain long term</h3><p>Permanent residence, long-term residence and Spanish nationality — choose the route that matches your current status.</p><a class="guide-button guide-button--secondary" href="/living-in-spain/staying-long-term/">View guide</a></article><article class="guide-info-card"><h3>Documents, apostilles & sworn translations</h3><p>Check whether a foreign document needs an EU exemption, apostille, legalisation or sworn translation before filing.</p><a class="guide-button guide-button--secondary" href="/moving-to-spain/documents-apostilles-translations/">View guide</a></article><article class="guide-info-card">
             <h3>Padrón / town hall registration</h3>
             <p>Town hall address registration — the foundation for TIE, healthcare, and most admin steps.</p>
@@ -208,7 +307,7 @@
         <section class="guide-section" aria-labelledby="moneyAndWork"><h2 id="moneyAndWork">Money and work</h2><div class="guide-card-grid"><article class="guide-info-card">
             <h3>Bank account and banking basics</h3>
             <p>Spanish bank account for salary, rent, utilities, and tax — needed within weeks of arriving.</p>
-            <a class="guide-button guide-button--secondary" href="/guides/banking/">View guide</a>
+            <a class="guide-button guide-button--secondary" href="/the-spain-files/bank-account-spain/">View guide</a>
           </article>
           <article class="guide-info-card">
             <h3>Renting a home in Spain</h3>
@@ -237,10 +336,6 @@
           </article></div></section>
         <p class="last-reviewed">Last reviewed: July 2026</p>
           </div>
-          <aside class="guide-toc" data-guide-toc aria-label="Table of contents">
-          <strong>On this page</strong>
-          <nav><ol><li><a href="#documentsAndAdmin" data-guide-toc-link aria-current="true">Documents and admin</a></li><li><a href="#health" data-guide-toc-link>Health</a></li><li><a href="#moneyAndWork" data-guide-toc-link>Money and work</a></li><li><a href="#everydaySetup" data-guide-toc-link>Everyday setup</a></li></ol></nav>
-        </aside>
         </div>
         <section hidden data-editorial-checklist aria-label="Editorial checklist">
           <h2>Editorial Checklist</h2>
@@ -291,7 +386,7 @@
       "title": "Bank Account Guide",
       "description": "Set up everyday banking, payments and account documents in Spain.",
       "label": "View guide",
-      "href": "/living-in-spain/opening-a-bank-account/"
+      "href": "/the-spain-files/bank-account-spain/"
     }
   ],
   "editorialChecklist": [
@@ -309,9 +404,9 @@
       <footer class="site-footer">
         <p>IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.</p>
         <a href="/support/">Donate</a>
+        <a class="footer-help-feedback-link" href="/help-feedback/" data-help-feedback-footer>Help & Feedback</a>
         <div class="site-footer-legal">
           <p>© 2026 IberiGo. Free to use. Not legal advice.</p>
-          <p>Last reviewed: July 2026</p>
         </div>
       </footer>
     </div>
@@ -372,5 +467,8 @@
       })();
     </script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+      <script src="/scripts/living-hub-new-guides.js?v=20260817-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
   </body>
 </html>

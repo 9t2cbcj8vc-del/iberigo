@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-seo-primary="/search/">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="googlebot" content="noindex, follow" />
     <meta name="google-site-verification" content="CAcMVtOf-E7h3POi3JXHwBrGJjKFRzWga9rFYHbBUZM" />
     <title>Search IberiGo Guides — IberiGo</title>
     <meta name="description" content="Search published IberiGo guides by topic, document, process or keyword." />
@@ -52,6 +52,74 @@
       @media (max-width: 640px) { .search-main { width: min(100% - 20px, 920px); padding-top: 1rem; } .search-hero, .search-result-panel { border-radius: 18px; } }
     </style>
     <link rel="stylesheet" href="/styles-final-visual-polish.css?v=20260927-ux-quick-fixes-1" data-iberigo-final-polish />
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
   </head>
   <body>
     <div class="app-shell">
@@ -104,6 +172,7 @@
       <footer class="site-footer">
         <p>IberiGo is free to use. If the site helps you, you can support its maintenance with a voluntary contribution.</p>
         <a href="/support/">Donate</a>
+        <a class="footer-help-feedback-link" href="/help-feedback/" data-help-feedback-footer>Help & Feedback</a>
         <div class="site-footer-legal">
           <p>© 2026 IberiGo. Free to use. Not legal advice.</p>
           <p>Last reviewed: July 2026</p>
@@ -112,5 +181,7 @@
     </div>
     <script src="/search/search.js?v=20260927-ux-quick-fixes-1" defer></script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
   </body>
 </html>

@@ -115,6 +115,120 @@
       @media (max-width: 640px) { .guide-main { width: min(100% - 24px, 1080px); padding-top: 1.1rem; } .guide-hero, .guide-section { padding: 1.15rem; } .guide-hero h1 { font-size: clamp(1.85rem, 8vw, 2.3rem); } .guide-card-grid { grid-template-columns: minmax(0, 1fr); } .guide-table, .guide-table tbody, .guide-table tr, .guide-table th, .guide-table td { display: block; width: 100%; } .guide-table th { border-bottom: 0; padding-bottom: 0.35rem; } .guide-table td { padding-top: 0.45rem; } .guide-button { width: 100%; } .guide-journey-group .guide-button { justify-self: stretch; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
+    <style data-iberigo-visual-ux-cleanup>
+      html, body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+      .app-shell {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: clip;
+      }
+      @media (max-width: 760px) {
+        .topbar {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          gap: 4px 9px !important;
+          padding: 6px 14px !important;
+          min-width: 0;
+          max-width: 100%;
+          box-sizing: border-box;
+        }
+        .brand-lockup { flex: 0 1 auto; min-width: 0; }
+        .brand-wordmark { font-size: 22px; }
+        .topbar nav {
+          display: flex !important;
+          flex: 1 1 100% !important;
+          width: 100% !important;
+          min-width: 0 !important;
+          flex-wrap: wrap !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          gap: 6px !important;
+        }
+        .topbar nav a {
+          flex: 0 1 auto !important;
+          min-height: 38px;
+          padding: 8px 11px !important;
+        }
+        .topbar .search-nav-link { order: -2; }
+        .topbar .language-switcher {
+          order: -1;
+          flex: 0 0 auto !important;
+          width: auto !important;
+          min-height: 38px;
+          justify-content: flex-start !important;
+          padding: 3px !important;
+        }
+        .topbar .language-switcher button {
+          min-width: 34px;
+          min-height: 32px;
+        }
+        main > section { scroll-margin-top: 118px; }
+      }
+      @media (max-width: 420px) {
+        .topbar { padding-inline: 12px !important; gap: 4px 8px !important; }
+        .topbar nav { gap: 3px 5px !important; }
+        .topbar nav a {
+          flex-basis: auto !important;
+          padding-inline: 10px !important;
+          font-size: 0.82rem;
+        }
+        .topbar .language-switcher {
+          width: auto !important;
+          justify-content: flex-start !important;
+        }
+        main > section { scroll-margin-top: 112px; }
+      }
+    </style>
+    <meta name="last-modified" content="2026-10-02" data-iberigo-freshness />
+    <script type="application/ld+json" data-iberigo-structured-data>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://iberigo.eu/es/moving-to-spain/documents-checklist/#webpage",
+          "url": "https://iberigo.eu/es/moving-to-spain/documents-checklist/",
+          "name": "Lista de documentos para mudarte a España — IberiGo",
+          "description": "Una lista práctica de documentos que puedes necesitar antes de mudarte a España: identidad, residencia, sanidad, ingresos, vivienda y copias oficiales.",
+          "inLanguage": "es",
+          "isPartOf": {
+            "@id": "https://iberigo.eu/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://iberigo.eu/es/moving-to-spain/documents-checklist/#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://iberigo.eu/es/moving-to-spain/documents-checklist/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "IberiGo",
+              "item": "https://iberigo.eu/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Mudarse a España",
+              "item": "https://iberigo.eu/es/start-here/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Lista de documentos para mudarte a España",
+              "item": "https://iberigo.eu/es/moving-to-spain/documents-checklist/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body data-filler-cleanup="1">
     <div class="app-shell">
@@ -125,7 +239,7 @@
         <nav aria-label="Secciones principales">
           <a href="/es/start-here/">Empieza aquí</a>
           <a href="/index.html?nav=start#guide-cards">Portada</a>
-          <a href="/the-spain-files/">The Spain Files</a>
+          <a href="/the-spain-files/es/">The Spain Files</a>
           <a href="/support/">Donar</a>
           <a class="search-nav-link" href="/search/" aria-label="Buscar en IberiGo" title="Buscar en IberiGo" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg></a>
           <div class="language-switcher" aria-label="Idioma">
@@ -135,7 +249,7 @@
         </nav>
       </header>
       <main class="guide-main">
-        <div class="guide-layout">
+        <div class="guide-layout guide-layout--single">
           <div class="guide-content">
             <nav class="guide-breadcrumbs" aria-label="Miga de pan">
           <ol>
@@ -156,11 +270,6 @@
             <p>Tus documentos dependen de tu nacionalidad, tu ruta, el municipio y el tipo de cita. Comprueba siempre los requisitos de tu propio trámite antes de confiar en cualquier lista general.</p>
           </aside>
         </section>
-        <details class="guide-toc-mobile" data-guide-toc>
-          <summary>En esta página</summary>
-          <nav aria-label="En esta página"><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#documentosComunes" data-guide-toc-link>Documentos comunes que preparar</a></li><li><a href="#documentosCiudadanosUe" data-guide-toc-link>Documentos para ciudadanos de la UE</a></li><li><a href="#documentosNoUe" data-guide-toc-link>Documentos para ciudadanos no UE</a></li><li><a href="#documentosViviendaPadron" data-guide-toc-link>Documentos de vivienda y padrón</a></li><li><a href="#documentosSanitarios" data-guide-toc-link>Documentos sanitarios</a></li><li><a href="#documentosBancoFinanzas" data-guide-toc-link>Documentos de banco y finanzas</a></li><li><a href="#traduccionesApostillasCopias" data-guide-toc-link>Traducciones, apostillas y copias</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </details>
-        <section class="guide-section" aria-labelledby="languageNote"><h2 id="languageNote">Sobre esta página en español</h2><p>Algunos enlaces llevan a guías actuales en inglés porque las versiones en español de esas páginas todavía no existen. Usa esta lista como orientación práctica y confirma siempre los requisitos oficiales de tu propio trámite.</p></section>
         <section class="guide-section" aria-labelledby="respuestaRapida"><h2 id="respuestaRapida">Respuesta rápida</h2><p>Los documentos que puedes necesitar dependen de tu nacionalidad, tu vía de residencia y el procedimiento local. Muchas personas recién llegadas preparan documentos de identidad, prueba de ingresos, documentos sanitarios, documentos de vivienda y copias. Algunos documentos extranjeros pueden necesitar traducción o legalización. Normalmente conviene prepararlos con antelación en lugar de esperar hasta la cita.</p></section>
         
         
@@ -183,13 +292,13 @@
           <article class="guide-info-card"><h3>Trabajo o Seguridad Social</h3><p>El empleo o el alta en la Seguridad Social puede apoyar algunas vías de sanidad pública.</p></article>
           <article class="guide-info-card"><h3>Documentos del servicio de salud regional</h3><p>Los servicios de salud regionales pueden pedir sus propios formularios o confirmaciones.</p></article>
           <article class="guide-info-card"><h3>Identidad y NIE</h3><p>Puede pedirse pasaporte, documento de identidad nacional o NIE según el trámite.</p></article>
-          <article class="guide-info-card"><h3>Certificado de empadronamiento</h3><p>Puede requerirse un certificado de empadronamiento para el registro en el centro de salud local.</p></article></div><p>Consulta la guía en inglés <a href="/moving-to-spain/healthcare/">Healthcare in Spain</a> para comparar las vías sanitarias antes de preparar los documentos.</p></section>
+          <article class="guide-info-card"><h3>Certificado de empadronamiento</h3><p>Puede requerirse un certificado de empadronamiento para el registro en el centro de salud local.</p></article></div><p>Consulta la guía en inglés <a href="/es/moving-to-spain/healthcare/">Healthcare in Spain</a> para comparar las vías sanitarias antes de preparar los documentos.</p></section>
         <section class="guide-section" aria-labelledby="documentosBancoFinanzas"><h2 id="documentosBancoFinanzas">Documentos de banco y finanzas</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Identidad</h3><p>Se suele solicitar pasaporte o documento de identidad nacional.</p></article>
           <article class="guide-info-card"><h3>NIE, si lo tienes</h3><p>Algunos bancos pueden pedir el NIE si ya lo tienes.</p></article>
           <article class="guide-info-card"><h3>Domicilio</h3><p>Puede solicitarse prueba de domicilio según el banco y el tipo de cuenta.</p></article>
           <article class="guide-info-card"><h3>Ingresos</h3><p>Puede pedirse contrato de trabajo, nóminas, prueba de ingresos o ahorros.</p></article>
           <article class="guide-info-card"><h3>Información fiscal</h3><p>Los bancos pueden solicitar información sobre residencia fiscal.</p></article>
-          <article class="guide-info-card"><h3>Documentos de residencia</h3><p>Puede pedirse un certificado o tarjeta de residencia si ya lo tienes.</p></article></div><p>Consulta la <a href="/es/living-in-spain/opening-a-bank-account/">guía de cuenta bancaria</a> para preparar los documentos específicos de la cuenta.</p></section>
+          <article class="guide-info-card"><h3>Documentos de residencia</h3><p>Puede pedirse un certificado o tarjeta de residencia si ya lo tienes.</p></article></div><p>Consulta la <a href="/the-spain-files/abrir-cuenta-bancaria-espana/">guía de cuenta bancaria</a> para preparar los documentos específicos de la cuenta.</p></section>
         <section class="guide-section" aria-labelledby="traduccionesApostillasCopias"><h2 id="traduccionesApostillasCopias">Traducciones, apostillas y copias</h2><div class="guide-card-grid"><article class="guide-info-card"><h3>Traducción oficial</h3><p>Algunos documentos extranjeros pueden necesitar traducción oficial.</p></article>
           <article class="guide-info-card"><h3>Legalización o apostilla</h3><p>Algunos documentos pueden necesitar legalización o apostilla, según el trámite y el país de origen.</p></article>
           <article class="guide-info-card"><h3>Reglas según el trámite</h3><p>No des por hecho que la misma regla de traducción o apostilla se aplica a todas las citas.</p></article>
@@ -203,9 +312,9 @@
         <section class="guide-section" aria-labelledby="tuProximoPaso"><h2 id="tuProximoPaso">Tu próximo paso</h2><div class="guide-button-row"><a class="guide-button" href="/es/moving-to-spain/eu-citizens/">Ver la hoja de ruta UE</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/settling-into-spain/">Ver la guía de primeros pasos</a>
           <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/finding-accommodation/">Ver la guía de alojamiento</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/registering-on-the-padron/">Ver la guía del padrón (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/moving-to-spain/healthcare/">Ver la guía de sanidad (en inglés)</a>
-          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/eu-registration/">Ver la guía de registro de la UE</a></div><div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Crea una carpeta para originales, otra para copias y una carpeta digital segura. Nombra los archivos con claridad por tipo de documento y fecha.</p></div></section>
+          <a class="guide-button guide-button--secondary" href="/guides/es/padron/">Ver la guía del padrón</a>
+          <a class="guide-button guide-button--secondary" href="/es/moving-to-spain/healthcare/">Ver la guía de sanidad</a>
+          <a class="guide-button guide-button--secondary" href="/guides/es/eu-registration/">Ver la guía de registro de la UE</a></div><div class="guide-box guide-box--tip"><strong>Consejo</strong><p>Crea una carpeta para originales, otra para copias y una carpeta digital segura. Nombra los archivos con claridad por tipo de documento y fecha.</p></div></section>
         
         <section class="guide-section" aria-labelledby="officialSources"><h2 id="officialSources">Fuentes oficiales</h2><div class="guide-card-grid"><article class="guide-info-card guide-source-card guide-source-card--police">
             <div class="guide-source-head">
@@ -242,10 +351,6 @@
         
         <div class="last-reviewed"><p><strong>Última revisión:</strong> July 2026</p><p>En esta página se enlazan fuentes oficiales para más comprobación; el contenido no ha sido verificado frente a ellas por un profesional cualificado.</p></div>
           </div>
-          <aside class="guide-toc" data-guide-toc aria-label="En esta página">
-          <strong>En esta página</strong>
-          <nav><ol><li><a href="#languageNote" data-guide-toc-link aria-current="true">Sobre esta página en español</a></li><li><a href="#respuestaRapida" data-guide-toc-link>Respuesta rápida</a></li><li><a href="#documentosComunes" data-guide-toc-link>Documentos comunes que preparar</a></li><li><a href="#documentosCiudadanosUe" data-guide-toc-link>Documentos para ciudadanos de la UE</a></li><li><a href="#documentosNoUe" data-guide-toc-link>Documentos para ciudadanos no UE</a></li><li><a href="#documentosViviendaPadron" data-guide-toc-link>Documentos de vivienda y padrón</a></li><li><a href="#documentosSanitarios" data-guide-toc-link>Documentos sanitarios</a></li><li><a href="#documentosBancoFinanzas" data-guide-toc-link>Documentos de banco y finanzas</a></li><li><a href="#traduccionesApostillasCopias" data-guide-toc-link>Traducciones, apostillas y copias</a></li><li><a href="#erroresComunes" data-guide-toc-link>Errores comunes</a></li><li><a href="#preguntasFrecuentes" data-guide-toc-link>Preguntas frecuentes</a></li><li><a href="#tuProximoPaso" data-guide-toc-link>Tu próximo paso</a></li></ol></nav>
-        </aside>
         </div>
         <section hidden data-editorial-checklist aria-label="Editorial checklist">
           <h2>Editorial Checklist</h2>
@@ -315,7 +420,7 @@
       "title": "Bank Account Guide",
       "description": "Set up everyday banking, payments and account documents in Spain.",
       "label": "View guide",
-      "href": "/living-in-spain/opening-a-bank-account/"
+      "href": "/the-spain-files/bank-account-spain/"
     }
   ],
   "editorialChecklist": [
@@ -333,9 +438,9 @@
       <footer class="site-footer">
         <p>IberiGo es gratis. Si el sitio te ayuda, puedes apoyar su mantenimiento con una contribución voluntaria.</p>
         <a href="/support/">Donar</a>
+        <a class="footer-help-feedback-link" href="/es/help-feedback/" data-help-feedback-footer>Ayuda y comentarios</a>
         <div class="site-footer-legal">
           <p>© 2026 IberiGo. Gratis. No es asesoramiento legal.</p>
-          <p>Última revisión: July 2026</p>
         </div>
       </footer>
     </div>
@@ -396,5 +501,7 @@
       })();
     </script>
     <script src="/scripts/site-search.js?v=20260927-ux-quick-fixes-1" defer></script>
+    <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
+      <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
   </body>
 </html>

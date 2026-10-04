@@ -11,12 +11,12 @@ OUT.mkdir(exist_ok=True)
 PAGES = {
     "/es/moving-to-spain/eu-citizens/": [
         "/es/moving-to-spain/healthcare/",
-        "/es/moving-to-spain/registering-on-the-padron/",
-        "/es/moving-to-spain/eu-registration/",
+        "/guides/es/padron/",
+        "/guides/es/eu-registration/",
     ],
     "/es/moving-to-spain/non-eu-citizens/": [
         "/guides/es/padron/",
-        "/guides/es/banking/",
+        "/the-spain-files/abrir-cuenta-bancaria-espana/",
         "/guides/es/digital/",
         "/guides/es/taxes/",
         "/guides/es/tie/",
