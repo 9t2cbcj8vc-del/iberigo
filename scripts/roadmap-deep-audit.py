@@ -379,6 +379,7 @@ def assert_menu_models(driver, lang, preset, routes):
             return {
               card:!!card,
               href:link?.getAttribute('href')||'',
+              publicPath:typeof guidePublicPath==='function'?guidePublicPath(id):'',
               process:text(roadmap?.process||''),
               explanation:text(roadmap?.explanation||''),
               steps:Array.isArray(roadmap?.steps)?roadmap.steps.map(text):[],
@@ -387,7 +388,7 @@ def assert_menu_models(driver, lang, preset, routes):
             """,
             route,
         )
-        expected_href = f"{prefix}{route}/"
+        expected_href = data.get("publicPath") or f"{prefix}{route}/"
         if not data["card"] or data["href"] != expected_href:
             fail(f"{lang} menu/{preset}/{route}: link mismatch {data}")
         steps = [clean_text(step) for step in data["steps"]]
