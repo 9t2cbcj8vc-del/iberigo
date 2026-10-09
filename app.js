@@ -1613,6 +1613,7 @@ function routeVisualFor(routeId = "") {
     "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.webp",
     "travel-insurance": "./assets/topic-scenes/travel-insurance-20260722.webp",
     "driving-spain-visitors": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
+    "vacation-toll-roads": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
     "sim-esim-vpn": "./assets/topic-scenes/sim-esim-vpn-20260722.webp"
   };
   return visuals[routeId] || "./assets/home-cards/move-to-spain-matched-20260606.webp";
@@ -1720,7 +1721,7 @@ const guideSectionOverrides = {
     "eu-vacation", "non-eu-vacation",
     "vacation-entry", "vacation-citizenship", "vacation-flights", "vacation-ground", "vacation-trains",
     "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
-    "travel-insurance", "driving-spain-visitors", "sim-esim-vpn"
+    "travel-insurance", "driving-spain-visitors", "vacation-toll-roads", "sim-esim-vpn"
   ]
 };
 
@@ -2201,12 +2202,12 @@ function directRoadmapFor(goal) {
     return currentLang === "es" ? {
       process: "Trenes, autobuses y coche",
       explanation: "Dentro de España, el mejor transporte depende mucho del trayecto. Para rutas entre grandes ciudades, el tren puede ser la opción más cómoda y rápida; Renfe y otros operadores cubren muchas líneas de alta velocidad. Para pueblos, costa o rutas menos conectadas, el autobús puede funcionar mejor. Un coche de alquiler da libertad para zonas rurales, playas pequeñas o varios destinos en pocos días, pero conviene revisar aparcamiento, peajes, cobertura, combustible y condiciones de recogida. En ciudades grandes, a menudo es más fácil moverse en metro, tren local, autobús o taxi que alquilar coche.",
-      steps: ["Mira si tu ruta encaja mejor con tren de larga distancia, autobús o coche de alquiler.", "Comprueba horarios, estaciones o aeropuertos de recogida antes de cerrar el plan. Para alta velocidad, consulta <a href=\"/guides/es/vacation-trains/\">trenes en España: Renfe, Iryo y Ouigo</a>.", "Si alquilas coche, revisa bien cobertura, combustible, conductor adicional y condiciones de recogida."],
+      steps: ["Mira si tu ruta encaja mejor con tren de larga distancia, autobús o coche de alquiler.", "Comprueba horarios, estaciones o aeropuertos de recogida antes de cerrar el plan. Para alta velocidad, consulta <a href=\"/guides/es/vacation-trains/\">trenes en España: Renfe, Iryo y Ouigo</a>.", "Si alquilas coche, revisa bien cobertura, combustible, conductor adicional y condiciones de recogida. Para autopistas, consulta <a href=\"/guides/es/vacation-toll-roads/\">peajes en España</a>."],
       links: ["travel-renfe", "travel-alsa", "car-europcar", "car-sixt", "car-avis", "car-hertz"]
     } : {
       process: "Trains, buses, and car hire",
       explanation: "Inside Spain, the best option depends heavily on the route. Some trips are strongest by train; others are easier by bus or by rental car if you want more freedom.",
-      steps: ["Check whether your route fits best by long-distance train, bus, or rental car.", "Confirm schedules, stations, or pickup points before locking the plan in. For high-speed trains, see <a href=\"/guides/vacation-trains/\">trains in Spain: Renfe, Iryo and Ouigo</a>.", "If you rent a car, review coverage, fuel policy, additional-driver rules, and pickup conditions carefully."],
+      steps: ["Check whether your route fits best by long-distance train, bus, or rental car.", "Confirm schedules, stations, or pickup points before locking the plan in. For high-speed trains, see <a href=\"/guides/vacation-trains/\">trains in Spain: Renfe, Iryo and Ouigo</a>.", "If you rent a car, review coverage, fuel policy, additional-driver rules, and pickup conditions carefully. For motorways, see <a href=\"/guides/vacation-toll-roads/\">toll roads in Spain</a>."],
       links: ["travel-renfe", "travel-alsa", "car-europcar", "car-sixt", "car-avis", "car-hertz"]
     };
   }
@@ -2292,13 +2293,26 @@ function directRoadmapFor(goal) {
     return currentLang === "es" ? {
       process: "Conducir en España: carné, peajes y límites de velocidad",
       explanation: "Los conductores visitantes pueden usar un carné de conducir válido de su país de origen durante estancias cortas (hasta 6 meses) — los carnés de la UE no necesitan nada más; los visitantes no comunitarios pueden necesitar un Permiso de Conducir Internacional (IDP) junto con su carné nacional. España tiene autopistas de peaje (marcadas AP) y autovías gratuitas (marcadas A), y los límites de velocidad varían según el tipo de vía.",
-      steps: ["Comprueba si tu carné necesita un IDP — la mayoría de países no comunitarios sí (consíguelo antes de llegar, no se expide en España).", "Conoce los límites de velocidad: 120 km/h en autopistas y autovías, 90-100 km/h en carreteras convencionales, 50 km/h en zona urbana (más bajo en algunas calles — revisa la señalización).", "Presupuesta los peajes si usas autopistas AP — paga en efectivo o tarjeta en los peajes, o con teletag Via-T si alquilas a largo plazo."],
+      steps: ["Comprueba si tu carné necesita un IDP — la mayoría de países no comunitarios sí (consíguelo antes de llegar, no se expide en España).", "Conoce los límites de velocidad: 120 km/h en autopistas y autovías, 90-100 km/h en carreteras convencionales, 50 km/h en zona urbana (más bajo en algunas calles — revisa la señalización).", "Si usas autopistas AP, comprueba si el tramo sigue siendo de peaje. Se paga con tarjeta, en efectivo o con VIA-T; consulta <a href=\"/guides/es/vacation-toll-roads/\">peajes en España: autopistas AP y autovías A</a>."],
       links: ["dgt-general", "dgt-online-procedures"]
     } : {
       process: "Driving in Spain: licenses, tolls, and speed limits",
       explanation: "Visiting drivers can use a valid driving license from their home country for short stays (up to 6 months) — EU licenses need nothing extra; non-EU visitors may need an International Driving Permit (IDP) alongside their national license. Spain has both toll (autopista, marked AP) and free (autovía, marked A) motorways, and speed limits vary by road type.",
-      steps: ["Check whether your license needs an IDP — most non-EU countries do (get one before arriving, they’re not issued in Spain).", "Know the speed limits: 120 km/h motorways, 90-100 km/h conventional roads, 50 km/h urban (lower on some city roads — check signage).", "Budget for tolls if using AP-marked motorways — pay by cash or card at toll booths, or via Via-T electronic tag if renting long-term."],
+      steps: ["Check whether your license needs an IDP — most non-EU countries do (get one before arriving, they’re not issued in Spain).", "Know the speed limits: 120 km/h motorways, 90-100 km/h conventional roads, 50 km/h urban (lower on some city roads — check signage).", "If you use AP motorways, check whether the section still charges a toll. You pay by card, cash or VIA-T tag; see <a href=\"/guides/vacation-toll-roads/\">toll roads in Spain: AP vs A motorways</a>."],
       links: ["dgt-general", "dgt-online-procedures"]
+    };
+  }
+  if (goal === "vacation-toll-roads") {
+    return currentLang === "es" ? {
+      process: "Peajes en España: lo básico",
+      explanation: "Una introducción clara a las autopistas y autovías españolas: cómo distinguir una autovía gratuita de una autopista de peaje, qué peajes han terminado, cómo se paga y qué tener en cuenta con un coche de alquiler. Esta página no da precios de peajes, porque cambian cada año.",
+      steps: ["Mira los números de las carreteras de tu ruta. Las A- son gratuitas. Las AP- pueden tener peaje, pero muchos tramos AP ya son gratuitos.", "Si tu ruta usa una AP, consulta la lista actual de autopistas de peaje del Ministerio de Transportes (enlazada en las fuentes de abajo).", "En el peaje, elige un carril de tarjeta o efectivo. Usa un carril VIA-T solo si el coche lleva un dispositivo que funcione, porque algunos carriles son exclusivos de telepeaje."],
+      links: []
+    } : {
+      process: "Toll roads in Spain: the basics",
+      explanation: "A plain introduction to Spanish motorways: how to tell a free autovía from a toll autopista, which tolls have ended, how paying works and what to know with a rental car. This page does not list toll prices, because they change every year.",
+      steps: ["Look at the road numbers on your route. A- roads are free. AP- roads may charge a toll, but many AP sections are now free.", "If your route uses an AP road, check the Ministry of Transport’s current list of toll roads (linked in the sources below).", "At the toll plaza, pick a lane for card or cash. Use a VIA-T lane only if your car has a working tag, because some lanes are tag-only."],
+      links: []
     };
   }
   if (goal === "sim-esim-vpn") {
@@ -2367,6 +2381,7 @@ function vacationTopicSummary(goal) {
     "vacation-reviews": "Reseñas y comparación de zonas, alojamientos y experiencias.",
     "travel-insurance": "Cobertura de emergencias médicas, cancelación y equipaje, aparte de la sanidad de la UE.",
     "driving-spain-visitors": "Carné, peajes y límites de velocidad para conducir en España de visita.",
+    "vacation-toll-roads": "Autovías A gratuitas frente a autopistas AP de peaje, qué peajes han terminado, cómo pagar con tarjeta, efectivo o VIA-T y coches de alquiler.",
     "sim-esim-vpn": "SIM física, eSIM y VPN para estar conectado durante tu estancia."
   } : {
     "vacation-entry": "Basic rules for short visits, Schengen stays, and trips up to 90 days.",
@@ -2380,6 +2395,7 @@ function vacationTopicSummary(goal) {
     "vacation-reviews": "Reviews and comparison tools for neighborhoods, stays, and experiences.",
     "travel-insurance": "Medical emergency, cancellation, and luggage cover, separate from EU health coverage.",
     "driving-spain-visitors": "Licenses, tolls, and speed limits for driving in Spain as a visitor.",
+    "vacation-toll-roads": "Free A roads vs AP toll roads, which tolls have ended, how to pay with card, cash or VIA-T, and rental car tips.",
     "sim-esim-vpn": "Physical SIM, eSIM, and VPN options for staying connected during your trip."
   };
   return summaries[goal] || "";
@@ -2411,6 +2427,7 @@ function topicScene(goal) {
     "vacation-reviews": "./assets/topic-scenes/vacation-reviews-comparison-20260606.webp",
     "travel-insurance": "./assets/topic-scenes/travel-insurance-20260722.webp",
     "driving-spain-visitors": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
+    "vacation-toll-roads": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
     "sim-esim-vpn": "./assets/topic-scenes/sim-esim-vpn-20260722.webp"
   };
   if (photos[goal]) {
@@ -2437,6 +2454,7 @@ function topicBackdrop(goal) {
     "vacation-flights": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 68 84-18"/><path d="m52 60 10-24"/><path d="m62 58 20 14"/><path d="m34 64 12 10"/><path d="m86 54 12 8"/></svg>`,
     "vacation-ground": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="32" width="68" height="38" rx="8"/><path d="M38 70v10"/><path d="M82 70v10"/><path d="M40 48h40"/><circle cx="42" cy="84" r="6"/><circle cx="78" cy="84" r="6"/></svg>`,
     "vacation-trains": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="32" width="68" height="38" rx="8"/><path d="M38 70v10"/><path d="M82 70v10"/><path d="M40 48h40"/><circle cx="42" cy="84" r="6"/><circle cx="78" cy="84" r="6"/></svg>`,
+    "vacation-toll-roads": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M44 96 54 24"/><path d="M76 96 66 24"/><path d="M60 34v8"/><path d="M60 54v8"/><path d="M60 74v8"/><path d="M22 52h76"/><path d="M30 52V40h12v12"/></svg>`,
     "vacation-booking": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 88V42h64v46"/><path d="M20 88h80"/><path d="M44 42V30h32v12"/><path d="M40 58h16"/><path d="M64 58h16"/></svg>`,
     "vacation-hotels": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="24" width="68" height="68" rx="8"/><path d="M44 24v68"/><path d="M62 40v12"/><path d="M62 64v12"/><path d="M74 40v12"/><path d="M74 64v12"/></svg>`,
     "vacation-tourism": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="26"/><path d="M60 34c8 8 12 16 12 26s-4 18-12 26c-8-8-12-16-12-26s4-18 12-26Z"/><path d="M34 60h52"/></svg>`,
@@ -2585,7 +2603,7 @@ function renderVacationSubtopics() {
         {
           title: "Moverte por España",
           description: "Vuelos, aeropuertos, trenes, autobuses y coche de alquiler según cómo viajes.",
-          topics: [["vacation-flights", "Vuelos y aeropuertos"], ["vacation-ground", "Trenes, autobuses y coche"], ["vacation-trains", "Trenes en España: Renfe, Iryo y Ouigo"], ["driving-spain-visitors", "Conducir en España: carné, peajes y límites de velocidad"]],
+          topics: [["vacation-flights", "Vuelos y aeropuertos"], ["vacation-ground", "Trenes, autobuses y coche"], ["vacation-trains", "Trenes en España: Renfe, Iryo y Ouigo"], ["driving-spain-visitors", "Conducir en España: carné, peajes y límites de velocidad"], ["vacation-toll-roads", "Peajes en España: autopistas AP y autovías A"]],
           summaryFn: vacationTopicSummary
         },
         {
@@ -2617,7 +2635,7 @@ function renderVacationSubtopics() {
           {
             title: "Getting around Spain",
             description: "Flights, airports, trains, buses, and car hire depending on how you want to travel.",
-            topics: [["vacation-flights", "Flights and airports"], ["vacation-ground", "Trains, buses, and car hire"], ["vacation-trains", "Trains in Spain: Renfe, Iryo and Ouigo"], ["driving-spain-visitors", "Driving in Spain: licenses, tolls, and speed limits"]],
+            topics: [["vacation-flights", "Flights and airports"], ["vacation-ground", "Trains, buses, and car hire"], ["vacation-trains", "Trains in Spain: Renfe, Iryo and Ouigo"], ["driving-spain-visitors", "Driving in Spain: licenses, tolls, and speed limits"], ["vacation-toll-roads", "Toll roads in Spain: AP vs A motorways"]],
             summaryFn: vacationTopicSummary
           },
           {
