@@ -48,7 +48,7 @@ LIVING_ROUTES = [
 VACATION_ROUTES = [
     "vacation-entry", "vacation-flights", "vacation-ground", "vacation-trains", "driving-spain-visitors", "vacation-toll-roads",
     "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
-    "travel-insurance", "sim-esim-vpn",
+    "travel-insurance", "sim-esim-vpn", "vacation-supermarkets",
 ]
 
 # These two strings indicate actual JavaScript/runtime leakage when they appear in

@@ -358,6 +358,16 @@ const GUIDES = {
       explanation: "Las autovías (A-) son gratuitas; las autopistas de peaje llevan AP-, y muchos tramos AP, como la AP-7 desde la frontera francesa hasta Alicante, ya no cobran. Cómo pagar con tarjeta, efectivo o VIA-T, coches de alquiler y la zona de Alicante."
     }
   },
+  "vacation-supermarkets": {
+    en: {
+      process: "Spanish supermarket chains: a simple guide to supermarkets in Spain",
+      explanation: "The main national chains (Mercadona, Carrefour, Lidl, Dia, Aldi, Eroski, Alcampo) and regional chains such as Consum, plus Sunday and holiday opening rules, plastic bags, paying, fresh counters, alcohol rules in the Valencia region and online shopping. No prices."
+    },
+    es: {
+      process: "Supermercados en España: guía sencilla de las principales cadenas",
+      explanation: "Las principales cadenas nacionales (Mercadona, Carrefour, Lidl, Dia, Aldi, Eroski, Alcampo) y cadenas regionales como Consum, además de apertura en domingos y festivos, bolsas de plástico, formas de pago, mostradores, normas sobre alcohol en la Comunitat Valenciana y compra online. Sin precios."
+    }
+  },
   "vacation-booking": {
     en: {
       process: "Accommodation booking platforms for Spain",

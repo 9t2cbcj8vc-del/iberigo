@@ -262,7 +262,7 @@ def run_language(driver, lang):
     vacation_routes = [
         "vacation-entry", "vacation-flights", "vacation-ground", "vacation-trains", "driving-spain-visitors", "vacation-toll-roads",
         "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
-        "travel-insurance", "sim-esim-vpn"
+        "travel-insurance", "sim-esim-vpn", "vacation-supermarkets"
     ]
     assert_menu_paths(driver, lang, "living", living_routes)
     assert_menu_paths(driver, lang, "vacation", vacation_routes)

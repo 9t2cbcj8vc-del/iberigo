@@ -7298,7 +7298,8 @@ pages.push({
         title: "Practical prep",
         children: StartHereGuideCards([
           { title: "Travel insurance for Spain", text: "Medical emergency, cancellation, and luggage cover, separate from EU health coverage.", href: "/guides/travel-insurance/", label: "View guide" },
-          { title: "SIM cards, eSIM, and VPN", text: "Physical SIM, eSIM, and VPN options for staying connected during your trip.", href: "/guides/sim-esim-vpn/", label: "View guide" }
+          { title: "SIM cards, eSIM, and VPN", text: "Physical SIM, eSIM, and VPN options for staying connected during your trip.", href: "/guides/sim-esim-vpn/", label: "View guide" },
+          { title: "Supermarkets in Spain: the main chains", text: "Mercadona, Carrefour, Lidl, Dia, Aldi, Eroski, Alcampo and Consum, plus opening hours, bags, paying and online shopping.", href: "/guides/vacation-supermarkets/", label: "View guide" }
         ])
       })
     ]
@@ -7363,7 +7364,8 @@ pages.push({
         title: "Preparación práctica",
         children: StartHereGuideCards([
           { title: "Seguro de viaje para España", text: "Cobertura de emergencias médicas, cancelación y equipaje, aparte de la sanidad de la UE.", href: "/guides/es/travel-insurance/", label: "Ver guía" },
-          { title: "Tarjetas SIM, eSIM y VPN", text: "SIM física, eSIM y VPN para estar conectado durante tu estancia.", href: "/guides/es/sim-esim-vpn/", label: "Ver guía" }
+          { title: "Tarjetas SIM, eSIM y VPN", text: "SIM física, eSIM y VPN para estar conectado durante tu estancia.", href: "/guides/es/sim-esim-vpn/", label: "Ver guía" },
+          { title: "Supermercados en España: las cadenas principales", text: "Mercadona, Carrefour, Lidl, Dia, Aldi, Eroski, Alcampo y Consum, además de horarios, bolsas, formas de pago y compra online.", href: "/guides/es/vacation-supermarkets/", label: "Ver guía" }
         ])
       })
     ]
@@ -7424,7 +7426,8 @@ pages.push({
         id: "everydaySetup",
         title: "Everyday setup",
         children: StartHereGuideCards([
-          { title: "Phone number and internet", text: "Spanish SIM needed for bank verification, Cl@ve PIN, and government SMS codes.", href: "/guides/phone/", label: "View guide" }
+          { title: "Phone number and internet", text: "Spanish SIM needed for bank verification, Cl@ve PIN, and government SMS codes.", href: "/guides/phone/", label: "View guide" },
+          { title: "Supermarkets in Spain: the main chains", text: "Mercadona, Carrefour, Lidl, Dia, Aldi, Eroski, Alcampo and Consum, plus opening hours, bags, paying and online shopping.", href: "/guides/vacation-supermarkets/", label: "View guide" }
         ])
       })
     ]
@@ -7486,7 +7489,8 @@ pages.push({
         id: "instalacionDiaria",
         title: "Instalación diaria",
         children: StartHereGuideCards([
-          { title: "Número de teléfono e internet", text: "Línea móvil e internet para instalarte y verificar servicios.", href: "/guides/es/phone/", label: "Ver guía" }
+          { title: "Número de teléfono e internet", text: "Línea móvil e internet para instalarte y verificar servicios.", href: "/guides/es/phone/", label: "Ver guía" },
+          { title: "Supermercados en España: las cadenas principales", text: "Mercadona, Carrefour, Lidl, Dia, Aldi, Eroski, Alcampo y Consum, además de horarios, bolsas, formas de pago y compra online.", href: "/guides/es/vacation-supermarkets/", label: "Ver guía" }
         ])
       })
     ]
