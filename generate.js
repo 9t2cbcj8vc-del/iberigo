@@ -340,12 +340,12 @@ const GUIDES = {
   },
   "vacation-trains": {
     en: {
-      process: "Renfe vs Iryo vs Ouigo: Spain's high-speed train operators",
-      explanation: "Renfe (AVE and Avlo) runs every main corridor; Iryo and Ouigo compete on Madrid–Barcelona, Valencia, Alicante and Andalucía. Compare routes, fares, luggage, stations and where to book."
+      process: "Trains in Spain: a simple guide to Renfe, Iryo and Ouigo",
+      explanation: "Renfe (AVE and Avlo) runs every main corridor; Iryo and Ouigo compete on Madrid–Barcelona, Valencia, Alicante and Andalucía. Main routes, Madrid stations, how to book and station tips."
     },
     es: {
-      process: "Renfe, Iryo u Ouigo: trenes de alta velocidad en España",
-      explanation: "Renfe (AVE y Avlo) cubre todos los corredores principales; Iryo y Ouigo compiten en Madrid–Barcelona, Valencia, Alicante y Andalucía. Compara rutas, tarifas, equipaje, estaciones y dónde comprar."
+      process: "Trenes en España: guía sencilla de Renfe, Iryo y Ouigo",
+      explanation: "Renfe (AVE y Avlo) cubre todos los corredores principales; Iryo y Ouigo compiten en Madrid–Barcelona, Valencia, Alicante y Andalucía. Rutas principales, estaciones de Madrid, cómo comprar y consejos en la estación."
     }
   },
   "vacation-booking": {

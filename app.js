@@ -2201,25 +2201,25 @@ function directRoadmapFor(goal) {
     return currentLang === "es" ? {
       process: "Trenes, autobuses y coche",
       explanation: "Dentro de España, el mejor transporte depende mucho del trayecto. Para rutas entre grandes ciudades, el tren puede ser la opción más cómoda y rápida; Renfe y otros operadores cubren muchas líneas de alta velocidad. Para pueblos, costa o rutas menos conectadas, el autobús puede funcionar mejor. Un coche de alquiler da libertad para zonas rurales, playas pequeñas o varios destinos en pocos días, pero conviene revisar aparcamiento, peajes, cobertura, combustible y condiciones de recogida. En ciudades grandes, a menudo es más fácil moverse en metro, tren local, autobús o taxi que alquilar coche.",
-      steps: ["Mira si tu ruta encaja mejor con tren de larga distancia, autobús o coche de alquiler.", "Comprueba horarios, estaciones o aeropuertos de recogida antes de cerrar el plan. Para alta velocidad, compara <a href=\"/guides/es/vacation-trains/\">Renfe, Iryo y Ouigo</a>.", "Si alquilas coche, revisa bien cobertura, combustible, conductor adicional y condiciones de recogida."],
+      steps: ["Mira si tu ruta encaja mejor con tren de larga distancia, autobús o coche de alquiler.", "Comprueba horarios, estaciones o aeropuertos de recogida antes de cerrar el plan. Para alta velocidad, consulta <a href=\"/guides/es/vacation-trains/\">trenes en España: Renfe, Iryo y Ouigo</a>.", "Si alquilas coche, revisa bien cobertura, combustible, conductor adicional y condiciones de recogida."],
       links: ["travel-renfe", "travel-alsa", "car-europcar", "car-sixt", "car-avis", "car-hertz"]
     } : {
       process: "Trains, buses, and car hire",
       explanation: "Inside Spain, the best option depends heavily on the route. Some trips are strongest by train; others are easier by bus or by rental car if you want more freedom.",
-      steps: ["Check whether your route fits best by long-distance train, bus, or rental car.", "Confirm schedules, stations, or pickup points before locking the plan in. For high-speed trains, compare <a href=\"/guides/vacation-trains/\">Renfe, Iryo and Ouigo</a>.", "If you rent a car, review coverage, fuel policy, additional-driver rules, and pickup conditions carefully."],
+      steps: ["Check whether your route fits best by long-distance train, bus, or rental car.", "Confirm schedules, stations, or pickup points before locking the plan in. For high-speed trains, see <a href=\"/guides/vacation-trains/\">trains in Spain: Renfe, Iryo and Ouigo</a>.", "If you rent a car, review coverage, fuel policy, additional-driver rules, and pickup conditions carefully."],
       links: ["travel-renfe", "travel-alsa", "car-europcar", "car-sixt", "car-avis", "car-hertz"]
     };
   }
   if (goal === "vacation-trains") {
     return currentLang === "es" ? {
-      process: "Operadores de tren de alta velocidad",
-      explanation: "Comparación de los tres operadores de alta velocidad en España. Renfe (AVE y su marca low cost Avlo) está en todos los corredores principales. Iryo y Ouigo compiten en Madrid–Barcelona, Madrid–Valencia, Madrid–Alicante y Madrid–Andalucía; Ouigo también llega a Elche y Murcia. La página resume rutas, tarifas, equipaje, estaciones y dónde comprar, con fuentes oficiales comprobadas el 9 de octubre de 2026.",
-      steps: ["Busca tu ruta en la tabla y anota qué operadores la cubren y desde qué estación de Madrid.", "Compara la tarifa y el equipaje que necesitas. Las tarifas más baratas incluyen menos equipaje.", "Compra en la web o app oficial del operador y lleva un documento de identidad con foto al viajar."],
+      process: "Trenes en España: lo básico",
+      explanation: "Una introducción clara a los trenes de larga distancia en España: quién los opera, las rutas principales y estaciones de Madrid, cómo comprar y qué esperar en la estación. Cercanías y los trenes regionales son servicios aparte.",
+      steps: ["Busca tu ruta en la tabla y anota qué operadores la cubren y desde qué estación de Madrid.", "Compra en la web o app oficial del operador. Antes de pagar, lee las condiciones de cambio y devolución de la tarifa que elijas.", "El día del viaje, llega unos 30 minutos antes con documento de identidad con foto y el billete. Muchas estaciones pasan el equipaje por un escáner."],
       links: []
     } : {
-      process: "Spain’s high-speed train operators",
-      explanation: "A comparison of Spain’s three high-speed train operators. Renfe (AVE and its low-cost Avlo brand) runs every main corridor. Iryo and Ouigo compete on Madrid–Barcelona, Madrid–Valencia, Madrid–Alicante and Madrid–Andalucía; Ouigo also serves Elche and Murcia. The page sums up routes, fares, luggage, stations and where to book, from official sources checked on 9 October 2026.",
-      steps: ["Find your route in the table below and note which operators run it and from which Madrid station.", "Compare the fare type and luggage you need. The cheapest fares carry the least luggage.", "Book on the operator’s official site or app, and carry photo ID when you travel."],
+      process: "Trains in Spain: the basics",
+      explanation: "A plain introduction to Spain’s long-distance trains: who runs them, the main routes and Madrid stations, how to book, and what to expect at the station. Commuter (Cercanías) and regional trains are separate services.",
+      steps: ["Find your route in the table below and note which operators run it and from which Madrid station.", "Book on the operator’s official website or app. Before you pay, read the change and refund rules of the fare you pick.", "On the day, arrive about 30 minutes early with photo ID and your ticket. Many stations scan luggage before boarding."],
       links: []
     };
   }
@@ -2360,7 +2360,7 @@ function vacationTopicSummary(goal) {
     "vacation-citizenship": "Orientación rápida para visitantes de la UE frente a viajeros no comunitarios.",
     "vacation-flights": "Vuelos, aeropuertos y comparadores para llegar y moverte mejor.",
     "vacation-ground": "Trenes, autobuses y alquiler de coche para desplazarte dentro de España.",
-    "vacation-trains": "Renfe (AVE y Avlo), Iryo y Ouigo: rutas, tarifas, equipaje y dónde comprar.",
+    "vacation-trains": "Quiénes son Renfe (AVE y Avlo), Iryo y Ouigo, rutas principales, estaciones de Madrid y cómo comprar.",
     "vacation-booking": "Plataformas grandes para comparar alojamiento antes de reservar.",
     "vacation-hotels": "Lista de los mayores grupos hoteleros españoles, con habitaciones en España y webs oficiales.",
     "vacation-tourism": "Portales oficiales e ideas para elegir destinos y planificar mejor el viaje.",
@@ -2373,7 +2373,7 @@ function vacationTopicSummary(goal) {
     "vacation-citizenship": "Quick orientation for EU visitors versus non-EU travellers.",
     "vacation-flights": "Flights, airports, and search tools for arriving and moving around smoothly.",
     "vacation-ground": "Trains, buses, and car rental for getting around inside Spain.",
-    "vacation-trains": "Renfe (AVE and Avlo), Iryo and Ouigo: routes, fares, luggage and where to book.",
+    "vacation-trains": "Who Renfe (AVE and Avlo), Iryo and Ouigo are, main routes, Madrid stations and how to book.",
     "vacation-booking": "Large booking platforms for comparing places to stay before you reserve.",
     "vacation-hotels": "List of the biggest Spanish hotel groups, with rooms in Spain and official sites.",
     "vacation-tourism": "Official tourism portals and ideas for choosing destinations and planning better.",
@@ -2585,7 +2585,7 @@ function renderVacationSubtopics() {
         {
           title: "Moverte por España",
           description: "Vuelos, aeropuertos, trenes, autobuses y coche de alquiler según cómo viajes.",
-          topics: [["vacation-flights", "Vuelos y aeropuertos"], ["vacation-ground", "Trenes, autobuses y coche"], ["vacation-trains", "Trenes de alta velocidad: Renfe, Iryo y Ouigo"], ["driving-spain-visitors", "Conducir en España: carné, peajes y límites de velocidad"]],
+          topics: [["vacation-flights", "Vuelos y aeropuertos"], ["vacation-ground", "Trenes, autobuses y coche"], ["vacation-trains", "Trenes en España: Renfe, Iryo y Ouigo"], ["driving-spain-visitors", "Conducir en España: carné, peajes y límites de velocidad"]],
           summaryFn: vacationTopicSummary
         },
         {
@@ -2617,7 +2617,7 @@ function renderVacationSubtopics() {
           {
             title: "Getting around Spain",
             description: "Flights, airports, trains, buses, and car hire depending on how you want to travel.",
-            topics: [["vacation-flights", "Flights and airports"], ["vacation-ground", "Trains, buses, and car hire"], ["vacation-trains", "High-speed trains: Renfe vs Iryo vs Ouigo"], ["driving-spain-visitors", "Driving in Spain: licenses, tolls, and speed limits"]],
+            topics: [["vacation-flights", "Flights and airports"], ["vacation-ground", "Trains, buses, and car hire"], ["vacation-trains", "Trains in Spain: Renfe, Iryo and Ouigo"], ["driving-spain-visitors", "Driving in Spain: licenses, tolls, and speed limits"]],
             summaryFn: vacationTopicSummary
           },
           {

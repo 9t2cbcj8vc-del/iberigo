@@ -7272,7 +7272,7 @@ pages.push({
         children: StartHereGuideCards([
           { title: "Flights and airports", text: "Flights, airports, and search tools for arriving and moving around smoothly.", href: "/guides/vacation-flights/", label: "View guide" },
           { title: "Trains, buses, and car hire", text: "Trains, buses, and car rental for getting around inside Spain.", href: "/guides/vacation-ground/", label: "View guide" },
-          { title: "High-speed trains: Renfe vs Iryo vs Ouigo", text: "Renfe (AVE and Avlo), Iryo and Ouigo: routes, fares, luggage and where to book.", href: "/guides/vacation-trains/", label: "View guide" },
+          { title: "Trains in Spain: Renfe, Iryo and Ouigo", text: "Who Renfe (AVE and Avlo), Iryo and Ouigo are, main routes, Madrid stations and how to book.", href: "/guides/vacation-trains/", label: "View guide" },
           { title: "Driving in Spain: licenses, tolls, and speed limits", text: "Licenses, tolls, and speed limits for driving in Spain as a visitor.", href: "/guides/driving-spain-visitors/", label: "View guide" }
         ])
       }),
@@ -7336,7 +7336,7 @@ pages.push({
         children: StartHereGuideCards([
           { title: "Vuelos y aeropuertos", text: "Vuelos, aeropuertos y comparadores para llegar y moverte mejor.", href: "/guides/es/vacation-flights/", label: "Ver guía" },
           { title: "Trenes, autobuses y coche", text: "Trenes, autobuses y alquiler de coche para desplazarte dentro de España.", href: "/guides/es/vacation-ground/", label: "Ver guía" },
-          { title: "Trenes de alta velocidad: Renfe, Iryo y Ouigo", text: "Renfe (AVE y Avlo), Iryo y Ouigo: rutas, tarifas, equipaje y dónde comprar.", href: "/guides/es/vacation-trains/", label: "Ver guía" },
+          { title: "Trenes en España: Renfe, Iryo y Ouigo", text: "Quiénes son Renfe (AVE y Avlo), Iryo y Ouigo, rutas principales, estaciones de Madrid y cómo comprar.", href: "/guides/es/vacation-trains/", label: "Ver guía" },
           { title: "Conducir en España: carné, peajes y límites de velocidad", text: "Carné, peajes y límites de velocidad para conducir en España de visita.", href: "/guides/es/driving-spain-visitors/", label: "Ver guía" }
         ])
       }),
