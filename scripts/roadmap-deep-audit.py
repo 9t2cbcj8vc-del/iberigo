@@ -46,7 +46,7 @@ LIVING_ROUTES = [
 ]
 
 VACATION_ROUTES = [
-    "vacation-entry", "vacation-flights", "vacation-ground", "driving-spain-visitors",
+    "vacation-entry", "vacation-flights", "vacation-ground", "vacation-trains", "driving-spain-visitors",
     "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
     "travel-insurance", "sim-esim-vpn",
 ]

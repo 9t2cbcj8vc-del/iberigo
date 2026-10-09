@@ -1606,6 +1606,7 @@ function routeVisualFor(routeId = "") {
     "vacation-citizenship": "./assets/topic-scenes/vacation-entry.webp",
     "vacation-flights": "./assets/topic-scenes/vacation-flights-airports-20260606.webp",
     "vacation-ground": "./assets/topic-scenes/vacation-ground-transport-20260606.webp",
+    "vacation-trains": "./assets/topic-scenes/vacation-ground-transport-20260606.webp",
     "vacation-booking": "./assets/topic-scenes/vacation-booking-platforms-20260606.webp",
     "vacation-hotels": "./assets/topic-scenes/vacation-hotel-chains-20260606.webp",
     "vacation-tourism": "./assets/topic-scenes/vacation-planning.webp",
@@ -1717,7 +1718,7 @@ const guideSectionOverrides = {
   ],
   vacation: [
     "eu-vacation", "non-eu-vacation",
-    "vacation-entry", "vacation-citizenship", "vacation-flights", "vacation-ground",
+    "vacation-entry", "vacation-citizenship", "vacation-flights", "vacation-ground", "vacation-trains",
     "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
     "travel-insurance", "driving-spain-visitors", "sim-esim-vpn"
   ]
@@ -2200,13 +2201,26 @@ function directRoadmapFor(goal) {
     return currentLang === "es" ? {
       process: "Trenes, autobuses y coche",
       explanation: "Dentro de España, el mejor transporte depende mucho del trayecto. Para rutas entre grandes ciudades, el tren puede ser la opción más cómoda y rápida; Renfe y otros operadores cubren muchas líneas de alta velocidad. Para pueblos, costa o rutas menos conectadas, el autobús puede funcionar mejor. Un coche de alquiler da libertad para zonas rurales, playas pequeñas o varios destinos en pocos días, pero conviene revisar aparcamiento, peajes, cobertura, combustible y condiciones de recogida. En ciudades grandes, a menudo es más fácil moverse en metro, tren local, autobús o taxi que alquilar coche.",
-      steps: ["Mira si tu ruta encaja mejor con tren de larga distancia, autobús o coche de alquiler.", "Comprueba horarios, estaciones o aeropuertos de recogida antes de cerrar el plan.", "Si alquilas coche, revisa bien cobertura, combustible, conductor adicional y condiciones de recogida."],
+      steps: ["Mira si tu ruta encaja mejor con tren de larga distancia, autobús o coche de alquiler.", "Comprueba horarios, estaciones o aeropuertos de recogida antes de cerrar el plan. Para alta velocidad, consulta <a href=\"/guides/es/vacation-trains/\">trenes en España: Renfe, Iryo y Ouigo</a>.", "Si alquilas coche, revisa bien cobertura, combustible, conductor adicional y condiciones de recogida."],
       links: ["travel-renfe", "travel-alsa", "car-europcar", "car-sixt", "car-avis", "car-hertz"]
     } : {
       process: "Trains, buses, and car hire",
       explanation: "Inside Spain, the best option depends heavily on the route. Some trips are strongest by train; others are easier by bus or by rental car if you want more freedom.",
-      steps: ["Check whether your route fits best by long-distance train, bus, or rental car.", "Confirm schedules, stations, or pickup points before locking the plan in.", "If you rent a car, review coverage, fuel policy, additional-driver rules, and pickup conditions carefully."],
+      steps: ["Check whether your route fits best by long-distance train, bus, or rental car.", "Confirm schedules, stations, or pickup points before locking the plan in. For high-speed trains, see <a href=\"/guides/vacation-trains/\">trains in Spain: Renfe, Iryo and Ouigo</a>.", "If you rent a car, review coverage, fuel policy, additional-driver rules, and pickup conditions carefully."],
       links: ["travel-renfe", "travel-alsa", "car-europcar", "car-sixt", "car-avis", "car-hertz"]
+    };
+  }
+  if (goal === "vacation-trains") {
+    return currentLang === "es" ? {
+      process: "Trenes en España: lo básico",
+      explanation: "Una introducción clara a los trenes de larga distancia en España: quién los opera, las rutas principales y estaciones de Madrid, cómo comprar y qué esperar en la estación. Cercanías y los trenes regionales son servicios aparte.",
+      steps: ["Busca tu ruta en la tabla y anota qué operadores la cubren y desde qué estación de Madrid.", "Compra en la web o app oficial del operador. Antes de pagar, lee las condiciones de cambio y devolución de la tarifa que elijas.", "El día del viaje, llega unos 30 minutos antes con documento de identidad con foto y el billete. Muchas estaciones pasan el equipaje por un escáner."],
+      links: []
+    } : {
+      process: "Trains in Spain: the basics",
+      explanation: "A plain introduction to Spain’s long-distance trains: who runs them, the main routes and Madrid stations, how to book, and what to expect at the station. Commuter (Cercanías) and regional trains are separate services.",
+      steps: ["Find your route in the table below and note which operators run it and from which Madrid station.", "Book on the operator’s official website or app. Before you pay, read the change and refund rules of the fare you pick.", "On the day, arrive about 30 minutes early with photo ID and your ticket. Many stations scan luggage before boarding."],
+      links: []
     };
   }
   if (goal === "vacation-booking") {
@@ -2346,6 +2360,7 @@ function vacationTopicSummary(goal) {
     "vacation-citizenship": "Orientación rápida para visitantes de la UE frente a viajeros no comunitarios.",
     "vacation-flights": "Vuelos, aeropuertos y comparadores para llegar y moverte mejor.",
     "vacation-ground": "Trenes, autobuses y alquiler de coche para desplazarte dentro de España.",
+    "vacation-trains": "Quiénes son Renfe (AVE y Avlo), Iryo y Ouigo, rutas principales, estaciones de Madrid y cómo comprar.",
     "vacation-booking": "Plataformas grandes para comparar alojamiento antes de reservar.",
     "vacation-hotels": "Lista de los mayores grupos hoteleros españoles, con habitaciones en España y webs oficiales.",
     "vacation-tourism": "Portales oficiales e ideas para elegir destinos y planificar mejor el viaje.",
@@ -2358,6 +2373,7 @@ function vacationTopicSummary(goal) {
     "vacation-citizenship": "Quick orientation for EU visitors versus non-EU travellers.",
     "vacation-flights": "Flights, airports, and search tools for arriving and moving around smoothly.",
     "vacation-ground": "Trains, buses, and car rental for getting around inside Spain.",
+    "vacation-trains": "Who Renfe (AVE and Avlo), Iryo and Ouigo are, main routes, Madrid stations and how to book.",
     "vacation-booking": "Large booking platforms for comparing places to stay before you reserve.",
     "vacation-hotels": "List of the biggest Spanish hotel groups, with rooms in Spain and official sites.",
     "vacation-tourism": "Official tourism portals and ideas for choosing destinations and planning better.",
@@ -2388,6 +2404,7 @@ function topicScene(goal) {
     "vacation-entry": "./assets/topic-scenes/vacation-entry.webp",
     "vacation-flights": "./assets/topic-scenes/vacation-flights-airports-20260606.webp",
     "vacation-ground": "./assets/topic-scenes/vacation-ground-transport-20260606.webp",
+    "vacation-trains": "./assets/topic-scenes/vacation-ground-transport-20260606.webp",
     "vacation-booking": "./assets/topic-scenes/vacation-booking-platforms-20260606.webp",
     "vacation-hotels": "./assets/topic-scenes/vacation-hotel-chains-20260606.webp",
     "vacation-tourism": "./assets/topic-scenes/vacation-planning.webp",
@@ -2419,6 +2436,7 @@ function topicBackdrop(goal) {
     "vacation-entry": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 86h68"/><path d="M36 86V34l24-10 24 10v52"/><path d="M48 48h24"/><path d="M60 40v16"/></svg>`,
     "vacation-flights": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="m18 68 84-18"/><path d="m52 60 10-24"/><path d="m62 58 20 14"/><path d="m34 64 12 10"/><path d="m86 54 12 8"/></svg>`,
     "vacation-ground": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="32" width="68" height="38" rx="8"/><path d="M38 70v10"/><path d="M82 70v10"/><path d="M40 48h40"/><circle cx="42" cy="84" r="6"/><circle cx="78" cy="84" r="6"/></svg>`,
+    "vacation-trains": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="32" width="68" height="38" rx="8"/><path d="M38 70v10"/><path d="M82 70v10"/><path d="M40 48h40"/><circle cx="42" cy="84" r="6"/><circle cx="78" cy="84" r="6"/></svg>`,
     "vacation-booking": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 88V42h64v46"/><path d="M20 88h80"/><path d="M44 42V30h32v12"/><path d="M40 58h16"/><path d="M64 58h16"/></svg>`,
     "vacation-hotels": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="24" width="68" height="68" rx="8"/><path d="M44 24v68"/><path d="M62 40v12"/><path d="M62 64v12"/><path d="M74 40v12"/><path d="M74 64v12"/></svg>`,
     "vacation-tourism": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="26"/><path d="M60 34c8 8 12 16 12 26s-4 18-12 26c-8-8-12-16-12-26s4-18 12-26Z"/><path d="M34 60h52"/></svg>`,
@@ -2567,7 +2585,7 @@ function renderVacationSubtopics() {
         {
           title: "Moverte por España",
           description: "Vuelos, aeropuertos, trenes, autobuses y coche de alquiler según cómo viajes.",
-          topics: [["vacation-flights", "Vuelos y aeropuertos"], ["vacation-ground", "Trenes, autobuses y coche"], ["driving-spain-visitors", "Conducir en España: carné, peajes y límites de velocidad"]],
+          topics: [["vacation-flights", "Vuelos y aeropuertos"], ["vacation-ground", "Trenes, autobuses y coche"], ["vacation-trains", "Trenes en España: Renfe, Iryo y Ouigo"], ["driving-spain-visitors", "Conducir en España: carné, peajes y límites de velocidad"]],
           summaryFn: vacationTopicSummary
         },
         {
@@ -2599,7 +2617,7 @@ function renderVacationSubtopics() {
           {
             title: "Getting around Spain",
             description: "Flights, airports, trains, buses, and car hire depending on how you want to travel.",
-            topics: [["vacation-flights", "Flights and airports"], ["vacation-ground", "Trains, buses, and car hire"], ["driving-spain-visitors", "Driving in Spain: licenses, tolls, and speed limits"]],
+            topics: [["vacation-flights", "Flights and airports"], ["vacation-ground", "Trains, buses, and car hire"], ["vacation-trains", "Trains in Spain: Renfe, Iryo and Ouigo"], ["driving-spain-visitors", "Driving in Spain: licenses, tolls, and speed limits"]],
             summaryFn: vacationTopicSummary
           },
           {
