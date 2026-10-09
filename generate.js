@@ -338,6 +338,16 @@ const GUIDES = {
       explanation: "Moverte por España en tren, autobús o coche de alquiler depende de tu ruta. Renfe cubre alta velocidad y regional; ALSA los autobuses de larga distancia; coches de alquiler en aeropuertos y ciudades."
     }
   },
+  "vacation-trains": {
+    en: {
+      process: "Renfe vs Iryo vs Ouigo: Spain's high-speed train operators",
+      explanation: "Renfe (AVE and Avlo) runs every main corridor; Iryo and Ouigo compete on Madrid–Barcelona, Valencia, Alicante and Andalucía. Compare routes, fares, luggage, stations and where to book."
+    },
+    es: {
+      process: "Renfe, Iryo u Ouigo: trenes de alta velocidad en España",
+      explanation: "Renfe (AVE y Avlo) cubre todos los corredores principales; Iryo y Ouigo compiten en Madrid–Barcelona, Valencia, Alicante y Andalucía. Compara rutas, tarifas, equipaje, estaciones y dónde comprar."
+    }
+  },
   "vacation-booking": {
     en: {
       process: "Accommodation booking platforms for Spain",
