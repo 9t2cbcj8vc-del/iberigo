@@ -348,6 +348,16 @@ const GUIDES = {
       explanation: "Renfe (AVE y Avlo) cubre todos los corredores principales; Iryo y Ouigo compiten en Madrid–Barcelona, Valencia, Alicante y Andalucía. Rutas principales, estaciones de Madrid, cómo comprar y consejos en la estación."
     }
   },
+  "vacation-toll-roads": {
+    en: {
+      process: "Toll roads in Spain: a simple guide to AP and A motorways",
+      explanation: "Autovías (A-) are free; toll autopistas are numbered AP-, and many AP sections, including the AP-7 from the French border to Alicante, no longer charge. How to pay by card, cash or VIA-T, rental car tips and the Alicante area."
+    },
+    es: {
+      process: "Peajes en España: guía sencilla de autopistas AP y autovías A",
+      explanation: "Las autovías (A-) son gratuitas; las autopistas de peaje llevan AP-, y muchos tramos AP, como la AP-7 desde la frontera francesa hasta Alicante, ya no cobran. Cómo pagar con tarjeta, efectivo o VIA-T, coches de alquiler y la zona de Alicante."
+    }
+  },
   "vacation-booking": {
     en: {
       process: "Accommodation booking platforms for Spain",

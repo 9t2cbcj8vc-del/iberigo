@@ -7273,7 +7273,8 @@ pages.push({
           { title: "Flights and airports", text: "Flights, airports, and search tools for arriving and moving around smoothly.", href: "/guides/vacation-flights/", label: "View guide" },
           { title: "Trains, buses, and car hire", text: "Trains, buses, and car rental for getting around inside Spain.", href: "/guides/vacation-ground/", label: "View guide" },
           { title: "Trains in Spain: Renfe, Iryo and Ouigo", text: "Who Renfe (AVE and Avlo), Iryo and Ouigo are, main routes, Madrid stations and how to book.", href: "/guides/vacation-trains/", label: "View guide" },
-          { title: "Driving in Spain: licenses, tolls, and speed limits", text: "Licenses, tolls, and speed limits for driving in Spain as a visitor.", href: "/guides/driving-spain-visitors/", label: "View guide" }
+          { title: "Driving in Spain: licenses, tolls, and speed limits", text: "Licenses, tolls, and speed limits for driving in Spain as a visitor.", href: "/guides/driving-spain-visitors/", label: "View guide" },
+          { title: "Toll roads in Spain: AP vs A motorways", text: "Free A roads vs AP toll roads, which tolls have ended, how to pay with card, cash or VIA-T, and rental car tips.", href: "/guides/vacation-toll-roads/", label: "View guide" }
         ])
       }),
       GuideSection({
@@ -7337,7 +7338,8 @@ pages.push({
           { title: "Vuelos y aeropuertos", text: "Vuelos, aeropuertos y comparadores para llegar y moverte mejor.", href: "/guides/es/vacation-flights/", label: "Ver guía" },
           { title: "Trenes, autobuses y coche", text: "Trenes, autobuses y alquiler de coche para desplazarte dentro de España.", href: "/guides/es/vacation-ground/", label: "Ver guía" },
           { title: "Trenes en España: Renfe, Iryo y Ouigo", text: "Quiénes son Renfe (AVE y Avlo), Iryo y Ouigo, rutas principales, estaciones de Madrid y cómo comprar.", href: "/guides/es/vacation-trains/", label: "Ver guía" },
-          { title: "Conducir en España: carné, peajes y límites de velocidad", text: "Carné, peajes y límites de velocidad para conducir en España de visita.", href: "/guides/es/driving-spain-visitors/", label: "Ver guía" }
+          { title: "Conducir en España: carné, peajes y límites de velocidad", text: "Carné, peajes y límites de velocidad para conducir en España de visita.", href: "/guides/es/driving-spain-visitors/", label: "Ver guía" },
+          { title: "Peajes en España: autopistas AP y autovías A", text: "Autovías A gratuitas frente a autopistas AP de peaje, qué peajes han terminado, cómo pagar con tarjeta, efectivo o VIA-T y coches de alquiler.", href: "/guides/es/vacation-toll-roads/", label: "Ver guía" }
         ])
       }),
       GuideSection({
