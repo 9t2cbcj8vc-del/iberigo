@@ -1614,6 +1614,7 @@ function routeVisualFor(routeId = "") {
     "travel-insurance": "./assets/topic-scenes/travel-insurance-20260722.webp",
     "driving-spain-visitors": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
     "vacation-toll-roads": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
+    "vacation-supermarkets": "./assets/topic-scenes/vacation-planning.webp",
     "sim-esim-vpn": "./assets/topic-scenes/sim-esim-vpn-20260722.webp"
   };
   return visuals[routeId] || "./assets/home-cards/move-to-spain-matched-20260606.webp";
@@ -1721,7 +1722,8 @@ const guideSectionOverrides = {
     "eu-vacation", "non-eu-vacation",
     "vacation-entry", "vacation-citizenship", "vacation-flights", "vacation-ground", "vacation-trains",
     "vacation-booking", "vacation-hotels", "vacation-tourism", "vacation-reviews",
-    "travel-insurance", "driving-spain-visitors", "vacation-toll-roads", "sim-esim-vpn"
+    "travel-insurance", "driving-spain-visitors", "vacation-toll-roads", "sim-esim-vpn",
+    "vacation-supermarkets"
   ]
 };
 
@@ -2315,6 +2317,19 @@ function directRoadmapFor(goal) {
       links: []
     };
   }
+  if (goal === "vacation-supermarkets") {
+    return currentLang === "es" ? {
+      process: "Supermercados en España: lo básico",
+      explanation: "Una introducción clara a los supermercados en España: las cadenas principales y qué es cada una, cadenas regionales, horarios y domingos, formas de pago, bolsas, mostradores de frescos y compra online. Esta página no da precios ni dice qué cadena es más barata, porque los precios cambian continuamente.",
+      steps: ["Busca las cadenas que tienes cerca con el buscador de tiendas de la web oficial de cada una (enlazadas abajo). La ficha de cada tienda indica el horario y los horarios especiales de festivos.", "Lleva una bolsa reutilizable. En España los comercios no pueden regalar bolsas de plástico.", "Si es domingo o festivo, consulta la ficha de la tienda antes de ir. Que abra o no depende de la comunidad autónoma, del municipio y de la cadena."],
+      links: []
+    } : {
+      process: "Supermarkets in Spain: the basics",
+      explanation: "A plain introduction to supermarkets in Spain: the main chains and what each one is, regional chains, opening hours and Sundays, paying, bags, fresh counters and online shopping. This page does not list prices or say which chain is cheapest, because prices change all the time.",
+      steps: ["Find the chains near you with the store finder on each chain’s official site (linked below). Store pages list opening hours and special holiday hours.", "Take a reusable bag with you. Shops in Spain may not give plastic bags away for free.", "On a Sunday or public holiday, check the store’s page before you go. Whether it opens depends on the region, the town and the chain."],
+      links: []
+    };
+  }
   if (goal === "sim-esim-vpn") {
     return currentLang === "es" ? {
       process: "Tarjetas SIM, eSIM y VPN para España",
@@ -2382,6 +2397,7 @@ function vacationTopicSummary(goal) {
     "travel-insurance": "Cobertura de emergencias médicas, cancelación y equipaje, aparte de la sanidad de la UE.",
     "driving-spain-visitors": "Carné, peajes y límites de velocidad para conducir en España de visita.",
     "vacation-toll-roads": "Autovías A gratuitas frente a autopistas AP de peaje, qué peajes han terminado, cómo pagar con tarjeta, efectivo o VIA-T y coches de alquiler.",
+    "vacation-supermarkets": "Mercadona, Carrefour, Lidl, Dia, Aldi, Eroski, Alcampo y Consum, además de horarios, bolsas, formas de pago y compra online.",
     "sim-esim-vpn": "SIM física, eSIM y VPN para estar conectado durante tu estancia."
   } : {
     "vacation-entry": "Basic rules for short visits, Schengen stays, and trips up to 90 days.",
@@ -2396,6 +2412,7 @@ function vacationTopicSummary(goal) {
     "travel-insurance": "Medical emergency, cancellation, and luggage cover, separate from EU health coverage.",
     "driving-spain-visitors": "Licenses, tolls, and speed limits for driving in Spain as a visitor.",
     "vacation-toll-roads": "Free A roads vs AP toll roads, which tolls have ended, how to pay with card, cash or VIA-T, and rental car tips.",
+    "vacation-supermarkets": "Mercadona, Carrefour, Lidl, Dia, Aldi, Eroski, Alcampo and Consum, plus opening hours, bags, paying and online shopping.",
     "sim-esim-vpn": "Physical SIM, eSIM, and VPN options for staying connected during your trip."
   };
   return summaries[goal] || "";
@@ -2428,6 +2445,7 @@ function topicScene(goal) {
     "travel-insurance": "./assets/topic-scenes/travel-insurance-20260722.webp",
     "driving-spain-visitors": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
     "vacation-toll-roads": "./assets/topic-scenes/driving-spain-visitors-20260722.webp",
+    "vacation-supermarkets": "./assets/topic-scenes/vacation-planning.webp",
     "sim-esim-vpn": "./assets/topic-scenes/sim-esim-vpn-20260722.webp"
   };
   if (photos[goal]) {
@@ -2455,6 +2473,7 @@ function topicBackdrop(goal) {
     "vacation-ground": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="32" width="68" height="38" rx="8"/><path d="M38 70v10"/><path d="M82 70v10"/><path d="M40 48h40"/><circle cx="42" cy="84" r="6"/><circle cx="78" cy="84" r="6"/></svg>`,
     "vacation-trains": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="32" width="68" height="38" rx="8"/><path d="M38 70v10"/><path d="M82 70v10"/><path d="M40 48h40"/><circle cx="42" cy="84" r="6"/><circle cx="78" cy="84" r="6"/></svg>`,
     "vacation-toll-roads": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M44 96 54 24"/><path d="M76 96 66 24"/><path d="M60 34v8"/><path d="M60 54v8"/><path d="M60 74v8"/><path d="M22 52h76"/><path d="M30 52V40h12v12"/></svg>`,
+    "vacation-supermarkets": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 30h12l10 40h46l10-28H36"/><circle cx="46" cy="86" r="6"/><circle cx="80" cy="86" r="6"/></svg>`,
     "vacation-booking": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 88V42h64v46"/><path d="M20 88h80"/><path d="M44 42V30h32v12"/><path d="M40 58h16"/><path d="M64 58h16"/></svg>`,
     "vacation-hotels": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="24" width="68" height="68" rx="8"/><path d="M44 24v68"/><path d="M62 40v12"/><path d="M62 64v12"/><path d="M74 40v12"/><path d="M74 64v12"/></svg>`,
     "vacation-tourism": `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="26"/><path d="M60 34c8 8 12 16 12 26s-4 18-12 26c-8-8-12-16-12-26s4-18 12-26Z"/><path d="M34 60h52"/></svg>`,
@@ -2620,8 +2639,8 @@ function renderVacationSubtopics() {
         },
         {
           title: "Preparación práctica",
-          description: "Seguro de viaje y cómo estar conectado durante tu estancia.",
-          topics: [["travel-insurance", "Seguro de viaje para España"], ["sim-esim-vpn", "Tarjetas SIM, eSIM y VPN"]],
+          description: "Seguro de viaje, cómo estar conectado y hacer la compra durante tu estancia.",
+          topics: [["travel-insurance", "Seguro de viaje para España"], ["sim-esim-vpn", "Tarjetas SIM, eSIM y VPN"], ["vacation-supermarkets", "Supermercados en España: las cadenas principales"]],
           summaryFn: vacationTopicSummary
         }
       ]
@@ -2652,8 +2671,8 @@ function renderVacationSubtopics() {
           },
           {
             title: "Practical prep",
-            description: "Travel insurance and staying connected during your trip.",
-            topics: [["travel-insurance", "Travel insurance for Spain"], ["sim-esim-vpn", "SIM cards, eSIM, and VPN"]],
+            description: "Travel insurance, staying connected and food shopping during your trip.",
+            topics: [["travel-insurance", "Travel insurance for Spain"], ["sim-esim-vpn", "SIM cards, eSIM, and VPN"], ["vacation-supermarkets", "Supermarkets in Spain: the main chains"]],
             summaryFn: vacationTopicSummary
           }
         ];
