@@ -31,6 +31,10 @@ const FILES = {
     en: ["/the-spain-files/digital-nomad-visa-spain/", "Digital Nomad Visa in Spain"],
     es: ["/es/the-spain-files/visado-nomada-digital/", "Visado de nómada digital en España"],
   },
+  tie: {
+    en: ["/the-spain-files/tie-fingerprints-alicante/", "TIE fingerprint appointment in Alicante: booking, documents and tips"],
+    es: ["/es/the-spain-files/huellas-tie-alicante/", "Cita de huellas para el TIE en Alicante: reserva, documentos y consejos"],
+  },
   bank: {
     en: ["/the-spain-files/bank-account-spain/", "Opening a bank account in Spain: practical guide"],
     es: ["/the-spain-files/abrir-cuenta-bancaria-espana/", "Abrir una cuenta bancaria en España: guía práctica"],
@@ -45,6 +49,8 @@ const PAGES = [
   ["guides/es/padron", "padron", "es", "legacy"],
   ["moving-to-spain/digital-nomad-spain", "dnv", "en", "system"],
   ["es/moving-to-spain/digital-nomad-spain", "dnv", "es", "system"],
+  ["guides/tie", "tie", "en", "legacy"],
+  ["guides/es/tie", "tie", "es", "legacy"],
   ["guides/banking", "bank", "en", "legacy"],
   ["guides/es/banking", "bank", "es", "legacy"],
   ["living-in-spain/opening-a-bank-account", "bank", "en", "system"],
