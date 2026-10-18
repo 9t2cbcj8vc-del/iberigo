@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 
 BASE = os.environ.get("PREVIEW_BASE", "").rstrip("/")
-CACHE_KEY = "20260816-homepage-cta-runtime-1"
+CACHE_KEY = "20261018-visit-guides"
 EXPECTED = {
     "en": {
         "move": "Plan your move",
