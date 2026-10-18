@@ -44,7 +44,7 @@
 
   (async () => {
     await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20260927-ux-quick-fixes-1', 'iberigoOverhaul');
-    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20261018-living-supermarkets', 'iberigoGatewayCards');
+    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20261018-visit-mobile-sim', 'iberigoGatewayCards');
     await loadScript('script[data-iberigo-final-polish]', '/scripts/final-visual-polish.js?v=20261018-living-supermarkets', 'iberigoFinalPolish');
   })();
 })();

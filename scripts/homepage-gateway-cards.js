@@ -29,7 +29,8 @@
         ["Cadenas hoteleras", "/guides/es/vacation-hotels/"],
         ["Trenes", "/guides/es/vacation-trains/"],
         ["Autopistas de peaje", "/guides/es/vacation-toll-roads/"],
-        ["Supermercados", "/guides/es/vacation-supermarkets/"]
+        ["Supermercados", "/guides/es/vacation-supermarkets/"],
+        ["Móvil y SIM", "/guides/es/sim-esim-vpn/"]
       ],
       image: visuals.visit,
       alt: "Costa española y ambiente de viaje mediterráneo"
@@ -70,7 +71,8 @@
         ["Hotel chains", "/guides/vacation-hotels/"],
         ["Trains", "/guides/vacation-trains/"],
         ["Toll roads", "/guides/vacation-toll-roads/"],
-        ["Supermarkets", "/guides/vacation-supermarkets/"]
+        ["Supermarkets", "/guides/vacation-supermarkets/"],
+        ["Mobile & SIM", "/guides/sim-esim-vpn/"]
       ],
       image: visuals.visit,
       alt: "Spanish coast and Mediterranean travel scene"
