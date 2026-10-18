@@ -201,6 +201,25 @@
       if (move) setDirectoryCard(move, COPY.move, COPY.moveDesc, lang === "es" ? "/es/start-here/" : "/start-here/");
       if (live) setDirectoryCard(live, COPY.live, COPY.liveDesc, lang === "es" ? "/guides/es/living-in-spain/" : "/guides/living-in-spain/");
       if (visit) setDirectoryCard(visit, COPY.visit, COPY.visitDesc, lang === "es" ? "/guides/es/vacation-in-spain/" : "/guides/vacation-in-spain/");
+      if (visit && !visit.querySelector(".overhaul-card-links")) {
+        const links = lang === "es" ? [
+          ["Cadenas hoteleras", "/guides/es/vacation-hotels/"],
+          ["Trenes", "/guides/es/vacation-trains/"],
+          ["Autopistas de peaje", "/guides/es/vacation-toll-roads/"],
+          ["Supermercados", "/guides/es/vacation-supermarkets/"]
+        ] : [
+          ["Hotel chains", "/guides/vacation-hotels/"],
+          ["Trains", "/guides/vacation-trains/"],
+          ["Toll roads", "/guides/vacation-toll-roads/"],
+          ["Supermarkets", "/guides/vacation-supermarkets/"]
+        ];
+        const list = document.createElement("ul");
+        list.className = "overhaul-card-links";
+        list.setAttribute("aria-label", lang === "es" ? "Guías prácticas para visitar España" : "Practical guides for visiting Spain");
+        list.innerHTML = links.map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join("");
+        const action = visit.querySelector(".overhaul-card-action");
+        action ? action.insertAdjacentElement("beforebegin", list) : visit.appendChild(list);
+      }
       if (move) grid.appendChild(move);
       if (live) grid.appendChild(live);
       if (visit) grid.appendChild(visit);
