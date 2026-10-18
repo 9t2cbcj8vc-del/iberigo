@@ -43,8 +43,8 @@
   addStyle('link[data-iberigo-final-polish]', '/styles-final-visual-polish.css?v=20260927-ux-quick-fixes-1', 'iberigoFinalPolish');
 
   (async () => {
-    await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20260927-ux-quick-fixes-1', 'iberigoOverhaul');
-    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20261018-visit-guides', 'iberigoGatewayCards');
+    await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20261018-living-supermarkets', 'iberigoOverhaul');
+    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20261018-living-supermarkets', 'iberigoGatewayCards');
     await loadScript('script[data-iberigo-final-polish]', '/scripts/final-visual-polish.js?v=20260927-ux-quick-fixes-1', 'iberigoFinalPolish');
   })();
 })();
