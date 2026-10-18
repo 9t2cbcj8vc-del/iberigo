@@ -276,14 +276,14 @@
       text: COPY.liveHubText,
       image: VISUALS.everyday,
       groups: lang === "es" ? [
-        ["Hogar", [["Alquilar vivienda", "/guides/es/renting-home/"], ["Padrón", "/guides/es/padron/"], ["Supermercados", "/guides/es/vacation-supermarkets/"]]],
+        ["Hogar", [["Alquilar vivienda", "/guides/es/renting-home/"], ["Padrón", "/guides/es/padron/"]]],
         ["Dinero y trabajo", [["Banca", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Buscar trabajo", "/guides/es/job-search/"], ["Seguridad Social", "/guides/es/social-security/"], ["Vida laboral", "/guides/es/vida-laboral/"], ["Impuestos", "/guides/es/taxes/"]]],
         ["Sanidad", [["Sanidad pública", "/guides/es/sip-card/"], ["Seguro privado", "/guides/es/private-health/"], ["TSE / EHIC", "/guides/es/ehic-card/"]]],
         ["Digital y administración", [["Certificado digital / Cl@ve", "/guides/es/digital/"], ["NIE", "/guides/es/nie/"], ["TIE", "/guides/es/tie/"]]],
         ["Transporte y conducción", [["Canje de permiso", "/guides/es/driving-licence-exchange/"], ["Teléfono", "/guides/es/phone/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]],
         ["Por experiencia: The Spain Files", [["Padrón en Torrevieja", "/the-spain-files/es/padron-torrevieja/"], ["Abrir una cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Cómo conseguir el NIE", "/the-spain-files/como-obtener-nie-en-espana/"]]]
       ] : [
-        ["Home", [["Renting a home", "/guides/renting-home/"], ["Padrón", "/guides/padron/"], ["Supermarkets", "/guides/vacation-supermarkets/"]]],
+        ["Home", [["Renting a home", "/guides/renting-home/"], ["Padrón", "/guides/padron/"]]],
         ["Money & work", [["Banking", "/the-spain-files/bank-account-spain/"], ["Job search", "/guides/job-search/"], ["Social Security", "/guides/social-security/"], ["Vida laboral", "/guides/vida-laboral/"], ["Taxes", "/guides/taxes/"]]],
         ["Healthcare", [["Public healthcare / health card", "/guides/sip-card/"], ["Private health insurance", "/guides/private-health/"], ["EHIC", "/guides/ehic-card/"]]],
         ["Digital & administration", [["Digital certificate / Cl@ve", "/guides/digital/"], ["NIE", "/guides/nie/"], ["TIE", "/guides/tie/"]]],
