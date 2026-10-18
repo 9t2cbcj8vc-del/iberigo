@@ -24,6 +24,13 @@
       description: "Entrada, estancias cortas, transporte, alojamiento y ayuda práctica para planificar tu viaje.",
       cta: "Planifica tu visita",
       href: "/guides/es/vacation-in-spain/",
+      linksLabel: "Guías prácticas para visitar España",
+      links: [
+        ["Cadenas hoteleras", "/guides/es/vacation-hotels/"],
+        ["Trenes", "/guides/es/vacation-trains/"],
+        ["Autopistas de peaje", "/guides/es/vacation-toll-roads/"],
+        ["Supermercados", "/guides/es/vacation-supermarkets/"]
+      ],
       image: visuals.visit,
       alt: "Costa española y ambiente de viaje mediterráneo"
     },
@@ -52,6 +59,13 @@
       description: "Entry rules, short stays, transport, places to stay and practical travel help for your trip.",
       cta: "Plan your visit",
       href: "/guides/vacation-in-spain/",
+      linksLabel: "Practical guides for visiting Spain",
+      links: [
+        ["Hotel chains", "/guides/vacation-hotels/"],
+        ["Trains", "/guides/vacation-trains/"],
+        ["Toll roads", "/guides/vacation-toll-roads/"],
+        ["Supermarkets", "/guides/vacation-supermarkets/"]
+      ],
       image: visuals.visit,
       alt: "Spanish coast and Mediterranean travel scene"
     },
@@ -82,7 +96,8 @@
       <div class="gateway-card-body">
         <span class="gateway-card-eyebrow">${data.eyebrow}</span>
         <h3>${data.title}</h3>
-        <p>${data.description}</p>
+        <p>${data.description}</p>${data.links ? `
+        <ul class="gateway-card-links" aria-label="${data.linksLabel}">${data.links.map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join("")}</ul>` : ""}
         <a class="gateway-card-action" href="${data.href}">${data.cta}<span aria-hidden="true">→</span></a>
       </div>`;
   }

@@ -111,6 +111,45 @@
   line-height: 1.62;
 }
 
+.iberigo-home .gateway-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: -0.4rem 0 1.2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.iberigo-home .gateway-card-links li {
+  margin: 0;
+}
+
+.iberigo-home .gateway-card-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid rgba(15, 42, 68, 0.14);
+  border-radius: 999px;
+  background: #fff8f1;
+  color: #0f2a44;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.iberigo-home .gateway-card-links a:hover {
+  border-color: #f97316;
+  color: #c2410c;
+}
+
+.iberigo-home .gateway-card-links a:focus-visible {
+  outline: 3px solid rgba(249, 115, 22, 0.32);
+  outline-offset: 2px;
+}
+
 .iberigo-home .gateway-card-action {
   display: inline-flex;
   align-items: center;
