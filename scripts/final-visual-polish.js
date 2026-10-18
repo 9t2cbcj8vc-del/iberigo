@@ -27,7 +27,7 @@
   }
 
   const livingGroups = lang === "es" ? [
-    ["Hogar", visuals.housing, [["Alquilar vivienda", "/guides/es/renting-home/"], ["Padrón", "/guides/es/padron/"]]],
+    ["Hogar", visuals.housing, [["Alquilar vivienda", "/guides/es/renting-home/"], ["Padrón", "/guides/es/padron/"], ["Supermercados", "/guides/es/vacation-supermarkets/"]]],
     ["Dinero y banca", visuals.banking, [["Banca", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Impuestos", "/guides/es/taxes/"]]],
     ["Trabajo y carrera", visuals.work, [["Buscar trabajo", "/guides/es/job-search/"], ["Seguridad Social", "/guides/es/social-security/"], ["Vida laboral", "/guides/es/vida-laboral/"]]],
     ["Sanidad", visuals.healthcare, [["Sanidad pública", "/guides/es/sip-card/"], ["Seguro privado", "/guides/es/private-health/"], ["TSE / EHIC", "/guides/es/ehic-card/"]]],
@@ -36,7 +36,7 @@
     ["Teléfono e internet", visuals.digital, [["Teléfono", "/guides/es/phone/"], ["SIM, eSIM y VPN", "/guides/es/sim-esim-vpn/"]]],
     ["Por experiencia: The Spain Files", spainFiles, [["Padrón en Torrevieja", "/the-spain-files/es/padron-torrevieja/"], ["Abrir una cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"], ["Cómo conseguir el NIE", "/the-spain-files/como-obtener-nie-en-espana/"]]]
   ] : [
-    ["Home", visuals.housing, [["Renting a home", "/guides/renting-home/"], ["Padrón", "/guides/padron/"]]],
+    ["Home", visuals.housing, [["Renting a home", "/guides/renting-home/"], ["Padrón", "/guides/padron/"], ["Supermarkets", "/guides/vacation-supermarkets/"]]],
     ["Money & banking", visuals.banking, [["Banking", "/the-spain-files/bank-account-spain/"], ["Taxes", "/guides/taxes/"]]],
     ["Work & career", visuals.work, [["Job search", "/guides/job-search/"], ["Social Security", "/guides/social-security/"], ["Vida laboral", "/guides/vida-laboral/"]]],
     ["Healthcare", visuals.healthcare, [["Public healthcare / health card", "/guides/sip-card/"], ["Private health insurance", "/guides/private-health/"], ["EHIC", "/guides/ehic-card/"]]],

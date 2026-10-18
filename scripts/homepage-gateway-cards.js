@@ -40,6 +40,12 @@
       description: "Sanidad, banca, impuestos, acceso digital y los trámites que forman parte de la vida diaria en España.",
       cta: "Guías para vivir",
       href: "/guides/es/living-in-spain/",
+      linksLabel: "Guías prácticas para vivir en España",
+      links: [
+        ["Sanidad", "/guides/es/sip-card/"],
+        ["Cuenta bancaria", "/the-spain-files/abrir-cuenta-bancaria-espana/"],
+        ["Supermercados", "/guides/es/vacation-supermarkets/"]
+      ],
       image: visuals.everyday,
       alt: "Vida cotidiana en un barrio residencial español"
     }
@@ -75,6 +81,12 @@
       description: "Healthcare, banking, taxes, digital access and the admin steps that shape daily life in Spain.",
       cta: "Browse living guides",
       href: "/guides/living-in-spain/",
+      linksLabel: "Practical guides for living in Spain",
+      links: [
+        ["Healthcare", "/guides/sip-card/"],
+        ["Bank account", "/the-spain-files/bank-account-spain/"],
+        ["Supermarkets", "/guides/vacation-supermarkets/"]
+      ],
       image: visuals.everyday,
       alt: "Everyday life in a Spanish residential neighbourhood"
     }
