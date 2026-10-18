@@ -377,39 +377,6 @@ body.iberigo-home .overhaul-directory-card p {
   line-height: 1.6;
 }
 
-body.iberigo-home .overhaul-card-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 0 1.25rem 0.35rem;
-  padding: 0;
-  list-style: none;
-}
-
-body.iberigo-home .overhaul-card-links li {
-  margin: 0;
-}
-
-body.iberigo-home .overhaul-card-links a {
-  display: inline-flex;
-  min-height: 36px;
-  align-items: center;
-  padding: 0.35rem 0.8rem;
-  border: 1px solid var(--iberigo-border);
-  border-radius: 999px;
-  background: #fff8f1;
-  color: var(--iberigo-navy);
-  font-size: 0.92rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-body.iberigo-home .overhaul-card-links a:hover,
-body.iberigo-home .overhaul-card-links a:focus-visible {
-  border-color: var(--iberigo-orange-strong);
-  color: var(--iberigo-orange-strong);
-}
-
 body.iberigo-home .overhaul-card-action {
   display: inline-flex;
   width: auto;
