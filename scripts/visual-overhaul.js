@@ -1,6 +1,10 @@
 (function () {
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
   const path = window.location.pathname.replace(/\/index\.html$/, "/");
+  const responsiveAttrs = (url, sizes) => {
+    const m = /^(\/assets\/visual-library\/(?!transport-spain)[a-z0-9-]+)\.webp$/.exec(url || "");
+    return m ? ` srcset="${m[1]}-400.webp 400w, ${m[1]}-800.webp 800w, ${m[1]}-1200.webp 1200w, ${url} 1536w" sizes="${sizes}"` : "";
+  };
 
   const VISUALS = Object.freeze({
     arrival: "/assets/visual-library/arrival-relocation.webp",
@@ -170,7 +174,7 @@
           <small>${COPY.heroTrust}</small>
         </div>
         <div class="overhaul-hero-visual">
-          <img src="${VISUALS.arrival}" alt="${lang === "es" ? "Llegada a un nuevo hogar en una calle mediterránea española" : "Arriving at a new home on a Spanish Mediterranean street"}" fetchpriority="high" />
+          <img src="${VISUALS.arrival}"${responsiveAttrs(VISUALS.arrival, "(max-width: 980px) 100vw, 50vw")} alt="${lang === "es" ? "Llegada a un nuevo hogar en una calle mediterránea española" : "Arriving at a new home on a Spanish Mediterranean street"}" fetchpriority="high" />
           <div class="overhaul-plan-card"><strong>${COPY.planTitle}</strong>${COPY.planItems.map((item) => `<span>✓ ${item}</span>`).join("")}</div>
         </div>`;
       main.insertBefore(hero, guide);
@@ -225,7 +229,7 @@
     if (docs && !document.querySelector(".overhaul-experience")) {
       const block = document.createElement("section");
       block.className = "overhaul-experience";
-      block.innerHTML = `<div><span class="overhaul-kicker">Why IberiGo</span><h2>${COPY.experienceTitle}</h2><p>${COPY.experienceText}</p></div><img src="${VISUALS.files}" alt="${lang === "es" ? "Mesa editorial con documentos y notas sobre España" : "Editorial desk with documents and notes about Spain"}" loading="lazy" decoding="async" />`;
+      block.innerHTML = `<div><span class="overhaul-kicker">Why IberiGo</span><h2>${COPY.experienceTitle}</h2><p>${COPY.experienceText}</p></div><img src="${VISUALS.files}"${responsiveAttrs(VISUALS.files, "(max-width: 980px) 100vw, 40vw")} alt="${lang === "es" ? "Mesa editorial con documentos y notas sobre España" : "Editorial desk with documents and notes about Spain"}" loading="lazy" decoding="async" />`;
       docs.insertAdjacentElement("beforebegin", block);
     }
   }
@@ -325,13 +329,13 @@
       if (h1) h1.textContent = data.title;
       if (intro) intro.textContent = data.text;
       const aside = hero.querySelector(".guide-hero-card");
-      if (aside) aside.innerHTML = `<img class="overhaul-hub-image" src="${data.image}" alt="${data.title}" />`;
+      if (aside) aside.innerHTML = `<img class="overhaul-hub-image" src="${data.image}"${responsiveAttrs(data.image, "(max-width: 980px) 100vw, 40vw")} alt="${data.title}" />`;
     }
 
     if (!document.querySelector(".overhaul-directory-groups")) {
       const wrapper = document.createElement("section");
       wrapper.className = "overhaul-directory-groups";
-      wrapper.innerHTML = `<div class="overhaul-directory-heading"><span class="overhaul-kicker">${COPY.browseTitle}</span><h2>${data.title}</h2></div>${data.groups.map(([title, links]) => `<section class="overhaul-directory-group"><div class="overhaul-directory-group-heading"><img src="${visualForGroup(title, key)}" alt="" loading="lazy" decoding="async" /><h3>${title}</h3></div><div class="overhaul-link-grid">${links.map(([label, href]) => `<a class="overhaul-link-card" href="${href}"><strong>${label}</strong><span aria-hidden="true">→</span></a>`).join("")}</div></section>`).join("")}`;
+      wrapper.innerHTML = `<div class="overhaul-directory-heading"><span class="overhaul-kicker">${COPY.browseTitle}</span><h2>${data.title}</h2></div>${data.groups.map(([title, links]) => `<section class="overhaul-directory-group"><div class="overhaul-directory-group-heading"><img src="${visualForGroup(title, key)}"${responsiveAttrs(visualForGroup(title, key), "96px")} alt="" loading="lazy" decoding="async" /><h3>${title}</h3></div><div class="overhaul-link-grid">${links.map(([label, href]) => `<a class="overhaul-link-card" href="${href}"><strong>${label}</strong><span aria-hidden="true">→</span></a>`).join("")}</div></section>`).join("")}`;
       hero ? hero.insertAdjacentElement("afterend", wrapper) : content.prepend(wrapper);
     }
   }
@@ -376,6 +380,13 @@
     const img = aside.querySelector("img") || document.createElement("img");
     if (img.classList.contains("overhaul-guide-image") && img.src.endsWith(image)) return;
     img.className = "overhaul-guide-image";
+    const rsp = /srcset="([^"]+)" sizes/.exec(responsiveAttrs(image, ""));
+    if (rsp) {
+      img.srcset = rsp[1];
+      img.sizes = "(max-width: 980px) 100vw, 40vw";
+    } else {
+      img.removeAttribute("srcset");
+    }
     img.src = image;
     img.alt = "";
     img.loading = "lazy";
@@ -397,7 +408,7 @@
       const heading = document.querySelector(".guide-card-panel > .section-heading");
       if (heading && !heading.querySelector(".overhaul-files-hero-image")) {
         heading.classList.add("overhaul-files-hero");
-        heading.insertAdjacentHTML("beforeend", `<img class="overhaul-files-hero-image" src="${VISUALS.files}" alt="${lang === "es" ? "Mesa editorial con documentos, notas y una fotografía de una calle española" : "Editorial desk with documents, notes and a photograph of a Spanish street"}" fetchpriority="high" />`);
+        heading.insertAdjacentHTML("beforeend", `<img class="overhaul-files-hero-image" src="${VISUALS.files}"${responsiveAttrs(VISUALS.files, "(max-width: 980px) 100vw, 55vw")} alt="${lang === "es" ? "Mesa editorial con documentos, notas y una fotografía de una calle española" : "Editorial desk with documents, notes and a photograph of a Spanish street"}" fetchpriority="high" />`);
       }
     }
 
@@ -405,7 +416,7 @@
       const href = article.querySelector("a[href]")?.getAttribute("href") || "";
       const image = mapping.find(([pattern]) => pattern.test(href))?.[1];
       const visual = article.querySelector(".sf-featured-visual");
-      if (image && visual) visual.innerHTML = `<img src="${image}" alt="" loading="lazy" decoding="async" />`;
+      if (image && visual) visual.innerHTML = `<img src="${image}"${responsiveAttrs(image, "(max-width: 700px) 100vw, 40vw")} alt="" loading="lazy" decoding="async" />`;
     });
 
     const article = document.querySelector(".article-wrap");
@@ -414,7 +425,7 @@
       const meta = article.querySelector(".article-meta");
       const figure = document.createElement("figure");
       figure.className = "overhaul-article-hero";
-      figure.innerHTML = `<img src="${image}" alt="" fetchpriority="high" />`;
+      figure.innerHTML = `<img src="${image}"${responsiveAttrs(image, "(max-width: 720px) 100vw, 680px")} alt="" fetchpriority="high" />`;
       meta?.insertAdjacentElement("afterend", figure);
     }
   }

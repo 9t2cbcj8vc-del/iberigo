@@ -3,6 +3,10 @@
   if (!isHome) return;
 
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
+  const responsiveAttrs = (url, sizes) => {
+    const m = /^(\/assets\/visual-library\/(?!transport-spain)[a-z0-9-]+)\.webp$/.exec(url || "");
+    return m ? ` srcset="${m[1]}-400.webp 400w, ${m[1]}-800.webp 800w, ${m[1]}-1200.webp 1200w, ${url} 1536w" sizes="${sizes}"` : "";
+  };
   const visuals = window.IberiGoVisualLibrary || {
     arrival: "/assets/visual-library/arrival-relocation.webp",
     visit: "/assets/visual-library/visit-travel.webp",
@@ -105,7 +109,7 @@
 
     card.innerHTML = `
       <a class="gateway-card-media" href="${data.href}" tabindex="-1" aria-hidden="true">
-        <img src="${data.image}" alt="${data.alt}" loading="lazy" decoding="async" />
+        <img src="${data.image}"${responsiveAttrs(data.image, "(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw")} alt="${data.alt}" loading="lazy" decoding="async" />
       </a>
       <div class="gateway-card-body">
         <span class="gateway-card-eyebrow">${data.eyebrow}</span>

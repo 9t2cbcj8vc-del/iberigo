@@ -3970,7 +3970,14 @@ function showDirectGuide() {
 function showOnlyTopicCards() {
   currentDirectRoute = null;
   currentEntryPreset = null;
-  if (guideCardsPanel) guideCardsPanel.hidden = false;
+  if (guideCardsPanel) {
+    guideCardsPanel.hidden = false;
+    // Guide pages ship the homepage cards hidden, with posters deferred to data-poster.
+    guideCardsPanel.querySelectorAll("video[data-poster]").forEach((video) => {
+      video.poster = video.dataset.poster;
+      video.removeAttribute("data-poster");
+    });
+  }
   if (wizardPanel) {
     wizardPanel.hidden = true;
     wizardPanel.classList.remove("is-direct-guide", "is-living-topics", "is-question-flow", "is-vacation-flow");
