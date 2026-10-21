@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+/* Web fonts are loaded without blocking render: a static <link> on pre-rendered pages, else scripts/site-search.js. */
 
 /* Metric-matched fallbacks so the swap to the web fonts does not reflow headings. */
 @font-face {
