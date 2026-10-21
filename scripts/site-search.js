@@ -38,14 +38,14 @@
     });
   }
 
-  addStyle('link[data-iberigo-overhaul]', '/styles-overhaul.css?v=20260927-ux-quick-fixes-1', 'iberigoOverhaul');
+  addStyle('link[data-iberigo-overhaul]', '/styles-overhaul.css?v=20261022-mobile-perf', 'iberigoOverhaul');
   addStyle('link[data-iberigo-gateway-cards]', '/styles-homepage-gateway-cards.css?v=20261018-visit-guides', 'iberigoGatewayCards');
   addStyle('link[data-iberigo-final-polish]', '/styles-final-visual-polish.css?v=20260927-ux-quick-fixes-1', 'iberigoFinalPolish');
 
   (async () => {
-    await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20260927-ux-quick-fixes-1', 'iberigoOverhaul');
-    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20261018-visit-mobile-sim', 'iberigoGatewayCards');
-    await loadScript('script[data-iberigo-final-polish]', '/scripts/final-visual-polish.js?v=20261018-living-supermarkets', 'iberigoFinalPolish');
+    await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20261022-mobile-perf', 'iberigoOverhaul');
+    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20261022-mobile-perf', 'iberigoGatewayCards');
+    await loadScript('script[data-iberigo-final-polish]', '/scripts/final-visual-polish.js?v=20261022-mobile-perf', 'iberigoFinalPolish');
   })();
 })();
 

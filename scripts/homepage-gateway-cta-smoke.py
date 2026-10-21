@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 
 BASE = os.environ.get("PREVIEW_BASE", "").rstrip("/")
-CACHE_KEY = "20261018-visit-mobile-sim"
+CACHE_KEY = "20261022-mobile-perf"
 EXPECTED = {
     "en": {
         "move": "Plan your move",

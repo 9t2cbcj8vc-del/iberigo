@@ -1,6 +1,10 @@
 (function () {
   const path = window.location.pathname.replace(/\/index\.html$/, "/");
   const lang = document.documentElement.lang.toLowerCase().startsWith("es") ? "es" : "en";
+  const responsiveAttrs = (url, sizes) => {
+    const m = /^(\/assets\/visual-library\/(?!transport-spain)[a-z0-9-]+)\.webp$/.exec(url || "");
+    return m ? ` srcset="${m[1]}-400.webp 400w, ${m[1]}-800.webp 800w, ${m[1]}-1200.webp 1200w, ${url} 1536w" sizes="${sizes}"` : "";
+  };
   const visuals = window.IberiGoVisualLibrary || {
     housing: "/assets/visual-library/housing-home.webp",
     banking: "/assets/visual-library/banking-money.webp",
@@ -56,7 +60,7 @@
     wrapper.innerHTML = heading + livingGroups.map(([title, image, links]) => `
       <section class="overhaul-directory-group overhaul-directory-group--refined${image === driving ? " overhaul-directory-group--driving" : ""}">
         <div class="overhaul-directory-group-heading">
-          <span class="overhaul-directory-group-visual"><img src="${image}" alt="" loading="lazy" decoding="async" /></span>
+          <span class="overhaul-directory-group-visual"><img src="${image}"${responsiveAttrs(image, "96px")} alt="" loading="lazy" decoding="async" /></span>
           <h3>${title}</h3>
         </div>
         <div class="overhaul-link-grid">${links.map(([label, href]) => `<a class="overhaul-link-card" href="${href}"><strong>${label}</strong><span aria-hidden="true">→</span></a>`).join("")}</div>
@@ -72,7 +76,11 @@
     const heading = group.querySelector(".overhaul-directory-group-heading");
     const img = heading?.querySelector("img");
     if (!img) return;
-    if (img.getAttribute("src") !== publicTransport) img.src = publicTransport;
+    if (img.getAttribute("src") !== publicTransport) {
+      img.removeAttribute("srcset");
+      img.removeAttribute("sizes");
+      img.src = publicTransport;
+    }
     img.alt = "";
     img.classList.add("overhaul-transport-image");
     if (!img.parentElement?.classList.contains("overhaul-directory-group-visual")) {
@@ -88,13 +96,32 @@
     if (!visual) return;
     const img = document.querySelector(".overhaul-guide-image, .guide-hero-card img, .result-hero-media img");
     if (!img) return;
-    if (img.getAttribute("src") !== visual.image) img.src = visual.image;
+    if (img.getAttribute("src") !== visual.image) {
+      img.removeAttribute("srcset");
+      img.removeAttribute("sizes");
+      img.src = visual.image;
+    }
     img.alt = "";
     img.classList.toggle("overhaul-transport-image", visual.type === "transport");
     img.classList.toggle("overhaul-driving-image", visual.type === "driving");
   }
 
+  // On phones the header nav is a single scrollable row; keep the current section visible.
+  function revealCurrentNavLink() {
+    const nav = document.querySelector(".topbar nav");
+    const current = nav?.querySelector('a[aria-current="page"]');
+    if (!nav || !current || nav.scrollWidth <= nav.clientWidth) return;
+    const navBox = nav.getBoundingClientRect();
+    const linkBox = current.getBoundingClientRect();
+    // Search and language controls stay pinned at the start of the row.
+    const pinned = nav.querySelector(".language-switcher");
+    const start = pinned ? pinned.getBoundingClientRect().right + 4 : navBox.left;
+    if (linkBox.left >= start && linkBox.right <= navBox.right - 20) return;
+    nav.scrollLeft += linkBox.left - start - Math.max(0, (navBox.right - 20 - start - linkBox.width) / 2);
+  }
+
   function apply() {
+    revealCurrentNavLink();
     renderLivingGroups();
     polishVisitTransportGroup();
     polishGuideVisual();
