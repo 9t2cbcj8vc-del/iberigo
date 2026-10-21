@@ -17,7 +17,15 @@
     <link rel="alternate" hreflang="en" href="https://iberigo.eu/the-spain-files/" />
     <link rel="alternate" hreflang="es" href="https://iberigo.eu/the-spain-files/es/" />
     <link rel="alternate" hreflang="x-default" href="https://iberigo.eu/the-spain-files/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" />
     <link rel="stylesheet" href="/styles.css?v=20261023-mobile-header" />
+    <link rel="stylesheet" href="/styles-overhaul.css?v=20261021-home-static" data-iberigo-overhaul="true" />
+    <link rel="stylesheet" href="/styles-final-visual-polish.css?v=20260927-ux-quick-fixes-1" data-iberigo-final-polish="true" />
+    <link rel="stylesheet" href="/styles-mobile-ux.css?v=20261021-mobile-ux-2" data-iberigo-mobile-ux="true" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="apple-touch-icon" href="/assets/favicon.svg" />
     <style>
@@ -145,7 +153,7 @@
     }
     </script>
   </head>
-  <body>
+  <body class="iberigo-overhaul iberigo-section-files">
     <div class="app-shell">
       <header class="topbar">
         <div class="brand-lockup">
@@ -314,7 +322,7 @@
         window.addEventListener("scroll", update, { passive: true });
       })();
     </script>
-    <script src="/scripts/site-search.js?v=20261021-mobile-ux-2" defer></script>
+    <script src="/scripts/site-search.js?v=20261021-home-static" defer></script>
     <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
       <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
   </body>

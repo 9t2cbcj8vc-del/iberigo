@@ -99,11 +99,12 @@
   };
 
   function renderCard(card, key) {
-    if (!card || card.dataset.gatewayCardReady === "true") return;
+    // Pre-rendered cards carry their language; re-render only for the other language.
+    if (!card || card.dataset.gatewayCardReady === lang || (card.dataset.gatewayCardReady === "true" && lang === "en")) return;
     const data = cards[key];
     if (!data) return;
 
-    card.dataset.gatewayCardReady = "true";
+    card.dataset.gatewayCardReady = lang;
     card.classList.add("iberigo-gateway-card", `iberigo-gateway-card--${key}`);
     if (key === "move") card.classList.add("iberigo-gateway-card--primary");
 
