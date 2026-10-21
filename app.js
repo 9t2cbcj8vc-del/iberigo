@@ -3967,16 +3967,22 @@ function showDirectGuide() {
   if (sourcesPanel) sourcesPanel.hidden = true;
 }
 
+function restoreGuideCardPosters() {
+  if (!guideCardsPanel || guideCardsPanel.hidden) return;
+  guideCardsPanel.querySelectorAll("video[data-poster]").forEach((video) => {
+    video.poster = video.dataset.poster;
+    video.removeAttribute("data-poster");
+  });
+}
+
 function showOnlyTopicCards() {
   currentDirectRoute = null;
   currentEntryPreset = null;
   if (guideCardsPanel) {
     guideCardsPanel.hidden = false;
     // Guide pages ship the homepage cards hidden, with posters deferred to data-poster.
-    guideCardsPanel.querySelectorAll("video[data-poster]").forEach((video) => {
-      video.poster = video.dataset.poster;
-      video.removeAttribute("data-poster");
-    });
+    // Init calls this before a direct guide hides the panel again, so restore only if it stays visible.
+    setTimeout(restoreGuideCardPosters, 0);
   }
   if (wizardPanel) {
     wizardPanel.hidden = true;
