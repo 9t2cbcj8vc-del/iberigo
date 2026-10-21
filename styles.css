@@ -4627,7 +4627,33 @@ body:has(.site-search-dialog[open]) { overflow:hidden; }
     left: 48px !important;
     z-index: 2;
     background: #fff8f1 !important;
-    box-shadow: 6px 0 6px -2px #fff8f1;
+  }
+
+  html body .topbar .search-nav-link {
+    z-index: 3;
+  }
+
+  /* Opaque square backing behind the pinned controls so scrolled links never show through. */
+  html body .topbar .language-switcher::before,
+  html body .topbar .language-switcher::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  html body .topbar .language-switcher::before {
+    top: -8px;
+    bottom: -8px;
+    left: -52px;
+    right: -10px;
+    background: #fff8f1;
+  }
+
+  html body .topbar .language-switcher::after {
+    inset: 0;
+    border: inherit;
+    border-radius: inherit;
   }
 
   html body main > section {

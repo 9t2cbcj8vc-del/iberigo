@@ -1,4 +1,4 @@
-const STYLESHEET_VERSION = "20261022-mobile-header";
+const STYLESHEET_VERSION = "20261023-mobile-header";
 const SITE_SEARCH_VERSION = "20261022-mobile-perf";
 
 const stylesheetHref = `/styles.css?v=${STYLESHEET_VERSION}`;
