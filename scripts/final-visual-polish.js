@@ -113,8 +113,11 @@
     if (!nav || !current || nav.scrollWidth <= nav.clientWidth) return;
     const navBox = nav.getBoundingClientRect();
     const linkBox = current.getBoundingClientRect();
-    if (linkBox.left >= navBox.left && linkBox.right <= navBox.right - 20) return;
-    nav.scrollLeft += linkBox.left - navBox.left - (navBox.width - linkBox.width) / 2;
+    // Search and language controls stay pinned at the start of the row.
+    const pinned = nav.querySelector(".language-switcher");
+    const start = pinned ? pinned.getBoundingClientRect().right + 4 : navBox.left;
+    if (linkBox.left >= start && linkBox.right <= navBox.right - 20) return;
+    nav.scrollLeft += linkBox.left - start - Math.max(0, (navBox.right - 20 - start - linkBox.width) / 2);
   }
 
   function apply() {
