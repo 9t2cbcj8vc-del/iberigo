@@ -4,7 +4,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const indexPath = path.join(ROOT, 'index.html');
 const appPath = path.join(ROOT, 'app.js');
-const siteSearchVersion = '20261022-mobile-perf';
+const siteSearchVersion = '20261021-mobile-ux';
 
 function replaceActionLabel(html, key, label) {
   const pattern = new RegExp(`(<(?:a|button)\\b[^>]*data-i18n="${key}"[^>]*>)[\\s\\S]*?(<\\/(?:a|button)>)`, 'g');

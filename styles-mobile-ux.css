@@ -1,0 +1,135 @@
+/* Mobile UX layer: compact jump links, 44px tap targets, swipe hints on wide tables. */
+
+.page-jumps {
+  margin: 18px 0 22px;
+  padding: 12px 14px;
+  border: 1px solid rgba(28, 41, 81, 0.14);
+  border-radius: 14px;
+  background: #fffaf4;
+}
+
+.page-jumps__label {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5b6475;
+}
+
+.page-jumps ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-jumps li { margin: 0; padding: 0; }
+.page-jumps li::before { content: none !important; }
+
+.page-jumps a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0 12px;
+  border: 1px solid rgba(28, 41, 81, 0.18);
+  border-radius: 999px;
+  background: #fff;
+  color: #1c2951;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.page-jumps a:hover,
+.page-jumps a:focus-visible { border-color: #1c2951; }
+
+[data-page-jump-target] { scroll-margin-top: 76px; }
+
+.table-swipe-hint { display: none; }
+
+@media (max-width: 760px) {
+  .table-swipe-hint {
+    display: block;
+    margin: 6px 0 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #5b6475;
+    text-align: right;
+    transition: opacity 0.3s ease;
+  }
+
+  .table-swipe-hint[hidden] { display: none; }
+  .table-swipe-hint.is-done { opacity: 0.35; }
+
+  /* Tap targets: expand hit areas to ~44px without changing the 57px header. */
+  html body .topbar .brand-lockup a,
+  html body .topbar .language-switcher button,
+  html body .topbar .language-switcher a {
+    position: relative;
+  }
+
+  html body .topbar .brand-lockup a::after,
+  html body .topbar .language-switcher button::after,
+  html body .topbar .language-switcher a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 44px;
+    transform: translateY(-50%);
+  }
+
+  html body .topbar nav li > a,
+  html body .topbar nav > ul a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .site-footer a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .article-back,
+  .breadcrumbs a,
+  .guide-breadcrumbs a,
+  .breadcrumb a,
+  nav[aria-label="Breadcrumb"] a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  main h3 > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .article-links a,
+  .guide-jump-links a,
+  .chip,
+  [class*="chip"] > a,
+  a[class*="chip"],
+  button[class*="chip"] {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  main button,
+  main .button,
+  main .btn,
+  main [class*="cta"] {
+    min-height: 44px;
+  }
+}
