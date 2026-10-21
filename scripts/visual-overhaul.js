@@ -159,9 +159,13 @@
     const wizard = document.querySelector("#wizard");
     if (!main || !guide) return;
 
-    if (!document.querySelector(".overhaul-hero")) {
+    // The EN homepage ships this markup pre-rendered (data-lang="en"); only rebuild
+    // when it is missing or in the other language.
+    const bakedHero = document.querySelector(".overhaul-hero");
+    if (!bakedHero || (bakedHero.dataset.lang || lang) !== lang) {
       const hero = document.createElement("section");
       hero.className = "overhaul-hero";
+      hero.dataset.lang = lang;
       hero.innerHTML = `
         <div class="overhaul-hero-copy">
           <span class="overhaul-kicker">IberiGo · Spain made clearer</span>
@@ -177,7 +181,8 @@
           <img src="${VISUALS.arrival}"${responsiveAttrs(VISUALS.arrival, "(max-width: 980px) 100vw, 50vw")} alt="${lang === "es" ? "Llegada a un nuevo hogar en una calle mediterránea española" : "Arriving at a new home on a Spanish Mediterranean street"}" fetchpriority="high" />
           <div class="overhaul-plan-card"><strong>${COPY.planTitle}</strong>${COPY.planItems.map((item) => `<span>✓ ${item}</span>`).join("")}</div>
         </div>`;
-      main.insertBefore(hero, guide);
+      if (bakedHero) bakedHero.replaceWith(hero);
+      else main.insertBefore(hero, guide);
     }
 
     const heading = guide.querySelector(".section-heading");
@@ -218,23 +223,31 @@
     if (callout && disclaimer) callout.insertAdjacentElement("afterend", disclaimer);
     guide.querySelector(".browse-label")?.remove();
 
-    if (wizard && !document.querySelector(".overhaul-route-intro")) {
+    const bakedRoute = document.querySelector(".overhaul-route-intro");
+    if (wizard && (!bakedRoute || (bakedRoute.dataset.lang || lang) !== lang)) {
       const block = document.createElement("section");
       block.className = "overhaul-route-intro";
+      block.dataset.lang = lang;
       block.innerHTML = `<div><span class="overhaul-kicker">Residence & registration</span><h2>${COPY.routeTitle}</h2><p>${COPY.routeText}</p></div><a class="overhaul-button overhaul-button-primary" href="${lang === "es" ? "/es/start-here/" : "/start-here/"}">${COPY.routeButton} <span aria-hidden="true">→</span></a>`;
-      main.insertBefore(block, wizard);
+      if (bakedRoute) bakedRoute.replaceWith(block);
+      else main.insertBefore(block, wizard);
     }
 
     const docs = document.querySelector("#documents");
-    if (docs && !document.querySelector(".overhaul-experience")) {
+    const bakedExperience = document.querySelector(".overhaul-experience");
+    if (docs && (!bakedExperience || (bakedExperience.dataset.lang || lang) !== lang)) {
       const block = document.createElement("section");
       block.className = "overhaul-experience";
+      block.dataset.lang = lang;
       block.innerHTML = `<div><span class="overhaul-kicker">Why IberiGo</span><h2>${COPY.experienceTitle}</h2><p>${COPY.experienceText}</p></div><img src="${VISUALS.files}"${responsiveAttrs(VISUALS.files, "(max-width: 980px) 100vw, 40vw")} alt="${lang === "es" ? "Mesa editorial con documentos y notas sobre España" : "Editorial desk with documents and notes about Spain"}" loading="lazy" decoding="async" />`;
-      docs.insertAdjacentElement("beforebegin", block);
+      if (bakedExperience) bakedExperience.replaceWith(block);
+      else docs.insertAdjacentElement("beforebegin", block);
     }
   }
 
   function setDirectoryCard(card, title, description, href) {
+    // Gateway cards (homepage-gateway-cards.js, or pre-rendered in index.html) own their copy.
+    if (card.dataset.gatewayCardReady) return;
     card.classList.add("overhaul-directory-card");
     const video = card.querySelector("video");
     if (video) {

@@ -19,7 +19,16 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="IberiGo: Spain bureaucracy guides — NIE, TIE, padrón" />
     <meta name="twitter:description" content="Step-by-step guides to NIE, TIE, padrón, visas, healthcare and banking in Spain, in English and Spanish, written from real experience in Alicante." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" media="print" onload="this.media='all'" data-iberigo-fonts="true" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" /></noscript>
     <link rel="stylesheet" href="styles.css?v=20261023-mobile-header" />
+    <link rel="stylesheet" href="/styles-overhaul.css?v=20261021-home-static" data-iberigo-overhaul="true" />
+    <link rel="stylesheet" href="/styles-homepage-gateway-cards.css?v=20261018-visit-guides" data-iberigo-gateway-cards="true" />
+    <link rel="stylesheet" href="/styles-final-visual-polish.css?v=20260927-ux-quick-fixes-1" data-iberigo-final-polish="true" />
+    <link rel="stylesheet" href="/styles-mobile-ux.css?v=20261021-mobile-ux-2" data-iberigo-mobile-ux="true" />
+    <link rel="preload" as="image" href="/assets/visual-library/arrival-relocation-800.webp" imagesrcset="/assets/visual-library/arrival-relocation-400.webp 400w, /assets/visual-library/arrival-relocation-800.webp 800w, /assets/visual-library/arrival-relocation-1200.webp 1200w, /assets/visual-library/arrival-relocation.webp 1536w" imagesizes="(max-width: 980px) 100vw, 50vw" fetchpriority="high" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="apple-touch-icon" href="/assets/favicon.svg" />
     <style data-iberigo-visual-ux-cleanup>
@@ -158,30 +167,44 @@
     }
     </script>
   </head>
-  <body>
+  <body class="iberigo-overhaul iberigo-section-home iberigo-home">
     <div class="app-shell">
       <header class="topbar">
-        <div class="brand-lockup">
+        <div class="brand-lockup"><a href="/" class="brand-home-link" aria-label="IberiGo home">
           <span class="brand-wordmark" aria-label="IberiGo">Iberi<span class="brand-wordmark-accent">Go</span></span>
-        </div>
+        </a></div>
         <nav aria-label="Main sections">
-          <a href="?nav=start#guide-cards" data-i18n="startNav">Home</a>
-          <a href="/the-spain-files/" data-i18n="spainFilesNav" data-language-url='{"en":"/the-spain-files/","es":"/the-spain-files/es/"}'>The Spain Files</a>
-          <a href="/support/" data-i18n="supportNav">Donate</a>
-          <a class="search-nav-link" href="/search/" aria-label="Search IberiGo" title="Search IberiGo" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg></a>
-          <div class="language-switcher" aria-label="Language">
-            <button type="button" data-lang="en">EN</button>
-            <button type="button" data-lang="es">ES</button>
+          
+          
+          
+          <a href="/start-here/" data-iberigo-section="move">Move to Spain</a><a href="/guides/living-in-spain/" data-iberigo-section="live">Living in Spain</a><a href="/guides/vacation-in-spain/" data-iberigo-section="visit">Visit Spain</a><a href="/the-spain-files/" data-iberigo-section="files">The Spain Files</a><a class="search-nav-link" href="/search/" aria-label="Search IberiGo" title="Search IberiGo" data-site-search-open><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><line x1="16.65" y1="16.65" x2="21" y2="21"></line></svg></a>
+          <div class="language-switcher" aria-label="Language" data-active-language="en">
+            <button type="button" data-lang="en" aria-pressed="true" class="is-active-language">EN</button>
+            <button type="button" data-lang="es" aria-pressed="false">ES</button>
           </div>
         </nav>
       </header>
 
       <main>
-        <section id="guide-cards" class="panel guide-card-panel" aria-labelledby="guideCardsTitle">
+        <section class="overhaul-hero" data-lang="en">
+        <div class="overhaul-hero-copy">
+          <span class="overhaul-kicker">IberiGo · Spain made clearer</span>
+          <h1>Move to Spain with confidence.</h1>
+          <p>Step-by-step roadmaps, official links and real experience to help you move, settle in and build your life in Spain.</p>
+          <div class="overhaul-actions">
+            <a class="overhaul-button overhaul-button-primary" href="/start-here/">Start your roadmap <span aria-hidden="true">→</span></a>
+            <a class="overhaul-button overhaul-button-secondary" href="/guides/living-in-spain/">Explore living in Spain</a>
+          </div>
+          <small>Practical information · Official sources · Real experience</small>
+        </div>
+        <div class="overhaul-hero-visual">
+          <img src="/assets/visual-library/arrival-relocation.webp" width="1536" height="1024" srcset="/assets/visual-library/arrival-relocation-400.webp 400w, /assets/visual-library/arrival-relocation-800.webp 800w, /assets/visual-library/arrival-relocation-1200.webp 1200w, /assets/visual-library/arrival-relocation.webp 1536w" sizes="(max-width: 980px) 100vw, 50vw" alt="Arriving at a new home on a Spanish Mediterranean street" fetchpriority="high">
+          <div class="overhaul-plan-card"><strong>My Spain plan</strong><span>✓ Documents</span><span>✓ Residence route</span><span>✓ Padrón</span><span>✓ Bank &amp; healthcare</span></div>
+        </div></section><section id="guide-cards" class="panel guide-card-panel" aria-labelledby="guideCardsTitle">
           <div class="section-heading">
-            <h1 id="guideCardsTitle" data-i18n="startHeading">Spanish bureaucracy, explained by people who've actually done it.</h1>
-            <p class="hero-subheading" data-i18n="heroSubheading">Real timelines, real documents, no legal jargon — start with what's actually next for you.</p>
-            <p class="hero-stats" data-i18n="heroStats">70+ guides · Updated October 2026 · Written from Alicante</p>
+            <h2 id="guideCardsTitle">What are you trying to do in Spain?</h2>
+            <p class="hero-subheading">Choose the part of your Spain journey that matches where you are now.</p>
+            <template data-freshness-source><p class="hero-stats" data-i18n="heroStats">70+ guides · Updated October 2026 · Written from Alicante</p></template>
           </div>
 
           <section class="intent-discovery" data-iberigo-intent-discovery data-intent-surface="home" data-intent-lang="en" aria-labelledby="intentDiscoveryTitle-home-en">
@@ -196,41 +219,56 @@
     <p class="intent-discovery-footer"><a class="intent-discovery-fallback" data-intent-fallback href="/search/">Search all IberiGo guides</a></p>
   </section>
 
-          <article class="featured-guide">
+
+          
+          
+          
+          <div class="situation-grid iberigo-gateway-grid">
+            
+            
+            
+          <article class="situation-card situation-card--illustrated overhaul-directory-card iberigo-gateway-card iberigo-gateway-card--move iberigo-gateway-card--primary" data-home-card="move" data-gateway-card-ready="en">
+      <a class="gateway-card-media" href="/start-here/" tabindex="-1" aria-hidden="true">
+        <img src="/assets/visual-library/arrival-relocation.webp" width="1536" height="1024" srcset="/assets/visual-library/arrival-relocation-400.webp 400w, /assets/visual-library/arrival-relocation-800.webp 800w, /assets/visual-library/arrival-relocation-1200.webp 1200w, /assets/visual-library/arrival-relocation.webp 1536w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Arrival and relocation in a Spanish Mediterranean street" loading="lazy" decoding="async">
+      </a>
+      <div class="gateway-card-body">
+        <span class="gateway-card-eyebrow">Relocation</span>
+        <h3>Move to Spain</h3>
+        <p>Residency, NIE, TIE, padrón, EU registration and the key steps to start your new life in Spain.</p>
+        <a class="gateway-card-action" href="/start-here/">Plan your move<span aria-hidden="true">→</span></a>
+      </div></article><article class="situation-card situation-card--illustrated overhaul-directory-card iberigo-gateway-card iberigo-gateway-card--vacation" data-home-card="vacation" data-gateway-card-ready="en">
+      <a class="gateway-card-media" href="/guides/vacation-in-spain/" tabindex="-1" aria-hidden="true">
+        <img src="/assets/visual-library/visit-travel.webp" width="1536" height="1024" srcset="/assets/visual-library/visit-travel-400.webp 400w, /assets/visual-library/visit-travel-800.webp 800w, /assets/visual-library/visit-travel-1200.webp 1200w, /assets/visual-library/visit-travel.webp 1536w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Spanish coast and Mediterranean travel scene" loading="lazy" decoding="async">
+      </a>
+      <div class="gateway-card-body">
+        <span class="gateway-card-eyebrow">Travel</span>
+        <h3>Visit Spain</h3>
+        <p>Entry rules, short stays, transport, places to stay and practical travel help for your trip.</p>
+        <ul class="gateway-card-links" aria-label="Practical guides for visiting Spain"><li><a href="/guides/vacation-hotels/">Hotel chains</a></li><li><a href="/guides/vacation-trains/">Trains</a></li><li><a href="/guides/vacation-toll-roads/">Toll roads</a></li><li><a href="/guides/vacation-supermarkets/">Supermarkets</a></li><li><a href="/guides/sim-esim-vpn/">Mobile &amp; SIM</a></li></ul>
+        <a class="gateway-card-action" href="/guides/vacation-in-spain/">Plan your visit<span aria-hidden="true">→</span></a>
+      </div></article><article class="situation-card situation-card--illustrated overhaul-directory-card iberigo-gateway-card iberigo-gateway-card--living" data-home-card="living" data-gateway-card-ready="en">
+      <a class="gateway-card-media" href="/guides/living-in-spain/" tabindex="-1" aria-hidden="true">
+        <img src="/assets/visual-library/everyday-life.webp" width="1536" height="1024" srcset="/assets/visual-library/everyday-life-400.webp 400w, /assets/visual-library/everyday-life-800.webp 800w, /assets/visual-library/everyday-life-1200.webp 1200w, /assets/visual-library/everyday-life.webp 1536w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Everyday life in a Spanish residential neighbourhood" loading="lazy" decoding="async">
+      </a>
+      <div class="gateway-card-body">
+        <span class="gateway-card-eyebrow">Everyday life</span>
+        <h3>Living in Spain</h3>
+        <p>Healthcare, banking, taxes, digital access and the admin steps that shape daily life in Spain.</p>
+        <ul class="gateway-card-links" aria-label="Practical guides for living in Spain"><li><a href="/guides/sip-card/">Healthcare</a></li><li><a href="/the-spain-files/bank-account-spain/">Bank account</a></li><li><a href="/guides/vacation-supermarkets/">Supermarkets</a></li></ul>
+        <a class="gateway-card-action" href="/guides/living-in-spain/">Browse living guides<span aria-hidden="true">→</span></a>
+      </div></article></div><article class="featured-guide">
             <span class="featured-guide-eyebrow" data-i18n="mostReadEyebrow">Most read</span>
             <h3 class="featured-guide-title" data-i18n="featuredNieTitle">How to get a NIE in Spain</h3>
             <p class="featured-guide-note" data-i18n="featuredNieNote">Based on real experience in Alicante province.</p>
-            <a class="featured-guide-button" href="/the-spain-files/nie-spain/" data-i18n="readGuideButton" data-language-url='{"en":"/the-spain-files/nie-spain/","es":"/the-spain-files/como-obtener-nie-en-espana/"}'>Read guide</a>
-          </article>
-          <a class="homepage-callout" href="/the-spain-files/padron-torrevieja/" data-language-url='{"en":"/the-spain-files/padron-torrevieja/","es":"/the-spain-files/es/padron-torrevieja/"}'>
+            <a class="featured-guide-button" href="/the-spain-files/nie-spain/" data-i18n="readGuideButton" data-language-url="{&quot;en&quot;:&quot;/the-spain-files/nie-spain/&quot;,&quot;es&quot;:&quot;/the-spain-files/como-obtener-nie-en-espana/&quot;}">Read guide</a>
+          </article><a class="homepage-callout" href="/the-spain-files/padron-torrevieja/" data-language-url="{&quot;en&quot;:&quot;/the-spain-files/padron-torrevieja/&quot;,&quot;es&quot;:&quot;/the-spain-files/es/padron-torrevieja/&quot;}">
             <strong class="homepage-callout-eyebrow" data-i18n="calloutEyebrow">📍 Torrevieja firsthand experience</strong>
             <blockquote data-i18n="calloutQuote">Most guides say padrón takes a few days. In Torrevieja the certificate itself took about 2–3 months after we submitted papers; the whole path to residency took about 3.5 months.</blockquote>
           </a>
-          <p class="browse-label" data-i18n="browseBySituation">Or browse by situation</p>
-          <div class="situation-grid">
-            <article class="situation-card situation-card--illustrated" data-home-card="move">
-              <img class="situation-media" src="/assets/visual-library/arrival-relocation.webp" srcset="/assets/visual-library/arrival-relocation-400.webp 400w, /assets/visual-library/arrival-relocation-800.webp 800w, /assets/visual-library/arrival-relocation-1200.webp 1200w, /assets/visual-library/arrival-relocation.webp 1536w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Arrival and relocation in a Spanish Mediterranean street" loading="lazy" decoding="async" />
-              <h3 data-i18n="movingTitle">Move to Spain</h3>
-              <p data-i18n="movingDesc">NIE, TIE, padrón, EU registration, visas, and residency.</p>
-              <a class="primary-action" href="/start-here/" data-i18n="movingButton" data-language-url='{"en":"/start-here/","es":"/es/start-here/"}'>Plan your move</a>
-            </article>
-            <article class="situation-card situation-card--illustrated" data-home-card="vacation">
-              <img class="situation-media" src="/assets/visual-library/visit-travel.webp" srcset="/assets/visual-library/visit-travel-400.webp 400w, /assets/visual-library/visit-travel-800.webp 800w, /assets/visual-library/visit-travel-1200.webp 1200w, /assets/visual-library/visit-travel.webp 1536w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Spanish coast and Mediterranean travel scene" loading="lazy" decoding="async" />
-              <h3 data-i18n="vacationTitle">Visit Spain</h3>
-              <p data-i18n="vacationDesc">Short visits, entry rules, transport, places to stay, and practical trip planning in Spain.</p>
-              <button type="button" data-route-preset="vacation" data-i18n="vacationButton">Plan your visit</button>
-            </article>
-            <article class="situation-card situation-card--illustrated" data-home-card="living">
-              <img class="situation-media" src="/assets/visual-library/everyday-life.webp" srcset="/assets/visual-library/everyday-life-400.webp 400w, /assets/visual-library/everyday-life-800.webp 800w, /assets/visual-library/everyday-life-1200.webp 1200w, /assets/visual-library/everyday-life.webp 1536w" sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Everyday life in a Spanish residential neighbourhood" loading="lazy" decoding="async" />
-              <h3 data-i18n="livingTitle">Living in Spain</h3>
-              <p data-i18n="livingDesc">Healthcare, banking, taxes, digital access, and the key admin steps for everyday life in Spain.</p>
-              <button type="button" data-route-preset="living" data-i18n="livingButton">Browse living guides</button>
-            </article>
-          </div>
         </section>
 
-        <section id="wizard" class="panel wizard-panel">
-          <form class="wizard" id="routeWizard">
+        <section class="overhaul-route-intro" data-lang="en"><div><span class="overhaul-kicker">Residence &amp; registration</span><h2>Find your legal route</h2><p>Moving permanently? Use the route finder to narrow down the residence or registration path that applies to you.</p></div><a class="overhaul-button overhaul-button-primary" href="/start-here/">Find my route <span aria-hidden="true">→</span></a></section><section id="wizard" class="panel wizard-panel" hidden>
+          <form class="wizard" id="routeWizard" data-step="person">
             <div class="wizard-progress" aria-label="Progress">
               <span data-i18n="progressPerson">1. Status</span>
               <span data-i18n="progressGoal">2. Goal</span>
@@ -238,48 +276,48 @@
             </div>
             <fieldset>
               <legend data-i18n="personLegend">Are you?</legend>
-              <label class="person-card" data-person-card="eu"><input type="radio" name="personType" value="eu" /> <span data-i18n="personEu">EU, EEA, or Swiss citizen</span><small data-i18n="personEuDesc">You may need EU registration if you live in Spain longer term.</small></label>
-              <label class="person-card" data-person-card="non-eu"><input type="radio" name="personType" value="nonEu" /> <span data-i18n="personNonEu">Non-EU citizen</span><small data-i18n="personNonEuDesc">You may need a visa, authorization, TIE, or short-stay entry route.</small></label>
+              <label class="person-card" data-person-card="eu"><input type="radio" name="personType" value="eu"> <span data-i18n="personEu">EU, EEA, or Swiss citizen</span><small data-i18n="personEuDesc">You may need EU registration if you live in Spain longer term.</small></label>
+              <label class="person-card" data-person-card="non-eu"><input type="radio" name="personType" value="nonEu"> <span data-i18n="personNonEu">Non-EU citizen</span><small data-i18n="personNonEuDesc">You may need a visa, authorization, TIE, or short-stay entry route.</small></label>
             </fieldset>
 
-            <fieldset class="goal-visual-grid">
+            <fieldset class="goal-visual-grid" hidden>
               <legend data-i18n="goalLegend">What are you trying to do?</legend>
-              <label class="goal-card" data-goal-card="work-employee"><input type="radio" name="goal" value="workEmployee" /> <span data-i18n="goalWorkEmployee">Work for a Spanish employer</span><small data-i18n="goalWorkEmployeeDesc">Employee residence and work authorization, normally started by the employer.</small></label>
-              <label class="goal-card" data-goal-card="work-self"><input type="radio" name="goal" value="workSelf" /> <span data-i18n="goalWorkSelf">Work as self-employed in Spain</span><small data-i18n="goalWorkSelfDesc">Self-employed residence and work authorization using the consular route.</small></label>
-              <label class="goal-card" data-goal-card="work-specialist"><input type="radio" name="goal" value="workSpecialist" /> <span data-i18n="goalWorkSpecialist">Specialist work / mobility route</span><small data-i18n="goalWorkSpecialistDesc">Highly qualified, EU Blue Card, company transfer, seasonal, research, entrepreneur or internship routes.</small></label>
-              <label class="goal-card" data-goal-card="no-work"><input type="radio" name="goal" value="noWork" /> <span data-i18n="goalNoWork">Live in Spain without working</span><small data-i18n="goalNoWorkDesc">For funds, retirement income, or no Spanish work activity.</small></label>
-              <label class="goal-card" data-goal-card="study-abroad"><input type="radio" name="goal" value="studyAbroad" /> <span data-i18n="goalStudyAbroad">Study in Spain — applying from abroad</span><small data-i18n="goalStudyAbroadDesc">Student visa / long-stay study route through the Spanish consulate.</small></label>
-              <label class="goal-card" data-goal-card="study-spain"><input type="radio" name="goal" value="studySpain" /> <span data-i18n="goalStudySpain">Study in Spain — already legally in Spain</span><small data-i18n="goalStudySpainDesc">Check whether you can apply in Spain through Extranjería or Mercurio.</small></label>
-              <label class="goal-card" data-goal-card="remote"><input type="radio" name="goal" value="remote" /> <span data-i18n="goalRemote">Work remotely from Spain</span><small data-i18n="goalRemoteDesc">Remote work mainly for clients or companies outside Spain.</small></label>
-              <label class="goal-card" data-goal-card="family"><input type="radio" name="goal" value="family" /> <span data-i18n="goalFamily">Join family in Spain</span><small data-i18n="goalFamilyDesc">Family reunification, Spanish-family, or EU-family residence routes.</small></label>
-              <label class="goal-card" data-goal-card="special-case"><input type="radio" name="goal" value="specialCase" /> <span data-i18n="goalSpecialCase">Other or special situation</span><small data-i18n="goalSpecialCaseDesc">For previous residence, long-term EU status, exceptional circumstances or another uncommon route.</small></label>
+              <label class="goal-card" data-goal-card="work-employee"><input type="radio" name="goal" value="workEmployee"> <span data-i18n="goalWorkEmployee">Work for a Spanish employer</span><small data-i18n="goalWorkEmployeeDesc">Employee residence and work authorization, normally started by the employer.</small></label>
+              <label class="goal-card" data-goal-card="work-self"><input type="radio" name="goal" value="workSelf"> <span data-i18n="goalWorkSelf">Work as self-employed in Spain</span><small data-i18n="goalWorkSelfDesc">Self-employed residence and work authorization using the consular route.</small></label>
+              <label class="goal-card" data-goal-card="work-specialist"><input type="radio" name="goal" value="workSpecialist"> <span data-i18n="goalWorkSpecialist">Specialist work / mobility route</span><small data-i18n="goalWorkSpecialistDesc">Highly qualified, EU Blue Card, company transfer, seasonal, research, entrepreneur or internship routes.</small></label>
+              <label class="goal-card" data-goal-card="no-work"><input type="radio" name="goal" value="noWork"> <span data-i18n="goalNoWork">Live in Spain without working</span><small data-i18n="goalNoWorkDesc">For funds, retirement income, or no Spanish work activity.</small></label>
+              <label class="goal-card" data-goal-card="study-abroad"><input type="radio" name="goal" value="studyAbroad"> <span data-i18n="goalStudyAbroad">Study in Spain — applying from abroad</span><small data-i18n="goalStudyAbroadDesc">Student visa / long-stay study route through the Spanish consulate.</small></label>
+              <label class="goal-card" data-goal-card="study-spain"><input type="radio" name="goal" value="studySpain"> <span data-i18n="goalStudySpain">Study in Spain — already legally in Spain</span><small data-i18n="goalStudySpainDesc">Check whether you can apply in Spain through Extranjería or Mercurio.</small></label>
+              <label class="goal-card" data-goal-card="remote"><input type="radio" name="goal" value="remote"> <span data-i18n="goalRemote">Work remotely from Spain</span><small data-i18n="goalRemoteDesc">Remote work mainly for clients or companies outside Spain.</small></label>
+              <label class="goal-card" data-goal-card="family"><input type="radio" name="goal" value="family"> <span data-i18n="goalFamily">Join family in Spain</span><small data-i18n="goalFamilyDesc">Family reunification or EU-family residence card routes.</small></label>
+              <label class="goal-card" data-goal-card="special-case"><input type="radio" name="goal" value="specialCase"> <span data-i18n="goalSpecialCase">Other or special situation</span><small data-i18n="goalSpecialCaseDesc">For cases such as previous residence, long-term EU status, exceptional circumstances or another uncommon route.</small></label>
             </fieldset>
 
-            <fieldset>
+            <fieldset hidden>
               <legend data-i18n="familyLegend">Who are you joining in Spain?</legend>
-              <label><input type="radio" name="familySponsor" value="euCitizen" /> <span data-i18n="familyEu">EU/EEA/Swiss citizen</span><small data-i18n="familyEuDesc">Points to the EU-family residence-card route (EX-19).</small></label>
-              <label><input type="radio" name="familySponsor" value="spanishCitizen" /> <span data-i18n="familySpanishStandard">Spanish citizen — standard Spanish-family route</span><small data-i18n="familySpanishStandardDesc">Normally the EX-24 family member of a Spanish national route.</small></label>
-              <label><input type="radio" name="familySponsor" value="spanishCitizenEuReturn" /> <span data-i18n="familySpanishEuReturn">Spanish citizen — EU free-movement return case</span><small data-i18n="familySpanishEuReturnDesc">Only if the Spanish citizen genuinely exercised EU free-movement rights in another EU/EEA country before returning to Spain.</small></label>
-              <label><input type="radio" name="familySponsor" value="nonEuResident" /> <span data-i18n="familyNonEu">Non-EU citizen resident in Spain</span><small data-i18n="familyNonEuDesc">Points to ordinary family reunification (EX-02).</small></label>
+              <label><input type="radio" name="familySponsor" value="euCitizen"> <span data-i18n="familyEu">EU/EEA/Swiss citizen</span><small data-i18n="familyEuDesc">Points to the EU-family residence-card route (EX-19).</small></label>
+              <label><input type="radio" name="familySponsor" value="spanishCitizen"> <span data-i18n="familySpanishStandard">Spanish citizen — standard Spanish-family route</span><small data-i18n="familySpanishStandardDesc">Normally the EX-24 family member of a Spanish national route.</small></label>
+              <label><input type="radio" name="familySponsor" value="spanishCitizenEuReturn"> <span data-i18n="familySpanishEuReturn">Spanish citizen — EU free-movement return case</span><small data-i18n="familySpanishEuReturnDesc">Only if the Spanish citizen genuinely exercised EU free-movement rights in another EU/EEA country before returning to Spain.</small></label>
+              <label><input type="radio" name="familySponsor" value="nonEuResident"> <span data-i18n="familyNonEu">Non-EU citizen resident in Spain</span><small data-i18n="familyNonEuDesc">Points to ordinary family reunification (EX-02).</small></label>
             </fieldset>
 
-            <fieldset>
+            <fieldset hidden>
               <legend data-i18n="durationLegend">How long do you plan to stay?</legend>
-              <label><input type="radio" name="duration" value="short" /> <span data-i18n="durationShort">Less than 90 days</span><small data-i18n="durationShortDesc">Usually a short-stay or entry-rules question.</small></label>
-              <label><input type="radio" name="duration" value="long" /> <span data-i18n="durationLong">More than 90 days / long term</span><small data-i18n="durationLongDesc">Usually requires registration, visa, authorization, or card steps.</small></label>
-              <label><input type="radio" name="duration" value="notSure" /> <span data-i18n="durationNotSure">Not sure</span><small data-i18n="durationNotSureDesc">Use this if you are still planning and want a cautious starting point.</small></label>
+              <label><input type="radio" name="duration" value="short"> <span data-i18n="durationShort">Less than 90 days</span><small data-i18n="durationShortDesc">Usually a short-stay or entry-rules question.</small></label>
+              <label><input type="radio" name="duration" value="long"> <span data-i18n="durationLong">More than 90 days / long term</span><small data-i18n="durationLongDesc">Usually requires registration, visa, authorization, or card steps.</small></label>
+              <label><input type="radio" name="duration" value="notSure"> <span data-i18n="durationNotSure">Not sure</span><small data-i18n="durationNotSureDesc">Use this if you are still planning and want a cautious starting point.</small></label>
             </fieldset>
 
             <button class="submit-button" id="wizardSubmit" type="submit" data-i18n="continueButton">Continue</button>
           </form>
 
           <article class="result-card is-empty" id="wizardResult" aria-live="polite">
-            <h3 data-i18n="emptyTitle">Your roadmap will appear here</h3>
-            <p data-i18n="emptyText">Choose a situation card or answer the questions above to see a Spain-wide route.</p>
-          </article>
+    <h3>Your roadmap will appear here</h3>
+    <p>Choose a situation card or answer the questions above to see a Spain-wide route.</p>
+  </article>
         </section>
 
-        <section id="documents" class="panel document-panel">
+        <section class="overhaul-experience" data-lang="en"><div><span class="overhaul-kicker">Why IberiGo</span><h2>Real Spain, not just the rulebook.</h2><p>IberiGo combines official requirements with practical experience, so you can see both what the rules say and what the process can feel like in real life.</p></div><img src="/assets/visual-library/spain-files-editorial.webp" width="1536" height="1024" srcset="/assets/visual-library/spain-files-editorial-400.webp 400w, /assets/visual-library/spain-files-editorial-800.webp 800w, /assets/visual-library/spain-files-editorial-1200.webp 1200w, /assets/visual-library/spain-files-editorial.webp 1536w" sizes="(max-width: 980px) 100vw, 40vw" alt="Editorial desk with documents and notes about Spain" loading="lazy" decoding="async"></section><section id="documents" class="panel document-panel" hidden>
           <div class="section-heading">
             <h2>Documents that often slow people down</h2>
           </div>
@@ -315,7 +353,7 @@
           <p class="helper-note">Not every document applies to every route. The guide should help you narrow this down.</p>
         </section>
 
-        <section id="sources" class="sources panel">
+        <section id="sources" class="sources panel" hidden>
           <div class="section-heading">
             <h2>Official sources</h2>
           </div>
@@ -340,7 +378,7 @@
               <div class="source-list">
                 <a href="https://www.sede.fnmt.gob.es/certificados/persona-fisica" target="_blank" rel="noreferrer">FNMT citizen digital certificate</a>
                 <a class="source--tax" href="https://www2.agenciatributaria.gob.es/wlpl/TOCP-MUTE/internet/identificacion" target="_blank" rel="noreferrer">FNMT appointment via Tax Agency</a>
-                <a class="source--social-security" href="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&ARQ.SPM.APPTYPE=SERVICE&ARQ.IDAPP=CPMSWACS&ORGANISMO=I" target="_blank" rel="noreferrer">FNMT appointment via Social Security</a>
+                <a class="source--social-security" href="https://w6.seg-social.es/ProsaInternetAnonimo/OnlineAccess?ARQ.SPM.ACTION=LOGIN&amp;ARQ.SPM.APPTYPE=SERVICE&amp;ARQ.IDAPP=CPMSWACS&amp;ORGANISMO=I" target="_blank" rel="noreferrer">FNMT appointment via Social Security</a>
                 <a href="https://clave.gob.es/registro/como-puedo-registrarme" target="_blank" rel="noreferrer">Cl@ve registration</a>
               </div>
             </article>
@@ -372,7 +410,7 @@
     </div>
     <script src="app.js?v=h3db37ad267"></script>
     <script src="/scripts/roadmap-link-bridge.js?v=20260815-scope-fix-1"></script>
-    <script src="/scripts/site-search.js?v=20261021-mobile-ux-2" defer></script>
+    <script src="/scripts/site-search.js?v=20261021-home-static" defer></script>
     <script src="/scripts/readability.js?v=20260814-readability-2" defer></script>
       <script src="/scripts/language-switch-fix.js?v=20260820-language-active-2" defer></script>
     <script src="/intent-discovery.js?v=20260908-intent-1" defer data-iberigo-intent-discovery-script></script>

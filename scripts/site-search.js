@@ -38,14 +38,15 @@
     });
   }
 
-  addStyle('link[data-iberigo-overhaul]', '/styles-overhaul.css?v=20261022-mobile-perf', 'iberigoOverhaul');
+  addStyle('link[data-iberigo-fonts]', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap', 'iberigoFonts');
+  addStyle('link[data-iberigo-overhaul]', '/styles-overhaul.css?v=20261021-home-static', 'iberigoOverhaul');
   addStyle('link[data-iberigo-gateway-cards]', '/styles-homepage-gateway-cards.css?v=20261018-visit-guides', 'iberigoGatewayCards');
   addStyle('link[data-iberigo-final-polish]', '/styles-final-visual-polish.css?v=20260927-ux-quick-fixes-1', 'iberigoFinalPolish');
   addStyle('link[data-iberigo-mobile-ux]', '/styles-mobile-ux.css?v=20261021-mobile-ux-2', 'iberigoMobileUx');
 
   (async () => {
-    await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20261022-mobile-perf', 'iberigoOverhaul');
-    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20261022-mobile-perf', 'iberigoGatewayCards');
+    await loadScript('script[data-iberigo-overhaul]', '/scripts/visual-overhaul.js?v=20261021-home-static', 'iberigoOverhaul');
+    await loadScript('script[data-iberigo-gateway-cards]', '/scripts/homepage-gateway-cards.js?v=20261021-home-static', 'iberigoGatewayCards');
     await loadScript('script[data-iberigo-final-polish]', '/scripts/final-visual-polish.js?v=20261022-mobile-perf', 'iberigoFinalPolish');
     await loadScript('script[data-iberigo-mobile-ux]', '/scripts/mobile-ux.js?v=20261021-mobile-ux-2', 'iberigoMobileUx');
   })();
