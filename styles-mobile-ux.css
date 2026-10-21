@@ -8,8 +8,9 @@
   background: #fffaf4;
 }
 
-.page-jumps__label {
-  margin: 0 0 8px;
+.page-jumps .page-jumps__label {
+  margin: 0 0 6px !important;
+  padding: 0 !important;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -21,8 +22,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left;
   list-style: none;
 }
 
@@ -34,14 +36,15 @@
   align-items: center;
   min-height: 44px;
   max-width: 100%;
-  padding: 0 12px;
+  padding: 0 11px;
   border: 1px solid rgba(28, 41, 81, 0.18);
+  text-align: left;
   border-radius: 999px;
   background: #fff;
   color: #1c2951;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.15;
   text-decoration: none;
   overflow-wrap: anywhere;
 }

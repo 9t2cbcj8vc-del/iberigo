@@ -27,7 +27,7 @@
 
   function label(h) {
     const t = (h.textContent || '').replace(/\s+/g, ' ').trim();
-    return t.length > 48 ? t.slice(0, 46).replace(/\s+\S*$/, '') + '…' : t;
+    return t.length > 34 ? t.slice(0, 32).replace(/\s+\S*$/, '') + '…' : t;
   }
 
   function buildJumps() {

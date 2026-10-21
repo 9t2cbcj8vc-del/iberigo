@@ -1,5 +1,5 @@
 const STYLESHEET_VERSION = "20261023-mobile-header";
-const SITE_SEARCH_VERSION = "20261021-mobile-ux";
+const SITE_SEARCH_VERSION = "20261021-mobile-ux-2";
 
 const stylesheetHref = `/styles.css?v=${STYLESHEET_VERSION}`;
 const siteSearchScriptSrc = `/scripts/site-search.js?v=${SITE_SEARCH_VERSION}`;
