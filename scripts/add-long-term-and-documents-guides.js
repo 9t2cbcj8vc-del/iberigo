@@ -6,7 +6,8 @@ const REVIEW_DATE = '2026-08-17';
 
 const URLS = {
   policeEu: 'https://sede.policia.gob.es/portalCiudadano/_es/tramites_extranjeria_tramite_certificadoregistro_ciudadanoue.php',
-  euPermanent: 'https://administracion.gob.es/pag_Home/Tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/obtencion-residencia/residencia-permanente',
+  euPermanent: 'https://administracion.gob.es/en/tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/obtencion-residencia/residencia-permanente',
+  euPermanentEs: 'https://administracion.gob.es/tu-espacio-europeo/derechos-obligaciones/ciudadanos/residencia/obtencion-residencia/residencia-permanente',
   familyPermanent: 'https://inclusion.gob.es/web/migraciones/w/63.-tarjeta-de-residencia-permanente-de-familiar-de-ciudadano-de-la-union-europea',
   familyPermanentEn: 'https://www.inclusion.gob.es/en/web/migraciones/w/63.-tarjeta-de-residencia-permanente-de-familiar-de-ciudadano-de-la-union-europea',
   longNational: 'https://www.inclusion.gob.es/en/web/migraciones/w/49.-autorizacion-de-residencia-de-larga-duracion-nacional',
@@ -164,7 +165,7 @@ const pages = [
       <section class="guide-section" aria-labelledby="fuentesOficiales"><h2 id="fuentesOficiales">Fuentes oficiales</h2>
         ${sourceCards([
           ['Policía', 'Certificado de registro UE / derecho permanente', URLS.policeEu, 'Policía confirma el certificado permanente tras la residencia legal continuada aplicable y publica lugar, EX-18 y 790-012.'],
-          ['España', 'Resumen de residencia permanente', URLS.euPermanent, 'El Punto de Acceso General explica la residencia permanente de ciudadanos UE y familiares.'],
+          ['España', 'Resumen de residencia permanente', URLS.euPermanentEs, 'El Punto de Acceso General explica la residencia permanente de ciudadanos UE y familiares.'],
           ['Migraciones', 'Tarjeta permanente de familiar UE — Hoja 63', URLS.familyPermanent, 'Requisitos oficiales, EX-19, canales de presentación y supuestos especiales.'],
           ['Migraciones', 'Larga duración nacional — Hoja 49', URLS.longNationalEs, 'Requisitos, EX-11, presentación en Extranjería/Mercurio y reglas de continuidad.'],
           ['Migraciones', 'Larga duración-UE — Hoja 50', URLS.longEuEs, 'Requisitos de larga duración-UE, recursos/seguro y procedimiento.'],
