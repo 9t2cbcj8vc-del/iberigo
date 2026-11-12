@@ -33,7 +33,9 @@
     "/the-spain-files/padron-torrevieja/",
     "/the-spain-files/es/padron-torrevieja/",
     "/the-spain-files/tie-fingerprints-alicante/",
-    "/es/the-spain-files/huellas-tie-alicante/"
+    "/es/the-spain-files/huellas-tie-alicante/",
+    "/the-spain-files/digital-certificate-clave-spain/",
+    "/es/the-spain-files/certificado-digital-clave/"
   ],
   "duplicate_aliases": {
     "/guides/study/": "/moving-to-spain/students/",

@@ -35,6 +35,10 @@ const FILES = {
     en: ["/the-spain-files/tie-fingerprints-alicante/", "TIE fingerprint appointment in Alicante: booking, documents and tips"],
     es: ["/es/the-spain-files/huellas-tie-alicante/", "Cita de huellas para el TIE en Alicante: reserva, documentos y consejos"],
   },
+  digital: {
+    en: ["/the-spain-files/digital-certificate-clave-spain/", "Digital certificate and Cl@ve in Spain: which one you can get first"],
+    es: ["/es/the-spain-files/certificado-digital-clave/", "Certificado digital y Cl@ve en España: cuál puedes conseguir primero"],
+  },
   bank: {
     en: ["/the-spain-files/bank-account-spain/", "Opening a bank account in Spain: practical guide"],
     es: ["/the-spain-files/abrir-cuenta-bancaria-espana/", "Abrir una cuenta bancaria en España: guía práctica"],
@@ -51,6 +55,8 @@ const PAGES = [
   ["es/moving-to-spain/digital-nomad-spain", "dnv", "es", "system"],
   ["guides/tie", "tie", "en", "legacy"],
   ["guides/es/tie", "tie", "es", "legacy"],
+  ["guides/digital", "digital", "en", "legacy"],
+  ["guides/es/digital", "digital", "es", "legacy"],
   ["guides/banking", "bank", "en", "legacy"],
   ["guides/es/banking", "bank", "es", "legacy"],
   ["living-in-spain/opening-a-bank-account", "bank", "en", "system"],
