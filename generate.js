@@ -380,12 +380,12 @@ const GUIDES = {
   },
   "vacation-hotels": {
     en: {
-      process: "Spanish hotel chains: the biggest groups in Spain",
-      explanation: "Meliá, Barceló and Eurostars lead Spain's hotel groups by rooms. Compare Spanish chains like NH, RIU, Iberostar and Paradores, with official booking links."
+      process: "Hotels in Spain: brands by style, quality and trip type",
+      explanation: "A practical guide to hotels in Spain: what star ratings mean, hostales versus hostels, and hotel brands grouped by style, quality and trip type."
     },
     es: {
-      process: "Cadenas hoteleras españolas: las más grandes",
-      explanation: "Meliá, Barceló y Eurostars lideran las cadenas hoteleras en España por habitaciones. Compara NH, RIU, Iberostar y Paradores con enlaces oficiales."
+      process: "Hoteles en España: marcas por estilo, calidad y tipo de viaje",
+      explanation: "Guía práctica de hoteles en España: qué miden las estrellas, hostal frente a albergue, y marcas agrupadas por estilo, calidad y tipo de viaje."
     }
   },
   "vacation-tourism": {
