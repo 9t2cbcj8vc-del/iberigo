@@ -337,7 +337,7 @@
     if (hero) {
       const kicker = hero.querySelector(".guide-kicker");
       const h1 = hero.querySelector("h1");
-      const intro = hero.querySelector("p:not(.guide-reading-time)");
+      const intro = hero.querySelector("p:not(.guide-updated):not(.guide-reading-time)");
       if (kicker) kicker.textContent = lang === "es" ? "Directorio IberiGo" : "IberiGo directory";
       if (h1) h1.textContent = data.title;
       if (intro) intro.textContent = data.text;

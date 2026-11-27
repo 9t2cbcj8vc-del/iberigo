@@ -347,11 +347,10 @@ function StatusBadge() {
 }
 
 function ReadingTime(html, { lang = "en", freshnessSlot = false } = {}) {
-  const words = stripHtml(html).trim().split(/\s+/).filter(Boolean).length;
-  const minutes = Math.max(1, Math.ceil(words / 200));
-  // freshnessSlot: bake-content-freshness.js appends the Git-derived "Updated" date here.
-  const slot = freshnessSlot ? " data-iberigo-freshness-slot" : "";
-  return `<p class="guide-reading-time"${slot}>${minutes} ${lang === "es" ? "min de lectura" : "min read"}</p>`;
+  // Reading time is no longer shown. Keep an empty freshness slot so
+  // bake-content-freshness.js can still insert the Git-derived "Updated" date.
+  if (freshnessSlot) return `<p class="guide-updated" data-iberigo-freshness-slot></p>`;
+  return "";
 }
 
 function GuideTableOfContents(items = [], { variant = "desktop", lang = "en" } = {}) {
@@ -420,7 +419,7 @@ function guideCss() {
       .search-nav-link { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; border: 1px solid rgba(166, 74, 54, 0.16); border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #1f2933; text-decoration: none; box-shadow: 0 10px 28px rgba(42, 32, 25, 0.06); }
       .search-nav-link svg { display: block; width: 22px; height: 22px; flex: 0 0 auto; stroke: currentColor; }
       .search-nav-link:focus-visible { outline: 3px solid rgba(166, 74, 54, 0.28); outline-offset: 3px; }
-      .guide-reading-time { display: inline-flex; width: fit-content; margin: 0.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; font-weight: 800; }
+      .guide-updated { display: inline-flex; width: fit-content; margin: 0.2rem 0 0; color: rgba(27, 32, 48, 0.58); font-size: 0.88rem; font-weight: 800; }
       .guide-toc { position: sticky; top: 1rem; padding: 1rem; border: 1px solid rgba(166, 74, 54, 0.13); border-radius: 16px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 14px 36px rgba(42, 32, 25, 0.06); }
       .guide-toc strong, .guide-toc-mobile summary { color: #1b2030; font-weight: 900; }
       .guide-toc ol, .guide-toc-mobile ol { display: grid; gap: 0.58rem; margin: 0.85rem 0 0; padding: 0; list-style: none; }

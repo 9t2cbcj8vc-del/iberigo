@@ -27,7 +27,7 @@
     ".site-footer",
     ".guide-source-description",
     ".guide-source-tag",
-    ".guide-reading-time",
+    ".guide-updated",
     ".last-reviewed",
     ".helper-note",
     ".disclaimer",
