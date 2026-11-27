@@ -2244,12 +2244,12 @@ function directRoadmapFor(goal) {
       process: "Hoteles en España: lo básico",
       explanation: "Una introducción práctica a los hoteles en España: qué miden de verdad las estrellas, los tipos de alojamiento que a menudo se confunden, y marcas hoteleras agrupadas por estilo, calidad y tipo de viaje.",
       steps: ["Decide el tipo de estancia que quieres: un hotel con carácter histórico, una escapada urbana de diseño, un resort de playa, un hotel de ciudad de gama media fiable, o un apartamento familiar.", "Mira la submarca, no solo el grupo, y comprueba la antigüedad de la reforma y las fotos recientes de los huéspedes además de las estrellas.", "Compara la cancelación, el desayuno y las ventajas de cliente en la web oficial y en una <a href=\"/guides/es/vacation-booking/\">plataforma de reservas</a> antes de pagar."],
-      links: ["travel-paradores", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "stay-booking"]
+      links: ["travel-paradores", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar"]
     } : {
       process: "Hotels in Spain: the basics",
       explanation: "A practical introduction to hotels in Spain: what star ratings actually measure, the local stay types people often mix up, and hotel brands grouped by style, quality and trip type.",
       steps: ["Decide the kind of stay you want: historic character, a design city break, a beach resort, a reliable mid-range city hotel, or a family apartment stay.", "Check the sub-brand, not just the parent group, and look at renovation age and recent guest photos alongside the star rating.", "Compare cancellation, breakfast and member perks on the official site and on a <a href=\"/guides/vacation-booking/\">booking platform</a> before you pay."],
-      links: ["travel-paradores", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar", "stay-booking"]
+      links: ["travel-paradores", "hotel-melia", "hotel-nh", "hotel-barcelo", "hotel-riu", "hotel-iberostar"]
     };
   }
   if (goal === "vacation-tourism") {

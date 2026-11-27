@@ -45,7 +45,7 @@ function auditParagraphs(html) {
   while ((match = regex.exec(html))) {
     paragraph += 1;
     const attrs = match[1] || "";
-    if (/\b(disclaimer|helper-note|last-reviewed|guide-reading-time)\b/i.test(attrs)) continue;
+    if (/\b(disclaimer|helper-note|last-reviewed|guide-updated)\b/i.test(attrs)) continue;
     const text = visibleText(match[2]);
     if (text.length >= LONG_PARAGRAPH && sentenceCount(text) >= 3) {
       findings.push({ paragraph, characters: text.length, sentences: sentenceCount(text), preview: text.slice(0, 150) });
